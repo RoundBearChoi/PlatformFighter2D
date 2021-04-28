@@ -12,8 +12,13 @@ namespace RB
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                Debug.Log("jump!");
-                keyPress_Space.SetPress();
+                keyPress_Space.isPressed = true;
+            }
+
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                keyPress_Space.isPressed = false;
+                keyPress_Space.isProcessed = false;
             }
         }
     }

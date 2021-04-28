@@ -6,22 +6,13 @@ namespace RB
 {
     public class KeyPress
     {
-        private KeyCode keyCode = KeyCode.None;
-        private bool isPressed = false;
+        public KeyCode keyCode = KeyCode.None;
+        public bool isPressed = false;
+        public bool isProcessed = false;
 
         public KeyPress(KeyCode _keyCode)
         {
             keyCode = _keyCode;
-        }
-
-        public bool Pressed()
-        {
-            return isPressed;
-        }
-
-        public void SetPress()
-        {
-            isPressed = true;
         }
     }
 }

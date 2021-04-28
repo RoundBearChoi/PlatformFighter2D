@@ -18,9 +18,10 @@ namespace RB
             Vector3 newPosition = new Vector3(this.transform.position.x + 0.01f, 0f, 0f);
             this.transform.position = newPosition;
 
-            if (userInput.keyPress_Space.Pressed())
+            if (userInput.keyPress_Space.isPressed && !userInput.keyPress_Space.isProcessed)
             {
-                Debug.Log("space press detected");
+                Debug.Log("space pressed");
+                userInput.keyPress_Space.isProcessed = true;
             }
         }
     }
