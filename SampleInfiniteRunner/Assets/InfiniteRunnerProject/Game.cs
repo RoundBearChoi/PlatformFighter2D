@@ -6,6 +6,7 @@ namespace RB
 {
     public class Game : MonoBehaviour
     {
+        private ResourceLoader resourceLoader = null;
         private FrameCounter frameCounter = null;
         private Runner runner = null;
         private UserInput userInput = null;
@@ -13,9 +14,8 @@ namespace RB
         private void Start()
         {
             frameCounter = new FrameCounter();
+            resourceLoader = this.gameObject.GetComponentInChildren<ResourceLoader>();
             userInput = this.gameObject.GetComponentInChildren<UserInput>();
-            runner = this.gameObject.GetComponentInChildren<Runner>();
-            runner.SetUserInput(userInput);
         }
 
         private void Update()
@@ -26,7 +26,15 @@ namespace RB
         private void FixedUpdate()
         {
             frameCounter.OnFixedUpdate();
-            runner.OnFixedUpdate();
+
+            if (runner != null)
+            {
+                runner.OnFixedUpdate();
+            }
+            else
+            {
+                runner = Instantiate(resourceLoader.Get(typeof(Runner))) as Runner;
+            }
         }
     }
 }
