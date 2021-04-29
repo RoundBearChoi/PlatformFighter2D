@@ -40,6 +40,8 @@ namespace RB
                 runner.transform.localPosition = Vector3.zero;
                 runner.transform.localRotation = Quaternion.identity;
             }
+
+            userInput.listPresses.Clear();
         }
     }
 }

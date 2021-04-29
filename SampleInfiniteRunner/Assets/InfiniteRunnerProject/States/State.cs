@@ -6,6 +6,7 @@ namespace RB
 {
     public abstract class State
     {
-        public abstract void OnFixedUpdate();
+        public abstract void Update();
+        protected State nextState = null;
     }
 }

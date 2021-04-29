@@ -12,5 +12,20 @@ namespace RB
         }
 
         public State currentState = null;
+
+        public void UpdateState()
+        {
+            TransitionToNextState();
+
+            if (currentState != null)
+            {
+                currentState.Update();
+            }
+        }
+
+        public void TransitionToNextState()
+        {
+
+        }
     }
 }

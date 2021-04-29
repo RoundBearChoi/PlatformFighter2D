@@ -17,13 +17,14 @@ namespace RB
 
         private void Start()
         {
-            stateController = new StateController(new Idle());
+            stateController = new StateController(new Runner_Idle());
         }
 
         public void OnFixedUpdate()
         {
-            stateController.currentState.OnFixedUpdate();
+            stateController.UpdateState();
 
+            //temp
             Vector3 newPosition = new Vector3(this.transform.position.x + 0.01f, 0f, 0f);
             this.transform.position = newPosition;
 
@@ -34,8 +35,6 @@ namespace RB
                     Debugger.Log("space pressed");
                 }
             }
-
-            userInput.listPresses.Clear();
         }
     }
 }

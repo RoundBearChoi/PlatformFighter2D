@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Idle : State
+    public class Runner_Idle : State
     {
-        public Idle()
+        public Runner_Idle()
         {
             Debugger.Log("new state: Idle");
         }
 
-        public override void OnFixedUpdate()
+        public override void Update()
         {
 
         }
