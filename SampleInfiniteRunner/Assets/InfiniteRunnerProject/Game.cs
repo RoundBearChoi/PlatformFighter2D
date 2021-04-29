@@ -34,6 +34,11 @@ namespace RB
             else
             {
                 runner = Instantiate(resourceLoader.Get(typeof(Runner))) as Runner;
+                runner.SetUserInput(userInput);
+
+                runner.transform.parent = this.transform;
+                runner.transform.localPosition = Vector3.zero;
+                runner.transform.localRotation = Quaternion.identity;
             }
         }
     }
