@@ -8,6 +8,11 @@ namespace RB
     {
         public State nextState = null;
 
+        public virtual void OnEnter()
+        {
+
+        }
+
         public virtual void Update()
         {
 

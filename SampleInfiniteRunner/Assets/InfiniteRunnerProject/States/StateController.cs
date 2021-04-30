@@ -35,6 +35,7 @@ namespace RB
             {
                 if (currentState.nextState != null)
                 {
+                    currentState.nextState.OnEnter();
                     currentState = currentState.nextState;
                     currentState.nextState = null;
                 }
