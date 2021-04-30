@@ -23,7 +23,7 @@ namespace RB
         public override void OnFixedUpdate()
         {
             stateController.TransitionToNextState();
-            stateController.UpdateState(userInput, this.transform);
+            stateController.UpdateState(userInput, this);
         }
     }
 }

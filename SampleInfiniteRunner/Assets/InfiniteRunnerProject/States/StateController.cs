@@ -21,11 +21,11 @@ namespace RB
             }
         }
 
-        public void UpdateState(UserInput userInput, Transform objTransform)
+        public void UpdateState(UserInput userInput, GameElement gameElement)
         {
             if (currentState != null)
             {
-                currentState.Update(userInput, objTransform);
+                currentState.Update(userInput, gameElement);
             }
         }
 

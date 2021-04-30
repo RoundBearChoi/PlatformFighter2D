@@ -13,7 +13,7 @@ namespace RB
 
         }
 
-        public virtual void Update(UserInput userInput, Transform objTransform)
+        public virtual void Update(UserInput userInput, GameElement gameElement)
         {
 
         }

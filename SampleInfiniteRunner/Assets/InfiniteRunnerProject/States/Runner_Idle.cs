@@ -18,7 +18,7 @@ namespace RB
         }
         */
 
-        public override void Update(UserInput userInput, Transform objTransform)
+        public override void Update(UserInput userInput, GameElement gameElement)
         {
             nextState = new Runner_NormalRun();
         }

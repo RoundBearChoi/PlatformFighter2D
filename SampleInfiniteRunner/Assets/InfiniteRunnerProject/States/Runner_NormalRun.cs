@@ -11,7 +11,7 @@ namespace RB
             Debugger.Log("new state: Runner_NormalRun");
         }
 
-        public override void Update(UserInput userInput, Transform objTransform)
+        public override void Update(UserInput userInput, GameElement gameElement)
         {
             if (JumpIsTriggered(userInput))
             {
@@ -19,7 +19,7 @@ namespace RB
             }
             else
             {
-                objTransform.position += new Vector3(0.01f, 0f, 0f);
+                gameElement.transform.position += new Vector3(0.01f, 0f, 0f);
             }
         }
 
