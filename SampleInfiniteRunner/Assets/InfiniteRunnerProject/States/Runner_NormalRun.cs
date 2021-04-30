@@ -13,7 +13,27 @@ namespace RB
 
         public override void Update(UserInput userInput, Transform objTransform)
         {
-            objTransform.position += new Vector3(0.01f, 0f, 0f);
+            if (JumpIsTriggered(userInput))
+            {
+                nextState = new Runner_Jump_Up();
+            }
+            else
+            {
+                objTransform.position += new Vector3(0.01f, 0f, 0f);
+            }
+        }
+
+        bool JumpIsTriggered(UserInput userInput)
+        {
+            foreach (KeyPress press in userInput.listPresses)
+            {
+                if (press.keyCode == KeyCode.Space)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
