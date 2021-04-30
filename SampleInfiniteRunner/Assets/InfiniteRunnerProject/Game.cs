@@ -34,6 +34,7 @@ namespace RB
             else
             {
                 runner = Instantiate(resourceLoader.Get(typeof(Runner))) as Runner;
+                runner.Init();
                 runner.SetUserInput(userInput);
 
                 runner.transform.parent = this.transform;

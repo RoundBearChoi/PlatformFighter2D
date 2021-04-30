@@ -10,12 +10,7 @@ namespace RB
 
         public StateController stateController = null;
 
-        public void SetUserInput(UserInput _userInput)
-        {
-            userInput = _userInput;
-        }
-
-        private void Start()
+        public override void Init()
         {
             stateController = new StateController(new Runner_Idle());
             elementData = new GameElementData(this.transform);
@@ -25,6 +20,11 @@ namespace RB
         {
             stateController.TransitionToNextState();
             stateController.UpdateState(userInput, elementData);
+        }
+
+        public void SetUserInput(UserInput _userInput)
+        {
+            userInput = _userInput;
         }
     }
 }
