@@ -6,7 +6,16 @@ namespace RB
 {
     public abstract class State
     {
-        public abstract void Update();
-        protected State nextState = null;
+        public State nextState = null;
+
+        public virtual void Update()
+        {
+
+        }
+
+        public virtual void Update(UserInput userInput, Transform objTransform)
+        {
+
+        }
     }
 }

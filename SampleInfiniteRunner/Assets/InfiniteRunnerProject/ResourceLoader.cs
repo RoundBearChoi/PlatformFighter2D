@@ -10,7 +10,7 @@ namespace RB
 
         private void Start()
         {
-            Runner obj = Resources.Load("Character", typeof(Runner)) as Runner;
+            Runner obj = Resources.Load("Runner", typeof(Runner)) as Runner;
             dicResources.Add(obj.GetType(), obj);
         }
 

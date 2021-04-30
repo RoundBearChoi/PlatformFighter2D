@@ -11,9 +11,16 @@ namespace RB
             Debugger.Log("new state: Idle");
         }
 
+        /*
         public override void Update()
         {
 
+        }
+        */
+
+        public override void Update(UserInput userInput, Transform objTransform)
+        {
+            nextState = new Runner_NormalRun();
         }
     }
 }
