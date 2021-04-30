@@ -18,12 +18,13 @@ namespace RB
         private void Start()
         {
             stateController = new StateController(new Runner_Idle());
+            elementData = new GameElementData(this.transform);
         }
 
         public override void OnFixedUpdate()
         {
             stateController.TransitionToNextState();
-            stateController.UpdateState(userInput, this);
+            stateController.UpdateState(userInput, elementData);
         }
     }
 }

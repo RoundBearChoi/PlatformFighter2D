@@ -16,7 +16,7 @@ namespace RB
 
         }
 
-        public override void Update(UserInput userInput, GameElement gameElement)
+        public override void Update(UserInput userInput, GameElementData elementData)
         {
 
         }
