@@ -20,7 +20,7 @@ namespace RB
         {
             if (elementData.verticalVelocity >= 0f)
             {
-                elementData.elementTransform.position += new Vector3(0f, elementData.verticalVelocity, 0f);
+                elementData.elementTransform.position += new Vector3(elementData.horizontalVelocity, elementData.verticalVelocity, 0f);
                 elementData.verticalVelocity -= 0.001f;
             }
             else
