@@ -36,6 +36,7 @@ namespace RB
                 runner = Instantiate(resourceLoader.Get(typeof(Runner))) as Runner;
                 runner.Init();
                 runner.SetUserInput(userInput);
+                runner.SetCollisionDetector(resourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
 
                 runner.transform.parent = this.transform;
                 runner.transform.localPosition = Vector3.zero;

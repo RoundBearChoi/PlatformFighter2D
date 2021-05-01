@@ -10,8 +10,11 @@ namespace RB
 
         private void Start()
         {
-            Runner obj = Resources.Load("Runner", typeof(Runner)) as Runner;
-            dicResources.Add(obj.GetType(), obj);
+            Runner runner = Resources.Load("Runner", typeof(Runner)) as Runner;
+            CollisionDetector collisionDetector = Resources.Load("CollisionDetector", typeof(CollisionDetector)) as CollisionDetector;
+
+            dicResources.Add(runner.GetType(), runner);
+            dicResources.Add(collisionDetector.GetType(), collisionDetector);
         }
 
         public Object Get(System.Type _type)
