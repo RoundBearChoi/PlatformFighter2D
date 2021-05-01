@@ -13,6 +13,11 @@ namespace RB
 
         }
 
+        public virtual void OnEnter(GameElementData elementData)
+        {
+
+        }
+
         public virtual void Update()
         {
 

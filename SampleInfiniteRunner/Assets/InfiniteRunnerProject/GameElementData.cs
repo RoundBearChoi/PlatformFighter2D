@@ -11,7 +11,8 @@ namespace RB
             elementTransform = ownerTransform;
         }
 
-        public float UpVelocity = 0f;
+        public float horizontalVelocity = 0f;
+        public float verticalVelocity = 0f;
         public Transform elementTransform = null;
     }
 }

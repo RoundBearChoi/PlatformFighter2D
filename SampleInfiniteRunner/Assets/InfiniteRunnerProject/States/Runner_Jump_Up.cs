@@ -11,14 +11,23 @@ namespace RB
             Debugger.Log("new state: Runner_Jump_Up");
         }
 
-        public override void OnEnter()
+        public override void OnEnter(GameElementData elementData)
         {
-
+            elementData.verticalVelocity = 0.05f;
         }
 
         public override void Update(UserInput userInput, GameElementData elementData)
         {
-
+            if (elementData.verticalVelocity >= 0f)
+            {
+                elementData.elementTransform.position += new Vector3(0f, elementData.verticalVelocity, 0f);
+                elementData.verticalVelocity -= 0.001f;
+            }
+            else
+            {
+                elementData.verticalVelocity = 0f;
+                nextState = new Runner_Jump_Fall();
+            }
         }
     }
 }

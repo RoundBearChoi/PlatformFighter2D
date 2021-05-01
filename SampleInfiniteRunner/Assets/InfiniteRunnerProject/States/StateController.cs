@@ -29,13 +29,13 @@ namespace RB
             }
         }
 
-        public void TransitionToNextState()
+        public void TransitionToNextState(GameElementData elementData)
         {
             if (currentState != null)
             {
                 if (currentState.nextState != null)
                 {
-                    currentState.nextState.OnEnter();
+                    currentState.nextState.OnEnter(elementData);
                     currentState = currentState.nextState;
                     currentState.nextState = null;
                 }
