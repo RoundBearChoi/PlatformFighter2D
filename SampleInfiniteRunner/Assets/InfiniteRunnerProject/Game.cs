@@ -23,7 +23,6 @@ namespace RB
             resourceLoader = this.gameObject.GetComponentInChildren<ResourceLoader>();
             userInput = this.gameObject.GetComponentInChildren<UserInput>();
             
-
             runner = Instantiate(resourceLoader.Get(typeof(Runner))) as Runner;
             runner.Init();
             runner.SetUserInput(userInput);
@@ -32,6 +31,11 @@ namespace RB
             runner.transform.parent = this.transform;
             runner.transform.localPosition = Vector3.zero;
             runner.transform.localRotation = Quaternion.identity;
+
+            runner.sampleSprite = Instantiate(resourceLoader.GetSprite(SpriteType.RUNNER_SAMPLE)) as GameObject;
+            runner.sampleSprite.transform.parent = runner.transform;
+            runner.sampleSprite.transform.localPosition = Vector3.zero;
+            runner.sampleSprite.transform.localRotation = Quaternion.identity;
 
             cameraController = this.gameObject.GetComponentInChildren<CameraController>();
             cameraController.SetRunner(runner);

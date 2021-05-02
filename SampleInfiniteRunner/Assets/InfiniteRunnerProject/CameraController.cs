@@ -17,7 +17,7 @@ namespace RB
 
         public void OnFixedUpdate()
         {
-            mainCam.transform.position = new Vector3(0f, 0f, -5f) + runner.transform.position;
+            mainCam.transform.position = new Vector3(runner.transform.position.x, 0f, runner.transform.position.z - 5f);
         }
     }
 }

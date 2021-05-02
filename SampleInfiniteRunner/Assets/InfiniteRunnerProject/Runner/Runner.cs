@@ -10,6 +10,7 @@ namespace RB
 
         public StateController stateController = null;
         public CollisionDetector collisionDetector = null;
+        public GameObject sampleSprite = null;
 
         public override void Init()
         {

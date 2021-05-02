@@ -6,7 +6,8 @@ namespace RB
 {
     public class ResourceLoader : MonoBehaviour
     {
-        public Dictionary<System.Type, Object> dicResources = new Dictionary<System.Type, Object>();
+        Dictionary<System.Type, Object> dicResources = new Dictionary<System.Type, Object>();
+        Dictionary<SpriteType, Object> dicSprites = new Dictionary<SpriteType, Object>();
 
         private void Start()
         {
@@ -15,6 +16,8 @@ namespace RB
 
             dicResources.Add(runner.GetType(), runner);
             dicResources.Add(collisionDetector.GetType(), collisionDetector);
+
+            dicSprites.Add(SpriteType.RUNNER_SAMPLE, Resources.Load("RunnerSampleSprite") as GameObject);
         }
 
         public Object Get(System.Type _type)
@@ -22,6 +25,18 @@ namespace RB
             if (dicResources.ContainsKey(_type))
             {
                 return dicResources[_type];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public Object GetSprite(SpriteType _spriteType)
+        {
+            if (dicSprites.ContainsKey(_spriteType))
+            {
+                return dicSprites[_spriteType];
             }
             else
             {
