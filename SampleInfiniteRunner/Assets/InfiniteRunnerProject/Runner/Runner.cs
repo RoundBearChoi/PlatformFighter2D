@@ -15,7 +15,6 @@ namespace RB
         {
             stateController = new StateController(new Runner_Idle());
             elementData = new GameElementData(this.transform);
-            //collisionDetector = 
         }
 
         public override void OnFixedUpdate()
