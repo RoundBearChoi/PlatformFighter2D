@@ -32,10 +32,7 @@ namespace RB
             runner.transform.localPosition = Vector3.zero;
             runner.transform.localRotation = Quaternion.identity;
 
-            runner.sampleSprite = Instantiate(resourceLoader.GetSprite(SpriteType.RUNNER_SAMPLE)) as GameObject;
-            runner.sampleSprite.transform.parent = runner.transform;
-            runner.sampleSprite.transform.localPosition = Vector3.zero;
-            runner.sampleSprite.transform.localRotation = Quaternion.identity;
+            runner.AttachSprite(resourceLoader.GetSprite(SpriteType.RUNNER_SAMPLE));
 
             cameraController = this.gameObject.GetComponentInChildren<CameraController>();
             cameraController.SetRunner(runner);

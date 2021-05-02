@@ -7,6 +7,7 @@ namespace RB
     public abstract class GameElement : MonoBehaviour
     {
         public GameElementData elementData = null;
+        public GameElementSprite elementSprite = new GameElementSprite();
 
         public abstract void Init();
 
@@ -18,6 +19,18 @@ namespace RB
         public virtual void OnFixedUpdate()
         {
 
+        }
+
+        public virtual void AttachSprite(Object obj)
+        {
+            elementSprite.spriteObj = Instantiate(obj) as GameObject;
+            elementSprite.spriteObj.transform.parent = this.transform;
+            elementSprite.spriteObj.transform.localPosition = Vector3.zero;
+            elementSprite.spriteObj.transform.localRotation = Quaternion.identity;
+
+            elementSprite.spriteRenderer = elementSprite.spriteObj.GetComponentInChildren<SpriteRenderer>();
+
+            Debugger.Log("attaching sprite: " + elementSprite.spriteObj.name + " " + elementSprite.spriteRenderer.size);
         }
     }
 }
