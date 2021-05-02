@@ -11,9 +11,9 @@ namespace RB
         public float RunnerHorizontalVelocity = 0f;
         public float RunnerVerticalVelocity = 0f;
 
-        private void OnEnable()
+        public void Init()
         {
-            Debugger.Log("scriptable object OnEnable");
+            Debugger.Log("initializing SO");
 
             ObjStats.RunnerHorizontalVelocity = RunnerHorizontalVelocity;
             ObjStats.RunnerVerticalVelocity = RunnerVerticalVelocity;

@@ -10,12 +10,31 @@ namespace RB
         private FrameCounter frameCounter = null;
         private Runner runner = null;
         private UserInput userInput = null;
+        private CameraController cameraController = null;
+
+        [SerializeField]
+        private ObjStatsSO objStatsScriptableObj = null;
 
         private void Start()
         {
+            objStatsScriptableObj.Init();
+
             frameCounter = new FrameCounter();
             resourceLoader = this.gameObject.GetComponentInChildren<ResourceLoader>();
             userInput = this.gameObject.GetComponentInChildren<UserInput>();
+            
+
+            runner = Instantiate(resourceLoader.Get(typeof(Runner))) as Runner;
+            runner.Init();
+            runner.SetUserInput(userInput);
+            runner.SetCollisionDetector(resourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
+
+            runner.transform.parent = this.transform;
+            runner.transform.localPosition = Vector3.zero;
+            runner.transform.localRotation = Quaternion.identity;
+
+            cameraController = this.gameObject.GetComponentInChildren<CameraController>();
+            cameraController.SetRunner(runner);
         }
 
         private void Update()
@@ -31,16 +50,10 @@ namespace RB
             {
                 runner.OnFixedUpdate();
             }
-            else
-            {
-                runner = Instantiate(resourceLoader.Get(typeof(Runner))) as Runner;
-                runner.Init();
-                runner.SetUserInput(userInput);
-                runner.SetCollisionDetector(resourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
 
-                runner.transform.parent = this.transform;
-                runner.transform.localPosition = Vector3.zero;
-                runner.transform.localRotation = Quaternion.identity;
+            if (cameraController != null)
+            {
+                cameraController.OnFixedUpdate();
             }
 
             userInput.listPresses.Clear();
