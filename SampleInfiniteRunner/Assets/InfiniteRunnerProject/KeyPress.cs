@@ -6,6 +6,7 @@ namespace RB
 {
     public struct KeyPress
     {
-        public KeyboardKey key;
+        public KeyCode keyCode;
+        //public KeyboardKey key;
     }
 }

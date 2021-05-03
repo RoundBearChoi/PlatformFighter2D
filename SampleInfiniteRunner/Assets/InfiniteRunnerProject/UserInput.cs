@@ -18,11 +18,16 @@ namespace RB
 
         public void OnUpdate()
         {
+            if (keyboard.f5Key.wasPressedThisFrame)
+            {
+
+            }
+
             if (keyboard.spaceKey.wasPressedThisFrame)
             {
                 Debugger.Log("space is pressed");
                 KeyPress space;
-                space.key = KeyboardKey.SPACE;
+                space.keyCode = KeyCode.Space;
                 listPresses.Add(space);
             }
         }

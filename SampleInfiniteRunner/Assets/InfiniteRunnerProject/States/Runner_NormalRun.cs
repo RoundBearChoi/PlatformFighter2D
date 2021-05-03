@@ -36,7 +36,7 @@ namespace RB
         {
             foreach (KeyPress press in userInput.listPresses)
             {
-                if (press.key == KeyboardKey.SPACE)
+                if (press.keyCode == KeyCode.Space)
                 {
                     return true;
                 }
