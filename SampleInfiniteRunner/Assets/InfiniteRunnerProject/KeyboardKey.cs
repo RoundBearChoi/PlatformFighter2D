@@ -4,8 +4,9 @@ using UnityEngine;
 
 namespace RB
 {
-    public struct KeyPress
+    public enum KeyboardKey
     {
-        public KeyboardKey key;
+        NONE,
+        SPACE,
     }
 }

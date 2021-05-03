@@ -4,15 +4,15 @@ using UnityEngine;
 
 namespace RB
 {
-    public class CameraController : MonoBehaviour
+    public class CameraController
     {
         private Runner runner = null;
         private Camera mainCam = null;
 
-        public void SetRunner(Runner _runner)
+        public CameraController(Runner _runner, Camera _maincam)
         {
             runner = _runner;
-            mainCam = FindObjectOfType<Camera>();
+            mainCam = _maincam;
         }
 
         public void OnFixedUpdate()

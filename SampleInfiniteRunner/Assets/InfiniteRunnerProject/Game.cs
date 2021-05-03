@@ -6,9 +6,11 @@ namespace RB
 {
     public class Game : MonoBehaviour
     {
+        //game elements (monobehaviour)
+        private Runner runner = null;
+
         private ResourceLoader resourceLoader = null;
         private FrameCounter frameCounter = null;
-        private Runner runner = null;
         private UserInput userInput = null;
         private CameraController cameraController = null;
 
@@ -20,9 +22,10 @@ namespace RB
             objStatsScriptableObj.Init();
 
             frameCounter = new FrameCounter();
+            userInput = new UserInput();
+
             resourceLoader = this.gameObject.GetComponentInChildren<ResourceLoader>();
-            userInput = this.gameObject.GetComponentInChildren<UserInput>();
-            
+                        
             runner = Instantiate(resourceLoader.Get(typeof(Runner))) as Runner;
             runner.Init();
             runner.SetUserInput(userInput);
@@ -34,8 +37,7 @@ namespace RB
 
             runner.AttachSprite(resourceLoader.GetSprite(SpriteType.RUNNER_SAMPLE));
 
-            cameraController = this.gameObject.GetComponentInChildren<CameraController>();
-            cameraController.SetRunner(runner);
+            cameraController = new CameraController(runner, FindObjectOfType<Camera>());
         }
 
         private void Update()
