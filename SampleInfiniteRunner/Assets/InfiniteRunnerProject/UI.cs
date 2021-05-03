@@ -7,19 +7,22 @@ namespace RB
 {
     public class UI : MonoBehaviour
     {
-        private FixedUpdateCounter frameCounter = null;
+        private FixedUpdateCounter fixedUpdateCounter = null;
+        private UpdateCounter updateCounter = null;
 
-        public Text text = null;
+        public Text text_fixedUpdate = null;
+        public Text text_FPS = null;
 
-        public void SetFrameCounter(FixedUpdateCounter _frameCounter)
+        public void SetCounters(FixedUpdateCounter _fixedUpdateCounter, UpdateCounter _updateCounter)
         {
-            frameCounter = _frameCounter;
+            fixedUpdateCounter = _fixedUpdateCounter;
+            updateCounter = _updateCounter;
         }
 
         public void OnUpdate()
         {
-            text.text = "FixedUpdate count: " + frameCounter.GetCount();
+            text_fixedUpdate.text = "FixedUpdate count: " + fixedUpdateCounter.GetCount();
+            text_FPS.text = "FPS: " + updateCounter.GetCount();
         }
     }
 }
-

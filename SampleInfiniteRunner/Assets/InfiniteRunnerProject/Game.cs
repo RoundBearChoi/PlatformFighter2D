@@ -9,8 +9,9 @@ namespace RB
         private Runner runner = null;
         private UI ui = null;
 
-        private FixedUpdateCounter fixedUpdateCounter = null;
-        private UserInput userInput = null;
+        private FixedUpdateCounter fixedUpdateCounter = new FixedUpdateCounter();
+        private UpdateCounter updateCounter = new UpdateCounter();
+        private UserInput userInput = new UserInput();
         private CameraController cameraController = null;
         
         private bool restartGame = false;
@@ -26,9 +27,6 @@ namespace RB
         public void Init()
         {
             StaticRefs.gameData = gameDataScriptableObj;
-
-            fixedUpdateCounter = new FixedUpdateCounter();
-            userInput = new UserInput();
             
             runner = Instantiate(ResourceLoader.Get(typeof(Runner))) as Runner;
             runner.Init();
@@ -44,7 +42,7 @@ namespace RB
             cameraController = new CameraController(runner, FindObjectOfType<Camera>());
 
             ui = Instantiate(ResourceLoader.Get(typeof(UI))) as UI;
-            ui.SetFrameCounter(fixedUpdateCounter);
+            ui.SetCounters(fixedUpdateCounter, updateCounter);
             ui.transform.parent = this.transform;
             ui.transform.localPosition = Vector3.zero;
             ui.transform.localRotation = Quaternion.identity;
@@ -52,6 +50,7 @@ namespace RB
 
         public void OnUpdate()
         {
+            updateCounter.OnUpdate();
             userInput.OnUpdate();
             ui.OnUpdate();
         }
