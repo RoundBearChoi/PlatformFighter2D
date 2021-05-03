@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace RB
 {
-    public class ResourceLoader : MonoBehaviour
+    public static class ResourceLoader
     {
-        Dictionary<System.Type, Object> dicResources = new Dictionary<System.Type, Object>();
-        Dictionary<SpriteType, Object> dicSprites = new Dictionary<SpriteType, Object>();
+        static Dictionary<System.Type, Object> dicResources = new Dictionary<System.Type, Object>();
+        static Dictionary<SpriteType, Object> dicSprites = new Dictionary<SpriteType, Object>();
 
-        private void Start()
+        public static void Init()
         {
             Runner runner = Resources.Load("Runner", typeof(Runner)) as Runner;
             CollisionDetector collisionDetector = Resources.Load("CollisionDetector", typeof(CollisionDetector)) as CollisionDetector;
@@ -20,7 +20,7 @@ namespace RB
             dicSprites.Add(SpriteType.RUNNER_SAMPLE, Resources.Load("RunnerSampleSprite") as GameObject);
         }
 
-        public Object Get(System.Type _type)
+        public static Object Get(System.Type _type)
         {
             if (dicResources.ContainsKey(_type))
             {
@@ -32,7 +32,7 @@ namespace RB
             }
         }
 
-        public Object GetSprite(SpriteType _spriteType)
+        public static Object GetSprite(SpriteType _spriteType)
         {
             if (dicSprites.ContainsKey(_spriteType))
             {
