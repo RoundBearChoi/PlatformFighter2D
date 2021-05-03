@@ -20,14 +20,13 @@ namespace RB
         {
             if (keyboard.f5Key.wasPressedThisFrame)
             {
-
+                KeyPress f5 = new KeyPress(KeyCode.F5);
+                listPresses.Add(f5);
             }
 
             if (keyboard.spaceKey.wasPressedThisFrame)
             {
-                Debugger.Log("space is pressed");
-                KeyPress space;
-                space.keyCode = KeyCode.Space;
+                KeyPress space = new KeyPress(KeyCode.Space);
                 listPresses.Add(space);
             }
         }

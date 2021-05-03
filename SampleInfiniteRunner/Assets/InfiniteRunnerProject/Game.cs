@@ -16,10 +16,8 @@ namespace RB
         [SerializeField]
         private ObjStatsSO objStatsScriptableObj = null;
 
-        private void Start()
+        public void Init()
         {
-            //ResourceLoader.Init();
-
             objStatsScriptableObj.Init();
 
             frameCounter = new FrameCounter();
@@ -39,12 +37,12 @@ namespace RB
             cameraController = new CameraController(runner, FindObjectOfType<Camera>());
         }
 
-        private void Update()
+        public void OnUpdate()
         {
             userInput.OnUpdate();
         }
 
-        private void FixedUpdate()
+        public void OnFixedUpdate()
         {
             frameCounter.OnFixedUpdate();
 
@@ -56,6 +54,15 @@ namespace RB
             if (cameraController != null)
             {
                 cameraController.OnFixedUpdate();
+            }
+
+            foreach(KeyPress press in userInput.listPresses)
+            {
+                if (press.keyCode == KeyCode.F5)
+                {
+
+                    break;
+                }
             }
 
             userInput.listPresses.Clear();
