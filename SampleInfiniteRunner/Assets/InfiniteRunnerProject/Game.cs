@@ -45,6 +45,9 @@ namespace RB
             cameraController = new CameraController(runner, FindObjectOfType<Camera>());
 
             ui = Instantiate(ResourceLoader.Get(typeof(UI))) as UI;
+            ui.transform.parent = this.transform;
+            ui.transform.localPosition = Vector3.zero;
+            ui.transform.localRotation = Quaternion.identity;
         }
 
         public void OnUpdate()
