@@ -12,6 +12,11 @@ namespace RB
         {
             ResourceLoader.Init();
 
+            StartNewGame();
+        }
+
+        private void StartNewGame()
+        {
             game = Instantiate(ResourceLoader.Get(typeof(Game))) as Game;
             game.Init();
             game.transform.parent = this.transform;
@@ -21,12 +26,24 @@ namespace RB
 
         private void Update()
         {
-            game.OnUpdate();
+            if (game != null)
+            {
+                game.OnUpdate();
+
+                if (game.RestartGame())
+                {
+                    Destroy(game.gameObject);
+                    StartNewGame();
+                }
+            }
         }
 
         private void FixedUpdate()
         {
-            game.OnFixedUpdate();
+            if (game != null)
+            {
+                game.OnFixedUpdate();
+            }
         }
     }
 }

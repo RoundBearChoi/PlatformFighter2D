@@ -12,9 +12,15 @@ namespace RB
         private FrameCounter frameCounter = null;
         private UserInput userInput = null;
         private CameraController cameraController = null;
+        private bool retartGame = false;
 
         [SerializeField]
         private ObjStatsSO objStatsScriptableObj = null;
+
+        public bool RestartGame()
+        {
+            return retartGame;
+        }
 
         public void Init()
         {
@@ -60,7 +66,7 @@ namespace RB
             {
                 if (press.keyCode == KeyCode.F5)
                 {
-
+                    retartGame = true;
                     break;
                 }
             }
