@@ -24,13 +24,22 @@ namespace RB
         public virtual void AttachSprite(GameElementSprite sprite, OffsetType _offsetType)
         {
             elementSprite = sprite;
+
+            Debugger.Log("attaching sprite: " + elementSprite.gameObject.name + " " + elementSprite.spriteRenderer.size);
+
+            if (elementSprite.spriteRenderer == null)
+            {
+                elementSprite.spriteRenderer = elementSprite.gameObject.GetComponentInChildren<SpriteRenderer>();
+            }
+
             elementSprite.gameObject.transform.parent = this.transform;
             elementSprite.gameObject.transform.localPosition = Vector3.zero;
             elementSprite.gameObject.transform.localRotation = Quaternion.identity;
-            
-            elementSprite.spriteRenderer = elementSprite.gameObject.GetComponentInChildren<SpriteRenderer>();
-            
-            Debugger.Log("attaching sprite: " + elementSprite.gameObject.name + " " + elementSprite.spriteRenderer.size);
+
+            if (_offsetType == OffsetType.BOTTOM_CENTER)
+            {
+                elementSprite.spriteRenderer.transform.localPosition = new Vector3(0f, elementSprite.spriteRenderer.size.y * 0.5f, 0f);
+            }
         }
     }
 }
