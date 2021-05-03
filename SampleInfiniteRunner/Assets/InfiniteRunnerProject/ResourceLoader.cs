@@ -11,9 +11,11 @@ namespace RB
 
         public static void Init()
         {
+            Game game = Resources.Load("Game", typeof(Game)) as Game;
             Runner runner = Resources.Load("Runner", typeof(Runner)) as Runner;
             CollisionDetector collisionDetector = Resources.Load("CollisionDetector", typeof(CollisionDetector)) as CollisionDetector;
 
+            dicResources.Add(game.GetType(), game);
             dicResources.Add(runner.GetType(), runner);
             dicResources.Add(collisionDetector.GetType(), collisionDetector);
 

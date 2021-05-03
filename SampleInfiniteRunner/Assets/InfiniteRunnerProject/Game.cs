@@ -18,7 +18,7 @@ namespace RB
 
         private void Start()
         {
-            ResourceLoader.Init();
+            //ResourceLoader.Init();
 
             objStatsScriptableObj.Init();
 
