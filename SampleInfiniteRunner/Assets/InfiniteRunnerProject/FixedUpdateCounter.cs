@@ -4,21 +4,28 @@ using UnityEngine;
 
 namespace RB
 {
-    public class FrameCounter
+    public class FixedUpdateCounter
     {
-        int frameCount = 0;
+        int count = 0;
+        int fixedUpdatesPerSec = 0;
         float fElapsedTime = 0f;
+
+        public int GetCount()
+        {
+            return fixedUpdatesPerSec;
+        }
 
         public void OnFixedUpdate()
         {
-            frameCount++;
+            count++;
             fElapsedTime += Time.deltaTime;
 
             if (fElapsedTime >= 1.0f)
             {
-                Debugger.Log("frame count: " + frameCount);
+                //Debugger.Log("frame count: " + count);
+                fixedUpdatesPerSec = count;
                 fElapsedTime = 0f;
-                frameCount = 0;
+                count = 0;
             }
         }
     }
