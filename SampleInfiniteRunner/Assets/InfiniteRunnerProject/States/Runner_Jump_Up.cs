@@ -13,7 +13,7 @@ namespace RB
 
         public override void OnEnter(GameElementData elementData)
         {
-            elementData.verticalVelocity = ObjStats.RunnerVerticalVelocity;
+            elementData.verticalVelocity = StaticRefs.gameData.RunnerVerticalVelocity;
         }
 
         public override void Update(UserInput userInput, GameElementData elementData)

@@ -12,22 +12,22 @@ namespace RB
         private FrameCounter frameCounter = null;
         private UserInput userInput = null;
         private CameraController cameraController = null;
-        private bool retartGame = false;
+        private bool restartGame = false;
 
         [SerializeField]
-        private ObjStatsSO objStatsScriptableObj = null;
+        private GameData gameDataScriptableObj = null;
 
         public bool RestartGame()
         {
-            return retartGame;
+            return restartGame;
         }
 
         public void Init()
         {
-            objStatsScriptableObj.Init();
-
             frameCounter = new FrameCounter();
             userInput = new UserInput();
+
+            StaticRefs.gameData = gameDataScriptableObj;
 
             runner = Instantiate(ResourceLoader.Get(typeof(Runner))) as Runner;
             runner.Init();
@@ -66,7 +66,7 @@ namespace RB
             {
                 if (press.keyCode == KeyCode.F5)
                 {
-                    retartGame = true;
+                    restartGame = true;
                     break;
                 }
             }
