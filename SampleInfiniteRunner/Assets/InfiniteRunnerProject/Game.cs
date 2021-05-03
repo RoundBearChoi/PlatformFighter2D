@@ -6,12 +6,13 @@ namespace RB
 {
     public class Game : MonoBehaviour
     {
-        //game elements (monobehaviour)
         private Runner runner = null;
+        private UI ui = null;
 
         private FrameCounter frameCounter = null;
         private UserInput userInput = null;
         private CameraController cameraController = null;
+        
         private bool restartGame = false;
 
         [SerializeField]
@@ -42,6 +43,8 @@ namespace RB
             runner.AttachSprite(spriteObj.GetComponent<GameElementSprite>(), OffsetType.BOTTOM_CENTER);
 
             cameraController = new CameraController(runner, FindObjectOfType<Camera>());
+
+            ui = Instantiate(ResourceLoader.Get(typeof(UI))) as UI;
         }
 
         public void OnUpdate()

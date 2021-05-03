@@ -14,10 +14,12 @@ namespace RB
             Game game = Resources.Load("Game", typeof(Game)) as Game;
             Runner runner = Resources.Load("Runner", typeof(Runner)) as Runner;
             CollisionDetector collisionDetector = Resources.Load("CollisionDetector", typeof(CollisionDetector)) as CollisionDetector;
+            UI ui = Resources.Load("UI", typeof(UI)) as UI;
 
             dicResources.Add(game.GetType(), game);
             dicResources.Add(runner.GetType(), runner);
             dicResources.Add(collisionDetector.GetType(), collisionDetector);
+            dicResources.Add(ui.GetType(), ui);
 
             dicSprites.Add(SpriteType.RUNNER_SAMPLE, Resources.Load("RunnerSampleSprite") as GameObject);
         }

@@ -16,6 +16,7 @@ namespace RB
 
             if (fElapsedTime >= 1.0f)
             {
+                Debugger.Log("frame count: " + frameCount);
                 fElapsedTime = 0f;
                 frameCount = 0;
             }
