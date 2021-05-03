@@ -4,8 +4,12 @@ using UnityEngine;
 
 namespace RB
 {
-    public class GameElementSprite : MonoBehaviour
+    public enum OffsetType
     {
-        public SpriteRenderer spriteRenderer = null;
+        NONE,
+
+        BOTTOM_CENTER,
+
+        CENTER_CENTER,
     }
 }

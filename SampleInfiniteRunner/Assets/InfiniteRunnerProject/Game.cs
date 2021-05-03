@@ -38,7 +38,8 @@ namespace RB
             runner.transform.localPosition = Vector3.zero;
             runner.transform.localRotation = Quaternion.identity;
 
-            runner.AttachSprite(ResourceLoader.GetSprite(SpriteType.RUNNER_SAMPLE));
+            GameObject spriteObj = Instantiate(ResourceLoader.GetSprite(SpriteType.RUNNER_SAMPLE)) as GameObject;
+            runner.AttachSprite(spriteObj.GetComponent<GameElementSprite>(), OffsetType.BOTTOM_CENTER);
 
             cameraController = new CameraController(runner, FindObjectOfType<Camera>());
         }
