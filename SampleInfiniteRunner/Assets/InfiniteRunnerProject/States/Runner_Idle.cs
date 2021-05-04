@@ -11,13 +11,6 @@ namespace RB
             Debugger.Log("new state: Idle");
         }
 
-        /*
-        public override void Update()
-        {
-
-        }
-        */
-
         public override void Update(UserInput userInput, GameElementData elementData)
         {
             nextState = new Runner_NormalRun();

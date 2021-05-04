@@ -13,8 +13,8 @@ namespace RB
 
         public override void Init()
         {
-            stateController = new StateController(new Runner_Idle());
             elementData = new GameElementData(this.transform);
+            stateController = new StateController(new Runner_Idle(), elementData);
         }
 
         public override void OnFixedUpdate()

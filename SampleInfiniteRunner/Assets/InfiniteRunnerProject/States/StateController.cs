@@ -6,9 +6,10 @@ namespace RB
 {
     public class StateController
     {
-        public StateController(State initialState)
+        public StateController(State initialState, GameElementData data)
         {
             currentState = initialState;
+            currentState.OnEnter(data);
         }
 
         public State currentState = null;

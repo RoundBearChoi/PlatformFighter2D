@@ -30,18 +30,19 @@ namespace RB
             StaticRefs.gameData = gameDataScriptableObj;
             
             runner = Instantiate(ResourceLoader.Get(typeof(Runner))) as Runner;
+            runner.AttachSelf(this.transform);
             runner.Init();
             runner.SetUserInput(userInput);
             runner.SetCollisionDetector(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
-            runner.AttachSelf(this.transform);
+            
 
             GameObject spriteObj = Instantiate(ResourceLoader.GetSprite(SpriteType.RUNNER_SAMPLE)) as GameObject;
             runner.AttachSprite(spriteObj.GetComponent<GameElementSprite>(), OffsetType.BOTTOM_CENTER);
 
             obstacle = Instantiate(ResourceLoader.Get(typeof(Obstacle))) as Obstacle;
-            obstacle.Init();
             obstacle.AttachSelf(this.transform);
-
+            obstacle.Init();
+            
             cameraController = new CameraController(runner, FindObjectOfType<Camera>());
 
             ui = Instantiate(ResourceLoader.Get(typeof(UI))) as UI;
