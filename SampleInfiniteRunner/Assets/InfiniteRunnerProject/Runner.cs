@@ -8,7 +8,6 @@ namespace RB
     {
         private UserInput userInput = null;
 
-        public StateController stateController = null;
         public CollisionDetector collisionDetector = null;
         public GameObject sampleSprite = null;
 

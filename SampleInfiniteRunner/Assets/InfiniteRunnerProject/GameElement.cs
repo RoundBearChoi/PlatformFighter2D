@@ -6,6 +6,7 @@ namespace RB
 {
     public abstract class GameElement : MonoBehaviour
     {
+        public StateController stateController = null;
         public GameElementData elementData = null;
         public GameElementSprite elementSprite = null;
 
@@ -40,6 +41,13 @@ namespace RB
             {
                 elementSprite.spriteRenderer.transform.localPosition = new Vector3(0f, elementSprite.spriteRenderer.size.y * 0.5f, 0f);
             }
+        }
+
+        public virtual void AttachSelf(Transform ownerTransform)
+        {
+            transform.parent = ownerTransform;
+            transform.localPosition = Vector3.zero;
+            transform.localRotation = Quaternion.identity;
         }
     }
 }

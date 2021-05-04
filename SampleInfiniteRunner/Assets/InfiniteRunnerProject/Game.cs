@@ -7,6 +7,7 @@ namespace RB
     public class Game : MonoBehaviour
     {
         private Runner runner = null;
+        private Obstacle obstacle = null;
         private UI ui = null;
 
         private FixedUpdateCounter fixedUpdateCounter = new FixedUpdateCounter();
@@ -32,12 +33,13 @@ namespace RB
             runner.Init();
             runner.SetUserInput(userInput);
             runner.SetCollisionDetector(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
-            runner.transform.parent = this.transform;
-            runner.transform.localPosition = Vector3.zero;
-            runner.transform.localRotation = Quaternion.identity;
+            runner.AttachSelf(this.transform);
 
             GameObject spriteObj = Instantiate(ResourceLoader.GetSprite(SpriteType.RUNNER_SAMPLE)) as GameObject;
             runner.AttachSprite(spriteObj.GetComponent<GameElementSprite>(), OffsetType.BOTTOM_CENTER);
+
+            obstacle = Instantiate(ResourceLoader.Get(typeof(Obstacle))) as Obstacle;
+            obstacle.AttachSelf(this.transform);
 
             cameraController = new CameraController(runner, FindObjectOfType<Camera>());
 

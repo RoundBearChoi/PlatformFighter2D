@@ -12,13 +12,18 @@ namespace RB
         public static void Init()
         {
             Game game = Resources.Load("Game", typeof(Game)) as Game;
-            Runner runner = Resources.Load("Runner", typeof(Runner)) as Runner;
-            CollisionDetector collisionDetector = Resources.Load("CollisionDetector", typeof(CollisionDetector)) as CollisionDetector;
-            UI ui = Resources.Load("UI", typeof(UI)) as UI;
-
             dicResources.Add(game.GetType(), game);
+
+            Runner runner = Resources.Load("Runner", typeof(Runner)) as Runner;
             dicResources.Add(runner.GetType(), runner);
+
+            Obstacle obstacle = Resources.Load("Obstacle", typeof(Obstacle)) as Obstacle;
+            dicResources.Add(obstacle.GetType(), obstacle);
+
+            CollisionDetector collisionDetector = Resources.Load("CollisionDetector", typeof(CollisionDetector)) as CollisionDetector;
             dicResources.Add(collisionDetector.GetType(), collisionDetector);
+
+            UI ui = Resources.Load("UI", typeof(UI)) as UI;
             dicResources.Add(ui.GetType(), ui);
 
             dicSprites.Add(SpriteType.RUNNER_SAMPLE, Resources.Load("RunnerSampleSprite") as GameObject);
