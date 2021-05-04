@@ -23,6 +23,11 @@ namespace RB
 
         }
 
+        public virtual void Update(GameElementData elementData)
+        {
+
+        }
+
         public virtual void Update(UserInput userInput, GameElementData elementData)
         {
 

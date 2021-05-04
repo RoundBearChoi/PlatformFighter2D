@@ -13,7 +13,7 @@ namespace RB
 
         public State currentState = null;
 
-        public void UpdateState()
+        public virtual void UpdateState()
         {
             if (currentState != null)
             {
@@ -21,7 +21,15 @@ namespace RB
             }
         }
 
-        public void UpdateState(UserInput userInput, GameElementData elementData)
+        public virtual void UpdateState(GameElementData elementData)
+        {
+            if (currentState != null)
+            {
+                currentState.Update(elementData);
+            }
+        }
+
+        public virtual void UpdateState(UserInput userInput, GameElementData elementData)
         {
             if (currentState != null)
             {
@@ -29,7 +37,7 @@ namespace RB
             }
         }
 
-        public void TransitionToNextState(GameElementData elementData)
+        public virtual void TransitionToNextState(GameElementData elementData)
         {
             if (currentState != null)
             {

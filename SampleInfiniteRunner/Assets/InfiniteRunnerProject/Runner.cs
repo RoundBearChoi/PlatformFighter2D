@@ -19,8 +19,11 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            stateController.TransitionToNextState(elementData);
-            stateController.UpdateState(userInput, elementData);
+            if (stateController != null)
+            {
+                stateController.TransitionToNextState(elementData);
+                stateController.UpdateState(userInput, elementData);
+            }
         }
 
         public void SetUserInput(UserInput _userInput)

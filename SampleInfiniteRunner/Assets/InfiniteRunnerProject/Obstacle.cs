@@ -8,7 +8,17 @@ namespace RB
     {
         public override void Init()
         {
+            stateController = new StateController(new Obstacle_Idle());
+            elementData = new GameElementData(this.transform);
+        }
 
+        public override void OnFixedUpdate()
+        {
+            if (stateController != null)
+            {
+                stateController.TransitionToNextState(elementData);
+                stateController.UpdateState(elementData);
+            }
         }
     }
 }

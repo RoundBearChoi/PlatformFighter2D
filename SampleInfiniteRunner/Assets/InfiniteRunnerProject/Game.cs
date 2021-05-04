@@ -39,6 +39,7 @@ namespace RB
             runner.AttachSprite(spriteObj.GetComponent<GameElementSprite>(), OffsetType.BOTTOM_CENTER);
 
             obstacle = Instantiate(ResourceLoader.Get(typeof(Obstacle))) as Obstacle;
+            obstacle.Init();
             obstacle.AttachSelf(this.transform);
 
             cameraController = new CameraController(runner, FindObjectOfType<Camera>());
@@ -64,6 +65,11 @@ namespace RB
             if (runner != null)
             {
                 runner.OnFixedUpdate();
+            }
+
+            if (obstacle != null)
+            {
+                obstacle.OnFixedUpdate();
             }
 
             if (cameraController != null)
