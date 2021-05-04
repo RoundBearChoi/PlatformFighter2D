@@ -7,5 +7,6 @@ namespace RB
     public enum SpriteType
     {
         RUNNER_SAMPLE,
+        WHITE_BOX,
     }
 }

@@ -35,14 +35,16 @@ namespace RB
             runner.SetUserInput(userInput);
             runner.SetCollisionDetector(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
             
-
-            GameObject spriteObj = Instantiate(ResourceLoader.GetSprite(SpriteType.RUNNER_SAMPLE)) as GameObject;
-            runner.AttachSprite(spriteObj.GetComponent<GameElementSprite>(), OffsetType.BOTTOM_CENTER);
+            GameObject runnerSample = Instantiate(ResourceLoader.GetSprite(SpriteType.RUNNER_SAMPLE)) as GameObject;
+            runner.AttachSprite(runnerSample.GetComponent<GameElementSprite>(), OffsetType.BOTTOM_CENTER);
 
             obstacle = Instantiate(ResourceLoader.Get(typeof(Obstacle))) as Obstacle;
             obstacle.AttachSelf(this.transform);
             obstacle.Init();
-            
+
+            GameObject obstacleWhiteBox = Instantiate(ResourceLoader.GetSprite(SpriteType.WHITE_BOX)) as GameObject;
+            obstacle.AttachSprite(obstacleWhiteBox.GetComponent<GameElementSprite>(), OffsetType.BOTTOM_CENTER);
+
             cameraController = new CameraController(runner, FindObjectOfType<Camera>());
 
             ui = Instantiate(ResourceLoader.Get(typeof(UI))) as UI;

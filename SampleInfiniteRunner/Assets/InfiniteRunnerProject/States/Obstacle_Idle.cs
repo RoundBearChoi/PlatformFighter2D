@@ -8,7 +8,7 @@ namespace RB
     {
         public override void OnEnter(GameElementData elementData)
         {
-            elementData.elementTransform.position = new Vector3(5f, 0f, 0f);
+            elementData.elementTransform.position = new Vector3(15f, 0f, 0f);
         }
 
         public override void Update(GameElementData elementData)
