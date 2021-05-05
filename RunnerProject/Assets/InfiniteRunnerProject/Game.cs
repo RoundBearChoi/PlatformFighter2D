@@ -34,12 +34,12 @@ namespace RB
             runner.unitData = new UnitData(runner.transform);
             runner.stateController = new StateController(new Runner_Idle(runner.unitData, userInput));
 
-            CollisionDetector col = Instantiate(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
-            col.InitBoxCollider(new Vector2(3f, 5f));
-            col.transform.parent = runner.transform;
-            col.transform.position = Vector3.zero;
-            col.transform.localRotation = Quaternion.identity;
-            col.transform.localPosition += new Vector3(0f, 2.5f, 0f);
+            CollisionDetector runnerCollider = Instantiate(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
+            runnerCollider.InitBoxCollider(new Vector2(3f, 5f));
+            runnerCollider.transform.parent = runner.transform;
+            runnerCollider.transform.position = Vector3.zero;
+            runnerCollider.transform.localRotation = Quaternion.identity;
+            runnerCollider.transform.localPosition += new Vector3(0f, 2.5f, 0f);
 
             GameObject runnerSample = Instantiate(ResourceLoader.GetSprite(SpriteType.RUNNER_SAMPLE)) as GameObject;
             runner.AttachSprite(runnerSample.GetComponent<UnitSprite>(), OffsetType.BOTTOM_CENTER);
@@ -48,6 +48,13 @@ namespace RB
             obstacle.AttachSelf(this.transform);
             obstacle.unitData = new UnitData(obstacle.transform);
             obstacle.stateController = new StateController(new Obstacle_Idle(obstacle.unitData));
+
+            CollisionDetector obsCollider = Instantiate(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
+            obsCollider.InitBoxCollider(new Vector2(3f, 5f));
+            obsCollider.transform.parent = obstacle.transform;
+            obsCollider.transform.position = Vector3.zero;
+            obsCollider.transform.localRotation = Quaternion.identity;
+            obsCollider.transform.localPosition += new Vector3(0f, 2.5f, 0f);
 
             GameObject obstacleWhiteBox = Instantiate(ResourceLoader.GetSprite(SpriteType.WHITE_BOX)) as GameObject;
             obstacle.AttachSprite(obstacleWhiteBox.GetComponent<UnitSprite>(), OffsetType.BOTTOM_CENTER);
