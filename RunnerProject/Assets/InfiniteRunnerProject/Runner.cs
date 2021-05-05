@@ -17,16 +17,5 @@ namespace RB
                 stateController.UpdateState();
             }
         }
-
-        public void SetCollisionDetector(CollisionDetector collisionDetector)
-        {
-            collisionDetector = Instantiate(collisionDetector);
-            collisionDetector.transform.parent = this.transform;
-            collisionDetector.transform.position = Vector3.zero;
-            collisionDetector.transform.localRotation = Quaternion.identity;
-            collisionDetector.InitBoxCollider(new Vector2(3f, 5f));
-
-            collisionDetector.transform.localPosition += new Vector3(0f, 2.5f, 0f);
-        }
     }
 }

@@ -33,8 +33,14 @@ namespace RB
             runner.AttachSelf(this.transform);
             runner.unitData = new UnitData(runner.transform);
             runner.stateController = new StateController(new Runner_Idle(runner.unitData, userInput));
-            runner.SetCollisionDetector(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
-            
+
+            CollisionDetector col = Instantiate(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
+            col.InitBoxCollider(new Vector2(3f, 5f));
+            col.transform.parent = runner.transform;
+            col.transform.position = Vector3.zero;
+            col.transform.localRotation = Quaternion.identity;
+            col.transform.localPosition += new Vector3(0f, 2.5f, 0f);
+
             GameObject runnerSample = Instantiate(ResourceLoader.GetSprite(SpriteType.RUNNER_SAMPLE)) as GameObject;
             runner.AttachSprite(runnerSample.GetComponent<UnitSprite>(), OffsetType.BOTTOM_CENTER);
 
