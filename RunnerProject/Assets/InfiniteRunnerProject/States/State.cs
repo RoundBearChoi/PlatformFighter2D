@@ -8,27 +8,15 @@ namespace RB
     {
         public State nextState = null;
 
+        protected GameElementData elementData = null;
+        protected UserInput userInput = null;
+
         public virtual void OnEnter()
         {
 
         }
 
-        public virtual void OnEnter(GameElementData elementData)
-        {
-
-        }
-
         public virtual void Update()
-        {
-
-        }
-
-        public virtual void Update(GameElementData elementData)
-        {
-
-        }
-
-        public virtual void Update(UserInput userInput, GameElementData elementData)
         {
 
         }

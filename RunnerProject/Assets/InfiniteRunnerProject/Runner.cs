@@ -11,18 +11,18 @@ namespace RB
         public CollisionDetector collisionDetector = null;
         public GameObject sampleSprite = null;
 
-        public override void Init()
-        {
-            elementData = new GameElementData(this.transform);
-            stateController = new StateController(new Runner_Idle(), elementData);
-        }
+        //public override void Init()
+        //{
+        //    elementData = new GameElementData(this.transform);
+        //    stateController = new StateController(new Runner_Idle());
+        //}
 
         public override void OnFixedUpdate()
         {
             if (stateController != null)
             {
-                stateController.TransitionToNextState(elementData);
-                stateController.UpdateState(userInput, elementData);
+                stateController.TransitionToNextState();
+                stateController.UpdateState();
             }
         }
 

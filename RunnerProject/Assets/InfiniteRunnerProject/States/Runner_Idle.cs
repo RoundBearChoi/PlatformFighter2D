@@ -6,14 +6,15 @@ namespace RB
 {
     public class Runner_Idle : State
     {
-        public Runner_Idle()
+        public Runner_Idle(GameElementData _elementData, UserInput _userInput)
         {
-            Debugger.Log("new state: Idle");
+            elementData = _elementData;
+            userInput = _userInput;
         }
 
-        public override void Update(UserInput userInput, GameElementData elementData)
+        public override void Update()
         {
-            nextState = new Runner_NormalRun();
+            nextState = new Runner_NormalRun(elementData, userInput);
         }
     }
 }

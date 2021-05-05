@@ -6,9 +6,9 @@ namespace RB
 {
     public class StateController : StateControllerBase
     {
-        public StateController(State newState, GameElementData elementData)
+        public StateController(State newState)
         {
-            SetNewState(newState, elementData);
+            SetNewState(newState);
         }
 
         public override void UpdateState()
@@ -19,38 +19,22 @@ namespace RB
             }
         }
 
-        public override void UpdateState(GameElementData elementData)
-        {
-            if (currentState != null)
-            {
-                currentState.Update(elementData);
-            }
-        }
-
-        public override void UpdateState(UserInput userInput, GameElementData elementData)
-        {
-            if (currentState != null)
-            {
-                currentState.Update(userInput, elementData);
-            }
-        }
-
-        public override void TransitionToNextState(GameElementData elementData)
+        public override void TransitionToNextState()
         {
             if (currentState != null)
             {
                 if (currentState.nextState != null)
                 {
-                    SetNewState(currentState.nextState, elementData);
+                    SetNewState(currentState.nextState);
                     currentState.nextState = null;
                 }
             }
         }
 
-        public override void SetNewState(State newState, GameElementData elementData)
+        public override void SetNewState(State newState)
         {
             currentState = newState;
-            currentState.OnEnter(elementData);
+            currentState.OnEnter();
         }
     }
 }

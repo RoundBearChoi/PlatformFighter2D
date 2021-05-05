@@ -6,21 +6,22 @@ namespace RB
 {
     public class Runner_NormalRun : State
     {
-        public Runner_NormalRun()
+        public Runner_NormalRun(GameElementData _elementData, UserInput _userInput)
         {
-            Debugger.Log("new state: Runner_NormalRun");
+            elementData = _elementData;
+            userInput = _userInput;
         }
 
-        public override void OnEnter(GameElementData elementData)
+        public override void OnEnter()
         {
             elementData.horizontalVelocity = StaticRefs.gameData.RunnerHorizontalVelocity;
         }
 
-        public override void Update(UserInput userInput, GameElementData elementData)
+        public override void Update()
         {
             if (JumpIsTriggered(userInput))
             {
-                nextState = new Runner_Jump_Up();
+                nextState = new Runner_Jump_Up(elementData, userInput);
             }
             else
             {

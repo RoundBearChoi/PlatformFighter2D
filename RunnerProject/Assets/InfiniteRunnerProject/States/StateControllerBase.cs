@@ -9,9 +9,7 @@ namespace RB
         public State currentState = null;
 
         public abstract void UpdateState();
-        public abstract void UpdateState(GameElementData elementData);
-        public abstract void UpdateState(UserInput userInput, GameElementData elementData);
-        public abstract void TransitionToNextState(GameElementData elementData);
-        public abstract void SetNewState(State newState, GameElementData elementData);
+        public abstract void TransitionToNextState();
+        public abstract void SetNewState(State newState);
     }
 }

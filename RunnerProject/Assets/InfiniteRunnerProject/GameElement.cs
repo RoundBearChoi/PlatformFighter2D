@@ -10,8 +10,6 @@ namespace RB
         public GameElementData elementData = null;
         public GameElementSprite elementSprite = null;
 
-        public abstract void Init();
-
         private void Start()
         {
             elementData = new GameElementData(this.transform);

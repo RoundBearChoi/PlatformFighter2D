@@ -31,7 +31,8 @@ namespace RB
             
             runner = Instantiate(ResourceLoader.Get(typeof(Runner))) as Runner;
             runner.AttachSelf(this.transform);
-            runner.Init();
+            runner.elementData = new GameElementData(runner.transform);
+            runner.stateController = new StateController(new Runner_Idle(runner.elementData, userInput));
             runner.SetUserInput(userInput);
             runner.SetCollisionDetector(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
             
@@ -40,7 +41,8 @@ namespace RB
 
             obstacle = Instantiate(ResourceLoader.Get(typeof(Obstacle))) as Obstacle;
             obstacle.AttachSelf(this.transform);
-            obstacle.Init();
+            obstacle.elementData = new GameElementData(obstacle.transform);
+            obstacle.stateController = new StateController(new Obstacle_Idle(obstacle.elementData));
 
             GameObject obstacleWhiteBox = Instantiate(ResourceLoader.GetSprite(SpriteType.WHITE_BOX)) as GameObject;
             obstacle.AttachSprite(obstacleWhiteBox.GetComponent<GameElementSprite>(), OffsetType.BOTTOM_CENTER);

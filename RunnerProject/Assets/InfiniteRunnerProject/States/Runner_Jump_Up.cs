@@ -6,17 +6,18 @@ namespace RB
 {
     public class Runner_Jump_Up : State
     {
-        public Runner_Jump_Up()
+        public Runner_Jump_Up(GameElementData _elementData, UserInput _userInput)
         {
-            Debugger.Log("new state: Runner_Jump_Up");
+            elementData = _elementData;
+            userInput = _userInput;
         }
 
-        public override void OnEnter(GameElementData elementData)
+        public override void OnEnter()
         {
             elementData.verticalVelocity = StaticRefs.gameData.RunnerVerticalVelocity;
         }
 
-        public override void Update(UserInput userInput, GameElementData elementData)
+        public override void Update()
         {
             if (elementData.verticalVelocity >= 0f)
             {
@@ -26,7 +27,7 @@ namespace RB
             else
             {
                 elementData.verticalVelocity = 0f;
-                nextState = new Runner_Jump_Fall();
+                nextState = new Runner_Jump_Fall(elementData, userInput);
             }
         }
     }

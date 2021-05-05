@@ -6,12 +6,18 @@ namespace RB
 {
     public class Runner_Jump_Fall : State
     {
-        public override void OnEnter(GameElementData elementData)
+        public Runner_Jump_Fall(GameElementData _elementData, UserInput _userInput)
+        {
+            elementData = _elementData;
+            userInput = _userInput;
+        }
+
+        public override void OnEnter()
         {
             elementData.verticalVelocity = 0;
         }
 
-        public override void Update(UserInput userInput, GameElementData elementData)
+        public override void Update()
         {
             if (elementData.elementTransform.position.y > 0f)
             {
@@ -20,7 +26,7 @@ namespace RB
             }
             else
             {
-                nextState = new Runner_NormalRun();
+                nextState = new Runner_NormalRun(elementData, userInput);
             }
         }
     }

@@ -6,18 +6,18 @@ namespace RB
 {
     public class Obstacle : GameElement
     {
-        public override void Init()
-        {
-            elementData = new GameElementData(this.transform);
-            stateController = new StateController(new Obstacle_Idle(), elementData);
-        }
+        //public override void Init()
+        //{
+        //    elementData = new GameElementData(this.transform);
+        //    stateController = new StateController(new Obstacle_Idle());
+        //}
 
         public override void OnFixedUpdate()
         {
             if (stateController != null)
             {
-                stateController.TransitionToNextState(elementData);
-                stateController.UpdateState(elementData);
+                stateController.TransitionToNextState();
+                stateController.UpdateState();
             }
         }
     }
