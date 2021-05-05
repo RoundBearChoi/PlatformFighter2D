@@ -31,21 +31,20 @@ namespace RB
             
             runner = Instantiate(ResourceLoader.Get(typeof(Runner))) as Runner;
             runner.AttachSelf(this.transform);
-            runner.elementData = new GameElementData(runner.transform);
-            runner.stateController = new StateController(new Runner_Idle(runner.elementData, userInput));
-            runner.SetUserInput(userInput);
+            runner.unitData = new UnitData(runner.transform);
+            runner.stateController = new StateController(new Runner_Idle(runner.unitData, userInput));
             runner.SetCollisionDetector(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
             
             GameObject runnerSample = Instantiate(ResourceLoader.GetSprite(SpriteType.RUNNER_SAMPLE)) as GameObject;
-            runner.AttachSprite(runnerSample.GetComponent<GameElementSprite>(), OffsetType.BOTTOM_CENTER);
+            runner.AttachSprite(runnerSample.GetComponent<UnitSprite>(), OffsetType.BOTTOM_CENTER);
 
             obstacle = Instantiate(ResourceLoader.Get(typeof(Obstacle))) as Obstacle;
             obstacle.AttachSelf(this.transform);
-            obstacle.elementData = new GameElementData(obstacle.transform);
-            obstacle.stateController = new StateController(new Obstacle_Idle(obstacle.elementData));
+            obstacle.unitData = new UnitData(obstacle.transform);
+            obstacle.stateController = new StateController(new Obstacle_Idle(obstacle.unitData));
 
             GameObject obstacleWhiteBox = Instantiate(ResourceLoader.GetSprite(SpriteType.WHITE_BOX)) as GameObject;
-            obstacle.AttachSprite(obstacleWhiteBox.GetComponent<GameElementSprite>(), OffsetType.BOTTOM_CENTER);
+            obstacle.AttachSprite(obstacleWhiteBox.GetComponent<UnitSprite>(), OffsetType.BOTTOM_CENTER);
 
             cameraController = new CameraController(runner, FindObjectOfType<Camera>());
 

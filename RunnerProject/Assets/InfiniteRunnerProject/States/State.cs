@@ -8,7 +8,7 @@ namespace RB
     {
         public State nextState = null;
 
-        protected GameElementData elementData = null;
+        protected UnitData unitData = null;
         protected UserInput userInput = null;
 
         public virtual void OnEnter()

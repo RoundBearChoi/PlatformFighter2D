@@ -6,27 +6,27 @@ namespace RB
 {
     public class Runner_Jump_Fall : State
     {
-        public Runner_Jump_Fall(GameElementData _elementData, UserInput _userInput)
+        public Runner_Jump_Fall(UnitData _unitData, UserInput _userInput)
         {
-            elementData = _elementData;
+            unitData = _unitData;
             userInput = _userInput;
         }
 
         public override void OnEnter()
         {
-            elementData.verticalVelocity = 0;
+            unitData.verticalVelocity = 0;
         }
 
         public override void Update()
         {
-            if (elementData.elementTransform.position.y > 0f)
+            if (unitData.unitTransform.position.y > 0f)
             {
-                elementData.verticalVelocity -= 0.001f;
-                elementData.elementTransform.position += new Vector3(elementData.horizontalVelocity, elementData.verticalVelocity, 0f);
+                unitData.verticalVelocity -= 0.001f;
+                unitData.unitTransform.position += new Vector3(unitData.horizontalVelocity, unitData.verticalVelocity, 0f);
             }
             else
             {
-                nextState = new Runner_NormalRun(elementData, userInput);
+                nextState = new Runner_NormalRun(unitData, userInput);
             }
         }
     }

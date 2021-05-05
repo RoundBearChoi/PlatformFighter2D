@@ -6,15 +6,15 @@ namespace RB
 {
     public class Runner_Idle : State
     {
-        public Runner_Idle(GameElementData _elementData, UserInput _userInput)
+        public Runner_Idle(UnitData _unitData, UserInput _userInput)
         {
-            elementData = _elementData;
+            unitData = _unitData;
             userInput = _userInput;
         }
 
         public override void Update()
         {
-            nextState = new Runner_NormalRun(elementData, userInput);
+            nextState = new Runner_NormalRun(unitData, userInput);
         }
     }
 }

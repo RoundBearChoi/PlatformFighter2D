@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class GameElementSprite : MonoBehaviour
+    public class UnitSprite : MonoBehaviour
     {
         public SpriteRenderer spriteRenderer = null;
     }

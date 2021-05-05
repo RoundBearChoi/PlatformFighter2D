@@ -4,14 +4,8 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Obstacle : GameElement
+    public class Obstacle : Unit
     {
-        //public override void Init()
-        //{
-        //    elementData = new GameElementData(this.transform);
-        //    stateController = new StateController(new Obstacle_Idle());
-        //}
-
         public override void OnFixedUpdate()
         {
             if (stateController != null)

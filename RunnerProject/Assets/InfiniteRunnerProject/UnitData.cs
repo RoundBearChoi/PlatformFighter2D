@@ -4,15 +4,15 @@ using UnityEngine;
 
 namespace RB
 {
-    public class GameElementData
+    public class UnitData
     {
-        public GameElementData(Transform ownerTransform)
+        public UnitData(Transform _transform)
         {
-            elementTransform = ownerTransform;
+            unitTransform = _transform;
         }
 
         public float horizontalVelocity = 0f;
         public float verticalVelocity = 0f;
-        public Transform elementTransform = null;
+        public Transform unitTransform = null;
     }
 }

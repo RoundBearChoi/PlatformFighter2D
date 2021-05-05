@@ -4,18 +4,10 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Runner : GameElement
+    public class Runner : Unit
     {
-        private UserInput userInput = null;
-
         public CollisionDetector collisionDetector = null;
         public GameObject sampleSprite = null;
-
-        //public override void Init()
-        //{
-        //    elementData = new GameElementData(this.transform);
-        //    stateController = new StateController(new Runner_Idle());
-        //}
 
         public override void OnFixedUpdate()
         {
@@ -24,11 +16,6 @@ namespace RB
                 stateController.TransitionToNextState();
                 stateController.UpdateState();
             }
-        }
-
-        public void SetUserInput(UserInput _userInput)
-        {
-            userInput = _userInput;
         }
 
         public void SetCollisionDetector(CollisionDetector collisionDetector)
