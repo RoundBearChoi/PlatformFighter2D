@@ -6,10 +6,9 @@ namespace RB
 {
     public class StateController
     {
-        public StateController(State initialState, GameElementData data)
+        public StateController(State newState, GameElementData elementData)
         {
-            currentState = initialState;
-            currentState.OnEnter(data);
+            SetNewState(newState, elementData);
         }
 
         public State currentState = null;
@@ -44,11 +43,16 @@ namespace RB
             {
                 if (currentState.nextState != null)
                 {
-                    currentState.nextState.OnEnter(elementData);
-                    currentState = currentState.nextState;
+                    SetNewState(currentState.nextState, elementData);
                     currentState.nextState = null;
                 }
             }
+        }
+
+        public virtual void SetNewState(State newState, GameElementData elementData)
+        {
+            currentState = newState;
+            currentState.OnEnter(elementData);
         }
     }
 }
