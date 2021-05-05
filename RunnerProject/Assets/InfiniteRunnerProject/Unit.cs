@@ -20,15 +20,19 @@ namespace RB
 
         }
 
-        public virtual void AttachSprite(UnitSprite sprite, OffsetType _offsetType)
+        public virtual void AttachSprite(UnitSprite sprite, Vector2 pixelSize, OffsetType _offsetType)
         {
             unitSprite = sprite;
-                       
-
+            
             if (unitSprite.spriteRenderer == null)
             {
                 unitSprite.spriteRenderer = unitSprite.gameObject.GetComponentInChildren<SpriteRenderer>();
             }
+
+            float xScale = pixelSize.x / unitSprite.spriteRenderer.sprite.bounds.size.x;
+            float yScale = pixelSize.y / unitSprite.spriteRenderer.sprite.bounds.size.y;
+
+            unitSprite.spriteRenderer.transform.localScale = new Vector2(xScale, yScale);
 
             unitSprite.gameObject.transform.parent = this.transform;
             unitSprite.gameObject.transform.localPosition = Vector3.zero;
@@ -36,13 +40,13 @@ namespace RB
 
             if (_offsetType == OffsetType.BOTTOM_CENTER)
             {
-                unitSprite.spriteRenderer.transform.localPosition = new Vector3(0f, unitSprite.spriteRenderer.size.y * 0.5f, 0f);
+                unitSprite.spriteRenderer.transform.localPosition = new Vector3(0f, unitSprite.spriteRenderer.size.y * 0.5f * yScale, 0f);
             }
 
             Debugger.Log("sprite attached: " + unitSprite.gameObject.name + " " + unitSprite.spriteRenderer.size);
         }
 
-        public virtual void AttachSelf(Transform ownerTransform)
+        public virtual void AttachTo(Transform ownerTransform)
         {
             transform.parent = ownerTransform;
             transform.localPosition = Vector3.zero;

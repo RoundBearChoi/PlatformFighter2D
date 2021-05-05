@@ -30,34 +30,32 @@ namespace RB
             StaticRefs.gameData = gameDataScriptableObj;
             
             runner = Instantiate(ResourceLoader.Get(typeof(Runner))) as Runner;
-            runner.AttachSelf(this.transform);
+            runner.AttachTo(this.transform);
             runner.unitData = new UnitData(runner.transform);
             runner.stateController = new StateController(new Runner_Idle(runner.unitData, userInput));
 
             CollisionDetector runnerCollider = Instantiate(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
-            runnerCollider.InitBoxCollider(new Vector2(3f, 5f));
+            runnerCollider.InitBoxCollider(new Vector2(2f, 3f));
             runnerCollider.transform.parent = runner.transform;
-            runnerCollider.transform.position = Vector3.zero;
             runnerCollider.transform.localRotation = Quaternion.identity;
-            runnerCollider.transform.localPosition += new Vector3(0f, 2.5f, 0f);
+            runnerCollider.transform.localPosition = new Vector3(0f, 1.5f, 0f);
 
             GameObject runnerSample = Instantiate(ResourceLoader.GetSprite(SpriteType.RUNNER_SAMPLE)) as GameObject;
-            runner.AttachSprite(runnerSample.GetComponent<UnitSprite>(), OffsetType.BOTTOM_CENTER);
+            runner.AttachSprite(runnerSample.GetComponent<UnitSprite>(), new Vector2(2f, 3f), OffsetType.BOTTOM_CENTER);
 
             obstacle = Instantiate(ResourceLoader.Get(typeof(Obstacle))) as Obstacle;
-            obstacle.AttachSelf(this.transform);
+            obstacle.AttachTo(this.transform);
             obstacle.unitData = new UnitData(obstacle.transform);
             obstacle.stateController = new StateController(new Obstacle_Idle(obstacle.unitData));
 
             CollisionDetector obsCollider = Instantiate(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
             obsCollider.InitBoxCollider(new Vector2(3f, 5f));
             obsCollider.transform.parent = obstacle.transform;
-            obsCollider.transform.position = Vector3.zero;
             obsCollider.transform.localRotation = Quaternion.identity;
-            obsCollider.transform.localPosition += new Vector3(0f, 2.5f, 0f);
+            obsCollider.transform.localPosition = new Vector3(0f, 2.5f, 0f);
 
             GameObject obstacleWhiteBox = Instantiate(ResourceLoader.GetSprite(SpriteType.WHITE_BOX)) as GameObject;
-            obstacle.AttachSprite(obstacleWhiteBox.GetComponent<UnitSprite>(), OffsetType.BOTTOM_CENTER);
+            obstacle.AttachSprite(obstacleWhiteBox.GetComponent<UnitSprite>(), new Vector2(3f, 5f), OffsetType.BOTTOM_CENTER);
 
             cameraController = new CameraController(runner, FindObjectOfType<Camera>());
 

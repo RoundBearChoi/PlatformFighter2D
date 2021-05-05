@@ -13,7 +13,7 @@ namespace RB
 
         public override void OnEnter()
         {
-            unitData.unitTransform.position = new Vector3(15f, 0f, 0f);
+            unitData.unitTransform.position = new Vector3(10f, 0f, 0f);
         }
 
         public override void Update()
