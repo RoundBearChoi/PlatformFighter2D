@@ -1,5 +1,7 @@
 # Sample Infinite Runner
 
+![early screenshot](https://i.imgur.com/eFCaCgh.jpg)
+
 <br>
 
 # Getting Started
