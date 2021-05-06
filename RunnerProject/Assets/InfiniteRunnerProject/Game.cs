@@ -29,7 +29,7 @@ namespace RB
             StaticRefs.gameData = gameDataScriptableObj;
             
             Unit runner = Instantiate(ResourceLoader.Get(typeof(Runner))) as Runner;
-            runner.AttachTo(this.transform);
+            runner.SetParent(this.transform);
             runner.unitData = new UnitData(runner.transform);
             runner.stateController = new StateController(StateFactory.Create_Runner_Idle(runner.unitData, userInput));
 
@@ -43,7 +43,7 @@ namespace RB
             runner.AttachSprite(runnerSample.GetComponent<UnitSprite>(), new Vector2(2f, 3f), OffsetType.BOTTOM_CENTER);
 
             Unit obstacle = Instantiate(ResourceLoader.Get(typeof(Obstacle))) as Obstacle;
-            obstacle.AttachTo(this.transform);
+            obstacle.SetParent(this.transform);
             obstacle.unitData = new UnitData(obstacle.transform);
             obstacle.stateController = new StateController(StateFactory.Create_Obstacle_Idle(obstacle.unitData));
 
@@ -56,8 +56,9 @@ namespace RB
             GameObject obstacleWhiteBox = Instantiate(ResourceLoader.GetSprite(SpriteType.WHITE_BOX)) as GameObject;
             obstacle.AttachSprite(obstacleWhiteBox.GetComponent<UnitSprite>(), new Vector2(3f, 5f), OffsetType.BOTTOM_CENTER);
 
-            GameObject cameraConObj = new GameObject();
+            GameObject cameraConObj = new GameObject("cameraController");
             Unit cameraController = cameraConObj.AddComponent<CameraController>();
+            cameraController.SetParent(this.transform);
             cameraController.stateController = new StateController(StateFactory.Create_CameraController_SimpleFollow(runner, FindObjectOfType<Camera>()));
 
             listUnits.Add(runner);

@@ -40,13 +40,13 @@ namespace RB
 
             if (offsetType == OffsetType.BOTTOM_CENTER)
             {
-                unitSprite.spriteRenderer.transform.localPosition = new Vector3(0f, unitSprite.spriteRenderer.size.y * 0.5f * yScale, 0f);
+                unitSprite.spriteRenderer.transform.localPosition = new Vector3(0f, unitSprite.spriteRenderer.sprite.bounds.size.y * yScale * 0.5f, 0f);
             }
 
             Debugger.Log("sprite attached: " + unitSprite.gameObject.name + " " + unitSprite.spriteRenderer.size);
         }
 
-        public virtual void AttachTo(Transform ownerTransform)
+        public virtual void SetParent(Transform ownerTransform)
         {
             transform.parent = ownerTransform;
             transform.localPosition = Vector3.zero;
