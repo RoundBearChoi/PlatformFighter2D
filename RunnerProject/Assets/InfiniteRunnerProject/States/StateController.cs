@@ -4,14 +4,16 @@ using UnityEngine;
 
 namespace RB
 {
-    public class StateController : StateControllerBase
+    public class StateController : IStateController
     {
+        public State currentState = null;
+
         public StateController(State newState)
         {
             SetNewState(newState);
         }
 
-        public override void UpdateState()
+        public void UpdateState()
         {
             if (currentState != null)
             {
@@ -19,7 +21,7 @@ namespace RB
             }
         }
 
-        public override void TransitionToNextState()
+        public void TransitionToNextState()
         {
             if (currentState != null)
             {
@@ -31,7 +33,7 @@ namespace RB
             }
         }
 
-        public override void SetNewState(State newState)
+        public void SetNewState(State newState)
         {
             currentState = newState;
             currentState.OnEnter();

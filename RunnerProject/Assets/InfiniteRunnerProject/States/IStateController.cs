@@ -4,10 +4,8 @@ using UnityEngine;
 
 namespace RB
 {
-    public abstract class StateControllerBase
+    public interface IStateController
     {
-        public State currentState = null;
-
         public abstract void UpdateState();
         public abstract void TransitionToNextState();
         public abstract void SetNewState(State newState);
