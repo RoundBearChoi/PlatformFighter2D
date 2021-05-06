@@ -26,7 +26,7 @@ namespace RB
             }
             else
             {
-                nextState = new Runner_NormalRun(unitData, userInput);
+                nextState = StateFactory.Create_Runner_NormalRun(unitData, userInput);
             }
         }
     }

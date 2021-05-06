@@ -27,7 +27,7 @@ namespace RB
             else
             {
                 unitData.verticalVelocity = 0f;
-                nextState = new Runner_Jump_Fall(unitData, userInput);
+                nextState = StateFactory.Create_Runner_Jump_Fall(unitData, userInput);
             }
         }
     }

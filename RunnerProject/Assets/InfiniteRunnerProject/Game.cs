@@ -32,7 +32,7 @@ namespace RB
             runner = Instantiate(ResourceLoader.Get(typeof(Runner))) as Runner;
             runner.AttachTo(this.transform);
             runner.unitData = new UnitData(runner.transform);
-            runner.stateController = new StateController(new Runner_Idle(runner.unitData, userInput));
+            runner.stateController = new StateController(StateFactory.Create_Runner_Idle(runner.unitData, userInput));
 
             CollisionDetector runnerCollider = Instantiate(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
             runnerCollider.InitBoxCollider(new Vector2(2f, 3f));
@@ -46,7 +46,7 @@ namespace RB
             obstacle = Instantiate(ResourceLoader.Get(typeof(Obstacle))) as Obstacle;
             obstacle.AttachTo(this.transform);
             obstacle.unitData = new UnitData(obstacle.transform);
-            obstacle.stateController = new StateController(new Obstacle_Idle(obstacle.unitData));
+            obstacle.stateController = new StateController(StateFactory.Create_Obstacle_Idle(obstacle.unitData));
 
             CollisionDetector obsCollider = Instantiate(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
             obsCollider.InitBoxCollider(new Vector2(3f, 5f));

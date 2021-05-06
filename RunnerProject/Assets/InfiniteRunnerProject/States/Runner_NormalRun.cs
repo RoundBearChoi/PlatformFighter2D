@@ -21,7 +21,7 @@ namespace RB
         {
             if (JumpIsTriggered(userInput))
             {
-                nextState = new Runner_Jump_Up(unitData, userInput);
+                nextState = StateFactory.Create_Runner_Jump_Up(unitData, userInput);
             }
             else
             {
