@@ -7,6 +7,7 @@ namespace RB
     public class Game : MonoBehaviour
     {
         List<Unit> listUnits = new List<Unit>();
+        SpriteAnimation spriteAnimation = null;
 
         private UI ui = null;
 
@@ -70,6 +71,8 @@ namespace RB
             ui.transform.parent = this.transform;
             ui.transform.localPosition = Vector3.zero;
             ui.transform.localRotation = Quaternion.identity;
+
+            spriteAnimation = FindObjectOfType<SpriteAnimation>();
         }
 
         public void OnUpdate()
@@ -98,6 +101,8 @@ namespace RB
             }
 
             userInput.listPresses.Clear();
+
+            spriteAnimation.OnFixedUpdate();
         }
     }
 }
