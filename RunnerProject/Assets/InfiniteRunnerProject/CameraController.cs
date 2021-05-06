@@ -6,10 +6,10 @@ namespace RB
 {
     public class CameraController
     {
-        private Runner runner = null;
+        private Unit runner = null;
         private Camera mainCam = null;
 
-        public CameraController(Runner _runner, Camera _maincam)
+        public CameraController(Unit _runner, Camera _maincam)
         {
             runner = _runner;
             mainCam = _maincam;

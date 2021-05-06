@@ -6,8 +6,8 @@ namespace RB
 {
     public class Game : MonoBehaviour
     {
-        private Runner runner = null;
-        private Obstacle obstacle = null;
+        private Unit _runner = null;
+        private Unit _obstacle = null;
         private UI ui = null;
 
         private FixedUpdateCounter fixedUpdateCounter = new FixedUpdateCounter();
@@ -29,35 +29,35 @@ namespace RB
         {
             StaticRefs.gameData = gameDataScriptableObj;
             
-            runner = Instantiate(ResourceLoader.Get(typeof(Runner))) as Runner;
-            runner.AttachTo(this.transform);
-            runner.unitData = new UnitData(runner.transform);
-            runner.stateController = new StateController(StateFactory.Create_Runner_Idle(runner.unitData, userInput));
+            _runner = Instantiate(ResourceLoader.Get(typeof(Runner))) as Runner;
+            _runner.AttachTo(this.transform);
+            _runner.unitData = new UnitData(_runner.transform);
+            _runner.stateController = new StateController(StateFactory.Create_Runner_Idle(_runner.unitData, userInput));
 
             CollisionDetector runnerCollider = Instantiate(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
             runnerCollider.InitBoxCollider(new Vector2(2f, 3f));
-            runnerCollider.transform.parent = runner.transform;
+            runnerCollider.transform.parent = _runner.transform;
             runnerCollider.transform.localRotation = Quaternion.identity;
             runnerCollider.transform.localPosition = new Vector3(0f, 1.5f, 0f);
 
             GameObject runnerSample = Instantiate(ResourceLoader.GetSprite(SpriteType.RUNNER_SAMPLE)) as GameObject;
-            runner.AttachSprite(runnerSample.GetComponent<UnitSprite>(), new Vector2(2f, 3f), OffsetType.BOTTOM_CENTER);
+            _runner.AttachSprite(runnerSample.GetComponent<UnitSprite>(), new Vector2(2f, 3f), OffsetType.BOTTOM_CENTER);
 
-            obstacle = Instantiate(ResourceLoader.Get(typeof(Obstacle))) as Obstacle;
-            obstacle.AttachTo(this.transform);
-            obstacle.unitData = new UnitData(obstacle.transform);
-            obstacle.stateController = new StateController(StateFactory.Create_Obstacle_Idle(obstacle.unitData));
+            _obstacle = Instantiate(ResourceLoader.Get(typeof(Obstacle))) as Obstacle;
+            _obstacle.AttachTo(this.transform);
+            _obstacle.unitData = new UnitData(_obstacle.transform);
+            _obstacle.stateController = new StateController(StateFactory.Create_Obstacle_Idle(_obstacle.unitData));
 
             CollisionDetector obsCollider = Instantiate(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
             obsCollider.InitBoxCollider(new Vector2(3f, 5f));
-            obsCollider.transform.parent = obstacle.transform;
+            obsCollider.transform.parent = _obstacle.transform;
             obsCollider.transform.localRotation = Quaternion.identity;
             obsCollider.transform.localPosition = new Vector3(0f, 2.5f, 0f);
 
             GameObject obstacleWhiteBox = Instantiate(ResourceLoader.GetSprite(SpriteType.WHITE_BOX)) as GameObject;
-            obstacle.AttachSprite(obstacleWhiteBox.GetComponent<UnitSprite>(), new Vector2(3f, 5f), OffsetType.BOTTOM_CENTER);
+            _obstacle.AttachSprite(obstacleWhiteBox.GetComponent<UnitSprite>(), new Vector2(3f, 5f), OffsetType.BOTTOM_CENTER);
 
-            cameraController = new CameraController(runner, FindObjectOfType<Camera>());
+            cameraController = new CameraController(_runner, FindObjectOfType<Camera>());
 
             ui = Instantiate(ResourceLoader.Get(typeof(UI))) as UI;
             ui.SetCounters(fixedUpdateCounter, updateCounter);
@@ -77,14 +77,14 @@ namespace RB
         {
             fixedUpdateCounter.OnFixedUpdate();
 
-            if (runner != null)
+            if (_runner != null)
             {
-                runner.OnFixedUpdate();
+                _runner.OnFixedUpdate();
             }
 
-            if (obstacle != null)
+            if (_obstacle != null)
             {
-                obstacle.OnFixedUpdate();
+                _obstacle.OnFixedUpdate();
             }
 
             if (cameraController != null)
