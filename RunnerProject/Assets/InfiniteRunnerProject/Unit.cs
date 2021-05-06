@@ -20,7 +20,7 @@ namespace RB
 
         }
 
-        public virtual void AttachSprite(UnitSprite sprite, Vector2 pixelSize, OffsetType _offsetType)
+        public virtual void AttachSprite(UnitSprite sprite, Vector2 pixelSize, OffsetType offsetType)
         {
             unitSprite = sprite;
             
@@ -38,7 +38,7 @@ namespace RB
             unitSprite.gameObject.transform.localPosition = Vector3.zero;
             unitSprite.gameObject.transform.localRotation = Quaternion.identity;
 
-            if (_offsetType == OffsetType.BOTTOM_CENTER)
+            if (offsetType == OffsetType.BOTTOM_CENTER)
             {
                 unitSprite.spriteRenderer.transform.localPosition = new Vector3(0f, unitSprite.spriteRenderer.size.y * 0.5f * yScale, 0f);
             }

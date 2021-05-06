@@ -6,9 +6,9 @@ namespace RB
 {
     public struct KeyPress
     {
-        public KeyPress(KeyCode _keyCode)
+        public KeyPress(KeyCode kCode)
         {
-            keyCode = _keyCode;
+            keyCode = kCode;
         }
 
         public KeyCode keyCode;

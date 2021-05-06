@@ -6,9 +6,9 @@ namespace RB
 {
     public class UnitData
     {
-        public UnitData(Transform _transform)
+        public UnitData(Transform transform)
         {
-            unitTransform = _transform;
+            unitTransform = transform;
         }
 
         public float horizontalVelocity = 0f;

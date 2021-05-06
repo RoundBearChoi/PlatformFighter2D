@@ -6,14 +6,14 @@ namespace RB
 {
     public class Obstacle_Idle : State
     {
-        public Obstacle_Idle(UnitData _unitData)
+        public Obstacle_Idle(UnitData data)
         {
-            unitData = _unitData;
+            _unitData = data;
         }
 
         public override void OnEnter()
         {
-            unitData.unitTransform.position = new Vector3(10f, 0f, 0f);
+            _unitData.unitTransform.position = new Vector3(10f, 0f, 0f);
         }
 
         public override void Update()

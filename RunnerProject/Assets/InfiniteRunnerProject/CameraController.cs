@@ -9,10 +9,10 @@ namespace RB
         private Unit runner = null;
         private Camera mainCam = null;
 
-        public CameraController(Unit _runner, Camera _maincam)
+        public CameraController(Unit targetUnit, Camera mainCamera)
         {
-            runner = _runner;
-            mainCam = _maincam;
+            runner = targetUnit;
+            mainCam = mainCamera;
         }
 
         public override void OnFixedUpdate()

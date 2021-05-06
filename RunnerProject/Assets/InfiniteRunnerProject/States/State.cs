@@ -8,8 +8,8 @@ namespace RB
     {
         public State nextState = null;
 
-        protected UnitData unitData = null;
-        protected UserInput userInput = null;
+        protected UnitData _unitData = null;
+        protected UserInput _userInput = null;
 
         public virtual void OnEnter()
         {

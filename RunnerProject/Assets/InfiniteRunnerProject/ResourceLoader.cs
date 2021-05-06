@@ -42,11 +42,11 @@ namespace RB
             }
         }
 
-        public static Object GetSprite(SpriteType _spriteType)
+        public static Object GetSprite(SpriteType spriteType)
         {
-            if (dicSprites.ContainsKey(_spriteType))
+            if (dicSprites.ContainsKey(spriteType))
             {
-                return dicSprites[_spriteType];
+                return dicSprites[spriteType];
             }
             else
             {
