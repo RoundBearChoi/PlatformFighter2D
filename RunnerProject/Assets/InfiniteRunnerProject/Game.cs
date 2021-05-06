@@ -6,14 +6,13 @@ namespace RB
 {
     public class Game : MonoBehaviour
     {
-        private Unit _runner = null;
-        private Unit _obstacle = null;
+        List<Unit> listUnits = new List<Unit>();
+
         private UI ui = null;
 
         private FixedUpdateCounter fixedUpdateCounter = new FixedUpdateCounter();
         private UpdateCounter updateCounter = new UpdateCounter();
         private UserInput userInput = new UserInput();
-        private CameraController cameraController = null;
         
         private bool restartGame = false;
 
@@ -29,35 +28,41 @@ namespace RB
         {
             StaticRefs.gameData = gameDataScriptableObj;
             
-            _runner = Instantiate(ResourceLoader.Get(typeof(Runner))) as Runner;
-            _runner.AttachTo(this.transform);
-            _runner.unitData = new UnitData(_runner.transform);
-            _runner.stateController = new StateController(StateFactory.Create_Runner_Idle(_runner.unitData, userInput));
+            Unit runner = Instantiate(ResourceLoader.Get(typeof(Runner))) as Runner;
+            runner.AttachTo(this.transform);
+            runner.unitData = new UnitData(runner.transform);
+            runner.stateController = new StateController(StateFactory.Create_Runner_Idle(runner.unitData, userInput));
 
             CollisionDetector runnerCollider = Instantiate(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
             runnerCollider.InitBoxCollider(new Vector2(2f, 3f));
-            runnerCollider.transform.parent = _runner.transform;
+            runnerCollider.transform.parent = runner.transform;
             runnerCollider.transform.localRotation = Quaternion.identity;
             runnerCollider.transform.localPosition = new Vector3(0f, 1.5f, 0f);
 
             GameObject runnerSample = Instantiate(ResourceLoader.GetSprite(SpriteType.RUNNER_SAMPLE)) as GameObject;
-            _runner.AttachSprite(runnerSample.GetComponent<UnitSprite>(), new Vector2(2f, 3f), OffsetType.BOTTOM_CENTER);
+            runner.AttachSprite(runnerSample.GetComponent<UnitSprite>(), new Vector2(2f, 3f), OffsetType.BOTTOM_CENTER);
 
-            _obstacle = Instantiate(ResourceLoader.Get(typeof(Obstacle))) as Obstacle;
-            _obstacle.AttachTo(this.transform);
-            _obstacle.unitData = new UnitData(_obstacle.transform);
-            _obstacle.stateController = new StateController(StateFactory.Create_Obstacle_Idle(_obstacle.unitData));
+            Unit obstacle = Instantiate(ResourceLoader.Get(typeof(Obstacle))) as Obstacle;
+            obstacle.AttachTo(this.transform);
+            obstacle.unitData = new UnitData(obstacle.transform);
+            obstacle.stateController = new StateController(StateFactory.Create_Obstacle_Idle(obstacle.unitData));
 
             CollisionDetector obsCollider = Instantiate(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
             obsCollider.InitBoxCollider(new Vector2(3f, 5f));
-            obsCollider.transform.parent = _obstacle.transform;
+            obsCollider.transform.parent = obstacle.transform;
             obsCollider.transform.localRotation = Quaternion.identity;
             obsCollider.transform.localPosition = new Vector3(0f, 2.5f, 0f);
 
             GameObject obstacleWhiteBox = Instantiate(ResourceLoader.GetSprite(SpriteType.WHITE_BOX)) as GameObject;
-            _obstacle.AttachSprite(obstacleWhiteBox.GetComponent<UnitSprite>(), new Vector2(3f, 5f), OffsetType.BOTTOM_CENTER);
+            obstacle.AttachSprite(obstacleWhiteBox.GetComponent<UnitSprite>(), new Vector2(3f, 5f), OffsetType.BOTTOM_CENTER);
 
-            cameraController = new CameraController(_runner, FindObjectOfType<Camera>());
+            GameObject cameraConObj = new GameObject();
+            Unit cameraController = cameraConObj.AddComponent<CameraController>();
+            cameraController.stateController = new StateController(StateFactory.Create_CameraController_SimpleFollow(runner, FindObjectOfType<Camera>()));
+
+            listUnits.Add(runner);
+            listUnits.Add(obstacle);
+            listUnits.Add(cameraController);
 
             ui = Instantiate(ResourceLoader.Get(typeof(UI))) as UI;
             ui.SetCounters(fixedUpdateCounter, updateCounter);
@@ -77,19 +82,9 @@ namespace RB
         {
             fixedUpdateCounter.OnFixedUpdate();
 
-            if (_runner != null)
+            foreach (Unit unit in listUnits)
             {
-                _runner.OnFixedUpdate();
-            }
-
-            if (_obstacle != null)
-            {
-                _obstacle.OnFixedUpdate();
-            }
-
-            if (cameraController != null)
-            {
-                cameraController.OnFixedUpdate();
+                unit.OnFixedUpdate();
             }
 
             foreach(KeyPress press in userInput.listPresses)

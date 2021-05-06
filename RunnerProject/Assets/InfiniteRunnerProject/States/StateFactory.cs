@@ -6,6 +6,11 @@ namespace RB
 {
     public static class StateFactory
     {
+        public static State Create_CameraController_SimpleFollow(Unit runner, Camera maincam)
+        {
+            return new CameraController_SimpleFollow(runner, maincam);
+        }
+
         public static State Create_Obstacle_Idle(UnitData unitData)
         {
             return new Obstacle_Idle(unitData);

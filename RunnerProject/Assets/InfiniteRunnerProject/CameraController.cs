@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class CameraController
+    public class CameraController : Unit
     {
         private Unit runner = null;
         private Camera mainCam = null;
@@ -15,9 +15,10 @@ namespace RB
             mainCam = _maincam;
         }
 
-        public void OnFixedUpdate()
+        public override void OnFixedUpdate()
         {
-            mainCam.transform.position = new Vector3(runner.transform.position.x, 3f, runner.transform.position.z - 5f);
+            stateController.TransitionToNextState();
+            stateController.UpdateState();
         }
     }
 }
