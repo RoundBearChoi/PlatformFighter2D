@@ -6,16 +6,18 @@ namespace RB
 {
     public class SpriteAnimation : MonoBehaviour
     {
-        public uint renderInterval = 10;
-        public Vector2 pixelSize = new Vector2();
+        SpriteAnimationSpecs specs;
 
         List<Sprite> _listSprites = new List<Sprite>();
         SpriteRenderer spriteRenderer = null;
         uint _updateCount = 0;
         int _spriteIndex = 0;
 
-        public void Init()
+        public void Init(SpriteAnimationSpecs animationSpecs)
         {
+            specs = animationSpecs;
+
+            //temp (should be done early)
             Sprite[] arrSprites = Resources.LoadAll<Sprite>("RunnerAnimation");
 
             foreach(Sprite spr in arrSprites)
@@ -24,13 +26,23 @@ namespace RB
             }
 
             spriteRenderer = this.gameObject.AddComponent<SpriteRenderer>();
+
+            float xScale = specs.pixelSize.x / _listSprites[0].bounds.size.x;
+            float yScale = specs.pixelSize.y / _listSprites[0].bounds.size.y;
+
+            spriteRenderer.transform.localScale = new Vector2(xScale, yScale);
+
+            if (specs.offsetType == OffsetType.BOTTOM_CENTER)
+            {
+                spriteRenderer.transform.localPosition = new Vector3(0f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);
+            }
         }
 
         public void OnFixedUpdate()
         {
             spriteRenderer.sprite = _listSprites[_spriteIndex];
 
-            if (_updateCount != 0 && _updateCount % renderInterval == 0)
+            if (_updateCount != 0 && _updateCount % specs.renderInterval == 0)
             {
                 _spriteIndex++;
             }
@@ -43,17 +55,17 @@ namespace RB
             _updateCount++;
         }
 
-        public void SetOffset(OffsetType offsetType)
-        {
-            float xScale = pixelSize.x / _listSprites[0].bounds.size.x;
-            float yScale = pixelSize.y / _listSprites[0].bounds.size.y;
-
-            spriteRenderer.transform.localScale = new Vector2(xScale, yScale);
-
-            if (offsetType == OffsetType.BOTTOM_CENTER)
-            {
-                spriteRenderer.transform.localPosition = new Vector3(0f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);
-            }
-        }
+        //public void SetOffset()
+        //{
+        //    float xScale = specs.pixelSize.x / _listSprites[0].bounds.size.x;
+        //    float yScale = specs.pixelSize.y / _listSprites[0].bounds.size.y;
+        //
+        //    spriteRenderer.transform.localScale = new Vector2(xScale, yScale);
+        //
+        //    if (specs.offsetType == OffsetType.BOTTOM_CENTER)
+        //    {
+        //        spriteRenderer.transform.localPosition = new Vector3(0f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);
+        //    }
+        //}
     }
 }
