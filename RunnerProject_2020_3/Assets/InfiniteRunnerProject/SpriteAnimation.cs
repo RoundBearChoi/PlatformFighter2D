@@ -18,7 +18,7 @@ namespace RB
             specs = animationSpecs;
 
             //temp (should be done early)
-            Sprite[] arrSprites = Resources.LoadAll<Sprite>("RunnerAnimation");
+            Sprite[] arrSprites = Resources.LoadAll<Sprite>(specs.SheetFileName);
 
             foreach(Sprite spr in arrSprites)
             {
@@ -54,18 +54,5 @@ namespace RB
 
             _updateCount++;
         }
-
-        //public void SetOffset()
-        //{
-        //    float xScale = specs.pixelSize.x / _listSprites[0].bounds.size.x;
-        //    float yScale = specs.pixelSize.y / _listSprites[0].bounds.size.y;
-        //
-        //    spriteRenderer.transform.localScale = new Vector2(xScale, yScale);
-        //
-        //    if (specs.offsetType == OffsetType.BOTTOM_CENTER)
-        //    {
-        //        spriteRenderer.transform.localPosition = new Vector3(0f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);
-        //    }
-        //}
     }
 }
