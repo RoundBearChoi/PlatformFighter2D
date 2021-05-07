@@ -7,7 +7,6 @@ namespace RB
     public class Game : MonoBehaviour
     {
         List<Unit> listUnits = new List<Unit>();
-        SpriteAnimation spriteAnimation = null;
 
         private UI ui = null;
 
@@ -40,8 +39,14 @@ namespace RB
             runnerCollider.transform.localRotation = Quaternion.identity;
             runnerCollider.transform.localPosition = new Vector3(0f, 1.5f, 0f);
 
-            GameObject runnerSample = Instantiate(ResourceLoader.GetSprite(SpriteType.RUNNER_SAMPLE)) as GameObject;
-            runner.AttachSprite(runnerSample.GetComponent<UnitSprite>(), new Vector2(2f, 3f), OffsetType.BOTTOM_CENTER);
+            GameObject runnerSpriteAnimationObj = new GameObject("runner sprite animation");
+            runnerSpriteAnimationObj.transform.parent = runner.transform;
+            runnerSpriteAnimationObj.transform.localPosition = Vector3.zero;
+            runnerSpriteAnimationObj.transform.localRotation = Quaternion.identity;
+            runner.spriteAnimation = runnerSpriteAnimationObj.AddComponent<SpriteAnimation>();
+            runner.spriteAnimation.Init();
+            runner.spriteAnimation.pixelSize = new Vector2(3f, 5f);
+            runner.spriteAnimation.SetOffset(OffsetType.BOTTOM_CENTER);
 
             Unit obstacle = Instantiate(ResourceLoader.Get(typeof(Obstacle))) as Obstacle;
             obstacle.SetParent(this.transform);
@@ -71,8 +76,6 @@ namespace RB
             ui.transform.parent = this.transform;
             ui.transform.localPosition = Vector3.zero;
             ui.transform.localRotation = Quaternion.identity;
-
-            spriteAnimation = FindObjectOfType<SpriteAnimation>();
         }
 
         public void OnUpdate()
@@ -101,8 +104,6 @@ namespace RB
             }
 
             userInput.listPresses.Clear();
-
-            spriteAnimation.OnFixedUpdate();
         }
     }
 }

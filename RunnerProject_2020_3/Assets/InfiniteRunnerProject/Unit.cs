@@ -9,6 +9,7 @@ namespace RB
         public StateController stateController = null;
         public UnitData unitData = null;
         public UnitSprite unitSprite = null;
+        public SpriteAnimation spriteAnimation = null;
 
         private void Start()
         {

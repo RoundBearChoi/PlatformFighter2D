@@ -16,6 +16,11 @@ namespace RB
                 stateController.TransitionToNextState();
                 stateController.UpdateState();
             }
+
+            if (spriteAnimation != null)
+            {
+                spriteAnimation.OnFixedUpdate();
+            }
         }
     }
 }
