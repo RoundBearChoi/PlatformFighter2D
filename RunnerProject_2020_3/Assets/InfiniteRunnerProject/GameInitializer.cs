@@ -39,13 +39,25 @@ namespace RB
                 if (game.RestartGame())
                 {
                     Destroy(game.gameObject);
+                    game = null;
                     StartNewGame();
                 }
 
                 if (game.ReturnToIntro())
                 {
                     Destroy(game.gameObject);
+                    game = null;
                     StartIntro();
+                }
+            }
+
+            if (intro != null)
+            {
+                if (intro.EnterPressed)
+                {
+                    Destroy(intro.gameObject);
+                    intro = null;
+                    StartNewGame();
                 }
             }
         }

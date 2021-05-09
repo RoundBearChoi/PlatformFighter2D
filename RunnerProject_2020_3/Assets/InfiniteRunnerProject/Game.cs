@@ -109,6 +109,7 @@ namespace RB
 
                 if (press.keyCode == KeyCode.F6)
                 {
+                    restartGame = false;
                     returnToIntro = true;
                     break;
                 }
