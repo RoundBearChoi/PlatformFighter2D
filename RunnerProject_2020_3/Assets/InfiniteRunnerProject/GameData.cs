@@ -9,6 +9,8 @@ namespace RB
     public class GameData : ScriptableObject
     {
         public float RunnerHorizontalVelocity = 0f;
-        public float RunnerVerticalVelocity = 0f;
+        public float InitialUpForce = 0f;
+        public AnimationCurve JumpPull;
+        public AnimationCurve JumpFall;
     }
 }

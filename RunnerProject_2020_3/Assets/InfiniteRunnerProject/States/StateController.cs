@@ -18,6 +18,7 @@ namespace RB
             if (currentState != null)
             {
                 currentState.Update();
+                currentState.updateCount++;
             }
         }
 

@@ -6,6 +6,8 @@ namespace RB
 {
     public class Runner_Jump_Fall : State
     {
+        float _timeInterval = 0.025f;
+
         public Runner_Jump_Fall(UnitData data, UserInput input)
         {
             _unitData = data;
@@ -19,9 +21,11 @@ namespace RB
 
         public override void Update()
         {
+            float fall = StaticRefs.gameData.JumpFall.Evaluate(_timeInterval * updateCount);
+
             if (_unitData.unitTransform.position.y > 0f)
             {
-                _unitData.verticalVelocity -= 0.001f;
+                _unitData.verticalVelocity -= fall;
                 _unitData.unitTransform.position += new Vector3(_unitData.horizontalVelocity, _unitData.verticalVelocity, 0f);
             }
             
