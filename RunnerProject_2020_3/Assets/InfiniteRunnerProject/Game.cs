@@ -15,6 +15,7 @@ namespace RB
         private UserInput userInput = new UserInput();
         
         private bool restartGame = false;
+        private bool returnToIntro = false;
 
         [SerializeField]
         private GameData gameDataScriptableObj = null;
@@ -22,6 +23,11 @@ namespace RB
         public bool RestartGame()
         {
             return restartGame;
+        }
+
+        public bool ReturnToIntro()
+        {
+            return returnToIntro;
         }
 
         public void Init()
@@ -97,6 +103,13 @@ namespace RB
                 if (press.keyCode == KeyCode.F5)
                 {
                     restartGame = true;
+                    returnToIntro = false;
+                    break;
+                }
+
+                if (press.keyCode == KeyCode.F6)
+                {
+                    returnToIntro = true;
                     break;
                 }
             }

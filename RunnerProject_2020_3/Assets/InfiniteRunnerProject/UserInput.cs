@@ -24,6 +24,12 @@ namespace RB
                 listPresses.Add(f5);
             }
 
+            if (keyboard.f6Key.wasPressedThisFrame)
+            {
+                KeyPress f6 = new KeyPress(KeyCode.F6);
+                listPresses.Add(f6);
+            }
+
             if (keyboard.spaceKey.wasPressedThisFrame)
             {
                 KeyPress space = new KeyPress(KeyCode.Space);

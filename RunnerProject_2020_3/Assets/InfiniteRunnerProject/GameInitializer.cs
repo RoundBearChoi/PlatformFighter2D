@@ -7,6 +7,7 @@ namespace RB
     public class GameInitializer : MonoBehaviour
     {
         Game game = null;
+        Intro intro = null;
 
         private void Start()
         {
@@ -24,6 +25,11 @@ namespace RB
             game.transform.localRotation = Quaternion.identity;
         }
 
+        private void StartIntro()
+        {
+            intro = Instantiate(ResourceLoader.Get(typeof(Intro))) as Intro;
+        }
+
         private void Update()
         {
             if (game != null)
@@ -34,6 +40,12 @@ namespace RB
                 {
                     Destroy(game.gameObject);
                     StartNewGame();
+                }
+
+                if (game.ReturnToIntro())
+                {
+                    Destroy(game.gameObject);
+                    StartIntro();
                 }
             }
         }

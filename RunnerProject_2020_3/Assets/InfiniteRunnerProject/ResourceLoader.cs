@@ -14,6 +14,9 @@ namespace RB
             Game game = Resources.Load("Game", typeof(Game)) as Game;
             dicResources.Add(game.GetType(), game);
 
+            Intro intro = Resources.Load("Intro", typeof(Intro)) as Intro;
+            dicResources.Add(intro.GetType(), intro);
+
             Runner runner = Resources.Load("Runner", typeof(Runner)) as Runner;
             dicResources.Add(runner.GetType(), runner);
 
