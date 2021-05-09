@@ -43,6 +43,7 @@ namespace RB
             runnerCollider.InitBoxCollider(new Vector2(2f, 3f));
             runnerCollider.transform.parent = runner.transform;
             runnerCollider.transform.localRotation = Quaternion.identity;
+            //temp (hard coded)
             runnerCollider.transform.localPosition = new Vector3(0f, 1.5f, 0f);
 
             GameObject runnerSpriteAnimationObj = new GameObject("runner sprite animation");
@@ -58,13 +59,14 @@ namespace RB
             obstacle.stateController = new StateController(StateFactory.Create_Obstacle_Idle(obstacle.unitData));
 
             CollisionDetector obsCollider = Instantiate(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
-            obsCollider.InitBoxCollider(new Vector2(3f, 5f));
+            obsCollider.InitBoxCollider(new Vector2(1f, 1f));
             obsCollider.transform.parent = obstacle.transform;
             obsCollider.transform.localRotation = Quaternion.identity;
-            obsCollider.transform.localPosition = new Vector3(0f, 2.5f, 0f);
+            //temp (hard coded)
+            obsCollider.transform.localPosition = new Vector3(0f, 0.5f, 0f);
 
             GameObject obstacleWhiteBox = Instantiate(ResourceLoader.GetSprite(SpriteType.WHITE_BOX)) as GameObject;
-            obstacle.AttachSprite(obstacleWhiteBox.GetComponent<UnitSprite>(), new Vector2(3f, 5f), OffsetType.BOTTOM_CENTER);
+            obstacle.AttachSprite(obstacleWhiteBox.GetComponent<UnitSprite>(), new Vector2(1f, 1f), OffsetType.BOTTOM_CENTER);
 
             GameObject cameraConObj = new GameObject("cameraController");
             Unit cameraController = cameraConObj.AddComponent<CameraController>();
