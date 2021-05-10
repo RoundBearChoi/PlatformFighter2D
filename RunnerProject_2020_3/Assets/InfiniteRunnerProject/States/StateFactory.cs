@@ -35,5 +35,15 @@ namespace RB
         {
             return new Runner_NormalRun(unitData, userInput);
         }
+
+        public static State Create_Runner_Death_Up(UnitData unitData)
+        {
+            return new Runner_Death_Up(unitData);
+        }
+
+        public static State Create_Runner_Death_Down(UnitData unitData)
+        {
+            return new Runner_Death_Down(unitData);
+        }
     }
 }

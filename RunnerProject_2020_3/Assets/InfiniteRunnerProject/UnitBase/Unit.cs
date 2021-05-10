@@ -10,6 +10,7 @@ namespace RB
         public UnitData unitData = null;
         public UnitSprite unitSprite = null;
         public SpriteAnimation spriteAnimation = null;
+        public CollisionDetector collisionDetector = null;
 
         private void Start()
         {
@@ -52,6 +53,11 @@ namespace RB
             transform.parent = ownerTransform;
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
+        }
+
+        public virtual void OnCollision()
+        {
+
         }
     }
 }

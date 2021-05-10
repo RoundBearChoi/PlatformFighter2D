@@ -45,6 +45,7 @@ namespace RB
             runnerCollider.transform.localRotation = Quaternion.identity;
             //temp (hard coded)
             runnerCollider.transform.localPosition = new Vector3(0f, 1.5f, 0f);
+            runner.collisionDetector = runnerCollider;
 
             GameObject runnerSpriteAnimationObj = new GameObject("runner sprite animation");
             runnerSpriteAnimationObj.transform.parent = runner.transform;
@@ -98,6 +99,23 @@ namespace RB
             foreach (Unit unit in listUnits)
             {
                 unit.OnFixedUpdate();
+                
+                if (unit.collisionDetector != null)
+                {
+                    bool clear = false;
+
+                    foreach (GameObject obj in unit.collisionDetector.listCollidedGameObjects)
+                    {
+                        Debugger.Log(unit.gameObject.name + " detected collision");
+                        unit.OnCollision();
+                        clear = true;
+                    }
+
+                    if (clear)
+                    {
+                        unit.collisionDetector.listCollidedGameObjects.Clear();
+                    }
+                }
             }
 
             foreach(KeyPress press in userInput.listPresses)
