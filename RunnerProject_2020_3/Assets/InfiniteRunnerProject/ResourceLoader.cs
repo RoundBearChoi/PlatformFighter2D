@@ -17,7 +17,7 @@ namespace RB
             Intro intro = Resources.Load("Intro", typeof(Intro)) as Intro;
             dicResources.Add(intro.GetType(), intro);
 
-            Runner runner = Resources.Load("Runner", typeof(Runner)) as Runner;
+            Runner runner = Resources.Load("Prefab_Runner", typeof(Runner)) as Runner;
             dicResources.Add(runner.GetType(), runner);
 
             Obstacle obstacle = Resources.Load("Obstacle", typeof(Obstacle)) as Obstacle;

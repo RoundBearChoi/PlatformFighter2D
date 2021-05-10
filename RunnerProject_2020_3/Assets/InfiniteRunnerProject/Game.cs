@@ -51,7 +51,7 @@ namespace RB
             runnerSpriteAnimationObj.transform.localPosition = Vector3.zero;
             runnerSpriteAnimationObj.transform.localRotation = Quaternion.identity;
             runner.spriteAnimation = runnerSpriteAnimationObj.AddComponent<SpriteAnimation>();
-            runner.spriteAnimation.Init(new SpriteAnimationSpecs("SampleRunAnimation", 10, new Vector2(2f, 3f), OffsetType.BOTTOM_CENTER));
+            runner.spriteAnimation.Init(new SpriteAnimationSpecs("Texture_SampleRunAnimation", 10, new Vector2(2f, 3f), OffsetType.BOTTOM_CENTER));
 
             Unit obstacle = Instantiate(ResourceLoader.Get(typeof(Obstacle))) as Obstacle;
             obstacle.SetParent(this.transform);
