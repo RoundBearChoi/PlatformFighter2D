@@ -16,9 +16,9 @@ namespace RB
                 stateController.UpdateState();
             }
 
-            if (spriteAnimation != null)
+            foreach(SpriteAnimation ani in listSpriteAnimations)
             {
-                spriteAnimation.OnFixedUpdate();
+                ani.OnFixedUpdate();
             }
         }
 

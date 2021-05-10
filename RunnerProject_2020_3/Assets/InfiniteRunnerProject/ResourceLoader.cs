@@ -29,7 +29,7 @@ namespace RB
             UI ui = Resources.Load("UI", typeof(UI)) as UI;
             dicResources.Add(ui.GetType(), ui);
 
-            dicSprites.Add(SpriteType.RUNNER_SAMPLE, Resources.Load("Sprite_RunnerSample") as GameObject);
+            //dicSprites.Add(SpriteType.RUNNER_SAMPLE, Resources.Load("Sprite_RunnerSample") as GameObject);
             dicSprites.Add(SpriteType.WHITE_BOX, Resources.Load("Sprite_WhiteBox") as GameObject);
         }
 

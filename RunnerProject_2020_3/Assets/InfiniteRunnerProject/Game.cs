@@ -47,12 +47,19 @@ namespace RB
             runnerCollider.transform.localPosition = new Vector3(0f, 1.5f, 0f);
             runner.collisionDetector = runnerCollider;
 
-            GameObject runnerSpriteAnimationObj = new GameObject("runner sprite animation");
-            runnerSpriteAnimationObj.transform.parent = runner.transform;
-            runnerSpriteAnimationObj.transform.localPosition = Vector3.zero;
-            runnerSpriteAnimationObj.transform.localRotation = Quaternion.identity;
-            runner.spriteAnimation = runnerSpriteAnimationObj.AddComponent<SpriteAnimation>();
-            runner.spriteAnimation.Init(new SpriteAnimationSpecs("Texture_SampleRunAnimation", 10, new Vector2(2f, 3f), OffsetType.BOTTOM_CENTER));
+            GameObject runSprite = new GameObject("runner sprite animation");
+            runSprite.transform.parent = runner.transform;
+            runSprite.transform.localPosition = Vector3.zero;
+            runSprite.transform.localRotation = Quaternion.identity;
+            runner.listSpriteAnimations.Add(runSprite.AddComponent<SpriteAnimation>());
+            runner.listSpriteAnimations[runner.listSpriteAnimations.Count - 1].Init(new SpriteAnimationSpecs("Texture_SampleRunAnimation", 10, new Vector2(2f, 3f), OffsetType.BOTTOM_CENTER));
+
+            GameObject deathSprite = new GameObject("runner death animation");
+            deathSprite.transform.parent = runner.transform;
+            deathSprite.transform.localPosition = Vector3.zero;
+            deathSprite.transform.localRotation = Quaternion.identity;
+            runner.listSpriteAnimations.Add(deathSprite.AddComponent<SpriteAnimation>());
+            runner.listSpriteAnimations[runner.listSpriteAnimations.Count - 1].Init(new SpriteAnimationSpecs("Texture_SampleDeathAnimation", 10, new Vector2(2f, 3f), OffsetType.BOTTOM_CENTER));
 
             Unit obstacle = Instantiate(ResourceLoader.Get(typeof(Obstacle))) as Obstacle;
             obstacle.SetParent(this.transform);
