@@ -40,10 +40,8 @@ namespace RB
             ObstacleCreator obstacleCreator = new ObstacleCreator(this.transform);
             Unit obstacle = obstacleCreator.GetUnit();
 
-            GameObject cameraConObj = new GameObject("cameraController(Clone)");
-            Unit cameraController = cameraConObj.AddComponent<CameraController>();
-            cameraController.SetParent(this.transform);
-            cameraController.stateController = new StateController(StateFactory.Create_CameraController_SimpleFollow(runner, FindObjectOfType<Camera>()));
+            CameraCreator cameraCreator = new CameraCreator(this.transform, runner, FindObjectOfType<Camera>());
+            Unit cameraController = cameraCreator.GetUnit();
 
             listUnits.Add(runner);
             listUnits.Add(obstacle);
