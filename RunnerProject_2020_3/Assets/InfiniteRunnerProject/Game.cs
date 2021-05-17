@@ -33,32 +33,9 @@ namespace RB
         public void Init()
         {
             StaticRefs.gameData = gameDataScriptableObj;
-            
-            Unit runner = Instantiate(ResourceLoader.Get(typeof(Runner))) as Runner;
-            runner.SetParent(this.transform);
-            runner.unitData = new UnitData(runner.transform);
-            runner.stateController = new StateController(StateFactory.Create_Runner_Idle(runner.unitData, userInput));
 
-            CollisionDetector runnerCollider = Instantiate(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
-            runnerCollider.InitBoxCollider(new Vector2(2f, 3f));
-            runnerCollider.transform.parent = runner.transform;
-            runnerCollider.transform.localRotation = Quaternion.identity;
-            runnerCollider.transform.localPosition = StaticRefs.gameData.RunnerBoxColliderLocalPos;
-            runner.collisionDetector = runnerCollider;
-
-            GameObject runSprite = new GameObject("runner sprite animation");
-            runSprite.transform.parent = runner.transform;
-            runSprite.transform.localPosition = Vector3.zero;
-            runSprite.transform.localRotation = Quaternion.identity;
-            runner.listSpriteAnimations.Add(runSprite.AddComponent<SpriteAnimation>());
-            runner.listSpriteAnimations[runner.listSpriteAnimations.Count - 1].Init(new SpriteAnimationSpecs("Texture_SampleRunAnimation", 10, new Vector2(2f, 3f), OffsetType.BOTTOM_CENTER));
-
-            GameObject deathSprite = new GameObject("runner death animation");
-            deathSprite.transform.parent = runner.transform;
-            deathSprite.transform.localPosition = Vector3.zero;
-            deathSprite.transform.localRotation = Quaternion.identity;
-            runner.listSpriteAnimations.Add(deathSprite.AddComponent<SpriteAnimation>());
-            runner.listSpriteAnimations[runner.listSpriteAnimations.Count - 1].Init(new SpriteAnimationSpecs("Texture_SampleDeathAnimation", 10, new Vector2(2f, 3f), OffsetType.BOTTOM_CENTER));
+            RunnerCreator runnerCreator = new RunnerCreator(userInput, this.transform);
+            Unit runner = runnerCreator.GetUnit();
 
             Unit obstacle = Instantiate(ResourceLoader.Get(typeof(Obstacle))) as Obstacle;
             obstacle.SetParent(this.transform);
