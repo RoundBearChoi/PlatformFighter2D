@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Game : MonoBehaviour
+    public class GameStage : MonoBehaviour
     {
         List<Unit> listUnits = new List<Unit>();
 

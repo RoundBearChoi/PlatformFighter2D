@@ -11,10 +11,10 @@ namespace RB
 
         public static void Init()
         {
-            Game game = Resources.Load("Game", typeof(Game)) as Game;
+            GameStage game = Resources.Load("Game", typeof(GameStage)) as GameStage;
             dicResources.Add(game.GetType(), game);
 
-            Intro intro = Resources.Load("Intro", typeof(Intro)) as Intro;
+            IntroStage intro = Resources.Load("Intro", typeof(IntroStage)) as IntroStage;
             dicResources.Add(intro.GetType(), intro);
 
             Runner runner = Resources.Load("Prefab_Runner", typeof(Runner)) as Runner;

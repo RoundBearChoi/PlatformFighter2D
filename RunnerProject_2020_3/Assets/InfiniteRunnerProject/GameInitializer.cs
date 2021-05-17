@@ -6,8 +6,8 @@ namespace RB
 {
     public class GameInitializer : MonoBehaviour
     {
-        Game game = null;
-        Intro intro = null;
+        GameStage game = null;
+        IntroStage intro = null;
 
         private void Start()
         {
@@ -18,7 +18,7 @@ namespace RB
 
         private void StartNewGame()
         {
-            game = Instantiate(ResourceLoader.Get(typeof(Game))) as Game;
+            game = Instantiate(ResourceLoader.Get(typeof(GameStage))) as GameStage;
             game.Init();
             game.transform.parent = this.transform;
             game.transform.localPosition = Vector3.zero;
@@ -27,7 +27,7 @@ namespace RB
 
         private void StartIntro()
         {
-            intro = Instantiate(ResourceLoader.Get(typeof(Intro))) as Intro;
+            intro = Instantiate(ResourceLoader.Get(typeof(IntroStage))) as IntroStage;
         }
 
         private void Update()
