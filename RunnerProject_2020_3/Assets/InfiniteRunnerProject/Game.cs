@@ -40,7 +40,7 @@ namespace RB
             ObstacleCreator obstacleCreator = new ObstacleCreator(this.transform);
             Unit obstacle = obstacleCreator.GetUnit();
 
-            CameraCreator cameraCreator = new CameraCreator(this.transform, runner, FindObjectOfType<Camera>());
+            CameraControllerCreator cameraCreator = new CameraControllerCreator(this.transform, runner, FindObjectOfType<Camera>());
             Unit cameraController = cameraCreator.GetUnit();
 
             listUnits.Add(runner);
