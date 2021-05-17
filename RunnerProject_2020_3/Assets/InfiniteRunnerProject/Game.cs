@@ -76,7 +76,7 @@ namespace RB
             GameObject obstacleWhiteBox = Instantiate(ResourceLoader.GetSprite(SpriteType.WHITE_BOX)) as GameObject;
             obstacle.AttachSprite(obstacleWhiteBox.GetComponent<UnitSprite>(), new Vector2(1f, 1f), OffsetType.BOTTOM_CENTER);
 
-            GameObject cameraConObj = new GameObject("cameraController");
+            GameObject cameraConObj = new GameObject("cameraController(Clone)");
             Unit cameraController = cameraConObj.AddComponent<CameraController>();
             cameraController.SetParent(this.transform);
             cameraController.stateController = new StateController(StateFactory.Create_CameraController_SimpleFollow(runner, FindObjectOfType<Camera>()));
