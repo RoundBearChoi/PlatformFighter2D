@@ -105,6 +105,7 @@ namespace RB
 
             foreach (Unit unit in listUnits)
             {
+                unit.MatchAnimationToState();
                 unit.OnFixedUpdate();
                 
                 if (unit.collisionDetector != null)

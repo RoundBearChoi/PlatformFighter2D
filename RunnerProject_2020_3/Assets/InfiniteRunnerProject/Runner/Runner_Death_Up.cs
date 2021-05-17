@@ -6,6 +6,8 @@ namespace RB
 {
     public class Runner_Death_Up : State
     {
+        static Hash128 animationHash = Hash128.Compute("Texture_SampleDeathAnimation");
+
         public Runner_Death_Up(UnitData unitData)
         {
             Debugger.Log("runner is dead");
@@ -22,6 +24,11 @@ namespace RB
             {
                 nextState = StateFactory.Create_Runner_Death_Down(_unitData);
             }
+        }
+
+        public override Hash128 GetHash()
+        {
+            return animationHash;
         }
     }
 }

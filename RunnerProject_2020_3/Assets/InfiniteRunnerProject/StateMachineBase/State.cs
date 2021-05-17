@@ -6,6 +6,8 @@ namespace RB
 {
     public abstract class State
     {
+        static Hash128 defaultHash;
+
         public State nextState = null;
         public uint updateCount = 0;
 
@@ -20,6 +22,12 @@ namespace RB
         public virtual void Update()
         {
 
+        }
+
+        public virtual Hash128 GetHash()
+        {
+            defaultHash = Hash128.Compute("defaultHash");
+            return defaultHash;
         }
     }
 }

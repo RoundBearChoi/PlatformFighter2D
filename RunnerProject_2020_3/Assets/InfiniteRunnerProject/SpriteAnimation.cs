@@ -13,8 +13,12 @@ namespace RB
         uint _updateCount = 0;
         int _spriteIndex = 0;
 
+        public Hash128 animationHash;
+
         public void Init(SpriteAnimationSpecs animationSpecs)
         {
+            animationHash = Hash128.Compute(animationSpecs.SheetFileName);
+
             specs = animationSpecs;
 
             //temp (should be done early)

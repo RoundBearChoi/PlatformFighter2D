@@ -6,6 +6,8 @@ namespace RB
 {
     public class Runner_NormalRun : State
     {
+        static Hash128 animationHash = Hash128.Compute("Texture_SampleRunAnimation");
+
         public Runner_NormalRun(UnitData data, UserInput input)
         {
             _unitData = data;
@@ -44,6 +46,11 @@ namespace RB
             }
 
             return false;
+        }
+
+        public override Hash128 GetHash()
+        {
+            return animationHash;
         }
     }
 }

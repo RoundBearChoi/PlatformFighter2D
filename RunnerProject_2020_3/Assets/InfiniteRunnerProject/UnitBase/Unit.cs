@@ -24,6 +24,21 @@ namespace RB
 
         }
 
+        public virtual void MatchAnimationToState()
+        {
+            foreach (SpriteAnimation spriteAni in listSpriteAnimations)
+            {
+                if (spriteAni.animationHash == stateController.currentState.GetHash())
+                {
+                    spriteAni.gameObject.SetActive(true);
+                }
+                else
+                {
+                    spriteAni.gameObject.SetActive(false);
+                }
+            }
+        }
+
         public virtual void AttachSprite(UnitSprite sprite, Vector2 pixelSize, OffsetType offsetType)
         {
             unitSprite = sprite;
