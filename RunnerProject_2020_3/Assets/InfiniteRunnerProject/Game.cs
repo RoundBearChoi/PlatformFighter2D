@@ -43,8 +43,7 @@ namespace RB
             runnerCollider.InitBoxCollider(new Vector2(2f, 3f));
             runnerCollider.transform.parent = runner.transform;
             runnerCollider.transform.localRotation = Quaternion.identity;
-            //temp (hard coded)
-            runnerCollider.transform.localPosition = new Vector3(0f, 1.5f, 0f);
+            runnerCollider.transform.localPosition = StaticRefs.gameData.RunnerBoxColliderLocalPos;
             runner.collisionDetector = runnerCollider;
 
             GameObject runSprite = new GameObject("runner sprite animation");
@@ -52,7 +51,7 @@ namespace RB
             runSprite.transform.localPosition = Vector3.zero;
             runSprite.transform.localRotation = Quaternion.identity;
             runner.listSpriteAnimations.Add(runSprite.AddComponent<SpriteAnimation>());
-            runner.listSpriteAnimations[runner.listSpriteAnimations.Count - 1].Init(new SpriteAnimationSpecs("Texture_SGSai_Run", 10, new Vector2(2f, 3f), OffsetType.BOTTOM_CENTER));
+            runner.listSpriteAnimations[runner.listSpriteAnimations.Count - 1].Init(new SpriteAnimationSpecs("Texture_SampleRunAnimation", 10, new Vector2(2f, 3f), OffsetType.BOTTOM_CENTER));
 
             GameObject deathSprite = new GameObject("runner death animation");
             deathSprite.transform.parent = runner.transform;
@@ -70,8 +69,7 @@ namespace RB
             obsCollider.InitBoxCollider(new Vector2(1f, 1f));
             obsCollider.transform.parent = obstacle.transform;
             obsCollider.transform.localRotation = Quaternion.identity;
-            //temp (hard coded)
-            obsCollider.transform.localPosition = new Vector3(0f, 0.5f, 0f);
+            obsCollider.transform.localPosition = StaticRefs.gameData.ObstacleBoxColliderLocalPos;
 
             GameObject obstacleWhiteBox = Instantiate(ResourceLoader.GetSprite(SpriteType.WHITE_BOX)) as GameObject;
             obstacle.AttachSprite(obstacleWhiteBox.GetComponent<UnitSprite>(), new Vector2(1f, 1f), OffsetType.BOTTOM_CENTER);
