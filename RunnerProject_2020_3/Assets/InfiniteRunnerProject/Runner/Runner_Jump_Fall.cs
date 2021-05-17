@@ -6,6 +6,7 @@ namespace RB
 {
     public class Runner_Jump_Fall : State
     {
+        static Hash128 animationHash = Hash128.Compute("Texture_SampleRunAnimation");
         float _timeInterval = 0.025f;
 
         public Runner_Jump_Fall(UnitData data, UserInput input)
@@ -34,6 +35,11 @@ namespace RB
                 _unitData.unitTransform.position = new Vector3(_unitData.unitTransform.position.x, 0f, _unitData.unitTransform.position.z);
                 nextState = StateFactory.Create_Runner_NormalRun(_unitData, _userInput);
             }
+        }
+
+        public override Hash128 GetHash()
+        {
+            return animationHash;
         }
     }
 }

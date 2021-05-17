@@ -37,19 +37,8 @@ namespace RB
             RunnerCreator runnerCreator = new RunnerCreator(userInput, this.transform);
             Unit runner = runnerCreator.GetUnit();
 
-            Unit obstacle = Instantiate(ResourceLoader.Get(typeof(Obstacle))) as Obstacle;
-            obstacle.SetParent(this.transform);
-            obstacle.unitData = new UnitData(obstacle.transform);
-            obstacle.stateController = new StateController(StateFactory.Create_Obstacle_Idle(obstacle.unitData));
-
-            CollisionDetector obsCollider = Instantiate(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
-            obsCollider.InitBoxCollider(new Vector2(1f, 1f));
-            obsCollider.transform.parent = obstacle.transform;
-            obsCollider.transform.localRotation = Quaternion.identity;
-            obsCollider.transform.localPosition = StaticRefs.gameData.ObstacleBoxColliderLocalPos;
-
-            GameObject obstacleWhiteBox = Instantiate(ResourceLoader.GetSprite(SpriteType.WHITE_BOX)) as GameObject;
-            obstacle.AttachSprite(obstacleWhiteBox.GetComponent<UnitSprite>(), new Vector2(1f, 1f), OffsetType.BOTTOM_CENTER);
+            ObstacleCreator obstacleCreator = new ObstacleCreator(this.transform);
+            Unit obstacle = obstacleCreator.GetUnit();
 
             GameObject cameraConObj = new GameObject("cameraController(Clone)");
             Unit cameraController = cameraConObj.AddComponent<CameraController>();
