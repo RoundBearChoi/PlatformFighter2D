@@ -13,6 +13,11 @@ namespace RB
                 stateController.TransitionToNextState();
                 stateController.UpdateState();
             }
+
+            foreach (SpriteAnimation ani in listSpriteAnimations)
+            {
+                ani.OnFixedUpdate();
+            }
         }
     }
 }

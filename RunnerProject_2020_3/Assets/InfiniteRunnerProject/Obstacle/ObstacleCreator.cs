@@ -26,8 +26,12 @@ namespace RB
             obsCollider.transform.localRotation = Quaternion.identity;
             obsCollider.transform.localPosition = StaticRefs.gameData.ObstacleBoxColliderLocalPos;
 
-            GameObject obstacleWhiteBox = GameObject.Instantiate(ResourceLoader.GetSprite(SpriteType.WHITE_BOX)) as GameObject;
-            obstacle.AttachSprite(obstacleWhiteBox.GetComponent<UnitSprite>(), new Vector2(1f, 1f), OffsetType.BOTTOM_CENTER);
+            GameObject boxSprite = new GameObject("box sprite");
+            boxSprite.transform.parent = obstacle.transform;
+            boxSprite.transform.localPosition = Vector3.zero;
+            boxSprite.transform.localRotation = Quaternion.identity;
+            obstacle.listSpriteAnimations.Add(boxSprite.AddComponent<SpriteAnimation>());
+            obstacle.listSpriteAnimations[obstacle.listSpriteAnimations.Count - 1].Init(new SpriteAnimationSpecs("Texture_White100x100", 10, new Vector2(1f, 1f), OffsetType.BOTTOM_CENTER));
 
             return obstacle;
         }
