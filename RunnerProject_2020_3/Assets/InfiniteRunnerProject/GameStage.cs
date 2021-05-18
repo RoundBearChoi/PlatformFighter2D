@@ -6,10 +6,10 @@ namespace RB
 {
     public class GameStage : Stage
     {
-        List<Unit> listUnits = new List<Unit>();
+        List<Unit> _listUnits = new List<Unit>();
+        ObstaclePlacer _obstaclePlacer = null;
 
         private UI ui = null;
-
         private FixedUpdateCounter fixedUpdateCounter = new FixedUpdateCounter();
         private UpdateCounter updateCounter = new UpdateCounter();
         private UserInput userInput = new UserInput();
@@ -30,9 +30,11 @@ namespace RB
             CameraControllerCreator cameraCreator = new CameraControllerCreator(this.transform, runner, FindObjectOfType<Camera>());
             Unit cameraController = cameraCreator.GetUnit();
 
-            listUnits.Add(runner);
-            listUnits.Add(obstacle);
-            listUnits.Add(cameraController);
+            _obstaclePlacer = new ObstaclePlacer(runner, this.transform);
+
+            _listUnits.Add(runner);
+            _listUnits.Add(obstacle);
+            _listUnits.Add(cameraController);
 
             ui = Instantiate(ResourceLoader.Get(typeof(UI))) as UI;
             ui.SetCounters(fixedUpdateCounter, updateCounter);
@@ -52,7 +54,7 @@ namespace RB
         {
             fixedUpdateCounter.OnFixedUpdate();
 
-            foreach (Unit unit in listUnits)
+            foreach (Unit unit in _listUnits)
             {
                 unit.MatchAnimationToState();
                 unit.OnFixedUpdate();
@@ -89,6 +91,8 @@ namespace RB
                     break;
                 }
             }
+
+            _obstaclePlacer.OnFixedUpdate();
 
             userInput.listPresses.Clear();
         }
