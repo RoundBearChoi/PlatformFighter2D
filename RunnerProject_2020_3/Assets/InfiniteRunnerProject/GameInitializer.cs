@@ -12,17 +12,28 @@ namespace RB
         {
             ResourceLoader.Init();
             _currentStage = CreateStage(typeof(GameStage));
-            _currentStage.Init();
+
+            if (_currentStage != null)
+            {
+                _currentStage.Init();
+            }
         }
 
         private Stage CreateStage(System.Type stageType)
         {
-            Stage newStage = Instantiate(ResourceLoader.Get(stageType)) as Stage;
-            newStage.transform.parent = this.transform;
-            newStage.transform.localPosition = Vector3.zero;
-            newStage.transform.localRotation = Quaternion.identity;
+            if (stageType.IsSubclassOf(typeof(Stage)))
+            {
+                Stage newStage = Instantiate(ResourceLoader.Get(stageType)) as Stage;
+                newStage.transform.parent = this.transform;
+                newStage.transform.localPosition = Vector3.zero;
+                newStage.transform.localRotation = Quaternion.identity;
 
-            return newStage;
+                return newStage;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         private void Update()
@@ -37,7 +48,11 @@ namespace RB
                     _currentStage = null;
 
                     _currentStage = CreateStage(typeof(GameStage));
-                    _currentStage.Init();
+
+                    if (_currentStage != null)
+                    {
+                        _currentStage.Init();
+                    }
                 }
 
                 //if (game.listStageMessages.Contains(StageMessage.GOTO_INTRO_STAGE))
