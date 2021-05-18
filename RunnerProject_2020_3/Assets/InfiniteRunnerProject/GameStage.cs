@@ -14,23 +14,13 @@ namespace RB
         private UpdateCounter updateCounter = new UpdateCounter();
         private UserInput userInput = new UserInput();
         
-        private bool restartGame = false;
-        private bool returnToIntro = false;
+        //private bool restartGame = false;
+        //private bool returnToIntro = false;
 
         [SerializeField]
         private GameData gameDataScriptableObj = null;
 
-        public bool RestartGame()
-        {
-            return restartGame;
-        }
-
-        public bool ReturnToIntro()
-        {
-            return returnToIntro;
-        }
-
-        public void Init()
+        public override void Init()
         {
             StaticRefs.gameData = gameDataScriptableObj;
 
@@ -54,14 +44,14 @@ namespace RB
             ui.transform.localRotation = Quaternion.identity;
         }
 
-        public void OnUpdate()
+        public override void OnUpdate()
         {
             updateCounter.OnUpdate();
             userInput.OnUpdate();
             ui.OnUpdate();
         }
 
-        public void OnFixedUpdate()
+        public override void OnFixedUpdate()
         {
             fixedUpdateCounter.OnFixedUpdate();
 
@@ -69,7 +59,7 @@ namespace RB
             {
                 unit.MatchAnimationToState();
                 unit.OnFixedUpdate();
-                
+
                 if (unit.collisionDetector != null)
                 {
                     bool clear = false;
@@ -88,19 +78,21 @@ namespace RB
                 }
             }
 
-            foreach(KeyPress press in userInput.listPresses)
+            foreach (KeyPress press in userInput.listPresses)
             {
                 if (press.keyCode == KeyCode.F5)
                 {
-                    restartGame = true;
-                    returnToIntro = false;
+                    listStageMessages.Add(StageMessage.RESTART_GAME);
+                    //restartGame = true;
+                    //returnToIntro = false;
                     break;
                 }
 
                 if (press.keyCode == KeyCode.F6)
                 {
-                    restartGame = false;
-                    returnToIntro = true;
+                    listStageMessages.Add(StageMessage.GOTO_INTRO_STAGE);
+                    //restartGame = false;
+                    //returnToIntro = true;
                     break;
                 }
             }

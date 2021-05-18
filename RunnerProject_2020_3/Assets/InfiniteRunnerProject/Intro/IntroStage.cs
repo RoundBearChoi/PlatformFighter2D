@@ -7,24 +7,25 @@ namespace RB
 {
     public class IntroStage : Stage
     {
-        public bool EnterPressed = false;
+        //public bool EnterPressed = false;
 
         Keyboard _keyboard = null;
         Camera _mainCam = null;
 
-        private void Start()
+        public override void Init()
         {
             _keyboard = Keyboard.current;
 
             _mainCam = FindObjectOfType<Camera>();
             _mainCam.transform.position = new Vector3(0f, 0f, -5f);
         }
-
-        private void Update()
+        
+        public override void OnUpdate()
         {
             if (_keyboard.enterKey.wasPressedThisFrame)
             {
-                EnterPressed = true;
+                listStageMessages.Add(StageMessage.GOTO_GAME_STAGE);
+                //EnterPressed = true;
             }
         }
     }
