@@ -6,83 +6,81 @@ namespace RB
 {
     public class GameInitializer : MonoBehaviour
     {
-        GameStage game = null;
-        IntroStage intro = null;
+        Stage _currentStage = null;
 
         private void Start()
         {
             ResourceLoader.Init();
-
-            StartIntroStage();
+            _currentStage = CreateStage(typeof(GameStage));
+            _currentStage.Init();
         }
 
-        private void StartGameStage()
+        private Stage CreateStage(System.Type stageType)
         {
-            game = Instantiate(ResourceLoader.Get(typeof(GameStage))) as GameStage;
-            game.Init();
-            game.transform.parent = this.transform;
-            game.transform.localPosition = Vector3.zero;
-            game.transform.localRotation = Quaternion.identity;
-        }
+            Stage newStage = Instantiate(ResourceLoader.Get(stageType)) as Stage;
+            newStage.transform.parent = this.transform;
+            newStage.transform.localPosition = Vector3.zero;
+            newStage.transform.localRotation = Quaternion.identity;
 
-        private void StartIntroStage()
-        {
-            intro = Instantiate(ResourceLoader.Get(typeof(IntroStage))) as IntroStage;
-            intro.Init();
-            intro.transform.parent = this.transform;
-            intro.transform.localPosition = Vector3.zero;
-            intro.transform.localRotation = Quaternion.identity;
+            return newStage;
         }
 
         private void Update()
         {
-            if (game != null)
+            if (_currentStage != null)
             {
-                game.OnUpdate();
+                _currentStage.OnUpdate();
 
-                if (game.listStageMessages.Contains(StageMessage.RESTART_GAME))
+                if (_currentStage.listStageMessages.Contains(StageMessage.RESTART_GAME))
                 {
-                    Destroy(game.gameObject);
-                    game = null;
-                    StartGameStage();
+                    Destroy(_currentStage.gameObject);
+                    _currentStage = null;
+
+                    _currentStage = CreateStage(typeof(GameStage));
+                    _currentStage.Init();
                 }
 
-                if (game.listStageMessages.Contains(StageMessage.GOTO_INTRO_STAGE))
-                {
-                    Destroy(game.gameObject);
-                    game = null;
-                    StartIntroStage();
-                }
+                //if (game.listStageMessages.Contains(StageMessage.GOTO_INTRO_STAGE))
+                //{
+                //    Destroy(game.gameObject);
+                //    game = null;
+                //    StartIntroStage();
+                //}
             }
 
-            if (intro != null)
+            if (_currentStage != null)
             {
-                intro.OnUpdate();
-
-                if (intro.listStageMessages.Contains(StageMessage.GOTO_GAME_STAGE))
-                {
-                    Destroy(intro.gameObject);
-                    intro = null;
-                    StartGameStage();
-                }
+                _currentStage.listStageMessages.Clear();
             }
 
-            if (intro != null)
-            {
-                intro.listStageMessages.Clear();
-            }
-
-            if (game != null)
-            {
-                game.listStageMessages.Clear();
-            }
+            //if (intro != null)
+            //{
+            //    intro.OnUpdate();
+            //
+            //    if (intro.listStageMessages.Contains(StageMessage.GOTO_GAME_STAGE))
+            //    {
+            //        Destroy(intro.gameObject);
+            //        intro = null;
+            //        StartGameStage();
+            //    }
+            //}
+            //
+            //if (intro != null)
+            //{
+            //    intro.listStageMessages.Clear();
+            //}
+            //
+            //if (game != null)
+            //{
+            //    game.listStageMessages.Clear();
+            //}
         }
 
         private void FixedUpdate()
         {
-            if (game != null)
+            if (_currentStage != null)
             {
-                game.OnFixedUpdate();
+                _currentStage.OnFixedUpdate();
             }
         }
     }
