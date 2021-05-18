@@ -28,7 +28,9 @@ namespace RB
         {
             foreach (SpriteAnimation spriteAni in listSpriteAnimations)
             {
-                if (spriteAni.animationHash == stateController.currentState.GetHash())
+                int n = spriteAni.animationHash.CompareTo(stateController.currentState.GetAnimationHash());
+
+                if (n == 0)
                 {
                     spriteAni.gameObject.SetActive(true);
                 }

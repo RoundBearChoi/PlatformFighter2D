@@ -48,7 +48,7 @@ namespace RB
             return false;
         }
 
-        public override Hash128 GetHash()
+        public override Hash128 GetAnimationHash()
         {
             return animationHash;
         }

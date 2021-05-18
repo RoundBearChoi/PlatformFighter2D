@@ -24,7 +24,7 @@ namespace RB
 
         }
 
-        public virtual Hash128 GetHash()
+        public virtual Hash128 GetAnimationHash()
         {
             defaultHash = Hash128.Compute("defaultHash");
             return defaultHash;
