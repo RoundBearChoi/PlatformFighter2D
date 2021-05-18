@@ -82,7 +82,7 @@ namespace RB
             {
                 if (press.keyCode == KeyCode.F5)
                 {
-                    listStageMessages.Add(StageMessage.RESTART_GAME);
+                    listStageMessages.Add(StageMessage.GOTO_GAME_STAGE);
                     //restartGame = true;
                     //returnToIntro = false;
                     break;

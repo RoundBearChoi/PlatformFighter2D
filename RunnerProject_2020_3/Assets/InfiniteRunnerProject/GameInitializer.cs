@@ -11,7 +11,7 @@ namespace RB
         private void Start()
         {
             ResourceLoader.Init();
-            _currentStage = CreateStage(typeof(GameStage));
+            _currentStage = CreateStage(typeof(IntroStage));
 
             if (_currentStage != null)
             {
@@ -42,12 +42,10 @@ namespace RB
             {
                 _currentStage.OnUpdate();
 
-                if (_currentStage.listStageMessages.Contains(StageMessage.RESTART_GAME))
+                if (_currentStage.listStageMessages.Contains(StageMessage.GOTO_INTRO_STAGE))
                 {
                     Destroy(_currentStage.gameObject);
-                    _currentStage = null;
-
-                    _currentStage = CreateStage(typeof(GameStage));
+                    _currentStage = CreateStage(typeof(IntroStage));
 
                     if (_currentStage != null)
                     {
@@ -55,40 +53,22 @@ namespace RB
                     }
                 }
 
-                //if (game.listStageMessages.Contains(StageMessage.GOTO_INTRO_STAGE))
-                //{
-                //    Destroy(game.gameObject);
-                //    game = null;
-                //    StartIntroStage();
-                //}
+                if (_currentStage.listStageMessages.Contains(StageMessage.GOTO_GAME_STAGE))
+                {
+                    Destroy(_currentStage.gameObject);
+                    _currentStage = CreateStage(typeof(GameStage));
+
+                    if (_currentStage != null)
+                    {
+                        _currentStage.Init();
+                    }
+                }
             }
 
             if (_currentStage != null)
             {
                 _currentStage.listStageMessages.Clear();
             }
-
-            //if (intro != null)
-            //{
-            //    intro.OnUpdate();
-            //
-            //    if (intro.listStageMessages.Contains(StageMessage.GOTO_GAME_STAGE))
-            //    {
-            //        Destroy(intro.gameObject);
-            //        intro = null;
-            //        StartGameStage();
-            //    }
-            //}
-            //
-            //if (intro != null)
-            //{
-            //    intro.listStageMessages.Clear();
-            //}
-            //
-            //if (game != null)
-            //{
-            //    game.listStageMessages.Clear();
-            //}
         }
 
         private void FixedUpdate()
