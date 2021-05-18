@@ -7,8 +7,6 @@ namespace RB
 {
     public class IntroStage : Stage
     {
-        //public bool EnterPressed = false;
-
         Keyboard _keyboard = null;
         Camera _mainCam = null;
 
@@ -25,7 +23,6 @@ namespace RB
             if (_keyboard.enterKey.wasPressedThisFrame)
             {
                 listStageMessages.Add(StageMessage.GOTO_GAME_STAGE);
-                //EnterPressed = true;
             }
         }
     }

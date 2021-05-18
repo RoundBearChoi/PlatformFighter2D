@@ -13,9 +13,6 @@ namespace RB
         private FixedUpdateCounter fixedUpdateCounter = new FixedUpdateCounter();
         private UpdateCounter updateCounter = new UpdateCounter();
         private UserInput userInput = new UserInput();
-        
-        //private bool restartGame = false;
-        //private bool returnToIntro = false;
 
         [SerializeField]
         private GameData gameDataScriptableObj = null;
@@ -83,16 +80,12 @@ namespace RB
                 if (press.keyCode == KeyCode.F5)
                 {
                     listStageMessages.Add(StageMessage.GOTO_GAME_STAGE);
-                    //restartGame = true;
-                    //returnToIntro = false;
                     break;
                 }
 
                 if (press.keyCode == KeyCode.F6)
                 {
                     listStageMessages.Add(StageMessage.GOTO_INTRO_STAGE);
-                    //restartGame = false;
-                    //returnToIntro = true;
                     break;
                 }
             }
