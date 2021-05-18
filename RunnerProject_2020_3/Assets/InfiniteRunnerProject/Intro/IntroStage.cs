@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 namespace RB
 {
-    public class IntroStage : MonoBehaviour
+    public class IntroStage : Stage
     {
         public bool EnterPressed = false;
 

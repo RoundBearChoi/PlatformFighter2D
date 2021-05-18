@@ -13,10 +13,10 @@ namespace RB
         {
             ResourceLoader.Init();
 
-            StartNewGame();
+            StartIntroStage();
         }
 
-        private void StartNewGame()
+        private void StartGameStage()
         {
             game = Instantiate(ResourceLoader.Get(typeof(GameStage))) as GameStage;
             game.Init();
@@ -25,9 +25,12 @@ namespace RB
             game.transform.localRotation = Quaternion.identity;
         }
 
-        private void StartIntro()
+        private void StartIntroStage()
         {
             intro = Instantiate(ResourceLoader.Get(typeof(IntroStage))) as IntroStage;
+            intro.transform.parent = this.transform;
+            intro.transform.localPosition = Vector3.zero;
+            intro.transform.localRotation = Quaternion.identity;
         }
 
         private void Update()
@@ -40,14 +43,14 @@ namespace RB
                 {
                     Destroy(game.gameObject);
                     game = null;
-                    StartNewGame();
+                    StartGameStage();
                 }
 
                 if (game.ReturnToIntro())
                 {
                     Destroy(game.gameObject);
                     game = null;
-                    StartIntro();
+                    StartIntroStage();
                 }
             }
 
@@ -57,7 +60,7 @@ namespace RB
                 {
                     Destroy(intro.gameObject);
                     intro = null;
-                    StartNewGame();
+                    StartGameStage();
                 }
             }
         }
