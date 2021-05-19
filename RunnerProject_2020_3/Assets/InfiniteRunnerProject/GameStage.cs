@@ -7,7 +7,7 @@ namespace RB
     public class GameStage : Stage
     {
         List<Unit> _listUnits = new List<Unit>();
-        ObstaclePlacer _obstaclePlacer = null;
+        //ObstaclePlacer _obstaclePlacer = null;
 
         private UI ui = null;
         private FixedUpdateCounter fixedUpdateCounter = new FixedUpdateCounter();
@@ -30,11 +30,15 @@ namespace RB
             CameraControllerCreator cameraCreator = new CameraControllerCreator(this.transform, runner, FindObjectOfType<Camera>());
             Unit cameraController = cameraCreator.GetUnit();
 
-            _obstaclePlacer = new ObstaclePlacer(runner, this.transform);
+            ObstaclePlacerCreator opCreator = new ObstaclePlacerCreator(this.transform, runner);
+            Unit placer = opCreator.GetUnit();
+
+            //_obstaclePlacer = new ObstaclePlacer(runner, this.transform);
 
             _listUnits.Add(runner);
             _listUnits.Add(obstacle);
             _listUnits.Add(cameraController);
+            _listUnits.Add(placer);
 
             ui = Instantiate(ResourceLoader.Get(typeof(UI))) as UI;
             ui.SetCounters(fixedUpdateCounter, updateCounter);
@@ -92,7 +96,7 @@ namespace RB
                 }
             }
 
-            _obstaclePlacer.OnFixedUpdate();
+            //_obstaclePlacer.OnFixedUpdate();
 
             userInput.listPresses.Clear();
         }

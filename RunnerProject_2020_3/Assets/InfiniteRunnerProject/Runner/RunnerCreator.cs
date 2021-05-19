@@ -24,7 +24,6 @@ namespace RB
             runner.transform.localPosition = Vector3.zero;
             runner.transform.localRotation = Quaternion.identity;
             runner.SetUpdater(new DefaultFixedUpdater(runner.stateController));
-            //runner.SetParent(_parentTransform);
 
             CollisionDetector runnerCollider = GameObject.Instantiate(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
             runnerCollider.InitBoxCollider(new Vector2(2f, 3f));

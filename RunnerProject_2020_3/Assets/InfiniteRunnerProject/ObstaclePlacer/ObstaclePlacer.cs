@@ -4,35 +4,14 @@ using UnityEngine;
 
 namespace RB
 {
-    public class ObstaclePlacer
+    public class ObstaclePlacer : Unit
     {
-        private Unit _runner = null;
-        private Transform _parentTransform = null;
-
-        //some abstract layer where
-        //even the frequency isn't an issue
-
-        public ObstaclePlacer(Unit runner, Transform parentTransform)
+        public override void OnFixedUpdate()
         {
-            _parentTransform = parentTransform;
-            _runner = runner;
-        }
-
-        //this is going to be a general update()
-        public void OnFixedUpdate()
-        {
-            //if (counter >= creationInterval)
-            //{
-            //    counter = 0;
-            //    PlaceObstacle();
-            //}
-            //
-            //counter++;
-        }
-
-        void PlaceObstacle()
-        {
-            Debugger.Log("placing obstacle..");
+            if (unitUpdater != null)
+            {
+                unitUpdater.CustomUpdate();
+            }
         }
     }
 }
