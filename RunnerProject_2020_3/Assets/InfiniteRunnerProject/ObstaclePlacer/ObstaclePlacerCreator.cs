@@ -23,10 +23,7 @@ namespace RB
             placer.transform.parent = _parentTransform;
             placer.transform.localPosition = Vector3.zero;
             placer.transform.localRotation = Quaternion.identity;
-            placer.SetUpdater(new DefaultFixedUpdater(placer.stateController));
-            placer.transform.parent = _parentTransform;
-            placer.transform.localPosition = Vector3.zero;
-            placer.transform.localRotation = Quaternion.identity;
+            placer.SetUpdater(new PlacerUpdater(placer.stateController, _runner));
 
             placer.listSpriteAnimations = new List<SpriteAnimation>();
 

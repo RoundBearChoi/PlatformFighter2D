@@ -16,7 +16,7 @@ namespace RB
 
         public override void Update()
         {
-
+            Debugger.Log("updating obstacle placer..");
         }
     }
 }
