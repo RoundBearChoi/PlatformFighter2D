@@ -81,13 +81,13 @@ namespace RB
             {
                 if (press.keyCode == KeyCode.F5)
                 {
-                    listStageMessages.Add(StageMessage.GOTO_GAME_STAGE);
+                    nextStage = typeof(GameStage);
                     break;
                 }
 
                 if (press.keyCode == KeyCode.F6)
                 {
-                    listStageMessages.Add(StageMessage.GOTO_INTRO_STAGE);
+                    nextStage = typeof(IntroStage);
                     break;
                 }
             }

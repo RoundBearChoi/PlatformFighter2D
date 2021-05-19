@@ -22,7 +22,7 @@ namespace RB
         {
             if (_keyboard.enterKey.wasPressedThisFrame)
             {
-                listStageMessages.Add(StageMessage.GOTO_GAME_STAGE);
+                nextStage = typeof(GameStage);
             }
         }
     }

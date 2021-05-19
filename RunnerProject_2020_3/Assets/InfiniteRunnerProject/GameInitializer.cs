@@ -42,32 +42,19 @@ namespace RB
             {
                 _currentStage.OnUpdate();
 
-                if (_currentStage.listStageMessages.Contains(StageMessage.GOTO_INTRO_STAGE))
+                if (_currentStage.nextStage != null)
                 {
-                    Destroy(_currentStage.gameObject);
-                    _currentStage = CreateStage(typeof(IntroStage));
-
-                    if (_currentStage != null)
+                    if (_currentStage.nextStage.IsSubclassOf(typeof(Stage)))
                     {
+                        Destroy(_currentStage.gameObject);
+                        _currentStage = CreateStage(_currentStage.nextStage);
                         _currentStage.Init();
                     }
-                }
-
-                if (_currentStage.listStageMessages.Contains(StageMessage.GOTO_GAME_STAGE))
-                {
-                    Destroy(_currentStage.gameObject);
-                    _currentStage = CreateStage(typeof(GameStage));
-
-                    if (_currentStage != null)
+                    else
                     {
-                        _currentStage.Init();
+                        _currentStage.nextStage = null;
                     }
                 }
-            }
-
-            if (_currentStage != null)
-            {
-                _currentStage.listStageMessages.Clear();
             }
         }
 

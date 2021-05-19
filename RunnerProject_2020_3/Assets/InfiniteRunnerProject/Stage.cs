@@ -6,7 +6,7 @@ namespace RB
 {
     public class Stage : MonoBehaviour
     {
-        public List<StageMessage> listStageMessages = new List<StageMessage>();
+        public System.Type nextStage = null;
 
         public virtual void Init()
         {
