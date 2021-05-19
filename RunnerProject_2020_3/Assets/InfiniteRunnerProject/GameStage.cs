@@ -23,9 +23,6 @@ namespace RB
             RunnerCreator runnerCreator = new RunnerCreator(userInput, this.transform);
             Unit runner = runnerCreator.GetUnit();
 
-            //ObstacleCreator obstacleCreator = new ObstacleCreator(this.transform);
-            //Unit obstacle = obstacleCreator.GetUnit();
-
             CameraControllerCreator cameraCreator = new CameraControllerCreator(this.transform, runner, FindObjectOfType<Camera>());
             Unit cameraController = cameraCreator.GetUnit();
 
@@ -33,7 +30,6 @@ namespace RB
             Unit placer = opCreator.GetUnit();
 
             _listUnits.Add(runner);
-            //_listUnits.Add(obstacle);
             _listUnits.Add(cameraController);
             _listUnits.Add(placer);
 
@@ -77,29 +73,6 @@ namespace RB
                     }
                 }
             }
-
-            //foreach (Unit unit in _listUnits)
-            //{
-            //    unit.MatchAnimationToState();
-            //    unit.OnFixedUpdate();
-            //
-            //    if (unit.collisionDetector != null)
-            //    {
-            //        bool clear = false;
-            //
-            //        foreach (GameObject obj in unit.collisionDetector.listCollidedGameObjects)
-            //        {
-            //            Debugger.Log(unit.gameObject.name + " detected collision");
-            //            unit.OnCollision();
-            //            clear = true;
-            //        }
-            //
-            //        if (clear)
-            //        {
-            //            unit.collisionDetector.listCollidedGameObjects.Clear();
-            //        }
-            //    }
-            //}
 
             foreach (KeyPress press in userInput.listPresses)
             {

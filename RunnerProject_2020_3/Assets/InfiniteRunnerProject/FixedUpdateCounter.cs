@@ -22,7 +22,6 @@ namespace RB
 
             if (fElapsedTime >= 1.0f)
             {
-                //Debugger.Log("frame count: " + count);
                 fixedUpdatesPerSec = count;
                 fElapsedTime = 0f;
                 count = 0;
