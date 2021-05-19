@@ -22,6 +22,9 @@ namespace RB
 
             ObstacleCreator obstacleCreator = new ObstacleCreator(_gameStage.transform);
             Unit obstacle = obstacleCreator.GetUnit();
+
+            obstacle.transform.position += new Vector3(_runner.transform.position.x + 10f, 0f, 0f);
+
             _gameStage.AddUnit(obstacle);
         }
     }
