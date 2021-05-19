@@ -29,7 +29,7 @@ namespace RB
             CameraControllerCreator cameraCreator = new CameraControllerCreator(this.transform, runner, FindObjectOfType<Camera>());
             Unit cameraController = cameraCreator.GetUnit();
 
-            ObstaclePlacerCreator opCreator = new ObstaclePlacerCreator(this.transform, runner);
+            ObstaclePlacerCreator opCreator = new ObstaclePlacerCreator(runner, this);
             Unit placer = opCreator.GetUnit();
 
             _listUnits.Add(runner);
@@ -55,28 +55,51 @@ namespace RB
         {
             fixedUpdateCounter.OnFixedUpdate();
 
-            foreach (Unit unit in _listUnits)
+            for (int i = _listUnits.Count - 1; i >= 0; i--)
             {
-                unit.MatchAnimationToState();
-                unit.OnFixedUpdate();
+                _listUnits[i].MatchAnimationToState();
+                _listUnits[i].OnFixedUpdate();
 
-                if (unit.collisionDetector != null)
+                if (_listUnits[i].collisionDetector != null)
                 {
                     bool clear = false;
 
-                    foreach (GameObject obj in unit.collisionDetector.listCollidedGameObjects)
+                    foreach (GameObject obj in _listUnits[i].collisionDetector.listCollidedGameObjects)
                     {
-                        Debugger.Log(unit.gameObject.name + " detected collision");
-                        unit.OnCollision();
+                        Debugger.Log(_listUnits[i].gameObject.name + " detected collision");
+                        _listUnits[i].OnCollision();
                         clear = true;
                     }
 
                     if (clear)
                     {
-                        unit.collisionDetector.listCollidedGameObjects.Clear();
+                        _listUnits[i].collisionDetector.listCollidedGameObjects.Clear();
                     }
                 }
             }
+
+            //foreach (Unit unit in _listUnits)
+            //{
+            //    unit.MatchAnimationToState();
+            //    unit.OnFixedUpdate();
+            //
+            //    if (unit.collisionDetector != null)
+            //    {
+            //        bool clear = false;
+            //
+            //        foreach (GameObject obj in unit.collisionDetector.listCollidedGameObjects)
+            //        {
+            //            Debugger.Log(unit.gameObject.name + " detected collision");
+            //            unit.OnCollision();
+            //            clear = true;
+            //        }
+            //
+            //        if (clear)
+            //        {
+            //            unit.collisionDetector.listCollidedGameObjects.Clear();
+            //        }
+            //    }
+            //}
 
             foreach (KeyPress press in userInput.listPresses)
             {
@@ -94,6 +117,11 @@ namespace RB
             }
 
             userInput.listPresses.Clear();
+        }
+
+        public void AddUnit(Unit unit)
+        {
+            _listUnits.Add(unit);
         }
     }
 }

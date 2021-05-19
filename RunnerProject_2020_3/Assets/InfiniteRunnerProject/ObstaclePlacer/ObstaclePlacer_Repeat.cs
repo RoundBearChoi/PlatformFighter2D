@@ -7,16 +7,22 @@ namespace RB
     public class ObstaclePlacer_Repeat : State
     {
         private Unit _runner = null;
+        private GameStage _gameStage = null;
 
-        public ObstaclePlacer_Repeat(UnitData data, Unit runner)
+        public ObstaclePlacer_Repeat(UnitData data, Unit runner, GameStage gameStage)
         {
             _unitData = data;
             _runner = runner;
+            _gameStage = gameStage;
         }
 
         public override void Update()
         {
             Debugger.Log("updating obstacle placer..");
+
+            ObstacleCreator obstacleCreator = new ObstacleCreator(_gameStage.transform);
+            Unit obstacle = obstacleCreator.GetUnit();
+            _gameStage.AddUnit(obstacle);
         }
     }
 }

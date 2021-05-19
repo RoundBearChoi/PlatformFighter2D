@@ -46,9 +46,9 @@ namespace RB
             return new Runner_Death_Down(unitData);
         }
 
-        public static State Create_ObstaclePlacer_Repeat(UnitData unitData, Unit runner)
+        public static State Create_ObstaclePlacer_Repeat(UnitData unitData, Unit runner, GameStage gameStage)
         {
-            return new ObstaclePlacer_Repeat(unitData, runner);
+            return new ObstaclePlacer_Repeat(unitData, runner, gameStage);
         }
     }
 }

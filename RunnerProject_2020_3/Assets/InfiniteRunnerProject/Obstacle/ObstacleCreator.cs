@@ -19,6 +19,8 @@ namespace RB
             obstacle.unitData = new UnitData(obstacle.transform);
             obstacle.stateController = new StateController(StateFactory.Create_Obstacle_Idle(obstacle.unitData));
             obstacle.transform.parent = _parentTransform;
+            obstacle.transform.position = Vector3.zero;
+            obstacle.transform.rotation = Quaternion.identity;
             obstacle.SetUpdater(new DefaultFixedUpdater(obstacle.stateController));
 
             CollisionDetector obsCollider = GameObject.Instantiate(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
