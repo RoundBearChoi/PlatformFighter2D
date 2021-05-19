@@ -10,12 +10,6 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            //if (stateController != null)
-            //{
-            //    stateController.TransitionToNextState();
-            //    stateController.UpdateState();
-            //}
-
             if (unitUpdater != null)
             {
                 unitUpdater.CustomUpdate();

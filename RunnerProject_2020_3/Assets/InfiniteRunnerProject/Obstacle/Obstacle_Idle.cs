@@ -20,7 +20,7 @@ namespace RB
 
         public override void Update()
         {
-
+            //Debugger.Log("updating obstacle idle");
         }
 
         public override Hash128 GetAnimationHash()

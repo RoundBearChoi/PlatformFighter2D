@@ -20,8 +20,11 @@ namespace RB
             Unit runner = GameObject.Instantiate(ResourceLoader.Get(typeof(Runner))) as Runner;
             runner.unitData = new UnitData(runner.transform);
             runner.stateController = new StateController(StateFactory.Create_Runner_Idle(runner.unitData, _userInput));
+            runner.transform.parent = _parentTransform;
+            runner.transform.localPosition = Vector3.zero;
+            runner.transform.localRotation = Quaternion.identity;
             runner.SetUpdater(new DefaultFixedUpdater(runner.stateController));
-            runner.SetParent(_parentTransform);
+            //runner.SetParent(_parentTransform);
 
             CollisionDetector runnerCollider = GameObject.Instantiate(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
             runnerCollider.InitBoxCollider(new Vector2(2f, 3f));

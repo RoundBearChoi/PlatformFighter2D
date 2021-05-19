@@ -21,7 +21,10 @@ namespace RB
         {
             GameObject cameraConObj = new GameObject("cameraController(Clone)");
             Unit cameraController = cameraConObj.AddComponent<CameraController>();
-            cameraController.SetParent(_parentTransform);
+            //cameraController.SetParent(_parentTransform);
+            cameraController.transform.parent = _parentTransform;
+            cameraController.transform.localPosition = Vector3.zero;
+            cameraController.transform.localRotation = Quaternion.identity;
             cameraController.stateController = new StateController(StateFactory.Create_CameraController_SimpleFollow(_runner, _mainCamera));
 
             return cameraController;

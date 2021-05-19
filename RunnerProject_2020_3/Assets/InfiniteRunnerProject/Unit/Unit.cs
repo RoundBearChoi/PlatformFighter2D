@@ -45,13 +45,6 @@ namespace RB
             unitUpdater = updater;
         }
 
-        public virtual void SetParent(Transform ownerTransform)
-        {
-            transform.parent = ownerTransform;
-            transform.localPosition = Vector3.zero;
-            transform.localRotation = Quaternion.identity;
-        }
-
         public virtual void OnCollision()
         {
 

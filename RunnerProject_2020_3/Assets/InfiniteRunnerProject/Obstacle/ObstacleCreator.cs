@@ -16,9 +16,10 @@ namespace RB
         public override Unit GetUnit()
         {
             Unit obstacle = GameObject.Instantiate(ResourceLoader.Get(typeof(Obstacle))) as Obstacle;
-            obstacle.SetParent(_parentTransform);
             obstacle.unitData = new UnitData(obstacle.transform);
             obstacle.stateController = new StateController(StateFactory.Create_Obstacle_Idle(obstacle.unitData));
+            obstacle.transform.parent = _parentTransform;
+            obstacle.SetUpdater(new DefaultFixedUpdater(obstacle.stateController));
 
             CollisionDetector obsCollider = GameObject.Instantiate(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
             obsCollider.InitBoxCollider(new Vector2(1f, 1f));
