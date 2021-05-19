@@ -11,6 +11,7 @@ namespace RB
         public CollisionDetector collisionDetector = null;
 
         public List<SpriteAnimation> listSpriteAnimations = new List<SpriteAnimation>();
+        public IUpdater unitUpdater = null;
 
         private void Start()
         {
@@ -37,6 +38,11 @@ namespace RB
                     spriteAni.gameObject.SetActive(false);
                 }
             }
+        }
+
+        public virtual void SetUpdater(IUpdater updater)
+        {
+            unitUpdater = updater;
         }
 
         public virtual void SetParent(Transform ownerTransform)

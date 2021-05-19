@@ -10,10 +10,15 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (stateController != null)
+            //if (stateController != null)
+            //{
+            //    stateController.TransitionToNextState();
+            //    stateController.UpdateState();
+            //}
+
+            if (unitUpdater != null)
             {
-                stateController.TransitionToNextState();
-                stateController.UpdateState();
+                unitUpdater.CustomUpdate();
             }
 
             foreach(SpriteAnimation ani in listSpriteAnimations)
