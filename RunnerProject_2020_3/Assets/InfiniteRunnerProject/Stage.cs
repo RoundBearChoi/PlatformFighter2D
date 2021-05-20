@@ -6,7 +6,7 @@ namespace RB
 {
     public class Stage : MonoBehaviour
     {
-        public System.Type nextStage = null;
+        protected GameInitializer _gameIntializer = null;
 
         public virtual void Init()
         {
@@ -21,6 +21,11 @@ namespace RB
         public virtual void OnFixedUpdate()
         {
 
+        }
+
+        public virtual void SetInitializer(GameInitializer gameInitializer)
+        {
+            _gameIntializer = gameInitializer;
         }
     }
 }

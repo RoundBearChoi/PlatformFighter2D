@@ -78,13 +78,13 @@ namespace RB
             {
                 if (press.keyCode == KeyCode.F5)
                 {
-                    nextStage = typeof(GameStage);
+                    _gameIntializer.stageTransition = new GameStageTransition(_gameIntializer);
                     break;
                 }
 
                 if (press.keyCode == KeyCode.F6)
                 {
-                    nextStage = typeof(IntroStage);
+                    _gameIntializer.stageTransition = new IntroStageTransition(_gameIntializer);
                     break;
                 }
             }

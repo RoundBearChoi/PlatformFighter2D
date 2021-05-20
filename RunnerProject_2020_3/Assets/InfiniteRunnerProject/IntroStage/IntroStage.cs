@@ -22,7 +22,7 @@ namespace RB
         {
             if (_keyboard.enterKey.wasPressedThisFrame)
             {
-                nextStage = typeof(GameStage);
+                _gameIntializer.stageTransition = new GameStageTransition(_gameIntializer);
             }
         }
     }
