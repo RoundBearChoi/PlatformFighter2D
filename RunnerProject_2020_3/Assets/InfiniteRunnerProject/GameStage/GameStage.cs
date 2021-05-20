@@ -6,7 +6,7 @@ namespace RB
 {
     public class GameStage : Stage
     {
-        List<Unit> _listUnits = new List<Unit>();
+        Units _units = new Units();
 
         private UI ui = null;
         private FixedUpdateCounter fixedUpdateCounter = new FixedUpdateCounter();
@@ -29,9 +29,9 @@ namespace RB
             ObstaclePlacerCreator opCreator = new ObstaclePlacerCreator(runner, this);
             Unit placer = opCreator.GetUnit();
 
-            _listUnits.Add(runner);
-            _listUnits.Add(cameraController);
-            _listUnits.Add(placer);
+            _units.AddUnit(runner);
+            _units.AddUnit(cameraController);
+            _units.AddUnit(placer);
 
             ui = Instantiate(ResourceLoader.Get(typeof(UI))) as UI;
             ui.SetCounters(fixedUpdateCounter, updateCounter);
@@ -50,29 +50,7 @@ namespace RB
         public override void OnFixedUpdate()
         {
             fixedUpdateCounter.OnFixedUpdate();
-
-            for (int i = _listUnits.Count - 1; i >= 0; i--)
-            {
-                _listUnits[i].MatchAnimationToState();
-                _listUnits[i].OnFixedUpdate();
-
-                if (_listUnits[i].collisionDetector != null)
-                {
-                    bool clear = false;
-
-                    foreach (GameObject obj in _listUnits[i].collisionDetector.listCollidedGameObjects)
-                    {
-                        Debugger.Log(_listUnits[i].gameObject.name + " detected collision");
-                        _listUnits[i].OnCollision();
-                        clear = true;
-                    }
-
-                    if (clear)
-                    {
-                        _listUnits[i].collisionDetector.listCollidedGameObjects.Clear();
-                    }
-                }
-            }
+            _units.OnFixedUpdate();
 
             foreach (KeyPress press in userInput.listPresses)
             {
@@ -94,7 +72,7 @@ namespace RB
 
         public void AddUnit(Unit unit)
         {
-            _listUnits.Add(unit);
+            _units.AddUnit(unit);
         }
     }
 }
