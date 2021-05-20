@@ -36,6 +36,12 @@ namespace RB
                         _listUnits[i].collisionDetector.listCollidedGameObjects.Clear();
                     }
                 }
+
+                if (_listUnits[i].unitData.unitTransform.position == new Vector3(0f, 1f, 1f))
+                {
+                    GameObject.Destroy(_listUnits[i].gameObject);
+                    _listUnits.RemoveAt(i);
+                }
             }
         }
     }

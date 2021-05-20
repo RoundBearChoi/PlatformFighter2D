@@ -11,9 +11,9 @@ namespace RB
             return new CameraController_SimpleFollow(runner, maincam);
         }
 
-        public static State Create_Obstacle_Idle(UnitData unitData)
+        public static State Create_Obstacle_Idle(UnitData unitData, Unit runner)
         {
-            return new Obstacle_Idle(unitData);
+            return new Obstacle_Idle(unitData, runner);
         }
 
         public static State Create_Runner_Idle(UnitData unitData, UserInput userInput)

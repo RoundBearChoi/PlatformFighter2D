@@ -7,17 +7,19 @@ namespace RB
     public class ObstacleCreator : UnitCreator
     {
         private Transform _parentTransform;
+        private Unit _runner;
 
-        public ObstacleCreator(Transform parentTransform)
+        public ObstacleCreator(Transform parentTransform, Unit runner)
         {
             _parentTransform = parentTransform;
+            _runner = runner;
         }
 
         public override Unit GetUnit()
         {
             Unit obstacle = GameObject.Instantiate(ResourceLoader.Get(typeof(Obstacle))) as Obstacle;
             obstacle.unitData = new UnitData(obstacle.transform);
-            obstacle.stateController = new StateController(StateFactory.Create_Obstacle_Idle(obstacle.unitData));
+            obstacle.stateController = new StateController(StateFactory.Create_Obstacle_Idle(obstacle.unitData, _runner));
             obstacle.transform.parent = _parentTransform;
             obstacle.transform.position = Vector3.zero;
             obstacle.transform.rotation = Quaternion.identity;
