@@ -13,6 +13,8 @@ namespace RB
         {
             _unitData = data;
             _userInput = input;
+
+            _listStateComponents.Add(new FixedJump(this));
         }
 
         public override void OnEnter()
@@ -22,16 +24,13 @@ namespace RB
 
         public override void Update()
         {
-            float pull = StaticRefs.gameData.JumpPull.Evaluate(_timeInterval * updateCount);
-
-            if (_unitData.verticalVelocity >= 0f)
+            foreach(StateComponent component in _listStateComponents)
             {
-                _unitData.unitTransform.position += new Vector3(_unitData.horizontalVelocity, _unitData.verticalVelocity, 0f);
-                _unitData.verticalVelocity -= pull;
+                component.Update();
             }
-            else
+
+            if (_unitData.verticalVelocity <= 0f)
             {
-                _unitData.verticalVelocity = 0f;
                 nextState = new Runner_Jump_Fall(_unitData, _userInput);
             }
         }
@@ -39,6 +38,11 @@ namespace RB
         public override Hash128 GetAnimationHash()
         {
             return animationHash;
+        }
+
+        public override float GetNormalizedTime()
+        {
+            return _timeInterval * updateCount;
         }
     }
 }

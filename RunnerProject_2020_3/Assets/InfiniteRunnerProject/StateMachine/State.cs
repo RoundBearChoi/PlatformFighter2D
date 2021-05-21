@@ -13,7 +13,8 @@ namespace RB
 
         protected UnitData _unitData = null;
         protected UserInput _userInput = null;
-        
+        protected List<StateComponent> _listStateComponents = new List<StateComponent>();
+
         public virtual void OnEnter()
         {
 
@@ -28,6 +29,16 @@ namespace RB
         {
             defaultHash = Hash128.Compute("defaultHash");
             return defaultHash;
+        }
+
+        public virtual UnitData GetUnitData()
+        {
+            return _unitData;
+        }
+
+        public virtual float GetNormalizedTime()
+        {
+            return 0f;
         }
     }
 }
