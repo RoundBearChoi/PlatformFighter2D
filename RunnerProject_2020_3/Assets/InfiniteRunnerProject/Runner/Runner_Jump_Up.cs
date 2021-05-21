@@ -13,7 +13,6 @@ namespace RB
         {
             _unitData = data;
             _userInput = input;
-
             _listStateComponents.Add(new FixedJump(this));
         }
 

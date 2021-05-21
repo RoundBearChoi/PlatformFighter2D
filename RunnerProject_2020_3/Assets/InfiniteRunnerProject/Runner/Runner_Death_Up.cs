@@ -7,20 +7,26 @@ namespace RB
     public class Runner_Death_Up : State
     {
         static Hash128 animationHash = Hash128.Compute("Texture_SampleDeathAnimation");
+        float _timeInterval = 0.05f;
 
         public Runner_Death_Up(UnitData unitData)
         {
             Debugger.Log("runner is dead");
             _unitData = unitData;
+            _listStateComponents.Add(new FixedJump(this));
+        }
+
+        public override void OnEnter()
+        {
+            _unitData.verticalVelocity = StaticRefs.gameData.InitialUpForce;
+            _unitData.horizontalVelocity = 0f;
         }
 
         public override void Update()
         {
-            if (updateCount < 20)
-            {
-                _unitData.unitTransform.position += new Vector3(0f, 0.15f, 0f);
-            }
-            else
+            UpdateComponents();
+
+            if (_unitData.verticalVelocity <= 0f)
             {
                 nextState = new Runner_Death_Down(_unitData);
             }
@@ -29,6 +35,11 @@ namespace RB
         public override Hash128 GetAnimationHash()
         {
             return animationHash;
+        }
+
+        public override float GetNormalizedTime()
+        {
+            return _timeInterval * updateCount;
         }
     }
 }

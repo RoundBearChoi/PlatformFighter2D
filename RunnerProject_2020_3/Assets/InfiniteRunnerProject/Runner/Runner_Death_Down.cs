@@ -7,23 +7,35 @@ namespace RB
     public class Runner_Death_Down : State
     {
         static Hash128 animationHash = Hash128.Compute("Texture_SampleDeathAnimation");
+        float _timeInterval = 0.05f;
 
         public Runner_Death_Down(UnitData unitData)
         {
             _unitData = unitData;
+            _listStateComponents.Add(new FallThrough(this, -10f));
+        }
+
+        public override void OnEnter()
+        {
+            _unitData.horizontalVelocity = 0f;
         }
 
         public override void Update()
         {
             if (_unitData.unitTransform.position.y > -10)
             {
-                _unitData.unitTransform.position += new Vector3(0f, -0.2f, 0f);
+                UpdateComponents();
             }
         }
 
         public override Hash128 GetAnimationHash()
         {
             return animationHash;
+        }
+
+        public override float GetNormalizedTime()
+        {
+            return _timeInterval * updateCount;
         }
     }
 }
