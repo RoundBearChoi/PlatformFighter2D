@@ -25,7 +25,7 @@ namespace RB
 
             obstacle.transform.position += new Vector3(_runner.transform.position.x + 10f, 0f, 0f);
 
-            _gameStage.AddUnit(obstacle);
+            _gameStage.units.AddUnit(obstacle);
         }
     }
 }

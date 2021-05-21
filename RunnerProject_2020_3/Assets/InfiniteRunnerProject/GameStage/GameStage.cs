@@ -6,7 +6,7 @@ namespace RB
 {
     public class GameStage : Stage
     {
-        Units _units = new Units();
+        public Units units = new Units();
 
         private UI ui = null;
         private FixedUpdateCounter fixedUpdateCounter = new FixedUpdateCounter();
@@ -29,9 +29,9 @@ namespace RB
             ObstaclePlacerCreator opCreator = new ObstaclePlacerCreator(runner, this);
             Unit placer = opCreator.GetUnit();
 
-            _units.AddUnit(runner);
-            _units.AddUnit(cameraController);
-            _units.AddUnit(placer);
+            units.AddUnit(runner);
+            units.AddUnit(cameraController);
+            units.AddUnit(placer);
 
             ui = Instantiate(ResourceLoader.Get(typeof(UI))) as UI;
             ui.SetCounters(fixedUpdateCounter, updateCounter);
@@ -50,7 +50,7 @@ namespace RB
         public override void OnFixedUpdate()
         {
             fixedUpdateCounter.OnFixedUpdate();
-            _units.OnFixedUpdate();
+            units.OnFixedUpdate();
 
             foreach (KeyPress press in userInput.listPresses)
             {
@@ -68,11 +68,6 @@ namespace RB
             }
 
             userInput.listPresses.Clear();
-        }
-
-        public void AddUnit(Unit unit)
-        {
-            _units.AddUnit(unit);
         }
     }
 }
