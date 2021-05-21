@@ -16,7 +16,7 @@ namespace RB
         public uint health = 1;
         public Transform unitTransform = null;
 
-        public bool shouldDestroy = false;
+        public bool destroy = false;
 
         //public void Destroy()
         //{

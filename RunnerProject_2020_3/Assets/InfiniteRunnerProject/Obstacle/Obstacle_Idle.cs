@@ -25,8 +25,7 @@ namespace RB
         {
             if (_runner.transform.position.x >= _unitData.unitTransform.position.x + 15f)
             {
-                _unitData.shouldDestroy = true;
-                _unitData.unitTransform.position = new Vector3(0f, 1f, 1f);
+                _unitData.destroy = true;
             }
         }
 

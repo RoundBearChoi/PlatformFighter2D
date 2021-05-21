@@ -21,6 +21,7 @@ namespace RB
         {
             GameObject cameraConObj = new GameObject("cameraController(Clone)");
             Unit cameraController = cameraConObj.AddComponent<CameraController>();
+            cameraController.unitData = new UnitData(cameraController.transform);
             //cameraController.SetParent(_parentTransform);
             cameraController.transform.parent = _parentTransform;
             cameraController.transform.localPosition = Vector3.zero;

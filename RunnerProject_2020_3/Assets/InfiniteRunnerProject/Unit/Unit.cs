@@ -13,11 +13,6 @@ namespace RB
         public List<SpriteAnimation> listSpriteAnimations = new List<SpriteAnimation>();
         public IUpdater unitUpdater = null;
 
-        private void Start()
-        {
-            unitData = new UnitData(this.transform);
-        }
-
         public virtual void OnFixedUpdate()
         {
 

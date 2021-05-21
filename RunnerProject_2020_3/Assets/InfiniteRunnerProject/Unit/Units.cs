@@ -37,7 +37,7 @@ namespace RB
                     }
                 }
 
-                if (_listUnits[i].unitData.unitTransform.position == new Vector3(0f, 1f, 1f))
+                if (_listUnits[i].unitData.destroy)
                 {
                     GameObject.Destroy(_listUnits[i].gameObject);
                     _listUnits.RemoveAt(i);
