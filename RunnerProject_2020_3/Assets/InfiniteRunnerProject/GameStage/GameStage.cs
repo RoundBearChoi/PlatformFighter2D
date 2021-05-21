@@ -6,8 +6,6 @@ namespace RB
 {
     public class GameStage : Stage
     {
-        public Units units = new Units();
-
         private UI ui = null;
         private FixedUpdateCounter fixedUpdateCounter = new FixedUpdateCounter();
         private UpdateCounter updateCounter = new UpdateCounter();
@@ -20,18 +18,12 @@ namespace RB
         {
             StaticRefs.gameData = gameDataScriptableObj;
 
-            RunnerCreator runnerCreator = new RunnerCreator(userInput, this.transform);
-            Unit runner = runnerCreator.GetUnit();
+            _listUnitCreators.Add(new RunnerCreator(userInput, this.transform));
+            CreateUnits();
 
-            CameraControllerCreator cameraCreator = new CameraControllerCreator(this.transform, runner, FindObjectOfType<Camera>());
-            Unit cameraController = cameraCreator.GetUnit();
-
-            ObstaclePlacerCreator opCreator = new ObstaclePlacerCreator(runner, this);
-            Unit placer = opCreator.GetUnit();
-
-            units.AddUnit(runner);
-            units.AddUnit(cameraController);
-            units.AddUnit(placer);
+            _listUnitCreators.Add(new CameraControllerCreator(this.transform, units.GetUnit(0), FindObjectOfType<Camera>()));
+            _listUnitCreators.Add(new ObstaclePlacerCreator(units.GetUnit(0), this));
+            CreateUnits();
 
             ui = Instantiate(ResourceLoader.Get(typeof(UI))) as UI;
             ui.SetCounters(fixedUpdateCounter, updateCounter);
@@ -45,6 +37,8 @@ namespace RB
             updateCounter.OnUpdate();
             userInput.OnUpdate();
             ui.OnUpdate();
+
+            CreateUnits();
         }
 
         public override void OnFixedUpdate()

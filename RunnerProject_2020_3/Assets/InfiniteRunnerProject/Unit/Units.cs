@@ -13,6 +13,11 @@ namespace RB
             _listUnits.Add(unit);
         }
 
+        public Unit GetUnit(int index)
+        {
+            return _listUnits[index];
+        }
+
         public void OnFixedUpdate()
         {
             for (int i = _listUnits.Count - 1; i >= 0; i--)
