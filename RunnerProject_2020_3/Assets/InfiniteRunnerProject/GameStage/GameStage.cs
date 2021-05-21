@@ -18,12 +18,12 @@ namespace RB
         {
             StaticRefs.gameData = gameDataScriptableObj;
 
-            _listUnitCreators.Add(new RunnerCreator(userInput, this.transform));
-            CreateUnits();
+            units.AddCreator(new RunnerCreator(userInput, this.transform));
+            units.CreateUnits();
 
-            _listUnitCreators.Add(new CameraControllerCreator(this.transform, units.GetUnit(0), FindObjectOfType<Camera>()));
-            _listUnitCreators.Add(new ObstaclePlacerCreator(units.GetUnit(0), this));
-            CreateUnits();
+            units.AddCreator(new CameraControllerCreator(this.transform, units.GetUnit(0), FindObjectOfType<Camera>()));
+            units.AddCreator(new ObstaclePlacerCreator(units.GetUnit(0), this));
+            units.CreateUnits();
 
             ui = Instantiate(ResourceLoader.Get(typeof(UI))) as UI;
             ui.SetCounters(fixedUpdateCounter, updateCounter);
@@ -38,7 +38,7 @@ namespace RB
             userInput.OnUpdate();
             ui.OnUpdate();
 
-            CreateUnits();
+            units.CreateUnits();
         }
 
         public override void OnFixedUpdate()

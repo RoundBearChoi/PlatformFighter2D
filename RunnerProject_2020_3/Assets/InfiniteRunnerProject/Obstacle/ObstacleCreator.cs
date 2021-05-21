@@ -38,6 +38,9 @@ namespace RB
             obstacle.listSpriteAnimations.Add(boxSprite.AddComponent<SpriteAnimation>());
             obstacle.listSpriteAnimations[obstacle.listSpriteAnimations.Count - 1].Init(new SpriteAnimationSpecs("Texture_White100x100", 10, new Vector2(1f, 1f), OffsetType.BOTTOM_CENTER));
 
+            //set initial obstacle position in relation to the runner
+            obstacle.transform.position = new Vector3(_runner.transform.position.x + 10f, 0f, 0f);
+
             return obstacle;
         }
     }

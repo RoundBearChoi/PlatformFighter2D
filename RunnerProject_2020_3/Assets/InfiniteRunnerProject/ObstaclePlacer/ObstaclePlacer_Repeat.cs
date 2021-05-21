@@ -18,14 +18,8 @@ namespace RB
 
         public override void Update()
         {
-            Debugger.Log("updating obstacle placer..");
-
-            ObstacleCreator obstacleCreator = new ObstacleCreator(_gameStage.transform, _runner);
-            Unit obstacle = obstacleCreator.GetUnit();
-
-            obstacle.transform.position += new Vector3(_runner.transform.position.x + 10f, 0f, 0f);
-
-            _gameStage.units.AddUnit(obstacle);
+            Debugger.Log("creating an obstacle..");
+            _gameStage.units.AddCreator(new ObstacleCreator(_gameStage.transform, _runner));
         }
     }
 }

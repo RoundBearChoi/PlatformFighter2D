@@ -7,15 +7,32 @@ namespace RB
     public class Units
     {
         private List<Unit> _listUnits = new List<Unit>();
+        private List<UnitCreator> _listUnitCreators = new List<UnitCreator>();
 
-        public void AddUnit(Unit unit)
+        //public void AddUnit(Unit unit)
+        //{
+        //    _listUnits.Add(unit);
+        //}
+
+        public void AddCreator(UnitCreator creator)
         {
-            _listUnits.Add(unit);
+            _listUnitCreators.Add(creator);
         }
 
         public Unit GetUnit(int index)
         {
             return _listUnits[index];
+        }
+
+        public void CreateUnits()
+        {
+            foreach (UnitCreator creator in _listUnitCreators)
+            {
+                Unit unit = creator.GetUnit();
+                _listUnits.Add(unit);
+            }
+
+            _listUnitCreators.Clear();
         }
 
         public void OnFixedUpdate()
