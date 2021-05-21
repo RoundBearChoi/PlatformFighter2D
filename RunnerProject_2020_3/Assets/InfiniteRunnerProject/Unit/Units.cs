@@ -9,11 +9,6 @@ namespace RB
         private List<Unit> _listUnits = new List<Unit>();
         private List<UnitCreator> _listUnitCreators = new List<UnitCreator>();
 
-        //public void AddUnit(Unit unit)
-        //{
-        //    _listUnits.Add(unit);
-        //}
-
         public void AddCreator(UnitCreator creator)
         {
             _listUnitCreators.Add(creator);
