@@ -28,7 +28,7 @@ namespace RB
             if (unitData.health > 0)
             {
                 unitData.health--;
-                stateController.currentState.nextState = StateFactory.Create_Runner_Death_Up(unitData);
+                stateController.currentState.nextState = new Runner_Death_Up(unitData);
             }
         }
     }

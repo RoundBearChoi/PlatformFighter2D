@@ -33,7 +33,7 @@ namespace RB
             if (_unitData.unitTransform.position.y <= 0f)
             {
                 _unitData.unitTransform.position = new Vector3(_unitData.unitTransform.position.x, 0f, _unitData.unitTransform.position.z);
-                nextState = StateFactory.Create_Runner_NormalRun(_unitData, _userInput);
+                nextState = new Runner_NormalRun(_unitData, _userInput);
             }
         }
 

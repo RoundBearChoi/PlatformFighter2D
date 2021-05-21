@@ -22,7 +22,7 @@ namespace RB
             }
             else
             {
-                nextState = StateFactory.Create_Runner_Death_Down(_unitData);
+                nextState = new Runner_Death_Down(_unitData);
             }
         }
 

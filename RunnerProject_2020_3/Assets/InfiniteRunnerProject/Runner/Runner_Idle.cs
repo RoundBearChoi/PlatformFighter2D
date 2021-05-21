@@ -14,7 +14,7 @@ namespace RB
 
         public override void Update()
         {
-            nextState = StateFactory.Create_Runner_NormalRun(_unitData, _userInput);
+            nextState = new Runner_NormalRun(_unitData, _userInput);
         }
     }
 }

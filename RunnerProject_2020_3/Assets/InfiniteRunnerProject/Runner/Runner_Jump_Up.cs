@@ -32,7 +32,7 @@ namespace RB
             else
             {
                 _unitData.verticalVelocity = 0f;
-                nextState = StateFactory.Create_Runner_Jump_Fall(_unitData, _userInput);
+                nextState = new Runner_Jump_Fall(_unitData, _userInput);
             }
         }
 
