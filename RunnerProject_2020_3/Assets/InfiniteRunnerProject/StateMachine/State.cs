@@ -40,5 +40,13 @@ namespace RB
         {
             return 0f;
         }
+
+        public virtual void UpdateComponents()
+        {
+            foreach (StateComponent component in _listStateComponents)
+            {
+                component.Update();
+            }
+        }
     }
 }

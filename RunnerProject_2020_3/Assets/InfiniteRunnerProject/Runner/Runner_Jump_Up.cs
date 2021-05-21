@@ -24,10 +24,7 @@ namespace RB
 
         public override void Update()
         {
-            foreach(StateComponent component in _listStateComponents)
-            {
-                component.Update();
-            }
+            UpdateComponents();
 
             if (_unitData.verticalVelocity <= 0f)
             {

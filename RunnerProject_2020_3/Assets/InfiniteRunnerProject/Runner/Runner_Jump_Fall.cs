@@ -13,6 +13,7 @@ namespace RB
         {
             _unitData = data;
             _userInput = input;
+            _listStateComponents.Add(new FixedFall(this));
         }
 
         public override void OnEnter()
@@ -22,17 +23,10 @@ namespace RB
 
         public override void Update()
         {
-            float fall = StaticRefs.gameData.JumpFall.Evaluate(_timeInterval * updateCount);
+            UpdateComponents();
 
-            if (_unitData.unitTransform.position.y > 0f)
-            {
-                _unitData.verticalVelocity -= fall;
-                _unitData.unitTransform.position += new Vector3(_unitData.horizontalVelocity, _unitData.verticalVelocity, 0f);
-            }
-            
             if (_unitData.unitTransform.position.y <= 0f)
             {
-                _unitData.unitTransform.position = new Vector3(_unitData.unitTransform.position.x, 0f, _unitData.unitTransform.position.z);
                 nextState = new Runner_NormalRun(_unitData, _userInput);
             }
         }
@@ -40,6 +34,11 @@ namespace RB
         public override Hash128 GetAnimationHash()
         {
             return animationHash;
+        }
+
+        public override float GetNormalizedTime()
+        {
+            return _timeInterval * updateCount;
         }
     }
 }
