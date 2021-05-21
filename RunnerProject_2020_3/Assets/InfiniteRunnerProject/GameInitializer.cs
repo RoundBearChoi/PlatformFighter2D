@@ -7,38 +7,31 @@ namespace RB
     public class GameInitializer : MonoBehaviour
     {
         Stage _currentStage = null;
-        public IStageTransition stageTransition = null;
+        public List<IStageTransition> listStageTransitions = new List<IStageTransition>();
 
         private void Start()
         {
             ResourceLoader.Init();
-
             IntroStageTransition introStageTransition = new IntroStageTransition(this);
-
             _currentStage = introStageTransition.MakeTransition();
         }
 
         private void Update()
         {
-            if (_currentStage != null)
-            {
-                _currentStage.OnUpdate();
+            _currentStage.OnUpdate();
 
-                if (stageTransition != null)
-                {
-                    Destroy(_currentStage.gameObject);
-                    _currentStage = stageTransition.MakeTransition();
-                    stageTransition = null;
-                }
+            foreach(IStageTransition transition in listStageTransitions)
+            {
+                Destroy(_currentStage.gameObject);
+                _currentStage = transition.MakeTransition();
             }
+
+            listStageTransitions.Clear();
         }
 
         private void FixedUpdate()
         {
-            if (_currentStage != null)
-            {
-                _currentStage.OnFixedUpdate();
-            }
+            _currentStage.OnFixedUpdate();
         }
     }
 }

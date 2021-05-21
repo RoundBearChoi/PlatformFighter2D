@@ -22,7 +22,7 @@ namespace RB
         {
             if (_keyboard.enterKey.wasPressedThisFrame)
             {
-                _gameIntializer.stageTransition = new GameStageTransition(_gameIntializer);
+                _gameIntializer.listStageTransitions.Add(new GameStageTransition(_gameIntializer));
             }
         }
     }

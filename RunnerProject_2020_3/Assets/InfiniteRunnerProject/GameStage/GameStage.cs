@@ -50,13 +50,13 @@ namespace RB
             {
                 if (press.keyCode == KeyCode.F5)
                 {
-                    _gameIntializer.stageTransition = new GameStageTransition(_gameIntializer);
+                    _gameIntializer.listStageTransitions.Add(new GameStageTransition(_gameIntializer));
                     break;
                 }
 
                 if (press.keyCode == KeyCode.F6)
                 {
-                    _gameIntializer.stageTransition = new IntroStageTransition(_gameIntializer);
+                    _gameIntializer.listStageTransitions.Add(new IntroStageTransition(_gameIntializer));
                     break;
                 }
             }
