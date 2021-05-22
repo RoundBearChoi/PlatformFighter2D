@@ -38,10 +38,8 @@ namespace RB
 
         public void OnFixedUpdate()
         {
-            foreach(UIBlock uiBlock in _listUIBlocks)
-            {
-                uiBlock.UpdateUIBlock();
-            }
+            //only update the latest block
+            _listUIBlocks[_listUIBlocks.Count - 1].UpdateUIBlock();
 
             foreach(IMessage message in _listMessages)
             {
