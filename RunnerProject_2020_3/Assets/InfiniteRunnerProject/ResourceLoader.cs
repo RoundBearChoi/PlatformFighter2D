@@ -29,6 +29,9 @@ namespace RB
             UI ui = Resources.Load("UI", typeof(UI)) as UI;
             dicResources.Add(ui.GetType(), ui);
 
+            RunnerDeathNotification deathNotification = Resources.Load("RunnerDeathNotification", typeof(RunnerDeathNotification)) as RunnerDeathNotification;
+            dicResources.Add(deathNotification.GetType(), deathNotification);
+
             //dicSprites.Add(SpriteType.RUNNER_SAMPLE, Resources.Load("Sprite_RunnerSample") as GameObject);
             dicSprites.Add(SpriteType.WHITE_BOX, Resources.Load("Sprite_WhiteBox") as GameObject);
         }
