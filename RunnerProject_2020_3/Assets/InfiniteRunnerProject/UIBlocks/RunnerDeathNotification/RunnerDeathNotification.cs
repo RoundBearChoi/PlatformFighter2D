@@ -8,6 +8,7 @@ namespace RB
     public class RunnerDeathNotification : UIBlock
     {
         private UserInput _userInput = null;
+        private AfterDeathSelection afterDeathSelection = AfterDeathSelection.RETURN_TO_MENU;
 
         public override void UpdateUIBlock()
         {
@@ -15,13 +16,27 @@ namespace RB
             {
                 if (press.keyCode == KeyCode.UpArrow)
                 {
-                    Debugger.Log("ui registers UpArrow key");
+                    afterDeathSelection++;
+                    Debugger.Log("afterDeathSelection: " + afterDeathSelection.ToString());
                 }
 
                 if (press.keyCode == KeyCode.DownArrow)
                 {
-                    Debugger.Log("ui registers DownArrow key");
+                    afterDeathSelection--;
+                    Debugger.Log("afterDeathSelection: " + afterDeathSelection.ToString());
                 }
+            }
+
+            if (afterDeathSelection >= AfterDeathSelection.COUNT)
+            {
+                afterDeathSelection = AfterDeathSelection.RETURN_TO_MENU;
+                Debugger.Log("afterDeathSelection: " + afterDeathSelection.ToString());
+            }
+
+            if (afterDeathSelection < AfterDeathSelection.RETURN_TO_MENU)
+            {
+                afterDeathSelection = AfterDeathSelection.RESTART_GAME;
+                Debugger.Log("afterDeathSelection: " + afterDeathSelection.ToString());
             }
         }
 
