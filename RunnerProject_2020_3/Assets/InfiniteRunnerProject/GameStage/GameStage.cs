@@ -30,6 +30,8 @@ namespace RB
             ui.transform.parent = this.transform;
             ui.transform.localPosition = Vector3.zero;
             ui.transform.localRotation = Quaternion.identity;
+
+            UIMessage.ui = ui;
         }
 
         public override void OnUpdate()
@@ -45,6 +47,7 @@ namespace RB
         {
             fixedUpdateCounter.OnFixedUpdate();
             units.OnFixedUpdate();
+            ui.OnFixedUpdate();
 
             foreach (KeyPress press in userInput.listPresses)
             {

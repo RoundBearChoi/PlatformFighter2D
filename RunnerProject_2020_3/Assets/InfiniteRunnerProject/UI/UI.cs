@@ -9,6 +9,7 @@ namespace RB
     {
         private FixedUpdateCounter fixedUpdateCounter = null;
         private UpdateCounter updateCounter = null;
+        private List<IMessage> _listMessages = new List<IMessage>();
 
         public Text text_fixedUpdate = null;
         public Text text_FPS = null;
@@ -23,6 +24,21 @@ namespace RB
         {
             text_fixedUpdate.text = "FixedUpdate count: " + fixedUpdateCounter.GetCount();
             text_FPS.text = "FPS: " + updateCounter.GetCount();
+        }
+
+        public void OnFixedUpdate()
+        {
+            foreach(IMessage message in _listMessages)
+            {
+                Debugger.Log("UI message found");
+            }
+
+            _listMessages.Clear();
+        }
+
+        public void AddMessage(IMessage message)
+        {
+            _listMessages.Add(message);
         }
     }
 }

@@ -20,6 +20,9 @@ namespace RB
         {
             _unitData.verticalVelocity = StaticRefs.gameData.InitialUpForce;
             _unitData.horizontalVelocity = 0f;
+
+            IMessage message = new UIMessage("runner is dead");
+            message.Register();
         }
 
         public override void Update()
