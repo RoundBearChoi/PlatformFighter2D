@@ -12,6 +12,7 @@ namespace RB
         private List<IMessage> _listMessages = new List<IMessage>();
         private Canvas _canvas = null;
         private List<UIBlock> _listUIBlocks = new List<UIBlock>();
+        private UserInput _userInput = null;
 
         public Text text_fixedUpdate = null;
         public Text text_FPS = null;
@@ -30,10 +31,28 @@ namespace RB
             updateCounter = _updateCounter;
         }
 
+        public void SetInput(UserInput input)
+        {
+            _userInput = input;
+        }
+
         public void OnUpdate()
         {
             text_fixedUpdate.text = "FixedUpdate count: " + fixedUpdateCounter.GetCount();
             text_FPS.text = "FPS: " + updateCounter.GetCount();
+
+            foreach(KeyPress press in _userInput.listPresses)
+            {
+                if (press.keyCode == KeyCode.UpArrow)
+                {
+                    Debugger.Log("ui registers UpArrow key");
+                }
+
+                if (press.keyCode == KeyCode.DownArrow)
+                {
+                    Debugger.Log("ui registers DownArrow key");
+                }
+            }
         }
 
         public void OnFixedUpdate()

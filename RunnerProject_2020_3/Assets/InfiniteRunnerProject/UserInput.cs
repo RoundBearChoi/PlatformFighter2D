@@ -18,6 +18,18 @@ namespace RB
 
         public void OnUpdate()
         {
+            if (keyboard.upArrowKey.wasPressedThisFrame)
+            {
+                KeyPress upArrow = new KeyPress(KeyCode.UpArrow);
+                listPresses.Add(upArrow);
+            }
+
+            if (keyboard.downArrowKey.wasPressedThisFrame)
+            {
+                KeyPress downArrow = new KeyPress(KeyCode.DownArrow);
+                listPresses.Add(downArrow);
+            }
+
             if (keyboard.f5Key.wasPressedThisFrame)
             {
                 KeyPress f5 = new KeyPress(KeyCode.F5);
