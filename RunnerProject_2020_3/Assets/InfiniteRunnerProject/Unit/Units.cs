@@ -32,6 +32,7 @@ namespace RB
 
         public void OnFixedUpdate()
         {
+            //main update
             for (int i = _listUnits.Count - 1; i >= 0; i--)
             {
                 _listUnits[i].MatchAnimationToState();
@@ -53,7 +54,11 @@ namespace RB
                         _listUnits[i].collisionDetector.listCollidedGameObjects.Clear();
                     }
                 }
+            }
 
+            //destroy after update
+            for (int i = _listUnits.Count - 1; i >= 0; i--)
+            {
                 if (_listUnits[i].unitData.destroy)
                 {
                     GameObject.Destroy(_listUnits[i].gameObject);
