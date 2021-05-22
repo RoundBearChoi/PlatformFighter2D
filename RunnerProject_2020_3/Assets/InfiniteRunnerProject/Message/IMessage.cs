@@ -7,5 +7,6 @@ namespace RB
     public interface IMessage
     {
         public abstract void Register();
+        public abstract string GetStringMessage();
     }
 }

@@ -30,7 +30,10 @@ namespace RB
         {
             foreach(IMessage message in _listMessages)
             {
-                Debugger.Log("UI message found");
+                if (message.GetStringMessage().Equals("runner is dead"))
+                {
+                    Debugger.Log("ui knows runner is dead");
+                }
             }
 
             _listMessages.Clear();

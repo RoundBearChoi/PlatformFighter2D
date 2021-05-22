@@ -7,16 +7,22 @@ namespace RB
     public class UIMessage : IMessage
     {
         public static UI ui = null;
-        public string message = string.Empty;
+        
+        private string _message = string.Empty;
 
-        public UIMessage(string str)
+        public UIMessage(string message)
         {
-            message = str;
+            _message = message;
         }
 
         public void Register()
         {
             ui.AddMessage(this);
+        }
+
+        public string GetStringMessage()
+        {
+            return _message;
         }
     }
 }
