@@ -19,6 +19,9 @@ namespace RB
         private void Start()
         {
             _canvas = this.gameObject.GetComponentInChildren<Canvas>();
+
+            DefaultUIBlock defaultUIBlock = Instantiate(ResourceLoader.Get(typeof(DefaultUIBlock)) as DefaultUIBlock, _canvas.transform);
+            _listUIBlocks.Add(defaultUIBlock);
         }
 
         public void SetCounters(FixedUpdateCounter _fixedUpdateCounter, UpdateCounter _updateCounter)
