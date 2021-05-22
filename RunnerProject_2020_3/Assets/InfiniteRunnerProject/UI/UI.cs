@@ -40,19 +40,6 @@ namespace RB
         {
             text_fixedUpdate.text = "FixedUpdate count: " + fixedUpdateCounter.GetCount();
             text_FPS.text = "FPS: " + updateCounter.GetCount();
-
-            foreach(KeyPress press in _userInput.listPresses)
-            {
-                if (press.keyCode == KeyCode.UpArrow)
-                {
-                    Debugger.Log("ui registers UpArrow key");
-                }
-
-                if (press.keyCode == KeyCode.DownArrow)
-                {
-                    Debugger.Log("ui registers DownArrow key");
-                }
-            }
         }
 
         public void OnFixedUpdate()
@@ -79,6 +66,7 @@ namespace RB
             {
                 Debugger.Log("ui knows runner is dead");
                 RunnerDeathNotification notification = Instantiate(ResourceLoader.Get(typeof(RunnerDeathNotification)) as RunnerDeathNotification, _canvas.transform);
+                notification.SetUserInput(_userInput);
                 _listUIBlocks.Add(notification);
             }
         }
