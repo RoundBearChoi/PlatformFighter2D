@@ -6,7 +6,7 @@ namespace RB
 {
     public class Runner_Jump_Up : State
     {
-        static Hash128 animationHash = Hash128.Compute("Texture_SampleRunAnimation");
+        static Hash128 animationHash = Hash128.Compute("Texture_RunCycle");
         float _timeInterval = 0.025f;
 
         public Runner_Jump_Up(UnitData data, UserInput input)

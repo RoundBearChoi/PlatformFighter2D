@@ -7,7 +7,7 @@ namespace RB
 {
     public class Runner_NormalRun : State
     {
-        static Hash128 animationHash = Hash128.Compute("Texture_SampleRunAnimation");
+        static Hash128 animationHash = Hash128.Compute("Texture_RunCycle");
 
         public Runner_NormalRun(UnitData data, UserInput input)
         {
