@@ -9,7 +9,6 @@ namespace RB
         public Units units = new Units();
 
         protected GameInitializer _gameIntializer = null;
-        //protected List<UnitCreator> _listUnitCreators = new List<UnitCreator>();
 
         public virtual void Init()
         {
