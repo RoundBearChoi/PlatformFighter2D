@@ -23,9 +23,6 @@ namespace RB
             Obstacle obstacle = Resources.Load("Obstacle", typeof(Obstacle)) as Obstacle;
             dicResources.Add(obstacle.GetType(), obstacle);
 
-            CollisionDetector collisionDetector = Resources.Load("CollisionDetector", typeof(CollisionDetector)) as CollisionDetector;
-            dicResources.Add(collisionDetector.GetType(), collisionDetector);
-
             UI ui = Resources.Load("UI", typeof(UI)) as UI;
             dicResources.Add(ui.GetType(), ui);
 

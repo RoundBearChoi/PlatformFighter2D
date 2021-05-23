@@ -25,11 +25,12 @@ namespace RB
             obstacle.transform.rotation = Quaternion.identity;
             obstacle.SetUpdater(new DefaultFixedUpdater(obstacle.stateController));
 
-            CollisionDetector obsCollider = GameObject.Instantiate(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
-            obsCollider.InitBoxCollider(new Vector2(1f, 1f));
-            obsCollider.transform.parent = obstacle.transform;
-            obsCollider.transform.localRotation = Quaternion.identity;
-            obsCollider.transform.localPosition = StaticRefs.gameData.ObstacleBoxColliderLocalPos;
+            GameObject detectorObj = new GameObject("CollisionDetector (Clone)");
+            CollisionDetector col = detectorObj.AddComponent<CollisionDetector>();
+            col.InitBoxCollider(new Vector2(1f, 1f));
+            col.transform.parent = obstacle.transform;
+            col.transform.localRotation = Quaternion.identity;
+            col.transform.localPosition = StaticRefs.gameData.ObstacleBoxColliderLocalPos;
 
             GameObject boxSprite = new GameObject("box sprite");
             boxSprite.transform.parent = obstacle.transform;

@@ -25,12 +25,13 @@ namespace RB
             runner.transform.localRotation = Quaternion.identity;
             runner.SetUpdater(new DefaultFixedUpdater(runner.stateController));
 
-            CollisionDetector runnerCollider = GameObject.Instantiate(ResourceLoader.Get(typeof(CollisionDetector)) as CollisionDetector);
-            runnerCollider.InitBoxCollider(new Vector2(2f, 3f));
-            runnerCollider.transform.parent = runner.transform;
-            runnerCollider.transform.localRotation = Quaternion.identity;
-            runnerCollider.transform.localPosition = StaticRefs.gameData.RunnerBoxColliderLocalPos;
-            runner.collisionDetector = runnerCollider;
+            GameObject detectorObj = new GameObject("CollisionDetector (Clone)");
+            CollisionDetector col = detectorObj.AddComponent<CollisionDetector>();
+            col.InitBoxCollider(new Vector2(2f, 3f));
+            col.transform.parent = runner.transform;
+            col.transform.localRotation = Quaternion.identity;
+            col.transform.localPosition = StaticRefs.gameData.RunnerBoxColliderLocalPos;
+            runner.collisionDetector = col;
 
             GameObject runSprite = new GameObject("runner sprite animation");
             runSprite.transform.parent = runner.transform;
