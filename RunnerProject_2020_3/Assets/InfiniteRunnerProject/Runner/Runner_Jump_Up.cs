@@ -13,7 +13,8 @@ namespace RB
         {
             _unitData = data;
             _userInput = input;
-            _listStateComponents.Add(new FixedJump(this));
+            //_listStateComponents.Add(new FixedJump(this));
+            _listStateComponents.Add(new ControlledJump(this, _userInput));
         }
 
         public override void OnEnter()

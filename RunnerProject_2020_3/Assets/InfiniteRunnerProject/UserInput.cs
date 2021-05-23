@@ -60,6 +60,11 @@ namespace RB
             return _dicPresses.ContainsKey(keyControl);
         }
 
+        public bool ContainsKeyHold(KeyControl keyControl)
+        {
+            return _dicHold.ContainsKey(keyControl);
+        }
+
         public void ClearPressDictionary()
         {
             _dicPresses.Clear();
