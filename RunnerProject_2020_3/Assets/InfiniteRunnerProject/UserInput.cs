@@ -2,51 +2,53 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 namespace RB
 {
     public class UserInput
     {
-        public List<KeyPress> listPresses = new List<KeyPress>();
+        private Dictionary<KeyControl, int> _dicPresses = new Dictionary<KeyControl, int>();
 
-        private Keyboard keyboard = null;
+        public static Keyboard keyboard = null;
 
         public UserInput()
         {
             keyboard = Keyboard.current;
         }
 
+        void UpdateKeyPress(KeyControl keyControl)
+        {
+            if (keyControl.wasPressedThisFrame)
+            {
+                if (_dicPresses.ContainsKey(keyControl))
+                {
+                    _dicPresses[keyControl]++;
+                }
+                else
+                {
+                    _dicPresses.Add(keyControl, 1);
+                }
+            }
+        }
+
         public void OnUpdate()
         {
-            if (keyboard.upArrowKey.wasPressedThisFrame)
-            {
-                KeyPress upArrow = new KeyPress(KeyCode.UpArrow);
-                listPresses.Add(upArrow);
-            }
+            UpdateKeyPress(keyboard.upArrowKey);
+            UpdateKeyPress(keyboard.downArrowKey);
+            UpdateKeyPress(keyboard.f5Key);
+            UpdateKeyPress(keyboard.f6Key);
+            UpdateKeyPress(keyboard.spaceKey);
+        }
 
-            if (keyboard.downArrowKey.wasPressedThisFrame)
-            {
-                KeyPress downArrow = new KeyPress(KeyCode.DownArrow);
-                listPresses.Add(downArrow);
-            }
+        public bool Contains(KeyControl keyControl)
+        {
+            return _dicPresses.ContainsKey(keyControl);
+        }
 
-            if (keyboard.f5Key.wasPressedThisFrame)
-            {
-                KeyPress f5 = new KeyPress(KeyCode.F5);
-                listPresses.Add(f5);
-            }
-
-            if (keyboard.f6Key.wasPressedThisFrame)
-            {
-                KeyPress f6 = new KeyPress(KeyCode.F6);
-                listPresses.Add(f6);
-            }
-
-            if (keyboard.spaceKey.wasPressedThisFrame)
-            {
-                KeyPress space = new KeyPress(KeyCode.Space);
-                listPresses.Add(space);
-            }
+        public void ClearPressDictionary()
+        {
+            _dicPresses.Clear();
         }
     }
 }

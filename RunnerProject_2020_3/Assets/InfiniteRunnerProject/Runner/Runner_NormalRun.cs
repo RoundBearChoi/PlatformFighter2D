@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.Controls;
 
 namespace RB
 {
@@ -21,7 +22,7 @@ namespace RB
 
         public override void Update()
         {
-            if (JumpIsTriggered(_userInput))
+            if (_userInput.Contains(UserInput.keyboard.spaceKey) /*JumpIsTriggered(_userInput)*/)
             {
                 nextState = new Runner_Jump_Up(_unitData, _userInput);
             }
@@ -33,19 +34,6 @@ namespace RB
                     _unitData.unitTransform.position += new Vector3(_unitData.horizontalVelocity, 0f, 0f);
                 }
             }
-        }
-
-        bool JumpIsTriggered(UserInput userInput)
-        {
-            foreach (KeyPress press in userInput.listPresses)
-            {
-                if (press.keyCode == KeyCode.Space)
-                {
-                    return true;
-                }
-            }
-
-            return false;
         }
 
         public override Hash128 GetAnimationHash()

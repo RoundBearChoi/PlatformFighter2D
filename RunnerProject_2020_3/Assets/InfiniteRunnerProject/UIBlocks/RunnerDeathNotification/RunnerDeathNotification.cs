@@ -12,19 +12,16 @@ namespace RB
 
         public override void UpdateUIBlock()
         {
-            foreach (KeyPress press in _userInput.listPresses)
+            if (_userInput.Contains(UserInput.keyboard.upArrowKey))
             {
-                if (press.keyCode == KeyCode.UpArrow)
-                {
-                    afterDeathSelection++;
-                    Debugger.Log("afterDeathSelection: " + afterDeathSelection.ToString());
-                }
+                afterDeathSelection++;
+                Debugger.Log("afterDeathSelection: " + afterDeathSelection.ToString());
+            }
 
-                if (press.keyCode == KeyCode.DownArrow)
-                {
-                    afterDeathSelection--;
-                    Debugger.Log("afterDeathSelection: " + afterDeathSelection.ToString());
-                }
+            if (_userInput.Contains(UserInput.keyboard.downArrowKey))
+            {
+                afterDeathSelection--;
+                Debugger.Log("afterDeathSelection: " + afterDeathSelection.ToString());
             }
 
             if (afterDeathSelection >= AfterDeathSelection.COUNT)

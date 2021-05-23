@@ -9,7 +9,7 @@ namespace RB
         private UI ui = null;
         private FixedUpdateCounter fixedUpdateCounter = new FixedUpdateCounter();
         private UpdateCounter updateCounter = new UpdateCounter();
-        private UserInput userInput = new UserInput();
+        private UserInput _userInput = new UserInput();
 
         [SerializeField]
         private GameData gameDataScriptableObj = null;
@@ -18,7 +18,7 @@ namespace RB
         {
             StaticRefs.gameData = gameDataScriptableObj;
 
-            units.AddCreator(new RunnerCreator(userInput, this.transform));
+            units.AddCreator(new RunnerCreator(_userInput, this.transform));
             units.CreateUnits();
 
             units.AddCreator(new CameraControllerCreator(this.transform, units.GetUnit(0), FindObjectOfType<Camera>()));
@@ -27,7 +27,7 @@ namespace RB
 
             ui = Instantiate(ResourceLoader.Get(typeof(UI))) as UI;
             ui.SetCounters(fixedUpdateCounter, updateCounter);
-            ui.SetInput(userInput);
+            ui.SetInput(_userInput);
             ui.transform.parent = this.transform;
             ui.transform.localPosition = Vector3.zero;
             ui.transform.localRotation = Quaternion.identity;
@@ -38,7 +38,7 @@ namespace RB
         public override void OnUpdate()
         {
             updateCounter.OnUpdate();
-            userInput.OnUpdate();
+            _userInput.OnUpdate();
             ui.OnUpdate();
 
             units.CreateUnits();
@@ -50,22 +50,17 @@ namespace RB
             units.OnFixedUpdate();
             ui.OnFixedUpdate();
 
-            foreach (KeyPress press in userInput.listPresses)
+            if (_userInput.Contains(UserInput.keyboard.f5Key))
             {
-                if (press.keyCode == KeyCode.F5)
-                {
-                    _gameIntializer.listStageTransitions.Add(new GameStageTransition(_gameIntializer));
-                    break;
-                }
-
-                if (press.keyCode == KeyCode.F6)
-                {
-                    _gameIntializer.listStageTransitions.Add(new IntroStageTransition(_gameIntializer));
-                    break;
-                }
+                _gameIntializer.listStageTransitions.Add(new GameStageTransition(_gameIntializer));
             }
 
-            userInput.listPresses.Clear();
+            if (_userInput.Contains(UserInput.keyboard.f6Key))
+            {
+                _gameIntializer.listStageTransitions.Add(new IntroStageTransition(_gameIntializer));
+            }
+
+            _userInput.ClearPressDictionary();
         }
     }
 }
