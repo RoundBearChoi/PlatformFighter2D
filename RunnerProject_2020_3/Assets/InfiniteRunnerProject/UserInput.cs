@@ -9,6 +9,7 @@ namespace RB
     public class UserInput
     {
         private Dictionary<KeyControl, int> _dicPresses = new Dictionary<KeyControl, int>();
+        private Dictionary<KeyControl, int> _dicHold = new Dictionary<KeyControl, int>();
 
         public static Keyboard keyboard = null;
 
@@ -29,6 +30,19 @@ namespace RB
                 {
                     _dicPresses.Add(keyControl, 1);
                 }
+
+                if (!_dicHold.ContainsKey(keyControl))
+                {
+                    _dicHold.Add(keyControl, 0);
+                }
+            }
+
+            if (keyControl.wasReleasedThisFrame)
+            {
+                if (_dicHold.ContainsKey(keyControl))
+                {
+                    _dicHold.Remove(keyControl);
+                }
             }
         }
 
@@ -41,7 +55,7 @@ namespace RB
             UpdateKeyPress(keyboard.spaceKey);
         }
 
-        public bool Contains(KeyControl keyControl)
+        public bool ContainsKeyPress(KeyControl keyControl)
         {
             return _dicPresses.ContainsKey(keyControl);
         }

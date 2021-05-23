@@ -50,12 +50,12 @@ namespace RB
             units.OnFixedUpdate();
             ui.OnFixedUpdate();
 
-            if (_userInput.Contains(UserInput.keyboard.f5Key))
+            if (_userInput.ContainsKeyPress(UserInput.keyboard.f5Key))
             {
                 _gameIntializer.listStageTransitions.Add(new GameStageTransition(_gameIntializer));
             }
 
-            if (_userInput.Contains(UserInput.keyboard.f6Key))
+            if (_userInput.ContainsKeyPress(UserInput.keyboard.f6Key))
             {
                 _gameIntializer.listStageTransitions.Add(new IntroStageTransition(_gameIntializer));
             }

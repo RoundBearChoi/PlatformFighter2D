@@ -22,7 +22,7 @@ namespace RB
 
         public override void Update()
         {
-            if (_userInput.Contains(UserInput.keyboard.spaceKey) /*JumpIsTriggered(_userInput)*/)
+            if (_userInput.ContainsKeyPress(UserInput.keyboard.spaceKey) /*JumpIsTriggered(_userInput)*/)
             {
                 nextState = new Runner_Jump_Up(_unitData, _userInput);
             }
