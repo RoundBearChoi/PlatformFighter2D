@@ -15,7 +15,6 @@ namespace RB
 
         public Stage MakeTransition()
         {
-            //temp - will no longer use prefabs
             Stage introStage = GameObject.Instantiate(ResourceLoader.Get(typeof(IntroStage))) as Stage;
             introStage.SetInitializer(_gameInitializer);
             introStage.transform.parent = _gameInitializer.transform;

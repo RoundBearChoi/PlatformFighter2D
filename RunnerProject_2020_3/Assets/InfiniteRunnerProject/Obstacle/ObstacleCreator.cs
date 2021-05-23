@@ -27,7 +27,7 @@ namespace RB
 
             GameObject detectorObj = new GameObject("CollisionDetector (Clone)");
             CollisionDetector col = detectorObj.AddComponent<CollisionDetector>();
-            col.InitBoxCollider(new Vector2(1f, 1f));
+            col.InitBoxCollider(StaticRefs.gameData.ObstacleBoxColliderSize);
             col.transform.parent = obstacle.transform;
             col.transform.localRotation = Quaternion.identity;
             col.transform.localPosition = StaticRefs.gameData.ObstacleBoxColliderLocalPos;
@@ -37,7 +37,7 @@ namespace RB
             boxSprite.transform.localPosition = Vector3.zero;
             boxSprite.transform.localRotation = Quaternion.identity;
             obstacle.listSpriteAnimations.Add(boxSprite.AddComponent<SpriteAnimation>());
-            obstacle.listSpriteAnimations[obstacle.listSpriteAnimations.Count - 1].Init(new SpriteAnimationSpecs("Texture_White100x100", 10, new Vector2(1f, 1f), OffsetType.BOTTOM_CENTER));
+            obstacle.listSpriteAnimations[obstacle.listSpriteAnimations.Count - 1].Init(new SpriteAnimationSpecs("Texture_BlockEnemy", 10, StaticRefs.gameData.ObstacleSpriteSize, OffsetType.BOTTOM_CENTER));
 
             //set initial obstacle position in relation to the runner
             obstacle.transform.position = new Vector3(_runner.transform.position.x + 10f, 0f, 0f);
