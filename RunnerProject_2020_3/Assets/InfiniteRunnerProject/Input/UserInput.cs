@@ -9,7 +9,7 @@ namespace RB
     public class UserInput
     {
         private Dictionary<KeyControl, int> _dicPresses = new Dictionary<KeyControl, int>();
-        private Dictionary<KeyControl, int> _dicHold = new Dictionary<KeyControl, int>();
+        private List<KeyControl> _listHolds = new List<KeyControl>();
 
         public static Keyboard keyboard = null;
 
@@ -31,17 +31,17 @@ namespace RB
                     _dicPresses.Add(keyControl, 1);
                 }
 
-                if (!_dicHold.ContainsKey(keyControl))
+                if (!ContainsKeyHold(keyControl))
                 {
-                    _dicHold.Add(keyControl, 0);
+                    _listHolds.Add(keyControl);
                 }
             }
 
             if (keyControl.wasReleasedThisFrame)
             {
-                if (_dicHold.ContainsKey(keyControl))
+                if (ContainsKeyHold(keyControl))
                 {
-                    _dicHold.Remove(keyControl);
+                    RemoveKeyHold(keyControl);
                 }
             }
         }
@@ -62,7 +62,27 @@ namespace RB
 
         public bool ContainsKeyHold(KeyControl keyControl)
         {
-            return _dicHold.ContainsKey(keyControl);
+            foreach(KeyControl key in _listHolds)
+            {
+                if (keyControl == key)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public void RemoveKeyHold(KeyControl keyControl)
+        {
+            for (int i = _listHolds.Count - 1; i >= 0; i--)
+            {
+                if (_listHolds[i] == keyControl)
+                {
+                    _listHolds.RemoveAt(i);
+                    return;
+                }
+            }
         }
 
         public void ClearPressDictionary()
