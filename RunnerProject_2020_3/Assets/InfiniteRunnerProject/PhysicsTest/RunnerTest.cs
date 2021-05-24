@@ -14,11 +14,13 @@ namespace RB.PhysicsTest
         private Keyboard _keyboard = null;
         private List<KeyControl> _listPresses = new List<KeyControl>();
         private Rigidbody2D _rigidbody = null;
+        private BoxCollider2D _collider2D = null;
 
         private void Start()
         {
             _keyboard = Keyboard.current;
             _rigidbody = this.gameObject.GetComponent<Rigidbody2D>();
+            _collider2D = this.gameObject.GetComponent<BoxCollider2D>();
         }
 
         private void Update()
@@ -42,9 +44,35 @@ namespace RB.PhysicsTest
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            foreach(ContactPoint2D p in collision.contacts)
+            GroundTest ground = collision.gameObject.GetComponent<GroundTest>();
+
+            if (ground != null)
             {
-                Debug.DrawLine(new Vector3(-10f, -10f, 0f), new Vector3(p.point.x, p.point.y, 0f), Color.red, 0.25f);
+                foreach (ContactPoint2D p in collision.contacts)
+                {
+                    Vector3 relativePos = new Vector3(p.point.x, p.point.y, 0f) - _collider2D.bounds.center;
+                    Debug.DrawLine(_collider2D.bounds.center, _collider2D.bounds.center + relativePos, Color.red, 0.5f);
+
+                    float upDot = Vector3.Dot(relativePos, Vector3.up);
+                    float leftDot = Vector3.Dot(relativePos, Vector3.left);
+                    float rightDot = Vector3.Dot(relativePos, Vector3.right);
+                    float bottomDot = Vector3.Dot(relativePos, Vector3.down);
+
+                    Debugger.Log("upDot: " + upDot);
+                    Debugger.Log("leftDot: " + leftDot);
+                    Debugger.Log("rightDot: " + rightDot);
+                    Debugger.Log("bottomDot: " + bottomDot);
+
+                    if (bottomDot > 0f)
+                    {
+                        if (bottomDot > upDot &&
+                            bottomDot > leftDot &&
+                            bottomDot > rightDot)
+                        {
+                            Debugger.Log("contact point is bottom");
+                        }
+                    }
+                }
             }
         }
     }

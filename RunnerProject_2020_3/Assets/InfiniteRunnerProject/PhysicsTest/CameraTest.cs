@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB.PhysicsTest
 {
-    public class TestCamera : MonoBehaviour
+    public class CameraTest : MonoBehaviour
     {
         [SerializeField]
         private Vector3 _offset = new Vector3();
