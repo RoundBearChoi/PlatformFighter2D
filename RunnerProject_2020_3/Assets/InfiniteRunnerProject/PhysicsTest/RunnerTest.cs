@@ -39,5 +39,13 @@ namespace RB.PhysicsTest
 
             _listPresses.Clear();
         }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            foreach(ContactPoint2D p in collision.contacts)
+            {
+                Debug.DrawLine(new Vector3(-10f, -10f, 0f), new Vector3(p.point.x, p.point.y, 0f), Color.red, 0.25f);
+            }
+        }
     }
 }

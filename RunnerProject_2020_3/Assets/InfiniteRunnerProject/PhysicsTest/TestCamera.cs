@@ -18,10 +18,7 @@ namespace RB.PhysicsTest
 
         private void FixedUpdate()
         {
-            //if (_runner != null)
-            {
-                this.transform.position = _runner.transform.position + _offset;
-            }
+            this.transform.position = _runner.transform.position + _offset;
         }
     }
 }
