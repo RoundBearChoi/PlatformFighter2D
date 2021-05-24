@@ -16,6 +16,8 @@ namespace RB
 
             _mainCam = FindObjectOfType<Camera>();
             _mainCam.transform.position = new Vector3(0f, 0f, -5f);
+
+            Application.targetFrameRate = 80;
         }
         
         public override void OnUpdate()
