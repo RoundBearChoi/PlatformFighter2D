@@ -11,6 +11,9 @@ namespace RB.PhysicsTest
         [SerializeField]
         float JumpForce = 0f;
 
+        [SerializeField]
+        private float TargetGroundVelocity = 0f;
+
         private Keyboard _keyboard = null;
         private List<KeyControl> _listPresses = new List<KeyControl>();
         private Rigidbody2D _rigidbody = null;
@@ -51,7 +54,7 @@ namespace RB.PhysicsTest
                 foreach (ContactPoint2D p in collision.contacts)
                 {
                     Vector3 relativePos = new Vector3(p.point.x, p.point.y, 0f) - _collider2D.bounds.center;
-                    Debug.DrawLine(_collider2D.bounds.center, _collider2D.bounds.center + relativePos, Color.red, 0.5f);
+                    Debug.DrawLine(_collider2D.bounds.center, _collider2D.bounds.center + relativePos, Color.red, 60f);
 
                     float upDot = Vector3.Dot(relativePos, Vector3.up);
                     float leftDot = Vector3.Dot(relativePos, Vector3.left);
@@ -63,16 +66,32 @@ namespace RB.PhysicsTest
                     Debugger.Log("rightDot: " + rightDot);
                     Debugger.Log("bottomDot: " + bottomDot);
 
-                    if (bottomDot > 0f)
+                    if (bottomDot >= 0.9f)
                     {
                         if (bottomDot > upDot &&
                             bottomDot > leftDot &&
                             bottomDot > rightDot)
                         {
                             Debugger.Log("contact point is bottom");
+                            _rigidbody.velocity = new Vector2(TargetGroundVelocity, 0f);
+                        }
+                    }
+
+                    if (rightDot >= 0.9f)
+                    {
+                        if (rightDot > upDot &&
+                            rightDot > leftDot &&
+                            rightDot > bottomDot)
+                        {
+                            Debugger.Log("contact point is right");
+                            _rigidbody.velocity = new Vector2(0f, _rigidbody.velocity.y);
                         }
                     }
                 }
+            }
+            else
+            {
+                Debugger.Log("not ground?");
             }
         }
     }
