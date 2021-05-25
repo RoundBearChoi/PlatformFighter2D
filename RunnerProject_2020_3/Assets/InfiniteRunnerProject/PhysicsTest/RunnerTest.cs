@@ -14,6 +14,12 @@ namespace RB.PhysicsTest
         [SerializeField]
         private float TargetGroundVelocity = 0f;
 
+        [SerializeField]
+        private GroundTest currentGround = null;
+
+        [SerializeField]
+        private float velocitySqMag = 0f;
+
         private Keyboard _keyboard = null;
         private List<KeyControl> _listPresses = new List<KeyControl>();
         private Rigidbody2D _rigidbody = null;
@@ -38,11 +44,12 @@ namespace RB.PhysicsTest
         {
             if (_listPresses.Contains(_keyboard.spaceKey))
             {
-                Debugger.Log("space pressed");
                 _rigidbody.velocity = new Vector2(TargetGroundVelocity, JumpForce);
+                currentGround = null;
             }
 
             _listPresses.Clear();
+            velocitySqMag = _rigidbody.velocity.sqrMagnitude;
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -77,7 +84,13 @@ namespace RB.PhysicsTest
                     {
                         Debug.Log("bottom collision");
                         Debug.DrawLine(bottomLeft, p.point, Color.green, 1f);
-                        _rigidbody.velocity = new Vector2(TargetGroundVelocity, _rigidbody.velocity.y);
+                        
+                        if (currentGround != ground)
+                        {
+                            currentGround = ground;
+                            _rigidbody.velocity = new Vector2(TargetGroundVelocity, _rigidbody.velocity.y);
+                            Debug.Log("resetting velocity..");
+                        }
                     }
 
                     if (frontDot >= 0.999f && frontDot <= 1f)
