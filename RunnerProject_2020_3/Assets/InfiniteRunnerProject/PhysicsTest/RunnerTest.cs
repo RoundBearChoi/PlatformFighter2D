@@ -63,7 +63,7 @@ namespace RB.PhysicsTest
         {
             GroundTest ground = collision.gameObject.GetComponent<GroundTest>();
             EnemyTest enemy = collision.gameObject.GetComponent<EnemyTest>();
-
+            
             if (ground != null)
             {
                 List<CollisionType> listCollisions = GetCollisionTypes(collision);
@@ -81,7 +81,16 @@ namespace RB.PhysicsTest
 
             if (enemy != null)
             {
-                Debug.Log("enemy collision!");
+                List<CollisionType> listCollisions = GetCollisionTypes(collision);
+
+                if (listCollisions.Contains(CollisionType.BOTTOM) && !listCollisions.Contains(CollisionType.FRONT))
+                {
+                    Debug.Log("enemy bottom collision!");
+                }
+                else if (listCollisions.Contains(CollisionType.FRONT))
+                {
+                    Debug.Log("enemy front collision!");
+                }
             }
         }
 
@@ -118,9 +127,12 @@ namespace RB.PhysicsTest
 
                 if (frontDot >= 0.999f && frontDot <= 1f)
                 {
-                    Debug.Log("front collision");
-                    Debug.DrawLine(topRight, p.point, Color.green, 1f);
-                    listCollisionTypes.Add(CollisionType.FRONT);
+                    if (p.normal.y <= 0f)
+                    {
+                        Debug.Log("front collision");
+                        Debug.DrawLine(topRight, p.point, Color.green, 1f);
+                        listCollisionTypes.Add(CollisionType.FRONT);
+                    }
                 }
             }
 
