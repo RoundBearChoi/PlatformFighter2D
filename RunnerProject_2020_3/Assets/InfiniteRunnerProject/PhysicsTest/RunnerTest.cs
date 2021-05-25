@@ -85,6 +85,8 @@ namespace RB.PhysicsTest
 
                 if (listCollisions.Contains(CollisionType.BOTTOM) && !listCollisions.Contains(CollisionType.FRONT))
                 {
+                    _rigidbody.velocity = new Vector2(TargetGroundVelocity * 0.6f, JumpForce * 0.6f);
+                    Destroy(enemy.gameObject);
                     Debug.Log("enemy bottom collision!");
                 }
                 else if (listCollisions.Contains(CollisionType.FRONT))
