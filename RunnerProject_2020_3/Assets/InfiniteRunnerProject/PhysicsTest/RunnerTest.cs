@@ -6,6 +6,13 @@ using UnityEngine.InputSystem.Controls;
 
 namespace RB.PhysicsTest
 {
+    public enum CollisionType
+    {
+        NONE,
+        BOTTOM,
+        FRONT,
+    }
+
     public class RunnerTest : MonoBehaviour
     {
         [SerializeField]
@@ -55,51 +62,69 @@ namespace RB.PhysicsTest
         private void OnCollisionEnter2D(Collision2D collision)
         {
             GroundTest ground = collision.gameObject.GetComponent<GroundTest>();
+            EnemyTest enemy = collision.gameObject.GetComponent<EnemyTest>();
 
             if (ground != null)
             {
-                foreach (ContactPoint2D p in collision.contacts)
+                List<CollisionType> listCollisions = GetCollisionTypes(collision);
+
+                if (listCollisions.Contains(CollisionType.BOTTOM))
                 {
-                    Vector2 bottomLeft = new Vector3(
-                        _collider2D.bounds.center.x - _collider2D.bounds.extents.x - 3f,
-                        _collider2D.bounds.center.y - _collider2D.bounds.extents.y);
-
-                    Vector2 topRight = new Vector3(
-                        _collider2D.bounds.center.x + _collider2D.bounds.extents.x,
-                        _collider2D.bounds.center.y + _collider2D.bounds.extents.y + 3f);
-
-                    //Debug.DrawLine(bottomLeft, p.point, Color.red, 60f);
-                    //Debug.DrawLine(topRight, p.point, Color.red, 60f);
-
-                    Vector2 right = p.point - bottomLeft;
-                    right.Normalize();
-
-                    Vector2 down = p.point - topRight;
-                    down.Normalize();
-
-                    float bottomDot = Vector2.Dot(right, Vector2.right);
-                    float frontDot = Vector2.Dot(down, Vector2.down);
-
-                    if (bottomDot >= 0.999f && bottomDot <= 1f)
+                    if (currentGround != ground)
                     {
-                        Debug.Log("bottom collision");
-                        Debug.DrawLine(bottomLeft, p.point, Color.green, 1f);
-                        
-                        if (currentGround != ground)
-                        {
-                            currentGround = ground;
-                            _rigidbody.velocity = new Vector2(TargetGroundVelocity, _rigidbody.velocity.y);
-                            Debug.Log("resetting velocity..");
-                        }
-                    }
-
-                    if (frontDot >= 0.999f && frontDot <= 1f)
-                    {
-                        Debug.Log("front collision");
-                        Debug.DrawLine(topRight, p.point, Color.green, 1f);
+                        currentGround = ground;
+                        _rigidbody.velocity = new Vector2(TargetGroundVelocity, _rigidbody.velocity.y);
+                        Debug.Log("resetting velocity on new ground..");
                     }
                 }
             }
+
+            if (enemy != null)
+            {
+                Debug.Log("enemy collision!");
+            }
+        }
+
+        private List<CollisionType> GetCollisionTypes(Collision2D collision)
+        {
+            List<CollisionType> listCollisionTypes = new List<CollisionType>();
+
+            foreach (ContactPoint2D p in collision.contacts)
+            {
+                Vector2 bottomLeft = new Vector3(
+                    _collider2D.bounds.center.x - _collider2D.bounds.extents.x - 3f,
+                    _collider2D.bounds.center.y - _collider2D.bounds.extents.y);
+
+                Vector2 topRight = new Vector3(
+                    _collider2D.bounds.center.x + _collider2D.bounds.extents.x,
+                    _collider2D.bounds.center.y + _collider2D.bounds.extents.y + 3f);
+
+                Vector2 right = p.point - bottomLeft;
+                right.Normalize();
+
+                Vector2 down = p.point - topRight;
+                down.Normalize();
+
+                float bottomDot = Vector2.Dot(right, Vector2.right);
+                float frontDot = Vector2.Dot(down, Vector2.down);
+
+                if (bottomDot >= 0.999f && bottomDot <= 1f)
+                {
+                    Debug.Log("bottom collision");
+                    Debug.DrawLine(bottomLeft, p.point, Color.green, 1f);
+
+                    listCollisionTypes.Add(CollisionType.BOTTOM);
+                }
+
+                if (frontDot >= 0.999f && frontDot <= 1f)
+                {
+                    Debug.Log("front collision");
+                    Debug.DrawLine(topRight, p.point, Color.green, 1f);
+                    listCollisionTypes.Add(CollisionType.FRONT);
+                }
+            }
+
+            return listCollisionTypes;
         }
     }
 }
