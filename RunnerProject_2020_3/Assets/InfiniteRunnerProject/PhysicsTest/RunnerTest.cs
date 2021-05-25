@@ -39,7 +39,7 @@ namespace RB.PhysicsTest
             if (_listPresses.Contains(_keyboard.spaceKey))
             {
                 Debugger.Log("space pressed");
-                _rigidbody.AddForce(Vector3.up * JumpForce);
+                _rigidbody.velocity = new Vector2(TargetGroundVelocity, JumpForce);
             }
 
             _listPresses.Clear();
@@ -53,45 +53,39 @@ namespace RB.PhysicsTest
             {
                 foreach (ContactPoint2D p in collision.contacts)
                 {
-                    Vector3 relativePos = new Vector3(p.point.x, p.point.y, 0f) - _collider2D.bounds.center;
-                    Debug.DrawLine(_collider2D.bounds.center, _collider2D.bounds.center + relativePos, Color.red, 60f);
+                    Vector2 bottomLeft = new Vector3(
+                        _collider2D.bounds.center.x - _collider2D.bounds.extents.x - 3f,
+                        _collider2D.bounds.center.y - _collider2D.bounds.extents.y);
 
-                    float upDot = Vector3.Dot(relativePos, Vector3.up);
-                    float leftDot = Vector3.Dot(relativePos, Vector3.left);
-                    float rightDot = Vector3.Dot(relativePos, Vector3.right);
-                    float bottomDot = Vector3.Dot(relativePos, Vector3.down);
+                    Vector2 topRight = new Vector3(
+                        _collider2D.bounds.center.x + _collider2D.bounds.extents.x,
+                        _collider2D.bounds.center.y + _collider2D.bounds.extents.y + 3f);
 
-                    Debugger.Log("upDot: " + upDot);
-                    Debugger.Log("leftDot: " + leftDot);
-                    Debugger.Log("rightDot: " + rightDot);
-                    Debugger.Log("bottomDot: " + bottomDot);
+                    //Debug.DrawLine(bottomLeft, p.point, Color.red, 60f);
+                    //Debug.DrawLine(topRight, p.point, Color.red, 60f);
 
-                    if (bottomDot >= 0.9f)
+                    Vector2 right = p.point - bottomLeft;
+                    right.Normalize();
+
+                    Vector2 down = p.point - topRight;
+                    down.Normalize();
+
+                    float bottomDot = Vector2.Dot(right, Vector2.right);
+                    float frontDot = Vector2.Dot(down, Vector2.down);
+
+                    if (bottomDot >= 0.999f && bottomDot <= 1f)
                     {
-                        if (bottomDot > upDot &&
-                            bottomDot > leftDot &&
-                            bottomDot > rightDot)
-                        {
-                            Debugger.Log("contact point is bottom");
-                            _rigidbody.velocity = new Vector2(TargetGroundVelocity, 0f);
-                        }
+                        Debug.Log("bottom collision");
+                        Debug.DrawLine(bottomLeft, p.point, Color.green, 1f);
+                        _rigidbody.velocity = new Vector2(TargetGroundVelocity, _rigidbody.velocity.y);
                     }
 
-                    if (rightDot >= 0.9f)
+                    if (frontDot >= 0.999f && frontDot <= 1f)
                     {
-                        if (rightDot > upDot &&
-                            rightDot > leftDot &&
-                            rightDot > bottomDot)
-                        {
-                            Debugger.Log("contact point is right");
-                            _rigidbody.velocity = new Vector2(0f, _rigidbody.velocity.y);
-                        }
+                        Debug.Log("front collision");
+                        Debug.DrawLine(topRight, p.point, Color.green, 1f);
                     }
                 }
-            }
-            else
-            {
-                Debugger.Log("not ground?");
             }
         }
     }
