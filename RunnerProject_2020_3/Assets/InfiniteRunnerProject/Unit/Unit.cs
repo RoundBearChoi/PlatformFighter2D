@@ -13,6 +13,9 @@ namespace RB
         public List<SpriteAnimation> listSpriteAnimations = new List<SpriteAnimation>();
         public IUpdater unitUpdater = null;
 
+        private BoxCollider2D _boxCollider2D = null;
+        private Rigidbody2D _rigidBody2D = null;
+
         public virtual void OnFixedUpdate()
         {
 
@@ -43,6 +46,19 @@ namespace RB
         public virtual void OnCollision()
         {
 
+        }
+
+        public virtual void InitBoxCollider(Vector2 boxSize)
+        {
+            _boxCollider2D = this.gameObject.AddComponent<BoxCollider2D>();
+            _boxCollider2D.size = boxSize;
+            //_boxCollider2D.isTrigger = true;
+
+            //if (_rigidBody2D == null)
+            //{
+                _rigidBody2D = this.gameObject.AddComponent<Rigidbody2D>();
+                //_rigidBody2D.gravityScale = 0f;
+            //}
         }
     }
 }
