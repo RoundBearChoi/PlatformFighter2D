@@ -52,13 +52,12 @@ namespace RB
         {
             _boxCollider2D = this.gameObject.AddComponent<BoxCollider2D>();
             _boxCollider2D.size = boxSize;
-            //_boxCollider2D.isTrigger = true;
+            _boxCollider2D.offset = new Vector2(0f, boxSize.y / 2f);
 
-            //if (_rigidBody2D == null)
-            //{
-                _rigidBody2D = this.gameObject.AddComponent<Rigidbody2D>();
-                //_rigidBody2D.gravityScale = 0f;
-            //}
+            _rigidBody2D = this.gameObject.AddComponent<Rigidbody2D>();
+            _rigidBody2D.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+            _rigidBody2D.sharedMaterial = StaticRefs.gameData.physicsMaterial_NoFrictionNoBounce;
+            _rigidBody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
 }
