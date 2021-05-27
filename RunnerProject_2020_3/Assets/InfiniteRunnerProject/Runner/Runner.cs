@@ -6,7 +6,7 @@ namespace RB
 {
     public class Runner : Unit
     {
-        public GameObject sampleSprite = null;
+        private BottomCollisionChecker _bottomCollisionChecker = null;
 
         public override void OnFixedUpdate()
         {
@@ -30,6 +30,29 @@ namespace RB
                 unitData.health--;
                 stateController.currentState.nextState = new Runner_Death_Up(unitData);
             }
+        }
+
+        public void OnCollisionEnter2D(Collision2D collision)
+        {
+            Ground ground = collision.gameObject.GetComponent<Ground>();
+        
+            foreach(ContactPoint2D contactPoint in collision.contacts)
+            {
+                if (_bottomCollisionChecker.IsColliding(contactPoint))
+                {
+                    Debug.Log("bottom collision");
+                }
+            }
+
+            if (ground != null)
+            {
+                Debugger.Log("runner hit ground");
+            }
+        }
+
+        public override void InitCollisionCheckers()
+        {
+            _bottomCollisionChecker = new BottomCollisionChecker(this.gameObject.GetComponent<BoxCollider2D>());
         }
     }
 }

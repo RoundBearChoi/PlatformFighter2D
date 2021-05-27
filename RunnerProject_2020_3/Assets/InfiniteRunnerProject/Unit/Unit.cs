@@ -59,5 +59,10 @@ namespace RB
             _rigidBody2D.sharedMaterial = StaticRefs.gameData.physicsMaterial_NoFrictionNoBounce;
             _rigidBody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
+
+        public virtual void InitCollisionCheckers()
+        {
+
+        }
     }
 }

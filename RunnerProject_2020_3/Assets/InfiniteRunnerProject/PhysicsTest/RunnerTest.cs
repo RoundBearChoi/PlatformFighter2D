@@ -6,13 +6,6 @@ using UnityEngine.InputSystem.Controls;
 
 namespace RB.PhysicsTest
 {
-    public enum CollisionType
-    {
-        NONE,
-        BOTTOM,
-        FRONT,
-    }
-
     public class RunnerTest : MonoBehaviour
     {
         [SerializeField]
