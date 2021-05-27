@@ -22,18 +22,18 @@ namespace RB
 
         public override void Update()
         {
-            if (_userInput.ContainsKeyPress(UserInput.keyboard.spaceKey) /*JumpIsTriggered(_userInput)*/)
-            {
-                nextState = new Runner_Jump_Up(_unitData, _userInput);
-            }
-            else
-            {
-
-                if (_unitData.unitTransform != null)
-                {
-                    _unitData.unitTransform.position += new Vector3(_unitData.horizontalVelocity, 0f, 0f);
-                }
-            }
+            //if (_userInput.ContainsKeyPress(UserInput.keyboard.spaceKey))
+            //{
+            //    nextState = new Runner_Jump_Up(_unitData, _userInput);
+            //}
+            //else
+            //{
+            //
+            //    if (_unitData.unitTransform != null)
+            //    {
+            //        _unitData.unitTransform.position += new Vector3(_unitData.horizontalVelocity, 0f, 0f);
+            //    }
+            //}
         }
 
         public override Hash128 GetAnimationHash()

@@ -42,11 +42,13 @@ namespace RB
                 if (_bottomCollisionChecker.IsColliding(contactPoint))
                 {
                     Debugger.Log("bottom collision");
+                    unitData.listCollisionData.Add(new CollisionData(CollisionType.BOTTOM));
                 }
 
                 if (_frontCollisionChecker.IsColliding(contactPoint))
                 {
                     Debugger.Log("front collision");
+                    unitData.listCollisionData.Add(new CollisionData(CollisionType.FRONT));
                 }
             }
 

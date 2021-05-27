@@ -16,7 +16,14 @@ namespace RB
 
         public override void Update()
         {
-            //nextState = new Runner_NormalRun(_unitData, _userInput);
+            foreach(CollisionData collisionData in _unitData.listCollisionData)
+            {
+                if (collisionData.collisionType == CollisionType.BOTTOM)
+                {
+                    nextState = new Runner_NormalRun(_unitData, _userInput);
+                    break;
+                }
+            }
         }
 
         public override Hash128 GetAnimationHash()
