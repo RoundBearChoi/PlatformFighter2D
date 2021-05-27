@@ -27,7 +27,6 @@ namespace RB
             if (dot >= 0.999f && dot <= 1f)
             {
                 Debug.DrawLine(bottomLeft, contactPoint.point, Color.green, 1f);
-
                 return true;
             }
 

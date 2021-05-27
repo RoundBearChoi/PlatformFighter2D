@@ -7,6 +7,7 @@ namespace RB
     public class Runner : Unit
     {
         private BottomCollisionChecker _bottomCollisionChecker = null;
+        private FrontCollisionChecker _frontCollisionChecker = null;
 
         public override void OnFixedUpdate()
         {
@@ -40,7 +41,12 @@ namespace RB
             {
                 if (_bottomCollisionChecker.IsColliding(contactPoint))
                 {
-                    Debug.Log("bottom collision");
+                    Debugger.Log("bottom collision");
+                }
+
+                if (_frontCollisionChecker.IsColliding(contactPoint))
+                {
+                    Debugger.Log("front collision");
                 }
             }
 
@@ -52,7 +58,9 @@ namespace RB
 
         public override void InitCollisionCheckers()
         {
-            _bottomCollisionChecker = new BottomCollisionChecker(this.gameObject.GetComponent<BoxCollider2D>());
+            BoxCollider2D collider = this.gameObject.GetComponent<BoxCollider2D>();
+            _bottomCollisionChecker = new BottomCollisionChecker(collider);
+            _frontCollisionChecker = new FrontCollisionChecker(collider);
         }
     }
 }
