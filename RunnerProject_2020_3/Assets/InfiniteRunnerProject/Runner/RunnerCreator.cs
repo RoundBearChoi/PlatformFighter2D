@@ -35,6 +35,13 @@ namespace RB
             //col.transform.localPosition = StaticRefs.gameData.RunnerBoxColliderLocalPos;
             //runner.collisionDetector = col;
 
+            GameObject idleFallSprite = new GameObject("runner idle fall animation");
+            idleFallSprite.transform.parent = runner.transform;
+            idleFallSprite.transform.localPosition = Vector3.zero;
+            idleFallSprite.transform.localRotation = Quaternion.identity;
+            runner.listSpriteAnimations.Add(idleFallSprite.AddComponent<SpriteAnimation>());
+            runner.listSpriteAnimations[runner.listSpriteAnimations.Count - 1].Init(new SpriteAnimationSpecs("Texture_Runner_IdleFall", 4, StaticRefs.gameData.RunnerSpriteSize, OffsetType.BOTTOM_CENTER));
+
             GameObject runSprite = new GameObject("runner sprite animation");
             runSprite.transform.parent = runner.transform;
             runSprite.transform.localPosition = Vector3.zero;
