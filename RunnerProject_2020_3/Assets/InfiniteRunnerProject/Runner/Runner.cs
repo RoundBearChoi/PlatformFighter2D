@@ -41,6 +41,11 @@ namespace RB
                         }
                     }
                 }
+
+                if (data.collisionType == CollisionType.FRONT)
+                {
+                    Debugger.Log("front collision detected");
+                }
             }
 
             unitData.listCollisionData.Clear();

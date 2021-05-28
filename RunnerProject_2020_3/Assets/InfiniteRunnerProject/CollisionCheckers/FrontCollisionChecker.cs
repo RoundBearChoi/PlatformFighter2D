@@ -29,6 +29,7 @@ namespace RB
                 if (contactPoint.normal.y <= 0f)
                 {
                     Debug.DrawLine(topRight, contactPoint.point, Color.green, 1f);
+                    return true;
                 }
             }
 
