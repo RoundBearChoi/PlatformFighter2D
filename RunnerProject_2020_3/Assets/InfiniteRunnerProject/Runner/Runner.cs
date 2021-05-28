@@ -20,6 +20,23 @@ namespace RB
             {
                 ani.OnFixedUpdate();
             }
+
+            foreach(CollisionData data in unitData.listCollisionData)
+            {
+                if (data.collisionType == CollisionType.BOTTOM)
+                {
+                    Debugger.Log("bottom collision detected");
+
+                    Ground ground = data.collidingObject.GetComponent<Ground>();
+
+                    if (ground != null)
+                    {
+                        Debugger.Log("ground collision");
+                    }
+                }
+            }
+
+            unitData.listCollisionData.Clear();
         }
 
         public override void OnCollision()
@@ -35,26 +52,19 @@ namespace RB
 
         public void OnCollisionEnter2D(Collision2D collision)
         {
-            Ground ground = collision.gameObject.GetComponent<Ground>();
-        
             foreach(ContactPoint2D contactPoint in collision.contacts)
             {
                 if (_bottomCollisionChecker.IsColliding(contactPoint))
                 {
                     Debugger.Log("bottom collision");
-                    unitData.listCollisionData.Add(new CollisionData(CollisionType.BOTTOM));
+                    unitData.listCollisionData.Add(new CollisionData(CollisionType.BOTTOM, collision.gameObject));
                 }
 
                 if (_frontCollisionChecker.IsColliding(contactPoint))
                 {
                     Debugger.Log("front collision");
-                    unitData.listCollisionData.Add(new CollisionData(CollisionType.FRONT));
+                    unitData.listCollisionData.Add(new CollisionData(CollisionType.FRONT, collision.gameObject));
                 }
-            }
-
-            if (ground != null)
-            {
-                Debugger.Log("runner hit ground");
             }
         }
 

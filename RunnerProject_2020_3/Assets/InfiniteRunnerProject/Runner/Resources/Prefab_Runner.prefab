@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2143043168087659629}
   - component: {fileID: 2143043168087659628}
+  - component: {fileID: 5356246793703582923}
   m_Layer: 0
   m_Name: Prefab_Runner
   m_TagString: Untagged
@@ -46,7 +47,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionDetector: {fileID: 0}
   listSpriteAnimations: []
-  sampleSprite: {fileID: 0}
+--- !u!114 &5356246793703582923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143043168087659626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2da1d7c8092b64a8a3d2b714544f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2143043168765196884
 GameObject:
   m_ObjectHideFlags: 0
