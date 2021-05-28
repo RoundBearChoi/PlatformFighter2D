@@ -27,7 +27,7 @@ namespace RB
 
             if (_unitData.unitTransform.position.y <= 0f)
             {
-                nextState = new Runner_NormalRun(_unitData, _userInput);
+                _unitData.listNextStates.Add(new Runner_NormalRun(_unitData, _userInput));
             }
         }
 

@@ -10,6 +10,7 @@ namespace RB
         {
             unitTransform = transform;
             listCollisionData.Clear();
+            listNextStates.Clear();
         }
 
         public float horizontalVelocity = 0f;
@@ -20,5 +21,6 @@ namespace RB
         public bool destroy = false;
 
         public List<CollisionData> listCollisionData = new List<CollisionData>();
+        public List<State> listNextStates = new List<State>();
     }
 }

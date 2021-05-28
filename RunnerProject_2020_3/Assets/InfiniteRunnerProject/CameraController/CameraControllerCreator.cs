@@ -25,7 +25,7 @@ namespace RB
             cameraController.transform.parent = _parentTransform;
             cameraController.transform.localPosition = Vector3.zero;
             cameraController.transform.localRotation = Quaternion.identity;
-            cameraController.stateController = new StateController(new CameraController_SimpleFollow(_runner, _mainCamera));
+            cameraController.stateController = new StateController(new CameraController_SimpleFollow(_runner, _mainCamera), cameraController.unitData);
 
             return cameraController;
         }

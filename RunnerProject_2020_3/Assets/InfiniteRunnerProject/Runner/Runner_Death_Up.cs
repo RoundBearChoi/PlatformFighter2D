@@ -31,7 +31,7 @@ namespace RB
 
             if (_unitData.verticalVelocity <= 0f)
             {
-                nextState = new Runner_Death_Down(_unitData);
+                _unitData.listNextStates.Add(new Runner_Death_Down(_unitData));
             }
         }
 

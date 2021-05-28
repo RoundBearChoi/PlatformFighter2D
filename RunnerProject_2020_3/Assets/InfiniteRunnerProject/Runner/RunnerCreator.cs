@@ -19,7 +19,7 @@ namespace RB
         {
             Unit runner = GameObject.Instantiate(ResourceLoader.Get(typeof(Runner))) as Runner;
             runner.unitData = new UnitData(runner.transform);
-            runner.stateController = new StateController(new Runner_Idle(runner.unitData, _userInput));
+            runner.stateController = new StateController(new Runner_Idle(runner.unitData, _userInput), runner.unitData);
             runner.transform.parent = _parentTransform;
             //runner.transform.localPosition = Vector3.zero;
             runner.transform.localRotation = Quaternion.identity;

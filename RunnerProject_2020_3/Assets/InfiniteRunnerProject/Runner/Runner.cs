@@ -24,13 +24,13 @@ namespace RB
 
         public override void OnCollision()
         {
-            Debugger.Log("runner collision");
-
-            if (unitData.health > 0)
-            {
-                unitData.health--;
-                stateController.currentState.nextState = new Runner_Death_Up(unitData);
-            }
+            //Debugger.Log("runner collision");
+            //
+            //if (unitData.health > 0)
+            //{
+            //    unitData.health--;
+            //    stateController.currentState.nextState = new Runner_Death_Up(unitData);
+            //}
         }
 
         public void OnCollisionEnter2D(Collision2D collision)

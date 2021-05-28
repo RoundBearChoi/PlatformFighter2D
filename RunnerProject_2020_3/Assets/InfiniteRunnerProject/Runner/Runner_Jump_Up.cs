@@ -28,7 +28,7 @@ namespace RB
 
             if (_unitData.verticalVelocity <= 0f)
             {
-                nextState = new Runner_Jump_Fall(_unitData, _userInput);
+                _unitData.listNextStates.Add(new Runner_Jump_Fall(_unitData, _userInput));
             }
         }
 

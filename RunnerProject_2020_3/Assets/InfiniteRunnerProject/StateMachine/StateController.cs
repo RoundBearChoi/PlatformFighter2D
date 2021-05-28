@@ -8,8 +8,11 @@ namespace RB
     {
         public State currentState = null;
 
-        public StateController(State newState)
+        private UnitData _unitData = null;
+
+        public StateController(State newState, UnitData unitData)
         {
+            _unitData = unitData;
             SetNewState(newState);
         }
 
@@ -26,10 +29,10 @@ namespace RB
         {
             if (currentState != null)
             {
-                if (currentState.nextState != null)
+                if (_unitData.listNextStates.Count > 0)
                 {
-                    SetNewState(currentState.nextState);
-                    currentState.nextState = null;
+                    SetNewState(_unitData.listNextStates[0]);
+                    _unitData.listNextStates.RemoveAt(0);
                 }
             }
         }

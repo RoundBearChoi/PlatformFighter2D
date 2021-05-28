@@ -8,7 +8,6 @@ namespace RB
     {
         static Hash128 defaultHash;
 
-        public State nextState = null;
         public uint updateCount = 0;
 
         protected UnitData _unitData = null;
