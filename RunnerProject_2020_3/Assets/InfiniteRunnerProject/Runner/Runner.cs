@@ -35,6 +35,7 @@ namespace RB
                         if (ground != unitData.currentGround)
                         {
                             Debugger.Log("new ground collision");
+                            unitData.currentGround = ground;
                             unitData.listNextStates.Add(new Runner_NormalRun(unitData, _userInput));
                             break;
                         }

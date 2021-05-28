@@ -18,11 +18,11 @@ namespace RB
         {
             StaticRefs.gameData = gameDataScriptableObj;
 
-            units.AddCreator(new RunnerCreator(_userInput, this.transform));
+            units.AddCreator(new Runner_Creator(_userInput, this.transform));
             units.CreateUnits();
 
-            units.AddCreator(new CameraControllerCreator(this.transform, units.GetUnit(0), FindObjectOfType<Camera>()));
-            units.AddCreator(new ObstaclePlacerCreator(units.GetUnit(0), this));
+            units.AddCreator(new CameraController_Creator(this.transform, units.GetUnit(0), FindObjectOfType<Camera>()));
+            //units.AddCreator(new ObstaclePlacer_Creator(units.GetUnit(0), this));
             units.CreateUnits();
 
             ui = Instantiate(ResourceLoader.Get(typeof(UI))) as UI;

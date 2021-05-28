@@ -13,9 +13,6 @@ namespace RB
         public List<SpriteAnimation> listSpriteAnimations = new List<SpriteAnimation>();
         public IUpdater unitUpdater = null;
 
-        //private BoxCollider2D _boxCollider2D = null;
-        //private Rigidbody2D _rigidBody2D = null;
-
         public virtual void OnFixedUpdate()
         {
 

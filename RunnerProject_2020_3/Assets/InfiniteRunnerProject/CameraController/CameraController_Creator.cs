@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace RB
 {
-    public class CameraControllerCreator : UnitCreator
+    public class CameraController_Creator : UnitCreator
     {
         private Transform _parentTransform;
         private Unit _runner;
         private Camera _mainCamera;
 
-        public CameraControllerCreator(Transform parentTransform, Unit runner, Camera mainCamera)
+        public CameraController_Creator(Transform parentTransform, Unit runner, Camera mainCamera)
         {
             _parentTransform = parentTransform;
             _runner = runner;

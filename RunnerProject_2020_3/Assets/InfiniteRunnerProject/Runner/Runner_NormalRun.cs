@@ -17,12 +17,16 @@ namespace RB
 
         public override void OnEnter()
         {
-            _unitData.rigidBody2D.velocity = new Vector2(3f, 0f);
-            //_unitData.horizontalVelocity = StaticRefs.gameData.RunnerHorizontalVelocity;
+            _unitData.rigidBody2D.velocity = StaticRefs.gameData.Runner_NormalRun_StartForce;
         }
 
         public override void Update()
         {
+            if (_userInput.ContainsKeyPress(UserInput.keyboard.spaceKey))
+            {
+                _unitData.listNextStates.Add(new Runner_Jump_Up(_unitData, _userInput));
+            }
+
             //if (_userInput.ContainsKeyPress(UserInput.keyboard.spaceKey))
             //{
             //    nextState = new Runner_Jump_Up(_unitData, _userInput);

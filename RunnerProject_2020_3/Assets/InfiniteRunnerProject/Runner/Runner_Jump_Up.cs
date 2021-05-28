@@ -13,23 +13,20 @@ namespace RB
         {
             _unitData = data;
             _userInput = input;
+
             //_listStateComponents.Add(new FixedJump(this));
-            _listStateComponents.Add(new ControlledJump(this, _userInput));
+            //_listStateComponents.Add(new ControlledJump(this, _userInput));
         }
 
         public override void OnEnter()
         {
-            //_unitData.verticalVelocity = StaticRefs.gameData.InitialUpForce;
+            _unitData.rigidBody2D.velocity = StaticRefs.gameData.Runner_JumpUp_StartForce;
+            _unitData.currentGround = null;
         }
 
         public override void Update()
         {
             UpdateComponents();
-
-            //if (_unitData.verticalVelocity <= 0f)
-            //{
-            //    _unitData.listNextStates.Add(new Runner_Jump_Fall(_unitData, _userInput));
-            //}
         }
 
         public override Hash128 GetAnimationHash()

@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace RB
 {
-    public class RunnerCreator : UnitCreator
+    public class Runner_Creator : UnitCreator
     {
         private UserInput _userInput;
         private Transform _parentTransform;
 
-        public RunnerCreator(UserInput userInput, Transform parentTransform)
+        public Runner_Creator(UserInput userInput, Transform parentTransform)
         {
             _userInput = userInput;
             _parentTransform = parentTransform;

@@ -8,7 +8,8 @@ namespace RB
     [CreateAssetMenu(fileName = "Data", menuName = "InfiniteRunner/GameData/GameData")]
     public class GameData : ScriptableObject
     {
-        public float RunnerHorizontalVelocity = 0f;
+        public Vector2 Runner_NormalRun_StartForce = new Vector2();
+        public Vector2 Runner_JumpUp_StartForce = new Vector2();
         public Vector2 RunnerSpriteSize = new Vector2();
         public Vector2 RunnerBoxColliderSize = new Vector2();
         //public Vector3 RunnerBoxColliderLocalPos = new Vector3();

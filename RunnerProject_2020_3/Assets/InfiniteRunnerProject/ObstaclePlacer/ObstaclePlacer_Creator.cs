@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace RB
 {
-    public class ObstaclePlacerCreator : UnitCreator
+    public class ObstaclePlacer_Creator : UnitCreator
     {
         private Transform _parentTransform = null;
         private Unit _runner = null;
         private GameStage _gameStage = null;
 
-        public ObstaclePlacerCreator(Unit runner, GameStage gameStage)
+        public ObstaclePlacer_Creator(Unit runner, GameStage gameStage)
         {
             _runner = runner;
             _parentTransform = gameStage.transform;
