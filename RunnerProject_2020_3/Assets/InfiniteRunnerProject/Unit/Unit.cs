@@ -13,8 +13,8 @@ namespace RB
         public List<SpriteAnimation> listSpriteAnimations = new List<SpriteAnimation>();
         public IUpdater unitUpdater = null;
 
-        private BoxCollider2D _boxCollider2D = null;
-        private Rigidbody2D _rigidBody2D = null;
+        //private BoxCollider2D _boxCollider2D = null;
+        //private Rigidbody2D _rigidBody2D = null;
 
         public virtual void OnFixedUpdate()
         {
@@ -45,14 +45,14 @@ namespace RB
 
         public virtual void InitBoxCollider(Vector2 boxSize)
         {
-            _boxCollider2D = this.gameObject.AddComponent<BoxCollider2D>();
-            _boxCollider2D.size = boxSize;
-            _boxCollider2D.offset = new Vector2(0f, boxSize.y / 2f);
+            unitData.boxCollider2D = this.gameObject.AddComponent<BoxCollider2D>();
+            unitData.boxCollider2D.size = boxSize;
+            unitData.boxCollider2D.offset = new Vector2(0f, boxSize.y / 2f);
 
-            _rigidBody2D = this.gameObject.AddComponent<Rigidbody2D>();
-            _rigidBody2D.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
-            _rigidBody2D.sharedMaterial = StaticRefs.gameData.physicsMaterial_NoFrictionNoBounce;
-            _rigidBody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+            unitData.rigidBody2D = this.gameObject.AddComponent<Rigidbody2D>();
+            unitData.rigidBody2D.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+            unitData.rigidBody2D.sharedMaterial = StaticRefs.gameData.physicsMaterial_NoFrictionNoBounce;
+            unitData.rigidBody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
         public virtual void InitCollisionCheckers()

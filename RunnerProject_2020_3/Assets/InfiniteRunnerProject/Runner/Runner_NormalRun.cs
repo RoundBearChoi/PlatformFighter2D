@@ -17,6 +17,7 @@ namespace RB
 
         public override void OnEnter()
         {
+            _unitData.rigidBody2D.velocity = new Vector2(3f, 0f);
             //_unitData.horizontalVelocity = StaticRefs.gameData.RunnerHorizontalVelocity;
         }
 

@@ -13,10 +13,10 @@ namespace RB
             listNextStates.Clear();
         }
 
-        //public float horizontalVelocity = 0f;
-        //public float verticalVelocity = 0f;
         public uint health = 1;
         public Transform unitTransform = null;
+        public Rigidbody2D rigidBody2D = null;
+        public BoxCollider2D boxCollider2D = null;
 
         public bool destroy = false;
 
