@@ -13,8 +13,8 @@ namespace RB
             listNextStates.Clear();
         }
 
-        public float horizontalVelocity = 0f;
-        public float verticalVelocity = 0f;
+        //public float horizontalVelocity = 0f;
+        //public float verticalVelocity = 0f;
         public uint health = 1;
         public Transform unitTransform = null;
 
@@ -22,5 +22,7 @@ namespace RB
 
         public List<CollisionData> listCollisionData = new List<CollisionData>();
         public List<State> listNextStates = new List<State>();
+
+        public Ground currentGround = null;
     }
 }

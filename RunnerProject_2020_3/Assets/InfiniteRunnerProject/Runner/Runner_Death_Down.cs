@@ -17,7 +17,7 @@ namespace RB
 
         public override void OnEnter()
         {
-            _unitData.horizontalVelocity = 0f;
+            //_unitData.horizontalVelocity = 0f;
         }
 
         public override void Update()

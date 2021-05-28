@@ -43,11 +43,6 @@ namespace RB
             unitUpdater = updater;
         }
 
-        public virtual void OnCollision()
-        {
-
-        }
-
         public virtual void InitBoxCollider(Vector2 boxSize)
         {
             _boxCollider2D = this.gameObject.AddComponent<BoxCollider2D>();
@@ -61,6 +56,11 @@ namespace RB
         }
 
         public virtual void InitCollisionCheckers()
+        {
+
+        }
+
+        public virtual void SetUserInput(UserInput userInput)
         {
 
         }

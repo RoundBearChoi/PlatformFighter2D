@@ -19,17 +19,17 @@ namespace RB
 
         public override void OnEnter()
         {
-            _unitData.verticalVelocity = StaticRefs.gameData.InitialUpForce;
+            //_unitData.verticalVelocity = StaticRefs.gameData.InitialUpForce;
         }
 
         public override void Update()
         {
             UpdateComponents();
 
-            if (_unitData.verticalVelocity <= 0f)
-            {
-                _unitData.listNextStates.Add(new Runner_Jump_Fall(_unitData, _userInput));
-            }
+            //if (_unitData.verticalVelocity <= 0f)
+            //{
+            //    _unitData.listNextStates.Add(new Runner_Jump_Fall(_unitData, _userInput));
+            //}
         }
 
         public override Hash128 GetAnimationHash()

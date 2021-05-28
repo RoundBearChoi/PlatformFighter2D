@@ -8,6 +8,7 @@ namespace RB
     {
         private BottomCollisionChecker _bottomCollisionChecker = null;
         private FrontCollisionChecker _frontCollisionChecker = null;
+        private UserInput _userInput = null;
 
         public override void OnFixedUpdate()
         {
@@ -31,23 +32,17 @@ namespace RB
 
                     if (ground != null)
                     {
-                        Debugger.Log("ground collision");
+                        if (ground != unitData.currentGround)
+                        {
+                            Debugger.Log("new ground collision");
+                            unitData.listNextStates.Add(new Runner_NormalRun(unitData, _userInput));
+                            break;
+                        }
                     }
                 }
             }
 
             unitData.listCollisionData.Clear();
-        }
-
-        public override void OnCollision()
-        {
-            //Debugger.Log("runner collision");
-            //
-            //if (unitData.health > 0)
-            //{
-            //    unitData.health--;
-            //    stateController.currentState.nextState = new Runner_Death_Up(unitData);
-            //}
         }
 
         public void OnCollisionEnter2D(Collision2D collision)
@@ -56,13 +51,11 @@ namespace RB
             {
                 if (_bottomCollisionChecker.IsColliding(contactPoint))
                 {
-                    Debugger.Log("bottom collision");
                     unitData.listCollisionData.Add(new CollisionData(CollisionType.BOTTOM, collision.gameObject));
                 }
 
                 if (_frontCollisionChecker.IsColliding(contactPoint))
                 {
-                    Debugger.Log("front collision");
                     unitData.listCollisionData.Add(new CollisionData(CollisionType.FRONT, collision.gameObject));
                 }
             }
@@ -73,6 +66,11 @@ namespace RB
             BoxCollider2D collider = this.gameObject.GetComponent<BoxCollider2D>();
             _bottomCollisionChecker = new BottomCollisionChecker(collider);
             _frontCollisionChecker = new FrontCollisionChecker(collider);
+        }
+
+        public override void SetUserInput(UserInput userInput)
+        {
+            _userInput = userInput;
         }
     }
 }

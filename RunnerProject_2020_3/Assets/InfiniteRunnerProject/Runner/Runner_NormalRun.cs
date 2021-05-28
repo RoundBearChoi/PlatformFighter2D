@@ -17,7 +17,7 @@ namespace RB
 
         public override void OnEnter()
         {
-            _unitData.horizontalVelocity = StaticRefs.gameData.RunnerHorizontalVelocity;
+            //_unitData.horizontalVelocity = StaticRefs.gameData.RunnerHorizontalVelocity;
         }
 
         public override void Update()

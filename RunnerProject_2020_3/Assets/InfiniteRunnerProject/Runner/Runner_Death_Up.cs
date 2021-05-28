@@ -18,8 +18,8 @@ namespace RB
 
         public override void OnEnter()
         {
-            _unitData.verticalVelocity = StaticRefs.gameData.InitialUpForce;
-            _unitData.horizontalVelocity = 0f;
+            //_unitData.verticalVelocity = StaticRefs.gameData.InitialUpForce;
+            //_unitData.horizontalVelocity = 0f;
 
             IMessage message = new UIMessage("runner is dead");
             message.Register();
@@ -29,10 +29,10 @@ namespace RB
         {
             UpdateComponents();
 
-            if (_unitData.verticalVelocity <= 0f)
-            {
-                _unitData.listNextStates.Add(new Runner_Death_Down(_unitData));
-            }
+            //if (_unitData.verticalVelocity <= 0f)
+            //{
+            //    _unitData.listNextStates.Add(new Runner_Death_Down(_unitData));
+            //}
         }
 
         public override Hash128 GetAnimationHash()

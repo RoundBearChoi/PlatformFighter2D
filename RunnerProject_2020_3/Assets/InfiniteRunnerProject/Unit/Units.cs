@@ -45,7 +45,7 @@ namespace RB
                     foreach (GameObject obj in _listUnits[i].collisionDetector.listCollidedGameObjects)
                     {
                         Debugger.Log(_listUnits[i].gameObject.name + " detected collision");
-                        _listUnits[i].OnCollision();
+                        //_listUnits[i].OnCollision();
                         clear = true;
                     }
 
