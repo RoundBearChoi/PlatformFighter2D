@@ -33,6 +33,17 @@ namespace RB
                 }
             }
 
+            if (dotUp > 0f)
+            {
+                if (dotUp >= dotDown &&
+                    dotUp >= dotLeft &&
+                    dotUp >= dotRight)
+                {
+                    Debug.DrawLine(_boxCollider2D.bounds.center, contactPoint.point, Color.yellow, 3f);
+                    return CollisionType.TOP;
+                }
+            }
+
             if (dotRight > 0f)
             {
                 if (dotRight >= dotUp &&
@@ -41,6 +52,17 @@ namespace RB
                 {
                     Debug.DrawLine(_boxCollider2D.bounds.center, contactPoint.point, Color.red, 3f);
                     return CollisionType.FRONT;
+                }
+            }
+
+            if (dotLeft > 0f)
+            {
+                if (dotLeft >= dotUp &&
+                    dotLeft >= dotDown &&
+                    dotLeft >= dotRight)
+                {
+                    Debug.DrawLine(_boxCollider2D.bounds.center, contactPoint.point, Color.magenta, 3f);
+                    return CollisionType.BACK;
                 }
             }
 
