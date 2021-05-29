@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace RB
 {
-    public class ObstaclePlacer : Unit
+    public class NoUpdate : IUpdater
     {
-        public override void OnFixedUpdate()
+        public void CustomUpdate()
         {
-            unitUpdater.CustomUpdate();
+
         }
     }
 }

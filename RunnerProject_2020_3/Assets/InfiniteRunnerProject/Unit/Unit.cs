@@ -10,7 +10,7 @@ namespace RB
         public UnitData unitData = null;
 
         public List<SpriteAnimation> listSpriteAnimations = new List<SpriteAnimation>();
-        public IUpdater unitUpdater = null;
+        public IUpdater unitUpdater = new NoUpdate();
 
         public virtual void OnFixedUpdate()
         {

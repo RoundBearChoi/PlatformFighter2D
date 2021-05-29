@@ -11,12 +11,9 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (unitUpdater != null)
-            {
-                unitUpdater.CustomUpdate();
-            }
+            unitUpdater.CustomUpdate();
 
-            foreach(SpriteAnimation ani in listSpriteAnimations)
+            foreach (SpriteAnimation ani in listSpriteAnimations)
             {
                 ani.OnFixedUpdate();
             }
