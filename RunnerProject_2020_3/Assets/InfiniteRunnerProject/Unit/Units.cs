@@ -37,23 +37,6 @@ namespace RB
             {
                 _listUnits[i].MatchAnimationToState();
                 _listUnits[i].OnFixedUpdate();
-
-                if (_listUnits[i].collisionDetector != null)
-                {
-                    bool clear = false;
-
-                    foreach (GameObject obj in _listUnits[i].collisionDetector.listCollidedGameObjects)
-                    {
-                        Debugger.Log(_listUnits[i].gameObject.name + " detected collision");
-                        //_listUnits[i].OnCollision();
-                        clear = true;
-                    }
-
-                    if (clear)
-                    {
-                        _listUnits[i].collisionDetector.listCollidedGameObjects.Clear();
-                    }
-                }
             }
 
             //destroy after update
