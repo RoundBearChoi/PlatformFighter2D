@@ -10,6 +10,7 @@ namespace RB
         public UnitData unitData = null;
 
         public List<SpriteAnimation> listSpriteAnimations = new List<SpriteAnimation>();
+        public List<CollisionType> listDangerousSides = new List<CollisionType>();
         public IUpdater unitUpdater = new NoUpdate();
 
         public virtual void OnFixedUpdate()
