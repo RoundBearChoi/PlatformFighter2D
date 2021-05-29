@@ -51,7 +51,7 @@ namespace RB
                     dotRight >= dotLeft)
                 {
                     Debug.DrawLine(_boxCollider2D.bounds.center, contactPoint.point, Color.red, 3f);
-                    return CollisionType.FRONT;
+                    return CollisionType.RIGHT;
                 }
             }
 
@@ -62,7 +62,7 @@ namespace RB
                     dotLeft >= dotRight)
                 {
                     Debug.DrawLine(_boxCollider2D.bounds.center, contactPoint.point, Color.magenta, 3f);
-                    return CollisionType.BACK;
+                    return CollisionType.LEFT;
                 }
             }
 

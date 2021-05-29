@@ -20,14 +20,27 @@ namespace RB
 
             foreach(CollisionData data in unitData.listCollisionData)
             {
-                if (data.collisionType == CollisionType.BOTTOM)
+                Unit unit = data.collidingObject.GetComponent<Unit>();
+
+                if (unit != null)
                 {
-                    Debugger.Log("bottom collision detected");
-
-                    Ground ground = data.collidingObject.GetComponent<Ground>();
-
-                    if (ground != null)
+                    foreach(CollisionType danger in unit.listDangerousSides)
                     {
+                        if (danger == CollisionType.LEFT && data.collisionType == CollisionType.RIGHT)
+                        {
+                            Debugger.Log("take damage!");
+                        }
+                    }
+                }
+
+                Ground ground = data.collidingObject.GetComponent<Ground>();
+
+                if (ground != null)
+                {
+                    if (data.collisionType == CollisionType.BOTTOM)
+                    {
+                        Debugger.Log("bottom collision detected");
+
                         if (ground != unitData.currentGround)
                         {
                             Debugger.Log("new ground collision");
@@ -36,11 +49,6 @@ namespace RB
                             break;
                         }
                     }
-                }
-
-                if (data.collisionType == CollisionType.FRONT)
-                {
-                    Debugger.Log("front collision detected");
                 }
             }
 

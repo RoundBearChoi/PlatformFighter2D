@@ -76,13 +76,13 @@ namespace RB.PhysicsTest
             {
                 List<CollisionType> listCollisions = GetCollisionTypes(collision);
 
-                if (listCollisions.Contains(CollisionType.BOTTOM) && !listCollisions.Contains(CollisionType.FRONT))
+                if (listCollisions.Contains(CollisionType.BOTTOM) && !listCollisions.Contains(CollisionType.RIGHT))
                 {
                     _rigidbody.velocity = new Vector2(TargetGroundVelocity * 0.6f, JumpForce * 0.6f);
                     Destroy(enemy.gameObject);
                     Debug.Log("enemy bottom collision!");
                 }
-                else if (listCollisions.Contains(CollisionType.FRONT))
+                else if (listCollisions.Contains(CollisionType.RIGHT))
                 {
                     Debug.Log("enemy front collision!");
                 }
@@ -126,7 +126,7 @@ namespace RB.PhysicsTest
                     {
                         Debug.Log("front collision");
                         Debug.DrawLine(topRight, p.point, Color.green, 1f);
-                        listCollisionTypes.Add(CollisionType.FRONT);
+                        listCollisionTypes.Add(CollisionType.RIGHT);
                     }
                 }
             }

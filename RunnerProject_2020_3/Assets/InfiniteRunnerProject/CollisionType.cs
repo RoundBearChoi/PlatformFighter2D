@@ -9,8 +9,8 @@ namespace RB
         NONE,
 
         BOTTOM,
-        FRONT,
-        BACK,
+        RIGHT,
+        LEFT,
         TOP,
     }
 }

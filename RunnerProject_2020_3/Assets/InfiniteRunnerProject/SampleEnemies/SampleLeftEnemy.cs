@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace RB
 {
-    public class SampleFrontEnemy : Unit
+    public class SampleLeftEnemy : Unit
     {
         private void Start()
         {
             listDangerousSides.Clear();
-            listDangerousSides.Add(CollisionType.FRONT);
+            listDangerousSides.Add(CollisionType.LEFT);
         }
     }
 }
