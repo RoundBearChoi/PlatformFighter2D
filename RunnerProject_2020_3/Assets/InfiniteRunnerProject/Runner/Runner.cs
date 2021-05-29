@@ -20,18 +20,30 @@ namespace RB
 
             foreach(CollisionData data in unitData.listCollisionData)
             {
+                //temp code
                 Unit unit = data.collidingObject.GetComponent<Unit>();
 
                 if (unit != null)
                 {
+                    if (data.collisionType == CollisionType.BOTTOM)
+                    {
+                        if (!unit.listDangerousSides.Contains(CollisionType.TOP))
+                        {
+                            Destroy(unit.gameObject);
+                            unitData.rigidBody2D.velocity = StaticRefs.gameData.Runner_JumpUp_StartForce;
+                        }
+                    }
+
                     foreach(CollisionType danger in unit.listDangerousSides)
                     {
                         if (danger == CollisionType.LEFT && data.collisionType == CollisionType.RIGHT)
                         {
                             Debugger.Log("take damage!");
+                            unitData.listNextStates.Add(new Runner_Death_Up(unitData));
                         }
                     }
                 }
+                ///
 
                 Ground ground = data.collidingObject.GetComponent<Ground>();
 
