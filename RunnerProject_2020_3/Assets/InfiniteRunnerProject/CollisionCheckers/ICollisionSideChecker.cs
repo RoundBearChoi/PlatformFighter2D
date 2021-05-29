@@ -6,6 +6,6 @@ namespace RB
 {
     public interface ICollisionSideChecker
     {
-        public bool IsColliding(ContactPoint2D contactPoint);
+        public CollisionType GetCollisionType(ContactPoint2D contactPoint);
     }
 }

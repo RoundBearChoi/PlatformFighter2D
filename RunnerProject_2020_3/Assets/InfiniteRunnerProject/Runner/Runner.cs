@@ -6,9 +6,8 @@ namespace RB
 {
     public class Runner : Unit
     {
-        private BottomCollisionChecker _bottomCollisionChecker = null;
-        private FrontCollisionChecker _frontCollisionChecker = null;
         private UserInput _userInput = null;
+        private ICollisionSideChecker _collisionChecker = null;
 
         public override void OnFixedUpdate()
         {
@@ -55,23 +54,16 @@ namespace RB
         {
             foreach(ContactPoint2D contactPoint in collision.contacts)
             {
-                if (_bottomCollisionChecker.IsColliding(contactPoint))
-                {
-                    unitData.listCollisionData.Add(new CollisionData(CollisionType.BOTTOM, collision.gameObject));
-                }
-
-                if (_frontCollisionChecker.IsColliding(contactPoint))
-                {
-                    unitData.listCollisionData.Add(new CollisionData(CollisionType.FRONT, collision.gameObject));
-                }
+                CollisionType collisionType = _collisionChecker.GetCollisionType(contactPoint);
+                CollisionData collisionData = new CollisionData(collisionType, collision.gameObject);
+                unitData.listCollisionData.Add(collisionData);
             }
         }
 
-        public override void InitCollisionCheckers()
+        public override void InitCollisionChecker()
         {
             BoxCollider2D collider = this.gameObject.GetComponent<BoxCollider2D>();
-            _bottomCollisionChecker = new BottomCollisionChecker(collider);
-            _frontCollisionChecker = new FrontCollisionChecker(collider);
+            _collisionChecker = new CollisionChecker(collider);
         }
 
         public override void SetUserInput(UserInput userInput)

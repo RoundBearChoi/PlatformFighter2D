@@ -52,7 +52,7 @@ namespace RB
             unitData.rigidBody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
-        public virtual void InitCollisionCheckers()
+        public virtual void InitCollisionChecker()
         {
 
         }

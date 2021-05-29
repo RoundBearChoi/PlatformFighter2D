@@ -25,7 +25,7 @@ namespace RB
             runner.SetUpdater(new DefaultFixedUpdater(runner.stateController));
 
             runner.InitBoxCollider(StaticRefs.gameData.RunnerBoxColliderSize);
-            runner.InitCollisionCheckers();
+            runner.InitCollisionChecker();
             runner.SetUserInput(_userInput);
 
             //GameObject detectorObj = new GameObject("CollisionDetector (Clone)");
