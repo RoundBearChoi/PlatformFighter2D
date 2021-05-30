@@ -42,12 +42,14 @@ namespace RB
             {
                 _listUnits[i].MatchAnimationToState();
                 _listUnits[i].OnFixedUpdate();
+                _listUnits[i].ProcessDamage();
             }
 
-            //destroy after update
+            //temp
+            //destroying units with 0 health
             for (int i = _listUnits.Count - 1; i >= 0; i--)
             {
-                if (_listUnits[i].unitData.destroy)
+                if (_listUnits[i].unitData.health <= 0f)
                 {
                     GameObject.Destroy(_listUnits[i].gameObject);
                     _listUnits.RemoveAt(i);

@@ -19,6 +19,7 @@ namespace RB
             IMessage message = new UIMessage("runner is dead");
             message.Register();
 
+            _unitData.unitTransform.position = _unitData.unitTransform.position + (Vector3.back * 1f);
             _unitData.rigidBody2D.velocity = new Vector3(0f, 6f, 0f);
             _unitData.boxCollider2D.enabled = false;
         }

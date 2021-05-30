@@ -21,20 +21,20 @@ namespace RB
             foreach(CollisionData data in unitData.listCollisionData)
             {
                 //temp code
-                Unit unit = data.collidingObject.GetComponent<Unit>();
+                Unit collidingUnit = data.collidingObject.GetComponent<Unit>();
 
-                if (unit != null)
+                if (collidingUnit != null)
                 {
                     if (data.collisionType == CollisionType.BOTTOM)
                     {
-                        if (!unit.listDangerousSides.Contains(CollisionType.TOP))
+                        if (!collidingUnit.listDangerousSides.Contains(CollisionType.TOP))
                         {
-                            Destroy(unit.gameObject);
+                            collidingUnit.unitData.listDamageData.Add(new DamageData(1f, this));
                             unitData.rigidBody2D.velocity = StaticRefs.gameData.Runner_JumpUp_StartForce;
                         }
                     }
 
-                    foreach(CollisionType danger in unit.listDangerousSides)
+                    foreach(CollisionType danger in collidingUnit.listDangerousSides)
                     {
                         if (danger == CollisionType.LEFT && data.collisionType == CollisionType.RIGHT)
                         {

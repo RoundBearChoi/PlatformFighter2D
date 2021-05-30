@@ -11,17 +11,17 @@ namespace RB
             unitTransform = transform;
             listCollisionData.Clear();
             listNextStates.Clear();
+            listDamageData.Clear();
         }
 
-        public uint health = 1;
+        public float health = 1f;
         public Transform unitTransform = null;
         public Rigidbody2D rigidBody2D = null;
         public BoxCollider2D boxCollider2D = null;
 
-        public bool destroy = false;
-
         public List<CollisionData> listCollisionData = new List<CollisionData>();
         public List<State> listNextStates = new List<State>();
+        public List<DamageData> listDamageData = new List<DamageData>();
 
         public Ground currentGround = null;
     }

@@ -25,7 +25,7 @@ namespace RB
         {
             if (_runner.transform.position.x >= _unitData.unitTransform.position.x + 15f)
             {
-                _unitData.destroy = true;
+                //_unitData.destroy = true;
             }
         }
 

@@ -28,6 +28,7 @@ namespace RB
 
             //level and enemies
             GameObject levelObj = Instantiate(ResourceLoader.GetLevel(1)) as GameObject;
+            levelObj.transform.parent = this.transform;
 
             FrontEnemySpawn[] arr = levelObj.GetComponentsInChildren<FrontEnemySpawn>();
             FrontEnemyCreator frontEnemyCreator = new FrontEnemyCreator();
@@ -37,6 +38,7 @@ namespace RB
                 Debugger.Log("spawning enemy: " + spawn.gameObject.name + " " + spawn.transform.position);
                 Unit frontEnemyUnit = frontEnemyCreator.GetUnit();
                 frontEnemyUnit.transform.position = spawn.transform.position;
+                frontEnemyUnit.transform.parent = levelObj.transform;
 
                 if (frontEnemyUnit != null)
                 {
@@ -59,8 +61,6 @@ namespace RB
             updateCounter.OnUpdate();
             _userInput.OnUpdate();
             ui.OnUpdate();
-
-            units.ProcessCreators();
         }
 
         public override void OnFixedUpdate()

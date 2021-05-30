@@ -61,5 +61,15 @@ namespace RB
         {
 
         }
+
+        public virtual void ProcessDamage()
+        {
+            foreach(DamageData data in unitData.listDamageData)
+            {
+                unitData.health -= data.damageAmount;
+            }
+
+            unitData.listDamageData.Clear();
+        }
     }
 }
