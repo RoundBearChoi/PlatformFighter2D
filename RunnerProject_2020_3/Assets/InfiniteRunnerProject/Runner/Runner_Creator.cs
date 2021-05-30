@@ -17,7 +17,7 @@ namespace RB
 
         public override Unit GetUnit()
         {
-            Unit runner = GameObject.Instantiate(ResourceLoader.Get(typeof(Runner))) as Runner;
+            Unit runner = GameObject.Instantiate(ResourceLoader.GetResource(typeof(Runner))) as Runner;
             runner.unitData = new UnitData(runner.transform);
             runner.stateController = new StateController(new Runner_Idle(runner.unitData, _userInput), runner.unitData);
             runner.transform.parent = _parentTransform;

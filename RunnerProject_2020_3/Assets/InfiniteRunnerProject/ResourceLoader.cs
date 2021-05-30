@@ -7,6 +7,7 @@ namespace RB
     public static class ResourceLoader
     {
         static Dictionary<System.Type, Object> dicResources = new Dictionary<System.Type, Object>();
+        static Dictionary<int, Object> dicLevels = new Dictionary<int, Object>();
         static Dictionary<SpriteType, Object> dicSprites = new Dictionary<SpriteType, Object>();
 
         public static void Init()
@@ -32,10 +33,11 @@ namespace RB
             RunnerDeathNotification deathNotification = Resources.Load("RunnerDeathNotification", typeof(RunnerDeathNotification)) as RunnerDeathNotification;
             dicResources.Add(deathNotification.GetType(), deathNotification);
 
-            dicSprites.Add(SpriteType.WHITE_BOX, Resources.Load("Sprite_WhiteBox") as GameObject);
+            //levels
+            dicLevels.Add(1, Resources.Load("Level_1_Temp"));
         }
 
-        public static Object Get(System.Type _type)
+        public static Object GetResource(System.Type _type)
         {
             if (dicResources.ContainsKey(_type))
             {
@@ -47,11 +49,11 @@ namespace RB
             }
         }
 
-        public static Object GetSprite(SpriteType spriteType)
+        public static Object GetLevel(int levelIndex)
         {
-            if (dicSprites.ContainsKey(spriteType))
+            if (dicLevels.ContainsKey(levelIndex))
             {
-                return dicSprites[spriteType];
+                return dicLevels[levelIndex];
             }
             else
             {

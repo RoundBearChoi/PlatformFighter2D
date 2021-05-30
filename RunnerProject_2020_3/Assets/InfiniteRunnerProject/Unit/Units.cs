@@ -19,7 +19,7 @@ namespace RB
             return _listUnits[index];
         }
 
-        public void CreateUnits()
+        public void ProcessCreators()
         {
             foreach (UnitCreator creator in _listUnitCreators)
             {

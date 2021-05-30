@@ -18,14 +18,19 @@ namespace RB
         {
             StaticRefs.gameData = gameDataScriptableObj;
 
+            GameObject levelObj = Instantiate(ResourceLoader.GetLevel(1)) as GameObject;
+
             units.AddCreator(new Runner_Creator(_userInput, this.transform));
-            units.CreateUnits();
+            units.ProcessCreators();
 
-            units.AddCreator(new CameraController_Creator(this.transform, units.GetUnit(0), FindObjectOfType<Camera>()));
             //units.AddCreator(new ObstaclePlacer_Creator(units.GetUnit(0), this));
-            units.CreateUnits();
 
-            ui = Instantiate(ResourceLoader.Get(typeof(UI))) as UI;
+            //temp
+            //need way to find runner from units
+            units.AddCreator(new CameraController_Creator(this.transform, units.GetUnit(0), FindObjectOfType<Camera>()));
+            units.ProcessCreators();
+
+            ui = Instantiate(ResourceLoader.GetResource(typeof(UI))) as UI;
             ui.SetCounters(fixedUpdateCounter, updateCounter);
             ui.SetInput(_userInput);
             ui.transform.parent = this.transform;
@@ -41,7 +46,7 @@ namespace RB
             _userInput.OnUpdate();
             ui.OnUpdate();
 
-            units.CreateUnits();
+            units.ProcessCreators();
         }
 
         public override void OnFixedUpdate()

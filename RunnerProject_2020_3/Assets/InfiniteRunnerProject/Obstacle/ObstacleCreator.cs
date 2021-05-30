@@ -17,7 +17,7 @@ namespace RB
 
         public override Unit GetUnit()
         {
-            Unit obstacle = GameObject.Instantiate(ResourceLoader.Get(typeof(Obstacle))) as Obstacle;
+            Unit obstacle = GameObject.Instantiate(ResourceLoader.GetResource(typeof(Obstacle))) as Obstacle;
             obstacle.unitData = new UnitData(obstacle.transform);
             obstacle.stateController = new StateController(new Obstacle_Idle(obstacle.unitData, _runner), obstacle.unitData);
             obstacle.transform.parent = _parentTransform;
