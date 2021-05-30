@@ -14,6 +14,11 @@ namespace RB
             _listUnitCreators.Add(creator);
         }
 
+        public void AddUnit(Unit unit)
+        {
+            _listUnits.Add(unit);
+        }
+
         public Unit GetUnit(int index)
         {
             return _listUnits[index];

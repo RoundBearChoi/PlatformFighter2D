@@ -18,24 +18,31 @@ namespace RB
         {
             StaticRefs.gameData = gameDataScriptableObj;
 
-            GameObject levelObj = Instantiate(ResourceLoader.GetLevel(1)) as GameObject;
-
-            FrontEnemySpawn[] arr = levelObj.GetComponentsInChildren<FrontEnemySpawn>();
-
-            foreach(FrontEnemySpawn spawn in arr)
-            {
-                Debugger.Log("spawning enemy: " + spawn.gameObject.name + " " + spawn.transform.position);
-            }
-
             units.AddCreator(new Runner_Creator(_userInput, this.transform));
             units.ProcessCreators();
-
-            //units.AddCreator(new ObstaclePlacer_Creator(units.GetUnit(0), this));
 
             //temp
             //need way to find runner from units
             units.AddCreator(new CameraController_Creator(this.transform, units.GetUnit(0), FindObjectOfType<Camera>()));
             units.ProcessCreators();
+
+            //level and enemies
+            GameObject levelObj = Instantiate(ResourceLoader.GetLevel(1)) as GameObject;
+
+            FrontEnemySpawn[] arr = levelObj.GetComponentsInChildren<FrontEnemySpawn>();
+            FrontEnemyCreator frontEnemyCreator = new FrontEnemyCreator();
+
+            foreach(FrontEnemySpawn spawn in arr)
+            {
+                Debugger.Log("spawning enemy: " + spawn.gameObject.name + " " + spawn.transform.position);
+                Unit frontEnemyUnit = frontEnemyCreator.GetUnit();
+                frontEnemyUnit.transform.position = spawn.transform.position;
+
+                if (frontEnemyUnit != null)
+                {
+                    units.AddUnit(frontEnemyUnit);
+                }
+            }
 
             ui = Instantiate(ResourceLoader.GetResource(typeof(UI))) as UI;
             ui.SetCounters(fixedUpdateCounter, updateCounter);
