@@ -39,7 +39,7 @@ namespace RB
                         if (danger == CollisionType.LEFT && data.collisionType == CollisionType.RIGHT)
                         {
                             Debugger.Log("take damage!");
-                            unitData.listNextStates.Add(new Runner_Death_Up(unitData));
+                            unitData.listNextStates.Add(new Runner_Death(unitData));
                         }
                     }
                 }
