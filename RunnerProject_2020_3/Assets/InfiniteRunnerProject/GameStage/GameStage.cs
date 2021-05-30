@@ -20,6 +20,13 @@ namespace RB
 
             GameObject levelObj = Instantiate(ResourceLoader.GetLevel(1)) as GameObject;
 
+            FrontEnemySpawn[] arr = levelObj.GetComponentsInChildren<FrontEnemySpawn>();
+
+            foreach(FrontEnemySpawn spawn in arr)
+            {
+                Debugger.Log("spawning enemy: " + spawn.gameObject.name + " " + spawn.transform.position);
+            }
+
             units.AddCreator(new Runner_Creator(_userInput, this.transform));
             units.ProcessCreators();
 
