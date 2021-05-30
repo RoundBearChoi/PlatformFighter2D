@@ -18,11 +18,17 @@ namespace RB
         {
             IMessage message = new UIMessage("runner is dead");
             message.Register();
+
+            _unitData.rigidBody2D.velocity = new Vector3(0f, 6f, 0f);
+            _unitData.boxCollider2D.enabled = false;
         }
 
         public override void Update()
         {
-
+            if (_unitData.unitTransform.position.y <= -20f)
+            {
+                _unitData.rigidBody2D.Sleep();
+            }
         }
 
         public override Hash128 GetAnimationHash()
