@@ -18,6 +18,8 @@ namespace RB
         {
             StaticRefs.gameData = gameDataScriptableObj;
 
+            //temp
+            //runner is first unit (index 0)
             units.AddCreator(new Runner_Creator(_userInput, this.transform));
             units.ProcessCreators();
 
