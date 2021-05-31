@@ -13,6 +13,8 @@ namespace RB
         public Vector2 Runner_Idle_SpriteSize = new Vector2();
         public uint Runner_Run_SpriteInterval = new uint();
         public Vector2 Runner_Run_SpriteSize = new Vector2();
+        public uint Runner_Jump_SpriteInterval = new uint();
+        public Vector2 Runner_Jump_SpriteSize = new Vector2();
         public Vector2 Runner_Death_SpriteSize = new Vector2();
         public Vector2 RunnerBoxColliderSize = new Vector2();
 

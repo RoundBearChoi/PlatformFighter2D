@@ -36,7 +36,7 @@ namespace RB
             runner.listSpriteAnimations.Add(idleFallSprite.AddComponent<SpriteAnimation>());
             runner.listSpriteAnimations[runner.listSpriteAnimations.Count - 1].Init(new SpriteAnimationSpecs("Texture_Runner_IdleFall", 4, StaticRefs.gameData.Runner_Idle_SpriteSize, OffsetType.BOTTOM_CENTER));
 
-            GameObject runSprite = new GameObject("runner sprite animation");
+            GameObject runSprite = new GameObject("runner run animation");
             runSprite.transform.parent = runner.transform;
             runSprite.transform.localPosition = Vector3.zero;
             runSprite.transform.localRotation = Quaternion.identity;
@@ -45,6 +45,17 @@ namespace RB
                 "Texture_RunCycle_Orange",
                 StaticRefs.gameData.Runner_Run_SpriteInterval,
                 StaticRefs.gameData.Runner_Run_SpriteSize,
+                OffsetType.BOTTOM_CENTER));
+
+            GameObject jumpSprite = new GameObject("runner jump animation");
+            jumpSprite.transform.parent = runner.transform;
+            jumpSprite.transform.localPosition = Vector3.zero;
+            jumpSprite.transform.localRotation = Quaternion.identity;
+            runner.listSpriteAnimations.Add(jumpSprite.AddComponent<SpriteAnimation>());
+            runner.listSpriteAnimations[runner.listSpriteAnimations.Count - 1].Init(new SpriteAnimationSpecs(
+                "Texture_JumpCycle_Orange",
+                StaticRefs.gameData.Runner_Jump_SpriteInterval,
+                StaticRefs.gameData.Runner_Jump_SpriteSize,
                 OffsetType.BOTTOM_CENTER));
 
             GameObject deathSprite = new GameObject("runner death animation");
