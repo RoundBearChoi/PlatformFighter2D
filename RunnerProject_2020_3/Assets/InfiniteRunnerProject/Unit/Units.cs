@@ -19,9 +19,17 @@ namespace RB
             _listUnits.Add(unit);
         }
 
-        public Unit GetUnit(int index)
+        public Unit GetUnit<T>()
         {
-            return _listUnits[index];
+            foreach(Unit unit in _listUnits)
+            {
+                if (unit is T)
+                {
+                    return unit;
+                }
+            }
+
+            return null;
         }
 
         public void ProcessCreators()

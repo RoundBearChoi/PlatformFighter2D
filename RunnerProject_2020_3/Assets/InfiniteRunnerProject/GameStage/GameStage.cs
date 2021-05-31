@@ -18,14 +18,11 @@ namespace RB
         {
             StaticRefs.gameData = gameDataScriptableObj;
 
-            //temp
-            //runner is first unit (index 0)
             units.AddCreator(new Runner_Creator(_userInput, this.transform));
             units.ProcessCreators();
 
-            //temp
-            //need way to find runner from units
-            units.AddCreator(new CameraController_Creator(this.transform, units.GetUnit(0), FindObjectOfType<Camera>()));
+            //runner must already be in the list
+            units.AddCreator(new CameraController_Creator(this.transform, units.GetUnit<Runner>(), FindObjectOfType<Camera>()));
             units.ProcessCreators();
 
             //level and enemies
