@@ -25,16 +25,9 @@ namespace RB
             runner.SetUpdater(new DefaultFixedUpdater(runner.stateController));
 
             runner.InitBoxCollider(StaticRefs.gameData.RunnerBoxColliderSize);
+            runner.InitCollisionReaction();
             runner.InitCollisionChecker();
             runner.SetUserInput(_userInput);
-
-            //GameObject detectorObj = new GameObject("CollisionDetector (Clone)");
-            //CollisionDetector col = detectorObj.AddComponent<CollisionDetector>();
-            //col.InitBoxCollider(StaticRefs.gameData.RunnerBoxColliderSize);
-            //col.transform.parent = runner.transform;
-            //col.transform.localRotation = Quaternion.identity;
-            //col.transform.localPosition = StaticRefs.gameData.RunnerBoxColliderLocalPos;
-            //runner.collisionDetector = col;
 
             GameObject idleFallSprite = new GameObject("runner idle fall animation");
             idleFallSprite.transform.parent = runner.transform;

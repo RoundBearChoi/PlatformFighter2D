@@ -8,6 +8,7 @@ namespace RB
     {
         private UserInput _userInput = null;
         private ICollisionSideChecker _collisionChecker = null;
+        private CollisionReaction _collisionReaction = null;
 
         public override void OnFixedUpdate()
         {
@@ -18,50 +19,22 @@ namespace RB
                 ani.OnFixedUpdate();
             }
 
-            foreach(CollisionData data in unitData.listCollisionData)
+            CollisionReactionData reactionData = _collisionReaction.GetReactionData();
+
+            if (reactionData.reactionType == CollisionReactionType.TAKE_DAMAGE)
             {
-                //temp code
-                Unit collidingUnit = data.collidingObject.GetComponent<Unit>();
-
-                if (collidingUnit != null)
-                {
-                    if (data.collisionType == CollisionType.BOTTOM)
-                    {
-                        if (!collidingUnit.listDangerousSides.Contains(CollisionType.TOP))
-                        {
-                            collidingUnit.unitData.listDamageData.Add(new DamageData(1f, this));
-                            unitData.rigidBody2D.velocity = StaticRefs.gameData.Runner_JumpUp_StartForce;
-                        }
-                    }
-
-                    foreach(CollisionType danger in collidingUnit.listDangerousSides)
-                    {
-                        if (danger == CollisionType.LEFT && data.collisionType == CollisionType.RIGHT)
-                        {
-                            Debugger.Log("take damage!");
-                            unitData.listNextStates.Add(new Runner_Death(unitData));
-                        }
-                    }
-                }
-                ///
-
-                Ground ground = data.collidingObject.GetComponent<Ground>();
-
-                if (ground != null)
-                {
-                    if (data.collisionType == CollisionType.BOTTOM)
-                    {
-                        Debugger.Log("bottom collision detected");
-
-                        if (ground != unitData.currentGround)
-                        {
-                            Debugger.Log("new ground collision");
-                            unitData.currentGround = ground;
-                            unitData.listNextStates.Add(new Runner_NormalRun(unitData, _userInput));
-                            break;
-                        }
-                    }
-                }
+                Debugger.Log("take damage!");
+                unitData.listNextStates.Add(new Runner_Death(unitData));
+            }
+            else if (reactionData.reactionType == CollisionReactionType.DEAL_DAMAGE)
+            {
+                reactionData.collidingUnit.unitData.listDamageData.Add(new DamageData(1f, this));
+                unitData.rigidBody2D.velocity = StaticRefs.gameData.Runner_JumpUp_StartForce;
+            }
+            else if (reactionData.reactionType == CollisionReactionType.GROUND_LAND)
+            {
+                Debugger.Log("new ground collision");
+                unitData.listNextStates.Add(new Runner_NormalRun(unitData, _userInput));
             }
 
             unitData.listCollisionData.Clear();
@@ -81,6 +54,11 @@ namespace RB
         {
             BoxCollider2D collider = this.gameObject.GetComponent<BoxCollider2D>();
             _collisionChecker = new CollisionChecker(collider);
+        }
+
+        public override void InitCollisionReaction()
+        {
+            _collisionReaction = new CollisionReaction(unitData);
         }
 
         public override void SetUserInput(UserInput userInput)

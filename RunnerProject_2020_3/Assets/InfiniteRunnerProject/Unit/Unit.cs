@@ -57,6 +57,11 @@ namespace RB
 
         }
 
+        public virtual void InitCollisionReaction()
+        {
+
+        }
+
         public virtual void SetUserInput(UserInput userInput)
         {
 
