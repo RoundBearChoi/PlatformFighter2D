@@ -6,7 +6,7 @@ namespace RB
 {
     public class Runner_Death_Up : State
     {
-        static Hash128 animationHash = Hash128.Compute("Texture_SampleDeathAnimation");
+        static Hash128 animationHash = Hash128.Compute("Texture_Death_Orange");
         float _timeInterval = 0.05f;
 
         public Runner_Death_Up(UnitData unitData)

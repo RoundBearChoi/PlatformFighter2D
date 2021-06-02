@@ -71,7 +71,12 @@ namespace RB
             deathSprite.transform.localPosition = Vector3.zero;
             deathSprite.transform.localRotation = Quaternion.identity;
             runner.listSpriteAnimations.Add(deathSprite.AddComponent<SpriteAnimation>());
-            runner.listSpriteAnimations[runner.listSpriteAnimations.Count - 1].Init(new SpriteAnimationSpecs("Texture_SampleDeathAnimation", 10, StaticRefs.gameData.Runner_Death_SpriteSize, OffsetType.BOTTOM_CENTER));
+            runner.listSpriteAnimations[runner.listSpriteAnimations.Count - 1].Init(new SpriteAnimationSpecs(
+                "Texture_Death_Orange",
+                StaticRefs.gameData.Runner_Death_SpriteInterval,
+                StaticRefs.gameData.Runner_Death_SpriteSize,
+                OffsetType.BOTTOM_CENTER));
+            runner.listSpriteAnimations[runner.listSpriteAnimations.Count - 1].playOnce = true;
 
             runner.transform.position = new Vector3(0f, 5f, 0f);
 
