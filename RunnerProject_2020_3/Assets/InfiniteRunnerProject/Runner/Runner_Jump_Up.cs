@@ -18,11 +18,15 @@ namespace RB
         public override void OnEnter()
         {
             _unitData.rigidBody2D.velocity = StaticRefs.gameData.Runner_JumpUp_StartForce;
-            _unitData.currentGround = null;
         }
 
         public override void Update()
         {
+            if (updateCount == 1)
+            {
+                _unitData.currentGround = null;
+            }
+            
             UpdateComponents();
         }
 

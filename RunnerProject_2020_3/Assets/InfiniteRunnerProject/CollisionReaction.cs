@@ -15,6 +15,10 @@ namespace RB
 
         public CollisionReactionData GetReactionData()
         {
+            CollisionReactionData takeDamage = new CollisionReactionData(CollisionReactionType.NONE, null);
+            CollisionReactionData dealDamage = new CollisionReactionData(CollisionReactionType.NONE, null);
+            CollisionReactionData groundHit = new CollisionReactionData(CollisionReactionType.NONE, null);
+
             foreach (CollisionData data in _unitData.listCollisionData)
             {
                 Unit collidingUnit = data.collidingObject.GetComponent<Unit>();
@@ -26,7 +30,8 @@ namespace RB
                     {
                         if (danger == CollisionType.LEFT && data.collisionType == CollisionType.RIGHT)
                         {
-                            return new CollisionReactionData(CollisionReactionType.TAKE_DAMAGE, collidingUnit);
+                            takeDamage.reactionType = CollisionReactionType.TAKE_DAMAGE;
+                            takeDamage.collidingUnit = collidingUnit;
                         }
                     }
 
@@ -35,7 +40,8 @@ namespace RB
                     {
                         if (!collidingUnit.listDangerousSides.Contains(CollisionType.TOP))
                         {
-                            return new CollisionReactionData(CollisionReactionType.DEAL_DAMAGE, collidingUnit);
+                            dealDamage.reactionType = CollisionReactionType.DEAL_DAMAGE;
+                            dealDamage.collidingUnit = collidingUnit;
                         }
                     }
                 }
@@ -51,11 +57,26 @@ namespace RB
 
                         if (ground != _unitData.currentGround)
                         {
+                            Debug.DrawLine(_unitData.boxCollider2D.bounds.center, data.collidingObject.transform.position, Color.yellow, 3f);
+                            groundHit.reactionType = CollisionReactionType.GROUND_LAND;
+                            groundHit.collidingUnit = collidingUnit;
                             _unitData.currentGround = ground;
-                            return new CollisionReactionData(CollisionReactionType.GROUND_LAND, null);
                         }
                     }
                 }
+            }
+
+            if (takeDamage.reactionType == CollisionReactionType.TAKE_DAMAGE)
+            {
+                return takeDamage;
+            }
+            else if (dealDamage.reactionType == CollisionReactionType.DEAL_DAMAGE)
+            {
+                return dealDamage;
+            }
+            else if (groundHit.reactionType == CollisionReactionType.GROUND_LAND)
+            {
+                return groundHit;
             }
 
             return new CollisionReactionData(CollisionReactionType.NONE, null);

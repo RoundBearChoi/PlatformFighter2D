@@ -34,6 +34,7 @@ namespace RB
         public void SetNewState(State newState)
         {
             currentState = newState;
+            currentState.updateCount = 0;
             currentState.OnEnter();
         }
     }

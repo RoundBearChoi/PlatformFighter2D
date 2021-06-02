@@ -115,7 +115,7 @@ namespace RB.PhysicsTest
                 if (bottomDot >= 0.999f && bottomDot <= 1f)
                 {
                     Debug.Log("bottom collision");
-                    Debug.DrawLine(bottomLeft, p.point, Color.green, 1f);
+                    Debug.DrawLine(bottomLeft, p.point, Color.green, 3f);
 
                     listCollisionTypes.Add(CollisionType.BOTTOM);
                 }
@@ -125,7 +125,7 @@ namespace RB.PhysicsTest
                     if (p.normal.y <= 0f)
                     {
                         Debug.Log("front collision");
-                        Debug.DrawLine(topRight, p.point, Color.green, 1f);
+                        Debug.DrawLine(topRight, p.point, Color.green, 3f);
                         listCollisionTypes.Add(CollisionType.RIGHT);
                     }
                 }
