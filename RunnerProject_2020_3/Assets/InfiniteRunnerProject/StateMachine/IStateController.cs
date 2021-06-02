@@ -7,7 +7,7 @@ namespace RB
     public interface IStateController
     {
         public abstract void UpdateState();
-        public abstract void TransitionToNextState();
         public abstract void SetNewState(State newState);
+        public abstract void TransitionToNextState();
     }
 }

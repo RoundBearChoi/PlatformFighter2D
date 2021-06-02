@@ -19,7 +19,10 @@ namespace RB
         {
             Unit runner = GameObject.Instantiate(ResourceLoader.GetResource(typeof(Runner))) as Runner;
             runner.unitData = new UnitData(runner.transform);
-            runner.stateController = new StateController(new Runner_Idle(runner.unitData, _userInput), runner.unitData);
+            runner.stateController = new StateController(
+                new Runner_Idle(runner.unitData, _userInput),
+                runner.unitData,
+                runner.listSpriteAnimations);
             runner.transform.parent = _parentTransform;
             runner.transform.localRotation = Quaternion.identity;
             runner.SetUpdater(new DefaultFixedUpdater(runner.stateController));
@@ -57,6 +60,7 @@ namespace RB
                 StaticRefs.gameData.Runner_Jump_SpriteInterval,
                 StaticRefs.gameData.Runner_Jump_SpriteSize,
                 OffsetType.BOTTOM_CENTER));
+            runner.listSpriteAnimations[runner.listSpriteAnimations.Count - 1].playOnce = true;
 
             GameObject deathSprite = new GameObject("runner death animation");
             deathSprite.transform.parent = runner.transform;

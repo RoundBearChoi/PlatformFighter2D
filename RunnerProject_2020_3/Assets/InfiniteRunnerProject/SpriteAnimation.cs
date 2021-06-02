@@ -14,6 +14,7 @@ namespace RB
         int _spriteIndex = 0;
 
         public Hash128 animationHash;
+        public bool playOnce = false;
 
         public void Init(SpriteAnimationSpecs animationSpecs)
         {
@@ -53,10 +54,23 @@ namespace RB
 
             if (_spriteIndex >= _listSprites.Count)
             {
-                _spriteIndex = 0;
+                if (!playOnce)
+                {
+                    _spriteIndex = 0;
+                }
+                else
+                {
+                    _spriteIndex = _listSprites.Count - 1;
+                }
             }
 
             _updateCount++;
+        }
+
+        public void Reset()
+        {
+            _updateCount = 0;
+            _spriteIndex = 0;
         }
     }
 }
