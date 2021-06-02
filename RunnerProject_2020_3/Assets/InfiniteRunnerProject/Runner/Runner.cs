@@ -34,7 +34,6 @@ namespace RB
             else if (reactionData.reactionType == CollisionReactionType.GROUND_LAND)
             {
                 Debugger.Log("new ground collision");
-                Debug.DrawLine(unitData.boxCollider2D.bounds.center, unitData.currentGround.transform.position, Color.yellow, 3f);
                 unitData.listNextStates.Add(new Runner_NormalRun(unitData, _userInput));
             }
 
