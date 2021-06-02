@@ -18,22 +18,16 @@ namespace RB
 
         public void UpdateState()
         {
-            if (currentState != null)
-            {
-                currentState.Update();
-                currentState.updateCount++;
-            }
+            currentState.Update();
+            currentState.updateCount++;
         }
 
         public void TransitionToNextState()
         {
-            if (currentState != null)
+            if (_unitData.listNextStates.Count > 0)
             {
-                if (_unitData.listNextStates.Count > 0)
-                {
-                    SetNewState(_unitData.listNextStates[0]);
-                    _unitData.listNextStates.RemoveAt(0);
-                }
+                SetNewState(_unitData.listNextStates[_unitData.listNextStates.Count - 1]);
+                _unitData.listNextStates.Clear();
             }
         }
 
