@@ -37,7 +37,11 @@ namespace RB
             idleFallSprite.transform.localPosition = Vector3.zero;
             idleFallSprite.transform.localRotation = Quaternion.identity;
             runner.listSpriteAnimations.Add(idleFallSprite.AddComponent<SpriteAnimation>());
-            runner.listSpriteAnimations[runner.listSpriteAnimations.Count - 1].Init(new SpriteAnimationSpecs("Texture_Runner_IdleFall", 4, StaticRefs.gameData.Runner_Idle_SpriteSize, OffsetType.BOTTOM_CENTER));
+            runner.listSpriteAnimations[runner.listSpriteAnimations.Count - 1].Init(new SpriteAnimationSpecs(
+                "Texture_Idle_Orange",
+                StaticRefs.gameData.Runner_Idle_SpriteInterval,
+                StaticRefs.gameData.Runner_Idle_SpriteSize,
+                OffsetType.BOTTOM_CENTER));
 
             GameObject runSprite = new GameObject("runner run animation");
             runSprite.transform.parent = runner.transform;
