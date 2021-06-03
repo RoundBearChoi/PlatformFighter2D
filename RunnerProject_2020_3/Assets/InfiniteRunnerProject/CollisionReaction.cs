@@ -66,6 +66,9 @@ namespace RB
                 }
             }
 
+            //clear collisiondata in the end
+            _unitData.listCollisionData.Clear();
+
             if (takeDamage.reactionType == CollisionReactionType.TAKE_DAMAGE)
             {
                 return takeDamage;

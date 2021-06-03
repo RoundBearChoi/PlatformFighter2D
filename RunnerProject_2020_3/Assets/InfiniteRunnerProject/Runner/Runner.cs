@@ -33,9 +33,6 @@ namespace RB
                 Debugger.Log("new ground collision");
                 unitData.listNextStates.Add(new Runner_NormalRun(unitData, _userInput));
             }
-
-            //clear collisiondata in the end
-            unitData.listCollisionData.Clear();
         }
 
         public void OnCollisionEnter2D(Collision2D collision)
