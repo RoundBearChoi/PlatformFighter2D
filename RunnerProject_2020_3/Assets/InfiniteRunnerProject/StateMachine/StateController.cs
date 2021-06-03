@@ -9,12 +9,11 @@ namespace RB
         public State currentState = null;
 
         private UnitData _unitData = null;
-        private List<SpriteAnimation> _listSpriteAnimations = null;
+        public SpriteAnimations spriteAnimations = null;
 
-        public StateController(State newState, UnitData unitData, List<SpriteAnimation> listSpriteAnimations)
+        public StateController(State newState, UnitData unitData)
         {
             _unitData = unitData;
-            _listSpriteAnimations = listSpriteAnimations;
             SetNewState(newState);
         }
 
@@ -28,13 +27,7 @@ namespace RB
         {
             if (_unitData.listNextStates.Count > 0)
             {
-                if (_listSpriteAnimations != null)
-                {
-                    foreach (SpriteAnimation spr in _listSpriteAnimations)
-                    {
-                        spr.Reset();
-                    }
-                }
+                spriteAnimations.ResetSpriteIndexes();
 
                 SetNewState(_unitData.listNextStates[_unitData.listNextStates.Count - 1]);
                 _unitData.listNextStates.Clear();

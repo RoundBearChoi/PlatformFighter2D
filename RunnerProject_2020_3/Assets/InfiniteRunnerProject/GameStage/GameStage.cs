@@ -30,7 +30,7 @@ namespace RB
             levelObj.transform.parent = this.transform;
 
             FrontEnemySpawn[] arr = levelObj.GetComponentsInChildren<FrontEnemySpawn>();
-            FrontEnemyCreator frontEnemyCreator = new FrontEnemyCreator();
+            FrontEnemyCreator frontEnemyCreator = new FrontEnemyCreator(this.transform);
 
             foreach(FrontEnemySpawn spawn in arr)
             {

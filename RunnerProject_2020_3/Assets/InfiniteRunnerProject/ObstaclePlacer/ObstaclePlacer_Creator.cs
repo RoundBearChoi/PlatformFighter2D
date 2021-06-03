@@ -24,14 +24,11 @@ namespace RB
             placer.unitData = new UnitData(placer.transform);
             placer.stateController = new StateController(
                 new ObstaclePlacer_Repeat(placer.unitData, _runner, _gameStage),
-                placer.unitData,
-                placer.listSpriteAnimations);
+                placer.unitData);
             placer.transform.parent = _parentTransform;
             placer.transform.localPosition = Vector3.zero;
             placer.transform.localRotation = Quaternion.identity;
             placer.SetUpdater(new PlacerUpdater(placer.stateController, _runner));
-
-            placer.listSpriteAnimations = new List<SpriteAnimation>();
 
             return placer;
         }

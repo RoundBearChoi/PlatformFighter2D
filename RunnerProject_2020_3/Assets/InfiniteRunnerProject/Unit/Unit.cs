@@ -9,30 +9,15 @@ namespace RB
         public StateController stateController = null;
         public UnitData unitData = null;
 
-        public List<SpriteAnimation> listSpriteAnimations = new List<SpriteAnimation>();
+        //public List<SpriteAnimation> listSpriteAnimations = new List<SpriteAnimation>();
         public List<CollisionType> listDangerousSides = new List<CollisionType>();
         public IUpdater unitUpdater = new NoUpdate();
+
+        public SpriteAnimations spriteAnimations = null;
 
         public virtual void OnFixedUpdate()
         {
 
-        }
-
-        public virtual void MatchAnimationToState()
-        {
-            foreach (SpriteAnimation spriteAni in listSpriteAnimations)
-            {
-                int n = spriteAni.animationHash.CompareTo(stateController.currentState.GetAnimationHash());
-
-                if (n == 0)
-                {
-                    spriteAni.gameObject.SetActive(true);
-                }
-                else
-                {
-                    spriteAni.gameObject.SetActive(false);
-                }
-            }
         }
 
         public virtual void SetUpdater(IUpdater updater)
@@ -60,6 +45,12 @@ namespace RB
         public virtual void InitCollisionReaction()
         {
 
+        }
+
+        public virtual void InitSpriteAnimations()
+        {
+            spriteAnimations = new SpriteAnimations(stateController);
+            stateController.spriteAnimations = spriteAnimations;
         }
 
         public virtual void SetUserInput(UserInput userInput)

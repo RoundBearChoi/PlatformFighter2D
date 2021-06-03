@@ -48,7 +48,7 @@ namespace RB
             //main update
             for (int i = _listUnits.Count - 1; i >= 0; i--)
             {
-                _listUnits[i].MatchAnimationToState();
+                _listUnits[i].spriteAnimations.MatchAnimationToState();
                 _listUnits[i].OnFixedUpdate();
                 _listUnits[i].ProcessDamage();
             }

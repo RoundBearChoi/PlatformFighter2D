@@ -21,26 +21,18 @@ namespace RB
             obstacle.unitData = new UnitData(obstacle.transform);
             obstacle.stateController = new StateController(
                 new Obstacle_Idle(obstacle.unitData, _runner),
-                obstacle.unitData,
-                obstacle.listSpriteAnimations);
+                obstacle.unitData);
             obstacle.transform.parent = _parentTransform;
             obstacle.transform.position = Vector3.zero;
             obstacle.transform.rotation = Quaternion.identity;
             obstacle.SetUpdater(new DefaultFixedUpdater(obstacle.stateController));
 
-            //GameObject detectorObj = new GameObject("CollisionDetector (Clone)");
-            //CollisionDetector col = detectorObj.AddComponent<CollisionDetector>();
-            //col.InitBoxCollider(StaticRefs.gameData.ObstacleBoxColliderSize);
-            //col.transform.parent = obstacle.transform;
-            //col.transform.localRotation = Quaternion.identity;
-            //col.transform.localPosition = StaticRefs.gameData.ObstacleBoxColliderLocalPos;
-
             GameObject boxSprite = new GameObject("box sprite");
             boxSprite.transform.parent = obstacle.transform;
             boxSprite.transform.localPosition = Vector3.zero;
             boxSprite.transform.localRotation = Quaternion.identity;
-            obstacle.listSpriteAnimations.Add(boxSprite.AddComponent<SpriteAnimation>());
-            obstacle.listSpriteAnimations[obstacle.listSpriteAnimations.Count - 1].Init(new SpriteAnimationSpecs("Texture_BlockEnemy", 10, StaticRefs.gameData.ObstacleSpriteSize, OffsetType.BOTTOM_CENTER));
+            obstacle.spriteAnimations.Add(boxSprite.AddComponent<SpriteAnimation>());
+            obstacle.spriteAnimations.GetLastSpriteAnimation().Init(new SpriteAnimationSpecs("Texture_BlockEnemy", 10, StaticRefs.gameData.ObstacleSpriteSize, OffsetType.BOTTOM_CENTER));
 
             //set initial obstacle position in relation to the runner
             obstacle.transform.position = new Vector3(_runner.transform.position.x + 10f, 0f, 0f);

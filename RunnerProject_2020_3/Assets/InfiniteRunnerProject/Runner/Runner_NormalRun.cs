@@ -26,19 +26,6 @@ namespace RB
             {
                 _unitData.listNextStates.Add(new Runner_Jump_Up(_unitData, _userInput));
             }
-
-            //if (_userInput.ContainsKeyPress(UserInput.keyboard.spaceKey))
-            //{
-            //    nextState = new Runner_Jump_Up(_unitData, _userInput);
-            //}
-            //else
-            //{
-            //
-            //    if (_unitData.unitTransform != null)
-            //    {
-            //        _unitData.unitTransform.position += new Vector3(_unitData.horizontalVelocity, 0f, 0f);
-            //    }
-            //}
         }
 
         public override Hash128 GetAnimationHash()

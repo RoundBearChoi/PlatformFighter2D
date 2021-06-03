@@ -11,5 +11,11 @@ namespace RB
             listDangerousSides.Clear();
             listDangerousSides.Add(CollisionType.LEFT);
         }
+
+        public override void OnFixedUpdate()
+        {
+            unitUpdater.CustomUpdate();
+            spriteAnimations.OnFixedUpdate();
+        }
     }
 }

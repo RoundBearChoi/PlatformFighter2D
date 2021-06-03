@@ -19,10 +19,10 @@ namespace RB
         {
             Unit runner = GameObject.Instantiate(ResourceLoader.GetResource(typeof(Runner))) as Runner;
             runner.unitData = new UnitData(runner.transform);
+
             runner.stateController = new StateController(
                 new Runner_Idle(runner.unitData, _userInput),
-                runner.unitData,
-                runner.listSpriteAnimations);
+                runner.unitData);
             runner.transform.parent = _parentTransform;
             runner.transform.localRotation = Quaternion.identity;
             runner.SetUpdater(new DefaultFixedUpdater(runner.stateController));
@@ -30,14 +30,15 @@ namespace RB
             runner.InitBoxCollider(StaticRefs.gameData.RunnerBoxColliderSize);
             runner.InitCollisionReaction();
             runner.InitCollisionChecker();
+            runner.InitSpriteAnimations();
             runner.SetUserInput(_userInput);
 
             GameObject idleFallSprite = new GameObject("runner idle fall animation");
             idleFallSprite.transform.parent = runner.transform;
             idleFallSprite.transform.localPosition = Vector3.zero;
             idleFallSprite.transform.localRotation = Quaternion.identity;
-            runner.listSpriteAnimations.Add(idleFallSprite.AddComponent<SpriteAnimation>());
-            runner.listSpriteAnimations[runner.listSpriteAnimations.Count - 1].Init(new SpriteAnimationSpecs(
+            runner.spriteAnimations.Add(idleFallSprite.AddComponent<SpriteAnimation>());
+            runner.spriteAnimations.GetLastSpriteAnimation().Init(new SpriteAnimationSpecs(
                 "Texture_Idle_Orange",
                 StaticRefs.gameData.Runner_Idle_SpriteInterval,
                 StaticRefs.gameData.Runner_Idle_SpriteSize,
@@ -47,8 +48,8 @@ namespace RB
             runSprite.transform.parent = runner.transform;
             runSprite.transform.localPosition = Vector3.zero;
             runSprite.transform.localRotation = Quaternion.identity;
-            runner.listSpriteAnimations.Add(runSprite.AddComponent<SpriteAnimation>());
-            runner.listSpriteAnimations[runner.listSpriteAnimations.Count - 1].Init(new SpriteAnimationSpecs(
+            runner.spriteAnimations.Add(runSprite.AddComponent<SpriteAnimation>());
+            runner.spriteAnimations.GetLastSpriteAnimation().Init(new SpriteAnimationSpecs(
                 "Texture_RunCycle_Orange",
                 StaticRefs.gameData.Runner_Run_SpriteInterval,
                 StaticRefs.gameData.Runner_Run_SpriteSize,
@@ -58,25 +59,25 @@ namespace RB
             jumpSprite.transform.parent = runner.transform;
             jumpSprite.transform.localPosition = Vector3.zero;
             jumpSprite.transform.localRotation = Quaternion.identity;
-            runner.listSpriteAnimations.Add(jumpSprite.AddComponent<SpriteAnimation>());
-            runner.listSpriteAnimations[runner.listSpriteAnimations.Count - 1].Init(new SpriteAnimationSpecs(
+            runner.spriteAnimations.Add(jumpSprite.AddComponent<SpriteAnimation>());
+            runner.spriteAnimations.GetLastSpriteAnimation().Init(new SpriteAnimationSpecs(
                 "Texture_JumpCycle_Orange",
                 StaticRefs.gameData.Runner_Jump_SpriteInterval,
                 StaticRefs.gameData.Runner_Jump_SpriteSize,
                 OffsetType.BOTTOM_CENTER));
-            runner.listSpriteAnimations[runner.listSpriteAnimations.Count - 1].playOnce = true;
+            runner.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
 
             GameObject deathSprite = new GameObject("runner death animation");
             deathSprite.transform.parent = runner.transform;
             deathSprite.transform.localPosition = Vector3.zero;
             deathSprite.transform.localRotation = Quaternion.identity;
-            runner.listSpriteAnimations.Add(deathSprite.AddComponent<SpriteAnimation>());
-            runner.listSpriteAnimations[runner.listSpriteAnimations.Count - 1].Init(new SpriteAnimationSpecs(
+            runner.spriteAnimations.Add(deathSprite.AddComponent<SpriteAnimation>());
+            runner.spriteAnimations.GetLastSpriteAnimation().Init(new SpriteAnimationSpecs(
                 "Texture_Death_Orange",
                 StaticRefs.gameData.Runner_Death_SpriteInterval,
                 StaticRefs.gameData.Runner_Death_SpriteSize,
                 OffsetType.BOTTOM_CENTER));
-            runner.listSpriteAnimations[runner.listSpriteAnimations.Count - 1].playOnce = true;
+            runner.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
 
             runner.transform.position = new Vector3(0f, 5f, 0f);
 

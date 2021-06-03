@@ -14,10 +14,7 @@ namespace RB
         {
             unitUpdater.CustomUpdate();
 
-            foreach (SpriteAnimation ani in listSpriteAnimations)
-            {
-                ani.OnFixedUpdate();
-            }
+            spriteAnimations.OnFixedUpdate();
 
             CollisionReactionData reactionData = _collisionReaction.GetReactionData();
 

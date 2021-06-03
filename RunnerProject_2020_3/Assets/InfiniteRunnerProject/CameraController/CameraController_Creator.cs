@@ -22,13 +22,15 @@ namespace RB
             GameObject cameraConObj = new GameObject("cameraController(Clone)");
             Unit cameraController = cameraConObj.AddComponent<CameraController>();
             cameraController.unitData = new UnitData(cameraController.transform);
+
             cameraController.transform.parent = _parentTransform;
             cameraController.transform.localPosition = Vector3.zero;
             cameraController.transform.localRotation = Quaternion.identity;
             cameraController.stateController = new StateController(
                 new CameraController_SimpleFollow(_runner, _mainCamera),
-                cameraController.unitData,
-                cameraController.listSpriteAnimations);
+                cameraController.unitData);
+
+            cameraController.InitSpriteAnimations();
 
             return cameraController;
         }
