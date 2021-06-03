@@ -57,7 +57,7 @@ namespace RB
 
                         if (ground != _unitData.currentGround)
                         {
-                            Debug.DrawLine(_unitData.boxCollider2D.bounds.center, data.collidingObject.transform.position, Color.yellow, 3f);
+                            Debug.DrawLine(_unitData.boxCollider2D.bounds.center, data.contactPoint.point, Color.yellow, 3f);
                             groundHit.reactionType = CollisionReactionType.GROUND_LAND;
                             groundHit.collidingUnit = collidingUnit;
                             _unitData.currentGround = ground;

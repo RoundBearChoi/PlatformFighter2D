@@ -6,13 +6,15 @@ namespace RB
 {
     public struct CollisionData
     {
-        public CollisionData(CollisionType colType, GameObject collidingObj)
+        public CollisionData(CollisionType type, GameObject collidingObj, ContactPoint2D contact)
         {
-            collisionType = colType;
+            collisionType = type;
             collidingObject = collidingObj;
+            contactPoint = contact;
         }
 
         public CollisionType collisionType;
         public GameObject collidingObject;
+        public ContactPoint2D contactPoint;
     }
 }

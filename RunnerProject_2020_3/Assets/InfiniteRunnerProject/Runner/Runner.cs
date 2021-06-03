@@ -43,7 +43,7 @@ namespace RB
             foreach(ContactPoint2D contactPoint in collision.contacts)
             {
                 CollisionType collisionType = _collisionChecker.GetCollisionType(contactPoint);
-                CollisionData collisionData = new CollisionData(collisionType, collision.gameObject);
+                CollisionData collisionData = new CollisionData(collisionType, collision.gameObject, contactPoint);
                 unitData.listCollisionData.Add(collisionData);
             }
         }
