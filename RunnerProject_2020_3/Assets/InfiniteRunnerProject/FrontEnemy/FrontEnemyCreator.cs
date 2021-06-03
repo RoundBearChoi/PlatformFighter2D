@@ -27,16 +27,13 @@ namespace RB
 
             enemy.InitSpriteAnimations();
 
-            GameObject idleSprite = new GameObject("front enemy idle animation");
-            idleSprite.transform.parent = enemy.transform;
-            idleSprite.transform.localPosition = Vector3.zero;
-            idleSprite.transform.localRotation = Quaternion.identity;
-            enemy.spriteAnimations.Add(idleSprite.AddComponent<SpriteAnimation>());
-            enemy.spriteAnimations.GetLastSpriteAnimation().Init(new SpriteAnimationSpecs(
-                "Texture_Front_Enemy_Sample",
-                10,
-                new Vector2(2.33f, 2.57f),
-                OffsetType.BOTTOM_CENTER));
+            enemy.spriteAnimations.Add("front enemy idle animation",
+                new SpriteAnimationSpecs(
+                    "Texture_Front_Enemy_Sample",
+                    10,
+                    new Vector2(2.33f, 2.57f),
+                    OffsetType.BOTTOM_CENTER),
+                enemy.transform);
 
             return enemy;
         }

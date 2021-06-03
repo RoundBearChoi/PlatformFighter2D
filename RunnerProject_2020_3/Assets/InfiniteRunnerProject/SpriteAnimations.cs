@@ -40,9 +40,14 @@ namespace RB
             }
         }
 
-        public void Add(SpriteAnimation spriteAnimation)
+        public void Add(string objName, SpriteAnimationSpecs specs, Transform parent)
         {
-            _listSpriteAnimations.Add(spriteAnimation);
+            GameObject obj = new GameObject(objName);
+            obj.transform.parent = parent;
+            obj.transform.localPosition = Vector3.zero;
+            obj.transform.localRotation = Quaternion.identity;
+            _listSpriteAnimations.Add(obj.AddComponent<SpriteAnimation>());
+            _listSpriteAnimations[_listSpriteAnimations.Count - 1].Init(specs);
         }
 
         public SpriteAnimation GetLastSpriteAnimation()

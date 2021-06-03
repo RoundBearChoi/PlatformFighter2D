@@ -27,12 +27,13 @@ namespace RB
             obstacle.transform.rotation = Quaternion.identity;
             obstacle.SetUpdater(new DefaultFixedUpdater(obstacle.stateController));
 
-            GameObject boxSprite = new GameObject("box sprite");
-            boxSprite.transform.parent = obstacle.transform;
-            boxSprite.transform.localPosition = Vector3.zero;
-            boxSprite.transform.localRotation = Quaternion.identity;
-            obstacle.spriteAnimations.Add(boxSprite.AddComponent<SpriteAnimation>());
-            obstacle.spriteAnimations.GetLastSpriteAnimation().Init(new SpriteAnimationSpecs("Texture_BlockEnemy", 10, StaticRefs.gameData.ObstacleSpriteSize, OffsetType.BOTTOM_CENTER));
+            obstacle.spriteAnimations.Add("box sprite",
+                new SpriteAnimationSpecs(
+                    "Texture_BlockEnemy",
+                    10,
+                    StaticRefs.gameData.ObstacleSpriteSize,
+                    OffsetType.BOTTOM_CENTER),
+                obstacle.transform);
 
             //set initial obstacle position in relation to the runner
             obstacle.transform.position = new Vector3(_runner.transform.position.x + 10f, 0f, 0f);
