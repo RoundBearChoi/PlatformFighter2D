@@ -37,6 +37,27 @@ namespace RB
             unitData.rigidBody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
+        public virtual void InitSpriteAnimations()
+        {
+            spriteAnimations = new SpriteAnimations(stateController);
+            stateController.spriteAnimations = spriteAnimations;
+        }
+
+        public virtual void ProcessDamage()
+        {
+            foreach (DamageData data in unitData.listDamageData)
+            {
+                unitData.health -= data.damageAmount;
+            }
+
+            unitData.listDamageData.Clear();
+        }
+
+        public virtual void SetUserInput(UserInput userInput)
+        {
+
+        }
+
         public virtual void InitCollisionChecker()
         {
 
@@ -45,27 +66,6 @@ namespace RB
         public virtual void InitCollisionReaction()
         {
 
-        }
-
-        public virtual void InitSpriteAnimations()
-        {
-            spriteAnimations = new SpriteAnimations(stateController);
-            stateController.spriteAnimations = spriteAnimations;
-        }
-
-        public virtual void SetUserInput(UserInput userInput)
-        {
-
-        }
-
-        public virtual void ProcessDamage()
-        {
-            foreach(DamageData data in unitData.listDamageData)
-            {
-                unitData.health -= data.damageAmount;
-            }
-
-            unitData.listDamageData.Clear();
         }
     }
 }
