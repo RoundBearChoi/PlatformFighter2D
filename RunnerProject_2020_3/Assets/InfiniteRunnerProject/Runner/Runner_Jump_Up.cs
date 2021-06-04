@@ -22,7 +22,7 @@ namespace RB
 
         public override void Update()
         {
-            if (updateCount == 1)
+            if (updateCount == 2)
             {
                 _unitData.currentGround = null;
             }
