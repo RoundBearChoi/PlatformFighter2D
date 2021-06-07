@@ -25,7 +25,7 @@ namespace RB
             obstacle.transform.parent = _parentTransform;
             obstacle.transform.position = Vector3.zero;
             obstacle.transform.rotation = Quaternion.identity;
-            obstacle.SetUpdater(new DefaultFixedUpdater(obstacle.stateController));
+            obstacle.SetUpdater(new DefaultUpdater(obstacle.stateController));
 
             obstacle.spriteAnimations.Add("box sprite",
                 new SpriteAnimationSpecs(

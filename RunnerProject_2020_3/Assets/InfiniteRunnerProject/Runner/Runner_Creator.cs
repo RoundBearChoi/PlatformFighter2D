@@ -25,7 +25,7 @@ namespace RB
                 runner.unitData);
             runner.transform.parent = _parentTransform;
             runner.transform.localRotation = Quaternion.identity;
-            runner.SetUpdater(new DefaultFixedUpdater(runner.stateController));
+            runner.SetUpdater(new DefaultUpdater(runner.stateController));
 
             runner.InitBoxCollider(StaticRefs.gameData.RunnerBoxColliderSize);
             runner.InitCollisionReaction();

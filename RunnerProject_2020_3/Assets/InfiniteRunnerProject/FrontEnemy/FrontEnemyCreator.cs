@@ -23,7 +23,7 @@ namespace RB
                 enemy.unitData);
             enemy.transform.parent = _parentTransform;
             enemy.transform.localRotation = Quaternion.identity;
-            enemy.SetUpdater(new DefaultFixedUpdater(enemy.stateController));
+            enemy.SetUpdater(new DefaultUpdater(enemy.stateController));
 
             enemy.InitSpriteAnimations();
 

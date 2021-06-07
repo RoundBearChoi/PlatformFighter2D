@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace RB
 {
-    public class DefaultFixedUpdater : IUpdater
+    public class DefaultUpdater : IUpdater
     {
         private StateController _stateController = null;
 
-        public DefaultFixedUpdater(StateController stateController)
+        public DefaultUpdater(StateController stateController)
         {
             _stateController = stateController;
         }
