@@ -26,23 +26,17 @@ namespace RB
                 if (collidingUnit != null)
                 {
                     //take damage
-                    foreach (CollisionType danger in collidingUnit.listDangerousSides)
+                    if (collidingUnit.attackData.IsAttackingSide(CollisionType.LEFT) && data.collisionType == CollisionType.RIGHT)
                     {
-                        if (danger == CollisionType.LEFT && data.collisionType == CollisionType.RIGHT)
-                        {
-                            takeDamage.reactionType = CollisionReactionType.TAKE_DAMAGE;
-                            takeDamage.collidingUnit = collidingUnit;
-                        }
+                        takeDamage.reactionType = CollisionReactionType.TAKE_DAMAGE;
+                        takeDamage.collidingUnit = collidingUnit;
                     }
 
                     //deal damage to unit that is stepped on
-                    if (data.collisionType == CollisionType.BOTTOM)
+                    if (!collidingUnit.attackData.IsAttackingSide(CollisionType.TOP))
                     {
-                        if (!collidingUnit.listDangerousSides.Contains(CollisionType.TOP))
-                        {
-                            dealDamage.reactionType = CollisionReactionType.DEAL_DAMAGE;
-                            dealDamage.collidingUnit = collidingUnit;
-                        }
+                        dealDamage.reactionType = CollisionReactionType.DEAL_DAMAGE;
+                        dealDamage.collidingUnit = collidingUnit;
                     }
                 }
 

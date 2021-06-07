@@ -6,14 +6,13 @@ namespace RB
 {
     public abstract class Unit : MonoBehaviour
     {
+        public IUpdater unitUpdater = new NoUpdate();
         public StateController stateController = null;
         public UnitData unitData = null;
-
-        //public List<SpriteAnimation> listSpriteAnimations = new List<SpriteAnimation>();
-        public List<CollisionType> listDangerousSides = new List<CollisionType>();
-        public IUpdater unitUpdater = new NoUpdate();
-
+        public AttackData attackData = null;
         public SpriteAnimations spriteAnimations = null;
+
+        private List<CollisionType> _listAttackingSides = new List<CollisionType>();
 
         public virtual void OnFixedUpdate()
         {

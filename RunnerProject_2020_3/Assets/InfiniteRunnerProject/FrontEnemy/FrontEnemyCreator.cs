@@ -17,6 +17,7 @@ namespace RB
         {
             SampleLeftEnemy enemy = GameObject.Instantiate(ResourceLoader.GetResource(typeof(SampleLeftEnemy))) as SampleLeftEnemy;
             enemy.unitData = new UnitData(enemy.transform);
+            enemy.attackData = new AttackData();
 
             enemy.stateController = new StateController(
                 new FrontEnemy_Idle(enemy.unitData),

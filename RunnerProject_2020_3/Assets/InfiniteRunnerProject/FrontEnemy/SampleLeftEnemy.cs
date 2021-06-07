@@ -8,8 +8,8 @@ namespace RB
     {
         private void Start()
         {
-            listDangerousSides.Clear();
-            listDangerousSides.Add(CollisionType.LEFT);
+            attackData.AddAttackingSide(CollisionType.LEFT);
+            //_listAttackingSides.Add(CollisionType.LEFT);
         }
 
         public override void OnFixedUpdate()
