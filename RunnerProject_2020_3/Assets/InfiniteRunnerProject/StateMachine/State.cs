@@ -24,6 +24,11 @@ namespace RB
 
         }
 
+        public virtual void OnLateUpdate()
+        {
+
+        }
+
         public virtual Hash128 GetAnimationHash()
         {
             defaultHash = Hash128.Compute("defaultHash");

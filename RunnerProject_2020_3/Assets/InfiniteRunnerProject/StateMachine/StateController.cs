@@ -23,6 +23,11 @@ namespace RB
             currentState.updateCount++;
         }
 
+        public void OnLateUpdate()
+        {
+            currentState.OnLateUpdate();
+        }
+
         public void TransitionToNextState()
         {
             if (_unitData.listNextStates.Count > 0)

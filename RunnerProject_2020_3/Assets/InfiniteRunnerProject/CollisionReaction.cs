@@ -53,7 +53,7 @@ namespace RB
                 {
                     if (data.collisionType == CollisionType.BOTTOM)
                     {
-                        Debugger.Log("bottom collision detected");
+                        Debugger.Log("bottom collision detected on ground");
 
                         if (ground != _unitData.currentGround)
                         {
@@ -61,6 +61,8 @@ namespace RB
                             groundHit.reactionType = CollisionReactionType.GROUND_LAND;
                             groundHit.collidingUnit = collidingUnit;
                             _unitData.currentGround = ground;
+
+                            Debugger.Log("new ground hit: " + ground.gameObject.name);
                         }
                     }
                 }

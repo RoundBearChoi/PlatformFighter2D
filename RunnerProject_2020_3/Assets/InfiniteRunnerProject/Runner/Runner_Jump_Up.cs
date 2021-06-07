@@ -8,6 +8,7 @@ namespace RB
     {
         static Hash128 animationHash = Hash128.Compute("Texture_JumpCycle_Orange");
         float _timeInterval = 0.025f;
+        bool groundIsCleared = false;
 
         public Runner_Jump_Up(UnitData data, UserInput input)
         {
@@ -22,12 +23,23 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (updateCount == 2)
-            {
-                _unitData.currentGround = null;
-            }
+            //if (updateCount == 2)
+            //{
+            //    _unitData.currentGround = null;
+            //}
             
             UpdateComponents();
+        }
+
+        public override void OnLateUpdate()
+        {
+            if (!groundIsCleared)
+            {
+                groundIsCleared = true;
+                Debugger.Log("clearing current ground");
+                _unitData.currentGround = null;
+            }
+
         }
 
         public override Hash128 GetAnimationHash()

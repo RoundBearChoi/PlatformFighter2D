@@ -21,7 +21,7 @@ namespace RB
 
         public void CustomLateUpdate()
         {
-
+            _stateController.OnLateUpdate();
         }
     }
 }
