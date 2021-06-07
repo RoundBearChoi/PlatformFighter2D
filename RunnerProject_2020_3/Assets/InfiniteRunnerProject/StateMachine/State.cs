@@ -19,7 +19,7 @@ namespace RB
 
         }
 
-        public virtual void Update()
+        public virtual void OnFixedUpdate()
         {
 
         }

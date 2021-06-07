@@ -16,7 +16,7 @@ namespace RB
             _gameStage = gameStage;
         }
 
-        public override void Update()
+        public override void OnFixedUpdate()
         {
             Debugger.Log("creating an obstacle..");
             _gameStage.units.AddCreator(new ObstacleCreator(_gameStage.transform, _runner));

@@ -6,6 +6,6 @@ namespace RB
 {
     public interface IUpdater
     {
-        public void CustomUpdate();
+        public void CustomFixedUpdate();
     }
 }

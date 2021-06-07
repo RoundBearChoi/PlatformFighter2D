@@ -20,7 +20,7 @@ namespace RB
             //_unitData.horizontalVelocity = 0f;
         }
 
-        public override void Update()
+        public override void OnFixedUpdate()
         {
             if (_unitData.unitTransform.position.y > -10)
             {

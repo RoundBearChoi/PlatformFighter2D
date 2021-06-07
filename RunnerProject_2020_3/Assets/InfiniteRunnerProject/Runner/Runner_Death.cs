@@ -24,7 +24,7 @@ namespace RB
             _unitData.boxCollider2D.enabled = false;
         }
 
-        public override void Update()
+        public override void OnFixedUpdate()
         {
             if (_unitData.unitTransform.position.y <= -20f)
             {

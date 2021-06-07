@@ -13,7 +13,7 @@ namespace RB
             _unitData = data;
         }
 
-        public override void Update()
+        public override void OnFixedUpdate()
         {
 
         }

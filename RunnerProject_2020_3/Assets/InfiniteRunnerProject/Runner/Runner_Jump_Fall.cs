@@ -21,7 +21,7 @@ namespace RB
             //_unitData.verticalVelocity = 0;
         }
 
-        public override void Update()
+        public override void OnFixedUpdate()
         {
             UpdateComponents();
 

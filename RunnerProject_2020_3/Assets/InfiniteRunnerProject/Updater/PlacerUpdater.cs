@@ -17,7 +17,7 @@ namespace RB
             _runner = runner;
         }
 
-        public void CustomUpdate()
+        public void CustomFixedUpdate()
         {
             if (_runner.transform.position.x > _previousX)
             {
@@ -29,7 +29,7 @@ namespace RB
             {
                 _distance = 0f;
                 _stateController.TransitionToNextState();
-                _stateController.UpdateState();
+                _stateController.OnFixedUpdate();
             }
         }
     }

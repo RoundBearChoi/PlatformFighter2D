@@ -6,7 +6,7 @@ namespace RB
 {
     public class NoUpdate : IUpdater
     {
-        public void CustomUpdate()
+        public void CustomFixedUpdate()
         {
 
         }

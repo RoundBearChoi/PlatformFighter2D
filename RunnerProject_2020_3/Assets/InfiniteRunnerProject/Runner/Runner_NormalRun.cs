@@ -20,7 +20,7 @@ namespace RB
             _unitData.rigidBody2D.velocity = StaticRefs.gameData.Runner_NormalRun_StartForce;
         }
 
-        public override void Update()
+        public override void OnFixedUpdate()
         {
             if (_userInput.ContainsKeyPress(UserInput.keyboard.spaceKey))
             {

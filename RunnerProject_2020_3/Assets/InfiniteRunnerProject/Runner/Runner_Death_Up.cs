@@ -25,7 +25,7 @@ namespace RB
             message.Register();
         }
 
-        public override void Update()
+        public override void OnFixedUpdate()
         {
             UpdateComponents();
 

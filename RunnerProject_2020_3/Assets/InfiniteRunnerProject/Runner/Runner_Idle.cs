@@ -14,7 +14,7 @@ namespace RB
             _userInput = input;
         }
 
-        public override void Update()
+        public override void OnFixedUpdate()
         {
 
         }

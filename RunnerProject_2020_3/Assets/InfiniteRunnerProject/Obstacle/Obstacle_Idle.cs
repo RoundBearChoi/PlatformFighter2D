@@ -21,7 +21,7 @@ namespace RB
 
         }
 
-        public override void Update()
+        public override void OnFixedUpdate()
         {
             if (_runner.transform.position.x >= _unitData.unitTransform.position.x + 15f)
             {

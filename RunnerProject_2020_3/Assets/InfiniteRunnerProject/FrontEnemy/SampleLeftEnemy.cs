@@ -14,7 +14,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            unitUpdater.CustomUpdate();
+            unitUpdater.CustomFixedUpdate();
             spriteAnimations.OnFixedUpdate();
         }
     }

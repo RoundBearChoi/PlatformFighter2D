@@ -17,9 +17,9 @@ namespace RB
             SetNewState(newState);
         }
 
-        public void UpdateState()
+        public void OnFixedUpdate()
         {
-            currentState.Update();
+            currentState.OnFixedUpdate();
             currentState.updateCount++;
         }
 

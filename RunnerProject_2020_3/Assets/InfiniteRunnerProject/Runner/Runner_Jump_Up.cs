@@ -20,7 +20,7 @@ namespace RB
             _unitData.rigidBody2D.velocity = StaticRefs.gameData.Runner_JumpUp_StartForce;
         }
 
-        public override void Update()
+        public override void OnFixedUpdate()
         {
             if (updateCount == 2)
             {

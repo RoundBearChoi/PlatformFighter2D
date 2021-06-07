@@ -15,7 +15,7 @@ namespace RB
             _targetRunner = runner;
         }
 
-        public override void Update()
+        public override void OnFixedUpdate()
         {
             _mainCam.transform.position = new Vector3(_targetRunner.transform.position.x, _targetRunner.transform.position.y + 1f, _targetRunner.transform.position.z - 5f);
         }

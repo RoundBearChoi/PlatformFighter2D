@@ -13,10 +13,10 @@ namespace RB
             _stateController = stateController;
         }
 
-        public void CustomUpdate()
+        public void CustomFixedUpdate()
         {
             _stateController.TransitionToNextState();
-            _stateController.UpdateState();
+            _stateController.OnFixedUpdate();
         }
     }
 }
