@@ -20,6 +20,11 @@ namespace RB
 
         }
 
+        public virtual void OnLateUpdate()
+        {
+
+        }
+
         public virtual void SetUpdater(IUpdater updater)
         {
             unitUpdater = updater;

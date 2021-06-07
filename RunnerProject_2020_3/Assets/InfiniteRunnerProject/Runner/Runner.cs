@@ -35,6 +35,11 @@ namespace RB
             }
         }
 
+        public override void OnLateUpdate()
+        {
+            unitUpdater.CustomLateUpdate();
+        }
+
         public void OnCollisionEnter2D(Collision2D collision)
         {
             foreach(ContactPoint2D contactPoint in collision.contacts)

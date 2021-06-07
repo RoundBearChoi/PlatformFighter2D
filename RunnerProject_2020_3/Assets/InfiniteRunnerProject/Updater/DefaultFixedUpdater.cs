@@ -18,5 +18,10 @@ namespace RB
             _stateController.TransitionToNextState();
             _stateController.OnFixedUpdate();
         }
+
+        public void CustomLateUpdate()
+        {
+
+        }
     }
 }

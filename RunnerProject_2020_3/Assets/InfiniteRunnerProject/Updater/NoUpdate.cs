@@ -10,5 +10,10 @@ namespace RB
         {
 
         }
+
+        public void CustomLateUpdate()
+        {
+
+        }
     }
 }

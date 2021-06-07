@@ -25,6 +25,11 @@ namespace RB
 
         }
 
+        public virtual void OnLateUpdate()
+        {
+
+        }
+
         public virtual void SetInitializer(GameInitializer gameInitializer)
         {
             _gameIntializer = gameInitializer;

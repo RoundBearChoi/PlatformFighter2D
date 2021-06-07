@@ -7,5 +7,6 @@ namespace RB
     public interface IUpdater
     {
         public void CustomFixedUpdate();
+        public void CustomLateUpdate();
     }
 }

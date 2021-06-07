@@ -80,5 +80,10 @@ namespace RB
 
             _userInput.ClearPressDictionary();
         }
+
+        public override void OnLateUpdate()
+        {
+            units.OnLateUpdate();
+        }
     }
 }

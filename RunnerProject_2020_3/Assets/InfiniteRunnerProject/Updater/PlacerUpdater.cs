@@ -32,5 +32,10 @@ namespace RB
                 _stateController.OnFixedUpdate();
             }
         }
+
+        public void CustomLateUpdate()
+        {
+
+        }
     }
 }

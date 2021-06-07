@@ -33,5 +33,10 @@ namespace RB
         {
             _currentStage.OnFixedUpdate();
         }
+
+        private void LateUpdate()
+        {
+            _currentStage.OnLateUpdate();
+        }
     }
 }

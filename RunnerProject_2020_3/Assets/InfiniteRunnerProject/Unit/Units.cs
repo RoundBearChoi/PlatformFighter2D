@@ -64,5 +64,13 @@ namespace RB
                 }
             }
         }
+
+        public void OnLateUpdate()
+        {
+            for (int i = _listUnits.Count - 1; i >= 0; i--)
+            {
+                _listUnits[i].OnLateUpdate();
+            }
+        }
     }
 }
