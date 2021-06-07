@@ -9,6 +9,11 @@ namespace RB
         static Hash128 animationHash = Hash128.Compute("Texture_SampleDeathAnimation");
         float _timeInterval = 0.05f;
 
+        public override Hash128 GetAnimationHash()
+        {
+            return animationHash;
+        }
+
         public Runner_Death_Down(UnitData unitData)
         {
             _unitData = unitData;
@@ -26,11 +31,6 @@ namespace RB
             {
                 UpdateComponents();
             }
-        }
-
-        public override Hash128 GetAnimationHash()
-        {
-            return animationHash;
         }
 
         public override float GetNormalizedTime()

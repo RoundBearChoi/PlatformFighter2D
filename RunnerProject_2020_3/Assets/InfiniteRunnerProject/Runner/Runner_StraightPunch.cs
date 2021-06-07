@@ -4,23 +4,19 @@ using UnityEngine;
 
 namespace RB
 {
-    public class FrontEnemy_Idle : State
+    public class Runner_StraightPunch : State
     {
-        static Hash128 animationHash = Hash128.Compute("Texture_Front_Enemy_Sample");
+        static Hash128 animationHash = Hash128.Compute("Texture_StraightPunch");
 
         public override Hash128 GetAnimationHash()
         {
             return animationHash;
         }
 
-        public FrontEnemy_Idle(UnitData data)
+        public Runner_StraightPunch(UnitData data, UserInput input)
         {
             _unitData = data;
-        }
-
-        public override void OnFixedUpdate()
-        {
-
+            _userInput = input;
         }
     }
 }

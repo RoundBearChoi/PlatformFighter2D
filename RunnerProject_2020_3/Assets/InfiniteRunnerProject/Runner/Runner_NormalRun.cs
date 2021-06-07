@@ -9,6 +9,11 @@ namespace RB
     {
         static Hash128 animationHash = Hash128.Compute("Texture_RunCycle_Orange");
 
+        public override Hash128 GetAnimationHash()
+        {
+            return animationHash;
+        }
+
         public Runner_NormalRun(UnitData data, UserInput input)
         {
             _unitData = data;
@@ -28,13 +33,8 @@ namespace RB
             }
             else if (_userInput.ContainsButtonPress(UserInput.mouse.leftButton))
             {
-                Debugger.Log("punch!");
+                _unitData.listNextStates.Add(new Runner_StraightPunch(_unitData, _userInput));
             }
-        }
-
-        public override Hash128 GetAnimationHash()
-        {
-            return animationHash;
         }
     }
 }

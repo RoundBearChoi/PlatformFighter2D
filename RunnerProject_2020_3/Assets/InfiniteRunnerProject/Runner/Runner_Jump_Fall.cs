@@ -9,6 +9,11 @@ namespace RB
         static Hash128 animationHash = Hash128.Compute("Texture_JumpCycle_Orange");
         float _timeInterval = 0.025f;
 
+        public override Hash128 GetAnimationHash()
+        {
+            return animationHash;
+        }
+
         public Runner_Jump_Fall(UnitData data, UserInput input)
         {
             _unitData = data;
@@ -29,11 +34,6 @@ namespace RB
             {
                 _unitData.listNextStates.Add(new Runner_NormalRun(_unitData, _userInput));
             }
-        }
-
-        public override Hash128 GetAnimationHash()
-        {
-            return animationHash;
         }
 
         public override float GetNormalizedTime()

@@ -49,6 +49,15 @@ namespace RB
                     OffsetType.BOTTOM_CENTER),
                 runner.transform);
 
+            runner.spriteAnimations.Add("runner straight punch animation",
+                new SpriteAnimationSpecs(
+                    "Texture_StraightPunch",
+                    StaticRefs.runnerSpriteData.StraightPunch_SpriteInterval,
+                    StaticRefs.runnerSpriteData.StraightPunch_SpriteSize,
+                    OffsetType.BOTTOM_CENTER),
+                runner.transform);
+            runner.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
+
             runner.spriteAnimations.Add("runner jump animation",
                 new SpriteAnimationSpecs(
                     "Texture_JumpCycle_Orange",

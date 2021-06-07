@@ -9,6 +9,11 @@ namespace RB
         static Hash128 animationHash = Hash128.Compute("Texture_Death_Orange");
         float _timeInterval = 0.05f;
 
+        public override Hash128 GetAnimationHash()
+        {
+            return animationHash;
+        }
+
         public Runner_Death_Up(UnitData unitData)
         {
             Debugger.Log("runner is dead");
@@ -33,11 +38,6 @@ namespace RB
             //{
             //    _unitData.listNextStates.Add(new Runner_Death_Down(_unitData));
             //}
-        }
-
-        public override Hash128 GetAnimationHash()
-        {
-            return animationHash;
         }
 
         public override float GetNormalizedTime()

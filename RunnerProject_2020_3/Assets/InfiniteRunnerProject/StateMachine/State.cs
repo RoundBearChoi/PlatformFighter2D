@@ -14,6 +14,12 @@ namespace RB
         protected UserInput _userInput = null;
         protected List<StateComponent> _listStateComponents = new List<StateComponent>();
 
+        public virtual Hash128 GetAnimationHash()
+        {
+            defaultHash = Hash128.Compute("defaultHash");
+            return defaultHash;
+        }
+
         public virtual void OnEnter()
         {
 
@@ -27,12 +33,6 @@ namespace RB
         public virtual void OnLateUpdate()
         {
 
-        }
-
-        public virtual Hash128 GetAnimationHash()
-        {
-            defaultHash = Hash128.Compute("defaultHash");
-            return defaultHash;
         }
 
         public virtual UnitData GetUnitData()

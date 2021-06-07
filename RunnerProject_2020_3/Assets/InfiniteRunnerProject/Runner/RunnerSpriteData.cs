@@ -17,6 +17,11 @@ namespace RB
 
         [Space(10)]
 
+        public uint StraightPunch_SpriteInterval = new uint();
+        public Vector2 StraightPunch_SpriteSize = new Vector2();
+
+        [Space(10)]
+
         public uint Jump_SpriteInterval = new uint();
         public Vector2 Jump_SpriteSize = new Vector2();
 

@@ -8,6 +8,11 @@ namespace RB
     {
         static Hash128 animationHash = Hash128.Compute("Texture_Idle_Orange");
 
+        public override Hash128 GetAnimationHash()
+        {
+            return animationHash;
+        }
+
         public Runner_Idle(UnitData data, UserInput input)
         {
             _unitData = data;
@@ -17,11 +22,6 @@ namespace RB
         public override void OnFixedUpdate()
         {
 
-        }
-
-        public override Hash128 GetAnimationHash()
-        {
-            return animationHash;
         }
     }
 }

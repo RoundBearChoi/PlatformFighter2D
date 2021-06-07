@@ -8,6 +8,11 @@ namespace RB
     {
         static Hash128 animationHash = Hash128.Compute("Texture_Death_Orange");
 
+        public override Hash128 GetAnimationHash()
+        {
+            return animationHash;
+        }
+
         public Runner_Death(UnitData unitData)
         {
             Debugger.Log("runner is dead");
@@ -30,11 +35,6 @@ namespace RB
             {
                 _unitData.rigidBody2D.Sleep();
             }
-        }
-
-        public override Hash128 GetAnimationHash()
-        {
-            return animationHash;
         }
     }
 }

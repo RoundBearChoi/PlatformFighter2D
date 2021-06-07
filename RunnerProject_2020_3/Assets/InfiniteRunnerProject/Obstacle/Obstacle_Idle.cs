@@ -10,6 +10,11 @@ namespace RB
 
         private Unit _runner = null;
 
+        public override Hash128 GetAnimationHash()
+        {
+            return animationHash;
+        }
+
         public Obstacle_Idle(UnitData data, Unit runner)
         {
             _unitData = data;
@@ -29,9 +34,6 @@ namespace RB
             }
         }
 
-        public override Hash128 GetAnimationHash()
-        {
-            return animationHash;
-        }
+
     }
 }

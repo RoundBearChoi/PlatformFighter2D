@@ -10,6 +10,11 @@ namespace RB
         float _timeInterval = 0.025f;
         bool groundIsCleared = false;
 
+        public override Hash128 GetAnimationHash()
+        {
+            return animationHash;
+        }
+
         public Runner_Jump_Up(UnitData data, UserInput input)
         {
             _unitData = data;
@@ -40,11 +45,6 @@ namespace RB
                 _unitData.currentGround = null;
             }
 
-        }
-
-        public override Hash128 GetAnimationHash()
-        {
-            return animationHash;
         }
 
         public override float GetNormalizedTime()
