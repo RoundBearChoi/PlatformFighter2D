@@ -36,24 +36,24 @@ namespace RB
             runner.spriteAnimations.Add("runner idle fall animation",
                 new SpriteAnimationSpecs(
                     "Texture_Idle_Orange",
-                    StaticRefs.gameData.Runner_Idle_SpriteInterval,
-                    StaticRefs.gameData.Runner_Idle_SpriteSize,
+                    StaticRefs.runnerSpriteData.Idle_SpriteInterval,
+                    StaticRefs.runnerSpriteData.Idle_SpriteSize,
                     OffsetType.BOTTOM_CENTER),
                 runner.transform);
 
             runner.spriteAnimations.Add("runner run animation",
                 new SpriteAnimationSpecs(
                     "Texture_RunCycle_Orange",
-                    StaticRefs.gameData.Runner_Run_SpriteInterval,
-                    StaticRefs.gameData.Runner_Run_SpriteSize,
+                    StaticRefs.runnerSpriteData.Run_SpriteInterval,
+                    StaticRefs.runnerSpriteData.Run_SpriteSize,
                     OffsetType.BOTTOM_CENTER),
                 runner.transform);
 
             runner.spriteAnimations.Add("runner jump animation",
                 new SpriteAnimationSpecs(
                     "Texture_JumpCycle_Orange",
-                    StaticRefs.gameData.Runner_Jump_SpriteInterval,
-                    StaticRefs.gameData.Runner_Jump_SpriteSize,
+                    StaticRefs.runnerSpriteData.Jump_SpriteInterval,
+                    StaticRefs.runnerSpriteData.Jump_SpriteSize,
                     OffsetType.BOTTOM_CENTER),
                 runner.transform);
             runner.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
@@ -61,8 +61,8 @@ namespace RB
             runner.spriteAnimations.Add("runner death animation",
                 new SpriteAnimationSpecs(
                     "Texture_Death_Orange",
-                    StaticRefs.gameData.Runner_Death_SpriteInterval,
-                    StaticRefs.gameData.Runner_Death_SpriteSize,
+                    StaticRefs.runnerSpriteData.Death_SpriteInterval,
+                    StaticRefs.runnerSpriteData.Death_SpriteSize,
                     OffsetType.BOTTOM_CENTER),
                 runner.transform);
             runner.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
