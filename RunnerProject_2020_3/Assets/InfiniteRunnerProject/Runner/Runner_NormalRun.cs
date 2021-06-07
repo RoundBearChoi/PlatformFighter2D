@@ -26,6 +26,10 @@ namespace RB
             {
                 _unitData.listNextStates.Add(new Runner_Jump_Up(_unitData, _userInput));
             }
+            else if (_userInput.ContainsButtonPress(UserInput.mouse.leftButton))
+            {
+                Debugger.Log("punch!");
+            }
         }
 
         public override Hash128 GetAnimationHash()

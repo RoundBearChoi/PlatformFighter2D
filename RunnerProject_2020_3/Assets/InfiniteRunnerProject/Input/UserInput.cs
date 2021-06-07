@@ -8,27 +8,30 @@ namespace RB
 {
     public class UserInput
     {
-        private Dictionary<KeyControl, int> _dicPresses = new Dictionary<KeyControl, int>();
+        private Dictionary<KeyControl, int> _dicKeyPresses = new Dictionary<KeyControl, int>();
+        private Dictionary<ButtonControl, int> _dicButtonPresses = new Dictionary<ButtonControl, int>();
         private List<KeyControl> _listHolds = new List<KeyControl>();
 
         public static Keyboard keyboard = null;
+        public static Mouse mouse = null;
 
         public UserInput()
         {
             keyboard = Keyboard.current;
+            mouse = Mouse.current;
         }
 
         void UpdateKeyPress(KeyControl keyControl)
         {
             if (keyControl.wasPressedThisFrame)
             {
-                if (_dicPresses.ContainsKey(keyControl))
+                if (_dicKeyPresses.ContainsKey(keyControl))
                 {
-                    _dicPresses[keyControl]++;
+                    _dicKeyPresses[keyControl]++;
                 }
                 else
                 {
-                    _dicPresses.Add(keyControl, 1);
+                    _dicKeyPresses.Add(keyControl, 1);
                 }
 
                 if (!ContainsKeyHold(keyControl))
@@ -46,6 +49,21 @@ namespace RB
             }
         }
 
+        void UpdateButtonPress(ButtonControl buttonControl)
+        {
+            if (buttonControl.wasPressedThisFrame)
+            {
+                if (_dicButtonPresses.ContainsKey(buttonControl))
+                {
+                    _dicButtonPresses[buttonControl]++;
+                }
+                else
+                {
+                    _dicButtonPresses.Add(buttonControl, 1);
+                }
+            }
+        }
+
         public void OnUpdate()
         {
             UpdateKeyPress(keyboard.upArrowKey);
@@ -53,11 +71,18 @@ namespace RB
             UpdateKeyPress(keyboard.f5Key);
             UpdateKeyPress(keyboard.f6Key);
             UpdateKeyPress(keyboard.spaceKey);
+
+            UpdateButtonPress(mouse.leftButton);
         }
 
         public bool ContainsKeyPress(KeyControl keyControl)
         {
-            return _dicPresses.ContainsKey(keyControl);
+            return _dicKeyPresses.ContainsKey(keyControl);
+        }
+
+        public bool ContainsButtonPress(ButtonControl buttonControl)
+        {
+            return _dicButtonPresses.ContainsKey(buttonControl);
         }
 
         public bool ContainsKeyHold(KeyControl keyControl)
@@ -85,9 +110,14 @@ namespace RB
             }
         }
 
-        public void ClearPressDictionary()
+        public void ClearKeyDictionary()
         {
-            _dicPresses.Clear();
+            _dicKeyPresses.Clear();
+        }
+
+        public void ClearButtonDictionary()
+        {
+            _dicButtonPresses.Clear();
         }
     }
 }

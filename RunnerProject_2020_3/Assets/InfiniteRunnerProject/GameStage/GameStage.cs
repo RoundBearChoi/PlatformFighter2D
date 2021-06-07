@@ -82,7 +82,8 @@ namespace RB
                 _gameIntializer.listStageTransitions.Add(new IntroStageTransition(_gameIntializer));
             }
 
-            _userInput.ClearPressDictionary();
+            _userInput.ClearKeyDictionary();
+            _userInput.ClearButtonDictionary();
         }
 
         public override void OnLateUpdate()
