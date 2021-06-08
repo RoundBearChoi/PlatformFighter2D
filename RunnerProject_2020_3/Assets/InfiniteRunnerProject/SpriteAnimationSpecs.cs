@@ -6,17 +6,17 @@ namespace RB
 {
     public struct SpriteAnimationSpecs
     {
-        public SpriteAnimationSpecs(string fileName, uint interval, Vector2 size, OffsetType offset)
+        public SpriteAnimationSpecs(string fileName, uint renderInterval, Vector2 pixelSize, OffsetType offsetType)
         {
-            SheetFileName = fileName;
-            renderInterval = interval;
-            pixelSize = size;
-            offsetType = offset;
+            mSheetFileName = fileName;
+            mRenderInterval = renderInterval;
+            mPixelSize = pixelSize;
+            mOffsetType = offsetType;
         }
 
-        public string SheetFileName;
-        public uint renderInterval;
-        public Vector2 pixelSize;
-        public OffsetType offsetType;
+        public string mSheetFileName;
+        public uint mRenderInterval;
+        public Vector2 mPixelSize;
+        public OffsetType mOffsetType;
     }
 }

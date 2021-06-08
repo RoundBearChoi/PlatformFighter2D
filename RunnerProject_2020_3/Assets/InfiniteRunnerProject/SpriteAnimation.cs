@@ -18,12 +18,12 @@ namespace RB
 
         public void Init(SpriteAnimationSpecs animationSpecs)
         {
-            animationHash = Hash128.Compute(animationSpecs.SheetFileName);
+            animationHash = Hash128.Compute(animationSpecs.mSheetFileName);
 
             specs = animationSpecs;
 
             //temp (should be done early)
-            Sprite[] arrSprites = Resources.LoadAll<Sprite>(specs.SheetFileName);
+            Sprite[] arrSprites = Resources.LoadAll<Sprite>(specs.mSheetFileName);
 
             foreach(Sprite spr in arrSprites)
             {
@@ -32,12 +32,12 @@ namespace RB
 
             spriteRenderer = this.gameObject.AddComponent<SpriteRenderer>();
 
-            float xScale = specs.pixelSize.x / _listSprites[0].bounds.size.x;
-            float yScale = specs.pixelSize.y / _listSprites[0].bounds.size.y;
+            float xScale = specs.mPixelSize.x / _listSprites[0].bounds.size.x;
+            float yScale = specs.mPixelSize.y / _listSprites[0].bounds.size.y;
 
             spriteRenderer.transform.localScale = new Vector2(xScale, yScale);
 
-            if (specs.offsetType == OffsetType.BOTTOM_CENTER)
+            if (specs.mOffsetType == OffsetType.BOTTOM_CENTER)
             {
                 spriteRenderer.transform.localPosition = new Vector3(0f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);
             }
@@ -47,7 +47,7 @@ namespace RB
         {
             spriteRenderer.sprite = _listSprites[_spriteIndex];
 
-            if (_updateCount != 0 && _updateCount % specs.renderInterval == 0)
+            if (_updateCount != 0 && _updateCount % specs.mRenderInterval == 0)
             {
                 _spriteIndex++;
             }

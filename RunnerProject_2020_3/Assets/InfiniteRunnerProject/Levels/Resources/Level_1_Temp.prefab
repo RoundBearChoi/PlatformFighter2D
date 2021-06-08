@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1958118033598322525}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1836490247
 MonoBehaviour:
@@ -72,7 +72,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1958118033598322525}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2296902945167203223
 MonoBehaviour:
@@ -81,49 +81,6 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1723448492663883928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79665d7bc99e36a4a8288cd93c534bad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &3825139932391393536
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2477850199261914806}
-  - component: {fileID: 1205763564775382385}
-  m_Layer: 0
-  m_Name: FrontEnemySpawn (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2477850199261914806
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3825139932391393536}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.63, y: -0.68000025, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1958118033598322525}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1205763564775382385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3825139932391393536}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79665d7bc99e36a4a8288cd93c534bad, type: 3}
@@ -158,7 +115,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1958118033598322525}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2196895815757884399
 MonoBehaviour:
@@ -201,7 +158,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1958118033598322525}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6570904599767816049
 MonoBehaviour:
@@ -1055,8 +1012,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8371997300047499338}
-  m_LocalRotation: {x: -0, y: -0, z: -0.18516214, w: 0.982708}
-  m_LocalPosition: {x: 0.04, y: 0.69, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.28, y: -1.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8371997301833348894}
@@ -1067,7 +1024,7 @@ Transform:
   - {fileID: 8371997300716081424}
   m_Father: {fileID: 8371997299894002316}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -21.341}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &8371997300047499335
 Rigidbody2D:
   serializedVersion: 4
@@ -1139,38 +1096,38 @@ CompositeCollider2D:
         Y: -5000000
   - m_Collider: {fileID: 8371997300481398110}
     m_ColliderPaths:
-    - - X: 34999711
-        Y: -4999999
-      - X: 34999711
-        Y: 5000001
-      - X: 25000002
-        Y: 4999708
-      - X: 25000295
-        Y: -4999999
+    - - X: 34999707
+        Y: -5000000
+      - X: 34999707
+        Y: 5000000
+      - X: 25000000
+        Y: 4999707
+      - X: 25000293
+        Y: -5000000
   - m_Collider: {fileID: 8371997301761156832}
     m_ColliderPaths:
     - - X: 44999707
-        Y: -4999999
+        Y: -5000000
       - X: 44999707
         Y: 5000000
       - X: 35000000
         Y: 4999707
       - X: 35000293
-        Y: -4999999
+        Y: -5000000
   - m_Collider: {fileID: 8371997300716081646}
     m_ColliderPaths:
-    - - X: 54999711
+    - - X: 54999707
         Y: -5000000
-      - X: 54999711
+      - X: 54999707
         Y: 5000000
-      - X: 45000004
+      - X: 45000000
         Y: 4999707
-      - X: 45000297
+      - X: 45000293
         Y: -5000000
   m_CompositePaths:
     m_Paths:
     - - {x: -0.4999707, y: -0.4999707}
-      - {x: 5.4999714, y: -0.4999707}
+      - {x: 5.499971, y: -0.4999707}
       - {x: 5.499942, y: 0.5}
       - {x: -0.5, y: 0.4999414}
   m_VertexDistance: 0.0005
@@ -4270,16 +4227,6 @@ CompositeCollider2D:
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:
-  - m_Collider: {fileID: 8371997301072474003}
-    m_ColliderPaths:
-    - - X: 4999707
-        Y: -5000000
-      - X: 4999707
-        Y: 5000000
-      - X: -5000000
-        Y: 4999707
-      - X: -4999707
-        Y: -5000000
   - m_Collider: {fileID: 8371997301823271535}
     m_ColliderPaths:
     - - X: 14999707
@@ -4302,10 +4249,10 @@ CompositeCollider2D:
         Y: -5000000
   m_CompositePaths:
     m_Paths:
-    - - {x: -0.4999707, y: -0.4999707}
+    - - {x: 0.5000293, y: -0.4999707}
       - {x: 2.499971, y: -0.4999707}
       - {x: 2.4999413, y: 0.5}
-      - {x: -0.5, y: 0.4999414}
+      - {x: 0.5, y: 0.4999414}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!114 &8371997300566744130
@@ -7630,7 +7577,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8371997301072474005
 Transform:
   m_ObjectHideFlags: 0
@@ -14655,7 +14602,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2477850199261914806}
   - {fileID: 240798529607801397}
   - {fileID: 1295307745537298651}
   - {fileID: 6681706906125796721}
