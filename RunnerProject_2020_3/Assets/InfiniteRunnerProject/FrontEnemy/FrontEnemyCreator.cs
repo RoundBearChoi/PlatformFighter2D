@@ -33,7 +33,8 @@ namespace RB
                     "Texture_Front_Enemy_Sample",
                     10,
                     new Vector2(2.33f, 2.57f),
-                    OffsetType.BOTTOM_CENTER),
+                    OffsetType.BOTTOM_CENTER,
+                    Vector2.zero),
                 enemy.transform);
 
             return enemy;

@@ -41,7 +41,8 @@ namespace RB
                     "Texture_Idle_Orange",
                     StaticRefs.runnerSpriteData.Idle_SpriteInterval,
                     StaticRefs.runnerSpriteData.Idle_SpriteSize,
-                    OffsetType.BOTTOM_CENTER),
+                    OffsetType.BOTTOM_CENTER,
+                    Vector2.zero),
                 runner.transform);
 
             runner.spriteAnimations.Add("runner run animation",
@@ -49,7 +50,8 @@ namespace RB
                     "Texture_RunCycle_Orange",
                     StaticRefs.runnerSpriteData.Run_SpriteInterval,
                     StaticRefs.runnerSpriteData.Run_SpriteSize,
-                    OffsetType.BOTTOM_CENTER),
+                    OffsetType.BOTTOM_CENTER,
+                    Vector2.zero),
                 runner.transform);
 
             runner.spriteAnimations.Add("runner straight punch animation",
@@ -57,7 +59,8 @@ namespace RB
                     "Texture_StraightPunch",
                     StaticRefs.runnerSpriteData.StraightPunch_SpriteInterval,
                     StaticRefs.runnerSpriteData.StraightPunch_SpriteSize,
-                    OffsetType.BOTTOM_CENTER),
+                    OffsetType.BOTTOM_CENTER,
+                    StaticRefs.runnerSpriteData.StraightPunch_AdditionalOffset),
                 runner.transform);
             runner.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
 
@@ -66,7 +69,8 @@ namespace RB
                     "Texture_JumpCycle_Orange",
                     StaticRefs.runnerSpriteData.Jump_SpriteInterval,
                     StaticRefs.runnerSpriteData.Jump_SpriteSize,
-                    OffsetType.BOTTOM_CENTER),
+                    OffsetType.BOTTOM_CENTER,
+                    Vector2.zero),
                 runner.transform);
             runner.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
 
@@ -75,7 +79,8 @@ namespace RB
                     "Texture_Jump_Fall_Orange",
                     StaticRefs.runnerSpriteData.Jump_SpriteInterval,
                     StaticRefs.runnerSpriteData.Jump_SpriteSize,
-                    OffsetType.BOTTOM_CENTER),
+                    OffsetType.BOTTOM_CENTER,
+                    Vector2.zero),
                 runner.transform);
             runner.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
 
@@ -84,7 +89,8 @@ namespace RB
                     "Texture_Death_Orange",
                     StaticRefs.runnerSpriteData.Death_SpriteInterval,
                     StaticRefs.runnerSpriteData.Death_SpriteSize,
-                    OffsetType.BOTTOM_CENTER),
+                    OffsetType.BOTTOM_CENTER,
+                    Vector2.zero),
                 runner.transform);
             runner.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
 

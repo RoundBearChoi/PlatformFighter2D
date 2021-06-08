@@ -40,6 +40,7 @@ namespace RB
             if (specs.mOffsetType == OffsetType.BOTTOM_CENTER)
             {
                 spriteRenderer.transform.localPosition = new Vector3(0f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);
+                spriteRenderer.transform.localPosition += new Vector3(animationSpecs.mAdditionalOffset.x, animationSpecs.mAdditionalOffset.y, 0f);
             }
         }
 

@@ -32,7 +32,8 @@ namespace RB
                     "Texture_BlockEnemy",
                     10,
                     StaticRefs.gameData.ObstacleSpriteSize,
-                    OffsetType.BOTTOM_CENTER),
+                    OffsetType.BOTTOM_CENTER,
+                    Vector2.zero),
                 obstacle.transform);
 
             //set initial obstacle position in relation to the runner

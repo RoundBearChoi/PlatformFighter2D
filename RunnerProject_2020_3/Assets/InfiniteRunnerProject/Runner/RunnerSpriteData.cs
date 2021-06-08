@@ -19,6 +19,7 @@ namespace RB
 
         public uint StraightPunch_SpriteInterval = new uint();
         public Vector2 StraightPunch_SpriteSize = new Vector2();
+        public Vector2 StraightPunch_AdditionalOffset = new Vector2();
 
         [Space(10)]
 
