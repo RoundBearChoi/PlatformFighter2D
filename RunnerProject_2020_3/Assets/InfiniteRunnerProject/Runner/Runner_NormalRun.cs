@@ -7,8 +7,10 @@ namespace RB
 {
     public class Runner_NormalRun : State
     {
-        static Hash128 animationHash = Hash128.Compute("Texture_RunCycle_Orange");
         public static bool initialPush = false;
+        static Hash128 animationHash = Hash128.Compute("Texture_RunCycle_Orange");
+        
+        List<Ground> _touchingGrounds = new List<Ground>();
 
         public override Hash128 GetAnimationHash()
         {
@@ -32,6 +34,11 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
+            if (IsOnFlatGround())
+            {
+                int n = 0;
+            }
+
             if (_userInput.ContainsKeyPress(UserInput.keyboard.spaceKey))
             {
                 _unitData.listNextStates.Add(new Runner_Jump_Up(_unitData, _userInput));
@@ -40,6 +47,36 @@ namespace RB
             {
                 _unitData.listNextStates.Add(new Runner_StraightPunch(_unitData, _userInput));
             }
+        }
+
+        bool IsOnFlatGround()
+        {
+            _touchingGrounds.Clear();
+
+            foreach (CollisionData data in _unitData.listCollisionStays)
+            {
+                Ground ground = data.collidingObject.GetComponent<Ground>();
+
+                if (ground != null)
+                {
+                    _touchingGrounds.Add(ground);
+                }
+            }
+
+            if (_touchingGrounds.Count == 0)
+            {
+                return false;
+            }
+
+            foreach(Ground ground in _touchingGrounds)
+            {
+                if (Mathf.Abs(ground.transform.rotation.z) >= 0.001f)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }
