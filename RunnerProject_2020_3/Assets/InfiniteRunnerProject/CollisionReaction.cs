@@ -19,7 +19,7 @@ namespace RB
             CollisionReactionData dealDamage = new CollisionReactionData(CollisionReactionType.NONE, null);
             CollisionReactionData groundHit = new CollisionReactionData(CollisionReactionType.NONE, null);
 
-            foreach (CollisionData data in _unitData.listCollisionData)
+            foreach (CollisionData data in _unitData.listCollisionEnters)
             {
                 Unit collidingUnit = data.collidingObject.GetComponent<Unit>();
 
@@ -63,7 +63,7 @@ namespace RB
             }
 
             //clear collisiondata in the end
-            _unitData.listCollisionData.Clear();
+            _unitData.listCollisionEnters.Clear();
 
             if (takeDamage.reactionType == CollisionReactionType.TAKE_DAMAGE)
             {

@@ -40,16 +40,6 @@ namespace RB
             unitUpdater.CustomLateUpdate();
         }
 
-        public void OnCollisionEnter2D(Collision2D collision)
-        {
-            foreach(ContactPoint2D contactPoint in collision.contacts)
-            {
-                CollisionType collisionType = _collisionChecker.GetCollisionType(contactPoint);
-                CollisionData collisionData = new CollisionData(collisionType, collision.gameObject, contactPoint);
-                unitData.listCollisionData.Add(collisionData);
-            }
-        }
-
         public override void InitCollisionChecker()
         {
             BoxCollider2D collider = this.gameObject.GetComponent<BoxCollider2D>();
@@ -64,6 +54,28 @@ namespace RB
         public override void SetUserInput(UserInput userInput)
         {
             _userInput = userInput;
+        }
+
+        public void OnCollisionEnter2D(Collision2D collision)
+        {
+            foreach (ContactPoint2D contactPoint in collision.contacts)
+            {
+                CollisionType collisionType = _collisionChecker.GetCollisionType(contactPoint);
+                CollisionData collisionData = new CollisionData(collisionType, collision.gameObject, contactPoint);
+                unitData.listCollisionEnters.Add(collisionData);
+            }
+        }
+
+        public void OnCollisionStay2D(Collision2D collision)
+        {
+            unitData.listCollisionStays.Clear();
+
+            foreach (ContactPoint2D contactPoint in collision.contacts)
+            {
+                CollisionType collisionType = _collisionChecker.GetCollisionType(contactPoint);
+                CollisionData collisionData = new CollisionData(collisionType, collision.gameObject, contactPoint);
+                unitData.listCollisionStays.Add(collisionData);
+            }
         }
     }
 }
