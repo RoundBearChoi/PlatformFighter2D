@@ -33,6 +33,9 @@ namespace RB
                 //Debugger.Log("new ground collision:" + reactionData.);
                 //unitData.listNextStates.Add(new Runner_NormalRun(unitData, _userInput));
             }
+
+            //only clear after updating states
+            unitData.listCollisionStays.Clear();
         }
 
         public override void OnLateUpdate()

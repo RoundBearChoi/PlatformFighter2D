@@ -26,6 +26,19 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
+            if (_unitData.rigidBody2D.velocity.y < 0f)
+            {
+                foreach (CollisionData data in _unitData.listCollisionStays)
+                {
+                    Ground ground = data.collidingObject.GetComponent<Ground>();
+
+                    if (ground != null)
+                    {
+                        Debugger.Log("staying on ground (jumping up)");
+                    }
+                }
+            }
+
             if (_unitData.rigidBody2D.velocity.y < 0f && updateCount >= 2)
             {
                 _unitData.listNextStates.Add(new Runner_Jump_Fall(_unitData, _userInput));
