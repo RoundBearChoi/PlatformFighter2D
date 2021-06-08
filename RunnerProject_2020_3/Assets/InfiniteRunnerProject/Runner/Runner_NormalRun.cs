@@ -46,7 +46,14 @@ namespace RB
 
             if (IsOnFlatGround())
             {
-                int n = 0;
+                float dif = _unitData.rigidBody2D.velocity.x - StaticRefs.gameData.Runner_JumpUp_StartForce.x;
+
+                if (Mathf.Abs(dif) > 0.001f)
+                {
+                    float x = Mathf.Lerp(_unitData.rigidBody2D.velocity.x, StaticRefs.gameData.Runner_JumpUp_StartForce.x, StaticRefs.gameData.Runner_RunSpeed_LerpRate);
+
+                    _unitData.rigidBody2D.velocity = new Vector2(x, _unitData.rigidBody2D.velocity.y);
+                }
             }
 
             if (_userInput.ContainsKeyPress(UserInput.keyboard.spaceKey))
