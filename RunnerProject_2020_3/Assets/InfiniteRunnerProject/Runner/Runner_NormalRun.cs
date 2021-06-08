@@ -34,6 +34,16 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
+            //in the air
+            if (_unitData.listCollisionStays.Count == 0)
+            {
+                //falling
+                if (_unitData.rigidBody2D.velocity.y < 0f)
+                {
+                    _unitData.listNextStates.Add(new Runner_Jump_Fall(_unitData, _userInput));
+                }
+            }
+
             if (IsOnFlatGround())
             {
                 int n = 0;

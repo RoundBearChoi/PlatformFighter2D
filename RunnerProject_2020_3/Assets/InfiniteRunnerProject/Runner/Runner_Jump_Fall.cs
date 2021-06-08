@@ -33,7 +33,10 @@ namespace RB
 
                 if (ground != null)
                 {
-                    _unitData.listNextStates.Add(new Runner_NormalRun(_unitData, _userInput));
+                    if (data.collisionType == CollisionType.BOTTOM)
+                    {
+                        _unitData.listNextStates.Add(new Runner_NormalRun(_unitData, _userInput));
+                    }
                 }
             }
 
