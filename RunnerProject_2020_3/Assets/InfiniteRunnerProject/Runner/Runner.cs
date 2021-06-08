@@ -31,7 +31,7 @@ namespace RB
             else if (reactionData.reactionType == CollisionReactionType.GROUND_LAND)
             {
                 //Debugger.Log("new ground collision:" + reactionData.);
-                unitData.listNextStates.Add(new Runner_NormalRun(unitData, _userInput));
+                //unitData.listNextStates.Add(new Runner_NormalRun(unitData, _userInput));
             }
         }
 

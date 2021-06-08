@@ -21,7 +21,16 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-
+            foreach(CollisionData data in _unitData.listCollisionStays)
+            {
+                if (data.collisionType == CollisionType.BOTTOM)
+                {
+                    if (data.collidingObject.GetComponent<Ground>() != null)
+                    {
+                        _unitData.listNextStates.Add(new Runner_NormalRun(_unitData, _userInput));
+                    }
+                }
+            }
         }
     }
 }

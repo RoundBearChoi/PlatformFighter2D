@@ -8,6 +8,7 @@ namespace RB
     public class Runner_NormalRun : State
     {
         static Hash128 animationHash = Hash128.Compute("Texture_RunCycle_Orange");
+        static bool initialPush = false;
 
         public override Hash128 GetAnimationHash()
         {
@@ -22,7 +23,10 @@ namespace RB
 
         public override void OnEnter()
         {
-            _unitData.rigidBody2D.velocity = StaticRefs.gameData.Runner_NormalRun_StartForce;
+            if (!initialPush)
+            {
+                _unitData.rigidBody2D.velocity = StaticRefs.gameData.Runner_NormalRun_StartForce;
+            }
         }
 
         public override void OnFixedUpdate()

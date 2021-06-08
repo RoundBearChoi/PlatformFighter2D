@@ -58,9 +58,18 @@ namespace RB
                 runner.transform);
             runner.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
 
-            runner.spriteAnimations.Add("runner jump animation",
+            runner.spriteAnimations.Add("runner jump (up) animation",
                 new SpriteAnimationSpecs(
                     "Texture_JumpCycle_Orange",
+                    StaticRefs.runnerSpriteData.Jump_SpriteInterval,
+                    StaticRefs.runnerSpriteData.Jump_SpriteSize,
+                    OffsetType.BOTTOM_CENTER),
+                runner.transform);
+            runner.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
+
+            runner.spriteAnimations.Add("runner jump (fall) animation",
+                new SpriteAnimationSpecs(
+                    "Texture_Jump_Fall_Orange",
                     StaticRefs.runnerSpriteData.Jump_SpriteInterval,
                     StaticRefs.runnerSpriteData.Jump_SpriteSize,
                     OffsetType.BOTTOM_CENTER),

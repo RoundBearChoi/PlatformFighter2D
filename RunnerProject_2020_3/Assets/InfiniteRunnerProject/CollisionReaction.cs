@@ -49,15 +49,18 @@ namespace RB
                     {
                         Debugger.Log("bottom collision detected on ground");
 
-                        if (ground != _unitData.currentGround)
-                        {
-                            Debug.DrawLine(_unitData.boxCollider2D.bounds.center, data.contactPoint.point, Color.yellow, 3f);
-                            groundHit.reactionType = CollisionReactionType.GROUND_LAND;
-                            groundHit.collidingUnit = collidingUnit;
-                            _unitData.currentGround = ground;
+                        groundHit.reactionType = CollisionReactionType.GROUND_LAND;
+                        groundHit.collidingUnit = collidingUnit;
 
-                            Debugger.Log("new ground hit: " + ground.gameObject.name);
-                        }
+                        //if (ground != _unitData.currentGround)
+                        //{
+                        //    Debug.DrawLine(_unitData.boxCollider2D.bounds.center, data.contactPoint.point, Color.yellow, 3f);
+                        //    groundHit.reactionType = CollisionReactionType.GROUND_LAND;
+                        //    groundHit.collidingUnit = collidingUnit;
+                        //    _unitData.currentGround = ground;
+                        //
+                        //    Debugger.Log("new ground hit: " + ground.gameObject.name);
+                        //}
                     }
                 }
             }

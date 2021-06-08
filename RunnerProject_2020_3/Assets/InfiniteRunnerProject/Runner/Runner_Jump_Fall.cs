@@ -6,8 +6,7 @@ namespace RB
 {
     public class Runner_Jump_Fall : State
     {
-        static Hash128 animationHash = Hash128.Compute("Texture_JumpCycle_Orange");
-        float _timeInterval = 0.025f;
+        static Hash128 animationHash = Hash128.Compute("Texture_Jump_Fall_Orange");
 
         public override Hash128 GetAnimationHash()
         {
@@ -23,22 +22,12 @@ namespace RB
 
         public override void OnEnter()
         {
-            //_unitData.verticalVelocity = 0;
+
         }
 
         public override void OnFixedUpdate()
         {
             UpdateComponents();
-
-            if (_unitData.unitTransform.position.y <= 0f)
-            {
-                _unitData.listNextStates.Add(new Runner_NormalRun(_unitData, _userInput));
-            }
-        }
-
-        public override float GetNormalizedTime()
-        {
-            return _timeInterval * updateCount;
         }
     }
 }
