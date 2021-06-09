@@ -28,11 +28,6 @@ namespace RB
                 reactionData.collidingUnit.unitData.listDamageData.Add(new DamageData(1f, this));
                 unitData.rigidBody2D.velocity = StaticRefs.gameData.Runner_JumpUp_StartForce;
             }
-            else if (reactionData.reactionType == CollisionReactionType.GROUND_LAND)
-            {
-                //Debugger.Log("new ground collision:" + reactionData.);
-                //unitData.listNextStates.Add(new Runner_NormalRun(unitData, _userInput));
-            }
 
             //only clear after updating states
             unitData.listCollisionStays.Clear();

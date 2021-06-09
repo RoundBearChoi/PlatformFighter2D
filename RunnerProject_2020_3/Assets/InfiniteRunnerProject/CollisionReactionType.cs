@@ -10,7 +10,5 @@ namespace RB
 
         TAKE_DAMAGE,
         DEAL_DAMAGE,
-
-        GROUND_LAND,
     }
 }
