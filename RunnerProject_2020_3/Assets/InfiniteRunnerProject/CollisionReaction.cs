@@ -40,9 +40,6 @@ namespace RB
                 }
             }
 
-            //clear collisiondata in the end
-            _unitData.listCollisionEnters.Clear();
-
             if (takeDamage.reactionType == CollisionReactionType.TAKE_DAMAGE)
             {
                 return takeDamage;

@@ -31,6 +31,7 @@ namespace RB
 
             //only clear after updating states
             unitData.listCollisionStays.Clear();
+            unitData.listCollisionEnters.Clear();
         }
 
         public override void OnLateUpdate()

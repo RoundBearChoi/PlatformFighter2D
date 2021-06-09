@@ -15,11 +15,11 @@ D:/SourceTreeProjects/SampleInfiniteRunner/RunnerProject_2020_3
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-13670
+14055
 Successfully changed project path to: D:/SourceTreeProjects/SampleInfiniteRunner/RunnerProject_2020_3
 D:/SourceTreeProjects/SampleInfiniteRunner/RunnerProject_2020_3
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 46.05 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 48.77 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.6f1 (338bb68529b2)
 [Subsystems] Discovering subsystems at path D:/UnityHubInstalls/2020.3.6f1/Editor/Data/Resources/UnitySubsystems
@@ -36,109 +36,266 @@ Initialize mono
 Mono path[0] = 'D:/UnityHubInstalls/2020.3.6f1/Editor/Data/Managed'
 Mono path[1] = 'D:/UnityHubInstalls/2020.3.6f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'D:/UnityHubInstalls/2020.3.6f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56540
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56352
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: D:/UnityHubInstalls/2020.3.6f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001189 seconds.
+Registered in 0.001350 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 56.27 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 49.30 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.462 seconds
+- Completed reload, in  1.249 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001639 seconds.
+Registered in 0.001428 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 49.96 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 50.62 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.196 seconds
+- Completed reload, in  1.279 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 0.40 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.42 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2832 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 127.5 MB.
-System memory in use after: 127.7 MB.
+System memory in use after: 127.6 MB.
 
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 3276.
-Total: 2.975500 ms (FindLiveObjects: 0.272400 ms CreateObjectMapping: 0.143800 ms MarkObjects: 2.492500 ms  DeleteObjects: 0.065800 ms)
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 3275.
+Total: 2.181700 ms (FindLiveObjects: 0.240700 ms CreateObjectMapping: 0.127800 ms MarkObjects: 1.756500 ms  DeleteObjects: 0.055800 ms)
 
 ========================================================================
 Received Import Request.
+  path: Assets/Readme.asset
+  artifactKey: Guid(83c2ed844a8c74b779a4c823d16594b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Readme.asset using Guid(83c2ed844a8c74b779a4c823d16594b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '814f4bbac30b11d82d56288dbf454709') in 0.061539 seconds
+  Import took 0.066917 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.098731 seconds.
+  path: Assets/InfiniteRunnerProject/PhysicsTest/PhysicsTestScene.unity
+  artifactKey: Guid(8b33e797722fddc4595e184fc65fb518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/PhysicsTest/PhysicsTestScene.unity using Guid(8b33e797722fddc4595e184fc65fb518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f33a7a3e54f5e990516ee9d01f4dbbc') in 0.005333 seconds
+  Import took 0.009184 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002847 seconds.
+  path: Assets/InfiniteRunnerProject/PhysicsTest/PhysicsTestScene.unity
+  artifactKey: Guid(8b33e797722fddc4595e184fc65fb518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/PhysicsTest/PhysicsTestScene.unity using Guid(8b33e797722fddc4595e184fc65fb518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f33a7a3e54f5e990516ee9d01f4dbbc') in 0.002920 seconds
+  Import took 0.009422 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.153745 seconds.
+  path: Assets/InfiniteRunnerProject/RunnerGameScene.unity
+  artifactKey: Guid(ec3958b404e60d34a88ea0655c5c20e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/RunnerGameScene.unity using Guid(ec3958b404e60d34a88ea0655c5c20e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd2ac05e2850e08d41877e9e1216f237') in 0.005524 seconds
+  Import took 0.009493 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.095690 seconds.
+  path: Assets/InfiniteRunnerProject/Runner/RunnerSpriteData.asset
+  artifactKey: Guid(36d645dff69b4054091d8567fa148036) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/Runner/RunnerSpriteData.asset using Guid(36d645dff69b4054091d8567fa148036) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'adc136d9af27f1b3b510ef34eacd6219') in 0.009959 seconds
+  Import took 0.015691 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.482171 seconds.
+  path: Assets/InfiniteRunnerProject/UIBlocks/RunnerDeathNotification/RunnerDeathNotification.cs
+  artifactKey: Guid(b05e5fb67b0cb6640a0fb256ce01944a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/UIBlocks/RunnerDeathNotification/RunnerDeathNotification.cs using Guid(b05e5fb67b0cb6640a0fb256ce01944a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9324e38f042264b45c76529443954ea4') in 0.014190 seconds
+  Import took 0.018048 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.106355 seconds.
+  path: Assets/InfiniteRunnerProject/UIBlocks/RunnerDeathNotification/Resources/RunnerDeathNotification.prefab
+  artifactKey: Guid(9655c594606aa9246b37e7d9aaa3e766) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/UIBlocks/RunnerDeathNotification/Resources/RunnerDeathNotification.prefab using Guid(9655c594606aa9246b37e7d9aaa3e766) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea324d2c4ce556bba17a1a28c7763fa2') in 0.022159 seconds
+  Import took 0.026079 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.014989 seconds.
+  path: Assets/InfiniteRunnerProject/UIBlocks/RunnerDeathNotification/Resources/RunnerDeathNotification.prefab
+  artifactKey: Guid(9655c594606aa9246b37e7d9aaa3e766) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/UIBlocks/RunnerDeathNotification/Resources/RunnerDeathNotification.prefab using Guid(9655c594606aa9246b37e7d9aaa3e766) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea324d2c4ce556bba17a1a28c7763fa2') in 0.003063 seconds
+  Import took 0.006924 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.449842 seconds.
+  path: Assets/InfiniteRunnerProject/Runner/Runner_StraightPunch.cs
+  artifactKey: Guid(55fd235101f85754391a4f2b84d3d447) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/Runner/Runner_StraightPunch.cs using Guid(55fd235101f85754391a4f2b84d3d447) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66d8f464ce03788bdc533f38406d5380') in 0.006293 seconds
+  Import took 0.011576 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.018926 seconds.
+  path: Assets/InfiniteRunnerProject/Runner/Runner_NormalRun.cs
+  artifactKey: Guid(12f7e5457cc8df7469ebc8cb44936eb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/Runner/Runner_NormalRun.cs using Guid(12f7e5457cc8df7469ebc8cb44936eb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2b4813ead063cb132fba593f5533bdc') in 0.005585 seconds
+  Import took 0.009649 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.026348 seconds.
+  path: Assets/InfiniteRunnerProject/Runner/Runner_Jump_Up.cs
+  artifactKey: Guid(4114268155114204586eaa18ce84d781) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/Runner/Runner_Jump_Up.cs using Guid(4114268155114204586eaa18ce84d781) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b84ca9620a03fe5d0ca5e1a2c5bed833') in 0.005202 seconds
+  Import took 0.009211 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.022609 seconds.
+  path: Assets/InfiniteRunnerProject/Runner/Runner_Jump_Fall.cs
+  artifactKey: Guid(38c0421091ca4934280c2cfa0cbcd1f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/Runner/Runner_Jump_Fall.cs using Guid(38c0421091ca4934280c2cfa0cbcd1f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f0a4fc3b19a39f5a855686bbf786c60') in 0.004964 seconds
+  Import took 0.010007 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.023665 seconds.
+  path: Assets/InfiniteRunnerProject/Runner/Runner_Idle.cs
+  artifactKey: Guid(80424b073a6556841bad923acb34794e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/Runner/Runner_Idle.cs using Guid(80424b073a6556841bad923acb34794e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de17b98afa6cea0b40d9d1b7fc1953dc') in 0.005369 seconds
+  Import took 0.010009 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.023736 seconds.
+  path: Assets/InfiniteRunnerProject/Runner/Runner_Death_Up.cs
+  artifactKey: Guid(b402b51556f97274ab2fbc58dbeab957) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/Runner/Runner_Death_Up.cs using Guid(b402b51556f97274ab2fbc58dbeab957) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0600a2de074ce8edee65bc7e07ed99db') in 0.005429 seconds
+  Import took 0.009633 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.021741 seconds.
+  path: Assets/InfiniteRunnerProject/Runner/Runner_Death_Down.cs
+  artifactKey: Guid(364619153aa423640a76888d8c64484a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/Runner/Runner_Death_Down.cs using Guid(364619153aa423640a76888d8c64484a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7a35f705a0aa64ed48f72dfbd1d25c0') in 0.005074 seconds
+  Import took 0.008909 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.021730 seconds.
+  path: Assets/InfiniteRunnerProject/Runner/Runner_Death.cs
+  artifactKey: Guid(57eda426ea8a42740a1a21f8c9305826) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/Runner/Runner_Death.cs using Guid(57eda426ea8a42740a1a21f8c9305826) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d07f5d81c5c61127fa1c751679fe214') in 0.004928 seconds
+  Import took 0.008819 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.023752 seconds.
+  path: Assets/InfiniteRunnerProject/Runner/Runner_Creator.cs
+  artifactKey: Guid(aa969d9f6b427704cb848c46a095361e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/Runner/Runner_Creator.cs using Guid(aa969d9f6b427704cb848c46a095361e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c174eac01e01b696429f0e427896fde') in 0.005127 seconds
+  Import took 0.009161 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.032143 seconds.
+  path: Assets/InfiniteRunnerProject/PhysicsTest/Runner - rigidbody.prefab
+  artifactKey: Guid(a440acd9ee7ff4d4abf80172c22a8a66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/PhysicsTest/Runner - rigidbody.prefab using Guid(a440acd9ee7ff4d4abf80172c22a8a66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9bf57336072c680d166f30b446e7e879') in 0.177465 seconds
+  Import took 0.181599 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000199 seconds.
+  path: Assets/InfiniteRunnerProject/Runner/Runner.cs
+  artifactKey: Guid(2645b9dfb4986f44aafe9357f2f15e70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/Runner/Runner.cs using Guid(2645b9dfb4986f44aafe9357f2f15e70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '606ba37102eccb9e05f5135ffe86be8a') in 0.004602 seconds
+  Import took 0.008267 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.091578 seconds.
   path: Assets/InfiniteRunnerProject/Runner/Resources/Prefab_Runner.prefab
   artifactKey: Guid(692fbb193ec36f84e9b674994721f6ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InfiniteRunnerProject/Runner/Resources/Prefab_Runner.prefab using Guid(692fbb193ec36f84e9b674994721f6ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d0eb61342eff2c11f03bae6196b78ef') in 0.309279 seconds
-  Import took 0.313566 seconds .
+Start importing Assets/InfiniteRunnerProject/Runner/Resources/Prefab_Runner.prefab using Guid(692fbb193ec36f84e9b674994721f6ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d0eb61342eff2c11f03bae6196b78ef') in 0.011035 seconds
+  Import took 0.015306 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000191 seconds.
+  Time since last request: 19.950803 seconds.
   path: Assets/InfiniteRunnerProject/Runner/Runner.cs
   artifactKey: Guid(2645b9dfb4986f44aafe9357f2f15e70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InfiniteRunnerProject/Runner/Runner.cs using Guid(2645b9dfb4986f44aafe9357f2f15e70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc390ae1e0344adc3836653061d650f6') in 0.015220 seconds
-  Import took 0.020899 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 240.781149 seconds.
-  path: Assets/InfiniteRunnerProject/Runner/Runner.cs
-  artifactKey: Guid(2645b9dfb4986f44aafe9357f2f15e70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InfiniteRunnerProject/Runner/Runner.cs using Guid(2645b9dfb4986f44aafe9357f2f15e70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '606ba37102eccb9e05f5135ffe86be8a') in 0.007768 seconds
-  Import took 0.013548 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.041010 seconds.
-  path: Assets/InfiniteRunnerProject/Runner/Runner.cs
-  artifactKey: Guid(2645b9dfb4986f44aafe9357f2f15e70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InfiniteRunnerProject/Runner/Runner.cs using Guid(2645b9dfb4986f44aafe9357f2f15e70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '606ba37102eccb9e05f5135ffe86be8a') in 0.004174 seconds
-  Import took 0.017478 seconds .
+Start importing Assets/InfiniteRunnerProject/Runner/Runner.cs using Guid(2645b9dfb4986f44aafe9357f2f15e70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ffa3079b90f4bb4656ab0292e3b7d9e') in 0.002292 seconds
+  Import took 0.006523 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001321 seconds.
+Registered in 0.001557 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.41 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.45 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.961 seconds
+- Completed reload, in  1.036 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.40 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.48 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2723 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 125.9 MB.
 System memory in use after: 126.1 MB.
 
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 3325.
-Total: 2.621300 ms (FindLiveObjects: 0.277800 ms CreateObjectMapping: 0.130100 ms MarkObjects: 2.190400 ms  DeleteObjects: 0.021800 ms)
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 3326.
+Total: 2.340900 ms (FindLiveObjects: 0.380500 ms CreateObjectMapping: 0.146800 ms MarkObjects: 1.795300 ms  DeleteObjects: 0.017300 ms)
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001367 seconds.
+Registered in 0.001383 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.43 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.924 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Refreshing native plugins compatible for Editor in 0.40 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.995 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.44 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2723 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 125.9 MB.
-System memory in use after: 126.1 MB.
+System memory in use before: 126.0 MB.
+System memory in use after: 126.2 MB.
 
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 3328.
-Total: 2.433600 ms (FindLiveObjects: 0.310100 ms CreateObjectMapping: 0.148500 ms MarkObjects: 1.955500 ms  DeleteObjects: 0.018200 ms)
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 3329.
+Total: 3.151600 ms (FindLiveObjects: 0.258900 ms CreateObjectMapping: 0.171500 ms MarkObjects: 2.698100 ms  DeleteObjects: 0.022200 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001375 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.42 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.911 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.44 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2723 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 126.0 MB.
+System memory in use after: 126.2 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 3332.
+Total: 2.525200 ms (FindLiveObjects: 0.372100 ms CreateObjectMapping: 0.157900 ms MarkObjects: 1.974800 ms  DeleteObjects: 0.019100 ms)
 
