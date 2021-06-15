@@ -33,8 +33,10 @@ namespace RB
             runner.InitBoxCollider(StaticRefs.gameData.RunnerBoxColliderSize);
             runner.InitCollisionReaction();
             runner.InitCollisionChecker();
-            runner.InitSpriteAnimations();
             runner.SetUserInput(_userInput);
+
+            runner.spriteAnimations = new SpriteAnimations(runner.stateController);
+            //runner.InitSpriteAnimations();
 
             runner.spriteAnimations.Add("runner idle fall animation",
                 new SpriteAnimationSpecs(

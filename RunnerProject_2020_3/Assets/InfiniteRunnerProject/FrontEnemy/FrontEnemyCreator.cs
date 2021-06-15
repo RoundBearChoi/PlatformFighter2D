@@ -26,7 +26,8 @@ namespace RB
             enemy.transform.localRotation = Quaternion.identity;
             enemy.SetUpdater(new DefaultUpdater(enemy.stateController));
 
-            enemy.InitSpriteAnimations();
+            enemy.spriteAnimations = new SpriteAnimations(enemy.stateController);
+            //enemy.InitSpriteAnimations();
 
             enemy.spriteAnimations.Add("front enemy idle animation",
                 new SpriteAnimationSpecs(
