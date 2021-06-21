@@ -23,7 +23,5 @@ namespace RB
         public List<CollisionData> listCollisionStays = new List<CollisionData>();
         public List<State> listNextStates = new List<State>();
         public List<DamageData> listDamageData = new List<DamageData>();
-
-        //public Ground currentGround = null;
     }
 }
