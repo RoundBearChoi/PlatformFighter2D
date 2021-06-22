@@ -10,7 +10,7 @@ namespace RB
         public static bool initialPush = false;
         static Hash128 animationHash = Hash128.Compute("Texture_RunCycle_Orange");
         
-        List<Ground> _touchingGrounds = new List<Ground>();
+        //List<Ground> _touchingGrounds = new List<Ground>();
 
         public override Hash128 GetAnimationHash()
         {
@@ -35,7 +35,7 @@ namespace RB
         public override void OnFixedUpdate()
         {
             //in the air
-            if (_unitData.listCollisionStays.Count == 0)
+            if (_unitData.collisionStays.GetCount() == 0)
             {
                 //falling
                 if (_unitData.rigidBody2D.velocity.y < 0f)
@@ -68,24 +68,31 @@ namespace RB
 
         bool IsOnFlatGround()
         {
-            _touchingGrounds.Clear();
+            //_touchingGrounds.Clear();
+            //
+            //foreach (CollisionData data in _unitData.listCollisionStays)
+            //{
+            //    Ground ground = data.collidingObject.GetComponent<Ground>();
+            //
+            //    if (ground != null)
+            //    {
+            //        _touchingGrounds.Add(ground);
+            //    }
+            //}
+            //
+            //if (_touchingGrounds.Count == 0)
+            //{
+            //    return false;
+            //}
 
-            foreach (CollisionData data in _unitData.listCollisionStays)
-            {
-                Ground ground = data.collidingObject.GetComponent<Ground>();
+            List<Ground> listGrounds = _unitData.collisionStays.GetTouchingGrounds();
 
-                if (ground != null)
-                {
-                    _touchingGrounds.Add(ground);
-                }
-            }
-
-            if (_touchingGrounds.Count == 0)
+            if (listGrounds.Count == 0)
             {
                 return false;
             }
 
-            foreach(Ground ground in _touchingGrounds)
+            foreach(Ground ground in listGrounds)
             {
                 if (Mathf.Abs(ground.transform.rotation.z) >= 0.001f)
                 {
