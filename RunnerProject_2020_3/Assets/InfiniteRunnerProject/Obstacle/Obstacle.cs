@@ -10,7 +10,7 @@ namespace RB
         {
             unitUpdater.CustomFixedUpdate();
 
-            spriteAnimations.OnFixedUpdate();
+            unitData.spriteAnimations.OnFixedUpdate();
         }
     }
 }

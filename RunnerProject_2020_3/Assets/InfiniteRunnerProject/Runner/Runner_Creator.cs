@@ -35,10 +35,10 @@ namespace RB
             runner.InitCollisionChecker();
             runner.SetUserInput(_userInput);
 
-            runner.spriteAnimations = new SpriteAnimations(runner.stateController);
+            runner.unitData.spriteAnimations = new SpriteAnimations(runner.stateController);
             //runner.InitSpriteAnimations();
 
-            runner.spriteAnimations.Add("runner idle fall animation",
+            runner.unitData.spriteAnimations.Add("runner idle fall animation",
                 new SpriteAnimationSpecs(
                     "Texture_Idle_Orange",
                     StaticRefs.runnerSpriteData.Idle_SpriteInterval,
@@ -47,7 +47,7 @@ namespace RB
                     Vector2.zero),
                 runner.transform);
 
-            runner.spriteAnimations.Add("runner run animation",
+            runner.unitData.spriteAnimations.Add("runner run animation",
                 new SpriteAnimationSpecs(
                     "Texture_RunCycle_Orange",
                     StaticRefs.runnerSpriteData.Run_SpriteInterval,
@@ -56,7 +56,7 @@ namespace RB
                     Vector2.zero),
                 runner.transform);
 
-            runner.spriteAnimations.Add("runner straight punch animation",
+            runner.unitData.spriteAnimations.Add("runner straight punch animation",
                 new SpriteAnimationSpecs(
                     "Texture_StraightPunch",
                     StaticRefs.runnerSpriteData.StraightPunch_SpriteInterval,
@@ -64,9 +64,9 @@ namespace RB
                     OffsetType.BOTTOM_CENTER,
                     StaticRefs.runnerSpriteData.StraightPunch_AdditionalOffset),
                 runner.transform);
-            runner.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
+            runner.unitData.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
 
-            runner.spriteAnimations.Add("runner jump (up) animation",
+            runner.unitData.spriteAnimations.Add("runner jump (up) animation",
                 new SpriteAnimationSpecs(
                     "Texture_JumpCycle_Orange",
                     StaticRefs.runnerSpriteData.Jump_SpriteInterval,
@@ -74,9 +74,9 @@ namespace RB
                     OffsetType.BOTTOM_CENTER,
                     Vector2.zero),
                 runner.transform);
-            runner.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
+            runner.unitData.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
 
-            runner.spriteAnimations.Add("runner jump (fall) animation",
+            runner.unitData.spriteAnimations.Add("runner jump (fall) animation",
                 new SpriteAnimationSpecs(
                     "Texture_Jump_Fall_Orange",
                     StaticRefs.runnerSpriteData.Jump_SpriteInterval,
@@ -84,9 +84,9 @@ namespace RB
                     OffsetType.BOTTOM_CENTER,
                     Vector2.zero),
                 runner.transform);
-            runner.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
+            runner.unitData.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
 
-            runner.spriteAnimations.Add("runner death animation",
+            runner.unitData.spriteAnimations.Add("runner death animation",
                 new SpriteAnimationSpecs(
                     "Texture_Death_Orange",
                     StaticRefs.runnerSpriteData.Death_SpriteInterval,
@@ -94,7 +94,7 @@ namespace RB
                     OffsetType.BOTTOM_CENTER,
                     Vector2.zero),
                 runner.transform);
-            runner.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
+            runner.unitData.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
 
             runner.transform.position = new Vector3(0f, 5f, 0f);
 

@@ -73,5 +73,17 @@ namespace RB
             _updateCount = 0;
             _spriteIndex = 0;
         }
+
+        public bool IsOnEnd()
+        {
+            if (_spriteIndex == _listSprites.Count - 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

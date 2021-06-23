@@ -9,6 +9,8 @@ namespace RB
         private List<SpriteAnimation> _listSpriteAnimations = null;
         private StateController _stateController = null;
 
+        public SpriteAnimation currentAnimation = null;
+
         public SpriteAnimations(StateController stateController)
         {
             _listSpriteAnimations = new List<SpriteAnimation>();
@@ -25,6 +27,7 @@ namespace RB
                 if (n == 0)
                 {
                     spriteAni.gameObject.SetActive(true);
+                    currentAnimation = spriteAni;
                 }
                 else
                 {

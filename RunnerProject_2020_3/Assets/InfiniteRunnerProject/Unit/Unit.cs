@@ -10,7 +10,7 @@ namespace RB
         public StateController stateController = null;
         public UnitData unitData = null;
         public AttackData attackData = null;
-        public SpriteAnimations spriteAnimations = null;
+        
 
         private List<CollisionType> _listAttackingSides = new List<CollisionType>();
 

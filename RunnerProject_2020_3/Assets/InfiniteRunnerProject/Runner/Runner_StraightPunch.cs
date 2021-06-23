@@ -18,5 +18,16 @@ namespace RB
             _unitData = data;
             _userInput = input;
         }
+
+        public override void OnFixedUpdate()
+        {
+            if (_unitData.spriteAnimations.currentAnimation.IsOnEnd())
+            {
+                if (_unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
+                {
+                    _unitData.listNextStates.Add(new Runner_NormalRun(_unitData, _userInput));
+                }
+            }
+        }
     }
 }

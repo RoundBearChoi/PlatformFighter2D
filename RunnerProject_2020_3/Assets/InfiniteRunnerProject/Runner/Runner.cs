@@ -13,7 +13,7 @@ namespace RB
         {
             unitUpdater.CustomFixedUpdate();
 
-            spriteAnimations.OnFixedUpdate();
+            unitData.spriteAnimations.OnFixedUpdate();
 
             CollisionReaction reactionData = unitData.collisionEnters.GetReactionData();// _collisionBehavior.GetReactionData();
 

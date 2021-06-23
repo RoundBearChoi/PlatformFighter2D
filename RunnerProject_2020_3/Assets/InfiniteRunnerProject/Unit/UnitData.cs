@@ -23,6 +23,8 @@ namespace RB
         public CollisionEnters collisionEnters = new CollisionEnters();
         //public List<CollisionData> listCollisionEnters = new List<CollisionData>();
 
+        public SpriteAnimations spriteAnimations = null;
+
         public List<State> listNextStates = new List<State>();
         public List<DamageData> listDamageData = new List<DamageData>();
     }

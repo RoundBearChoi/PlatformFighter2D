@@ -30,7 +30,7 @@ namespace RB
                 new CameraController_SimpleFollow(_runner, _mainCamera),
                 cameraController.unitData);
 
-            cameraController.spriteAnimations = new SpriteAnimations(cameraController.stateController);
+            cameraController.unitData.spriteAnimations = new SpriteAnimations(cameraController.stateController);
             //cameraController.InitSpriteAnimations();
 
             return cameraController;
