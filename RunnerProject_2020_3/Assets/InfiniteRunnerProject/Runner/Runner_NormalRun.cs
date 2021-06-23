@@ -68,23 +68,6 @@ namespace RB
 
         bool IsOnFlatGround()
         {
-            //_touchingGrounds.Clear();
-            //
-            //foreach (CollisionData data in _unitData.listCollisionStays)
-            //{
-            //    Ground ground = data.collidingObject.GetComponent<Ground>();
-            //
-            //    if (ground != null)
-            //    {
-            //        _touchingGrounds.Add(ground);
-            //    }
-            //}
-            //
-            //if (_touchingGrounds.Count == 0)
-            //{
-            //    return false;
-            //}
-
             List<Ground> listGrounds = _unitData.collisionStays.GetTouchingGrounds();
 
             if (listGrounds.Count == 0)
