@@ -9,7 +9,7 @@ namespace RB
         public UnitData(Transform transform)
         {
             unitTransform = transform;
-            listCollisionEnters.Clear();
+            //listCollisionEnters.Clear();
             listNextStates.Clear();
             listDamageData.Clear();
         }
@@ -20,8 +20,9 @@ namespace RB
         public BoxCollider2D boxCollider2D = null;
 
         public CollisionStays collisionStays = new CollisionStays();
-        public List<CollisionData> listCollisionEnters = new List<CollisionData>();
-                
+        public CollisionEnters collisionEnters = new CollisionEnters();
+        //public List<CollisionData> listCollisionEnters = new List<CollisionData>();
+
         public List<State> listNextStates = new List<State>();
         public List<DamageData> listDamageData = new List<DamageData>();
     }

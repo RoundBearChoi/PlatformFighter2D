@@ -4,13 +4,18 @@ using UnityEngine;
 
 namespace RB
 {
-    public class CollisionBehavior
+    public class CollisionEnters
     {
-        private UnitData _unitData = null;
+        private List<CollisionData> _listCollisionEnters = new List<CollisionData>();
 
-        public CollisionBehavior(UnitData unitData)
+        public void Clear()
         {
-            _unitData = unitData;
+            _listCollisionEnters.Clear();
+        }
+
+        public void Add(CollisionData collisionData)
+        {
+            _listCollisionEnters.Add(collisionData);
         }
 
         public CollisionReaction GetReactionData()
@@ -18,7 +23,7 @@ namespace RB
             CollisionReaction takeDamage = new CollisionReaction(CollisionReactionType.NONE, null);
             CollisionReaction dealDamage = new CollisionReaction(CollisionReactionType.NONE, null);
 
-            foreach (CollisionData data in _unitData.listCollisionEnters)
+            foreach (CollisionData data in _listCollisionEnters)
             {
                 if (data.collidingObject == null)
                 {

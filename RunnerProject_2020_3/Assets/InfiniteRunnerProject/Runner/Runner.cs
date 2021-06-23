@@ -8,7 +8,6 @@ namespace RB
     {
         private UserInput _userInput = null;
         private ICollisionSideChecker _collisionChecker = null;
-        private CollisionBehavior _collisionBehavior = null;
 
         public override void OnFixedUpdate()
         {
@@ -16,7 +15,7 @@ namespace RB
 
             spriteAnimations.OnFixedUpdate();
 
-            CollisionReaction reactionData = _collisionBehavior.GetReactionData();
+            CollisionReaction reactionData = unitData.collisionEnters.GetReactionData();// _collisionBehavior.GetReactionData();
 
             if (reactionData.reactionType == CollisionReactionType.TAKE_DAMAGE)
             {
@@ -31,7 +30,8 @@ namespace RB
 
             //only clear after updating states
             unitData.collisionStays.Clear();
-            unitData.listCollisionEnters.Clear();
+            unitData.collisionEnters.Clear();
+            //unitData.listCollisionEnters.Clear();
         }
 
         public override void OnLateUpdate()
@@ -45,10 +45,10 @@ namespace RB
             _collisionChecker = new CollisionChecker(collider);
         }
 
-        public override void InitCollisionReaction()
-        {
-            _collisionBehavior = new CollisionBehavior(unitData);
-        }
+        //public override void InitCollisionReaction()
+        //{
+        //    _collisionBehavior = new CollisionBehavior(unitData);
+        //}
 
         public override void SetUserInput(UserInput userInput)
         {
@@ -61,7 +61,8 @@ namespace RB
             {
                 CollisionType collisionType = _collisionChecker.GetCollisionType(contactPoint);
                 CollisionData collisionData = new CollisionData(collisionType, collision.gameObject, contactPoint);
-                unitData.listCollisionEnters.Add(collisionData);
+                unitData.collisionEnters.Add(collisionData);
+                //unitData.listCollisionEnters.Add(collisionData);
             }
         }
 
