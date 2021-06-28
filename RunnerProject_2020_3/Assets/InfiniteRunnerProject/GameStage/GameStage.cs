@@ -11,17 +11,8 @@ namespace RB
         private UpdateCounter updateCounter = new UpdateCounter();
         private UserInput _userInput = new UserInput();
 
-        [SerializeField]
-        private GameData gameDataScriptableObj = null;
-
-        [SerializeField]
-        private RunnerSpriteData runnerSpriteDataScriptableObj = null;
-
         public override void Init()
         {
-            StaticRefs.gameData = gameDataScriptableObj;
-            StaticRefs.runnerSpriteData = runnerSpriteDataScriptableObj;
-
             units.AddCreator(new Runner_Creator(_userInput, this.transform));
             units.ProcessCreators();
 

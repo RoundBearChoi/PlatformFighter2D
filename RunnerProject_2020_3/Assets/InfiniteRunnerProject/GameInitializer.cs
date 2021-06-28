@@ -9,8 +9,17 @@ namespace RB
         Stage _currentStage = null;
         public List<IStageTransition> listStageTransitions = new List<IStageTransition>();
 
+        [SerializeField]
+        private GameData gameDataScriptableObj = null;
+
+        [SerializeField]
+        private RunnerSpriteData runnerSpriteDataScriptableObj = null;
+
         private void Start()
         {
+            StaticRefs.gameData = gameDataScriptableObj;
+            StaticRefs.runnerSpriteData = runnerSpriteDataScriptableObj;
+
             ResourceLoader.Init();
 
             //first stage

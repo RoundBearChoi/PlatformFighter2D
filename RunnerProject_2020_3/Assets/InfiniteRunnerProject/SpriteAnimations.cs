@@ -15,7 +15,11 @@ namespace RB
         {
             _listSpriteAnimations = new List<SpriteAnimation>();
             _stateController = stateController;
-            _stateController.spriteAnimations = this;
+
+            if (_stateController != null)
+            {
+                _stateController.spriteAnimations = this;
+            }
         }
 
         public void MatchAnimationToState()
