@@ -43,6 +43,11 @@ namespace RB
         public override void OnUpdate()
         {
             _userInput.OnUpdate();
+
+            if (_userInput.ContainsKeyPress(UserInput.keyboard.f6Key))
+            {
+                _gameIntializer.listStageTransitions.Add(new IntroStageTransition(_gameIntializer));
+            }
         }
 
         public override void OnFixedUpdate()
