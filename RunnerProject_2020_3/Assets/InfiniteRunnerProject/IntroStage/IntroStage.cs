@@ -26,6 +26,11 @@ namespace RB
             {
                 _gameIntializer.listStageTransitions.Add(new GameStageTransition(_gameIntializer));
             }
+
+            if (_keyboard.f5Key.wasPressedThisFrame)
+            {
+                _gameIntializer.listStageTransitions.Add(new SpritesStageTransition(_gameIntializer));
+            }
         }
     }
 }

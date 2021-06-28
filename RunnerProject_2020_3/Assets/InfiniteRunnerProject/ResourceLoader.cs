@@ -18,6 +18,9 @@ namespace RB
             IntroStage intro = Resources.Load("IntroStage", typeof(IntroStage)) as IntroStage;
             dicResources.Add(intro.GetType(), intro);
 
+            SpritesStage spritesStage = Resources.Load("SpritesStage", typeof(SpritesStage)) as SpritesStage;
+            dicResources.Add(spritesStage.GetType(), spritesStage);
+
             Runner runner = Resources.Load("Prefab_Runner", typeof(Runner)) as Runner;
             dicResources.Add(runner.GetType(), runner);
 

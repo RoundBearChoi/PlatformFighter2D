@@ -12,6 +12,8 @@ namespace RB
         private void Start()
         {
             ResourceLoader.Init();
+
+            //first stage
             IntroStageTransition introStageTransition = new IntroStageTransition(this);
             _currentStage = introStageTransition.MakeTransition();
         }

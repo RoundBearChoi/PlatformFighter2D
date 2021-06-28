@@ -15,7 +15,7 @@ namespace RB
 
             unitData.spriteAnimations.OnFixedUpdate();
 
-            CollisionReaction reactionData = unitData.collisionEnters.GetReactionData();// _collisionBehavior.GetReactionData();
+            CollisionReaction reactionData = unitData.collisionEnters.GetReactionData();
 
             if (reactionData.reactionType == CollisionReactionType.TAKE_DAMAGE)
             {
@@ -31,7 +31,6 @@ namespace RB
             //only clear after updating states
             unitData.collisionStays.Clear();
             unitData.collisionEnters.Clear();
-            //unitData.listCollisionEnters.Clear();
         }
 
         public override void OnLateUpdate()
