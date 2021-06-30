@@ -12,11 +12,14 @@ namespace RB
 
         public static void Init()
         {
-            GameStage game = Resources.Load("GameStage", typeof(GameStage)) as GameStage;
-            dicResources.Add(game.GetType(), game);
+            GameStage gameStage = Resources.Load("GameStage", typeof(GameStage)) as GameStage;
+            dicResources.Add(gameStage.GetType(), gameStage);
 
-            IntroStage intro = Resources.Load("IntroStage", typeof(IntroStage)) as IntroStage;
-            dicResources.Add(intro.GetType(), intro);
+            RunnerStage runnerStage = Resources.Load("RunnerStage", typeof(RunnerStage)) as RunnerStage;
+            dicResources.Add(runnerStage.GetType(), runnerStage);
+
+            IntroStage introStage = Resources.Load("IntroStage", typeof(IntroStage)) as IntroStage;
+            dicResources.Add(introStage.GetType(), introStage);
 
             SpritesStage spritesStage = Resources.Load("SpritesStage", typeof(SpritesStage)) as SpritesStage;
             dicResources.Add(spritesStage.GetType(), spritesStage);

@@ -24,12 +24,17 @@ namespace RB
         {
             if (_keyboard.enterKey.wasPressedThisFrame)
             {
-                _gameIntializer.listStageTransitions.Add(new GameStageTransition(_gameIntializer));
+                _gameIntializer.listStageTransitions.Add(new RunnerStageTransition(_gameIntializer));
+            }
+
+            if (_keyboard.f4Key.wasPressedThisFrame)
+            {
+                _gameIntializer.listStageTransitions.Add(new SpritesStageTransition(_gameIntializer));
             }
 
             if (_keyboard.f5Key.wasPressedThisFrame)
             {
-                _gameIntializer.listStageTransitions.Add(new SpritesStageTransition(_gameIntializer));
+                _gameIntializer.listStageTransitions.Add(new GameStageTransition(_gameIntializer));
             }
         }
     }
