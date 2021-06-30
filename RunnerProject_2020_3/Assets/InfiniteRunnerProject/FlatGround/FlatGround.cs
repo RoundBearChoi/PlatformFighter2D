@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class FlatGround : MonoBehaviour
+    public class FlatGround : Unit
     {
 
     }
