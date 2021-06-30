@@ -12,6 +12,7 @@ namespace RB
 
         public static void Init()
         {
+            //stages
             GameStage gameStage = Resources.Load("GameStage", typeof(GameStage)) as GameStage;
             dicResources.Add(gameStage.GetType(), gameStage);
 
@@ -24,6 +25,7 @@ namespace RB
             SpritesStage spritesStage = Resources.Load("SpritesStage", typeof(SpritesStage)) as SpritesStage;
             dicResources.Add(spritesStage.GetType(), spritesStage);
 
+            //units
             Runner runner = Resources.Load("Prefab_Runner", typeof(Runner)) as Runner;
             dicResources.Add(runner.GetType(), runner);
 
@@ -33,6 +35,13 @@ namespace RB
             Obstacle obstacle = Resources.Load("Obstacle", typeof(Obstacle)) as Obstacle;
             dicResources.Add(obstacle.GetType(), obstacle);
 
+            //levels
+            dicLevels.Add(1, Resources.Load("Level_1_Temp"));
+
+            FlatGround flatGround = Resources.Load("FlatGround", typeof(FlatGround)) as FlatGround;
+            dicResources.Add(flatGround.GetType(), flatGround);
+
+            //etc
             UI ui = Resources.Load("UI", typeof(UI)) as UI;
             dicResources.Add(ui.GetType(), ui);
 
@@ -41,9 +50,6 @@ namespace RB
 
             RunnerDeathNotification deathNotification = Resources.Load("RunnerDeathNotification", typeof(RunnerDeathNotification)) as RunnerDeathNotification;
             dicResources.Add(deathNotification.GetType(), deathNotification);
-
-            //levels
-            dicLevels.Add(1, Resources.Load("Level_1_Temp"));
         }
 
         public static Object GetResource(System.Type _type)
