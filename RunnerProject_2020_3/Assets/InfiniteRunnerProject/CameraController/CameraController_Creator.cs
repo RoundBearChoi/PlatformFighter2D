@@ -35,5 +35,10 @@ namespace RB
 
             return cameraController;
         }
+
+        public override void AddUnits(List<Unit> listUnits)
+        {
+            listUnits.Add(GetUnit());
+        }
     }
 }

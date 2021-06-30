@@ -41,5 +41,10 @@ namespace RB
 
             return obstacle;
         }
+
+        public override void AddUnits(List<Unit> listUnits)
+        {
+            listUnits.Add(GetUnit());
+        }
     }
 }

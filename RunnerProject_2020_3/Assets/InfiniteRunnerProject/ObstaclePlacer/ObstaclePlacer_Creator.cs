@@ -32,5 +32,10 @@ namespace RB
 
             return placer;
         }
+
+        public override void AddUnits(List<Unit> listUnits)
+        {
+            listUnits.Add(GetUnit());
+        }
     }
 }

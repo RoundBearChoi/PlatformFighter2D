@@ -36,8 +36,9 @@ namespace RB
         {
             foreach (UnitCreator creator in _listUnitCreators)
             {
-                Unit unit = creator.GetUnit();
-                _listUnits.Add(unit);
+                creator.AddUnits(_listUnits);
+                //Unit unit = creator.GetUnit();
+                //_listUnits.Add(unit);
             }
 
             _listUnitCreators.Clear();

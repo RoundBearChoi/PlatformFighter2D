@@ -10,5 +10,7 @@ namespace RB
         {
             return null;
         }
+
+        public abstract void AddUnits(List<Unit> listUnits);
     }
 }

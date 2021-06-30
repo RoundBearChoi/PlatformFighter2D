@@ -40,5 +40,10 @@ namespace RB
 
             return enemy;
         }
+
+        public override void AddUnits(List<Unit> listUnits)
+        {
+            listUnits.Add(GetUnit());
+        }
     }
 }

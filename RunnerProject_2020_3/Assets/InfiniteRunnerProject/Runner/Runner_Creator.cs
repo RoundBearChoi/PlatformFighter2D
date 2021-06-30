@@ -100,5 +100,10 @@ namespace RB
 
             return runner;
         }
+
+        public override void AddUnits(List<Unit> listUnits)
+        {
+            listUnits.Add(GetUnit());
+        }
     }
 }
