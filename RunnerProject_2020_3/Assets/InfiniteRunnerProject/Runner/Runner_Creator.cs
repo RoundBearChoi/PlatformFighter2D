@@ -45,10 +45,8 @@ namespace RB
                     OffsetType.BOTTOM_CENTER,
                     Vector2.zero),
                 runner.transform);
-            AdditionalInterval idleinterval0 = new AdditionalInterval(140, 0);
-            AdditionalInterval idleinterval3 = new AdditionalInterval(140, 3);
-            runner.unitData.spriteAnimations.GetLastSpriteAnimation().AddAdditionalInterval(idleinterval0);
-            runner.unitData.spriteAnimations.GetLastSpriteAnimation().AddAdditionalInterval(idleinterval3);
+            AdditionalInterval idleinterval5 = new AdditionalInterval(20, 5);
+            runner.unitData.spriteAnimations.GetLastSpriteAnimation().AddAdditionalInterval(idleinterval5);
 
             runner.unitData.spriteAnimations.AddSpriteAnimation("runner run animation",
                 new SpriteAnimationSpecs(
