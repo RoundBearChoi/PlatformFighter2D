@@ -29,6 +29,9 @@ namespace RB
         public override void OnFixedUpdate()
         {
             units.OnFixedUpdate();
+
+            _userInput.ClearKeyDictionary();
+            _userInput.ClearButtonDictionary();
         }
 
         public override void OnLateUpdate()

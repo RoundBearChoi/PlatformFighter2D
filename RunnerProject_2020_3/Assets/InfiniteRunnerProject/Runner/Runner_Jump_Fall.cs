@@ -32,19 +32,6 @@ namespace RB
                 _unitData.listNextStates.Add(new Runner_NormalRun(_unitData, _userInput));
             }
 
-            //foreach(CollisionData data in _unitData.listCollisionStays)
-            //{
-            //    Ground ground = data.collidingObject.GetComponent<Ground>();
-            //
-            //    if (ground != null)
-            //    {
-            //        if (data.collisionType == CollisionType.BOTTOM)
-            //        {
-            //            _unitData.listNextStates.Add(new Runner_NormalRun(_unitData, _userInput));
-            //        }
-            //    }
-            //}
-
             UpdateComponents();
         }
     }

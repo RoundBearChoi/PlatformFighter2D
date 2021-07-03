@@ -38,7 +38,7 @@ namespace RB
             //levels
             dicLevels.Add(1, Resources.Load("Level_1_Temp"));
 
-            FlatGround flatGround = Resources.Load("FlatGround", typeof(FlatGround)) as FlatGround;
+            Ground flatGround = Resources.Load("FlatGround", typeof(Ground)) as Ground;
             dicResources.Add(flatGround.GetType(), flatGround);
 
             //etc

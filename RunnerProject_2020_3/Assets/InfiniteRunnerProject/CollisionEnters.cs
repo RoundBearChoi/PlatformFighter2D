@@ -33,7 +33,8 @@ namespace RB
 
                 Unit collidingUnit = data.collidingObject.GetComponent<Unit>();
 
-                if (collidingUnit != null)
+                //ground is also unit (should find a better way to differenciate)
+                if (collidingUnit != null && collidingUnit is Ground == false)
                 {
                     //take damage
                     if (collidingUnit.attackData.IsAttackingSide(CollisionType.LEFT) && data.collisionType == CollisionType.RIGHT)

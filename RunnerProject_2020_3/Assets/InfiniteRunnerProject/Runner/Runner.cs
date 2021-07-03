@@ -44,11 +44,6 @@ namespace RB
             _collisionChecker = new CollisionChecker(collider);
         }
 
-        //public override void InitCollisionReaction()
-        //{
-        //    _collisionBehavior = new CollisionBehavior(unitData);
-        //}
-
         public override void SetUserInput(UserInput userInput)
         {
             _userInput = userInput;
@@ -61,14 +56,12 @@ namespace RB
                 CollisionType collisionType = _collisionChecker.GetCollisionType(contactPoint);
                 CollisionData collisionData = new CollisionData(collisionType, collision.gameObject, contactPoint);
                 unitData.collisionEnters.Add(collisionData);
-                //unitData.listCollisionEnters.Add(collisionData);
             }
         }
 
         public void OnCollisionStay2D(Collision2D collision)
         {
             unitData.collisionStays.Clear();
-            //unitData.listCollisionStays.Clear();
 
             foreach (ContactPoint2D contactPoint in collision.contacts)
             {
@@ -76,7 +69,6 @@ namespace RB
                 CollisionData collisionData = new CollisionData(collisionType, collision.gameObject, contactPoint);
 
                 unitData.collisionStays.AddCollisionStay(collisionData);
-                //unitData.listCollisionStays.Add(collisionData);
             }
         }
     }

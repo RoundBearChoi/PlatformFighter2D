@@ -15,7 +15,7 @@ namespace RB
 
         public override Unit GetUnit()
         {
-            Unit flatGround = GameObject.Instantiate(ResourceLoader.GetResource(typeof(FlatGround))) as FlatGround;
+            Unit flatGround = GameObject.Instantiate(ResourceLoader.GetResource(typeof(Ground))) as Ground;
             flatGround.unitData = new UnitData(flatGround.transform);
 
             flatGround.transform.parent = _parentTransform;
@@ -36,6 +36,8 @@ namespace RB
             CompositeCollider2D c2d = objComposite.AddComponent<CompositeCollider2D>();
             Rigidbody2D r2d = objComposite.GetComponent<Rigidbody2D>();
             r2d.bodyType = RigidbodyType2D.Static;
+
+            objComposite.AddComponent<Ground>();
 
             for (int i = 0; i < 10; i++)
             {
