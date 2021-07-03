@@ -6,7 +6,7 @@ namespace RB
 {
     public class Runner_Idle : State
     {
-        static Hash128 animationHash = Hash128.Compute("Texture_Idle_Orange");
+        static Hash128 animationHash = Hash128.Compute("Texture_PrototypeHero_Idle");
 
         public override Hash128 GetAnimationHash()
         {
