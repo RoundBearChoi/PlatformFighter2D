@@ -9,6 +9,7 @@ namespace RB
         SpriteAnimationSpecs specs;
 
         List<Sprite> _listSprites = new List<Sprite>();
+        List<AdditionalInterval> _listAdditionalIntervals = new List<AdditionalInterval>();
         SpriteRenderer spriteRenderer = null;
         uint _updateCount = 0;
         int _spriteIndex = 0;
@@ -51,14 +52,50 @@ namespace RB
             }
         }
 
-        public void OnFixedUpdate()
+        public void AddAdditionalInterval(AdditionalInterval interval)
         {
-            UpdateSpriteOnIndex();
+            _listAdditionalIntervals.Add(interval);
+        }
 
+        public bool ProcessingAdditionalInterval()
+        {
+            foreach (AdditionalInterval interval in _listAdditionalIntervals)
+            {
+                if (_spriteIndex == interval.TargetSpriteIndex)
+                {
+                    interval.ProcessInterval();
+
+                    if (interval.Current > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        public void ResetAdditionalIntervals()
+        {
+            foreach (AdditionalInterval interval in _listAdditionalIntervals)
+            {
+                interval.Reset();
+            }
+        }
+
+        public void UpdateSpriteIndex()
+        {
             if (_updateCount != 0 && _updateCount % specs.mRenderInterval == 0)
             {
+                ResetAdditionalIntervals();
                 _spriteIndex++;
             }
+
+            _updateCount++;
 
             if (_spriteIndex >= _listSprites.Count)
             {
@@ -71,8 +108,6 @@ namespace RB
                     _spriteIndex = _listSprites.Count - 1;
                 }
             }
-
-            _updateCount++;
         }
 
         public void UpdateSpriteOnIndex()

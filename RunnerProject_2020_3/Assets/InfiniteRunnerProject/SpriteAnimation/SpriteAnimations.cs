@@ -48,7 +48,7 @@ namespace RB
             }
         }
 
-        public void Add(string objName, SpriteAnimationSpecs specs, Transform parent)
+        public void AddSpriteAnimation(string objName, SpriteAnimationSpecs specs, Transform parent)
         {
             GameObject obj = new GameObject(objName);
             obj.transform.parent = parent;
@@ -67,7 +67,12 @@ namespace RB
         {
             foreach(SpriteAnimation spriteAnimation in _listSpriteAnimations)
             {
-                spriteAnimation.OnFixedUpdate();
+                if (!spriteAnimation.ProcessingAdditionalInterval())
+                {
+                    spriteAnimation.UpdateSpriteIndex();
+                }
+
+                spriteAnimation.UpdateSpriteOnIndex();
             }
         }
     }

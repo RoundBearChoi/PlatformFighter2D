@@ -35,7 +35,7 @@ namespace RB
                 OffsetType.BOTTOM_CENTER,
                 StaticRefs.runnerSpriteData.StraightPunch_AdditionalOffset);
 
-            _punchAnimations.Add("runner straight punch animation", specs, _dummyObj.transform);
+            _punchAnimations.AddSpriteAnimation("runner straight punch animation", specs, _dummyObj.transform);
 
             _punchAnimations.OnFixedUpdate();
         }

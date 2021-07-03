@@ -27,7 +27,7 @@ namespace RB
             obstacle.transform.rotation = Quaternion.identity;
             obstacle.SetUpdater(new DefaultUpdater(obstacle.stateController));
 
-            obstacle.unitData.spriteAnimations.Add("box sprite",
+            obstacle.unitData.spriteAnimations.AddSpriteAnimation("box sprite",
                 new SpriteAnimationSpecs(
                     "Texture_BlockEnemy",
                     10,

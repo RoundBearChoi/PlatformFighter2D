@@ -29,7 +29,7 @@ namespace RB
             enemy.unitData.spriteAnimations = new SpriteAnimations(enemy.stateController);
             //enemy.InitSpriteAnimations();
 
-            enemy.unitData.spriteAnimations.Add("front enemy idle animation",
+            enemy.unitData.spriteAnimations.AddSpriteAnimation("front enemy idle animation",
                 new SpriteAnimationSpecs(
                     "Texture_Front_Enemy_Sample",
                     10,
