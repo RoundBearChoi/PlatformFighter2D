@@ -25,6 +25,12 @@ namespace RB
             //temp (should be done early)
             Sprite[] arrSprites = Resources.LoadAll<Sprite>(specs.mSheetFileName);
 
+            if (arrSprites.Length == 0)
+            {
+                Debugger.Log("missing sprite resource: " + specs.mSheetFileName);
+                arrSprites = Resources.LoadAll<Sprite>("Texture_MissingSprite");
+            }
+
             foreach(Sprite spr in arrSprites)
             {
                 _listSprites.Add(spr);
