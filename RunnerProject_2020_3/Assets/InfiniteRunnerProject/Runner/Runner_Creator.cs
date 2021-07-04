@@ -65,7 +65,7 @@ namespace RB
                 unit.transform);
 
             unit.unitData.spriteAnimations.GetLastSpriteAnimation().mStandardInterval = new StandardInterval(StaticRefs.runnerSpriteData.Idle_SpriteInterval);
-            unit.unitData.spriteAnimations.mAdditionalIntervals.AddInterval(0, 60);
+            unit.unitData.spriteAnimations.GetLastSpriteAnimation().mAdditionalIntervals.AddInterval(3, 60);
         }
 
         void SetRun(Unit unit)

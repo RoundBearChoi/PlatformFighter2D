@@ -25,6 +25,11 @@ namespace RB
             }
         }
 
+        public void ResetCurrentCount()
+        {
+            _currentIntervalCount = _additionalInterval;
+        }
+
         public int GetCurrentIntervalCount()
         {
             return _currentIntervalCount;
