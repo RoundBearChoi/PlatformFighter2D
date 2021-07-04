@@ -59,7 +59,7 @@ namespace RB
                 "runner idle fall animation",
                 new SpriteAnimationSpecs(
                     "Texture_PrototypeHero_Idle",
-                    new StandardIntervalCounter(StaticRefs.runnerSpriteData.Idle_SpriteInterval),
+                    StaticRefs.runnerSpriteData.Idle_SpriteInterval,
                     StaticRefs.runnerSpriteData.Idle_SpriteSize,
                     OffsetType.BOTTOM_CENTER,
                     Vector2.zero),
@@ -77,7 +77,7 @@ namespace RB
                 "runner run animation",
                 new SpriteAnimationSpecs(
                     "Texture_RunCycle_Orange",
-                    new StandardIntervalCounter(StaticRefs.runnerSpriteData.Run_SpriteInterval),
+                    StaticRefs.runnerSpriteData.Run_SpriteInterval,
                     StaticRefs.runnerSpriteData.Run_SpriteSize,
                     OffsetType.BOTTOM_CENTER,
                     Vector2.zero),
@@ -90,7 +90,7 @@ namespace RB
                 "runner straight punch animation",
                 new SpriteAnimationSpecs(
                     "Texture_StraightPunch",
-                    new StandardIntervalCounter(StaticRefs.runnerSpriteData.StraightPunch_SpriteInterval),
+                    StaticRefs.runnerSpriteData.StraightPunch_SpriteInterval,
                     StaticRefs.runnerSpriteData.StraightPunch_SpriteSize,
                     OffsetType.BOTTOM_CENTER,
                     StaticRefs.runnerSpriteData.StraightPunch_AdditionalOffset),
@@ -105,7 +105,7 @@ namespace RB
                 "runner jump (up) animation",
                 new SpriteAnimationSpecs(
                     "Texture_JumpCycle_Orange",
-                    new StandardIntervalCounter(StaticRefs.runnerSpriteData.Jump_SpriteInterval),
+                    StaticRefs.runnerSpriteData.Jump_SpriteInterval,
                     StaticRefs.runnerSpriteData.Jump_SpriteSize,
                     OffsetType.BOTTOM_CENTER,
                     Vector2.zero),
@@ -120,7 +120,7 @@ namespace RB
                 "runner jump (fall) animation",
                 new SpriteAnimationSpecs(
                     "Texture_Jump_Fall_Orange",
-                    new StandardIntervalCounter(StaticRefs.runnerSpriteData.Jump_SpriteInterval),
+                    StaticRefs.runnerSpriteData.Jump_SpriteInterval,
                     StaticRefs.runnerSpriteData.Jump_SpriteSize,
                     OffsetType.BOTTOM_CENTER,
                     Vector2.zero),
@@ -135,7 +135,7 @@ namespace RB
                 "runner death animation",
                 new SpriteAnimationSpecs(
                     "Texture_Death_Orange",
-                    new StandardIntervalCounter(StaticRefs.runnerSpriteData.Death_SpriteInterval),
+                    StaticRefs.runnerSpriteData.Death_SpriteInterval,
                     StaticRefs.runnerSpriteData.Death_SpriteSize,
                     OffsetType.BOTTOM_CENTER,
                     Vector2.zero),

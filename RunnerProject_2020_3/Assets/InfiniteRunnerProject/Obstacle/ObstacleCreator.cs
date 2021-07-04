@@ -30,7 +30,7 @@ namespace RB
             obstacle.unitData.spriteAnimations.AddSpriteAnimation("box sprite",
                 new SpriteAnimationSpecs(
                     "Texture_BlockEnemy",
-                    new StandardIntervalCounter(10),
+                    10,
                     StaticRefs.gameData.ObstacleSpriteSize,
                     OffsetType.BOTTOM_CENTER,
                     Vector2.zero),

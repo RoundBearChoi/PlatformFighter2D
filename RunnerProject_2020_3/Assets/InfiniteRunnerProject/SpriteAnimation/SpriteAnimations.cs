@@ -67,7 +67,12 @@ namespace RB
         {
             foreach(SpriteAnimation spriteAnimation in _listSpriteAnimations)
             {
-                spriteAnimation.UpdateSpriteIndex();
+                if (!spriteAnimation.ProcessingAdditionalInterval())
+                {
+                    spriteAnimation.UpdateSpriteIndex();
+                }
+
+                spriteAnimation.UpdateSpriteOnIndex();
             }
         }
     }

@@ -30,7 +30,7 @@ namespace RB
 
             SpriteAnimationSpecs specs = new SpriteAnimationSpecs(
                 "Texture_StraightPunch",
-                new StandardIntervalCounter(1),
+                1,
                 StaticRefs.runnerSpriteData.StraightPunch_SpriteSize,
                 OffsetType.BOTTOM_CENTER,
                 StaticRefs.runnerSpriteData.StraightPunch_AdditionalOffset);
@@ -55,7 +55,7 @@ namespace RB
             if (_userInput.ContainsKeyPress(UserInput.keyboard.spaceKey))
             {
                 _punchAnimations.OnFixedUpdate();
-                _punchAnimations.GetLastSpriteAnimation().UpdateCurrentSprite();
+                _punchAnimations.GetLastSpriteAnimation().UpdateSpriteOnIndex();
             }
 
             _userInput.ClearKeyDictionary();
