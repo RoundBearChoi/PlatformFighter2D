@@ -18,7 +18,6 @@ namespace RB
         {
             Debugger.Log("runner is dead");
             _unit = unit;
-            //_listStateComponents.Add(new FixedJump(this));
         }
 
         public override void OnEnter()
