@@ -6,26 +6,42 @@ namespace RB
 {
     public class AdditionalInterval
     {
-        public int IntervalAmount = 0;
-        public int Current = 0;
-        public int TargetSpriteIndex = 0;
+        private int _intervalAmount = 0;
+        private int _leftoverIntervals = 0;
+        private int _targetSpriteIndex = 0;
 
         public AdditionalInterval(int intervalAmount, int targetSpriteIndex)
         {
-            IntervalAmount = intervalAmount;
-            Current = intervalAmount;
-            TargetSpriteIndex = targetSpriteIndex;
+            _intervalAmount = intervalAmount;
+            _leftoverIntervals = intervalAmount;
+            _targetSpriteIndex = targetSpriteIndex;
             
+        }
+
+        public int TARGET_SPRITE_INDEX
+        {
+            get
+            {
+                return _targetSpriteIndex;
+            }
+        }
+
+        public int LEFTOVER_INTERVALS
+        {
+            get
+            {
+                return _leftoverIntervals;
+            }
         }
 
         public void Reset()
         {
-            Current = IntervalAmount;
+            _leftoverIntervals = _intervalAmount;
         }
 
         public void ProcessInterval()
         {
-            Current--;
+            _leftoverIntervals--;
         }
     }
 }

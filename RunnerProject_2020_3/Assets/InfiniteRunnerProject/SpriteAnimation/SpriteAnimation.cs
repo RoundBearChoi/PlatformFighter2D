@@ -61,11 +61,11 @@ namespace RB
         {
             foreach (AdditionalInterval interval in _listAdditionalIntervals)
             {
-                if (_spriteIndex == interval.TargetSpriteIndex)
+                if (_spriteIndex == interval.TARGET_SPRITE_INDEX)
                 {
                     interval.ProcessInterval();
 
-                    if (interval.Current > 0)
+                    if (interval.LEFTOVER_INTERVALS > 0)
                     {
                         return true;
                     }
@@ -91,8 +91,10 @@ namespace RB
         {
             if (_updateCount != 0 && _updateCount % specs.mRenderInterval == 0)
             {
-                ResetAdditionalIntervals();
                 _spriteIndex++;
+
+                //only reset after going to next index
+                ResetAdditionalIntervals();
             }
 
             _updateCount++;
