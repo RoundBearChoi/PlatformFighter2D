@@ -8,6 +8,8 @@ namespace RB
     {
         static Hash128 animationHash = Hash128.Compute("Texture_Jump_Fall_Orange");
 
+        private UserInput _userInput = null;
+
         public override Hash128 GetAnimationHash()
         {
             return animationHash;

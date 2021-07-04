@@ -8,6 +8,8 @@ namespace RB
     {
         static Hash128 animationHash = Hash128.Compute("Texture_PrototypeHero_Idle");
 
+        private UserInput _userInput = null;
+
         public override Hash128 GetAnimationHash()
         {
             return animationHash;

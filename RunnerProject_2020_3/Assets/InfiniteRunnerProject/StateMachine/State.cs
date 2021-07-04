@@ -11,7 +11,6 @@ namespace RB
         public uint updateCount = 0;
 
         protected Unit _unit = null;
-        protected UserInput _userInput = null;
         protected List<StateComponent> _listStateComponents = new List<StateComponent>();
 
         public virtual Hash128 GetAnimationHash()
