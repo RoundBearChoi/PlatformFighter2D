@@ -15,14 +15,6 @@ namespace RB
             _currentIntervalCount = standardInterval;
         }
 
-        public int INTERVAL
-        {
-            get
-            {
-                return _standardInterval;
-            }
-        }
-
         public void UpdateInterval()
         {
             _currentIntervalCount--;

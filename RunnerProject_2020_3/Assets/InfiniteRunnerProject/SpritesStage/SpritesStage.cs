@@ -39,7 +39,7 @@ namespace RB
                     StaticRefs.runnerSpriteData.StraightPunch_AdditionalOffset),
                 _dummyObj.transform);
 
-            _punchAnimations.GetLastSpriteAnimation().mStandardInterval = new StandardInterval(0);
+            _punchAnimations.mStandardInterval = new StandardInterval(0);
         }
 
         public override void OnUpdate()

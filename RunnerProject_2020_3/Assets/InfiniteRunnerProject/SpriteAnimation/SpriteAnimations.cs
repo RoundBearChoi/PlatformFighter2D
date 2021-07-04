@@ -10,8 +10,7 @@ namespace RB
         private IStateController _IStateController = null;
         private SpriteAnimation _currentAnimation = null;
 
-        //public StandardInterval mStandardInterval = null;
-        public AdditionalIntervals mAdditionalIntervals = new AdditionalIntervals();
+        public StandardInterval mStandardInterval = null;
 
         public SpriteAnimation CURRENT_SPRITEANIMATION
         {
@@ -34,23 +33,23 @@ namespace RB
 
         public void MatchAnimationToState()
         {
-            for (int i = 0; i < _listSpriteAnimations.Count; i++)
+            foreach (SpriteAnimation spriteAni in _listSpriteAnimations)
             {
-                int n = _listSpriteAnimations[i].animationHash.CompareTo(_IStateController.GetAnimationHash());
+                int n = spriteAni.animationHash.CompareTo(_IStateController.GetAnimationHash());
 
                 if (n == 0)
                 {
-                    _listSpriteAnimations[i].gameObject.SetActive(true);
+                    spriteAni.gameObject.SetActive(true);
 
-                    if (_listSpriteAnimations[i] != _currentAnimation)
+                    if (spriteAni != _currentAnimation)
                     {
-                        _currentAnimation = _listSpriteAnimations[i];
+                        _currentAnimation = spriteAni;
                         _currentAnimation.ResetSpriteIndex();
                     }
                 }
                 else
                 {
-                    _listSpriteAnimations[i].gameObject.SetActive(false);
+                    spriteAni.gameObject.SetActive(false);
                 }
             }
         }
@@ -72,10 +71,11 @@ namespace RB
 
         public void OnFixedUpdate()
         {
+            mStandardInterval.UpdateInterval();
+
             if (_currentAnimation != null)
             {
-                _currentAnimation.mStandardInterval.UpdateInterval();
-                _currentAnimation.UpdateSpriteIndex();
+                _currentAnimation.UpdateSpriteIndex(mStandardInterval);
             }
         }
     }
