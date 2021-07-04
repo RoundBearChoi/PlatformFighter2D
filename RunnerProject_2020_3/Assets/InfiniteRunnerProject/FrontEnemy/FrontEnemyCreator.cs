@@ -32,7 +32,7 @@ namespace RB
             enemy.unitData.spriteAnimations.AddSpriteAnimation("front enemy idle animation",
                 new SpriteAnimationSpecs(
                     "Texture_Front_Enemy_Sample",
-                    10,
+                    new StandardIntervalCounter(10),
                     new Vector2(2.33f, 2.57f),
                     OffsetType.BOTTOM_CENTER,
                     Vector2.zero),

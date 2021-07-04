@@ -11,7 +11,6 @@ namespace RB
         List<Sprite> _listSprites = new List<Sprite>();
         List<AdditionalInterval> _listAdditionalIntervals = new List<AdditionalInterval>();
         SpriteRenderer spriteRenderer = null;
-        uint _updateCount = 0;
         int _spriteIndex = 0;
 
         public Hash128 animationHash;
@@ -89,37 +88,28 @@ namespace RB
 
         public void UpdateSpriteIndex()
         {
-            if (_updateCount != 0 && _updateCount % specs.mRenderInterval == 0)
+            specs.mStandardInterval.UpdateInterval();
+
+            if (specs.mStandardInterval.GetCurrentIntervalCount() == 0)
             {
                 _spriteIndex++;
-
-                //only reset after going to next index
-                ResetAdditionalIntervals();
             }
-
-            _updateCount++;
 
             if (_spriteIndex >= _listSprites.Count)
             {
-                if (!playOnce)
-                {
-                    _spriteIndex = 0;
-                }
-                else
-                {
-                    _spriteIndex = _listSprites.Count - 1;
-                }
+                _spriteIndex = 0;
             }
+
+            UpdateCurrentSprite();
         }
 
-        public void UpdateSpriteOnIndex()
+        public void UpdateCurrentSprite()
         {
             spriteRenderer.sprite = _listSprites[_spriteIndex];
         }
 
         public void Reset()
         {
-            _updateCount = 0;
             _spriteIndex = 0;
         }
 

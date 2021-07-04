@@ -6,7 +6,7 @@ namespace RB
 {
     public abstract class State
     {
-        static Hash128 defaultHash;
+        static Hash128 noHashDefined = Hash128.Compute("noHashDefined");
 
         public uint updateCount = 0;
 
@@ -15,8 +15,7 @@ namespace RB
 
         public virtual Hash128 GetAnimationHash()
         {
-            defaultHash = Hash128.Compute("defaultHash");
-            return defaultHash;
+            return noHashDefined;
         }
 
         public virtual void OnEnter()
