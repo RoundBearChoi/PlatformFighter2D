@@ -31,7 +31,6 @@ namespace RB
                 cameraController.unitData);
 
             cameraController.unitData.spriteAnimations = new SpriteAnimations(cameraController.stateController);
-            //cameraController.InitSpriteAnimations();
 
             return cameraController;
         }

@@ -17,7 +17,10 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            _mainCam.transform.position = new Vector3(_targetRunner.transform.position.x, _targetRunner.transform.position.y + 1f, _targetRunner.transform.position.z - 5f);
+            _mainCam.transform.position = new Vector3(
+                _targetRunner.transform.position.x,
+                _targetRunner.transform.position.y + 3f,
+                _targetRunner.transform.position.z - 5f);
         }
     }
 }
