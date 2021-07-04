@@ -19,6 +19,8 @@ namespace RB
         {
             _unit = unit;
             _userInput = input;
+
+            _listStateComponents.Add(new NormalRunToFall(_unit, _userInput));
         }
 
         public override void OnEnter()
@@ -32,15 +34,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            //in the air
-            if (_unit.unitData.collisionStays.GetCount() == 0)
-            {
-                //falling
-                if (_unit.unitData.rigidBody2D.velocity.y < 0f)
-                {
-                    _unit.unitData.listNextStates.Add(new Runner_Jump_Fall(_unit, _userInput));
-                }
-            }
+            UpdateComponents();
 
             if (IsOnFlatGround())
             {

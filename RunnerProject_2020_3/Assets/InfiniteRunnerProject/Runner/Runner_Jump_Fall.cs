@@ -17,7 +17,7 @@ namespace RB
         {
             _unit = unit;
             _userInput = input;
-            _listStateComponents.Add(new FixedFall(this));
+            //_listStateComponents.Add(new FixedFall(this));
         }
 
         public override void OnEnter()

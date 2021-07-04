@@ -6,7 +6,7 @@ namespace RB
 {
     public abstract class StateComponent
     {
-        protected State _state = null;
+        protected Unit _unit = null;
 
         public abstract void Update();
     }

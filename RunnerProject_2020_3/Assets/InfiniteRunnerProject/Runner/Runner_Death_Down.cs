@@ -17,7 +17,7 @@ namespace RB
         public Runner_Death_Down(Unit unit)
         {
             _unit = unit;
-            _listStateComponents.Add(new FallThrough(this, -10f));
+            //_listStateComponents.Add(new FallThrough(this, -10f));
         }
 
         public override void OnEnter()
