@@ -15,13 +15,14 @@ namespace RB
             return animationHash;
         }
 
-        public Runner_NormalRun(Unit unit, UserInput input)
+        public Runner_NormalRun(Unit unit, UserInput userInput)
         {
             _unit = unit;
-            _userInput = input;
+            //_userInput = input;
 
-            _listStateComponents.Add(new NormalRunToFall(_unit, _userInput));
+            _listStateComponents.Add(new NormalRunToFall(_unit, userInput));
             _listStateComponents.Add(new MaintainNormalRunSpeed(_unit));
+            _listStateComponents.Add(new NormalRun_OnUserInput(_unit, userInput));
         }
 
         public override void OnEnter()
@@ -36,15 +37,6 @@ namespace RB
         public override void OnFixedUpdate()
         {
             UpdateComponents();
-
-            if (_userInput.ContainsKeyPress(UserInput.keyboard.spaceKey))
-            {
-                _unit.unitData.listNextStates.Add(new Runner_Jump_Up(_unit, _userInput));
-            }
-            else if (_userInput.ContainsButtonPress(UserInput.mouse.leftButton))
-            {
-                _unit.unitData.listNextStates.Add(new Runner_StraightPunch(_unit, _userInput));
-            }
         }
     }
 }
