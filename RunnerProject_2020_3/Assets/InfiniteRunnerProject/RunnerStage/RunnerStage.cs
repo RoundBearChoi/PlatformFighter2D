@@ -30,6 +30,16 @@ namespace RB
         {
             units.OnFixedUpdate();
 
+            if (_userInput.ContainsKeyPress(UserInput.keyboard.f5Key))
+            {
+                _gameIntializer.listStageTransitions.Add(new RunnerStageTransition(_gameIntializer));
+            }
+
+            if (_userInput.ContainsKeyPress(UserInput.keyboard.f6Key))
+            {
+                _gameIntializer.listStageTransitions.Add(new IntroStageTransition(_gameIntializer));
+            }
+
             _userInput.ClearKeyDictionary();
             _userInput.ClearButtonDictionary();
         }
