@@ -12,8 +12,17 @@ namespace RB
         SpriteRenderer spriteRenderer = null;
         int _spriteIndex = 0;
 
+        public StandardInterval mStandardInterval = null;
         public Hash128 animationHash;
         public bool playOnce = false;
+
+        public int CURRENT_INDEX
+        {
+            get
+            {
+                return _spriteIndex;
+            }
+        }
 
         public void Init(SpriteAnimationSpecs animationSpecs)
         {
@@ -50,9 +59,9 @@ namespace RB
             }
         }
 
-        public void UpdateSpriteIndex(StandardInterval standardInterval)
+        public void UpdateSpriteIndex()
         {
-            if (standardInterval.GetCurrentIntervalCount() == 0)
+            if (mStandardInterval.GetCurrentIntervalCount() == 0)
             {
                 IncreaseSpriteIndex();
             }

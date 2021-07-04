@@ -10,7 +10,8 @@ namespace RB
         private IStateController _IStateController = null;
         private SpriteAnimation _currentAnimation = null;
 
-        public StandardInterval mStandardInterval = null;
+        //public StandardInterval mStandardInterval = null;
+        public AdditionalIntervals mAdditionalIntervals = new AdditionalIntervals();
 
         public SpriteAnimation CURRENT_SPRITEANIMATION
         {
@@ -33,23 +34,23 @@ namespace RB
 
         public void MatchAnimationToState()
         {
-            foreach (SpriteAnimation spriteAni in _listSpriteAnimations)
+            for (int i = 0; i < _listSpriteAnimations.Count; i++)
             {
-                int n = spriteAni.animationHash.CompareTo(_IStateController.GetAnimationHash());
+                int n = _listSpriteAnimations[i].animationHash.CompareTo(_IStateController.GetAnimationHash());
 
                 if (n == 0)
                 {
-                    spriteAni.gameObject.SetActive(true);
+                    _listSpriteAnimations[i].gameObject.SetActive(true);
 
-                    if (spriteAni != _currentAnimation)
+                    if (_listSpriteAnimations[i] != _currentAnimation)
                     {
-                        _currentAnimation = spriteAni;
+                        _currentAnimation = _listSpriteAnimations[i];
                         _currentAnimation.ResetSpriteIndex();
                     }
                 }
                 else
                 {
-                    spriteAni.gameObject.SetActive(false);
+                    _listSpriteAnimations[i].gameObject.SetActive(false);
                 }
             }
         }
@@ -71,11 +72,10 @@ namespace RB
 
         public void OnFixedUpdate()
         {
-            mStandardInterval.UpdateInterval();
-
             if (_currentAnimation != null)
             {
-                _currentAnimation.UpdateSpriteIndex(mStandardInterval);
+                _currentAnimation.mStandardInterval.UpdateInterval();
+                _currentAnimation.UpdateSpriteIndex();
             }
         }
     }
