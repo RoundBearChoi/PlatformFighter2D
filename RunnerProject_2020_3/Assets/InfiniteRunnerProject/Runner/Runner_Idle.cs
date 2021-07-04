@@ -23,7 +23,7 @@ namespace RB
         {
             if (_unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
             {
-                //_unitData.listNextStates.Add(new Runner_NormalRun(_unitData, _userInput));
+                _unitData.listNextStates.Add(new Runner_NormalRun(_unitData, _userInput));
             }
         }
     }

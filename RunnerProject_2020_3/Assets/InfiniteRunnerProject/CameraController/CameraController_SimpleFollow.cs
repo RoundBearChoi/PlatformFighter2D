@@ -19,7 +19,7 @@ namespace RB
         {
             _mainCam.transform.position = new Vector3(
                 _targetRunner.transform.position.x,
-                _targetRunner.transform.position.y + 3f,
+                _targetRunner.transform.position.y + 2.5f,
                 _targetRunner.transform.position.z - 5f);
         }
     }

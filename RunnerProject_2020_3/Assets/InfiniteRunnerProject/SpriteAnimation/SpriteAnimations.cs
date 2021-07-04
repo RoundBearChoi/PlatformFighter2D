@@ -7,18 +7,18 @@ namespace RB
     public class SpriteAnimations
     {
         private List<SpriteAnimation> _listSpriteAnimations = null;
-        private StateController _stateController = null;
+        private IStateController _IStateController = null;
 
         public SpriteAnimation currentAnimation = null;
 
-        public SpriteAnimations(StateController stateController)
+        public SpriteAnimations(IStateController stateController)
         {
             _listSpriteAnimations = new List<SpriteAnimation>();
-            _stateController = stateController;
+            _IStateController = stateController;
 
-            if (_stateController != null)
+            if (_IStateController != null)
             {
-                _stateController.spriteAnimations = this;
+                _IStateController.SetSpriteAnimations(this);
             }
         }
 
@@ -26,7 +26,7 @@ namespace RB
         {
             foreach (SpriteAnimation spriteAni in _listSpriteAnimations)
             {
-                int n = spriteAni.animationHash.CompareTo(_stateController.currentState.GetAnimationHash());
+                int n = spriteAni.animationHash.CompareTo(_IStateController.GetAnimationHash());
 
                 if (n == 0)
                 {
