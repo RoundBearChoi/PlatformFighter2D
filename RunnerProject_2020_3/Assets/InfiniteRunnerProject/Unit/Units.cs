@@ -53,7 +53,7 @@ namespace RB
                 {
                     _listUnits[i].unitData.spriteAnimations.MatchAnimationToState();
                 }
-
+                
                 _listUnits[i].OnFixedUpdate();
                 _listUnits[i].ProcessDamage();
             }

@@ -8,7 +8,7 @@ namespace RB
     {
         SpriteAnimationSpecs specs;
 
-        [SerializeField] List<Sprite> _listSprites = new List<Sprite>();
+        List<Sprite> _listSprites = new List<Sprite>();
         SpriteRenderer spriteRenderer = null;
         int _spriteIndex = 0;
 
@@ -50,36 +50,19 @@ namespace RB
             }
         }
 
-        public void UpdateSpriteIndex(StandardInterval standardInterval)
+        public void UpdateSpriteIndex(StandardIntervalCounter standardInterval)
         {
             if (standardInterval.GetCurrentIntervalCount() == 0)
             {
-                IncreaseSpriteIndex();
+                _spriteIndex++;
             }
 
-            LimitSpriteIndex();
-
-            UpdateCurrentSprite();
-        }
-
-        public void IncreaseSpriteIndex()
-        {
-            _spriteIndex++;
-        }
-
-        public void LimitSpriteIndex()
-        {
             if (_spriteIndex >= _listSprites.Count)
             {
-                if (playOnce)
-                {
-                    _spriteIndex = _listSprites.Count - 1;
-                }
-                else
-                {
-                    _spriteIndex = 0;
-                }
+                _spriteIndex = 0;
             }
+
+            UpdateCurrentSprite();
         }
 
         public void UpdateCurrentSprite()
@@ -87,7 +70,7 @@ namespace RB
             spriteRenderer.sprite = _listSprites[_spriteIndex];
         }
 
-        public void ResetSpriteIndex()
+        public void Reset()
         {
             _spriteIndex = 0;
         }

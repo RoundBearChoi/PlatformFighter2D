@@ -6,8 +6,6 @@ namespace RB
 {
     public class SpritesStage : Stage
     {
-        static bool firstRun = true;
-
         SpriteAnimations _punchAnimations;
         GameObject _dummyObj;
         UserInput _userInput = new UserInput();
@@ -39,7 +37,9 @@ namespace RB
                     StaticRefs.runnerSpriteData.StraightPunch_AdditionalOffset),
                 _dummyObj.transform);
 
-            _punchAnimations.mStandardInterval = new StandardInterval(0);
+            _punchAnimations.mStandardInterval = new StandardIntervalCounter(0);
+
+            _punchAnimations.OnFixedUpdate();
         }
 
         public override void OnUpdate()
@@ -57,17 +57,6 @@ namespace RB
             if (_userInput.ContainsKeyPress(UserInput.keyboard.spaceKey))
             {
                 _punchAnimations.OnFixedUpdate();
-
-                if (firstRun)
-                {
-                    firstRun = false;
-                }
-                else
-                {
-                    _punchAnimations.GetLastSpriteAnimation().IncreaseSpriteIndex();
-                }
-
-                _punchAnimations.GetLastSpriteAnimation().LimitSpriteIndex();
                 _punchAnimations.GetLastSpriteAnimation().UpdateCurrentSprite();
             }
 

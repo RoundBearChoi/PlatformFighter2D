@@ -32,6 +32,8 @@ namespace RB
         {
             if (_unitData.listNextStates.Count > 0)
             {
+                _spriteAnimations.ResetSpriteIndexes();
+
                 SetNewState(_unitData.listNextStates[_unitData.listNextStates.Count - 1]);
                 _unitData.listNextStates.Clear();
             }

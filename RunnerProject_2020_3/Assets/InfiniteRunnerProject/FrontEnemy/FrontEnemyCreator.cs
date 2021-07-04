@@ -37,7 +37,7 @@ namespace RB
                     Vector2.zero),
                 enemy.transform);
 
-            enemy.unitData.spriteAnimations.mStandardInterval = new StandardInterval(10);
+            enemy.unitData.spriteAnimations.mStandardInterval = new StandardIntervalCounter(10);
 
             return enemy;
         }
