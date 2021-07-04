@@ -9,7 +9,7 @@ namespace RB
     {
         public int Idle_SpriteInterval = new int();
         public Vector2 Idle_SpriteSize = new Vector2();
-        //public List<AdditionalInterval> Idle_AdditionalIntervals = new List<AdditionalInterval>();
+        public List<AdditionalInterval> Idle_AdditionalIntervals = new List<AdditionalInterval>();
 
         [Space(10)]
 
