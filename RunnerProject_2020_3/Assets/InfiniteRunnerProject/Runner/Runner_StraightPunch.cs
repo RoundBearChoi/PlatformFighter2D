@@ -23,7 +23,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (_unit.unitData.spriteAnimations.currentAnimation.IsOnEnd())
+            if (_unit.unitData.spriteAnimations.CURRENT_SPRITEANIMATION.IsOnEnd())
             {
                 if (_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
                 {

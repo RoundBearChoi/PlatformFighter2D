@@ -30,11 +30,12 @@ namespace RB
             obstacle.unitData.spriteAnimations.AddSpriteAnimation("box sprite",
                 new SpriteAnimationSpecs(
                     "Texture_BlockEnemy",
-                    new StandardIntervalCounter(10),
                     StaticRefs.gameData.ObstacleSpriteSize,
                     OffsetType.BOTTOM_CENTER,
                     Vector2.zero),
                 obstacle.transform);
+
+            obstacle.unitData.spriteAnimations.mStandardInterval = new StandardIntervalCounter(10);
 
             //set initial obstacle position in relation to the runner
             obstacle.transform.position = new Vector3(_runner.transform.position.x + 10f, 0f, 0f);

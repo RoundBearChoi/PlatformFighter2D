@@ -28,14 +28,16 @@ namespace RB
 
             _punchAnimations = new SpriteAnimations(null);
 
-            SpriteAnimationSpecs specs = new SpriteAnimationSpecs(
-                "Texture_StraightPunch",
-                new StandardIntervalCounter(1),
-                StaticRefs.runnerSpriteData.StraightPunch_SpriteSize,
-                OffsetType.BOTTOM_CENTER,
-                StaticRefs.runnerSpriteData.StraightPunch_AdditionalOffset);
+            _punchAnimations.AddSpriteAnimation(
+                "runner straight punch animation",
+                new SpriteAnimationSpecs(
+                    "Texture_StraightPunch",
+                    StaticRefs.runnerSpriteData.StraightPunch_SpriteSize,
+                    OffsetType.BOTTOM_CENTER,
+                    StaticRefs.runnerSpriteData.StraightPunch_AdditionalOffset),
+                _dummyObj.transform);
 
-            _punchAnimations.AddSpriteAnimation("runner straight punch animation", specs, _dummyObj.transform);
+            _punchAnimations.mStandardInterval = new StandardIntervalCounter(0);
 
             _punchAnimations.OnFixedUpdate();
         }

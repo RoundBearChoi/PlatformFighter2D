@@ -8,8 +8,17 @@ namespace RB
     {
         private List<SpriteAnimation> _listSpriteAnimations = null;
         private IStateController _IStateController = null;
+        private SpriteAnimation _currentAnimation = null;
 
-        public SpriteAnimation currentAnimation = null;
+        public StandardIntervalCounter mStandardInterval = null;
+
+        public SpriteAnimation CURRENT_SPRITEANIMATION
+        {
+            get
+            {
+                return _currentAnimation;
+            }
+        }
 
         public SpriteAnimations(IStateController stateController)
         {
@@ -31,7 +40,7 @@ namespace RB
                 if (n == 0)
                 {
                     spriteAni.gameObject.SetActive(true);
-                    currentAnimation = spriteAni;
+                    _currentAnimation = spriteAni;
                 }
                 else
                 {
@@ -65,9 +74,11 @@ namespace RB
 
         public void OnFixedUpdate()
         {
+            mStandardInterval.UpdateInterval();
+
             foreach(SpriteAnimation spriteAnimation in _listSpriteAnimations)
             {
-                spriteAnimation.UpdateSpriteIndex();
+                spriteAnimation.UpdateSpriteIndex(mStandardInterval);
             }
         }
     }
