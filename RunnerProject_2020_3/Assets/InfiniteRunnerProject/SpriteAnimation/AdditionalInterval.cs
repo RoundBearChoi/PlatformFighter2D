@@ -4,11 +4,12 @@ using UnityEngine;
 
 namespace RB
 {
+    [System.Serializable]
     public class AdditionalInterval
     {
-        private int _intervalAmount = 0;
-        private int _leftoverIntervals = 0;
-        private int _targetSpriteIndex = 0;
+        [SerializeField] int _intervalAmount = 0;
+        [SerializeField] int _targetSpriteIndex = 0;
+        int _leftoverIntervals = 0;
 
         public AdditionalInterval(int intervalAmount, int targetSpriteIndex)
         {
