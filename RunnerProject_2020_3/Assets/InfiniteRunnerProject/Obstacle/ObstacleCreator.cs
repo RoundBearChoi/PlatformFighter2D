@@ -35,7 +35,7 @@ namespace RB
                     Vector2.zero),
                 obstacle.transform);
 
-            obstacle.unitData.spriteAnimations.mStandardInterval = new StandardIntervalCounter(10);
+            obstacle.unitData.spriteAnimations.mStandardInterval = new StandardInterval(10);
 
             //set initial obstacle position in relation to the runner
             obstacle.transform.position = new Vector3(_runner.transform.position.x + 10f, 0f, 0f);

@@ -10,7 +10,7 @@ namespace RB
         private IStateController _IStateController = null;
         private SpriteAnimation _currentAnimation = null;
 
-        public StandardIntervalCounter mStandardInterval = null;
+        public StandardInterval mStandardInterval = null;
 
         public SpriteAnimation CURRENT_SPRITEANIMATION
         {
@@ -40,20 +40,17 @@ namespace RB
                 if (n == 0)
                 {
                     spriteAni.gameObject.SetActive(true);
-                    _currentAnimation = spriteAni;
+
+                    if (spriteAni != _currentAnimation)
+                    {
+                        _currentAnimation = spriteAni;
+                        _currentAnimation.ResetSpriteIndex();
+                    }
                 }
                 else
                 {
                     spriteAni.gameObject.SetActive(false);
                 }
-            }
-        }
-
-        public void ResetSpriteIndexes()
-        {
-            foreach(SpriteAnimation spriteAnimation in _listSpriteAnimations)
-            {
-                spriteAnimation.Reset();
             }
         }
 
@@ -76,9 +73,9 @@ namespace RB
         {
             mStandardInterval.UpdateInterval();
 
-            foreach(SpriteAnimation spriteAnimation in _listSpriteAnimations)
+            if (_currentAnimation != null)
             {
-                spriteAnimation.UpdateSpriteIndex(mStandardInterval);
+                _currentAnimation.UpdateSpriteIndex(mStandardInterval);
             }
         }
     }

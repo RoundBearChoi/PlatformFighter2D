@@ -64,7 +64,7 @@ namespace RB
                     Vector2.zero),
                 unit.transform);
 
-            unit.unitData.spriteAnimations.mStandardInterval = new StandardIntervalCounter(StaticRefs.runnerSpriteData.Idle_SpriteInterval);
+            unit.unitData.spriteAnimations.mStandardInterval = new StandardInterval(StaticRefs.runnerSpriteData.Idle_SpriteInterval);
 
             //foreach (AdditionalInterval additionalInterval in StaticRefs.runnerSpriteData.Idle_AdditionalIntervals)
             //{
@@ -83,7 +83,7 @@ namespace RB
                     Vector2.zero),
                 unit.transform);
 
-            unit.unitData.spriteAnimations.mStandardInterval = new StandardIntervalCounter(StaticRefs.runnerSpriteData.Run_SpriteInterval);
+            unit.unitData.spriteAnimations.mStandardInterval = new StandardInterval(StaticRefs.runnerSpriteData.Run_SpriteInterval);
         }
 
         void SetAttackA(Unit unit)
@@ -97,7 +97,7 @@ namespace RB
                     StaticRefs.runnerSpriteData.StraightPunch_AdditionalOffset),
                 unit.transform);
 
-            unit.unitData.spriteAnimations.mStandardInterval = new StandardIntervalCounter(StaticRefs.runnerSpriteData.StraightPunch_SpriteInterval);
+            unit.unitData.spriteAnimations.mStandardInterval = new StandardInterval(StaticRefs.runnerSpriteData.StraightPunch_SpriteInterval);
             unit.unitData.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
         }
 
@@ -112,7 +112,7 @@ namespace RB
                     Vector2.zero),
                 unit.transform);
 
-            unit.unitData.spriteAnimations.mStandardInterval = new StandardIntervalCounter(StaticRefs.runnerSpriteData.Jump_SpriteInterval);
+            unit.unitData.spriteAnimations.mStandardInterval = new StandardInterval(StaticRefs.runnerSpriteData.Jump_SpriteInterval);
             unit.unitData.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
         }
 
@@ -127,7 +127,7 @@ namespace RB
                     Vector2.zero),
                 unit.transform);
 
-            unit.unitData.spriteAnimations.mStandardInterval = new StandardIntervalCounter(StaticRefs.runnerSpriteData.Jump_SpriteInterval);
+            unit.unitData.spriteAnimations.mStandardInterval = new StandardInterval(StaticRefs.runnerSpriteData.Jump_SpriteInterval);
             unit.unitData.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
         }
 
@@ -142,7 +142,7 @@ namespace RB
                     Vector2.zero),
                 unit.transform);
 
-            unit.unitData.spriteAnimations.mStandardInterval = new StandardIntervalCounter(StaticRefs.runnerSpriteData.Death_SpriteInterval);
+            unit.unitData.spriteAnimations.mStandardInterval = new StandardInterval(StaticRefs.runnerSpriteData.Death_SpriteInterval);
             unit.unitData.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
         }
     }

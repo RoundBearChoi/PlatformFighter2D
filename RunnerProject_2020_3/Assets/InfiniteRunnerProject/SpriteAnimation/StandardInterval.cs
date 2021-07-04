@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace RB
 {
-    public class StandardIntervalCounter
+    public class StandardInterval
     {
         private int _standardInterval = 0;
         private int _currentIntervalCount = 0;
 
-        public StandardIntervalCounter(int standardInterval)
+        public StandardInterval(int standardInterval)
         {
             _standardInterval = standardInterval;
             _currentIntervalCount = standardInterval;
