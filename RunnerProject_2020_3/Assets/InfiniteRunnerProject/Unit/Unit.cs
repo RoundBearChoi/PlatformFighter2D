@@ -7,7 +7,7 @@ namespace RB
     public abstract class Unit : MonoBehaviour
     {
         public IUpdater unitUpdater = new NoUpdate();
-        public StateController stateController = null;
+        public IStateController iStateController = null;
         public UnitData unitData = null;
         public AttackData attackData = null;
         

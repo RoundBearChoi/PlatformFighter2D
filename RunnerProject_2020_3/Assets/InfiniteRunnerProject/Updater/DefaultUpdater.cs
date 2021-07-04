@@ -6,22 +6,22 @@ namespace RB
 {
     public class DefaultUpdater : IUpdater
     {
-        private StateController _stateController = null;
+        private IStateController _IStateController = null;
 
-        public DefaultUpdater(StateController stateController)
+        public DefaultUpdater(IStateController stateController)
         {
-            _stateController = stateController;
+            _IStateController = stateController;
         }
 
         public void CustomFixedUpdate()
         {
-            _stateController.TransitionToNextState();
-            _stateController.OnFixedUpdate();
+            _IStateController.TransitionToNextState();
+            _IStateController.OnFixedUpdate();
         }
 
         public void CustomLateUpdate()
         {
-            _stateController.OnLateUpdate();
+            _IStateController.OnLateUpdate();
         }
     }
 }

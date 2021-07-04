@@ -8,8 +8,8 @@ namespace RB
     {
         public override void OnFixedUpdate()
         {
-            stateController.TransitionToNextState();
-            stateController.OnFixedUpdate();
+            iStateController.TransitionToNextState();
+            iStateController.OnFixedUpdate();
         }
     }
 }

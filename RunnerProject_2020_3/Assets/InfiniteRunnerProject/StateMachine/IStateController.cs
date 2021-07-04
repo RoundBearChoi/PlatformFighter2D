@@ -7,6 +7,7 @@ namespace RB
     public interface IStateController
     {
         public abstract void OnFixedUpdate();
+        public abstract void OnLateUpdate();
         public abstract void SetNewState(State newState);
         public abstract void TransitionToNextState();
 

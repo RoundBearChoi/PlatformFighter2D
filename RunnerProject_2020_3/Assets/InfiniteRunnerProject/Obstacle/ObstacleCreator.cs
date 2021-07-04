@@ -19,13 +19,13 @@ namespace RB
         {
             Unit obstacle = GameObject.Instantiate(ResourceLoader.GetResource(typeof(Obstacle))) as Obstacle;
             obstacle.unitData = new UnitData(obstacle.transform);
-            obstacle.stateController = new StateController(
+            obstacle.iStateController = new StateController(
                 new Obstacle_Idle(obstacle.unitData, _runner),
                 obstacle.unitData);
             obstacle.transform.parent = _parentTransform;
             obstacle.transform.position = Vector3.zero;
             obstacle.transform.rotation = Quaternion.identity;
-            obstacle.SetUpdater(new DefaultUpdater(obstacle.stateController));
+            obstacle.SetUpdater(new DefaultUpdater(obstacle.iStateController));
 
             obstacle.unitData.spriteAnimations.AddSpriteAnimation("box sprite",
                 new SpriteAnimationSpecs(

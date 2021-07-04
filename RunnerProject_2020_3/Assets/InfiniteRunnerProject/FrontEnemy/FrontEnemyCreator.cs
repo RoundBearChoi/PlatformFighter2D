@@ -19,14 +19,14 @@ namespace RB
             enemy.unitData = new UnitData(enemy.transform);
             enemy.attackData = new AttackData();
 
-            enemy.stateController = new StateController(
+            enemy.iStateController = new StateController(
                 new FrontEnemy_Idle(enemy.unitData),
                 enemy.unitData);
             enemy.transform.parent = _parentTransform;
             enemy.transform.localRotation = Quaternion.identity;
-            enemy.SetUpdater(new DefaultUpdater(enemy.stateController));
+            enemy.SetUpdater(new DefaultUpdater(enemy.iStateController));
 
-            enemy.unitData.spriteAnimations = new SpriteAnimations(enemy.stateController);
+            enemy.unitData.spriteAnimations = new SpriteAnimations(enemy.iStateController);
             //enemy.InitSpriteAnimations();
 
             enemy.unitData.spriteAnimations.AddSpriteAnimation("front enemy idle animation",

@@ -6,14 +6,14 @@ namespace RB
 {
     public class PlacerUpdater : IUpdater
     {
-        private StateController _stateController = null;
+        private IStateController _IStateController = null;
         private Unit _runner = null;
         private float _previousX = 0f;
         private float _distance = 0f;
 
-        public PlacerUpdater(StateController stateController, Unit runner)
+        public PlacerUpdater(IStateController stateController, Unit runner)
         {
-            _stateController = stateController;
+            _IStateController = stateController;
             _runner = runner;
         }
 
@@ -28,8 +28,8 @@ namespace RB
             if (_distance > 10f)
             {
                 _distance = 0f;
-                _stateController.TransitionToNextState();
-                _stateController.OnFixedUpdate();
+                _IStateController.TransitionToNextState();
+                _IStateController.OnFixedUpdate();
             }
         }
 

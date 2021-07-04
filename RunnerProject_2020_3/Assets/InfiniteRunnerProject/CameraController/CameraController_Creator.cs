@@ -26,11 +26,11 @@ namespace RB
             cameraController.transform.parent = _parentTransform;
             cameraController.transform.localPosition = Vector3.zero;
             cameraController.transform.localRotation = Quaternion.identity;
-            cameraController.stateController = new StateController(
+            cameraController.iStateController = new StateController(
                 new CameraController_SimpleFollow(_runner, _mainCamera),
                 cameraController.unitData);
 
-            cameraController.unitData.spriteAnimations = new SpriteAnimations(cameraController.stateController);
+            cameraController.unitData.spriteAnimations = new SpriteAnimations(cameraController.iStateController);
 
             return cameraController;
         }

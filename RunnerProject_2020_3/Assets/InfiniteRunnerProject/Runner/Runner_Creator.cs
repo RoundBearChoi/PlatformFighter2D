@@ -23,19 +23,19 @@ namespace RB
             Unit runner = GameObject.Instantiate(ResourceLoader.GetResource(typeof(Runner))) as Runner;
             runner.unitData = new UnitData(runner.transform);
 
-            runner.stateController = new StateController(
+            runner.iStateController = new StateController(
                 new Runner_Idle(runner.unitData, _userInput),
                 runner.unitData);
             runner.transform.parent = _parentTransform;
             runner.transform.localRotation = Quaternion.identity;
-            runner.SetUpdater(new DefaultUpdater(runner.stateController));
+            runner.SetUpdater(new DefaultUpdater(runner.iStateController));
 
             runner.InitBoxCollider(StaticRefs.gameData.RunnerBoxColliderSize);
             runner.InitCollisionReaction();
             runner.InitCollisionChecker();
             runner.SetUserInput(_userInput);
 
-            runner.unitData.spriteAnimations = new SpriteAnimations(runner.stateController);
+            runner.unitData.spriteAnimations = new SpriteAnimations(runner.iStateController);
 
             runner.unitData.spriteAnimations.AddSpriteAnimation("runner idle fall animation",
                 new SpriteAnimationSpecs(
