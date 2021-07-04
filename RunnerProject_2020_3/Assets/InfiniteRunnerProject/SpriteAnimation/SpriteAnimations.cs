@@ -10,6 +10,9 @@ namespace RB
         private IStateController _IStateController = null;
         private SpriteAnimation _currentAnimation = null;
 
+        //public StandardInterval mStandardInterval = null;
+        public AdditionalIntervals mAdditionalIntervals = new AdditionalIntervals();
+
         public SpriteAnimation CURRENT_SPRITEANIMATION
         {
             get
@@ -71,18 +74,8 @@ namespace RB
         {
             if (_currentAnimation != null)
             {
-                AdditionalInterval additionalInterval = _currentAnimation.GetAdditionalInterval();
-
-                if (additionalInterval != null)
-                {
-                    additionalInterval.UpdateInterval();
-                }
-                else
-                {
-                    //_currentAnimation.mAdditionalIntervals.ResetCount();
-                    _currentAnimation.mStandardInterval.UpdateInterval();
-                    _currentAnimation.UpdateSpriteIndex();
-                }
+                _currentAnimation.mStandardInterval.UpdateInterval();
+                _currentAnimation.UpdateSpriteIndex();
             }
         }
     }

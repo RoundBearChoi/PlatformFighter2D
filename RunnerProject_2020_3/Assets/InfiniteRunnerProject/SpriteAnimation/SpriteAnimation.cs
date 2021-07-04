@@ -13,7 +13,6 @@ namespace RB
         int _spriteIndex = 0;
 
         public StandardInterval mStandardInterval = null;
-        public AdditionalIntervals mAdditionalIntervals = new AdditionalIntervals();
         public Hash128 animationHash;
         public bool playOnce = false;
 
@@ -112,11 +111,6 @@ namespace RB
             {
                 return false;
             }
-        }
-
-        public AdditionalInterval GetAdditionalInterval()
-        {
-            return mAdditionalIntervals.GetInterval(_spriteIndex);
         }
     }
 }
