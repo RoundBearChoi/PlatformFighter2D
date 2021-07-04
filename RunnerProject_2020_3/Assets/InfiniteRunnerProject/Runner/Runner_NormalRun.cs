@@ -10,8 +10,6 @@ namespace RB
         public static bool initialPush = false;
         static Hash128 animationHash = Hash128.Compute("Texture_RunCycle_Orange");
         
-        //List<Ground> _touchingGrounds = new List<Ground>();
-
         public override Hash128 GetAnimationHash()
         {
             return animationHash;

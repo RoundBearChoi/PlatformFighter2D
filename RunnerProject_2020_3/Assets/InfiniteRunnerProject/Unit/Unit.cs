@@ -11,7 +11,6 @@ namespace RB
         public UnitData unitData = null;
         public AttackData attackData = null;
         
-
         private List<CollisionType> _listAttackingSides = new List<CollisionType>();
 
         public virtual void OnFixedUpdate()
