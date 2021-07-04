@@ -37,9 +37,12 @@ namespace RB
             Rigidbody2D r2d = objComposite.GetComponent<Rigidbody2D>();
             r2d.bodyType = RigidbodyType2D.Static;
 
+            c2d.sharedMaterial = StaticRefs.gameData.physicsMaterial_NoFrictionNoBounce;
+            r2d.sharedMaterial = StaticRefs.gameData.physicsMaterial_NoFrictionNoBounce;
+
             objComposite.AddComponent<Ground>();
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 100; i++)
             {
                 Unit obj = GetUnit();
                 obj.transform.parent = objComposite.transform;
