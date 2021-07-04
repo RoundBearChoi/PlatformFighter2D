@@ -20,7 +20,7 @@ namespace RB
             enemy.attackData = new AttackData();
 
             enemy.iStateController = new StateController(
-                new FrontEnemy_Idle(enemy.unitData),
+                new FrontEnemy_Idle(enemy),
                 enemy.unitData);
             enemy.transform.parent = _parentTransform;
             enemy.transform.localRotation = Quaternion.identity;

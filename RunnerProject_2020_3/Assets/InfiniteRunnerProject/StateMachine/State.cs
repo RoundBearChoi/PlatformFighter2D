@@ -10,7 +10,7 @@ namespace RB
 
         public uint updateCount = 0;
 
-        protected UnitData _unitData = null;
+        protected Unit _unit = null;
         protected UserInput _userInput = null;
         protected List<StateComponent> _listStateComponents = new List<StateComponent>();
 
@@ -33,11 +33,6 @@ namespace RB
         public virtual void OnLateUpdate()
         {
 
-        }
-
-        public virtual UnitData GetUnitData()
-        {
-            return _unitData;
         }
 
         public virtual float GetNormalizedTime()

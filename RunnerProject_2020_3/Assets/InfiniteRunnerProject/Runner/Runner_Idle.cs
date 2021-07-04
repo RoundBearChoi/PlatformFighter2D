@@ -13,17 +13,17 @@ namespace RB
             return animationHash;
         }
 
-        public Runner_Idle(UnitData data, UserInput input)
+        public Runner_Idle(Unit unit, UserInput input)
         {
-            _unitData = data;
+            _unit = unit;
             _userInput = input;
         }
 
         public override void OnFixedUpdate()
         {
-            if (_unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
+            if (_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
             {
-                _unitData.listNextStates.Add(new Runner_NormalRun(_unitData, _userInput));
+                _unit.unitData.listNextStates.Add(new Runner_NormalRun(_unit, _userInput));
             }
         }
     }

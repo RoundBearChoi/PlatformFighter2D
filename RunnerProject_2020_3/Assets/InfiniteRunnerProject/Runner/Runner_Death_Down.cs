@@ -14,20 +14,20 @@ namespace RB
             return animationHash;
         }
 
-        public Runner_Death_Down(UnitData unitData)
+        public Runner_Death_Down(Unit unit)
         {
-            _unitData = unitData;
+            _unit = unit;
             _listStateComponents.Add(new FallThrough(this, -10f));
         }
 
         public override void OnEnter()
         {
-            //_unitData.horizontalVelocity = 0f;
+
         }
 
         public override void OnFixedUpdate()
         {
-            if (_unitData.unitTransform.position.y > -10)
+            if (_unit.unitData.unitTransform.position.y > -10)
             {
                 UpdateComponents();
             }

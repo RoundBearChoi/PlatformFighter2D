@@ -20,7 +20,7 @@ namespace RB
             Unit obstacle = GameObject.Instantiate(ResourceLoader.GetResource(typeof(Obstacle))) as Obstacle;
             obstacle.unitData = new UnitData(obstacle.transform);
             obstacle.iStateController = new StateController(
-                new Obstacle_Idle(obstacle.unitData, _runner),
+                new Obstacle_Idle(obstacle, _runner),
                 obstacle.unitData);
             obstacle.transform.parent = _parentTransform;
             obstacle.transform.position = Vector3.zero;

@@ -20,7 +20,7 @@ namespace RB
             if (reactionData.reactionType == CollisionReactionType.TAKE_DAMAGE)
             {
                 Debugger.Log("take damage!");
-                unitData.listNextStates.Add(new Runner_Death(unitData));
+                unitData.listNextStates.Add(new Runner_Death(this));
             }
             else if (reactionData.reactionType == CollisionReactionType.DEAL_DAMAGE)
             {

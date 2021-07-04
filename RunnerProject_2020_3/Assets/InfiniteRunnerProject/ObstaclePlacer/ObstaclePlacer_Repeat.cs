@@ -9,9 +9,9 @@ namespace RB
         private Unit _runner = null;
         private GameStage _gameStage = null;
 
-        public ObstaclePlacer_Repeat(UnitData data, Unit runner, GameStage gameStage)
+        public ObstaclePlacer_Repeat(Unit unit, Unit runner, GameStage gameStage)
         {
-            _unitData = data;
+            _unit = unit;
             _runner = runner;
             _gameStage = gameStage;
         }

@@ -24,7 +24,7 @@ namespace RB
             runner.unitData = new UnitData(runner.transform);
 
             runner.iStateController = new StateController(
-                new Runner_Idle(runner.unitData, _userInput),
+                new Runner_Idle(runner, _userInput),
                 runner.unitData);
             runner.transform.parent = _parentTransform;
             runner.transform.localRotation = Quaternion.identity;

@@ -14,18 +14,15 @@ namespace RB
             return animationHash;
         }
 
-        public Runner_Death_Up(UnitData unitData)
+        public Runner_Death_Up(Unit unit)
         {
             Debugger.Log("runner is dead");
-            _unitData = unitData;
+            _unit = unit;
             _listStateComponents.Add(new FixedJump(this));
         }
 
         public override void OnEnter()
         {
-            //_unitData.verticalVelocity = StaticRefs.gameData.InitialUpForce;
-            //_unitData.horizontalVelocity = 0f;
-
             IMessage message = new UIMessage("runner is dead");
             message.Register();
         }
@@ -33,11 +30,6 @@ namespace RB
         public override void OnFixedUpdate()
         {
             UpdateComponents();
-
-            //if (_unitData.verticalVelocity <= 0f)
-            //{
-            //    _unitData.listNextStates.Add(new Runner_Death_Down(_unitData));
-            //}
         }
 
         public override float GetNormalizedTime()

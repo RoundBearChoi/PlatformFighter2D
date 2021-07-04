@@ -15,9 +15,9 @@ namespace RB
             return animationHash;
         }
 
-        public Obstacle_Idle(UnitData data, Unit runner)
+        public Obstacle_Idle(Unit unit, Unit runner)
         {
-            _unitData = data;
+            _unit = unit;
             _runner = runner;
         }
 
@@ -28,7 +28,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (_runner.transform.position.x >= _unitData.unitTransform.position.x + 15f)
+            if (_runner.transform.position.x >= _unit.unitData.unitTransform.position.x + 15f)
             {
                 //_unitData.destroy = true;
             }

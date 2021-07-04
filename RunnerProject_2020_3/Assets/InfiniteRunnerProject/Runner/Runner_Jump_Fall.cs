@@ -13,9 +13,9 @@ namespace RB
             return animationHash;
         }
 
-        public Runner_Jump_Fall(UnitData data, UserInput input)
+        public Runner_Jump_Fall(Unit unit, UserInput input)
         {
-            _unitData = data;
+            _unit = unit;
             _userInput = input;
             _listStateComponents.Add(new FixedFall(this));
         }
@@ -27,9 +27,9 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (_unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
+            if (_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
             {
-                _unitData.listNextStates.Add(new Runner_NormalRun(_unitData, _userInput));
+                _unit.unitData.listNextStates.Add(new Runner_NormalRun(_unit, _userInput));
             }
 
             UpdateComponents();

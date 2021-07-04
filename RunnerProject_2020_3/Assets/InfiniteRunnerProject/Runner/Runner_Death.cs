@@ -13,10 +13,10 @@ namespace RB
             return animationHash;
         }
 
-        public Runner_Death(UnitData unitData)
+        public Runner_Death(Unit unit)
         {
             Debugger.Log("runner is dead");
-            _unitData = unitData;
+            _unit = unit;
         }
 
         public override void OnEnter()
@@ -24,16 +24,16 @@ namespace RB
             IMessage message = new UIMessage("runner is dead");
             message.Register();
 
-            _unitData.unitTransform.position = _unitData.unitTransform.position + (Vector3.back * 1f);
-            _unitData.rigidBody2D.velocity = new Vector3(0f, 6f, 0f);
-            _unitData.boxCollider2D.enabled = false;
+            _unit.unitData.unitTransform.position = _unit.unitData.unitTransform.position + (Vector3.back * 1f);
+            _unit.unitData.rigidBody2D.velocity = new Vector3(0f, 6f, 0f);
+            _unit.unitData.boxCollider2D.enabled = false;
         }
 
         public override void OnFixedUpdate()
         {
-            if (_unitData.unitTransform.position.y <= -20f)
+            if (_unit.unitData.unitTransform.position.y <= -20f)
             {
-                _unitData.rigidBody2D.Sleep();
+                _unit.unitData.rigidBody2D.Sleep();
             }
         }
     }

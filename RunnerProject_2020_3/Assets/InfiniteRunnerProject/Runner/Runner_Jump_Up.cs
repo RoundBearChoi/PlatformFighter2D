@@ -13,35 +13,22 @@ namespace RB
             return animationHash;
         }
 
-        public Runner_Jump_Up(UnitData data, UserInput input)
+        public Runner_Jump_Up(Unit unit, UserInput input)
         {
-            _unitData = data;
+            _unit = unit;
             _userInput = input;
         }
 
         public override void OnEnter()
         {
-            _unitData.rigidBody2D.velocity = StaticRefs.gameData.Runner_JumpUp_StartForce;
+            _unit.unitData.rigidBody2D.velocity = StaticRefs.gameData.Runner_JumpUp_StartForce;
         }
 
         public override void OnFixedUpdate()
         {
-            //if (_unitData.rigidBody2D.velocity.y < 0f)
-            //{
-            //    foreach (CollisionData data in _unitData.listCollisionStays)
-            //    {
-            //        Ground ground = data.collidingObject.GetComponent<Ground>();
-            //
-            //        if (ground != null)
-            //        {
-            //            Debugger.Log("staying on ground (jumping up)");
-            //        }
-            //    }
-            //}
-
-            if (_unitData.rigidBody2D.velocity.y < 0f && updateCount >= 2)
+            if (_unit.unitData.rigidBody2D.velocity.y < 0f && updateCount >= 2)
             {
-                _unitData.listNextStates.Add(new Runner_Jump_Fall(_unitData, _userInput));
+                _unit.unitData.listNextStates.Add(new Runner_Jump_Fall(_unit, _userInput));
             }
 
             UpdateComponents();

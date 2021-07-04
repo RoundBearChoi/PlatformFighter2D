@@ -15,9 +15,9 @@ namespace RB
             return animationHash;
         }
 
-        public Runner_NormalRun(UnitData data, UserInput input)
+        public Runner_NormalRun(Unit unit, UserInput input)
         {
-            _unitData = data;
+            _unit = unit;
             _userInput = input;
         }
 
@@ -25,7 +25,7 @@ namespace RB
         {
             if (!initialPush)
             {
-                _unitData.rigidBody2D.velocity = StaticRefs.gameData.Runner_NormalRun_StartForce;
+                _unit.unitData.rigidBody2D.velocity = StaticRefs.gameData.Runner_NormalRun_StartForce;
                 initialPush = true;
             }
         }
@@ -33,40 +33,40 @@ namespace RB
         public override void OnFixedUpdate()
         {
             //in the air
-            if (_unitData.collisionStays.GetCount() == 0)
+            if (_unit.unitData.collisionStays.GetCount() == 0)
             {
                 //falling
-                if (_unitData.rigidBody2D.velocity.y < 0f)
+                if (_unit.unitData.rigidBody2D.velocity.y < 0f)
                 {
-                    _unitData.listNextStates.Add(new Runner_Jump_Fall(_unitData, _userInput));
+                    _unit.unitData.listNextStates.Add(new Runner_Jump_Fall(_unit, _userInput));
                 }
             }
 
             if (IsOnFlatGround())
             {
-                float dif = _unitData.rigidBody2D.velocity.x - StaticRefs.gameData.Runner_JumpUp_StartForce.x;
+                float dif = _unit.unitData.rigidBody2D.velocity.x - StaticRefs.gameData.Runner_JumpUp_StartForce.x;
 
                 if (Mathf.Abs(dif) > 0.001f)
                 {
-                    float x = Mathf.Lerp(_unitData.rigidBody2D.velocity.x, StaticRefs.gameData.Runner_JumpUp_StartForce.x, StaticRefs.gameData.Runner_RunSpeed_LerpRate);
+                    float x = Mathf.Lerp(_unit.unitData.rigidBody2D.velocity.x, StaticRefs.gameData.Runner_JumpUp_StartForce.x, StaticRefs.gameData.Runner_RunSpeed_LerpRate);
 
-                    _unitData.rigidBody2D.velocity = new Vector2(x, _unitData.rigidBody2D.velocity.y);
+                    _unit.unitData.rigidBody2D.velocity = new Vector2(x, _unit.unitData.rigidBody2D.velocity.y);
                 }
             }
 
             if (_userInput.ContainsKeyPress(UserInput.keyboard.spaceKey))
             {
-                _unitData.listNextStates.Add(new Runner_Jump_Up(_unitData, _userInput));
+                _unit.unitData.listNextStates.Add(new Runner_Jump_Up(_unit, _userInput));
             }
             else if (_userInput.ContainsButtonPress(UserInput.mouse.leftButton))
             {
-                _unitData.listNextStates.Add(new Runner_StraightPunch(_unitData, _userInput));
+                _unit.unitData.listNextStates.Add(new Runner_StraightPunch(_unit, _userInput));
             }
         }
 
         bool IsOnFlatGround()
         {
-            List<Ground> listGrounds = _unitData.collisionStays.GetTouchingGrounds();
+            List<Ground> listGrounds = _unit.unitData.collisionStays.GetTouchingGrounds();
 
             if (listGrounds.Count == 0)
             {

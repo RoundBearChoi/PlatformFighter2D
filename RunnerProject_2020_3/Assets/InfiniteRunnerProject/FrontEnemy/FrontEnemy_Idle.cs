@@ -13,9 +13,9 @@ namespace RB
             return animationHash;
         }
 
-        public FrontEnemy_Idle(UnitData data)
+        public FrontEnemy_Idle(Unit unit)
         {
-            _unitData = data;
+            _unit = unit;
         }
 
         public override void OnFixedUpdate()
