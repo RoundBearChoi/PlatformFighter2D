@@ -83,7 +83,7 @@ namespace RB
         {
             foreach (AdditionalInterval interval in _listAdditionalIntervals)
             {
-                interval.Reset();
+                interval.ResetCount();
             }
         }
 
@@ -117,7 +117,7 @@ namespace RB
             spriteRenderer.sprite = _listSprites[_spriteIndex];
         }
 
-        public void Reset()
+        public void ResetSpriteIndex()
         {
             _updateCount = 0;
             _spriteIndex = 0;

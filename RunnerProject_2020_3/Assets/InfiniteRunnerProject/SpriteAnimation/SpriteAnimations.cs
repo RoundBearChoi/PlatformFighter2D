@@ -30,21 +30,17 @@ namespace RB
 
                 if (n == 0)
                 {
-                    spriteAni.gameObject.SetActive(true);
-                    currentAnimation = spriteAni;
+                    if (currentAnimation != spriteAni)
+                    {
+                        spriteAni.gameObject.SetActive(true);
+                        currentAnimation = spriteAni;
+                        currentAnimation.ResetSpriteIndex();
+                    }
                 }
                 else
                 {
                     spriteAni.gameObject.SetActive(false);
                 }
-            }
-        }
-
-        public void ResetSpriteIndexes()
-        {
-            foreach(SpriteAnimation spriteAnimation in _listSpriteAnimations)
-            {
-                spriteAnimation.Reset();
             }
         }
 

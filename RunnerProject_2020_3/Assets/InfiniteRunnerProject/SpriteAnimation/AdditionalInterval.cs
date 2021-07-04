@@ -16,7 +16,6 @@ namespace RB
             _intervalAmount = intervalAmount;
             _leftoverIntervals = intervalAmount;
             _targetSpriteIndex = targetSpriteIndex;
-            
         }
 
         public int TARGET_SPRITE_INDEX
@@ -35,7 +34,7 @@ namespace RB
             }
         }
 
-        public void Reset()
+        public void ResetCount()
         {
             _leftoverIntervals = _intervalAmount;
         }
