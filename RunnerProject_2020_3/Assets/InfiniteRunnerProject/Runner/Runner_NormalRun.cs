@@ -21,6 +21,7 @@ namespace RB
             _userInput = input;
 
             _listStateComponents.Add(new NormalRunToFall(_unit, _userInput));
+            _listStateComponents.Add(new MaintainNormalRunSpeed(_unit));
         }
 
         public override void OnEnter()
@@ -36,18 +37,6 @@ namespace RB
         {
             UpdateComponents();
 
-            if (IsOnFlatGround())
-            {
-                float dif = _unit.unitData.rigidBody2D.velocity.x - StaticRefs.gameData.Runner_JumpUp_StartForce.x;
-
-                if (Mathf.Abs(dif) > 0.001f)
-                {
-                    float x = Mathf.Lerp(_unit.unitData.rigidBody2D.velocity.x, StaticRefs.gameData.Runner_JumpUp_StartForce.x, StaticRefs.gameData.Runner_RunSpeed_LerpRate);
-
-                    _unit.unitData.rigidBody2D.velocity = new Vector2(x, _unit.unitData.rigidBody2D.velocity.y);
-                }
-            }
-
             if (_userInput.ContainsKeyPress(UserInput.keyboard.spaceKey))
             {
                 _unit.unitData.listNextStates.Add(new Runner_Jump_Up(_unit, _userInput));
@@ -56,26 +45,6 @@ namespace RB
             {
                 _unit.unitData.listNextStates.Add(new Runner_StraightPunch(_unit, _userInput));
             }
-        }
-
-        bool IsOnFlatGround()
-        {
-            List<Ground> listGrounds = _unit.unitData.collisionStays.GetTouchingGrounds();
-
-            if (listGrounds.Count == 0)
-            {
-                return false;
-            }
-
-            foreach(Ground ground in listGrounds)
-            {
-                if (Mathf.Abs(ground.transform.rotation.z) >= 0.001f)
-                {
-                    return false;
-                }
-            }
-
-            return true;
         }
     }
 }
