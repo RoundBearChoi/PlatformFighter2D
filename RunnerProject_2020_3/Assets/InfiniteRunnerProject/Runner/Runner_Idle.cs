@@ -20,7 +20,7 @@ namespace RB
         {
             if (string.IsNullOrEmpty(hashString))
             {
-                hashString = "Texture_PrototypeHero_Idle";
+                hashString = StaticRefs.runnerSpriteData.Idle_SpriteName;
                 animationHash = Hash128.Compute(hashString);
             }
         }
