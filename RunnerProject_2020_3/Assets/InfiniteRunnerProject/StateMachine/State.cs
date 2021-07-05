@@ -13,10 +13,17 @@ namespace RB
         protected Unit _unit = null;
         protected List<StateComponent> _listStateComponents = new List<StateComponent>();
 
+        public abstract void SetHashString();
+
         public virtual Hash128 GetAnimationHash()
         {
             defaultHash = Hash128.Compute("defaultHash");
             return defaultHash;
+        }
+
+        public State()
+        {
+            SetHashString();
         }
 
         public virtual void OnEnter()

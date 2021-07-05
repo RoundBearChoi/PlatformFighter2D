@@ -6,13 +6,23 @@ namespace RB
 {
     public class Obstacle_Idle : State
     {
-        static Hash128 animationHash = Hash128.Compute("Texture_BlockEnemy");
+        static Hash128 animationHash;
+        static string hashString = string.Empty;
 
         private Unit _runner = null;
 
         public override Hash128 GetAnimationHash()
         {
             return animationHash;
+        }
+
+        public override void SetHashString()
+        {
+            if (string.IsNullOrEmpty(hashString))
+            {
+                hashString = "Texture_BlockEnemy";
+                animationHash = Hash128.Compute(hashString);
+            }
         }
 
         public Obstacle_Idle(Unit unit, Unit runner)
@@ -33,7 +43,5 @@ namespace RB
                 //_unitData.destroy = true;
             }
         }
-
-
     }
 }

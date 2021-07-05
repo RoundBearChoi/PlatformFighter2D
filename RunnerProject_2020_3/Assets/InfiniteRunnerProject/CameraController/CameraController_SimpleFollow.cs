@@ -15,6 +15,11 @@ namespace RB
             _targetRunner = runner;
         }
 
+        public override void SetHashString()
+        {
+
+        }
+
         public override void OnFixedUpdate()
         {
             _mainCam.transform.position = new Vector3(

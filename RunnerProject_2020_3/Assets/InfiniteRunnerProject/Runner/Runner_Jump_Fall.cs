@@ -6,13 +6,23 @@ namespace RB
 {
     public class Runner_Jump_Fall : State
     {
-        static Hash128 animationHash = Hash128.Compute("Texture_Jump_Fall_Orange");
+        static Hash128 animationHash;
+        static string hashString = string.Empty;
 
         private UserInput _userInput = null;
 
         public override Hash128 GetAnimationHash()
         {
             return animationHash;
+        }
+
+        public override void SetHashString()
+        {
+            if (string.IsNullOrEmpty(hashString))
+            {
+                hashString = "Texture_Jump_Fall_Orange";
+                animationHash = Hash128.Compute(hashString);
+            }
         }
 
         public Runner_Jump_Fall(Unit unit, UserInput input)

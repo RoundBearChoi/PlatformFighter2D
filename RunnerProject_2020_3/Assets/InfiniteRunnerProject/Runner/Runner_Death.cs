@@ -6,7 +6,8 @@ namespace RB
 {
     public class Runner_Death : State
     {
-        static Hash128 animationHash = Hash128.Compute("Texture_Death_Orange");
+        static Hash128 animationHash;
+        static string hashString = string.Empty;
 
         public override Hash128 GetAnimationHash()
         {
@@ -17,6 +18,15 @@ namespace RB
         {
             Debugger.Log("runner is dead");
             _unit = unit;
+        }
+
+        public override void SetHashString()
+        {
+            if (string.IsNullOrEmpty(hashString))
+            {
+                hashString = "Texture_Death_Orange";
+                animationHash = Hash128.Compute(hashString);
+            }
         }
 
         public override void OnEnter()

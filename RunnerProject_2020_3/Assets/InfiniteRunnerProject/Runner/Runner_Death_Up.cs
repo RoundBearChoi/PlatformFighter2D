@@ -6,12 +6,23 @@ namespace RB
 {
     public class Runner_Death_Up : State
     {
-        static Hash128 animationHash = Hash128.Compute("Texture_Death_Orange");
+        static Hash128 animationHash;
+        static string hashString = string.Empty;
+
         float _timeInterval = 0.05f;
 
         public override Hash128 GetAnimationHash()
         {
             return animationHash;
+        }
+
+        public override void SetHashString()
+        {
+            if (string.IsNullOrEmpty(hashString))
+            {
+                hashString = "Texture_Death_Orange";
+                animationHash = Hash128.Compute(hashString);
+            }
         }
 
         public Runner_Death_Up(Unit unit)

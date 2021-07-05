@@ -6,13 +6,23 @@ namespace RB
 {
     public class Runner_StraightPunch : State
     {
-        static Hash128 animationHash = Hash128.Compute("Texture_StraightPunch");
+        static Hash128 animationHash;
+        static string hashString = string.Empty;
 
         private UserInput _userInput = null;
 
         public override Hash128 GetAnimationHash()
         {
             return animationHash;
+        }
+
+        public override void SetHashString()
+        {
+            if (string.IsNullOrEmpty(hashString))
+            {
+                hashString = "Texture_StraightPunch";
+                animationHash = Hash128.Compute(hashString);
+            }
         }
 
         public Runner_StraightPunch(Unit unit, UserInput input)

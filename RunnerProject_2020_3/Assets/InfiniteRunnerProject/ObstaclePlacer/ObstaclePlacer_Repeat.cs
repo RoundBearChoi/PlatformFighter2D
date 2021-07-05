@@ -16,6 +16,11 @@ namespace RB
             _gameStage = gameStage;
         }
 
+        public override void SetHashString()
+        {
+
+        }
+
         public override void OnFixedUpdate()
         {
             Debugger.Log("creating an obstacle..");

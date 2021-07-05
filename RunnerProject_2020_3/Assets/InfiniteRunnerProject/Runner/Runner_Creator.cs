@@ -58,7 +58,7 @@ namespace RB
             unit.unitData.spriteAnimations.AddSpriteAnimation(
                 "runner idle fall animation",
                 new SpriteAnimationSpecs(
-                    "Texture_PrototypeHero_Idle",
+                    StaticRefs.runnerSpriteData.Idle_SpriteName,
                     StaticRefs.runnerSpriteData.Idle_SpriteInterval,
                     StaticRefs.runnerSpriteData.Idle_SpriteSize,
                     OffsetType.BOTTOM_CENTER,

@@ -6,7 +6,9 @@ namespace RB
 {
     public class Runner_Death_Down : State
     {
-        static Hash128 animationHash = Hash128.Compute("Texture_SampleDeathAnimation");
+        static Hash128 animationHash;
+        static string hashString = string.Empty;
+
         float _timeInterval = 0.05f;
 
         public override Hash128 GetAnimationHash()
@@ -14,10 +16,18 @@ namespace RB
             return animationHash;
         }
 
+        public override void SetHashString()
+        {
+            if (string.IsNullOrEmpty(hashString))
+            {
+                hashString = "Texture_SampleDeathAnimation";
+                animationHash = Hash128.Compute(hashString);
+            }
+        }
+
         public Runner_Death_Down(Unit unit)
         {
             _unit = unit;
-            //_listStateComponents.Add(new FallThrough(this, -10f));
         }
 
         public override void OnEnter()
