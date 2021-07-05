@@ -14,22 +14,26 @@ namespace RB
 
         [Space(10)]
 
+        public string Run_SpriteName;
         public uint Run_SpriteInterval = new uint();
         public Vector2 Run_SpriteSize = new Vector2();
 
         [Space(10)]
 
-        public uint StraightPunch_SpriteInterval = new uint();
-        public Vector2 StraightPunch_SpriteSize = new Vector2();
-        public Vector2 StraightPunch_AdditionalOffset = new Vector2();
+        public string AttackA_SpriteName;
+        public uint AttackA_SpriteInterval = new uint();
+        public Vector2 AttackA_SpriteSize = new Vector2();
+        public Vector2 AttackA_AdditionalOffset = new Vector2();
 
         [Space(10)]
 
+        public string Jump_SpriteName;
         public uint Jump_SpriteInterval = new uint();
         public Vector2 Jump_SpriteSize = new Vector2();
 
         [Space(10)]
 
+        public string Death_SpriteName;
         public uint Death_SpriteInterval = new uint();
         public Vector2 Death_SpriteSize = new Vector2();
     }

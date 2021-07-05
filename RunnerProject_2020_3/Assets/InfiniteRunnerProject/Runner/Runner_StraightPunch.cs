@@ -20,7 +20,7 @@ namespace RB
         {
             if (string.IsNullOrEmpty(hashString))
             {
-                hashString = "Texture_StraightPunch";
+                hashString = StaticRefs.runnerSpriteData.AttackA_SpriteName;
                 animationHash = Hash128.Compute(hashString);
             }
         }

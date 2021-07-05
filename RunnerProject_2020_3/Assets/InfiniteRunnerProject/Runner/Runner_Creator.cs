@@ -76,7 +76,7 @@ namespace RB
             unit.unitData.spriteAnimations.AddSpriteAnimation(
                 "runner run animation",
                 new SpriteAnimationSpecs(
-                    "Texture_RunCycle_Orange",
+                    StaticRefs.runnerSpriteData.Run_SpriteName,
                     StaticRefs.runnerSpriteData.Run_SpriteInterval,
                     StaticRefs.runnerSpriteData.Run_SpriteSize,
                     OffsetType.BOTTOM_CENTER,
@@ -89,11 +89,11 @@ namespace RB
             unit.unitData.spriteAnimations.AddSpriteAnimation(
                 "runner straight punch animation",
                 new SpriteAnimationSpecs(
-                    "Texture_StraightPunch",
-                    StaticRefs.runnerSpriteData.StraightPunch_SpriteInterval,
-                    StaticRefs.runnerSpriteData.StraightPunch_SpriteSize,
+                    StaticRefs.runnerSpriteData.AttackA_SpriteName,
+                    StaticRefs.runnerSpriteData.AttackA_SpriteInterval,
+                    StaticRefs.runnerSpriteData.AttackA_SpriteSize,
                     OffsetType.BOTTOM_CENTER,
-                    StaticRefs.runnerSpriteData.StraightPunch_AdditionalOffset),
+                    StaticRefs.runnerSpriteData.AttackA_AdditionalOffset),
                 unit.transform);
 
             unit.unitData.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
@@ -104,7 +104,7 @@ namespace RB
             unit.unitData.spriteAnimations.AddSpriteAnimation(
                 "runner jump (up) animation",
                 new SpriteAnimationSpecs(
-                    "Texture_JumpCycle_Orange",
+                    StaticRefs.runnerSpriteData.Jump_SpriteName,
                     StaticRefs.runnerSpriteData.Jump_SpriteInterval,
                     StaticRefs.runnerSpriteData.Jump_SpriteSize,
                     OffsetType.BOTTOM_CENTER,
@@ -134,7 +134,7 @@ namespace RB
             unit.unitData.spriteAnimations.AddSpriteAnimation(
                 "runner death animation",
                 new SpriteAnimationSpecs(
-                    "Texture_Death_Orange",
+                    StaticRefs.runnerSpriteData.Death_SpriteName,
                     StaticRefs.runnerSpriteData.Death_SpriteInterval,
                     StaticRefs.runnerSpriteData.Death_SpriteSize,
                     OffsetType.BOTTOM_CENTER,

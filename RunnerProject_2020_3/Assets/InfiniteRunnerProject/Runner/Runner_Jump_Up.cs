@@ -20,7 +20,7 @@ namespace RB
         {
             if (string.IsNullOrEmpty(hashString))
             {
-                hashString = "Texture_JumpCycle_Orange";
+                hashString = StaticRefs.runnerSpriteData.Jump_SpriteName;
                 animationHash = Hash128.Compute(hashString);
             }
         }
