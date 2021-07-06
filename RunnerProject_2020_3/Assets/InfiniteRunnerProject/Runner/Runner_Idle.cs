@@ -35,6 +35,10 @@ namespace RB
         {
             if (_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
             {
+                //testing dust
+                units.AddCreator(new LandingDust_Creator(gameInitializer.transform));
+                units.ProcessCreators();
+
                 _unit.unitData.listNextStates.Add(new Runner_NormalRun(_unit, _userInput));
             }
         }

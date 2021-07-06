@@ -13,12 +13,13 @@ namespace RB
 
         public override void Init()
         {
+            State.units = units;
+
             units.AddCreator(new Runner_Creator(_userInput, this.transform));
             units.ProcessCreators();
 
             //runner must already be in the list
             units.AddCreator(new CameraController_Creator(this.transform, units.GetUnit<Runner>(), FindObjectOfType<Camera>()));
-            units.AddCreator(new LandingDust_Creator(this.transform));
             units.ProcessCreators();
 
             //level and enemies

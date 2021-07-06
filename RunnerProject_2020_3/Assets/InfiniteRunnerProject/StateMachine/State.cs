@@ -8,6 +8,9 @@ namespace RB
     {
         static Hash128 defaultHash;
 
+        public static GameInitializer gameInitializer = null;
+        public static Units units = null;
+
         public uint updateCount = 0;
 
         protected Unit _unit = null;

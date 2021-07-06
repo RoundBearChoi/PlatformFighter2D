@@ -20,6 +20,8 @@ namespace RB
             StaticRefs.gameData = gameDataScriptableObj;
             StaticRefs.runnerSpriteData = runnerSpriteDataScriptableObj;
 
+            State.gameInitializer = this;
+
             ResourceLoader.Init();
 
             //first stage
