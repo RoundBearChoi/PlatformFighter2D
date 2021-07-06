@@ -29,9 +29,9 @@ namespace RB
             landingDust.unitData.spriteAnimations.AddSpriteAnimation(
                 "landing dust animation",
                 new SpriteAnimationSpecs(
-                    "Texture_PrototypeHero_LandingDust",
-                    5,
-                    new Vector2(5, 5),
+                    StaticRefs.vfxSpriteData.LandingDust_SpriteName,
+                    StaticRefs.vfxSpriteData.LandingDust_SpriteInterval,
+                    StaticRefs.vfxSpriteData.LandingDust_SpriteSize,
                     OffsetType.BOTTOM_CENTER,
                     Vector2.zero),
                 landingDust.transform);

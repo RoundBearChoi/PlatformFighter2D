@@ -17,10 +17,14 @@ namespace RB
         [SerializeField]
         private RunnerSpriteData runnerSpriteDataScriptableObj = null;
 
+        [SerializeField]
+        private VFXSpriteData vfxSpriteDataScriptableObj = null;
+
         private void Start()
         {
             StaticRefs.gameData = gameDataScriptableObj;
             StaticRefs.runnerSpriteData = runnerSpriteDataScriptableObj;
+            StaticRefs.vfxSpriteData = vfxSpriteDataScriptableObj;
 
             Debugger.Log("setting current GameInitializer instance");
             instance = this;

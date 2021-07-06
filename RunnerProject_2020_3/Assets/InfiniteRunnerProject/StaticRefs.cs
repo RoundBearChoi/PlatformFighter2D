@@ -8,5 +8,6 @@ namespace RB
     {
         public static GameData gameData = null;
         public static RunnerSpriteData runnerSpriteData = null;
+        public static VFXSpriteData vfxSpriteData = null;
     }
 }
