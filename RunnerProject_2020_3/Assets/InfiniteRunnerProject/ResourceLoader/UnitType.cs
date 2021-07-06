@@ -7,6 +7,6 @@ namespace RB
     public enum UnitType
     {
         RUNNER,
-
+        SAMPLE_LEFT_ENEMY,
     }
 }

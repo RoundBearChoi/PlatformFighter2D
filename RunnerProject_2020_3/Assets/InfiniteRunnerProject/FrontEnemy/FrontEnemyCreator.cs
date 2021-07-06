@@ -15,7 +15,7 @@ namespace RB
 
         public override Unit GetUnit()
         {
-            SampleLeftEnemy enemy = GameObject.Instantiate(ResourceLoader.GetResource(typeof(SampleLeftEnemy))) as SampleLeftEnemy;
+            Unit enemy = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SAMPLE_LEFT_ENEMY)) as Unit;
             enemy.unitData = new UnitData(enemy.transform);
             enemy.attackData = new AttackData();
 
