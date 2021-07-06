@@ -127,12 +127,13 @@ namespace RB
         {
             if (_spriteIndex == _listSprites.Count - 1)
             {
-                return true;
+                if (_updateCount % specs.mRenderInterval == 0)
+                {
+                    return true;
+                }
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
     }
 }
