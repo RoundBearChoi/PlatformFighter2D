@@ -9,7 +9,7 @@ namespace RB
         static Dictionary<System.Type, Object> dicResources = new Dictionary<System.Type, Object>();
         static Dictionary<int, Object> dicLevels = new Dictionary<int, Object>();
 
-        public static Stages stages = new Stages();
+        public static StageLoader stages = new StageLoader();
 
         public static void Init()
         {

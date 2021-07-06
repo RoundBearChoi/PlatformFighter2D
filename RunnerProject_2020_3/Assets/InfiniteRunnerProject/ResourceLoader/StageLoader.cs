@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Stages : GameResources<StageType>
+    public class StageLoader : GameResources<StageType>
     {
-        public Stages()
+        public StageLoader()
         {
             Debugger.Log("loading stages..");
 
