@@ -11,6 +11,9 @@ namespace RB
         public UnitData unitData = null;
         public AttackData attackData = null;
 
+        public bool deathAnimationTriggered = false;
+        public bool destroy = false;
+
         public virtual void OnFixedUpdate()
         {
 
@@ -59,6 +62,11 @@ namespace RB
         }
 
         public virtual void InitCollisionReaction()
+        {
+
+        }
+
+        public virtual void RunDeathAnimation()
         {
 
         }

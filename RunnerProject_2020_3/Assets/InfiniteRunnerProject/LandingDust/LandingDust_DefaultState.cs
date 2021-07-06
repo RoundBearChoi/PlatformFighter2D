@@ -32,7 +32,7 @@ namespace RB
         {
             if (_unit.unitData.spriteAnimations.currentAnimation.IsOnEnd())
             {
-                _unit.unitData.health = 0;
+                _unit.destroy = true;
             }
         }
     }

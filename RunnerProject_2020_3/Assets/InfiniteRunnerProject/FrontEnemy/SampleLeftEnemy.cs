@@ -9,13 +9,17 @@ namespace RB
         private void Start()
         {
             attackData.AddAttackingSide(CollisionType.LEFT);
-            //_listAttackingSides.Add(CollisionType.LEFT);
         }
 
         public override void OnFixedUpdate()
         {
             unitUpdater.CustomFixedUpdate();
             unitData.spriteAnimations.OnFixedUpdate();
+        }
+
+        public override void RunDeathAnimation()
+        {
+            destroy = true;
         }
     }
 }
