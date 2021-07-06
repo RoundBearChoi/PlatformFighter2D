@@ -8,6 +8,7 @@ namespace RB
     {
         GAME_STAGE,
         RUNNER_STAGE,
-
+        INTRO_STAGE,
+        SPRITE_STAGE,
     }
 }

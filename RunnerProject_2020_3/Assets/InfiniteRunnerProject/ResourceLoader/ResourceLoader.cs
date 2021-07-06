@@ -13,19 +13,6 @@ namespace RB
 
         public static void Init()
         {
-            //stages
-            //GameStage gameStage = Resources.Load("GameStage", typeof(GameStage)) as GameStage;
-            //dicResources.Add(gameStage.GetType(), gameStage);
-            //
-            //RunnerStage runnerStage = Resources.Load("RunnerStage", typeof(RunnerStage)) as RunnerStage;
-            //dicResources.Add(runnerStage.GetType(), runnerStage);
-            
-            IntroStage introStage = Resources.Load("IntroStage", typeof(IntroStage)) as IntroStage;
-            dicResources.Add(introStage.GetType(), introStage);
-            
-            SpritesStage spritesStage = Resources.Load("SpritesStage", typeof(SpritesStage)) as SpritesStage;
-            dicResources.Add(spritesStage.GetType(), spritesStage);
-
             //units
             Runner runner = Resources.Load("Prefab_Runner", typeof(Runner)) as Runner;
             dicResources.Add(runner.GetType(), runner);

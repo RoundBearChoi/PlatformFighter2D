@@ -12,8 +12,8 @@ namespace RB
 
             LoadObj<GameStage>(StageType.GAME_STAGE, "GameStage");
             LoadObj<RunnerStage>(StageType.RUNNER_STAGE, "RunnerStage");
-            //LoadObj("IntroStage", typeof(IntroStage));
-            //LoadObj("SpritesStage", typeof(SpritesStage));
+            LoadObj<IntroStage>(StageType.INTRO_STAGE, "IntroStage");
+            LoadObj<SpritesStage>(StageType.SPRITE_STAGE, "SpritesStage");
         }
     }
 }

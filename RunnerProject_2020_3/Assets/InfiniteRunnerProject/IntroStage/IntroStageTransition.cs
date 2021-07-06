@@ -15,7 +15,7 @@ namespace RB
 
         public Stage MakeTransition()
         {
-            Stage introStage = GameObject.Instantiate(ResourceLoader.GetResource(typeof(IntroStage))) as Stage;
+            Stage introStage = GameObject.Instantiate(ResourceLoader.stages.GetObj(StageType.INTRO_STAGE)) as Stage;
             introStage.SetInitializer(_gameInitializer);
             introStage.transform.parent = _gameInitializer.transform;
             introStage.transform.localPosition = Vector3.zero;
