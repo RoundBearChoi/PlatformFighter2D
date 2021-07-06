@@ -8,6 +8,7 @@ namespace RB
     {
         public override void OnFixedUpdate()
         {
+            iStateController.OnFixedUpdate();
             unitData.spriteAnimations.OnFixedUpdate();
         }
     }

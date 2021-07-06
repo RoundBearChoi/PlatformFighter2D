@@ -30,7 +30,10 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-
+            if (_unit.unitData.spriteAnimations.currentAnimation.IsOnEnd())
+            {
+                _unit.unitData.health = 0;
+            }
         }
     }
 }
