@@ -18,6 +18,7 @@ namespace RB
 
             //runner must already be in the list
             units.AddCreator(new CameraController_Creator(this.transform, units.GetUnit<Runner>(), FindObjectOfType<Camera>()));
+            units.AddCreator(new LandingDust_Creator(this.transform));
             units.ProcessCreators();
 
             //level and enemies

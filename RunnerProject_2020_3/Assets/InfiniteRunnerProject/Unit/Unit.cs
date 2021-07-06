@@ -10,8 +10,6 @@ namespace RB
         public IStateController iStateController = null;
         public UnitData unitData = null;
         public AttackData attackData = null;
-        
-        private List<CollisionType> _listAttackingSides = new List<CollisionType>();
 
         public virtual void OnFixedUpdate()
         {

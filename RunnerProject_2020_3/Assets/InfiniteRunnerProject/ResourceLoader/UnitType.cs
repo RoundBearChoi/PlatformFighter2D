@@ -9,5 +9,8 @@ namespace RB
         RUNNER,
         SAMPLE_LEFT_ENEMY,
         FLAT_GROUND,
+
+        //separate effects into other unit groups later
+        LANDING_DUST,
     }
 }
