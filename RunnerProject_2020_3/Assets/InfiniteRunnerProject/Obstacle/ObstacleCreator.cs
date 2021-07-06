@@ -17,6 +17,7 @@ namespace RB
 
         public override Unit GetUnit()
         {
+            /*
             Unit obstacle = GameObject.Instantiate(ResourceLoader.GetResource(typeof(Obstacle))) as Obstacle;
             obstacle.unitData = new UnitData(obstacle.transform);
             obstacle.iStateController = new StateController(
@@ -40,6 +41,9 @@ namespace RB
             obstacle.transform.position = new Vector3(_runner.transform.position.x + 10f, 0f, 0f);
 
             return obstacle;
+            */
+
+            return null;
         }
 
         public override void AddUnits(List<Unit> listUnits)

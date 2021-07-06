@@ -40,7 +40,7 @@ namespace RB
                 }
             }
 
-            ui = Instantiate(ResourceLoader.GetResource(typeof(UI))) as UI;
+            ui = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.UI)) as UI;
             ui.SetCounters(fixedUpdateCounter, updateCounter);
             ui.SetInput(_userInput);
             ui.transform.parent = this.transform;

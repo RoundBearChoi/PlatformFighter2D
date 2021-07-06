@@ -21,7 +21,7 @@ namespace RB
         {
             _canvas = this.gameObject.GetComponentInChildren<Canvas>();
 
-            DefaultUIBlock defaultUIBlock = Instantiate(ResourceLoader.GetResource(typeof(DefaultUIBlock)) as DefaultUIBlock, _canvas.transform);
+            DefaultUIBlock defaultUIBlock = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.DEFAULT_UI_BLOCK), _canvas.transform) as DefaultUIBlock;
             _listUIBlocks.Add(defaultUIBlock);
         }
 
@@ -65,7 +65,7 @@ namespace RB
             if (message.GetStringMessage().Equals("runner is dead"))
             {
                 Debugger.Log("ui knows runner is dead");
-                RunnerDeathNotification notification = Instantiate(ResourceLoader.GetResource(typeof(RunnerDeathNotification)) as RunnerDeathNotification, _canvas.transform);
+                RunnerDeathNotification notification = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.RUNNER_DEATH_NOTIFICATION), _canvas.transform) as RunnerDeathNotification;
                 notification.SetUserInput(_userInput);
                 _listUIBlocks.Add(notification);
             }
