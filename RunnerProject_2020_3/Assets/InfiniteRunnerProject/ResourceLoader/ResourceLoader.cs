@@ -8,20 +8,21 @@ namespace RB
     {
         static Dictionary<System.Type, Object> dicResources = new Dictionary<System.Type, Object>();
         static Dictionary<int, Object> dicLevels = new Dictionary<int, Object>();
-        static Dictionary<SpriteType, Object> dicSprites = new Dictionary<SpriteType, Object>();
+
+        public static Stages stages = new Stages();
 
         public static void Init()
         {
             //stages
-            GameStage gameStage = Resources.Load("GameStage", typeof(GameStage)) as GameStage;
-            dicResources.Add(gameStage.GetType(), gameStage);
-
-            RunnerStage runnerStage = Resources.Load("RunnerStage", typeof(RunnerStage)) as RunnerStage;
-            dicResources.Add(runnerStage.GetType(), runnerStage);
-
+            //GameStage gameStage = Resources.Load("GameStage", typeof(GameStage)) as GameStage;
+            //dicResources.Add(gameStage.GetType(), gameStage);
+            //
+            //RunnerStage runnerStage = Resources.Load("RunnerStage", typeof(RunnerStage)) as RunnerStage;
+            //dicResources.Add(runnerStage.GetType(), runnerStage);
+            
             IntroStage introStage = Resources.Load("IntroStage", typeof(IntroStage)) as IntroStage;
             dicResources.Add(introStage.GetType(), introStage);
-
+            
             SpritesStage spritesStage = Resources.Load("SpritesStage", typeof(SpritesStage)) as SpritesStage;
             dicResources.Add(spritesStage.GetType(), spritesStage);
 
