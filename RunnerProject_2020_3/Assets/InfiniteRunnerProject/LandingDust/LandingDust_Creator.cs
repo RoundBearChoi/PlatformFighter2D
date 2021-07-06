@@ -23,15 +23,8 @@ namespace RB
                 landingDust.unitData);
             landingDust.transform.parent = _parentTransform;
             landingDust.transform.localRotation = Quaternion.identity;
-            //runner.SetUpdater(new DefaultUpdater(runner.iStateController));
-
-            //runner.InitBoxCollider(StaticRefs.gameData.RunnerBoxColliderSize);
-            //runner.InitCollisionReaction();
-            //runner.InitCollisionChecker();
-            //runner.SetUserInput(_userInput);
 
             landingDust.unitData.spriteAnimations = new SpriteAnimations(landingDust.iStateController);
-            //runner.transform.position = new Vector3(0f, 5f, 0f);
 
             landingDust.unitData.spriteAnimations.AddSpriteAnimation(
                 "landing dust animation",
