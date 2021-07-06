@@ -8,5 +8,6 @@ namespace RB
     {
         RUNNER,
         SAMPLE_LEFT_ENEMY,
+        FLAT_GROUND,
     }
 }

@@ -15,7 +15,7 @@ namespace RB
 
         public override Unit GetUnit()
         {
-            Unit flatGround = GameObject.Instantiate(ResourceLoader.GetResource(typeof(Ground))) as Ground;
+            Unit flatGround = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.FLAT_GROUND)) as Unit;
             flatGround.unitData = new UnitData(flatGround.transform);
 
             flatGround.transform.parent = _parentTransform;

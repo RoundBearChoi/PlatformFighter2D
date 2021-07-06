@@ -7,18 +7,15 @@ namespace RB
     public static class ResourceLoader
     {
         static Dictionary<System.Type, Object> dicResources = new Dictionary<System.Type, Object>();
-        static Dictionary<int, Object> dicLevels = new Dictionary<int, Object>();
 
         public static StageLoader stageLoader = new StageLoader();
         public static UnitLoader unitLoader = new UnitLoader();
+        public static LevelLoader levelLoader = new LevelLoader();
 
         public static void Init()
         {
-            //levels
-            dicLevels.Add(1, Resources.Load("Level_1_Temp"));
-
-            Ground flatGround = Resources.Load("FlatGround", typeof(Ground)) as Ground;
-            dicResources.Add(flatGround.GetType(), flatGround);
+            //Ground flatGround = Resources.Load("FlatGround", typeof(Ground)) as Ground;
+            //dicResources.Add(flatGround.GetType(), flatGround);
 
             //etc
             UI ui = Resources.Load("UI", typeof(UI)) as UI;
@@ -36,18 +33,6 @@ namespace RB
             if (dicResources.ContainsKey(_type))
             {
                 return dicResources[_type];
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        public static Object GetLevel(int levelIndex)
-        {
-            if (dicLevels.ContainsKey(levelIndex))
-            {
-                return dicLevels[levelIndex];
             }
             else
             {
