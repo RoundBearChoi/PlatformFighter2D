@@ -14,16 +14,6 @@ namespace RB
 
         public static void Init()
         {
-            //units
-            //Runner runner = Resources.Load("Prefab_Runner", typeof(Runner)) as Runner;
-            //dicResources.Add(runner.GetType(), runner);
-
-            //SampleLeftEnemy frontEnemy = Resources.Load("SampleFrontEnemy", typeof(SampleLeftEnemy)) as SampleLeftEnemy;
-            //dicResources.Add(frontEnemy.GetType(), frontEnemy);
-
-            //Obstacle obstacle = Resources.Load("Obstacle", typeof(Obstacle)) as Obstacle;
-            //dicResources.Add(obstacle.GetType(), obstacle);
-
             //levels
             dicLevels.Add(1, Resources.Load("Level_1_Temp"));
 
