@@ -21,8 +21,8 @@ namespace RB
             //SampleLeftEnemy frontEnemy = Resources.Load("SampleFrontEnemy", typeof(SampleLeftEnemy)) as SampleLeftEnemy;
             //dicResources.Add(frontEnemy.GetType(), frontEnemy);
 
-            Obstacle obstacle = Resources.Load("Obstacle", typeof(Obstacle)) as Obstacle;
-            dicResources.Add(obstacle.GetType(), obstacle);
+            //Obstacle obstacle = Resources.Load("Obstacle", typeof(Obstacle)) as Obstacle;
+            //dicResources.Add(obstacle.GetType(), obstacle);
 
             //levels
             dicLevels.Add(1, Resources.Load("Level_1_Temp"));
