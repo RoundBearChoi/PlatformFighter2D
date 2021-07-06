@@ -20,7 +20,7 @@ namespace RB
             //temp (probably should be put somewhere else..)
             Runner_NormalRun.initialPush = false;
 
-            Unit runner = GameObject.Instantiate(ResourceLoader.GetResource(typeof(Runner))) as Runner;
+            Unit runner = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.RUNNER)) as Unit;
             runner.unitData = new UnitData(runner.transform);
 
             runner.iStateController = new StateController(

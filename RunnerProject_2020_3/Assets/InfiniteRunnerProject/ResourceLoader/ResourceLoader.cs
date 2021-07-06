@@ -9,13 +9,14 @@ namespace RB
         static Dictionary<System.Type, Object> dicResources = new Dictionary<System.Type, Object>();
         static Dictionary<int, Object> dicLevels = new Dictionary<int, Object>();
 
-        public static StageLoader stages = new StageLoader();
+        public static StageLoader stageLoader = new StageLoader();
+        public static UnitLoader unitLoader = new UnitLoader();
 
         public static void Init()
         {
             //units
-            Runner runner = Resources.Load("Prefab_Runner", typeof(Runner)) as Runner;
-            dicResources.Add(runner.GetType(), runner);
+            //Runner runner = Resources.Load("Prefab_Runner", typeof(Runner)) as Runner;
+            //dicResources.Add(runner.GetType(), runner);
 
             SampleLeftEnemy frontEnemy = Resources.Load("SampleFrontEnemy", typeof(SampleLeftEnemy)) as SampleLeftEnemy;
             dicResources.Add(frontEnemy.GetType(), frontEnemy);
