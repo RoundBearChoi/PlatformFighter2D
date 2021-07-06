@@ -40,6 +40,7 @@ namespace RB
         {
             if (_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
             {
+                Debugger.Log("transitioning back to normalrun");
                 _unit.unitData.listNextStates.Add(new Runner_NormalRun(_unit, _userInput));
             }
 
