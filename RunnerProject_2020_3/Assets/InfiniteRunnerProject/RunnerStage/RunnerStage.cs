@@ -10,8 +10,6 @@ namespace RB
 
         public override void Init()
         {
-            State.units = units;
-
             units.AddCreator(new Runner_Creator(_userInput, this.transform));
             units.ProcessCreators();
 

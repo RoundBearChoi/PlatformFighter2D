@@ -6,6 +6,8 @@ namespace RB
 {
     public class GameInitializer : MonoBehaviour
     {
+        public static GameInitializer instance = null;
+
         Stage _currentStage = null;
         public List<IStageTransition> listStageTransitions = new List<IStageTransition>();
 
@@ -20,7 +22,8 @@ namespace RB
             StaticRefs.gameData = gameDataScriptableObj;
             StaticRefs.runnerSpriteData = runnerSpriteDataScriptableObj;
 
-            State.gameInitializer = this;
+            Debugger.Log("setting current GameInitializer instance");
+            instance = this;
 
             ResourceLoader.Init();
 

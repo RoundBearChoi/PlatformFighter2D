@@ -6,8 +6,15 @@ namespace RB
 {
     public class Units
     {
+        public static Units instance = null;
+
         private List<Unit> _listUnits = new List<Unit>();
         private List<UnitCreator> _listUnitCreators = new List<UnitCreator>();
+
+        public Units()
+        {
+            instance = this;
+        }
 
         public void AddCreator(UnitCreator creator)
         {

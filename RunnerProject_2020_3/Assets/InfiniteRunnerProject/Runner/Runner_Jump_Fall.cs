@@ -42,6 +42,11 @@ namespace RB
             {
                 Debugger.Log("transitioning back to normalrun");
                 _unit.unitData.listNextStates.Add(new Runner_NormalRun(_unit, _userInput));
+
+                //testing dust
+                Units.instance.AddCreator(new LandingDust_Creator(GameInitializer.instance.transform));
+                Units.instance.ProcessCreators();
+                Units.instance.GetUnit<LandingDust>().transform.position = _unit.transform.position;
             }
 
             UpdateComponents();
