@@ -9,6 +9,6 @@ namespace RB
         public static GameData gameData = null;
         public static RunnerMovementSpriteData runnerMovementSpriteData = null;
         public static RunnerAttackSpriteData runnerAttackSpriteData = null;
-        public static MovementDustSpriteData vfxSpriteData = null;
+        public static MovementDustSpriteData movementDustSpriteData = null;
     }
 }

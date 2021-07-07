@@ -6,6 +6,8 @@ namespace RB
 {
     public class Stage : MonoBehaviour
     {
+        public static Stage currentStage = null;
+
         public Units units = new Units();
 
         protected GameInitializer _gameIntializer = null;

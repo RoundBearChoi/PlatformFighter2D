@@ -6,9 +6,6 @@ namespace RB
 {
     public class GameInitializer : MonoBehaviour
     {
-        public static GameInitializer instance = null;
-
-        Stage _currentStage = null;
         public List<IStageTransition> listStageTransitions = new List<IStageTransition>();
 
         [SerializeField]
@@ -28,26 +25,25 @@ namespace RB
             StaticRefs.gameData = gameDataScriptableObj;
             StaticRefs.runnerMovementSpriteData = runnerMovementSpriteDataScriptableObj;
             StaticRefs.runnerAttackSpriteData = runnerAttackSpriteDataScriptableObj;
-            StaticRefs.vfxSpriteData = vfxSpriteDataScriptableObj;
+            StaticRefs.movementDustSpriteData = vfxSpriteDataScriptableObj;
 
             Debugger.Log("setting current GameInitializer instance");
-            instance = this;
 
             ResourceLoader.Init();
 
             //first stage
             IntroStageTransition introStageTransition = new IntroStageTransition(this);
-            _currentStage = introStageTransition.MakeTransition();
+            Stage.currentStage = introStageTransition.MakeTransition();
         }
 
         private void Update()
         {
-            _currentStage.OnUpdate();
+            Stage.currentStage.OnUpdate();
 
             foreach(IStageTransition transition in listStageTransitions)
             {
-                Destroy(_currentStage.gameObject);
-                _currentStage = transition.MakeTransition();
+                Destroy(Stage.currentStage.gameObject);
+                Stage.currentStage = transition.MakeTransition();
             }
 
             listStageTransitions.Clear();
@@ -55,12 +51,12 @@ namespace RB
 
         private void FixedUpdate()
         {
-            _currentStage.OnFixedUpdate();
+            Stage.currentStage.OnFixedUpdate();
         }
 
         private void LateUpdate()
         {
-            _currentStage.OnLateUpdate();
+            Stage.currentStage.OnLateUpdate();
         }
     }
 }

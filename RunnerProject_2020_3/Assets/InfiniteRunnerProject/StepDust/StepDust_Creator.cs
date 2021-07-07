@@ -29,9 +29,9 @@ namespace RB
             stepDust.unitData.spriteAnimations.AddSpriteAnimation(
                 "step dust animation",
                 new SpriteAnimationSpecs(
-                    "Texture_PrototypeHero_StepDust",
-                    6,
-                    new Vector2(5, 5),
+                    StaticRefs.movementDustSpriteData.StepDust_SpriteName,
+                    StaticRefs.movementDustSpriteData.StepDust_SpriteInterval,
+                    StaticRefs.movementDustSpriteData.StepDust_SpriteSize,
                     OffsetType.BOTTOM_CENTER,
                     Vector2.zero),
                 stepDust.transform);

@@ -37,16 +37,6 @@ namespace RB
             }
 
             return null;
-
-            //foreach(Unit unit in _listUnits)
-            //{
-            //    if (unit is T)
-            //    {
-            //        return unit;
-            //    }
-            //}
-            //
-            //return null;
         }
 
         public void ProcessCreators()
