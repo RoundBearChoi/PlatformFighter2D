@@ -9,6 +9,7 @@ namespace RB
         NONE,
 
         BOTTOM_CENTER,
+        BOTTOM_LEFT,
 
         CENTER_CENTER,
     }

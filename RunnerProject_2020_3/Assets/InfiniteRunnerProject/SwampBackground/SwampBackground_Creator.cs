@@ -32,7 +32,7 @@ namespace RB
                     "Texture_Swamp_Grass -1",
                     60,
                     new Vector2(5f * 1.8f, 5),
-                    OffsetType.BOTTOM_CENTER,
+                    OffsetType.BOTTOM_LEFT,
                     Vector2.zero),
                 swamp_grass.transform);
 
