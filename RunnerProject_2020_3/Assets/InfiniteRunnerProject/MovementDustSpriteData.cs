@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace RB
 {
-    [CreateAssetMenu(fileName = "Data", menuName = "InfiniteRunner/GameData/VFXSpriteData")]
-    public class VFXSpriteData : ScriptableObject
+    [CreateAssetMenu(fileName = "Data", menuName = "InfiniteRunner/GameData/MovementDustSpriteData")]
+    public class MovementDustSpriteData : ScriptableObject
     {
         public string LandingDust_SpriteName;
         public uint LandingDust_SpriteInterval = new uint();

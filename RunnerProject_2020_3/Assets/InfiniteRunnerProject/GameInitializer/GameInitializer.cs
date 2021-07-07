@@ -18,7 +18,7 @@ namespace RB
         private RunnerSpriteData runnerSpriteDataScriptableObj = null;
 
         [SerializeField]
-        private VFXSpriteData vfxSpriteDataScriptableObj = null;
+        private MovementDustSpriteData vfxSpriteDataScriptableObj = null;
 
         private void Start()
         {
