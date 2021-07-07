@@ -97,11 +97,40 @@ namespace RB
             return swamp_frontTrees;
         }
 
+        Unit GetBackTreesUnit()
+        {
+            Unit swamp_backTrees = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP_BACKGROUND)) as Unit;
+            swamp_backTrees.unitData = new UnitData(swamp_backTrees.transform);
+
+            swamp_backTrees.iStateController = new StateController(
+                new Swamp_BackTrees_DefaultState(swamp_backTrees),
+                swamp_backTrees.unitData);
+            swamp_backTrees.transform.parent = _parentTransform;
+            swamp_backTrees.transform.localRotation = Quaternion.identity;
+
+            swamp_backTrees.unitData.spriteAnimations = new SpriteAnimations(swamp_backTrees.iStateController);
+
+            swamp_backTrees.unitData.spriteAnimations.AddSpriteAnimation(
+                "swamp background - back trees",
+                new SpriteAnimationSpecs(
+                    StaticRefs.swampSpriteData.Swamp_BackTrees_SpriteName,
+                    StaticRefs.swampSpriteData.Swamp_Unified_SpriteInterval,
+                    StaticRefs.swampSpriteData.Swamp_Unified_SpriteSize,
+                    OffsetType.BOTTOM_LEFT,
+                    Vector2.zero),
+                swamp_backTrees.transform);
+
+            swamp_backTrees.transform.position = new Vector3(0f, 0f, 4f);
+
+            return swamp_backTrees;
+        }
+
         public override void AddUnits(List<Unit> listUnits)
         {
             listUnits.Add(GetGrassUnit());
             listUnits.Add(GetRiverUnit());
             listUnits.Add(GetFrontTreesUnit());
+            listUnits.Add(GetBackTreesUnit());
         }
     }
 }
