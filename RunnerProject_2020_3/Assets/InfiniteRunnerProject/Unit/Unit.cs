@@ -41,14 +41,19 @@ namespace RB
             unitData.rigidBody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
-        public virtual void ProcessDamage()
+        public virtual bool ProcessDamage()
         {
+            bool damageTaken = false;
+
             foreach (DamageData data in unitData.listDamageData)
             {
                 unitData.health -= data.damageAmount;
+                damageTaken = true;
             }
 
             unitData.listDamageData.Clear();
+
+            return damageTaken;
         }
 
         public virtual void SetUserInput(UserInput userInput)
@@ -66,9 +71,17 @@ namespace RB
 
         }
 
+        public virtual void RunHitReactionAnimation()
+        {
+            Debugger.Log("HitReaction animation not defined");
+        }
+
         public virtual void RunDeathAnimation()
         {
+            Debugger.Log("Death animation not defined");
 
+            //destroy by default if death animation is not defined
+            destroy = true;
         }
     }
 }

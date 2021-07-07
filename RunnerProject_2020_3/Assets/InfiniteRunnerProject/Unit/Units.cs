@@ -75,11 +75,13 @@ namespace RB
                 }
 
                 _listUnits[i].OnFixedUpdate();
-                _listUnits[i].ProcessDamage();
+
+                if (_listUnits[i].ProcessDamage())
+                {
+                    _listUnits[i].RunHitReactionAnimation();
+                }
             }
 
-            //temp
-            //destroying units with 0 health
             for (int i = _listUnits.Count - 1; i >= 0; i--)
             {
                 if (_listUnits[i].unitData.health <= 0)

@@ -16,10 +16,5 @@ namespace RB
             unitUpdater.CustomFixedUpdate();
             unitData.spriteAnimations.OnFixedUpdate();
         }
-
-        public override void RunDeathAnimation()
-        {
-            destroy = true;
-        }
     }
 }
