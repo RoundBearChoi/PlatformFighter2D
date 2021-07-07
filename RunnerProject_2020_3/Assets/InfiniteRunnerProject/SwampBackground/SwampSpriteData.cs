@@ -15,5 +15,10 @@ namespace RB
 
         public uint Swamp_Unified_SpriteInterval = new uint();
         public Vector2 Swamp_Unified_SpriteSize = new Vector2();
+
+        [Space(10)]
+        [Range(0f, 1f)] public float Swamp_Grass_ParallaxPercentage;
+        [Range(0f, 1f)] public float Swamp_River_ParallaxPercentage;
+        [Range(0f, 1f)] public float Swamp_FrontTrees_ParallaxPercentage;
     }
 }

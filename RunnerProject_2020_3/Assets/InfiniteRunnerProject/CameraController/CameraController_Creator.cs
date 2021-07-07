@@ -8,13 +8,12 @@ namespace RB
     {
         private Transform _parentTransform;
         private Unit _runner;
-        private Camera _mainCamera;
 
-        public CameraController_Creator(Transform parentTransform, Unit runner, Camera mainCamera)
+        public CameraController_Creator(Transform parentTransform, Unit runner, Camera gameCam)
         {
             _parentTransform = parentTransform;
             _runner = runner;
-            _mainCamera = mainCamera;
+            CameraController.gameCam = gameCam;
         }
 
         public override Unit GetUnit()
@@ -27,7 +26,7 @@ namespace RB
             cameraController.transform.localPosition = Vector3.zero;
             cameraController.transform.localRotation = Quaternion.identity;
             cameraController.iStateController = new StateController(
-                new CameraController_SimpleFollow(_runner, _mainCamera),
+                new CameraController_SimpleFollow(_runner),
                 cameraController.unitData);
 
             cameraController.unitData.spriteAnimations = new SpriteAnimations(cameraController.iStateController);

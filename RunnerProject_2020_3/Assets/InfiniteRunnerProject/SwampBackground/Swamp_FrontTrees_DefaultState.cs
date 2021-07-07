@@ -26,6 +26,13 @@ namespace RB
         public Swamp_FrontTrees_DefaultState(Unit unit)
         {
             _unit = unit;
+
+            _listStateComponents.Add(new ParallaxBackground(unit, CameraController.gameCam.gameObject, StaticRefs.swampSpriteData.Swamp_FrontTrees_ParallaxPercentage));
+        }
+
+        public override void OnFixedUpdate()
+        {
+            UpdateComponents();
         }
     }
 }

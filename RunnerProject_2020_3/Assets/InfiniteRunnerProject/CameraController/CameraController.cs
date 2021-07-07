@@ -6,6 +6,8 @@ namespace RB
 {
     public class CameraController : Unit
     {
+        public static Camera gameCam = null;
+
         public override void OnFixedUpdate()
         {
             iStateController.TransitionToNextState();

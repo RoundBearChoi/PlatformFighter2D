@@ -26,6 +26,13 @@ namespace RB
         public Swamp_Grass_DefaultState(Unit unit)
         {
             _unit = unit;
+
+            _listStateComponents.Add(new ParallaxBackground(unit, CameraController.gameCam.gameObject, StaticRefs.swampSpriteData.Swamp_Grass_ParallaxPercentage));
+        }
+
+        public override void OnFixedUpdate()
+        {
+            UpdateComponents();
         }
     }
 }

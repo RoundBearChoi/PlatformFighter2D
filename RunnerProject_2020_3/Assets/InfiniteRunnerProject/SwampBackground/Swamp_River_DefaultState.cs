@@ -26,6 +26,13 @@ namespace RB
         public Swamp_River_DefaultState(Unit unit)
         {
             _unit = unit;
+
+            _listStateComponents.Add(new ParallaxBackground(unit, CameraController.gameCam.gameObject, StaticRefs.swampSpriteData.Swamp_River_ParallaxPercentage));
+        }
+
+        public override void OnFixedUpdate()
+        {
+            UpdateComponents();
         }
     }
 }
