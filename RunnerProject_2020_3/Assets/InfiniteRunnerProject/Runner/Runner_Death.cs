@@ -24,7 +24,7 @@ namespace RB
         {
             if (string.IsNullOrEmpty(hashString))
             {
-                hashString = StaticRefs.runnerSpriteData.Death_SpriteName;
+                hashString = StaticRefs.runnerMovementSpriteData.Death_SpriteName;
                 animationHash = Hash128.Compute(hashString);
             }
         }

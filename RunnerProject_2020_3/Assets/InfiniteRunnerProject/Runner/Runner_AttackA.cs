@@ -20,7 +20,7 @@ namespace RB
         {
             if (string.IsNullOrEmpty(hashString))
             {
-                hashString = StaticRefs.runnerSpriteData.AttackA_SpriteName;
+                hashString = StaticRefs.runnerAttackSpriteData.AttackA_SpriteName;
                 animationHash = Hash128.Compute(hashString);
             }
         }

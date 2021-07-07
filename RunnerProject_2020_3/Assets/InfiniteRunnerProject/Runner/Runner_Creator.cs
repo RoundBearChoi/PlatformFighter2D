@@ -58,14 +58,14 @@ namespace RB
             unit.unitData.spriteAnimations.AddSpriteAnimation(
                 "runner idle fall animation",
                 new SpriteAnimationSpecs(
-                    StaticRefs.runnerSpriteData.Idle_SpriteName,
-                    StaticRefs.runnerSpriteData.Idle_SpriteInterval,
-                    StaticRefs.runnerSpriteData.Idle_SpriteSize,
+                    StaticRefs.runnerMovementSpriteData.Idle_SpriteName,
+                    StaticRefs.runnerMovementSpriteData.Idle_SpriteInterval,
+                    StaticRefs.runnerMovementSpriteData.Idle_SpriteSize,
                     OffsetType.BOTTOM_CENTER,
                     Vector2.zero),
                 unit.transform);
 
-            foreach (AdditionalInterval additionalInterval in StaticRefs.runnerSpriteData.Idle_AdditionalIntervals)
+            foreach (AdditionalInterval additionalInterval in StaticRefs.runnerMovementSpriteData.Idle_AdditionalIntervals)
             {
                 unit.unitData.spriteAnimations.GetLastSpriteAnimation().AddAdditionalInterval(additionalInterval);
             }
@@ -76,9 +76,9 @@ namespace RB
             unit.unitData.spriteAnimations.AddSpriteAnimation(
                 "runner run animation",
                 new SpriteAnimationSpecs(
-                    StaticRefs.runnerSpriteData.Run_SpriteName,
-                    StaticRefs.runnerSpriteData.Run_SpriteInterval,
-                    StaticRefs.runnerSpriteData.Run_SpriteSize,
+                    StaticRefs.runnerMovementSpriteData.Run_SpriteName,
+                    StaticRefs.runnerMovementSpriteData.Run_SpriteInterval,
+                    StaticRefs.runnerMovementSpriteData.Run_SpriteSize,
                     OffsetType.BOTTOM_CENTER,
                     Vector2.zero),
                 unit.transform);
@@ -89,11 +89,11 @@ namespace RB
             unit.unitData.spriteAnimations.AddSpriteAnimation(
                 "runner straight punch animation",
                 new SpriteAnimationSpecs(
-                    StaticRefs.runnerSpriteData.AttackA_SpriteName,
-                    StaticRefs.runnerSpriteData.AttackA_SpriteInterval,
-                    StaticRefs.runnerSpriteData.AttackA_SpriteSize,
+                    StaticRefs.runnerAttackSpriteData.AttackA_SpriteName,
+                    StaticRefs.runnerAttackSpriteData.AttackA_SpriteInterval,
+                    StaticRefs.runnerAttackSpriteData.AttackA_SpriteSize,
                     OffsetType.BOTTOM_CENTER,
-                    StaticRefs.runnerSpriteData.AttackA_AdditionalOffset),
+                    StaticRefs.runnerAttackSpriteData.AttackA_AdditionalOffset),
                 unit.transform);
 
             unit.unitData.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
@@ -104,9 +104,9 @@ namespace RB
             unit.unitData.spriteAnimations.AddSpriteAnimation(
                 "runner jump (up) animation",
                 new SpriteAnimationSpecs(
-                    StaticRefs.runnerSpriteData.Jump_SpriteName,
-                    StaticRefs.runnerSpriteData.Jump_SpriteInterval,
-                    StaticRefs.runnerSpriteData.Jump_SpriteSize,
+                    StaticRefs.runnerMovementSpriteData.Jump_SpriteName,
+                    StaticRefs.runnerMovementSpriteData.Jump_SpriteInterval,
+                    StaticRefs.runnerMovementSpriteData.Jump_SpriteSize,
                     OffsetType.BOTTOM_CENTER,
                     Vector2.zero),
                 unit.transform);
@@ -120,8 +120,8 @@ namespace RB
                 "runner jump (fall) animation",
                 new SpriteAnimationSpecs(
                     "Texture_Jump_Fall_Orange",
-                    StaticRefs.runnerSpriteData.Jump_SpriteInterval,
-                    StaticRefs.runnerSpriteData.Jump_SpriteSize,
+                    StaticRefs.runnerMovementSpriteData.Jump_SpriteInterval,
+                    StaticRefs.runnerMovementSpriteData.Jump_SpriteSize,
                     OffsetType.BOTTOM_CENTER,
                     Vector2.zero),
                 unit.transform);
@@ -134,9 +134,9 @@ namespace RB
             unit.unitData.spriteAnimations.AddSpriteAnimation(
                 "runner death animation",
                 new SpriteAnimationSpecs(
-                    StaticRefs.runnerSpriteData.Death_SpriteName,
-                    StaticRefs.runnerSpriteData.Death_SpriteInterval,
-                    StaticRefs.runnerSpriteData.Death_SpriteSize,
+                    StaticRefs.runnerMovementSpriteData.Death_SpriteName,
+                    StaticRefs.runnerMovementSpriteData.Death_SpriteInterval,
+                    StaticRefs.runnerMovementSpriteData.Death_SpriteSize,
                     OffsetType.BOTTOM_CENTER,
                     Vector2.zero),
                 unit.transform);

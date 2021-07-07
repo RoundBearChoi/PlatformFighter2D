@@ -29,11 +29,11 @@ namespace RB
             _punchAnimations = new SpriteAnimations(null);
 
             SpriteAnimationSpecs specs = new SpriteAnimationSpecs(
-                StaticRefs.runnerSpriteData.AttackA_SpriteName,
+                StaticRefs.runnerAttackSpriteData.AttackA_SpriteName,
                 1,
-                StaticRefs.runnerSpriteData.AttackA_SpriteSize,
+                StaticRefs.runnerAttackSpriteData.AttackA_SpriteSize,
                 OffsetType.BOTTOM_CENTER,
-                StaticRefs.runnerSpriteData.AttackA_AdditionalOffset);
+                StaticRefs.runnerAttackSpriteData.AttackA_AdditionalOffset);
 
             _punchAnimations.AddSpriteAnimation("runner straight punch animation", specs, _dummyObj.transform);
 

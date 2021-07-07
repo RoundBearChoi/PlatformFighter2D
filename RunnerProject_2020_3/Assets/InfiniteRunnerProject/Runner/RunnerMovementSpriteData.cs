@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace RB
 {
-    [CreateAssetMenu(fileName = "Data", menuName = "InfiniteRunner/GameData/RunnerSpriteData")]
-    public class RunnerSpriteData : ScriptableObject
+    [CreateAssetMenu(fileName = "Data", menuName = "InfiniteRunner/GameData/RunnerMovementSpriteData")]
+    public class RunnerMovementSpriteData : ScriptableObject
     {
         public string Idle_SpriteName;
         public uint Idle_SpriteInterval = new uint();
@@ -18,12 +18,12 @@ namespace RB
         public uint Run_SpriteInterval = new uint();
         public Vector2 Run_SpriteSize = new Vector2();
 
-        [Space(10)]
-
-        public string AttackA_SpriteName;
-        public uint AttackA_SpriteInterval = new uint();
-        public Vector2 AttackA_SpriteSize = new Vector2();
-        public Vector2 AttackA_AdditionalOffset = new Vector2();
+        //[Space(10)]
+        //
+        //public string AttackA_SpriteName;
+        //public uint AttackA_SpriteInterval = new uint();
+        //public Vector2 AttackA_SpriteSize = new Vector2();
+        //public Vector2 AttackA_AdditionalOffset = new Vector2();
 
         [Space(10)]
 

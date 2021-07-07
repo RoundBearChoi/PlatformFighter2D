@@ -15,7 +15,10 @@ namespace RB
         private GameData gameDataScriptableObj = null;
 
         [SerializeField]
-        private RunnerSpriteData runnerSpriteDataScriptableObj = null;
+        private RunnerMovementSpriteData runnerMovementSpriteDataScriptableObj = null;
+
+        [SerializeField]
+        private RunnerAttackSpriteData runnerAttackSpriteDataScriptableObj = null;
 
         [SerializeField]
         private MovementDustSpriteData vfxSpriteDataScriptableObj = null;
@@ -23,7 +26,8 @@ namespace RB
         private void Start()
         {
             StaticRefs.gameData = gameDataScriptableObj;
-            StaticRefs.runnerSpriteData = runnerSpriteDataScriptableObj;
+            StaticRefs.runnerMovementSpriteData = runnerMovementSpriteDataScriptableObj;
+            StaticRefs.runnerAttackSpriteData = runnerAttackSpriteDataScriptableObj;
             StaticRefs.vfxSpriteData = vfxSpriteDataScriptableObj;
 
             Debugger.Log("setting current GameInitializer instance");
