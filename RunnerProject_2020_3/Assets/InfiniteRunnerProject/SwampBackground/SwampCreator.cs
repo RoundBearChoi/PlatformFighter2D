@@ -159,7 +159,9 @@ namespace RB
             listUnits.Add(GetRiverUnit());
             listUnits.Add(GetFrontTreesUnit());
             listUnits.Add(GetBackTreesUnit());
-            listUnits.Add(GetBackgroundColorUnit());
+
+            //don't need background color as texture
+            //listUnits.Add(GetBackgroundColorUnit());
         }
     }
 }
