@@ -18,7 +18,7 @@ namespace RB
             LoadObj<LandingDust>(UnitType.LANDING_DUST, "LandingDust");
             LoadObj<StepDust>(UnitType.STEP_DUST, "StepDust");
 
-            LoadObj<Swamp>(UnitType.SWAMP_GRASS, "SwampBackground");
+            LoadObj<Swamp>(UnitType.SWAMP_BACKGROUND, "SwampBackground");
             //LoadObj<Swamp>(UnitType.SWAMP_RIVER, "SwampBackground");
         }
     }

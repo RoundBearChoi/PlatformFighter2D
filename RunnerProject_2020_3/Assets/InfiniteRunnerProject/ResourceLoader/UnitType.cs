@@ -15,10 +15,6 @@ namespace RB
         LANDING_DUST,
         STEP_DUST,
 
-        SWAMP_GRASS,
-        SWAMP_RIVER,
-        SWAMP_FRONT_TREES,
-        SWAMP_BACK_TREES,
         SWAMP_BACKGROUND,
     }
 }

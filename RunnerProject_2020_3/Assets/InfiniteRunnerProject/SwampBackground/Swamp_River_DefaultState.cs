@@ -18,7 +18,7 @@ namespace RB
         {
             if (string.IsNullOrEmpty(hashString))
             {
-                hashString = "Texture_Swamp_River 2";
+                hashString = StaticRefs.swampSpriteData.Swamp_River_SpriteName;
                 animationHash = Hash128.Compute(hashString);
             }
         }

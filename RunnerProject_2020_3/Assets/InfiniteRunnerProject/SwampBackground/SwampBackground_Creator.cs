@@ -7,8 +7,6 @@ namespace RB
     public class SwampBackground_Creator : UnitCreator
     {
         private Transform _parentTransform;
-        static float sizeY = 6f;
-        static float sizeX = sizeY * 1.777f;
 
         public SwampBackground_Creator(Transform parentTransform)
         {
@@ -17,7 +15,7 @@ namespace RB
 
         Unit GetGrassUnit()
         {
-            Unit swamp_grass = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP_GRASS)) as Unit;
+            Unit swamp_grass = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP_BACKGROUND)) as Unit;
             swamp_grass.unitData = new UnitData(swamp_grass.transform);
 
             swamp_grass.iStateController = new StateController(
@@ -31,9 +29,9 @@ namespace RB
             swamp_grass.unitData.spriteAnimations.AddSpriteAnimation(
                 "swamp background - grass",
                 new SpriteAnimationSpecs(
-                    "Texture_Swamp_Grass -1",
-                    60,
-                    new Vector2(sizeX, sizeY),
+                    StaticRefs.swampSpriteData.Swamp_Grass_SpriteName,
+                    StaticRefs.swampSpriteData.Swamp_Unified_SpriteInterval,
+                    StaticRefs.swampSpriteData.Swamp_Unified_SpriteSize,
                     OffsetType.BOTTOM_LEFT,
                     Vector2.zero),
                 swamp_grass.transform);
@@ -45,7 +43,7 @@ namespace RB
 
         Unit GetRiverUnit()
         {
-            Unit swamp_river = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP_GRASS)) as Unit;
+            Unit swamp_river = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP_BACKGROUND)) as Unit;
             swamp_river.unitData = new UnitData(swamp_river.transform);
 
             swamp_river.iStateController = new StateController(
@@ -57,11 +55,11 @@ namespace RB
             swamp_river.unitData.spriteAnimations = new SpriteAnimations(swamp_river.iStateController);
 
             swamp_river.unitData.spriteAnimations.AddSpriteAnimation(
-                "swamp background - grass",
+                "swamp background - river",
                 new SpriteAnimationSpecs(
-                    "Texture_Swamp_River 2",
-                    60,
-                    new Vector2(sizeX, sizeY),
+                    StaticRefs.swampSpriteData.Swamp_River_SpriteName,
+                    StaticRefs.swampSpriteData.Swamp_Unified_SpriteInterval,
+                    StaticRefs.swampSpriteData.Swamp_Unified_SpriteSize,
                     OffsetType.BOTTOM_LEFT,
                     Vector2.zero),
                 swamp_river.transform);

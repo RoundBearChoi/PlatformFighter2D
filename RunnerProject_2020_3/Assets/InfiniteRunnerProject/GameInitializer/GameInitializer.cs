@@ -20,12 +20,16 @@ namespace RB
         [SerializeField]
         private MovementDustSpriteData vfxSpriteDataScriptableObj = null;
 
+        [SerializeField]
+        private SwampSpriteData swampSpriteDataScriptableObj = null;
+
         private void Start()
         {
             StaticRefs.gameData = gameDataScriptableObj;
             StaticRefs.runnerMovementSpriteData = runnerMovementSpriteDataScriptableObj;
             StaticRefs.runnerAttackSpriteData = runnerAttackSpriteDataScriptableObj;
             StaticRefs.movementDustSpriteData = vfxSpriteDataScriptableObj;
+            StaticRefs.swampSpriteData = swampSpriteDataScriptableObj;
 
             Debugger.Log("setting current GameInitializer instance");
 
