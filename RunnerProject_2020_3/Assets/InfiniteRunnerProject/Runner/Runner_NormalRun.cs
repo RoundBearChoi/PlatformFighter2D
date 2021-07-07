@@ -55,7 +55,9 @@ namespace RB
                 {
                     Units.instance.AddCreator(new StepDust_Creator(Stage.currentStage.transform));
                     Units.instance.ProcessCreators();
-                    Units.instance.GetUnit<StepDust>().transform.position = _unit.transform.position - new Vector3(_unit.transform.right.x * 0.8f, 0f, 0f);
+                    Unit dust = Units.instance.GetUnit<StepDust>();
+                    dust.transform.position = _unit.transform.position - new Vector3(_unit.transform.right.x * 1f, 0f, 0f);
+                    dust.unitData.faceRight = false;
                 }
             }
         }
