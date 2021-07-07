@@ -12,5 +12,6 @@ namespace RB
 
         //separate effects into other unit groups later
         LANDING_DUST,
+        STEP_DUST,
     }
 }

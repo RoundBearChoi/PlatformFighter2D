@@ -47,6 +47,17 @@ namespace RB
         public override void OnFixedUpdate()
         {
             UpdateComponents();
+
+            if (updateCount != 0 && updateCount % StaticRefs.runnerMovementSpriteData.Run_SpriteInterval == 0)
+            {
+                if (_unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX == 3 ||
+                    _unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX == 7)
+                {
+                    Units.instance.AddCreator(new StepDust_Creator(GameInitializer.instance.transform));
+                    Units.instance.ProcessCreators();
+                    Units.instance.GetUnit<StepDust>().transform.position = _unit.transform.position - new Vector3(0.45f, 0f, 0f);
+                }
+            }
         }
     }
 }

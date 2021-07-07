@@ -17,6 +17,14 @@ namespace RB
         public Hash128 animationHash;
         public bool playOnce = false;
 
+        public int SPRITE_INDEX
+        {
+            get
+            {
+                return _spriteIndex;
+            }
+        }
+
         public void Init(SpriteAnimationSpecs animationSpecs)
         {
             animationHash = Hash128.Compute(animationSpecs.mSheetFileName);

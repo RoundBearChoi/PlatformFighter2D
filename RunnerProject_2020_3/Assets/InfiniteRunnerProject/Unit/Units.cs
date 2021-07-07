@@ -28,15 +28,25 @@ namespace RB
 
         public Unit GetUnit<T>()
         {
-            foreach(Unit unit in _listUnits)
+            for (int i = _listUnits.Count - 1; i >= 0; i--)
             {
-                if (unit is T)
+                if (_listUnits[i] is T)
                 {
-                    return unit;
+                    return _listUnits[i];
                 }
             }
 
             return null;
+
+            //foreach(Unit unit in _listUnits)
+            //{
+            //    if (unit is T)
+            //    {
+            //        return unit;
+            //    }
+            //}
+            //
+            //return null;
         }
 
         public void ProcessCreators()
