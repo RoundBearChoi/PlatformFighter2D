@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace RB
 {
-    public class SwampBackground_Creator : UnitCreator
+    public class SwampCreator : UnitCreator
     {
         private Transform _parentTransform;
 
-        public SwampBackground_Creator(Transform parentTransform)
+        public SwampCreator(Transform parentTransform)
         {
             _parentTransform = parentTransform;
         }
@@ -125,12 +125,41 @@ namespace RB
             return swamp_backTrees;
         }
 
+        Unit GetBackgroundColorUnit()
+        {
+            Unit swamp_backgroundColor = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP_BACKGROUND)) as Unit;
+            swamp_backgroundColor.unitData = new UnitData(swamp_backgroundColor.transform);
+
+            swamp_backgroundColor.iStateController = new StateController(
+                new Swamp_BackgroundColor_DefaultState(swamp_backgroundColor),
+                swamp_backgroundColor.unitData);
+            swamp_backgroundColor.transform.parent = _parentTransform;
+            swamp_backgroundColor.transform.localRotation = Quaternion.identity;
+
+            swamp_backgroundColor.unitData.spriteAnimations = new SpriteAnimations(swamp_backgroundColor.iStateController);
+
+            swamp_backgroundColor.unitData.spriteAnimations.AddSpriteAnimation(
+                "swamp background - background color",
+                new SpriteAnimationSpecs(
+                    StaticRefs.swampSpriteData.Swamp_BackgroundColor_SpriteName,
+                    StaticRefs.swampSpriteData.Swamp_Unified_SpriteInterval,
+                    StaticRefs.swampSpriteData.Swamp_Unified_SpriteSize,
+                    OffsetType.BOTTOM_LEFT,
+                    Vector2.zero),
+                swamp_backgroundColor.transform);
+
+            swamp_backgroundColor.transform.position = new Vector3(0f, 0f, 5f);
+
+            return swamp_backgroundColor;
+        }
+
         public override void AddUnits(List<Unit> listUnits)
         {
             listUnits.Add(GetGrassUnit());
             listUnits.Add(GetRiverUnit());
             listUnits.Add(GetFrontTreesUnit());
             listUnits.Add(GetBackTreesUnit());
+            listUnits.Add(GetBackgroundColorUnit());
         }
     }
 }
