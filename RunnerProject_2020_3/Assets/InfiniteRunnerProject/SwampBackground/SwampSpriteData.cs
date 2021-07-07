@@ -9,6 +9,7 @@ namespace RB
     {
         public string Swamp_Grass_SpriteName;
         public string Swamp_River_SpriteName;
+        public string Swamp_FrontTrees_SpriteName;
 
         [Space(10)]
 

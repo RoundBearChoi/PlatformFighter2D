@@ -69,10 +69,39 @@ namespace RB
             return swamp_river;
         }
 
+        Unit GetFrontTreesUnit()
+        {
+            Unit swamp_frontTrees = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP_BACKGROUND)) as Unit;
+            swamp_frontTrees.unitData = new UnitData(swamp_frontTrees.transform);
+
+            swamp_frontTrees.iStateController = new StateController(
+                new Swamp_FrontTrees_DefaultState(swamp_frontTrees),
+                swamp_frontTrees.unitData);
+            swamp_frontTrees.transform.parent = _parentTransform;
+            swamp_frontTrees.transform.localRotation = Quaternion.identity;
+
+            swamp_frontTrees.unitData.spriteAnimations = new SpriteAnimations(swamp_frontTrees.iStateController);
+
+            swamp_frontTrees.unitData.spriteAnimations.AddSpriteAnimation(
+                "swamp background - front trees",
+                new SpriteAnimationSpecs(
+                    StaticRefs.swampSpriteData.Swamp_FrontTrees_SpriteName,
+                    StaticRefs.swampSpriteData.Swamp_Unified_SpriteInterval,
+                    StaticRefs.swampSpriteData.Swamp_Unified_SpriteSize,
+                    OffsetType.BOTTOM_LEFT,
+                    Vector2.zero),
+                swamp_frontTrees.transform);
+
+            swamp_frontTrees.transform.position = new Vector3(0f, 0f, 3f);
+
+            return swamp_frontTrees;
+        }
+
         public override void AddUnits(List<Unit> listUnits)
         {
             listUnits.Add(GetGrassUnit());
             listUnits.Add(GetRiverUnit());
+            listUnits.Add(GetFrontTreesUnit());
         }
     }
 }
