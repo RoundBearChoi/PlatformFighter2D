@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Runner_StraightPunch : State
+    public class Runner_AttackA : State
     {
         static Hash128 animationHash;
         static string hashString = string.Empty;
@@ -25,7 +25,7 @@ namespace RB
             }
         }
 
-        public Runner_StraightPunch(Unit unit, UserInput input)
+        public Runner_AttackA(Unit unit, UserInput input)
         {
             _unit = unit;
             _userInput = input;

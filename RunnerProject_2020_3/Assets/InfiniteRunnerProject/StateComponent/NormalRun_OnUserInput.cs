@@ -22,7 +22,7 @@ namespace RB
             }
             else if (_userInput.ContainsButtonPress(UserInput.mouse.leftButton))
             {
-                _unit.unitData.listNextStates.Add(new Runner_StraightPunch(_unit, _userInput));
+                _unit.unitData.listNextStates.Add(new Runner_AttackA(_unit, _userInput));
             }
         }
     }
