@@ -4,18 +4,18 @@ using UnityEngine;
 
 namespace RB
 {
-    public class SwampCreator : UnitCreator
+    public class Swamp_Creator : UnitCreator
     {
         private Transform _parentTransform;
 
-        public SwampCreator(Transform parentTransform)
+        public Swamp_Creator(Transform parentTransform)
         {
             _parentTransform = parentTransform;
         }
 
         Unit GetGrassUnit()
         {
-            Unit swamp_grass = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP_BACKGROUND)) as Unit;
+            Unit swamp_grass = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP)) as Unit;
             swamp_grass.unitData = new UnitData(swamp_grass.transform);
 
             swamp_grass.iStateController = new StateController(
@@ -43,7 +43,7 @@ namespace RB
 
         Unit GetRiverUnit()
         {
-            Unit swamp_river = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP_BACKGROUND)) as Unit;
+            Unit swamp_river = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP)) as Unit;
             swamp_river.unitData = new UnitData(swamp_river.transform);
 
             swamp_river.iStateController = new StateController(
@@ -71,7 +71,7 @@ namespace RB
 
         Unit GetFrontTreesUnit()
         {
-            Unit swamp_frontTrees = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP_BACKGROUND)) as Unit;
+            Unit swamp_frontTrees = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP)) as Unit;
             swamp_frontTrees.unitData = new UnitData(swamp_frontTrees.transform);
 
             swamp_frontTrees.iStateController = new StateController(
@@ -99,7 +99,7 @@ namespace RB
 
         Unit GetBackTreesUnit()
         {
-            Unit swamp_backTrees = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP_BACKGROUND)) as Unit;
+            Unit swamp_backTrees = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP)) as Unit;
             swamp_backTrees.unitData = new UnitData(swamp_backTrees.transform);
 
             swamp_backTrees.iStateController = new StateController(
@@ -127,7 +127,7 @@ namespace RB
 
         Unit GetBackgroundColorUnit()
         {
-            Unit swamp_backgroundColor = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP_BACKGROUND)) as Unit;
+            Unit swamp_backgroundColor = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP)) as Unit;
             swamp_backgroundColor.unitData = new UnitData(swamp_backgroundColor.transform);
 
             swamp_backgroundColor.iStateController = new StateController(

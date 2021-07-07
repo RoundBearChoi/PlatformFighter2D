@@ -27,7 +27,7 @@ namespace RB
         {
             _unit = unit;
 
-            _listStateComponents.Add(new ParallaxBackground(unit, CameraController.gameCam.gameObject, StaticRefs.swampSpriteData.Swamp_BackTrees_ParallaxPercentage));
+            _listStateComponents.Add(new HorizontalParallax(unit, 0f, CameraController.gameCam.gameObject, StaticRefs.swampSpriteData.Swamp_BackTrees_ParallaxPercentage));
         }
 
         public override void OnFixedUpdate()

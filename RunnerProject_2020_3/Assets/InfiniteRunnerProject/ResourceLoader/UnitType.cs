@@ -15,6 +15,6 @@ namespace RB
         LANDING_DUST,
         STEP_DUST,
 
-        SWAMP_BACKGROUND,
+        SWAMP,
     }
 }
