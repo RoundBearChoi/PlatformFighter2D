@@ -36,6 +36,8 @@ namespace RB
                     Vector2.zero),
                 stepDust.transform);
 
+            stepDust.unitData.faceRight = false;
+
             return stepDust;
         }
 

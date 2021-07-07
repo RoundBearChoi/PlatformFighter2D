@@ -59,6 +59,21 @@ namespace RB
                     _listUnits[i].unitData.spriteAnimations.MatchAnimationToState();
                 }
                 
+                if (_listUnits[i].unitData.faceRight)
+                {
+                    if (_listUnits[i].transform.rotation.y != 0f)
+                    {
+                        _listUnits[i].transform.rotation = Quaternion.Euler(_listUnits[i].transform.rotation.x, 0f, _listUnits[i].transform.rotation.z);
+                    }
+                }
+                else
+                {
+                    if (_listUnits[i].transform.rotation.y != 180f)
+                    {
+                        _listUnits[i].transform.rotation = Quaternion.Euler(_listUnits[i].transform.rotation.x, 180f, _listUnits[i].transform.rotation.z);
+                    }
+                }
+
                 _listUnits[i].OnFixedUpdate();
                 _listUnits[i].ProcessDamage();
             }

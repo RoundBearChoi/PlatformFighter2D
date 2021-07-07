@@ -14,6 +14,7 @@ namespace RB
         }
 
         public float health = 1f;
+        public bool faceRight = true;
         public Transform unitTransform = null;
         public Rigidbody2D rigidBody2D = null;
         public BoxCollider2D boxCollider2D = null;
