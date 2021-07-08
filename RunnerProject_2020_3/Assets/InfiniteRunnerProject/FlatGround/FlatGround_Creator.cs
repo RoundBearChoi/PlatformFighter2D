@@ -16,7 +16,6 @@ namespace RB
         public GameObject GetGroundUnit()
         {
             GameObject groundObj = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.FLAT_GROUND)) as GameObject;
-
             groundObj.transform.parent = _parentTransform;
             groundObj.transform.localRotation = Quaternion.identity;
             groundObj.transform.localPosition = Vector3.zero;

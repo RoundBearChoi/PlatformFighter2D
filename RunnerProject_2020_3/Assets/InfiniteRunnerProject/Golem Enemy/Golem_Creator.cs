@@ -16,21 +16,20 @@ namespace RB
         public override Unit GetUnit()
         {
             Unit golem = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.GOLEM)) as Unit;
+            golem.transform.parent = _parentTransform;
+            golem.transform.localRotation = Quaternion.identity;
+
             golem.unitData = new UnitData(golem.transform);
             golem.attackData = new AttackData();
 
             golem.iStateController = new StateController(
                 new Golem_Idle(golem),
                 golem.unitData);
-            golem.transform.parent = _parentTransform;
-            golem.transform.localRotation = Quaternion.identity;
 
             golem.InitBoxCollider(StaticRefs.golemSpriteData.GolemBoxColliderSize);
-            golem.InitCollisionReaction();
             golem.InitCollisionChecker();
 
             golem.unitData.spriteAnimations = new SpriteAnimations(golem.iStateController);
-
             golem.unitData.faceRight = false;
 
             SetIdle(golem);

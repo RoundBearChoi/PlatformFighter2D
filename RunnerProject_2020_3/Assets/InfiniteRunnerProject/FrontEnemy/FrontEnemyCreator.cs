@@ -16,18 +16,19 @@ namespace RB
         public override Unit GetUnit()
         {
             Unit enemy = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SAMPLE_LEFT_ENEMY)) as Unit;
+            enemy.transform.parent = _parentTransform;
+            enemy.transform.localRotation = Quaternion.identity;
+
             enemy.unitData = new UnitData(enemy.transform);
             enemy.attackData = new AttackData();
 
             enemy.iStateController = new StateController(
                 new FrontEnemy_Idle(enemy),
                 enemy.unitData);
-            enemy.transform.parent = _parentTransform;
-            enemy.transform.localRotation = Quaternion.identity;
+
             enemy.SetUpdater(new DefaultUpdater(enemy.iStateController));
 
             enemy.unitData.spriteAnimations = new SpriteAnimations(enemy.iStateController);
-            //enemy.InitSpriteAnimations();
 
             enemy.unitData.spriteAnimations.AddSpriteAnimation("front enemy idle animation",
                 new SpriteAnimationSpecs(

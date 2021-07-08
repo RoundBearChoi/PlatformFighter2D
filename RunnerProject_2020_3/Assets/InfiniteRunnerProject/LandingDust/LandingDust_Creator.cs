@@ -16,13 +16,14 @@ namespace RB
         public override Unit GetUnit()
         {
             Unit landingDust = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.LANDING_DUST)) as Unit;
+            landingDust.transform.parent = _parentTransform;
+            landingDust.transform.localRotation = Quaternion.identity;
+
             landingDust.unitData = new UnitData(landingDust.transform);
 
             landingDust.iStateController = new StateController(
                 new LandingDust_DefaultState(landingDust),
                 landingDust.unitData);
-            landingDust.transform.parent = _parentTransform;
-            landingDust.transform.localRotation = Quaternion.identity;
 
             landingDust.unitData.spriteAnimations = new SpriteAnimations(landingDust.iStateController);
 

@@ -11,6 +11,8 @@ namespace RB
         public UnitData unitData = null;
         public AttackData attackData = null;
 
+        protected ICollisionSideChecker _collisionChecker = null;
+
         public bool deathAnimationTriggered = false;
         public bool destroy = false;
 
@@ -63,12 +65,8 @@ namespace RB
 
         public virtual void InitCollisionChecker()
         {
-
-        }
-
-        public virtual void InitCollisionReaction()
-        {
-
+            BoxCollider2D collider = this.gameObject.GetComponent<BoxCollider2D>();
+            _collisionChecker = new CollisionChecker(collider);
         }
 
         public virtual void RunHitReactionAnimation()

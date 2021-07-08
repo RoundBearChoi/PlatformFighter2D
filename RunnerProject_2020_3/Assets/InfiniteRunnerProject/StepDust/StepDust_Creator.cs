@@ -16,13 +16,14 @@ namespace RB
         public override Unit GetUnit()
         {
             Unit stepDust = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.STEP_DUST)) as Unit;
+            stepDust.transform.parent = _parentTransform;
+            stepDust.transform.localRotation = Quaternion.identity;
+
             stepDust.unitData = new UnitData(stepDust.transform);
 
             stepDust.iStateController = new StateController(
                 new StepDust_DefaultState(stepDust),
                 stepDust.unitData);
-            stepDust.transform.parent = _parentTransform;
-            stepDust.transform.localRotation = Quaternion.identity;
 
             stepDust.unitData.spriteAnimations = new SpriteAnimations(stepDust.iStateController);
 

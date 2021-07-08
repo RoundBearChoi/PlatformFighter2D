@@ -16,15 +16,15 @@ namespace RB
         Unit GetGrassUnit()
         {
             Unit swamp_grass = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP)) as Unit;
-            swamp_grass.unitData = new UnitData(swamp_grass.transform);
-
+            swamp_grass.transform.parent = _parentTransform;
+            swamp_grass.transform.localRotation = Quaternion.identity;
             swamp_grass.transform.position = StaticRefs.swampSpriteData.Swamp_Grass_StartPos;
 
+            swamp_grass.unitData = new UnitData(swamp_grass.transform);
+            
             swamp_grass.iStateController = new StateController(
                 new Swamp_Grass_DefaultState(swamp_grass),
                 swamp_grass.unitData);
-            swamp_grass.transform.parent = _parentTransform;
-            swamp_grass.transform.localRotation = Quaternion.identity;
 
             swamp_grass.unitData.spriteAnimations = new SpriteAnimations(swamp_grass.iStateController);
 
@@ -37,8 +37,6 @@ namespace RB
                     OffsetType.BOTTOM_LEFT,
                     Vector2.zero),
                 swamp_grass.transform);
-
-            
 
             return swamp_grass;
         }

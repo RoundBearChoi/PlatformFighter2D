@@ -19,12 +19,14 @@ namespace RB
         public override Unit GetUnit()
         {
             GameObject cameraConObj = new GameObject("cameraController(Clone)");
+            cameraConObj.transform.parent = _parentTransform;
+            cameraConObj.transform.localPosition = Vector3.zero;
+            cameraConObj.transform.localRotation = Quaternion.identity;
+
             Unit cameraController = cameraConObj.AddComponent<CameraController>();
+
             cameraController.unitData = new UnitData(cameraController.transform);
 
-            cameraController.transform.parent = _parentTransform;
-            cameraController.transform.localPosition = Vector3.zero;
-            cameraController.transform.localRotation = Quaternion.identity;
             cameraController.iStateController = new StateController(
                 new CameraController_SimpleFollow(_runner),
                 cameraController.unitData);

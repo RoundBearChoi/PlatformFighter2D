@@ -20,17 +20,18 @@ namespace RB
             Runner_NormalRun.initialPush = false;
 
             Unit runner = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.RUNNER)) as Unit;
+            runner.transform.parent = _parentTransform;
+            runner.transform.localRotation = Quaternion.identity;
+
             runner.unitData = new UnitData(runner.transform);
 
             runner.iStateController = new StateController(
                 new Runner_Idle(runner, _userInput),
                 runner.unitData);
-            runner.transform.parent = _parentTransform;
-            runner.transform.localRotation = Quaternion.identity;
+
             runner.SetUpdater(new DefaultUpdater(runner.iStateController));
 
             runner.InitBoxCollider(StaticRefs.runnerMovementSpriteData.RunnerBoxColliderSize);
-            runner.InitCollisionReaction();
             runner.InitCollisionChecker();
             runner.SetUserInput(_userInput);
 

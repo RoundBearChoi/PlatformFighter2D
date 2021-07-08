@@ -7,8 +7,7 @@ namespace RB
     public class Runner : Unit
     {
         private UserInput _userInput = null;
-        private ICollisionSideChecker _collisionChecker = null;
-
+        
         public override void OnFixedUpdate()
         {
             unitUpdater.CustomFixedUpdate();
@@ -36,12 +35,6 @@ namespace RB
         public override void OnLateUpdate()
         {
             unitUpdater.CustomLateUpdate();
-        }
-
-        public override void InitCollisionChecker()
-        {
-            BoxCollider2D collider = this.gameObject.GetComponent<BoxCollider2D>();
-            _collisionChecker = new CollisionChecker(collider);
         }
 
         public override void SetUserInput(UserInput userInput)
