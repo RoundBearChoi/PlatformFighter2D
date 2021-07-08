@@ -35,7 +35,6 @@ namespace RB
             runner.SetUserInput(_userInput);
 
             runner.unitData.spriteAnimations = new SpriteAnimations(runner.iStateController);
-            runner.transform.position = new Vector3(0f, 5f, 0f);
 
             SetIdle(runner);
             SetRun(runner);

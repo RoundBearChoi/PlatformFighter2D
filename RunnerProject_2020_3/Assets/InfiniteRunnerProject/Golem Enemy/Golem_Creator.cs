@@ -30,7 +30,8 @@ namespace RB
             golem.InitCollisionChecker();
 
             golem.unitData.spriteAnimations = new SpriteAnimations(golem.iStateController);
-            golem.transform.position = new Vector3(10f, 0f, 0f);
+
+            golem.unitData.faceRight = false;
 
             SetIdle(golem);
 
