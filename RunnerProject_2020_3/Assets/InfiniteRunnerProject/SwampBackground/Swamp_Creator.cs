@@ -18,6 +18,8 @@ namespace RB
             Unit swamp_grass = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP)) as Unit;
             swamp_grass.unitData = new UnitData(swamp_grass.transform);
 
+            swamp_grass.transform.position = StaticRefs.swampSpriteData.Swamp_Grass_StartPos;
+
             swamp_grass.iStateController = new StateController(
                 new Swamp_Grass_DefaultState(swamp_grass),
                 swamp_grass.unitData);
@@ -36,7 +38,7 @@ namespace RB
                     Vector2.zero),
                 swamp_grass.transform);
 
-            swamp_grass.transform.position = new Vector3(0f, 0f, -1f);
+            
 
             return swamp_grass;
         }
@@ -45,6 +47,8 @@ namespace RB
         {
             Unit swamp_river = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP)) as Unit;
             swamp_river.unitData = new UnitData(swamp_river.transform);
+
+            swamp_river.transform.position = StaticRefs.swampSpriteData.Swamp_River_StartPos;
 
             swamp_river.iStateController = new StateController(
                 new Swamp_River_DefaultState(swamp_river),
@@ -64,8 +68,6 @@ namespace RB
                     Vector2.zero),
                 swamp_river.transform);
 
-            swamp_river.transform.position = new Vector3(0f, 0f, 2f);
-
             return swamp_river;
         }
 
@@ -73,6 +75,8 @@ namespace RB
         {
             Unit swamp_frontTrees = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP)) as Unit;
             swamp_frontTrees.unitData = new UnitData(swamp_frontTrees.transform);
+
+            swamp_frontTrees.transform.position = StaticRefs.swampSpriteData.Swamp_FrontTrees_StartPos;
 
             swamp_frontTrees.iStateController = new StateController(
                 new Swamp_FrontTrees_DefaultState(swamp_frontTrees),
@@ -92,8 +96,6 @@ namespace RB
                     Vector2.zero),
                 swamp_frontTrees.transform);
 
-            swamp_frontTrees.transform.position = new Vector3(0f, 0f, 3f);
-
             return swamp_frontTrees;
         }
 
@@ -101,6 +103,8 @@ namespace RB
         {
             Unit swamp_backTrees = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP)) as Unit;
             swamp_backTrees.unitData = new UnitData(swamp_backTrees.transform);
+
+            swamp_backTrees.transform.position = StaticRefs.swampSpriteData.Swamp_BackTrees_StartPos;
 
             swamp_backTrees.iStateController = new StateController(
                 new Swamp_BackTrees_DefaultState(swamp_backTrees),
@@ -120,8 +124,6 @@ namespace RB
                     Vector2.zero),
                 swamp_backTrees.transform);
 
-            swamp_backTrees.transform.position = new Vector3(0f, 0f, 4f);
-
             return swamp_backTrees;
         }
 
@@ -129,6 +131,8 @@ namespace RB
         {
             Unit swamp_backgroundColor = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP)) as Unit;
             swamp_backgroundColor.unitData = new UnitData(swamp_backgroundColor.transform);
+
+            swamp_backgroundColor.transform.position = StaticRefs.swampSpriteData.Swamp_BackgroundColor_StartPos;
 
             swamp_backgroundColor.iStateController = new StateController(
                 new Swamp_BackgroundColor_DefaultState(swamp_backgroundColor),
@@ -147,8 +151,6 @@ namespace RB
                     OffsetType.BOTTOM_LEFT,
                     Vector2.zero),
                 swamp_backgroundColor.transform);
-
-            swamp_backgroundColor.transform.position = new Vector3(0f, 0f, 5f);
 
             return swamp_backgroundColor;
         }

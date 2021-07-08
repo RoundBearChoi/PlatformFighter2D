@@ -10,10 +10,10 @@ namespace RB
         GameObject _parallaxAnchor = null;
         float _percentage = 0f;
        
-        public HorizontalParallax(Unit unit, float yPositionFix, GameObject anchor, float percentage)
+        public HorizontalParallax(Unit unit, GameObject anchor, float percentage)
         {
             _unit = unit;
-            _yPositionFix = yPositionFix;
+            _yPositionFix = unit.transform.position.y;
             _parallaxAnchor = anchor;
             _percentage = percentage;
         }
