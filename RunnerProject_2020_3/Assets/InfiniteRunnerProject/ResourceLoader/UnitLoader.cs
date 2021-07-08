@@ -13,7 +13,7 @@ namespace RB
             LoadObj<Runner>(UnitType.RUNNER, "Prefab_Runner");
             LoadObj<SampleLeftEnemy>(UnitType.SAMPLE_LEFT_ENEMY, "SampleFrontEnemy");
 
-            LoadObj<Ground>(UnitType.FLAT_GROUND, "FlatGround");
+            LoadObj<GameObject>(UnitType.FLAT_GROUND, "FlatGround");
 
             LoadObj<LandingDust>(UnitType.LANDING_DUST, "LandingDust");
             LoadObj<StepDust>(UnitType.STEP_DUST, "StepDust");

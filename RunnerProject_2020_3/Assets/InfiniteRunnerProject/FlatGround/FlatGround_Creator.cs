@@ -13,18 +13,35 @@ namespace RB
             _parentTransform = parentTransform;
         }
 
-        public override Unit GetUnit()
+        public GameObject GetGroundUnit()
         {
-            Unit flatGround = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.FLAT_GROUND)) as Unit;
-            flatGround.unitData = new UnitData(flatGround.transform);
+            GameObject groundObj = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.FLAT_GROUND)) as GameObject;
 
-            flatGround.transform.parent = _parentTransform;
-            flatGround.transform.localRotation = Quaternion.identity;
-            flatGround.transform.localPosition = Vector3.zero;
+            groundObj.transform.parent = _parentTransform;
+            groundObj.transform.localRotation = Quaternion.identity;
+            groundObj.transform.localPosition = Vector3.zero;
 
-            return flatGround;
+            SpriteRenderer renderer = groundObj.GetComponentInChildren<SpriteRenderer>();
+
+            //should be done early (resourceloader)
+            Sprite[] arrSprites = Resources.LoadAll<Sprite>(StaticRefs.swampSpriteData.Swamp_GroundTile25_SpriteName);
+
+            if (arrSprites.Length != 0)
+            {
+                renderer.sprite = arrSprites[0];
+                renderer.gameObject.transform.localScale = new Vector3(3.13f, 3.13f, 1f);
+            }
+            else
+            {
+                //should be done early (resourceloader)
+                arrSprites = Resources.LoadAll<Sprite>("Texture_White100x100");
+                renderer.sprite = arrSprites[0];
+            }
+
+            return groundObj;
         }
 
+        //only composite is unit, individual ground blocks are not
         public override void AddUnits(List<Unit> listUnits)
         {
             GameObject objComposite = new GameObject();
@@ -44,10 +61,9 @@ namespace RB
 
             for (int i = 0; i < 100; i++)
             {
-                Unit obj = GetUnit();
+                GameObject obj = GetGroundUnit();
                 obj.transform.parent = objComposite.transform;
                 obj.transform.localPosition = new Vector3(i * 1, obj.transform.localPosition.y, obj.transform.localPosition.z);
-                listUnits.Add(obj);
             }
         }
     }

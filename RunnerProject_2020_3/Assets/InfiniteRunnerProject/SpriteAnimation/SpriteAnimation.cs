@@ -31,7 +31,7 @@ namespace RB
 
             specs = animationSpecs;
 
-            //temp (should be done early)
+            //should be done early (resourceloader)
             Sprite[] arrSprites = Resources.LoadAll<Sprite>(specs.mSheetFileName);
 
             if (arrSprites.Length == 0)
@@ -52,7 +52,7 @@ namespace RB
 
             spriteRenderer.transform.localScale = new Vector2(xScale, yScale);
 
-            //only defined bottom center. later other pivots should be defined as well
+            //later other pivots should be defined as well
             if (specs.mOffsetType == OffsetType.BOTTOM_CENTER)
             {
                 spriteRenderer.transform.localPosition = new Vector3(0f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);

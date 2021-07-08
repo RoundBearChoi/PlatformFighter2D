@@ -17,7 +17,6 @@ namespace RB
 
         public override Unit GetUnit()
         {
-            //temp (probably should be put somewhere else..)
             Runner_NormalRun.initialPush = false;
 
             Unit runner = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.RUNNER)) as Unit;
