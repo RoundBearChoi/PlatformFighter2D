@@ -12,5 +12,8 @@ namespace RB
         public static MovementDustSpriteData movementDustSpriteData = null;
         public static SwampSpriteData swampSpriteData;
         public static GolemSpriteData golemSpriteData;
+
+        public static UnitCreationSpec runnerCreationSpec;
+        public static UnitCreationSpec golemCreationSpec;
     }
 }

@@ -7,7 +7,7 @@ namespace RB
     public class Runner : Unit
     {
         private UserInput _userInput = null;
-        
+
         public override void OnFixedUpdate()
         {
             unitUpdater.CustomFixedUpdate();

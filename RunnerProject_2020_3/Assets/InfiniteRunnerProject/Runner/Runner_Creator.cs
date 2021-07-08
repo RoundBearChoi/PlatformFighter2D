@@ -15,15 +15,12 @@ namespace RB
             _parentTransform = parentTransform;
         }
 
-        public override Unit GetUnit()
+        public override Unit DefineUnit()
         {
             Runner_NormalRun.initialPush = false;
 
-            Unit runner = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.RUNNER)) as Unit;
+            Unit runner = InstantiateUnit(StaticRefs.runnerCreationSpec);
             runner.transform.parent = _parentTransform;
-            runner.transform.localRotation = Quaternion.identity;
-
-            runner.unitData = new UnitData(runner.transform);
 
             runner.iStateController = new StateController(
                 new Runner_Idle(runner, _userInput),
@@ -49,7 +46,7 @@ namespace RB
 
         public override void AddUnits(List<Unit> listUnits)
         {
-            listUnits.Add(GetUnit());
+            listUnits.Add(DefineUnit());
         }
 
         void SetIdle(Unit unit)

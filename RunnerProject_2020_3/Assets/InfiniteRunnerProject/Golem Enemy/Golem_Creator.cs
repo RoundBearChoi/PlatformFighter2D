@@ -13,13 +13,11 @@ namespace RB
             _parentTransform = parentTransform;
         }
 
-        public override Unit GetUnit()
+        public override Unit DefineUnit()
         {
-            Unit golem = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.GOLEM)) as Unit;
+            Unit golem = InstantiateUnit(StaticRefs.golemCreationSpec);
             golem.transform.parent = _parentTransform;
-            golem.transform.localRotation = Quaternion.identity;
 
-            golem.unitData = new UnitData(golem.transform);
             golem.attackData = new AttackData();
 
             golem.iStateController = new StateController(
@@ -39,7 +37,7 @@ namespace RB
 
         public override void AddUnits(List<Unit> listUnits)
         {
-            listUnits.Add(GetUnit());
+            listUnits.Add(DefineUnit());
         }
 
         void SetIdle(Unit unit)

@@ -16,7 +16,7 @@ namespace RB
             CameraController.gameCam = gameCam;
         }
 
-        public override Unit GetUnit()
+        public override Unit DefineUnit()
         {
             GameObject cameraConObj = new GameObject("cameraController(Clone)");
             cameraConObj.transform.parent = _parentTransform;
@@ -38,7 +38,7 @@ namespace RB
 
         public override void AddUnits(List<Unit> listUnits)
         {
-            listUnits.Add(GetUnit());
+            listUnits.Add(DefineUnit());
         }
     }
 }

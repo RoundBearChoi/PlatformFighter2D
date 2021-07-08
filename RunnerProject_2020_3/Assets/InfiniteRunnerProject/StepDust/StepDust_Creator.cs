@@ -13,7 +13,7 @@ namespace RB
             _parentTransform = parentTransform;
         }
 
-        public override Unit GetUnit()
+        public override Unit DefineUnit()
         {
             Unit stepDust = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.STEP_DUST)) as Unit;
             stepDust.transform.parent = _parentTransform;
@@ -42,7 +42,7 @@ namespace RB
 
         public override void AddUnits(List<Unit> listUnits)
         {
-            listUnits.Add(GetUnit());
+            listUnits.Add(DefineUnit());
         }
     }
 }

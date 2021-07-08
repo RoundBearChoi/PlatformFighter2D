@@ -8,23 +8,17 @@ namespace RB
     {
         public List<IStageTransition> listStageTransitions = new List<IStageTransition>();
 
-        [SerializeField]
-        private GameData gameDataScriptableObj = null;
+        //needs cleanup
+        [SerializeField] private GameData gameDataScriptableObj = null;
+        [SerializeField] private RunnerMovementSpriteData runnerMovementSpriteDataScriptableObj = null;
+        [SerializeField] private RunnerAttackSpriteData runnerAttackSpriteDataScriptableObj = null;
+        [SerializeField] private MovementDustSpriteData vfxSpriteDataScriptableObj = null;
+        [SerializeField] private SwampSpriteData swampSpriteDataScriptableObj = null;
+        [SerializeField] private GolemSpriteData golemSpriteDataScriptableObj = null;
 
-        [SerializeField]
-        private RunnerMovementSpriteData runnerMovementSpriteDataScriptableObj = null;
-
-        [SerializeField]
-        private RunnerAttackSpriteData runnerAttackSpriteDataScriptableObj = null;
-
-        [SerializeField]
-        private MovementDustSpriteData vfxSpriteDataScriptableObj = null;
-
-        [SerializeField]
-        private SwampSpriteData swampSpriteDataScriptableObj = null;
-
-        [SerializeField]
-        private GolemSpriteData golemSpriteDataScriptableObj = null;
+        //a list later maybe
+        [SerializeField] private UnitCreationSpec runnerCreationSpecScriptableObj = null;
+        [SerializeField] private UnitCreationSpec golemCreationSpecScriptableObj = null;
 
         private void Start()
         {
@@ -34,6 +28,9 @@ namespace RB
             StaticRefs.movementDustSpriteData = vfxSpriteDataScriptableObj;
             StaticRefs.swampSpriteData = swampSpriteDataScriptableObj;
             StaticRefs.golemSpriteData = golemSpriteDataScriptableObj;
+
+            StaticRefs.runnerCreationSpec = runnerCreationSpecScriptableObj;
+            StaticRefs.golemCreationSpec = golemCreationSpecScriptableObj;
 
             Debugger.Log("setting current GameInitializer instance");
 
