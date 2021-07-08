@@ -17,6 +17,7 @@ namespace RB
             units.AddCreator(new CameraController_Creator(this.transform, units.GetUnit<Runner>(), FindObjectOfType<Camera>()));
             units.AddCreator(new FlatGround_Creator(this.transform));
             units.AddCreator(new Swamp_Creator(this.transform));
+            units.AddCreator(new Golem_Creator(this.transform));
             units.ProcessCreators();
 
             units.GetUnit<Runner>().transform.position = new Vector3(0f, 5f, 0f);

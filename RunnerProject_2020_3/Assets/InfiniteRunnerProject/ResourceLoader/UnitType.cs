@@ -7,6 +7,7 @@ namespace RB
     public enum UnitType
     {
         RUNNER,
+        GOLEM,
         SAMPLE_LEFT_ENEMY,
         FLAT_GROUND,
 

@@ -12,6 +12,7 @@ namespace RB
         public float Runner_RunSpeed_LerpRate = new float();
 
         public Vector2 RunnerBoxColliderSize = new Vector2();
+        public Vector2 GolemBoxColliderSize = new Vector2();
 
         public Vector2 ObstacleSpriteSize = new Vector2();
         public Vector2 ObstacleBoxColliderSize = new Vector2();

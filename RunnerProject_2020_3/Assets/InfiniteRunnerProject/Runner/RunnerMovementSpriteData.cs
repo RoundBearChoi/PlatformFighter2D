@@ -18,13 +18,6 @@ namespace RB
         public uint Run_SpriteInterval = new uint();
         public Vector2 Run_SpriteSize = new Vector2();
 
-        //[Space(10)]
-        //
-        //public string AttackA_SpriteName;
-        //public uint AttackA_SpriteInterval = new uint();
-        //public Vector2 AttackA_SpriteSize = new Vector2();
-        //public Vector2 AttackA_AdditionalOffset = new Vector2();
-
         [Space(10)]
 
         public string Jump_SpriteName;

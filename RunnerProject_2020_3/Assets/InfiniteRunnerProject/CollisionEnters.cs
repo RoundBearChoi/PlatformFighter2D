@@ -44,7 +44,7 @@ namespace RB
                     }
 
                     //deal damage to unit that is stepped on
-                    if (!collidingUnit.attackData.IsAttackingSide(CollisionType.TOP))
+                    if (!collidingUnit.attackData.IsAttackingSide(CollisionType.TOP) && data.collisionType == CollisionType.BOTTOM)
                     {
                         dealDamage.reactionType = CollisionReactionType.DEAL_DAMAGE;
                         dealDamage.collidingUnit = collidingUnit;

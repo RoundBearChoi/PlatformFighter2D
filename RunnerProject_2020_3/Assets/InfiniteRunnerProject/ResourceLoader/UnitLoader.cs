@@ -11,6 +11,7 @@ namespace RB
             Debugger.Log("loading units..");
 
             LoadObj<Runner>(UnitType.RUNNER, "Prefab_Runner");
+            LoadObj<Golem>(UnitType.GOLEM, "Golem");
             LoadObj<SampleLeftEnemy>(UnitType.SAMPLE_LEFT_ENEMY, "SampleFrontEnemy");
 
             LoadObj<GameObject>(UnitType.FLAT_GROUND, "FlatGround");

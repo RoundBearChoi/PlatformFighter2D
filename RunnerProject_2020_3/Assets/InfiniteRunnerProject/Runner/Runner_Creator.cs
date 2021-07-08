@@ -86,7 +86,7 @@ namespace RB
         void SetAttackA(Unit unit)
         {
             unit.unitData.spriteAnimations.AddSpriteAnimation(
-                "runner straight punch animation",
+                "runner attack A animation",
                 new SpriteAnimationSpecs(
                     StaticRefs.runnerAttackSpriteData.AttackA_SpriteName,
                     StaticRefs.runnerAttackSpriteData.AttackA_SpriteInterval,

@@ -23,6 +23,9 @@ namespace RB
         [SerializeField]
         private SwampSpriteData swampSpriteDataScriptableObj = null;
 
+        [SerializeField]
+        private GolemSpriteData golemSpriteDataScriptableObj = null;
+
         private void Start()
         {
             StaticRefs.gameData = gameDataScriptableObj;
@@ -30,6 +33,7 @@ namespace RB
             StaticRefs.runnerAttackSpriteData = runnerAttackSpriteDataScriptableObj;
             StaticRefs.movementDustSpriteData = vfxSpriteDataScriptableObj;
             StaticRefs.swampSpriteData = swampSpriteDataScriptableObj;
+            StaticRefs.golemSpriteData = golemSpriteDataScriptableObj;
 
             Debugger.Log("setting current GameInitializer instance");
 
