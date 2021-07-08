@@ -61,8 +61,6 @@ namespace RB
 
         public void OnCollisionStay2D(Collision2D collision)
         {
-            unitData.collisionStays.Clear();
-
             foreach (ContactPoint2D contactPoint in collision.contacts)
             {
                 CollisionType collisionType = _collisionChecker.GetCollisionType(contactPoint);
