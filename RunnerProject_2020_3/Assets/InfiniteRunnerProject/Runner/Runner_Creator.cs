@@ -29,7 +29,7 @@ namespace RB
             runner.transform.localRotation = Quaternion.identity;
             runner.SetUpdater(new DefaultUpdater(runner.iStateController));
 
-            runner.InitBoxCollider(StaticRefs.gameData.RunnerBoxColliderSize);
+            runner.InitBoxCollider(StaticRefs.runnerMovementSpriteData.RunnerBoxColliderSize);
             runner.InitCollisionReaction();
             runner.InitCollisionChecker();
             runner.SetUserInput(_userInput);

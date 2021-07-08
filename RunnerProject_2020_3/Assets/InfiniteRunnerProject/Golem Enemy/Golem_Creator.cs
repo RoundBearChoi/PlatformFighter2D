@@ -25,7 +25,7 @@ namespace RB
             golem.transform.parent = _parentTransform;
             golem.transform.localRotation = Quaternion.identity;
 
-            golem.InitBoxCollider(StaticRefs.gameData.GolemBoxColliderSize);
+            golem.InitBoxCollider(StaticRefs.golemSpriteData.GolemBoxColliderSize);
             golem.InitCollisionReaction();
             golem.InitCollisionChecker();
 

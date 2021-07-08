@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d04ea45a3802e1d448ffd9f41f27bee8, type: 3}
   m_Name: RunnerMovementSpriteData
   m_EditorClassIdentifier: 
+  RunnerBoxColliderSize: {x: 0.8, y: 3.4}
   Idle_SpriteName: Texture_PrototypeHero_Idle
   Idle_SpriteInterval: 12
   Idle_SpriteSize: {x: 5.89, y: 6.84}
@@ -23,10 +24,6 @@ MonoBehaviour:
   Run_SpriteName: Texture_PrototypeHero_NormalRun
   Run_SpriteInterval: 5
   Run_SpriteSize: {x: 5.58, y: 6.48}
-  AttackA_SpriteName: Texture_PrototypeHero_AttackA
-  AttackA_SpriteInterval: 4
-  AttackA_SpriteSize: {x: 5.58, y: 6.48}
-  AttackA_AdditionalOffset: {x: 0, y: 0}
   Jump_SpriteName: Texture_JumpCycle_Orange
   Jump_SpriteInterval: 25
   Jump_SpriteSize: {x: 3, y: 4}
