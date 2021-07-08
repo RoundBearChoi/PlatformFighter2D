@@ -44,15 +44,16 @@ namespace RB
         Unit GetRiverUnit()
         {
             Unit swamp_river = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP)) as Unit;
-            swamp_river.unitData = new UnitData(swamp_river.transform);
-
+            
+            swamp_river.transform.parent = _parentTransform;
+            swamp_river.transform.localRotation = Quaternion.identity;
             swamp_river.transform.position = StaticRefs.swampSpriteData.Swamp_River_StartPos;
+
+            swamp_river.unitData = new UnitData(swamp_river.transform);
 
             swamp_river.iStateController = new StateController(
                 new Swamp_River_DefaultState(swamp_river),
                 swamp_river.unitData);
-            swamp_river.transform.parent = _parentTransform;
-            swamp_river.transform.localRotation = Quaternion.identity;
 
             swamp_river.unitData.spriteAnimations = new SpriteAnimations(swamp_river.iStateController);
 
@@ -72,6 +73,9 @@ namespace RB
         Unit GetFrontTreesUnit()
         {
             Unit swamp_frontTrees = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP)) as Unit;
+            swamp_frontTrees.transform.parent = _parentTransform;
+            swamp_frontTrees.transform.localRotation = Quaternion.identity;
+
             swamp_frontTrees.unitData = new UnitData(swamp_frontTrees.transform);
 
             swamp_frontTrees.transform.position = StaticRefs.swampSpriteData.Swamp_FrontTrees_StartPos;
@@ -79,8 +83,6 @@ namespace RB
             swamp_frontTrees.iStateController = new StateController(
                 new Swamp_FrontTrees_DefaultState(swamp_frontTrees),
                 swamp_frontTrees.unitData);
-            swamp_frontTrees.transform.parent = _parentTransform;
-            swamp_frontTrees.transform.localRotation = Quaternion.identity;
 
             swamp_frontTrees.unitData.spriteAnimations = new SpriteAnimations(swamp_frontTrees.iStateController);
 
@@ -100,6 +102,9 @@ namespace RB
         Unit GetBackTreesUnit()
         {
             Unit swamp_backTrees = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP)) as Unit;
+            swamp_backTrees.transform.parent = _parentTransform;
+            swamp_backTrees.transform.localRotation = Quaternion.identity;
+
             swamp_backTrees.unitData = new UnitData(swamp_backTrees.transform);
 
             swamp_backTrees.transform.position = StaticRefs.swampSpriteData.Swamp_BackTrees_StartPos;
@@ -107,8 +112,6 @@ namespace RB
             swamp_backTrees.iStateController = new StateController(
                 new Swamp_BackTrees_DefaultState(swamp_backTrees),
                 swamp_backTrees.unitData);
-            swamp_backTrees.transform.parent = _parentTransform;
-            swamp_backTrees.transform.localRotation = Quaternion.identity;
 
             swamp_backTrees.unitData.spriteAnimations = new SpriteAnimations(swamp_backTrees.iStateController);
 
@@ -125,43 +128,12 @@ namespace RB
             return swamp_backTrees;
         }
 
-        Unit GetBackgroundColorUnit()
-        {
-            Unit swamp_backgroundColor = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.SWAMP)) as Unit;
-            swamp_backgroundColor.unitData = new UnitData(swamp_backgroundColor.transform);
-
-            swamp_backgroundColor.transform.position = StaticRefs.swampSpriteData.Swamp_BackgroundColor_StartPos;
-
-            swamp_backgroundColor.iStateController = new StateController(
-                new Swamp_BackgroundColor_DefaultState(swamp_backgroundColor),
-                swamp_backgroundColor.unitData);
-            swamp_backgroundColor.transform.parent = _parentTransform;
-            swamp_backgroundColor.transform.localRotation = Quaternion.identity;
-
-            swamp_backgroundColor.unitData.spriteAnimations = new SpriteAnimations(swamp_backgroundColor.iStateController);
-
-            swamp_backgroundColor.unitData.spriteAnimations.AddSpriteAnimation(
-                "swamp background - background color",
-                new SpriteAnimationSpecs(
-                    StaticRefs.swampSpriteData.Swamp_BackgroundColor_SpriteName,
-                    StaticRefs.swampSpriteData.Swamp_Unified_SpriteInterval,
-                    StaticRefs.swampSpriteData.Swamp_Unified_SpriteSize,
-                    OffsetType.BOTTOM_LEFT,
-                    Vector2.zero),
-                swamp_backgroundColor.transform);
-
-            return swamp_backgroundColor;
-        }
-
         public override void AddUnits(List<Unit> listUnits)
         {
             listUnits.Add(GetGrassUnit());
             listUnits.Add(GetRiverUnit());
             listUnits.Add(GetFrontTreesUnit());
             listUnits.Add(GetBackTreesUnit());
-
-            //don't need background color as texture
-            //listUnits.Add(GetBackgroundColorUnit());
         }
     }
 }
