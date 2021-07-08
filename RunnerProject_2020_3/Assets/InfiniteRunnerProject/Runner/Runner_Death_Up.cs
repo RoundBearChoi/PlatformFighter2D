@@ -9,8 +9,6 @@ namespace RB
         static Hash128 animationHash;
         static string hashString = string.Empty;
 
-        float _timeInterval = 0.05f;
-
         public override Hash128 GetAnimationHash()
         {
             return animationHash;
@@ -40,11 +38,6 @@ namespace RB
         public override void OnFixedUpdate()
         {
             UpdateComponents();
-        }
-
-        public override float GetNormalizedTime()
-        {
-            return _timeInterval * updateCount;
         }
     }
 }

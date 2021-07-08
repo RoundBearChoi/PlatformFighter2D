@@ -8,9 +8,6 @@ namespace RB
     {
         static Hash128 defaultHash;
 
-        //public static GameInitializer gameInitializer = null;
-        //public static Units units = null;
-
         public uint updateCount = 0;
 
         protected Unit _unit = null;
@@ -42,11 +39,6 @@ namespace RB
         public virtual void OnLateUpdate()
         {
 
-        }
-
-        public virtual float GetNormalizedTime()
-        {
-            return 0f;
         }
 
         public virtual void UpdateComponents()
