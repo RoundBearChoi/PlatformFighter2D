@@ -13,6 +13,9 @@ namespace RB
         [SerializeField]
         GameObject basicRedPrefab;
 
+        [SerializeField]
+        SpriteAnimationSpec animationSpec = null;
+
         public override void Init()
         {
             _dummyObj = new GameObject();
@@ -27,16 +30,9 @@ namespace RB
             red.transform.localRotation = Quaternion.identity;
 
             _punchAnimations = new SpriteAnimations(null);
-
-            SpriteAnimationSpecs specs = new SpriteAnimationSpecs(
-                StaticRefs.runnerAttackSpriteData.AttackA_SpriteName,
-                1,
-                StaticRefs.runnerAttackSpriteData.AttackA_SpriteSize,
-                OffsetType.BOTTOM_CENTER,
-                StaticRefs.runnerAttackSpriteData.AttackA_AdditionalOffset);
-
-            _punchAnimations.AddSpriteAnimation("runner straight punch animation", specs, _dummyObj.transform);
-
+                        
+            _punchAnimations.AddSpriteAnimation(animationSpec, _dummyObj.transform);
+            
             _punchAnimations.OnFixedUpdate();
         }
 

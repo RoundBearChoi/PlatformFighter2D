@@ -11,7 +11,6 @@ namespace RB
         public abstract void SetNewState(State newState);
         public abstract void TransitionToNextState();
 
-        public abstract void SetSpriteAnimations(SpriteAnimations spriteAnimations);
-        public abstract Hash128 GetAnimationHash();
+        public abstract State GetCurrentState();
     }
 }

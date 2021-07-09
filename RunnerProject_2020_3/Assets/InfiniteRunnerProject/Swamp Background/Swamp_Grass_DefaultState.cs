@@ -6,22 +6,7 @@ namespace RB
 {
     public class Swamp_Grass_DefaultState : State
     {
-        static Hash128 animationHash;
-        static string hashString = string.Empty;
-
-        public override Hash128 GetAnimationHash()
-        {
-            return animationHash;
-        }
-
-        public override void SetHashString()
-        {
-            if (string.IsNullOrEmpty(hashString))
-            {
-                hashString = StaticRefs.swampSpriteData.Swamp_Grass_SpriteName;
-                animationHash = Hash128.Compute(hashString);
-            }
-        }
+        private static SpriteAnimationSpec _animationSpec;
 
         public Swamp_Grass_DefaultState(Unit unit)
         {
@@ -33,6 +18,11 @@ namespace RB
         public override void OnFixedUpdate()
         {
             UpdateComponents();
+        }
+
+        public override SpriteAnimationSpec GetSpriteAnimationSpec()
+        {
+            return _animationSpec;
         }
     }
 }

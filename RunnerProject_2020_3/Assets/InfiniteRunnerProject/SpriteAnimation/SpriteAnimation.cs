@@ -13,10 +13,8 @@ namespace RB
         //serialized for debugging
         [SerializeField] List<AdditionalInterval> _listAdditionalIntervals = new List<AdditionalInterval>();
         [SerializeField] int _spriteIndex = 0;
-        [SerializeField] uint _renderInterval = 0;
 
-        public Hash128 animationHash;
-        public bool playOnce = false;
+        public SpriteAnimationSpec animationSpec = null;
 
         public int SPRITE_INDEX
         {
@@ -28,7 +26,7 @@ namespace RB
 
         public void Init(SpriteAnimationSpec spec)
         {
-            animationHash = Hash128.Compute(spec.spriteName);
+            animationSpec = spec;
 
             //should be done early (resourceloader)
             Sprite[] arrSprites = Resources.LoadAll<Sprite>(spec.spriteName);
@@ -62,51 +60,8 @@ namespace RB
                 spriteRenderer.transform.localPosition = new Vector3(_listSprites[0].bounds.size.x * xScale * 0.5f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);
                 spriteRenderer.transform.localPosition += new Vector3(spec.additionalOffset.x, spec.additionalOffset.y, 0f);
             }
-
-            _renderInterval = spec.spriteInterval;
         }
-
-        //old
-        public void Init(SpriteAnimationSpecs animationSpecs)
-        {
-            animationHash = Hash128.Compute(animationSpecs.mSheetFileName);
-
-            //should be done early (resourceloader)
-            Sprite[] arrSprites = Resources.LoadAll<Sprite>(animationSpecs.mSheetFileName);
-
-            if (arrSprites.Length == 0)
-            {
-                Debugger.Log("missing sprite resource: " + animationSpecs.mSheetFileName);
-                arrSprites = Resources.LoadAll<Sprite>("Texture_MissingSprite");
-            }
-
-            foreach(Sprite spr in arrSprites)
-            {
-                _listSprites.Add(spr);
-            }
-
-            spriteRenderer = this.gameObject.AddComponent<SpriteRenderer>();
-
-            float xScale = animationSpecs.mPixelSize.x / _listSprites[0].bounds.size.x;
-            float yScale = animationSpecs.mPixelSize.y / _listSprites[0].bounds.size.y;
-
-            spriteRenderer.transform.localScale = new Vector2(xScale, yScale);
-
-            //later other pivots should be defined as well
-            if (animationSpecs.mOffsetType == OffsetType.BOTTOM_CENTER)
-            {
-                spriteRenderer.transform.localPosition = new Vector3(0f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);
-                spriteRenderer.transform.localPosition += new Vector3(animationSpecs.mAdditionalOffset.x, animationSpecs.mAdditionalOffset.y, 0f);
-            }
-            else if (animationSpecs.mOffsetType == OffsetType.BOTTOM_LEFT)
-            {
-                spriteRenderer.transform.localPosition = new Vector3(_listSprites[0].bounds.size.x * xScale * 0.5f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);
-                spriteRenderer.transform.localPosition += new Vector3(animationSpecs.mAdditionalOffset.x, animationSpecs.mAdditionalOffset.y, 0f);
-            }
-
-            _renderInterval = animationSpecs.mRenderInterval;
-        }
-
+        
         public void AddAdditionalInterval(AdditionalInterval interval)
         {
             _listAdditionalIntervals.Add(interval);
@@ -144,7 +99,7 @@ namespace RB
 
         public void UpdateSpriteIndex()
         {
-            if (_updateCount != 0 && _updateCount % _renderInterval == 0)
+            if (_updateCount != 0 && _updateCount % animationSpec.spriteInterval == 0)
             {
                 _spriteIndex++;
 
@@ -156,7 +111,7 @@ namespace RB
 
             if (_spriteIndex >= _listSprites.Count)
             {
-                if (!playOnce)
+                if (!animationSpec.playOnce)
                 {
                     _spriteIndex = 0;
                 }
@@ -182,7 +137,7 @@ namespace RB
         {
             if (_spriteIndex == _listSprites.Count - 1)
             {
-                if (_updateCount % _renderInterval == 0)
+                if (_updateCount % animationSpec.spriteInterval == 0)
                 {
                     return true;
                 }

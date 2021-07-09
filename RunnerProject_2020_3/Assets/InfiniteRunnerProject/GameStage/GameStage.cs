@@ -26,21 +26,21 @@ namespace RB
             GameObject levelObj = Instantiate(ResourceLoader.levelLoader.GetObj(1)) as GameObject;
             levelObj.transform.parent = this.transform;
 
-            FrontEnemySpawn[] arr = levelObj.GetComponentsInChildren<FrontEnemySpawn>();
-            FrontEnemyCreator frontEnemyCreator = new FrontEnemyCreator(this.transform);
-
-            foreach(FrontEnemySpawn spawn in arr)
-            {
-                Debugger.Log("spawning enemy: " + spawn.gameObject.name + " " + spawn.transform.position);
-                Unit frontEnemyUnit = frontEnemyCreator.DefineUnit();
-                frontEnemyUnit.transform.position = spawn.transform.position;
-                frontEnemyUnit.transform.parent = levelObj.transform;
-
-                if (frontEnemyUnit != null)
-                {
-                    units.AddUnit(frontEnemyUnit);
-                }
-            }
+            //FrontEnemySpawn[] arr = levelObj.GetComponentsInChildren<FrontEnemySpawn>();
+            //FrontEnemyCreator frontEnemyCreator = new FrontEnemyCreator(this.transform);
+            //
+            //foreach(FrontEnemySpawn spawn in arr)
+            //{
+            //    Debugger.Log("spawning enemy: " + spawn.gameObject.name + " " + spawn.transform.position);
+            //    Unit frontEnemyUnit = frontEnemyCreator.DefineUnit();
+            //    frontEnemyUnit.transform.position = spawn.transform.position;
+            //    frontEnemyUnit.transform.parent = levelObj.transform;
+            //
+            //    if (frontEnemyUnit != null)
+            //    {
+            //        units.AddUnit(frontEnemyUnit);
+            //    }
+            //}
 
             ui = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.UI)) as UI;
             ui.SetCounters(fixedUpdateCounter, updateCounter);

@@ -10,8 +10,8 @@ namespace RB
 
         //needs cleanup
         [SerializeField] private GameData gameDataScriptableObj = null;
-        [SerializeField] private RunnerMovementSpriteData runnerMovementSpriteDataScriptableObj = null;
-        [SerializeField] private RunnerAttackSpriteData runnerAttackSpriteDataScriptableObj = null;
+        //[SerializeField] private RunnerMovementSpriteData runnerMovementSpriteDataScriptableObj = null;
+        //[SerializeField] private RunnerAttackSpriteData runnerAttackSpriteDataScriptableObj = null;
         [SerializeField] private MovementDustSpriteData vfxSpriteDataScriptableObj = null;
         [SerializeField] private SwampSpriteData swampSpriteDataScriptableObj = null;
         [SerializeField] private GolemSpriteData golemSpriteDataScriptableObj = null;
@@ -23,8 +23,8 @@ namespace RB
         private void Start()
         {
             StaticRefs.gameData = gameDataScriptableObj;
-            StaticRefs.runnerMovementSpriteData = runnerMovementSpriteDataScriptableObj;
-            StaticRefs.runnerAttackSpriteData = runnerAttackSpriteDataScriptableObj;
+            //StaticRefs.runnerMovementSpriteData = runnerMovementSpriteDataScriptableObj;
+            //StaticRefs.runnerAttackSpriteData = runnerAttackSpriteDataScriptableObj;
             StaticRefs.movementDustSpriteData = vfxSpriteDataScriptableObj;
             StaticRefs.swampSpriteData = swampSpriteDataScriptableObj;
             StaticRefs.golemSpriteData = golemSpriteDataScriptableObj;

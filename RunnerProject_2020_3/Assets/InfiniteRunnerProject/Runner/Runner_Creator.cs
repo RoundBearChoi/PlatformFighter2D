@@ -62,7 +62,7 @@ namespace RB
                     unit.unitData.spriteAnimations.GetLastSpriteAnimation().AddAdditionalInterval(additionalInterval);
                 }
 
-                unit.unitData.spriteAnimations.GetLastSpriteAnimation().playOnce = spec.playOnce;
+                spec.setAnimationSpec.Invoke();
             }
         }
     }

@@ -23,7 +23,7 @@ namespace RB
             units.ProcessCreators();
 
             units.GetUnit<Runner>().transform.position = new Vector3(0f, 5f, -1f);
-            units.GetUnit<Golem>().transform.position = new Vector3(10f, 0f, 0f);
+            //units.GetUnit<Golem>().transform.position = new Vector3(10f, 0f, 0f);
         }
 
         public override void OnUpdate()

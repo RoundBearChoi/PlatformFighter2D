@@ -6,23 +6,12 @@ namespace RB
 {
     public class Runner_Jump_Up : State
     {
-        static Hash128 animationHash;
-        static string hashString = string.Empty;
-
         private UserInput _userInput = null;
+        private static SpriteAnimationSpec _animationSpec = null;
 
-        public override Hash128 GetAnimationHash()
+        public static void SetAnimationSpec(SpriteAnimationSpec spec)
         {
-            return animationHash;
-        }
-
-        public override void SetHashString()
-        {
-            if (string.IsNullOrEmpty(hashString))
-            {
-                hashString = StaticRefs.runnerMovementSpriteData.Jump_SpriteName;
-                animationHash = Hash128.Compute(hashString);
-            }
+            _animationSpec = spec;
         }
 
         public Runner_Jump_Up(Unit unit, UserInput input)
@@ -49,6 +38,11 @@ namespace RB
         public override void OnLateUpdate()
         {
 
+        }
+
+        public override SpriteAnimationSpec GetSpriteAnimationSpec()
+        {
+            return _animationSpec;
         }
     }
 }

@@ -6,22 +6,7 @@ namespace RB
 {
     public class StepDust_DefaultState : State
     {
-        static Hash128 animationHash;
-        static string hashString = string.Empty;
-
-        public override Hash128 GetAnimationHash()
-        {
-            return animationHash;
-        }
-
-        public override void SetHashString()
-        {
-            if (string.IsNullOrEmpty(hashString))
-            {
-                hashString = "Texture_PrototypeHero_StepDust";
-                animationHash = Hash128.Compute(hashString);
-            }
-        }
+        private static SpriteAnimationSpec _animationSpec;
 
         public StepDust_DefaultState(Unit unit)
         {
@@ -34,6 +19,11 @@ namespace RB
             {
                 _unit.destroy = true;
             }
+        }
+
+        public override SpriteAnimationSpec GetSpriteAnimationSpec()
+        {
+            return _animationSpec;
         }
     }
 }

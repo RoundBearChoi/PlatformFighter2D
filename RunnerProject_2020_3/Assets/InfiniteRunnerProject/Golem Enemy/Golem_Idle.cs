@@ -6,22 +6,7 @@ namespace RB
 {
     public class Golem_Idle : State
     {
-        static Hash128 animationHash;
-        static string hashString = string.Empty;
-
-        public override Hash128 GetAnimationHash()
-        {
-            return animationHash;
-        }
-
-        public override void SetHashString()
-        {
-            if (string.IsNullOrEmpty(hashString))
-            {
-                hashString = StaticRefs.golemSpriteData.Golem_SpriteName;
-                animationHash = Hash128.Compute(hashString);
-            }
-        }
+        private static SpriteAnimationSpec _animationSpec = null;
 
         public Golem_Idle(Unit unit)
         {
@@ -31,6 +16,11 @@ namespace RB
         public override void OnFixedUpdate()
         {
 
+        }
+
+        public override SpriteAnimationSpec GetSpriteAnimationSpec()
+        {
+            return _animationSpec;
         }
     }
 }

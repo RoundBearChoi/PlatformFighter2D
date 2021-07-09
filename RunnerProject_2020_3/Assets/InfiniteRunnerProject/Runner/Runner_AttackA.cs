@@ -6,24 +6,13 @@ namespace RB
 {
     public class Runner_AttackA : State
     {
-        static Hash128 animationHash;
-        static string hashString = string.Empty;
-
         private UserInput _userInput = null;
         private bool _dustCreated = false;
+        private static SpriteAnimationSpec _animationSpec = null;
 
-        public override Hash128 GetAnimationHash()
+        public static void SetAnimationSpec(SpriteAnimationSpec spec)
         {
-            return animationHash;
-        }
-
-        public override void SetHashString()
-        {
-            if (string.IsNullOrEmpty(hashString))
-            {
-                hashString = StaticRefs.runnerAttackSpriteData.AttackA_SpriteName;
-                animationHash = Hash128.Compute(hashString);
-            }
+            _animationSpec = spec;
         }
 
         public Runner_AttackA(Unit unit, UserInput input)
@@ -40,9 +29,9 @@ namespace RB
             {
                 _dustCreated = true;
 
-                Units.instance.AddCreator(new StepDust_Creator(Stage.currentStage.transform));
-                Units.instance.ProcessCreators();
-                Units.instance.GetUnit<StepDust>().transform.position = _unit.transform.position + new Vector3(_unit.transform.right.x * 0.8f, 0f, 0f);
+                //Units.instance.AddCreator(new StepDust_Creator(Stage.currentStage.transform));
+                //Units.instance.ProcessCreators();
+                //Units.instance.GetUnit<StepDust>().transform.position = _unit.transform.position + new Vector3(_unit.transform.right.x * 0.8f, 0f, 0f);
             }
 
             UpdateComponents();
@@ -54,6 +43,11 @@ namespace RB
                     _unit.unitData.listNextStates.Add(new Runner_NormalRun(_unit, _userInput));
                 }
             }
+        }
+
+        public override SpriteAnimationSpec GetSpriteAnimationSpec()
+        {
+            return _animationSpec;
         }
     }
 }

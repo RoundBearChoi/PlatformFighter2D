@@ -7,8 +7,8 @@ namespace RB
     public static class StaticRefs
     {
         public static GameData gameData = null;
-        public static RunnerMovementSpriteData runnerMovementSpriteData = null;
-        public static RunnerAttackSpriteData runnerAttackSpriteData = null;
+        //public static RunnerMovementSpriteData runnerMovementSpriteData = null;
+        //public static RunnerAttackSpriteData runnerAttackSpriteData = null;
         public static MovementDustSpriteData movementDustSpriteData = null;
         public static SwampSpriteData swampSpriteData;
         public static GolemSpriteData golemSpriteData;

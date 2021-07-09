@@ -6,23 +6,12 @@ namespace RB
 {
     public class Runner_Jump_Fall : State
     {
-        static Hash128 animationHash;
-        static string hashString = string.Empty;
-
         private UserInput _userInput = null;
+        private static SpriteAnimationSpec _animationSpec = null;
 
-        public override Hash128 GetAnimationHash()
+        public static void SetAnimationSpec(SpriteAnimationSpec spec)
         {
-            return animationHash;
-        }
-
-        public override void SetHashString()
-        {
-            if (string.IsNullOrEmpty(hashString))
-            {
-                hashString = "Texture_Jump_Fall_Orange";
-                animationHash = Hash128.Compute(hashString);
-            }
+            _animationSpec = spec;
         }
 
         public Runner_Jump_Fall(Unit unit, UserInput input)
@@ -40,16 +29,19 @@ namespace RB
         {
             if (_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
             {
-                Debugger.Log("transitioning back to normalrun");
                 _unit.unitData.listNextStates.Add(new Runner_NormalRun(_unit, _userInput));
 
-                //testing dust
-                Units.instance.AddCreator(new LandingDust_Creator(Stage.currentStage.transform));
-                Units.instance.ProcessCreators();
-                Units.instance.GetUnit<LandingDust>().transform.position = _unit.transform.position;
+                //Units.instance.AddCreator(new LandingDust_Creator(Stage.currentStage.transform));
+                //Units.instance.ProcessCreators();
+                //Units.instance.GetUnit<LandingDust>().transform.position = _unit.transform.position;
             }
 
             UpdateComponents();
+        }
+
+        public override SpriteAnimationSpec GetSpriteAnimationSpec()
+        {
+            return _animationSpec;
         }
     }
 }

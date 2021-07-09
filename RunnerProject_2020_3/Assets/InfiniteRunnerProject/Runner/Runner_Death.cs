@@ -6,12 +6,11 @@ namespace RB
 {
     public class Runner_Death : State
     {
-        static Hash128 animationHash;
-        static string hashString = string.Empty;
+        private static SpriteAnimationSpec _animationSpec = null;
 
-        public override Hash128 GetAnimationHash()
+        public static void SetAnimationSpec(SpriteAnimationSpec spec)
         {
-            return animationHash;
+            _animationSpec = spec;
         }
 
         public Runner_Death(Unit unit)
@@ -19,16 +18,6 @@ namespace RB
             Debugger.Log("runner is dead");
             _unit = unit;
         }
-
-        public override void SetHashString()
-        {
-            if (string.IsNullOrEmpty(hashString))
-            {
-                hashString = StaticRefs.runnerMovementSpriteData.Death_SpriteName;
-                animationHash = Hash128.Compute(hashString);
-            }
-        }
-
         public override void OnEnter()
         {
             IMessage message = new UIMessage("runner is dead");
@@ -45,6 +34,11 @@ namespace RB
             {
                 _unit.unitData.rigidBody2D.Sleep();
             }
+        }
+
+        public override SpriteAnimationSpec GetSpriteAnimationSpec()
+        {
+            return _animationSpec;
         }
     }
 }

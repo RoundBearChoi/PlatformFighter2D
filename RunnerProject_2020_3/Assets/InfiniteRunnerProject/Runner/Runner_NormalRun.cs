@@ -8,22 +8,11 @@ namespace RB
     public class Runner_NormalRun : State
     {
         public static bool initialPush = false;
+        private static SpriteAnimationSpec _animationSpec = null;
 
-        static Hash128 animationHash;
-        static string hashString = string.Empty;
-        
-        public override Hash128 GetAnimationHash()
+        public static void SetAnimationSpec(SpriteAnimationSpec spec)
         {
-            return animationHash;
-        }
-
-        public override void SetHashString()
-        {
-            if (string.IsNullOrEmpty(hashString))
-            {
-                hashString = StaticRefs.runnerMovementSpriteData.Run_SpriteName;
-                animationHash = Hash128.Compute(hashString);
-            }
+            _animationSpec = spec;
         }
 
         public Runner_NormalRun(Unit unit, UserInput userInput)
@@ -48,18 +37,23 @@ namespace RB
         {
             UpdateComponents();
 
-            if (updateCount != 0 && updateCount % StaticRefs.runnerMovementSpriteData.Run_SpriteInterval == 0)
+            if (updateCount != 0 && updateCount % _animationSpec.spriteInterval == 0)
             {
                 if (_unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX == 3 ||
                     _unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX == 7)
                 {
-                    Units.instance.AddCreator(new StepDust_Creator(Stage.currentStage.transform));
-                    Units.instance.ProcessCreators();
-                    Unit dust = Units.instance.GetUnit<StepDust>();
-                    dust.transform.position = _unit.transform.position - new Vector3(_unit.transform.right.x * 1f, 0f, 0f);
-                    dust.unitData.faceRight = false;
+                    //Units.instance.AddCreator(new StepDust_Creator(Stage.currentStage.transform));
+                    //Units.instance.ProcessCreators();
+                    //Unit dust = Units.instance.GetUnit<StepDust>();
+                    //dust.transform.position = _unit.transform.position - new Vector3(_unit.transform.right.x * 1f, 0f, 0f);
+                    //dust.unitData.faceRight = false;
                 }
             }
+        }
+
+        public override SpriteAnimationSpec GetSpriteAnimationSpec()
+        {
+            return _animationSpec;
         }
     }
 }

@@ -9,7 +9,6 @@ namespace RB
         public State currentState = null;
 
         private UnitData _unitData = null;
-        private SpriteAnimations _spriteAnimations = null;
 
         public StateController(State newState, UnitData unitData)
         {
@@ -28,6 +27,13 @@ namespace RB
             currentState.OnLateUpdate();
         }
 
+        public void SetNewState(State newState)
+        {
+            currentState = newState;
+            currentState.updateCount = 0;
+            currentState.OnEnter();
+        }
+
         public void TransitionToNextState()
         {
             if (_unitData.listNextStates.Count > 0)
@@ -37,27 +43,9 @@ namespace RB
             }
         }
 
-        public void SetSpriteAnimations(SpriteAnimations spriteAnimations)
+        public State GetCurrentState()
         {
-            _spriteAnimations = spriteAnimations;
-        }
-
-        public Hash128 GetAnimationHash()
-        {
-            if (currentState != null)
-            {
-                return currentState.GetAnimationHash();
-            }
-
-            Hash128 none = Hash128.Compute("none");
-            return none;
-        }
-
-        public void SetNewState(State newState)
-        {
-            currentState = newState;
-            currentState.updateCount = 0;
-            currentState.OnEnter();
+            return currentState;
         }
     }
 }

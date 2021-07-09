@@ -15,20 +15,29 @@ namespace RB
         {
             _listSpriteAnimations = new List<SpriteAnimation>();
             _IStateController = stateController;
-
-            if (_IStateController != null)
-            {
-                _IStateController.SetSpriteAnimations(this);
-            }
         }
 
         public void MatchAnimationToState()
         {
             foreach (SpriteAnimation spriteAni in _listSpriteAnimations)
             {
-                int n = spriteAni.animationHash.CompareTo(_IStateController.GetAnimationHash());
+                //int n = spriteAni.animationHash.CompareTo(_IStateController.GetAnimationHash());
+                //
+                //if (n == 0)
+                //{
+                //    if (currentAnimation != spriteAni)
+                //    {
+                //        spriteAni.gameObject.SetActive(true);
+                //        currentAnimation = spriteAni;
+                //        currentAnimation.ResetSpriteIndex();
+                //    }
+                //}
+                //else
+                //{
+                //    spriteAni.gameObject.SetActive(false);
+                //}
 
-                if (n == 0)
+                if (spriteAni.animationSpec == _IStateController.GetCurrentState().GetSpriteAnimationSpec())
                 {
                     if (currentAnimation != spriteAni)
                     {
@@ -42,17 +51,6 @@ namespace RB
                     spriteAni.gameObject.SetActive(false);
                 }
             }
-        }
-
-        //old
-        public void AddSpriteAnimation(string objName, SpriteAnimationSpecs specs, Transform parent)
-        {
-            GameObject obj = new GameObject(objName);
-            obj.transform.parent = parent;
-            obj.transform.localPosition = Vector3.zero;
-            obj.transform.localRotation = Quaternion.identity;
-            _listSpriteAnimations.Add(obj.AddComponent<SpriteAnimation>());
-            _listSpriteAnimations[_listSpriteAnimations.Count - 1].Init(specs);
         }
 
         public void AddSpriteAnimation(SpriteAnimationSpec spec, Transform parent)
