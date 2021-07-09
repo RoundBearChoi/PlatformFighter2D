@@ -8,16 +8,14 @@ namespace RB
     {
         float _yPositionFix = 0f;
         float _xStartingPos = 0f;
-
-        GameObject _parallaxAnchor = null;
         float _percentage = 0f;
-       
-        public HorizontalParallax(Unit unit, GameObject anchor, float percentage)
+        GameObject _parallaxAnchor = null;
+
+        public HorizontalParallax(Unit unit, float percentage)
         {
             _unit = unit;
             _xStartingPos = unit.transform.position.x;
             _yPositionFix = unit.transform.position.y;
-            _parallaxAnchor = anchor;
             _percentage = percentage;
         }
 
@@ -27,6 +25,10 @@ namespace RB
             {
                 Vector3 pos = _parallaxAnchor.transform.position * _percentage;
                 _unit.transform.position = new Vector3(_xStartingPos + pos.x, _yPositionFix, _unit.transform.position.z);
+            }
+            else
+            {
+                _parallaxAnchor = CameraController.gameCam.gameObject;
             }
         }
     }

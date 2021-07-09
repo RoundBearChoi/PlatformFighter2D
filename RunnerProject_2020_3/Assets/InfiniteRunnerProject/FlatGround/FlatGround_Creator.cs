@@ -21,7 +21,7 @@ namespace RB
             SpriteRenderer renderer = groundObj.GetComponentInChildren<SpriteRenderer>();
 
             //should be done early (resourceloader)
-            Sprite[] arrSprites = Resources.LoadAll<Sprite>(StaticRefs.swampSpriteData.Swamp_GroundTile25_SpriteName);
+            Sprite[] arrSprites = Resources.LoadAll<Sprite>(StaticRefs.swampParallaxData.Swamp_GroundTile25_SpriteName);
 
             if (arrSprites.Length != 0)
             {

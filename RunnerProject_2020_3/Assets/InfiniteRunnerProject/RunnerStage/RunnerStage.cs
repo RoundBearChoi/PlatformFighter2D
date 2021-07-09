@@ -10,7 +10,11 @@ namespace RB
 
         public override void Init()
         {
-            units.AddCreator(new DefaultUnitCreator(_userInput, this.transform, StaticRefs.runnerCreationSpec));
+            foreach(UnitCreationSpec spec in StaticRefs.listDefaultCreationSpecs)
+            {
+                units.AddCreator(new DefaultUnitCreator(_userInput, this.transform, spec));
+            }
+            
             units.ProcessCreators();
 
             Unit runner = units.GetUnit<Runner>();
@@ -18,11 +22,6 @@ namespace RB
             Runner_NormalRun.initialPush = false;
 
             units.AddCreator(new CameraController_Creator(this.transform, runner, FindObjectOfType<Camera>()));
-            units.AddCreator(new DefaultUnitCreator(null, this.transform, StaticRefs.golemCreationSpec));
-            units.AddCreator(new DefaultUnitCreator(null, this.transform, StaticRefs.swamp_Grass_CreationSpec));
-            units.AddCreator(new DefaultUnitCreator(null, this.transform, StaticRefs.swamp_River_CreationSpec));
-            units.AddCreator(new DefaultUnitCreator(null, this.transform, StaticRefs.swamp_FrontTrees_CreationSpec));
-            units.AddCreator(new DefaultUnitCreator(null, this.transform, StaticRefs.swamp_BackTrees_CreationSpec));
             units.AddCreator(new FlatGround_Creator(this.transform));
 
             units.ProcessCreators();
