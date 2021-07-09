@@ -64,7 +64,11 @@ namespace RB
         public virtual void InitCollisionChecker()
         {
             BoxCollider2D collider = this.gameObject.GetComponent<BoxCollider2D>();
-            _collisionChecker = new CollisionChecker(collider);
+
+            if (collider != null)
+            {
+                _collisionChecker = new CollisionChecker(collider);
+            }
         }
 
         public virtual void RunHitReactionAnimation()

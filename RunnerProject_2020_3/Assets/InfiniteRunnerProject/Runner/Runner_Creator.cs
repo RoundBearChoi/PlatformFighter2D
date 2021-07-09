@@ -30,8 +30,8 @@ namespace RB
             runner.unitUpdater.SetOwnerUnit(runner);
 
             runner.InitBoxCollider(StaticRefs.runnerCreationSpec);
+
             runner.InitCollisionChecker();
-            runner.SetUserInput(_userInput);
 
             runner.unitData.spriteAnimations = new SpriteAnimations(runner.iStateController);
 
