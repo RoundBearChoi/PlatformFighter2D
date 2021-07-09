@@ -36,5 +36,10 @@ namespace RB
         {
             unit.iStateController.SetNewState(new Swamp_BackTrees_DefaultState(unit));
         }
+
+        public void New_LandingDust(Unit unit, UserInput userInput)
+        {
+            unit.iStateController.SetNewState(new LandingDust_DefaultState(unit));
+        }
     }
 }

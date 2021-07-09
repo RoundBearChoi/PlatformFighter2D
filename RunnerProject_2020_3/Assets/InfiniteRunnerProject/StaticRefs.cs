@@ -11,5 +11,6 @@ namespace RB
         public static SwampParallax swampParallaxData;
 
         public static List<UnitCreationSpec> listDefaultCreationSpecs = new List<UnitCreationSpec>();
+        public static UnitCreationSpec landingDustCreationSpec = null;
     }
 }

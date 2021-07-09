@@ -6,7 +6,7 @@ namespace RB
 {
     public class LandingDust_DefaultState : State
     {
-        private static SpriteAnimationSpec _animationSpec;
+        public static SpriteAnimationSpec animationSpec;
         public LandingDust_DefaultState(Unit unit)
         {
             _unit = unit;
@@ -22,7 +22,7 @@ namespace RB
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
         {
-            return _animationSpec;
+            return animationSpec;
         }
     }
 }

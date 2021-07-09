@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    [CreateAssetMenu(fileName = "Data", menuName = "InfiniteRunner/UnitCreationSpecs/DefaultUnitCreationSpec")]
+    [CreateAssetMenu(fileName = "UnitCreationSpec", menuName = "InfiniteRunner/UnitCreationSpecs/DefaultUnitCreationSpec")]
     public class UnitCreationSpec : ScriptableObject
     {
         [Space(15)]
