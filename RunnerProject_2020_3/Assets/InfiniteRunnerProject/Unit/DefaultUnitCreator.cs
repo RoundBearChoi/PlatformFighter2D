@@ -19,11 +19,9 @@ namespace RB
 
             Unit unit = InstantiateUnit(_creationSpec);
             unit.transform.parent = _parentTransform;
+            unit.iStateController = new StateController(unit);
 
-            //need to be moved to SO
-            unit.iStateController = new StateController(
-                new Runner_Idle(unit, _userInput),
-                unit.unitData);
+            _creationSpec.setInitialState.Invoke(unit, _userInput);
 
             unit.unitUpdater = new DefaultUpdater();
             unit.unitUpdater.SetOwnerUnit(unit);

@@ -15,6 +15,25 @@ MonoBehaviour:
   unitType: 0
   localPosition: {x: 0, y: 5, z: -1}
   localRotation: {x: 0, y: 0, z: 0, w: 0}
+  BoxCollider2DSize: {x: 0.8, y: 3.4}
+  setInitialState:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: c2e6b834d5083cc47b02b814d11a90b3, type: 2}
+        m_TargetAssemblyTypeName: RB.StateFactory, Assembly-CSharp
+        m_MethodName: New_Runner_Idle
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  setUpdater:
+    m_PersistentCalls:
+      m_Calls: []
   listSpriteAnimationSpecs:
   - {fileID: 11400000, guid: 09799db2472645b4f968b593ada1f22e, type: 2}
   - {fileID: 11400000, guid: f4872d3c530597f4cb6cdd8cd8f6d4ad, type: 2}
@@ -22,6 +41,3 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9ff5e13287884d8489a9fb6604424265, type: 2}
   - {fileID: 11400000, guid: 1054691aa296aa9409811d2d79062053, type: 2}
   - {fileID: 11400000, guid: 7110fcf6de8c2204c80fa09eb40839e3, type: 2}
-  updaterSettings:
-    useCustomUpdater: 0
-  BoxCollider2DSize: {x: 0.8, y: 3.4}

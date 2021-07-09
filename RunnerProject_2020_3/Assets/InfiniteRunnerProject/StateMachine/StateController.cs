@@ -8,12 +8,11 @@ namespace RB
     {
         public State currentState = null;
 
-        private UnitData _unitData = null;
+        private Unit _unit = null;
 
-        public StateController(State newState, UnitData unitData)
+        public StateController(Unit unit)
         {
-            _unitData = unitData;
-            SetNewState(newState);
+            _unit = unit;
         }
 
         public void OnFixedUpdate()
@@ -36,10 +35,10 @@ namespace RB
 
         public void TransitionToNextState()
         {
-            if (_unitData.listNextStates.Count > 0)
+            if (_unit.unitData.listNextStates.Count > 0)
             {
-                SetNewState(_unitData.listNextStates[_unitData.listNextStates.Count - 1]);
-                _unitData.listNextStates.Clear();
+                SetNewState(_unit.unitData.listNextStates[_unit.unitData.listNextStates.Count - 1]);
+                _unit.unitData.listNextStates.Clear();
             }
         }
 
