@@ -6,8 +6,6 @@ namespace RB
 {
     public class Swamp_Creator : UnitCreator
     {
-        private Transform _parentTransform;
-
         public Swamp_Creator(Transform parentTransform)
         {
             _parentTransform = parentTransform;

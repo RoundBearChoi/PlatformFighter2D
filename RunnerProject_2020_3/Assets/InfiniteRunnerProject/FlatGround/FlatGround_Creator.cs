@@ -6,8 +6,6 @@ namespace RB
 {
     public class FlatGround_Creator : UnitCreator
     {
-        private Transform _parentTransform;
-
         public FlatGround_Creator(Transform parentTransform)
         {
             _parentTransform = parentTransform;

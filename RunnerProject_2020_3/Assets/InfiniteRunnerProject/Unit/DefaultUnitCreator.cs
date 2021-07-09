@@ -4,28 +4,65 @@ using UnityEngine;
 
 namespace RB
 {
-    public class DefaultUnitCreator
+    public class DefaultUnitCreator : UnitCreator
     {
-        public virtual Unit InstantiateUnit(UnitCreationSpec creationSpec)
+        public DefaultUnitCreator(UserInput userInput, Transform parentTransform, UnitCreationSpec creationSpec)
         {
-            Unit unit = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(creationSpec.unitType)) as Unit;
-
-            unit.transform.localRotation = creationSpec.localRotation;
-            unit.transform.localPosition = creationSpec.localPosition;
-
-            unit.unitData = new UnitData(unit.transform);
-
-            return unit;
+            _userInput = userInput;
+            _parentTransform = parentTransform;
+            _creationSpec = creationSpec;
         }
 
-        public virtual Unit DefineUnit()
+        public override Unit DefineUnit()
         {
-            return null;
+            Runner_NormalRun.initialPush = false;
+
+            Unit runner = InstantiateUnit(_creationSpec);
+            runner.transform.parent = _parentTransform;
+
+            runner.iStateController = new StateController(
+                new Runner_Idle(runner, _userInput),
+                runner.unitData);
+
+            runner.unitUpdater = new DefaultUpdater();
+            runner.unitUpdater.SetOwnerUnit(runner);
+
+            runner.InitBoxCollider(_creationSpec);
+
+            runner.InitCollisionChecker();
+
+            if (_creationSpec.listSpriteAnimationSpecs.Count > 0)
+            {
+                runner.unitData.spriteAnimations = new SpriteAnimations(runner.iStateController);
+            
+                foreach(SpriteAnimationSpec spec in _creationSpec.listSpriteAnimationSpecs)
+                {
+                    SetSpriteAnimation(runner, spec);
+                }
+            }
+
+            return runner;
         }
 
-        public virtual void AddUnits(List<Unit> listUnits)
+        public override void AddUnits(List<Unit> listUnits)
         {
             listUnits.Add(DefineUnit());
+        }
+
+        void SetSpriteAnimation(Unit unit, SpriteAnimationSpec spec)
+        {
+            if (spec != null)
+            {
+                unit.unitData.spriteAnimations.AddSpriteAnimation(spec, unit.transform);
+
+                foreach (AdditionalInterval additionalInterval in spec.additionalIntervals)
+                {
+                    unit.unitData.spriteAnimations.GetLastSpriteAnimation().AddAdditionalInterval(additionalInterval);
+                }
+
+                currentSpec = spec;
+                spec.setCorrespondingState.Invoke();
+            }
         }
     }
 }

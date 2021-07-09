@@ -6,6 +6,10 @@ namespace RB
 {
     public abstract class UnitCreator
     {
+        protected UserInput _userInput = null;
+        protected Transform _parentTransform = null;
+        protected UnitCreationSpec _creationSpec = null;
+
         public static SpriteAnimationSpec currentSpec = null;
 
         public virtual Unit InstantiateUnit(UnitCreationSpec creationSpec)

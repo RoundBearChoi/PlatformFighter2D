@@ -6,7 +6,6 @@ namespace RB
 {
     public class CameraController_Creator : UnitCreator
     {
-        private Transform _parentTransform;
         private Unit _runner;
 
         public CameraController_Creator(Transform parentTransform, Unit runner, Camera gameCam)

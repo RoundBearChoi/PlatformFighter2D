@@ -6,8 +6,6 @@ namespace RB
 {
     public class FrontEnemyCreator : UnitCreator
     {
-        private Transform _parentTransform;
-
         public FrontEnemyCreator(Transform parentTransform)
         {
             _parentTransform = parentTransform;

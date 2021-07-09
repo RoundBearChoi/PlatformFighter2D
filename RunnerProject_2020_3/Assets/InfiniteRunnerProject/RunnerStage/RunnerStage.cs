@@ -10,7 +10,7 @@ namespace RB
 
         public override void Init()
         {
-            units.AddCreator(new Runner_Creator(_userInput, this.transform));
+            units.AddCreator(new DefaultUnitCreator(_userInput, this.transform, StaticRefs.runnerCreationSpec));
             units.ProcessCreators();
 
             Unit runner = units.GetUnit<Runner>();
@@ -22,7 +22,7 @@ namespace RB
             units.AddCreator(new Golem_Creator(this.transform));
             units.ProcessCreators();
 
-            units.GetUnit<Runner>().transform.position = new Vector3(0f, 5f, -1f);
+            //units.GetUnit<Runner>().transform.position = new Vector3(0f, 5f, -1f);
             //units.GetUnit<Golem>().transform.position = new Vector3(10f, 0f, 0f);
         }
 

@@ -6,8 +6,6 @@ namespace RB
 {
     public class Golem_Creator : UnitCreator
     {
-        private Transform _parentTransform;
-
         public Golem_Creator(Transform parentTransform)
         {
             _parentTransform = parentTransform;

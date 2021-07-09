@@ -13,7 +13,7 @@ namespace RB
 
         public override void Init()
         {
-            units.AddCreator(new Runner_Creator(_userInput, this.transform));
+            units.AddCreator(new DefaultUnitCreator(_userInput, this.transform, StaticRefs.runnerCreationSpec));
             units.ProcessCreators();
 
             Unit runner = units.GetUnit<Runner>();

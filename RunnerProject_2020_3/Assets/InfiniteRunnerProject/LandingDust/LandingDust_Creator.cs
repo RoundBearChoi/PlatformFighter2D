@@ -6,8 +6,6 @@ namespace RB
 {
     public class LandingDust_Creator : UnitCreator
     {
-        private Transform _parentTransform;
-
         public LandingDust_Creator(Transform parentTransform)
         {
             _parentTransform = parentTransform;

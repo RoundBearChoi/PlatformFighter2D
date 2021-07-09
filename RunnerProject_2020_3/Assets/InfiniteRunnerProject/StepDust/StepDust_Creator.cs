@@ -6,8 +6,6 @@ namespace RB
 {
     public class StepDust_Creator : UnitCreator
     {
-        private Transform _parentTransform;
-
         public StepDust_Creator(Transform parentTransform)
         {
             _parentTransform = parentTransform;
