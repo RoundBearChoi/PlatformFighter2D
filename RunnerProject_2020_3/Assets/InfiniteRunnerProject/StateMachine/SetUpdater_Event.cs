@@ -6,7 +6,7 @@ using UnityEngine.Events;
 namespace RB
 {
     [System.Serializable]
-    public class SetUpdater_Event : UnityEvent
+    public class SetUpdater_Event : UnityEvent<Unit>
     {
 
     }

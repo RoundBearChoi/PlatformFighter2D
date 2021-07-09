@@ -24,12 +24,9 @@ namespace RB
             unit.iStateController = new StateController(unit);
 
             _creationSpec.setInitialState.Invoke(unit, _userInput);
-
-            unit.unitUpdater = new DefaultUpdater();
-            unit.unitUpdater.SetOwnerUnit(unit);
+            _creationSpec.setUpdater.Invoke(unit);
 
             unit.InitBoxCollider(_creationSpec);
-
             unit.InitCollisionChecker();
 
             if (_creationSpec.listSpriteAnimationSpecs.Count > 0)
