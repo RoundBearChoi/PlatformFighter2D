@@ -10,7 +10,7 @@ namespace RB
         protected Transform _parentTransform = null;
         protected UnitCreationSpec _creationSpec = null;
 
-        public static SpriteAnimationSpec currentSpec = null;
+        //public static SpriteAnimationSpec currentSpec = null;
 
         public virtual Unit InstantiateUnit(UnitCreationSpec creationSpec)
         {

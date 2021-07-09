@@ -9,9 +9,9 @@ namespace RB
         private UserInput _userInput = null;
         private static SpriteAnimationSpec _animationSpec = null;
 
-        public static void SetAnimationSpec()
+        public static void SetAnimationSpec(SpriteAnimationSpec spec)
         {
-            _animationSpec = UnitCreator.currentSpec;
+            _animationSpec = spec;
         }
 
         public Runner_Idle(Unit unit, UserInput input)

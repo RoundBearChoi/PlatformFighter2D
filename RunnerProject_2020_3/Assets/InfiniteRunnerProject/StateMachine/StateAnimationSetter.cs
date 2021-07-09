@@ -7,34 +7,34 @@ namespace RB
     [CreateAssetMenu(fileName = "StateAnimationSetter", menuName = "InfiniteRunner/StateAnimationSetter/StateAnimationSetter")]
     public class StateAnimationSetter : ScriptableObject
     {
-        public void State_Runner_AttackA()
+        public void State_Runner_AttackA(SpriteAnimationSpec spec)
         {
-            Runner_AttackA.SetAnimationSpec();
+            Runner_AttackA.SetAnimationSpec(spec);
         }
 
-        public void State_Runner_Death()
+        public void State_Runner_Death(SpriteAnimationSpec spec)
         {
-            Runner_Death.SetAnimationSpec();
+            Runner_Death.SetAnimationSpec(spec);
         }
 
-        public void State_Runner_Idle()
+        public void State_Runner_Idle(SpriteAnimationSpec spec)
         {
-            Runner_Idle.SetAnimationSpec();
+            Runner_Idle.SetAnimationSpec(spec);
         }
 
-        public void State_Runner_Jump_Fall()
+        public void State_Runner_Jump_Fall(SpriteAnimationSpec spec)
         {
-            Runner_Jump_Fall.SetAnimationSpec();
+            Runner_Jump_Fall.SetAnimationSpec(spec);
         }
 
-        public void State_Runner_Jump_Up()
+        public void State_Runner_Jump_Up(SpriteAnimationSpec spec)
         {
-            Runner_Jump_Up.SetAnimationSpec();
+            Runner_Jump_Up.SetAnimationSpec(spec);
         }
 
-        public void State_Runner_NormalRun()
+        public void State_Runner_NormalRun(SpriteAnimationSpec spec)
         {
-            Runner_NormalRun.SetAnimationSpec();
+            Runner_NormalRun.SetAnimationSpec(spec);
         }
     }
 }
