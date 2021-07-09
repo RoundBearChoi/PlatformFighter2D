@@ -8,9 +8,11 @@ namespace RB
     public class SpriteAnimationSpec : ScriptableObject
     {
         public string spriteName;
-        public int spriteInterval;
+        public uint spriteInterval;
         public Vector2 spriteSize;
         public OffsetType offsetType;
         public Vector2 additionalOffset;
+        public List<AdditionalInterval> additionalIntervals = new List<AdditionalInterval>();
+        public bool playOnce;
     }
 }

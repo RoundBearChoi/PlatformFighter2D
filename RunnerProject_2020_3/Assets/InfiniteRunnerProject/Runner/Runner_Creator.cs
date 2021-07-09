@@ -33,14 +33,15 @@ namespace RB
 
             runner.InitCollisionChecker();
 
-            runner.unitData.spriteAnimations = new SpriteAnimations(runner.iStateController);
-
-            SetIdle(runner);
-            SetRun(runner);
-            SetAttackA(runner);
-            SetJump_Up(runner);
-            SetJump_Fall(runner);
-            SetDeath(runner);
+            if (StaticRefs.runnerCreationSpec.listSpriteAnimationSpecs.Count > 0)
+            {
+                runner.unitData.spriteAnimations = new SpriteAnimations(runner.iStateController);
+            
+                foreach(SpriteAnimationSpec spec in StaticRefs.runnerCreationSpec.listSpriteAnimationSpecs)
+                {
+                    SetSpriteAnimation(runner, spec);
+                }
+            }
 
             return runner;
         }
@@ -50,95 +51,19 @@ namespace RB
             listUnits.Add(DefineUnit());
         }
 
-        void SetIdle(Unit unit)
+        void SetSpriteAnimation(Unit unit, SpriteAnimationSpec spec)
         {
-            unit.unitData.spriteAnimations.AddSpriteAnimation(
-                "runner idle fall animation",
-                new SpriteAnimationSpecs(
-                    StaticRefs.runnerMovementSpriteData.Idle_SpriteName,
-                    StaticRefs.runnerMovementSpriteData.Idle_SpriteInterval,
-                    StaticRefs.runnerMovementSpriteData.Idle_SpriteSize,
-                    OffsetType.BOTTOM_CENTER,
-                    Vector2.zero),
-                unit.transform);
-
-            foreach (AdditionalInterval additionalInterval in StaticRefs.runnerMovementSpriteData.Idle_AdditionalIntervals)
+            if (spec != null)
             {
-                unit.unitData.spriteAnimations.GetLastSpriteAnimation().AddAdditionalInterval(additionalInterval);
+                unit.unitData.spriteAnimations.AddSpriteAnimation(spec, unit.transform);
+
+                foreach (AdditionalInterval additionalInterval in spec.additionalIntervals)
+                {
+                    unit.unitData.spriteAnimations.GetLastSpriteAnimation().AddAdditionalInterval(additionalInterval);
+                }
+
+                unit.unitData.spriteAnimations.GetLastSpriteAnimation().playOnce = spec.playOnce;
             }
-        }
-
-        void SetRun(Unit unit)
-        {
-            unit.unitData.spriteAnimations.AddSpriteAnimation(
-                "runner run animation",
-                new SpriteAnimationSpecs(
-                    StaticRefs.runnerMovementSpriteData.Run_SpriteName,
-                    StaticRefs.runnerMovementSpriteData.Run_SpriteInterval,
-                    StaticRefs.runnerMovementSpriteData.Run_SpriteSize,
-                    OffsetType.BOTTOM_CENTER,
-                    Vector2.zero),
-                unit.transform);
-        }
-
-        void SetAttackA(Unit unit)
-        {
-            unit.unitData.spriteAnimations.AddSpriteAnimation(
-                "runner attack A animation",
-                new SpriteAnimationSpecs(
-                    StaticRefs.runnerAttackSpriteData.AttackA_SpriteName,
-                    StaticRefs.runnerAttackSpriteData.AttackA_SpriteInterval,
-                    StaticRefs.runnerAttackSpriteData.AttackA_SpriteSize,
-                    OffsetType.BOTTOM_CENTER,
-                    StaticRefs.runnerAttackSpriteData.AttackA_AdditionalOffset),
-                unit.transform);
-
-            unit.unitData.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
-        }
-
-        void SetJump_Up(Unit unit)
-        {
-            unit.unitData.spriteAnimations.AddSpriteAnimation(
-                "runner jump (up) animation",
-                new SpriteAnimationSpecs(
-                    StaticRefs.runnerMovementSpriteData.Jump_SpriteName,
-                    StaticRefs.runnerMovementSpriteData.Jump_SpriteInterval,
-                    StaticRefs.runnerMovementSpriteData.Jump_SpriteSize,
-                    OffsetType.BOTTOM_CENTER,
-                    Vector2.zero),
-                unit.transform);
-
-            unit.unitData.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
-        }
-
-        void SetJump_Fall(Unit unit)
-        {
-            unit.unitData.spriteAnimations.AddSpriteAnimation(
-                "runner jump (fall) animation",
-                new SpriteAnimationSpecs(
-                    "Texture_Jump_Fall_Orange",
-                    StaticRefs.runnerMovementSpriteData.Jump_SpriteInterval,
-                    StaticRefs.runnerMovementSpriteData.Jump_SpriteSize,
-                    OffsetType.BOTTOM_CENTER,
-                    Vector2.zero),
-                unit.transform);
-
-            unit.unitData.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
-        }
-
-        void SetDeath(Unit unit)
-        {
-            unit.unitData.spriteAnimations.AddSpriteAnimation(
-                "runner death animation",
-                new SpriteAnimationSpecs(
-                    StaticRefs.runnerMovementSpriteData.Death_SpriteName,
-                    StaticRefs.runnerMovementSpriteData.Death_SpriteInterval,
-                    StaticRefs.runnerMovementSpriteData.Death_SpriteSize,
-                    OffsetType.BOTTOM_CENTER,
-                    Vector2.zero),
-                unit.transform);
-
-            unit.unitData.spriteAnimations.GetLastSpriteAnimation().playOnce = true;
         }
     }
 }

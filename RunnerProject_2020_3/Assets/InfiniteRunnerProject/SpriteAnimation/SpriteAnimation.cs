@@ -6,13 +6,14 @@ namespace RB
 {
     public class SpriteAnimation : MonoBehaviour
     {
-        SpriteAnimationSpecs specs;
-
         List<Sprite> _listSprites = new List<Sprite>();
-        List<AdditionalInterval> _listAdditionalIntervals = new List<AdditionalInterval>();
         SpriteRenderer spriteRenderer = null;
         uint _updateCount = 0;
-        int _spriteIndex = 0;
+        
+        //serialized for debugging
+        [SerializeField] List<AdditionalInterval> _listAdditionalIntervals = new List<AdditionalInterval>();
+        [SerializeField] int _spriteIndex = 0;
+        [SerializeField] uint _renderInterval = 0;
 
         public Hash128 animationHash;
         public bool playOnce = false;
@@ -25,18 +26,57 @@ namespace RB
             }
         }
 
+        public void Init(SpriteAnimationSpec spec)
+        {
+            animationHash = Hash128.Compute(spec.spriteName);
+
+            //should be done early (resourceloader)
+            Sprite[] arrSprites = Resources.LoadAll<Sprite>(spec.spriteName);
+
+            if (arrSprites.Length == 0)
+            {
+                Debugger.Log("missing sprite resource: " + spec.spriteName);
+                arrSprites = Resources.LoadAll<Sprite>("Texture_MissingSprite");
+            }
+
+            foreach (Sprite spr in arrSprites)
+            {
+                _listSprites.Add(spr);
+            }
+
+            spriteRenderer = this.gameObject.AddComponent<SpriteRenderer>();
+
+            float xScale = spec.spriteSize.x / _listSprites[0].bounds.size.x;
+            float yScale = spec.spriteSize.y / _listSprites[0].bounds.size.y;
+
+            spriteRenderer.transform.localScale = new Vector2(xScale, yScale);
+
+            //later other pivots should be defined as well
+            if (spec.offsetType == OffsetType.BOTTOM_CENTER)
+            {
+                spriteRenderer.transform.localPosition = new Vector3(0f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);
+                spriteRenderer.transform.localPosition += new Vector3(spec.additionalOffset.x, spec.additionalOffset.y, 0f);
+            }
+            else if (spec.offsetType == OffsetType.BOTTOM_LEFT)
+            {
+                spriteRenderer.transform.localPosition = new Vector3(_listSprites[0].bounds.size.x * xScale * 0.5f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);
+                spriteRenderer.transform.localPosition += new Vector3(spec.additionalOffset.x, spec.additionalOffset.y, 0f);
+            }
+
+            _renderInterval = spec.spriteInterval;
+        }
+
+        //old
         public void Init(SpriteAnimationSpecs animationSpecs)
         {
             animationHash = Hash128.Compute(animationSpecs.mSheetFileName);
 
-            specs = animationSpecs;
-
             //should be done early (resourceloader)
-            Sprite[] arrSprites = Resources.LoadAll<Sprite>(specs.mSheetFileName);
+            Sprite[] arrSprites = Resources.LoadAll<Sprite>(animationSpecs.mSheetFileName);
 
             if (arrSprites.Length == 0)
             {
-                Debugger.Log("missing sprite resource: " + specs.mSheetFileName);
+                Debugger.Log("missing sprite resource: " + animationSpecs.mSheetFileName);
                 arrSprites = Resources.LoadAll<Sprite>("Texture_MissingSprite");
             }
 
@@ -47,22 +87,24 @@ namespace RB
 
             spriteRenderer = this.gameObject.AddComponent<SpriteRenderer>();
 
-            float xScale = specs.mPixelSize.x / _listSprites[0].bounds.size.x;
-            float yScale = specs.mPixelSize.y / _listSprites[0].bounds.size.y;
+            float xScale = animationSpecs.mPixelSize.x / _listSprites[0].bounds.size.x;
+            float yScale = animationSpecs.mPixelSize.y / _listSprites[0].bounds.size.y;
 
             spriteRenderer.transform.localScale = new Vector2(xScale, yScale);
 
             //later other pivots should be defined as well
-            if (specs.mOffsetType == OffsetType.BOTTOM_CENTER)
+            if (animationSpecs.mOffsetType == OffsetType.BOTTOM_CENTER)
             {
                 spriteRenderer.transform.localPosition = new Vector3(0f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);
-                spriteRenderer.transform.localPosition += new Vector3(specs.mAdditionalOffset.x, specs.mAdditionalOffset.y, 0f);
+                spriteRenderer.transform.localPosition += new Vector3(animationSpecs.mAdditionalOffset.x, animationSpecs.mAdditionalOffset.y, 0f);
             }
-            else if (specs.mOffsetType == OffsetType.BOTTOM_LEFT)
+            else if (animationSpecs.mOffsetType == OffsetType.BOTTOM_LEFT)
             {
                 spriteRenderer.transform.localPosition = new Vector3(_listSprites[0].bounds.size.x * xScale * 0.5f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);
-                spriteRenderer.transform.localPosition += new Vector3(specs.mAdditionalOffset.x, specs.mAdditionalOffset.y, 0f);
+                spriteRenderer.transform.localPosition += new Vector3(animationSpecs.mAdditionalOffset.x, animationSpecs.mAdditionalOffset.y, 0f);
             }
+
+            _renderInterval = animationSpecs.mRenderInterval;
         }
 
         public void AddAdditionalInterval(AdditionalInterval interval)
@@ -102,7 +144,7 @@ namespace RB
 
         public void UpdateSpriteIndex()
         {
-            if (_updateCount != 0 && _updateCount % specs.mRenderInterval == 0)
+            if (_updateCount != 0 && _updateCount % _renderInterval == 0)
             {
                 _spriteIndex++;
 
@@ -140,7 +182,7 @@ namespace RB
         {
             if (_spriteIndex == _listSprites.Count - 1)
             {
-                if (_updateCount % specs.mRenderInterval == 0)
+                if (_updateCount % _renderInterval == 0)
                 {
                     return true;
                 }

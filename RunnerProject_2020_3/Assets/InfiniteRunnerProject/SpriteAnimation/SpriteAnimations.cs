@@ -44,6 +44,7 @@ namespace RB
             }
         }
 
+        //old
         public void AddSpriteAnimation(string objName, SpriteAnimationSpecs specs, Transform parent)
         {
             GameObject obj = new GameObject(objName);
@@ -52,6 +53,16 @@ namespace RB
             obj.transform.localRotation = Quaternion.identity;
             _listSpriteAnimations.Add(obj.AddComponent<SpriteAnimation>());
             _listSpriteAnimations[_listSpriteAnimations.Count - 1].Init(specs);
+        }
+
+        public void AddSpriteAnimation(SpriteAnimationSpec spec, Transform parent)
+        {
+            GameObject obj = new GameObject(spec.spriteName);
+            obj.transform.parent = parent;
+            obj.transform.localPosition = Vector3.zero;
+            obj.transform.localRotation = Quaternion.identity;
+            _listSpriteAnimations.Add(obj.AddComponent<SpriteAnimation>());
+            _listSpriteAnimations[_listSpriteAnimations.Count - 1].Init(spec);
         }
 
         public SpriteAnimation GetLastSpriteAnimation()

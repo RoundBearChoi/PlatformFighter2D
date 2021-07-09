@@ -6,6 +6,15 @@ namespace RB
 {
     public struct SpriteAnimationSpecs
     {
+        public SpriteAnimationSpecs(SpriteAnimationSpec spec)
+        {
+            mSheetFileName = spec.spriteName;
+            mRenderInterval = spec.spriteInterval;
+            mPixelSize = spec.spriteSize;
+            mOffsetType = spec.offsetType;
+            mAdditionalOffset = spec.additionalOffset;
+        }
+
         public SpriteAnimationSpecs(string fileName, uint renderInterval, Vector2 pixelSize, OffsetType offsetType, Vector2 additionalOffset)
         {
             mSheetFileName = fileName;
