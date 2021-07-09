@@ -19,6 +19,8 @@ namespace RB
 
             Unit unit = InstantiateUnit(_creationSpec);
             unit.transform.parent = _parentTransform;
+
+            unit.unitData = new UnitData(unit.transform);
             unit.iStateController = new StateController(unit);
 
             _creationSpec.setInitialState.Invoke(unit, _userInput);

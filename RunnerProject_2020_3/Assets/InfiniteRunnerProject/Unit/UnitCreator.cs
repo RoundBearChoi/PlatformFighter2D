@@ -19,8 +19,6 @@ namespace RB
             unit.transform.localRotation = creationSpec.localRotation;
             unit.transform.localPosition = creationSpec.localPosition;
 
-            unit.unitData = new UnitData(unit.transform);
-
             return unit;
         }
 
