@@ -7,20 +7,23 @@ namespace RB
     [CreateAssetMenu(fileName = "Data", menuName = "InfiniteRunner/UnitCreationSpecs/DefaultUnitCreationSpec")]
     public class UnitCreationSpec : ScriptableObject
     {
+        [Space(15)]
+
         public UnitType unitType;
         public Vector3 localPosition;
         public Quaternion localRotation;
+        public Vector2 BoxCollider2DSize;
+
+        [Space(15)]
+
+        public SetInitialState_Event setInitialState;
+
+        [Space(15)]
+
+        public SetUpdater_Event setUpdater;
 
         [Space(15)]
 
         public List<SpriteAnimationSpec> listSpriteAnimationSpecs = new List<SpriteAnimationSpec>();
-
-        [Space(15)]
-
-        public UpdaterSettings updaterSettings;
-
-        [Space(15)]
-
-        public Vector2 BoxCollider2DSize;
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.Events;
 namespace RB
 {
     [System.Serializable]
-    public class SetStateAnimation_Event : UnityEvent
+    public class SetInitialState_Event : UnityEvent
     {
 
     }
