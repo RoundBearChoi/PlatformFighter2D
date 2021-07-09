@@ -17,31 +17,32 @@ namespace RB
         {
             Runner_NormalRun.initialPush = false;
 
-            Unit runner = InstantiateUnit(_creationSpec);
-            runner.transform.parent = _parentTransform;
+            Unit unit = InstantiateUnit(_creationSpec);
+            unit.transform.parent = _parentTransform;
 
-            runner.iStateController = new StateController(
-                new Runner_Idle(runner, _userInput),
-                runner.unitData);
+            //need to be moved to SO
+            unit.iStateController = new StateController(
+                new Runner_Idle(unit, _userInput),
+                unit.unitData);
 
-            runner.unitUpdater = new DefaultUpdater();
-            runner.unitUpdater.SetOwnerUnit(runner);
+            unit.unitUpdater = new DefaultUpdater();
+            unit.unitUpdater.SetOwnerUnit(unit);
 
-            runner.InitBoxCollider(_creationSpec);
+            unit.InitBoxCollider(_creationSpec);
 
-            runner.InitCollisionChecker();
+            unit.InitCollisionChecker();
 
             if (_creationSpec.listSpriteAnimationSpecs.Count > 0)
             {
-                runner.unitData.spriteAnimations = new SpriteAnimations(runner.iStateController);
+                unit.unitData.spriteAnimations = new SpriteAnimations(unit.iStateController);
             
                 foreach(SpriteAnimationSpec spec in _creationSpec.listSpriteAnimationSpecs)
                 {
-                    SetSpriteAnimation(runner, spec);
+                    SetSpriteAnimation(unit, spec);
                 }
             }
 
-            return runner;
+            return unit;
         }
 
         public override void AddUnits(List<Unit> listUnits)
