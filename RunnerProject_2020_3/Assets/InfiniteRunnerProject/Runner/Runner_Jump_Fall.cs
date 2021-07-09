@@ -7,12 +7,7 @@ namespace RB
     public class Runner_Jump_Fall : State
     {
         private UserInput _userInput = null;
-        private static SpriteAnimationSpec _animationSpec = null;
-
-        public static void SetAnimationSpec(SpriteAnimationSpec spec)
-        {
-            _animationSpec = spec;
-        }
+        public static SpriteAnimationSpec animationSpec = null;
 
         public Runner_Jump_Fall(Unit unit, UserInput input)
         {
@@ -41,7 +36,7 @@ namespace RB
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
         {
-            return _animationSpec;
+            return animationSpec;
         }
     }
 }

@@ -6,7 +6,7 @@ namespace RB
 {
     public class Swamp_Grass_DefaultState : State
     {
-        private static SpriteAnimationSpec _animationSpec;
+        public static SpriteAnimationSpec animationSpec;
 
         public Swamp_Grass_DefaultState(Unit unit)
         {
@@ -22,7 +22,7 @@ namespace RB
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
         {
-            return _animationSpec;
+            return animationSpec;
         }
     }
 }

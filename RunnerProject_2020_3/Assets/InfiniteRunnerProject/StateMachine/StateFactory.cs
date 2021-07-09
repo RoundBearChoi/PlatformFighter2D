@@ -16,5 +16,10 @@ namespace RB
         {
             unit.iStateController.SetNewState(new Golem_Idle(unit));
         }
+
+        public void New_Swamp_Grass(Unit unit, UserInput userInput)
+        {
+            unit.iStateController.SetNewState(new Swamp_Grass_DefaultState(unit));
+        }
     }
 }

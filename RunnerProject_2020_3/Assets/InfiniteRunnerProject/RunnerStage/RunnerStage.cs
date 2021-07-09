@@ -19,9 +19,9 @@ namespace RB
 
             units.AddCreator(new CameraController_Creator(this.transform, runner, FindObjectOfType<Camera>()));
             units.AddCreator(new DefaultUnitCreator(null, this.transform, StaticRefs.golemCreationSpec));
-
+            units.AddCreator(new DefaultUnitCreator(null, this.transform, StaticRefs.swamp_Grass_CreationSpec));
             units.AddCreator(new FlatGround_Creator(this.transform));
-            //units.AddCreator(new Swamp_Creator(this.transform));
+
             units.ProcessCreators();
 
             //temp

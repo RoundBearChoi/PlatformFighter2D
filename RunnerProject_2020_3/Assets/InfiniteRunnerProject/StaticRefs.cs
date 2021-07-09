@@ -15,5 +15,6 @@ namespace RB
 
         public static UnitCreationSpec runnerCreationSpec;
         public static UnitCreationSpec golemCreationSpec;
+        public static UnitCreationSpec swamp_Grass_CreationSpec;
     }
 }

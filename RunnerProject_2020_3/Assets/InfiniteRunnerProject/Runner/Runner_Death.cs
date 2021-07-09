@@ -6,12 +6,7 @@ namespace RB
 {
     public class Runner_Death : State
     {
-        private static SpriteAnimationSpec _animationSpec = null;
-
-        public static void SetAnimationSpec(SpriteAnimationSpec spec)
-        {
-            _animationSpec = spec;
-        }
+        public static SpriteAnimationSpec animationSpec = null;
 
         public Runner_Death(Unit unit)
         {
@@ -38,7 +33,7 @@ namespace RB
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
         {
-            return _animationSpec;
+            return animationSpec;
         }
     }
 }

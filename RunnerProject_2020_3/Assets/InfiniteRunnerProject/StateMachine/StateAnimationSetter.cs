@@ -9,37 +9,42 @@ namespace RB
     {
         public void State_Runner_AttackA(SpriteAnimationSpec spec)
         {
-            Runner_AttackA.SetAnimationSpec(spec);
+            Runner_AttackA.animationSpec = spec;
         }
 
         public void State_Runner_Death(SpriteAnimationSpec spec)
         {
-            Runner_Death.SetAnimationSpec(spec);
+            Runner_Death.animationSpec = spec;
         }
 
         public void State_Runner_Idle(SpriteAnimationSpec spec)
         {
-            Runner_Idle.SetAnimationSpec(spec);
+            Runner_Idle.animationSpec = spec;
         }
 
         public void State_Runner_Jump_Fall(SpriteAnimationSpec spec)
         {
-            Runner_Jump_Fall.SetAnimationSpec(spec);
+            Runner_Jump_Fall.animationSpec = spec;
         }
 
         public void State_Runner_Jump_Up(SpriteAnimationSpec spec)
         {
-            Runner_Jump_Up.SetAnimationSpec(spec);
+            Runner_Jump_Up.animationSpec = spec;
         }
 
         public void State_Runner_NormalRun(SpriteAnimationSpec spec)
         {
-            Runner_NormalRun.SetAnimationSpec(spec);
+            Runner_NormalRun.animationSpec = spec;
         }
 
         public void State_Golem_Idle(SpriteAnimationSpec spec)
         {
-            Golem_Idle.SetAnimationSpec(spec);
+            Golem_Idle.animationSpec = spec;
+        }
+
+        public void State_Swamp_Grass_Idle(SpriteAnimationSpec spec)
+        {
+            Swamp_Grass_DefaultState.animationSpec = spec;
         }
     }
 }

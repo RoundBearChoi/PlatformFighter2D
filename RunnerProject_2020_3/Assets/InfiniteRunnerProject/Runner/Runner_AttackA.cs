@@ -8,12 +8,7 @@ namespace RB
     {
         private UserInput _userInput = null;
         private bool _dustCreated = false;
-        private static SpriteAnimationSpec _animationSpec = null;
-
-        public static void SetAnimationSpec(SpriteAnimationSpec spec)
-        {
-            _animationSpec = spec;
-        }
+        public static SpriteAnimationSpec animationSpec = null;
 
         public Runner_AttackA(Unit unit, UserInput input)
         {
@@ -47,7 +42,7 @@ namespace RB
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
         {
-            return _animationSpec;
+            return animationSpec;
         }
     }
 }

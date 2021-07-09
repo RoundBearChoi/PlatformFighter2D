@@ -6,7 +6,7 @@ namespace RB
 {
     public class Swamp_FrontTrees_DefaultState : State
     {
-        private static SpriteAnimationSpec _animationSpec = null;
+        public static SpriteAnimationSpec animationSpec = null;
 
         public Swamp_FrontTrees_DefaultState(Unit unit)
         {
@@ -22,7 +22,7 @@ namespace RB
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
         {
-            return _animationSpec;
+            return animationSpec;
         }
     }
 }

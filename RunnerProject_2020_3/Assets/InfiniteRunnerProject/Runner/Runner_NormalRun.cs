@@ -8,12 +8,7 @@ namespace RB
     public class Runner_NormalRun : State
     {
         public static bool initialPush = false;
-        private static SpriteAnimationSpec _animationSpec = null;
-
-        public static void SetAnimationSpec(SpriteAnimationSpec spec)
-        {
-            _animationSpec = spec;
-        }
+        public static SpriteAnimationSpec animationSpec = null;
 
         public Runner_NormalRun(Unit unit, UserInput userInput)
         {
@@ -37,7 +32,7 @@ namespace RB
         {
             UpdateComponents();
 
-            if (updateCount != 0 && updateCount % _animationSpec.spriteInterval == 0)
+            if (updateCount != 0 && updateCount % animationSpec.spriteInterval == 0)
             {
                 if (_unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX == 3 ||
                     _unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX == 7)
@@ -53,7 +48,7 @@ namespace RB
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
         {
-            return _animationSpec;
+            return animationSpec;
         }
     }
 }

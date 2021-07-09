@@ -6,12 +6,7 @@ namespace RB
 {
     public class Golem_Idle : State
     {
-        private static SpriteAnimationSpec _animationSpec = null;
-
-        public static void SetAnimationSpec(SpriteAnimationSpec spec)
-        {
-            _animationSpec = spec;
-        }
+        public static SpriteAnimationSpec animationSpec = null;
 
         public Golem_Idle(Unit unit)
         {
@@ -25,7 +20,7 @@ namespace RB
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
         {
-            return _animationSpec;
+            return animationSpec;
         }
     }
 }

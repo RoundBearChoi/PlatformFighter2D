@@ -19,6 +19,7 @@ namespace RB
         //a list later maybe
         [SerializeField] private UnitCreationSpec runnerCreationSpecScriptableObj = null;
         [SerializeField] private UnitCreationSpec golemCreationSpecScriptableObj = null;
+        [SerializeField] private UnitCreationSpec swamp_grass_creationSpecSO = null;
 
         private void Start()
         {
@@ -31,6 +32,7 @@ namespace RB
 
             StaticRefs.runnerCreationSpec = runnerCreationSpecScriptableObj;
             StaticRefs.golemCreationSpec = golemCreationSpecScriptableObj;
+            StaticRefs.swamp_Grass_CreationSpec = swamp_grass_creationSpecSO;
 
             Debugger.Log("setting current GameInitializer instance");
 

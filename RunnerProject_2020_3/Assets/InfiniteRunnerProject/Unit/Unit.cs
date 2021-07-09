@@ -28,7 +28,7 @@ namespace RB
 
         public virtual void InitBoxCollider(UnitCreationSpec spec)
         {
-            if (spec.BoxCollider2DSize.x >= 0f && spec.BoxCollider2DSize.y >= 0f)
+            if (spec.BoxCollider2DSize.x > 0f && spec.BoxCollider2DSize.y > 0f)
             {
                 unitData.boxCollider2D = this.gameObject.AddComponent<BoxCollider2D>();
                 unitData.boxCollider2D.size = spec.BoxCollider2DSize;
