@@ -6,11 +6,6 @@ namespace RB
 {
     public class DefaultUpdater : BaseUpdater
     {
-        public void SetOwnerUnit(Unit unit)
-        {
-            _unit = unit;
-        }
-
         public override void CustomFixedUpdate()
         {
             _unit.iStateController.TransitionToNextState();
