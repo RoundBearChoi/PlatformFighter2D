@@ -6,7 +6,7 @@ namespace RB
 {
     public abstract class Unit : MonoBehaviour
     {
-        public IUpdater unitUpdater = new NoUpdate();
+        public BaseUpdater unitUpdater = null;
         public IStateController iStateController = null;
         public UnitData unitData = null;
         public AttackData attackData = null;
@@ -26,10 +26,10 @@ namespace RB
 
         }
 
-        public virtual void SetUpdater(IUpdater updater)
-        {
-            unitUpdater = updater;
-        }
+        //public virtual void SetUpdater(IUpdater updater)
+        //{
+        //    unitUpdater = updater;
+        //}
 
         public virtual void InitBoxCollider(Vector2 boxSize)
         {

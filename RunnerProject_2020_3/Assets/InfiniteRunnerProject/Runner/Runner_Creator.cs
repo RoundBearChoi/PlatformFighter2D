@@ -26,7 +26,8 @@ namespace RB
                 new Runner_Idle(runner, _userInput),
                 runner.unitData);
 
-            runner.SetUpdater(new DefaultUpdater(runner.iStateController));
+            runner.unitUpdater = new DefaultUpdater();
+            runner.unitUpdater.SetOwnerUnit(runner);
 
             runner.InitBoxCollider(StaticRefs.runnerMovementSpriteData.RunnerBoxColliderSize);
             runner.InitCollisionChecker();

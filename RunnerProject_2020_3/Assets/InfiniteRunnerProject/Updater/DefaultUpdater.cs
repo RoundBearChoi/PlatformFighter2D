@@ -4,24 +4,22 @@ using UnityEngine;
 
 namespace RB
 {
-    public class DefaultUpdater : IUpdater
+    public class DefaultUpdater : BaseUpdater
     {
-        private IStateController _IStateController = null;
-
-        public DefaultUpdater(IStateController stateController)
+        public void SetOwnerUnit(Unit unit)
         {
-            _IStateController = stateController;
+            _unit = unit;
         }
 
-        public void CustomFixedUpdate()
+        public override void CustomFixedUpdate()
         {
-            _IStateController.TransitionToNextState();
-            _IStateController.OnFixedUpdate();
+            _unit.iStateController.TransitionToNextState();
+            _unit.iStateController.OnFixedUpdate();
         }
 
-        public void CustomLateUpdate()
+        public override void CustomLateUpdate()
         {
-            _IStateController.OnLateUpdate();
+            _unit.iStateController.OnLateUpdate();
         }
     }
 }

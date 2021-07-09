@@ -26,7 +26,8 @@ namespace RB
                 new FrontEnemy_Idle(enemy),
                 enemy.unitData);
 
-            enemy.SetUpdater(new DefaultUpdater(enemy.iStateController));
+            enemy.unitUpdater = new DefaultUpdater();
+            enemy.unitUpdater.SetOwnerUnit(enemy);
 
             enemy.unitData.spriteAnimations = new SpriteAnimations(enemy.iStateController);
 

@@ -10,5 +10,13 @@ namespace RB
         public UnitType unitType;
         public Vector3 localPosition;
         public Quaternion localRotation;
+
+        [Space(20)]
+
+        public List<SpriteAnimationSpec> listSpriteAnimationSpecs = new List<SpriteAnimationSpec>();
+
+        [Space(20)]
+
+        public UpdaterSettings updaterSettings;
     }
 }
