@@ -20,6 +20,6 @@ namespace RB
         public List<AdditionalInterval> additionalIntervals = new List<AdditionalInterval>();
 
         [Space(10)]
-        public SetStateAnimation_Event setAnimationSpec;
+        public SetStateAnimation_Event setCorrespondingState;
     }
 }

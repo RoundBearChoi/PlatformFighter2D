@@ -6,6 +6,8 @@ namespace RB
 {
     public abstract class UnitCreator
     {
+        public static SpriteAnimationSpec currentSpec = null;
+
         public virtual Unit InstantiateUnit(UnitCreationSpec creationSpec)
         {
             Unit unit = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(creationSpec.unitType)) as Unit;

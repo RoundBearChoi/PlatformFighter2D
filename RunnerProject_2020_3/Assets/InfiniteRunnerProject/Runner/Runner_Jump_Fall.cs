@@ -9,9 +9,9 @@ namespace RB
         private UserInput _userInput = null;
         private static SpriteAnimationSpec _animationSpec = null;
 
-        public static void SetAnimationSpec(SpriteAnimationSpec spec)
+        public static void SetAnimationSpec()
         {
-            _animationSpec = spec;
+            _animationSpec = UnitCreator.currentSpec;
         }
 
         public Runner_Jump_Fall(Unit unit, UserInput input)

@@ -10,9 +10,9 @@ namespace RB
         public static bool initialPush = false;
         private static SpriteAnimationSpec _animationSpec = null;
 
-        public static void SetAnimationSpec(SpriteAnimationSpec spec)
+        public static void SetAnimationSpec()
         {
-            _animationSpec = spec;
+            _animationSpec = UnitCreator.currentSpec;
         }
 
         public Runner_NormalRun(Unit unit, UserInput userInput)
