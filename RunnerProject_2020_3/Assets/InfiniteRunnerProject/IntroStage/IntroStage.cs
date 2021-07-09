@@ -29,7 +29,7 @@ namespace RB
 
             if (_keyboard.f4Key.wasPressedThisFrame)
             {
-                _gameIntializer.listStageTransitions.Add(new SpritesStageTransition(_gameIntializer));
+                _gameIntializer.listStageTransitions.Add(new SpriteStageTransition(_gameIntializer));
             }
 
             if (_keyboard.f5Key.wasPressedThisFrame)

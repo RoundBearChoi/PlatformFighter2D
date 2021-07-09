@@ -13,7 +13,7 @@ namespace RB
             LoadObj<GameStage>(StageType.GAME_STAGE, "GameStage");
             LoadObj<RunnerStage>(StageType.RUNNER_STAGE, "RunnerStage");
             LoadObj<IntroStage>(StageType.INTRO_STAGE, "IntroStage");
-            LoadObj<SpritesStage>(StageType.SPRITE_STAGE, "SpritesStage");
+            LoadObj<SpriteStage>(StageType.SPRITE_STAGE, "SpriteStage");
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class SpritesStage : Stage
+    public class SpriteStage : Stage
     {
         SpriteAnimations _punchAnimations;
         GameObject _dummyObj;

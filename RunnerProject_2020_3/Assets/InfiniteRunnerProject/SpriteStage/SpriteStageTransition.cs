@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace RB
 {
-    public class SpritesStageTransition : IStageTransition
+    public class SpriteStageTransition : IStageTransition
     {
         private GameInitializer _gameInitializer = null;
 
-        public SpritesStageTransition(GameInitializer initializer)
+        public SpriteStageTransition(GameInitializer initializer)
         {
             _gameInitializer = initializer;
         }
