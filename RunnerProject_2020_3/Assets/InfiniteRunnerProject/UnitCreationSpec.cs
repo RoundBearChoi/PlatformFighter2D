@@ -11,12 +11,16 @@ namespace RB
         public Vector3 localPosition;
         public Quaternion localRotation;
 
-        [Space(20)]
+        [Space(15)]
 
         public List<SpriteAnimationSpec> listSpriteAnimationSpecs = new List<SpriteAnimationSpec>();
 
-        [Space(20)]
+        [Space(15)]
 
         public UpdaterSettings updaterSettings;
+
+        [Space(15)]
+
+        public Vector2 BoxCollider2DSize;
     }
 }

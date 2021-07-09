@@ -26,21 +26,19 @@ namespace RB
 
         }
 
-        //public virtual void SetUpdater(IUpdater updater)
-        //{
-        //    unitUpdater = updater;
-        //}
-
-        public virtual void InitBoxCollider(Vector2 boxSize)
+        public virtual void InitBoxCollider(UnitCreationSpec spec)
         {
-            unitData.boxCollider2D = this.gameObject.AddComponent<BoxCollider2D>();
-            unitData.boxCollider2D.size = boxSize;
-            unitData.boxCollider2D.offset = new Vector2(0f, boxSize.y / 2f);
+            if (spec.BoxCollider2DSize.x >= 0f && spec.BoxCollider2DSize.y >= 0f)
+            {
+                unitData.boxCollider2D = this.gameObject.AddComponent<BoxCollider2D>();
+                unitData.boxCollider2D.size = spec.BoxCollider2DSize;
+                unitData.boxCollider2D.offset = new Vector2(0f, spec.BoxCollider2DSize.y / 2f);
 
-            unitData.rigidBody2D = this.gameObject.AddComponent<Rigidbody2D>();
-            unitData.rigidBody2D.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
-            unitData.rigidBody2D.sharedMaterial = StaticRefs.gameData.physicsMaterial_NoFrictionNoBounce;
-            unitData.rigidBody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+                unitData.rigidBody2D = this.gameObject.AddComponent<Rigidbody2D>();
+                unitData.rigidBody2D.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+                unitData.rigidBody2D.sharedMaterial = StaticRefs.gameData.physicsMaterial_NoFrictionNoBounce;
+                unitData.rigidBody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+            }
         }
 
         public virtual bool ProcessDamage()

@@ -24,7 +24,7 @@ namespace RB
                 new Golem_Idle(golem),
                 golem.unitData);
 
-            golem.InitBoxCollider(StaticRefs.golemSpriteData.GolemBoxColliderSize);
+            golem.InitBoxCollider(StaticRefs.golemCreationSpec);
             golem.InitCollisionChecker();
 
             golem.unitData.spriteAnimations = new SpriteAnimations(golem.iStateController);

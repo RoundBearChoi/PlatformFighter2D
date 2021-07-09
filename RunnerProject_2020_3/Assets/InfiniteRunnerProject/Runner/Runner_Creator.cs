@@ -29,7 +29,7 @@ namespace RB
             runner.unitUpdater = new DefaultUpdater();
             runner.unitUpdater.SetOwnerUnit(runner);
 
-            runner.InitBoxCollider(StaticRefs.runnerMovementSpriteData.RunnerBoxColliderSize);
+            runner.InitBoxCollider(StaticRefs.runnerCreationSpec);
             runner.InitCollisionChecker();
             runner.SetUserInput(_userInput);
 

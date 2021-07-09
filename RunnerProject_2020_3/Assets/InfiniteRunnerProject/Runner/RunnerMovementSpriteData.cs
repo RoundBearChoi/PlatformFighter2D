@@ -7,7 +7,6 @@ namespace RB
     [CreateAssetMenu(fileName = "Data", menuName = "InfiniteRunner/GameData/RunnerMovementSpriteData")]
     public class RunnerMovementSpriteData : ScriptableObject
     {
-        public Vector2 RunnerBoxColliderSize = new Vector2();
         public string Idle_SpriteName;
         public uint Idle_SpriteInterval = new uint();
         public Vector2 Idle_SpriteSize = new Vector2();
