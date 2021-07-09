@@ -36,5 +36,10 @@ namespace RB
         {
             Runner_NormalRun.SetAnimationSpec(spec);
         }
+
+        public void State_Golem_Idle(SpriteAnimationSpec spec)
+        {
+            Golem_Idle.SetAnimationSpec(spec);
+        }
     }
 }

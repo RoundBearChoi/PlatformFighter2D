@@ -15,12 +15,11 @@ namespace RB
 
         public override Unit DefineUnit()
         {
-            Runner_NormalRun.initialPush = false;
-
             Unit unit = InstantiateUnit(_creationSpec);
             unit.transform.parent = _parentTransform;
 
             unit.unitData = new UnitData(unit.transform);
+            unit.unitData.faceRight = _creationSpec.faceRight;
             unit.iStateController = new StateController(unit);
 
             _creationSpec.setInitialState.Invoke(unit, _userInput);
@@ -29,10 +28,10 @@ namespace RB
             unit.InitBoxCollider(_creationSpec);
             unit.InitCollisionChecker();
 
+            unit.unitData.spriteAnimations = new SpriteAnimations(unit.iStateController);
+
             if (_creationSpec.listSpriteAnimationSpecs.Count > 0)
             {
-                unit.unitData.spriteAnimations = new SpriteAnimations(unit.iStateController);
-            
                 foreach(SpriteAnimationSpec spec in _creationSpec.listSpriteAnimationSpecs)
                 {
                     SetSpriteAnimation(unit, spec);

@@ -15,15 +15,18 @@ namespace RB
 
             Unit runner = units.GetUnit<Runner>();
             runner.SetUserInput(_userInput);
+            Runner_NormalRun.initialPush = false;
 
             units.AddCreator(new CameraController_Creator(this.transform, runner, FindObjectOfType<Camera>()));
+            units.AddCreator(new DefaultUnitCreator(null, this.transform, StaticRefs.golemCreationSpec));
+
             units.AddCreator(new FlatGround_Creator(this.transform));
-            units.AddCreator(new Swamp_Creator(this.transform));
-            units.AddCreator(new Golem_Creator(this.transform));
+            //units.AddCreator(new Swamp_Creator(this.transform));
             units.ProcessCreators();
 
-            //units.GetUnit<Runner>().transform.position = new Vector3(0f, 5f, -1f);
-            //units.GetUnit<Golem>().transform.position = new Vector3(10f, 0f, 0f);
+            //temp
+            Unit golem = units.GetUnit<Golem>();
+            golem.attackData = new AttackData();
         }
 
         public override void OnUpdate()

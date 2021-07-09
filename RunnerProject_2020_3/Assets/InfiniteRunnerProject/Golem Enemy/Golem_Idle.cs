@@ -8,6 +8,11 @@ namespace RB
     {
         private static SpriteAnimationSpec _animationSpec = null;
 
+        public static void SetAnimationSpec(SpriteAnimationSpec spec)
+        {
+            _animationSpec = spec;
+        }
+
         public Golem_Idle(Unit unit)
         {
             _unit = unit;

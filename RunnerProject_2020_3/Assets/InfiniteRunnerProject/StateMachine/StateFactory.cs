@@ -11,5 +11,10 @@ namespace RB
         {
             unit.iStateController.SetNewState(new Runner_Idle(unit, userInput));
         }
+
+        public void New_Golem_Idle(Unit unit, UserInput userInput)
+        {
+            unit.iStateController.SetNewState(new Golem_Idle(unit));
+        }
     }
 }

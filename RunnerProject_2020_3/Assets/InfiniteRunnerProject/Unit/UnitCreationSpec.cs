@@ -13,6 +13,7 @@ namespace RB
         public Vector3 localPosition;
         public Quaternion localRotation;
         public Vector2 BoxCollider2DSize;
+        public bool faceRight = true;
 
         [Space(15)]
 
