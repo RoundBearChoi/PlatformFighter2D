@@ -46,5 +46,20 @@ namespace RB
         {
             Swamp_Grass_DefaultState.animationSpec = spec;
         }
+
+        public void State_Swamp_River_Idle(SpriteAnimationSpec spec)
+        {
+            Swamp_River_DefaultState.animationSpec = spec;
+        }
+
+        public void State_Swamp_FrontTrees_Idle(SpriteAnimationSpec spec)
+        {
+            Swamp_FrontTrees_DefaultState.animationSpec = spec;
+        }
+
+        public void State_Swamp_BackTrees_Idle(SpriteAnimationSpec spec)
+        {
+            Swamp_BackTrees_DefaultState.animationSpec = spec;
+        }
     }
 }

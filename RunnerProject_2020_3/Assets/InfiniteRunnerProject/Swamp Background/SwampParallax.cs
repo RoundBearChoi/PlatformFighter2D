@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace RB
 {
-    [CreateAssetMenu(fileName = "Data", menuName = "InfiniteRunner/GameData/SwampSpriteData")]
-    public class SwampSpriteData : ScriptableObject
+    [CreateAssetMenu(fileName = "SwampParallax", menuName = "InfiniteRunner/GameData/SwampParallax")]
+    public class SwampParallax : ScriptableObject
     {
         public string Swamp_Grass_SpriteName;
         public Vector3 Swamp_Grass_StartPos;

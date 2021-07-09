@@ -21,22 +21,6 @@ namespace RB
         {
             foreach (SpriteAnimation spriteAni in _listSpriteAnimations)
             {
-                //int n = spriteAni.animationHash.CompareTo(_IStateController.GetAnimationHash());
-                //
-                //if (n == 0)
-                //{
-                //    if (currentAnimation != spriteAni)
-                //    {
-                //        spriteAni.gameObject.SetActive(true);
-                //        currentAnimation = spriteAni;
-                //        currentAnimation.ResetSpriteIndex();
-                //    }
-                //}
-                //else
-                //{
-                //    spriteAni.gameObject.SetActive(false);
-                //}
-
                 if (spriteAni.animationSpec == _IStateController.GetCurrentState().GetSpriteAnimationSpec())
                 {
                     if (currentAnimation != spriteAni)

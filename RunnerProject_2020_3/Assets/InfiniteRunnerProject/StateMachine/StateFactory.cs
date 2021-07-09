@@ -21,5 +21,20 @@ namespace RB
         {
             unit.iStateController.SetNewState(new Swamp_Grass_DefaultState(unit));
         }
+
+        public void New_Swamp_River(Unit unit, UserInput userInput)
+        {
+            unit.iStateController.SetNewState(new Swamp_River_DefaultState(unit));
+        }
+
+        public void New_Swamp_FrontTrees(Unit unit, UserInput userInput)
+        {
+            unit.iStateController.SetNewState(new Swamp_FrontTrees_DefaultState(unit));
+        }
+
+        public void New_Swamp_BackTrees(Unit unit, UserInput userInput)
+        {
+            unit.iStateController.SetNewState(new Swamp_BackTrees_DefaultState(unit));
+        }
     }
 }

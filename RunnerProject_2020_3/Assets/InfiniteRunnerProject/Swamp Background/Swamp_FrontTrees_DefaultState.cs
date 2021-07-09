@@ -6,7 +6,7 @@ namespace RB
 {
     public class Swamp_FrontTrees_DefaultState : State
     {
-        public static SpriteAnimationSpec animationSpec = null;
+        public static SpriteAnimationSpec animationSpec;
 
         public Swamp_FrontTrees_DefaultState(Unit unit)
         {

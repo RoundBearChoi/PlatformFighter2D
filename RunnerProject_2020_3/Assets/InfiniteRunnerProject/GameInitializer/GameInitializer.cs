@@ -13,13 +13,16 @@ namespace RB
         //[SerializeField] private RunnerMovementSpriteData runnerMovementSpriteDataScriptableObj = null;
         //[SerializeField] private RunnerAttackSpriteData runnerAttackSpriteDataScriptableObj = null;
         [SerializeField] private MovementDustSpriteData vfxSpriteDataScriptableObj = null;
-        [SerializeField] private SwampSpriteData swampSpriteDataScriptableObj = null;
+        [SerializeField] private SwampParallax swampSpriteDataScriptableObj = null;
         [SerializeField] private GolemSpriteData golemSpriteDataScriptableObj = null;
 
         //a list later maybe
         [SerializeField] private UnitCreationSpec runnerCreationSpecScriptableObj = null;
         [SerializeField] private UnitCreationSpec golemCreationSpecScriptableObj = null;
         [SerializeField] private UnitCreationSpec swamp_grass_creationSpecSO = null;
+        [SerializeField] private UnitCreationSpec swamp_river_creationSpecSO = null;
+        [SerializeField] private UnitCreationSpec swamp_frontTrees_creationSpecSO = null;
+        [SerializeField] private UnitCreationSpec swamp_backTrees_creationSpecSO = null;
 
         private void Start()
         {
@@ -33,6 +36,9 @@ namespace RB
             StaticRefs.runnerCreationSpec = runnerCreationSpecScriptableObj;
             StaticRefs.golemCreationSpec = golemCreationSpecScriptableObj;
             StaticRefs.swamp_Grass_CreationSpec = swamp_grass_creationSpecSO;
+            StaticRefs.swamp_River_CreationSpec = swamp_river_creationSpecSO;
+            StaticRefs.swamp_FrontTrees_CreationSpec = swamp_frontTrees_creationSpecSO;
+            StaticRefs.swamp_BackTrees_CreationSpec = swamp_backTrees_creationSpecSO;
 
             Debugger.Log("setting current GameInitializer instance");
 
