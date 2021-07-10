@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class DefaultUnitCreator : UnitCreator
+    public class DefaultUnitCreator : BaseUnitCreator
     {
         public DefaultUnitCreator(UserInput userInput, Transform parentTransform, BaseUnitCreationSpec creationSpec)
         {

@@ -9,14 +9,14 @@ namespace RB
         public static Units instance = null;
 
         private List<Unit> _listUnits = new List<Unit>();
-        private List<UnitCreator> _listUnitCreators = new List<UnitCreator>();
+        private List<BaseUnitCreator> _listUnitCreators = new List<BaseUnitCreator>();
 
         public Units()
         {
             instance = this;
         }
 
-        public void AddCreator(UnitCreator creator)
+        public void AddCreator(BaseUnitCreator creator)
         {
             _listUnitCreators.Add(creator);
         }
@@ -41,7 +41,7 @@ namespace RB
 
         public void ProcessCreators()
         {
-            foreach (UnitCreator creator in _listUnitCreators)
+            foreach (BaseUnitCreator creator in _listUnitCreators)
             {
                 creator.AddUnits(_listUnits);
             }

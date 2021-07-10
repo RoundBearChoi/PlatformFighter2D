@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class CameraController_Creator : UnitCreator
+    public class CameraController_Creator : BaseUnitCreator
     {
         private Unit _runner;
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class StepDust_Creator : UnitCreator
+    public class StepDust_Creator : BaseUnitCreator
     {
         public StepDust_Creator(Transform parentTransform)
         {

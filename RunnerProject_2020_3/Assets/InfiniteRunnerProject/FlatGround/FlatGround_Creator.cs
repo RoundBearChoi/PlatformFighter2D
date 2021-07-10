@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class FlatGround_Creator : UnitCreator
+    public class FlatGround_Creator : BaseUnitCreator
     {
         public FlatGround_Creator(Transform parentTransform)
         {

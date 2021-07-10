@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class FrontEnemyCreator : UnitCreator
+    public class FrontEnemyCreator : BaseUnitCreator
     {
         public FrontEnemyCreator(Transform parentTransform)
         {
