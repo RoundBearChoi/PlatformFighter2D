@@ -7,6 +7,7 @@ namespace RB
     public abstract class Unit : MonoBehaviour
     {
         public BaseUpdater unitUpdater = null;
+        public UnitType unitType = UnitType.NONE;
         public IStateController iStateController = null;
         public UnitData unitData = null;
         public bool deathAnimationTriggered = false;

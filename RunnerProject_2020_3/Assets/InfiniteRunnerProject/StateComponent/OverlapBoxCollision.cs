@@ -6,9 +6,9 @@ namespace RB
 {
     public struct OverlapBoxSpecs
     {
-        public OverlapBoxSpecs(int targetSpriteIndex, int maxHits, Vector2 point, Vector2 size, float angle, ContactFilter2D contactFilter)
+        public OverlapBoxSpecs(int targetSpriteIndex, int maxHits, Vector2 relativePoint, Vector2 size, float angle, ContactFilter2D contactFilter)
         {
-            mRelativePoint = point;
+            mRelativePoint = relativePoint;
             mMaxHits = maxHits;
             mSize = size;
             mContactFilter2D = contactFilter;
@@ -27,6 +27,7 @@ namespace RB
     public class OverlapBoxCollision : StateComponent
     {
         List<OverlapBoxSpecs> _listSpecs;
+        int _currentHitCount = 0;
 
         public OverlapBoxCollision(Unit unit, List<OverlapBoxSpecs> listSpecs)
         {
@@ -69,7 +70,23 @@ namespace RB
 
                     foreach(Collider2D col in results)
                     {
-                        Debugger.Log(_unit.name + " hit: " + col.gameObject.name);
+                        Unit collidingUnit = col.gameObject.GetComponent<Unit>();
+
+                        //check against self, none, ground
+                        if (collidingUnit.unitType != _unit.unitType && collidingUnit.unitType != UnitType.NONE && collidingUnit.unitType != UnitType.FLAT_GROUND)
+                        {
+                            _currentHitCount++;
+
+                            if (_currentHitCount <= specs.mMaxHits)
+                            {
+                                Debugger.Log(_unit.name + " hit: " + col.gameObject.name);
+                            }
+                            else
+                            {
+                                //Debugger.Log("collision detected but exeeded max hits");
+                                break;
+                            }
+                        }
                     }
                 }
             }

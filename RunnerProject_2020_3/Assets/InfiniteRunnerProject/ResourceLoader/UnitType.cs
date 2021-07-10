@@ -17,5 +17,7 @@ namespace RB
         STEP_DUST,
 
         SWAMP,
+
+        NONE = 1000,
     }
 }
