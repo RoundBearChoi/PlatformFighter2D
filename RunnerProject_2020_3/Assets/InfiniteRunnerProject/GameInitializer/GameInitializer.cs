@@ -14,10 +14,10 @@ namespace RB
         [SerializeField] private SwampParallax swampParallaxScriptableObj = null;
 
         [Space(15)]
-        [SerializeField] private List<UnitCreationSpec> listDefaultCreationSpecsSO = new List<UnitCreationSpec>();
+        [SerializeField] private List<BaseUnitCreationSpec> listCreationSpecsSO = new List<BaseUnitCreationSpec>();
 
         [Space(15)]
-        [SerializeField] private UnitCreationSpec landingDustCreationSpecSO;
+        [SerializeField] private DefaultUnitCreationSpec landingDustCreationSpecSO;
 
         private void Start()
         {
@@ -25,7 +25,7 @@ namespace RB
             StaticRefs.movementDustSpriteData = vfxSpriteDataScriptableObj;
             StaticRefs.swampParallaxData = swampParallaxScriptableObj;
 
-            StaticRefs.listDefaultCreationSpecs = listDefaultCreationSpecsSO;
+            StaticRefs.listCreationSpecs = listCreationSpecsSO;
             StaticRefs.landingDustCreationSpec = landingDustCreationSpecSO;
 
             Debugger.Log("setting current GameInitializer instance");

@@ -10,7 +10,9 @@ namespace RB
 
         public override void Init()
         {
-            foreach(UnitCreationSpec spec in StaticRefs.listDefaultCreationSpecs)
+            List<BaseUnitCreationSpec> defaults = StaticRefs.GetSpecs<DefaultUnitCreationSpec>();
+
+            foreach (BaseUnitCreationSpec spec in defaults)
             {
                 units.AddCreator(new DefaultUnitCreator(_userInput, this.transform, spec));
             }

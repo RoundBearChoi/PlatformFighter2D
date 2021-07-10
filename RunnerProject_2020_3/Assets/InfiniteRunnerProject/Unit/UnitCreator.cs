@@ -8,11 +8,11 @@ namespace RB
     {
         protected UserInput _userInput = null;
         protected Transform _parentTransform = null;
-        protected UnitCreationSpec _creationSpec = null;
+        protected BaseUnitCreationSpec _creationSpec = null;
 
         //public static SpriteAnimationSpec currentSpec = null;
 
-        public virtual Unit InstantiateUnit(UnitCreationSpec creationSpec)
+        public virtual Unit InstantiateUnit(BaseUnitCreationSpec creationSpec)
         {
             Unit unit = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(creationSpec.unitType)) as Unit;
 
