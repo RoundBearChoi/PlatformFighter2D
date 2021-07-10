@@ -54,11 +54,6 @@ namespace RB
             return damageTaken;
         }
 
-        public virtual void SetUserInput(UserInput userInput)
-        {
-
-        }
-
         public virtual void InitCollisionChecker()
         {
             BoxCollider2D collider = this.gameObject.GetComponent<BoxCollider2D>();

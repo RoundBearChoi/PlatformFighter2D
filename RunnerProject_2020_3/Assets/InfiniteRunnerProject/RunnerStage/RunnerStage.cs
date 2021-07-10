@@ -10,17 +10,10 @@ namespace RB
 
         public override void Init()
         {
-            List<BaseUnitCreationSpec> defaults = StaticRefs.GetSpecs<DefaultUnitCreationSpec>();
-
-            foreach (BaseUnitCreationSpec spec in defaults)
-            {
-                units.AddCreator(new DefaultUnitCreator(_userInput, this.transform, spec));
-            }
-            
+            InstantiateUnits<DefaultUnitCreationSpec>(_userInput);
             units.ProcessCreators();
 
             Unit runner = units.GetUnit<Runner>();
-            runner.SetUserInput(_userInput);
             Runner_NormalRun.initialPush = false;
 
             units.AddCreator(new CameraController_Creator(this.transform, runner, FindObjectOfType<Camera>()));

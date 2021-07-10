@@ -6,8 +6,6 @@ namespace RB
 {
     public class Runner : Unit
     {
-        private UserInput _userInput = null;
-
         public override void OnFixedUpdate()
         {
             unitUpdater.CustomFixedUpdate();
@@ -35,11 +33,6 @@ namespace RB
         public override void OnLateUpdate()
         {
             unitUpdater.CustomLateUpdate();
-        }
-
-        public override void SetUserInput(UserInput userInput)
-        {
-            _userInput = userInput;
         }
 
         public void OnCollisionEnter2D(Collision2D collision)
