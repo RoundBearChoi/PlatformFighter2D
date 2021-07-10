@@ -70,6 +70,7 @@ namespace RB
             UpdateKeyPress(keyboard.downArrowKey);
             UpdateKeyPress(keyboard.f5Key);
             UpdateKeyPress(keyboard.f6Key);
+            UpdateKeyPress(keyboard.f10Key);
             UpdateKeyPress(keyboard.spaceKey);
 
             UpdateButtonPress(mouse.leftButton);

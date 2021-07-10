@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class UIMessage : IMessage
+    public class UIMessage : BaseMessage
     {
         public static UI ui = null;
         
@@ -15,12 +15,12 @@ namespace RB
             _message = message;
         }
 
-        public void Register()
+        public override void Register()
         {
             ui.AddMessage(this);
         }
 
-        public string GetStringMessage()
+        public override string GetStringMessage()
         {
             return _message;
         }

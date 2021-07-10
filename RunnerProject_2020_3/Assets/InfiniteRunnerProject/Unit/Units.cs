@@ -11,6 +11,8 @@ namespace RB
         private List<Unit> _listUnits = new List<Unit>();
         private List<BaseUnitCreator> _listUnitCreators = new List<BaseUnitCreator>();
 
+        public List<BaseMessage> listMessages = new List<BaseMessage>();
+
         public Units()
         {
             instance = this;
@@ -100,6 +102,8 @@ namespace RB
                     _listUnits.RemoveAt(i);
                 }
             }
+
+            ProcessMessage();
         }
 
         public void OnLateUpdate()
@@ -108,6 +112,19 @@ namespace RB
             {
                 _listUnits[i].OnLateUpdate();
             }
+        }
+
+        public void ProcessMessage()
+        {
+            foreach (BaseMessage message in listMessages)
+            { 
+                if (message is HitStopMessage)
+                {
+                    Debugger.Log("hitstopmessage received by units: " + message.GetUnsignedIntMessage() + " frames");
+                }
+            }
+
+            listMessages.Clear();
         }
     }
 }

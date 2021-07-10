@@ -9,7 +9,7 @@ namespace RB
     {
         private FixedUpdateCounter fixedUpdateCounter = null;
         private UpdateCounter updateCounter = null;
-        private List<IMessage> _listMessages = new List<IMessage>();
+        private List<BaseMessage> _listMessages = new List<BaseMessage>();
         private Canvas _canvas = null;
         private List<UIBlock> _listUIBlocks = new List<UIBlock>();
         private UserInput _userInput = null;
@@ -47,7 +47,7 @@ namespace RB
             //only update the latest block
             _listUIBlocks[_listUIBlocks.Count - 1].UpdateUIBlock();
 
-            foreach(IMessage message in _listMessages)
+            foreach(BaseMessage message in _listMessages)
             {
                 ProcessMessage(message);
             }
@@ -55,16 +55,16 @@ namespace RB
             _listMessages.Clear();
         }
 
-        public void AddMessage(IMessage message)
+        public void AddMessage(BaseMessage message)
         {
             _listMessages.Add(message);
         }
 
-        public void ProcessMessage(IMessage message)
+        public void ProcessMessage(BaseMessage message)
         {
             if (message.GetStringMessage().Equals("runner is dead"))
             {
-                Debugger.Log("ui knows runner is dead");
+                Debugger.Log("runner death message received by ui");
                 RunnerDeathNotification notification = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.RUNNER_DEATH_NOTIFICATION), _canvas.transform) as RunnerDeathNotification;
                 notification.SetUserInput(_userInput);
                 _listUIBlocks.Add(notification);

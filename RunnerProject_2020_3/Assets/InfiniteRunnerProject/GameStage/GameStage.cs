@@ -73,6 +73,12 @@ namespace RB
                 _gameIntializer.listStageTransitions.Add(new IntroStageTransition(_gameIntializer));
             }
 
+            if (_userInput.ContainsKeyPress(UserInput.keyboard.f10Key))
+            {
+                Unit runner = units.GetUnit<Runner>();
+                runner.unitData.listNextStates.Add(new Runner_Death(runner));
+            }
+
             _userInput.ClearKeyDictionary();
             _userInput.ClearButtonDictionary();
         }

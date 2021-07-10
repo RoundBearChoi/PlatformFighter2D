@@ -57,6 +57,9 @@ namespace RB
                             if (_currentHitCount <= specs.mMaxHits)
                             {
                                 Debugger.Log(_unit.name + " hit: " + col.gameObject.name);
+
+                                BaseMessage hitStopMessage = new HitStopMessage(10);
+                                hitStopMessage.Register();
                             }
                             else
                             {
