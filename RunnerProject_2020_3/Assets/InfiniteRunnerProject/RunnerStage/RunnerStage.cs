@@ -25,10 +25,6 @@ namespace RB
             units.AddCreator(new FlatGround_Creator(this.transform));
 
             units.ProcessCreators();
-
-            //temp
-            Unit golem = units.GetUnit<Golem>();
-            golem.attackData = new AttackData();
         }
 
         public override void OnUpdate()

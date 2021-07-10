@@ -37,14 +37,14 @@ namespace RB
                 if (collidingUnit != null && collidingUnit is Ground == false)
                 {
                     //take damage
-                    if (collidingUnit.attackData.IsAttackingSide(CollisionType.LEFT) && data.collisionType == CollisionType.RIGHT)
-                    {
-                        takeDamage.reactionType = CollisionReactionType.TAKE_DAMAGE;
-                        takeDamage.collidingUnit = collidingUnit;
-                    }
+                    //if (collidingUnit.attackData.IsAttackingSide(CollisionType.LEFT) && data.collisionType == CollisionType.RIGHT)
+                    //{
+                    //    takeDamage.reactionType = CollisionReactionType.TAKE_DAMAGE;
+                    //    takeDamage.collidingUnit = collidingUnit;
+                    //}
 
                     //deal damage to unit that is stepped on
-                    if (!collidingUnit.attackData.IsAttackingSide(CollisionType.TOP) && data.collisionType == CollisionType.BOTTOM)
+                    if (/*!collidingUnit.attackData.IsAttackingSide(CollisionType.TOP) &&*/ data.collisionType == CollisionType.BOTTOM)
                     {
                         dealDamage.reactionType = CollisionReactionType.DEAL_DAMAGE;
                         dealDamage.collidingUnit = collidingUnit;

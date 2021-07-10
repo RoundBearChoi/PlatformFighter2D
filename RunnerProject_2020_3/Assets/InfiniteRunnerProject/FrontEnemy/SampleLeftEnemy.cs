@@ -6,11 +6,6 @@ namespace RB
 {
     public class SampleLeftEnemy : Unit
     {
-        private void Start()
-        {
-            attackData.AddAttackingSide(CollisionType.LEFT);
-        }
-
         public override void OnFixedUpdate()
         {
             unitUpdater.CustomFixedUpdate();

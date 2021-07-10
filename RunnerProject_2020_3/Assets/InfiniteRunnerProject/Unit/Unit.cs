@@ -9,12 +9,10 @@ namespace RB
         public BaseUpdater unitUpdater = null;
         public IStateController iStateController = null;
         public UnitData unitData = null;
-        public AttackData attackData = null;
-
-        protected ICollisionSideChecker _collisionChecker = null;
-
         public bool deathAnimationTriggered = false;
         public bool destroy = false;
+
+        protected ICollisionSideChecker _collisionChecker = null;
 
         public virtual void OnFixedUpdate()
         {
