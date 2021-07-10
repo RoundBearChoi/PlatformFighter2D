@@ -43,7 +43,7 @@ namespace RB
                 {
                     Vector2 centerPoint = new Vector2(_unit.transform.position.x + specs.mRelativePoint.x, _unit.transform.position.y + specs.mRelativePoint.y);
 
-                    List<Collider2D> results = BoxCalculator.GetCollisionResults(centerPoint, specs);
+                    List<Collider2D> results = BoxCalculator.GetCollisionResults(centerPoint, specs, 0.5f);
 
                     foreach(Collider2D col in results)
                     {

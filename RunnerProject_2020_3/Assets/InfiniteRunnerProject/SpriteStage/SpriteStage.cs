@@ -7,9 +7,14 @@ namespace RB
     public class SpriteStage : Stage
     {
         SpriteAnimations _dummyAnimation;
-        StateComponent _dummyStateComponent;
         GameObject _dummyObj;
         UserInput _userInput = new UserInput();
+
+        [SerializeField]
+        Vector2 overlapBoxPoint = new Vector2();
+
+        [SerializeField]
+        Vector2 overlapBoxSize = new Vector2();
 
         [SerializeField]
         GameObject basicRedPrefab;
@@ -24,8 +29,6 @@ namespace RB
             _dummyObj.transform.position = Vector3.zero;
             _dummyObj.transform.rotation = Quaternion.identity;
             _dummyObj.name = "dummy animation";
-
-            //_dummyStateComponent = new OverlapBoxCollision()
 
             GameObject red = Instantiate(basicRedPrefab);
             red.transform.parent = _dummyObj.transform;
@@ -62,6 +65,10 @@ namespace RB
 
                 _dummyAnimation.currentAnimation.UpdateSpriteOnIndex();
             }
+
+            ContactFilter2D contactFilter = new ContactFilter2D();
+            OverlapBoxSpecs specs = new OverlapBoxSpecs(0, 0, overlapBoxPoint, overlapBoxSize, 0f, contactFilter);
+            BoxCalculator.GetCollisionResults(overlapBoxPoint, specs, 0f);
 
             _userInput.ClearKeyDictionary();
             _userInput.ClearButtonDictionary();
