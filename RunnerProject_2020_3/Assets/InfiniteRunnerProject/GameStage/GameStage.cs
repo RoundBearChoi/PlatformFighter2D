@@ -13,9 +13,7 @@ namespace RB
 
         public override void Init()
         {
-            BaseUnitCreationSpec runnerSpec = StaticRefs.GetSpec(UnitType.RUNNER);
-            units.AddCreator(new DefaultUnitCreator(_userInput, this.transform, runnerSpec));
-            units.ProcessCreators();
+            InstantiateUnits_ByUnitType(UnitType.RUNNER, _userInput);
 
             Unit runner = units.GetUnit<Runner>();
             

@@ -26,8 +26,7 @@ namespace RB
             {
                 _unit.unitData.listNextStates.Add(new Runner_NormalRun(_unit, _userInput));
 
-                Units.instance.AddCreator(new DefaultUnitCreator(null, Stage.currentStage.transform, StaticRefs.landingDustCreationSpec));
-                Units.instance.ProcessCreators();
+                Stage.currentStage.InstantiateUnits_ByUnitType(UnitType.LANDING_DUST, null);
                 Units.instance.GetUnit<LandingDust>().transform.position = _unit.transform.position;
             }
 

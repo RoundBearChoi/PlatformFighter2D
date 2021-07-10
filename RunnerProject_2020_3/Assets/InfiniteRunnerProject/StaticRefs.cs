@@ -13,7 +13,7 @@ namespace RB
         public static List<BaseUnitCreationSpec> listCreationSpecs = new List<BaseUnitCreationSpec>();
         public static DefaultUnitCreationSpec landingDustCreationSpec = null;
 
-        public static List<BaseUnitCreationSpec> GetSpecs<T>()
+        public static List<BaseUnitCreationSpec> GetSpecs_BySpecType<T>()
         {
             List<BaseUnitCreationSpec> subList = new List<BaseUnitCreationSpec>();
 
@@ -28,7 +28,22 @@ namespace RB
             return subList;
         }
 
-        public static BaseUnitCreationSpec GetSpec(UnitType unitType)
+        public static List<BaseUnitCreationSpec> GetSpecs_ByUnitType(UnitType unitType)
+        {
+            List<BaseUnitCreationSpec> subList = new List<BaseUnitCreationSpec>();
+
+            foreach (BaseUnitCreationSpec spec in listCreationSpecs)
+            {
+                if (spec.unitType == unitType)
+                {
+                    subList.Add(spec);
+                }
+            }
+
+            return subList;
+        }
+
+        public static BaseUnitCreationSpec GetSpec_ByUnitType(UnitType unitType)
         {
             for(int i = listCreationSpecs.Count - 1; i >= 0; i--)
             {

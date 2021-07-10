@@ -10,8 +10,11 @@ namespace RB
 
         public override void Init()
         {
-            InstantiateUnits<DefaultUnitCreationSpec>(_userInput);
-            units.ProcessCreators();
+            //InstantiateUnits_BySpecType<DefaultUnitCreationSpec>(_userInput);
+
+            InstantiateUnit_ByUnitType(UnitType.RUNNER, _userInput);
+            InstantiateUnits_ByUnitType(UnitType.SWAMP, null);
+            InstantiateUnits_ByUnitType(UnitType.GOLEM, null);
 
             Unit runner = units.GetUnit<Runner>();
             Runner_NormalRun.initialPush = false;

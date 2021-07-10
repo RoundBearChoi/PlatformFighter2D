@@ -37,14 +37,38 @@ namespace RB
             _gameIntializer = gameInitializer;
         }
 
-        public virtual void InstantiateUnits<T>(UserInput userInput)
+        public virtual void InstantiateUnit(BaseUnitCreationSpec spec, UserInput userInput)
         {
-            List<BaseUnitCreationSpec> specsList = StaticRefs.GetSpecs<T>();
+            units.AddCreator(new DefaultUnitCreator(userInput, this.transform, spec));
+            units.ProcessCreators();
+        }
 
-            foreach (BaseUnitCreationSpec spec in specsList)
+        public virtual void InstantiateUnits(List<BaseUnitCreationSpec> listSpecs, UserInput userInput)
+        {
+            foreach (BaseUnitCreationSpec spec in listSpecs)
             {
                 units.AddCreator(new DefaultUnitCreator(userInput, this.transform, spec));
             }
+
+            units.ProcessCreators();
+        }
+
+        public virtual void InstantiateUnit_ByUnitType(UnitType unitType, UserInput userInput)
+        {
+            BaseUnitCreationSpec spec = StaticRefs.GetSpec_ByUnitType(unitType);
+            InstantiateUnit(spec, userInput);
+        }
+
+        public virtual void InstantiateUnits_ByUnitType(UnitType unitType, UserInput userInput)
+        {
+            List<BaseUnitCreationSpec> specsList = StaticRefs.GetSpecs_ByUnitType(unitType);
+            InstantiateUnits(specsList, userInput);
+        }
+
+        public virtual void InstantiateUnits_BySpecType<T>(UserInput userInput)
+        {
+            List<BaseUnitCreationSpec> specsList = StaticRefs.GetSpecs_BySpecType<T>();
+            InstantiateUnits(specsList, userInput);
         }
     }
 }
