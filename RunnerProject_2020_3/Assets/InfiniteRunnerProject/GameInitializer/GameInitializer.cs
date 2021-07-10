@@ -9,22 +9,17 @@ namespace RB
         public List<IStageTransition> listStageTransitions = new List<IStageTransition>();
 
         [Space(15)]
-        [SerializeField] private GameData gameDataScriptableObj = null;
-        [SerializeField] private SwampParallax swampParallaxScriptableObj = null;
+        [SerializeField] private GameData gameDataSO = null;
+        [SerializeField] private SwampParallax swampParallaxSO = null;
 
         [Space(15)]
         [SerializeField] private List<BaseUnitCreationSpec> listCreationSpecsSO = new List<BaseUnitCreationSpec>();
 
-        [Space(15)]
-        [SerializeField] private DefaultUnitCreationSpec landingDustCreationSpecSO;
-
         private void Start()
         {
-            StaticRefs.gameData = gameDataScriptableObj;
-            StaticRefs.swampParallaxData = swampParallaxScriptableObj;
-
+            StaticRefs.gameData = gameDataSO;
+            StaticRefs.swampParallaxData = swampParallaxSO;
             StaticRefs.listCreationSpecs = listCreationSpecsSO;
-            StaticRefs.landingDustCreationSpec = landingDustCreationSpecSO;
 
             Debugger.Log("setting current GameInitializer instance");
 
