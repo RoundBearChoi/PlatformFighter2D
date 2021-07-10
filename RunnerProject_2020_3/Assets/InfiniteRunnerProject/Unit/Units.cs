@@ -74,6 +74,11 @@ namespace RB
                     }
                 }
 
+                if (_listUnits[i].unitData.boxCollider2D != null)
+                {
+                    _listUnits[i].SetCurrentVelocity(_listUnits[i].unitData.boxCollider2D.attachedRigidbody.velocity);
+                }
+
                 _listUnits[i].OnFixedUpdate();
 
                 if (_listUnits[i].ProcessDamage())

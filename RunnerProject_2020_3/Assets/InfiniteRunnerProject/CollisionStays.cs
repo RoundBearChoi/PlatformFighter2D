@@ -55,5 +55,18 @@ namespace RB
 
             return false;
         }
+
+        public bool IsTouchingSide()
+        {
+            foreach (CollisionData data in _listCollisionStays)
+            {
+                if (data.collisionType == CollisionType.LEFT || data.collisionType == CollisionType.RIGHT)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace RB
         public bool destroy = false;
 
         protected ICollisionSideChecker _collisionChecker = null;
+        [SerializeField] protected Vector3 currentVelocity = new Vector3();
 
         public virtual void OnFixedUpdate()
         {
@@ -75,6 +76,11 @@ namespace RB
 
             //destroy by default if death animation is not defined
             destroy = true;
+        }
+
+        public virtual void SetCurrentVelocity(Vector2 velocity)
+        {
+            currentVelocity = velocity;
         }
     }
 }
