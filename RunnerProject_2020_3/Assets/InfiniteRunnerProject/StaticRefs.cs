@@ -7,7 +7,6 @@ namespace RB
     public static class StaticRefs
     {
         public static GameData gameData = null;
-        public static MovementDustSpriteData movementDustSpriteData = null;
         public static SwampParallax swampParallaxData;
 
         public static List<BaseUnitCreationSpec> listCreationSpecs = new List<BaseUnitCreationSpec>();

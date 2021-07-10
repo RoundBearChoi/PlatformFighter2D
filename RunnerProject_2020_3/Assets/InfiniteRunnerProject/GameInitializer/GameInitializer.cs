@@ -10,7 +10,6 @@ namespace RB
 
         [Space(15)]
         [SerializeField] private GameData gameDataScriptableObj = null;
-        [SerializeField] private MovementDustSpriteData vfxSpriteDataScriptableObj = null;
         [SerializeField] private SwampParallax swampParallaxScriptableObj = null;
 
         [Space(15)]
@@ -22,7 +21,6 @@ namespace RB
         private void Start()
         {
             StaticRefs.gameData = gameDataScriptableObj;
-            StaticRefs.movementDustSpriteData = vfxSpriteDataScriptableObj;
             StaticRefs.swampParallaxData = swampParallaxScriptableObj;
 
             StaticRefs.listCreationSpecs = listCreationSpecsSO;

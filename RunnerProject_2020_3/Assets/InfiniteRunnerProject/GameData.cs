@@ -11,10 +11,6 @@ namespace RB
         public Vector2 Runner_JumpUp_StartForce = new Vector2();
         public float Runner_RunSpeed_LerpRate = new float();
 
-        public Vector2 ObstacleSpriteSize = new Vector2();
-        public Vector2 ObstacleBoxColliderSize = new Vector2();
-        public Vector3 ObstacleBoxColliderLocalPos = new Vector3();
-
         public AnimationCurve JumpPull;
         public AnimationCurve JumpFall;
 

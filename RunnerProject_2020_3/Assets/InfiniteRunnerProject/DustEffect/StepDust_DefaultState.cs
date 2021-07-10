@@ -6,7 +6,7 @@ namespace RB
 {
     public class StepDust_DefaultState : State
     {
-        private static SpriteAnimationSpec _animationSpec;
+        public static SpriteAnimationSpec animationSpec;
 
         public StepDust_DefaultState(Unit unit)
         {
@@ -23,7 +23,7 @@ namespace RB
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
         {
-            return _animationSpec;
+            return animationSpec;
         }
     }
 }

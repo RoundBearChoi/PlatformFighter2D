@@ -66,5 +66,10 @@ namespace RB
         {
             LandingDust_DefaultState.animationSpec = spec;
         }
+
+        public void State_StepDust_DefaultState(SpriteAnimationSpec spec)
+        {
+            StepDust_DefaultState.animationSpec = spec;
+        }
     }
 }

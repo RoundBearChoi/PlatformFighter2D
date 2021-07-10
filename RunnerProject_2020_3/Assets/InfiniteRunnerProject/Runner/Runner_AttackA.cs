@@ -24,9 +24,8 @@ namespace RB
             {
                 _dustCreated = true;
 
-                //Units.instance.AddCreator(new StepDust_Creator(Stage.currentStage.transform));
-                //Units.instance.ProcessCreators();
-                //Units.instance.GetUnit<StepDust>().transform.position = _unit.transform.position + new Vector3(_unit.transform.right.x * 0.8f, 0f, 0f);
+                Stage.currentStage.InstantiateUnit_ByUnitType(UnitType.STEP_DUST, null);
+                Units.instance.GetUnit<StepDust>().transform.position = _unit.transform.position + new Vector3(_unit.transform.right.x * 0.8f, 0f, 0f);
             }
 
             UpdateComponents();

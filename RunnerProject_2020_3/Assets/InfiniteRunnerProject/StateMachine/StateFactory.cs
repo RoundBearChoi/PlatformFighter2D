@@ -41,5 +41,10 @@ namespace RB
         {
             unit.iStateController.SetNewState(new LandingDust_DefaultState(unit));
         }
+
+        public void New_StepDust(Unit unit, UserInput userInput)
+        {
+            unit.iStateController.SetNewState(new StepDust_DefaultState(unit));
+        }
     }
 }
