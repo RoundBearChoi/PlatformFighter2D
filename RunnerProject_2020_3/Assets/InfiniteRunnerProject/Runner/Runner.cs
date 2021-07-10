@@ -10,8 +10,6 @@ namespace RB
         {
             unitUpdater.CustomFixedUpdate();
 
-            unitData.spriteAnimations.OnFixedUpdate();
-
             CollisionReaction reactionData = unitData.collisionEnters.GetReactionData();
 
             if (reactionData.reactionType == CollisionReactionType.TAKE_DAMAGE)

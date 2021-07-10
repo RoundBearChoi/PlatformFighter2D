@@ -10,6 +10,7 @@ namespace RB
         {
             _unit.iStateController.TransitionToNextState();
             _unit.iStateController.OnFixedUpdate();
+            _unit.unitData.spriteAnimations.OnFixedUpdate();
         }
 
         public override void CustomLateUpdate()
