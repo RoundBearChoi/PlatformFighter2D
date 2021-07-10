@@ -64,5 +64,10 @@ namespace RB
                 spriteAnimation.UpdateSpriteOnIndex();
             }
         }
+
+        public void ManualSetSpriteIndex(int index)
+        {
+            currentAnimation.ManualSetSpriteIndex(index);
+        }
     }
 }

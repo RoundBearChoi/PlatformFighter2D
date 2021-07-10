@@ -6,7 +6,7 @@ namespace RB
 {
     public class SpriteStage : Stage
     {
-        SpriteAnimations _punchAnimations;
+        SpriteAnimations _dummyAnimation;
         GameObject _dummyObj;
         UserInput _userInput = new UserInput();
 
@@ -22,18 +22,18 @@ namespace RB
             _dummyObj.transform.parent = this.transform;
             _dummyObj.transform.position = Vector3.zero;
             _dummyObj.transform.rotation = Quaternion.identity;
-            _dummyObj.name = "dummy punch animation obj";
+            _dummyObj.name = "dummy animation";
 
             GameObject red = Instantiate(basicRedPrefab);
             red.transform.parent = _dummyObj.transform;
             red.transform.localPosition = Vector3.zero;
             red.transform.localRotation = Quaternion.identity;
 
-            _punchAnimations = new SpriteAnimations(null);
-                        
-            _punchAnimations.AddSpriteAnimation(animationSpec, _dummyObj.transform);
-            
-            _punchAnimations.OnFixedUpdate();
+            _dummyAnimation = new SpriteAnimations(null);
+            _dummyAnimation.AddSpriteAnimation(animationSpec, _dummyObj.transform);
+            _dummyAnimation.currentAnimation = _dummyAnimation.GetLastSpriteAnimation();
+            _dummyAnimation.ManualSetSpriteIndex(0);
+            _dummyAnimation.currentAnimation.UpdateSpriteOnIndex();
         }
 
         public override void OnUpdate()
@@ -50,8 +50,14 @@ namespace RB
         {
             if (_userInput.ContainsKeyPress(UserInput.keyboard.spaceKey))
             {
-                _punchAnimations.OnFixedUpdate();
-                _punchAnimations.GetLastSpriteAnimation().UpdateSpriteOnIndex();
+                _dummyAnimation.ManualSetSpriteIndex(_dummyAnimation.currentAnimation.SPRITE_INDEX + 1);
+
+                if (_dummyAnimation.currentAnimation.SPRITE_INDEX >= _dummyAnimation.currentAnimation.SPRITES_COUNT)
+                {
+                    _dummyAnimation.ManualSetSpriteIndex(0);
+                }
+
+                _dummyAnimation.currentAnimation.UpdateSpriteOnIndex();
             }
 
             _userInput.ClearKeyDictionary();

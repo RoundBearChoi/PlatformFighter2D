@@ -24,6 +24,14 @@ namespace RB
             }
         }
 
+        public int SPRITES_COUNT
+        {
+            get
+            {
+                return _listSprites.Count;
+            }
+        }
+
         public void Init(SpriteAnimationSpec spec)
         {
             animationSpec = spec;
@@ -144,6 +152,11 @@ namespace RB
             }
 
             return false;
+        }
+
+        public void ManualSetSpriteIndex(int index)
+        {
+            _spriteIndex = index;
         }
     }
 }
