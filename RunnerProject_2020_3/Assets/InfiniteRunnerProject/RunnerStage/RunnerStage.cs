@@ -10,8 +10,6 @@ namespace RB
 
         public override void Init()
         {
-            //InstantiateUnits_BySpecType<DefaultUnitCreationSpec>(_userInput);
-
             InstantiateUnit_ByUnitType(UnitType.RUNNER, _userInput);
             InstantiateUnits_ByUnitType(UnitType.SWAMP, null);
             InstantiateUnits_ByUnitType(UnitType.GOLEM, null);
