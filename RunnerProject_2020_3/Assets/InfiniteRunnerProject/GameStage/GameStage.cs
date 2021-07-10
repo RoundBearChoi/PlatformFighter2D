@@ -13,14 +13,14 @@ namespace RB
 
         public override void Init()
         {
-            //units.AddCreator(new DefaultUnitCreator(_userInput, this.transform, StaticRefs.runnerCreationSpec));
-            //units.ProcessCreators();
+            BaseUnitCreationSpec runnerSpec = StaticRefs.GetSpec(UnitType.RUNNER);
+            units.AddCreator(new DefaultUnitCreator(_userInput, this.transform, runnerSpec));
+            units.ProcessCreators();
 
-            //Unit runner = units.GetUnit<Runner>();
-            //runner.SetUserInput(_userInput);
-
-            //units.AddCreator(new CameraController_Creator(this.transform, runner, FindObjectOfType<Camera>()));
-            //units.ProcessCreators();
+            Unit runner = units.GetUnit<Runner>();
+            
+            units.AddCreator(new CameraController_Creator(this.transform, runner, FindObjectOfType<Camera>()));
+            units.ProcessCreators();
 
             //level and enemies
             GameObject levelObj = Instantiate(ResourceLoader.levelLoader.GetObj(1)) as GameObject;

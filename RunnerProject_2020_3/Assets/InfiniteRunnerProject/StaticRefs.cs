@@ -27,5 +27,18 @@ namespace RB
 
             return subList;
         }
+
+        public static BaseUnitCreationSpec GetSpec(UnitType unitType)
+        {
+            for(int i = listCreationSpecs.Count - 1; i >= 0; i--)
+            {
+                if (listCreationSpecs[i].unitType == unitType)
+                {
+                    return listCreationSpecs[i];
+                }
+            }
+
+            return null;
+        }
     }
 }
