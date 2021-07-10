@@ -7,6 +7,7 @@ namespace RB
     public class SpriteStage : Stage
     {
         SpriteAnimations _dummyAnimation;
+        StateComponent _dummyStateComponent;
         GameObject _dummyObj;
         UserInput _userInput = new UserInput();
 
@@ -23,6 +24,8 @@ namespace RB
             _dummyObj.transform.position = Vector3.zero;
             _dummyObj.transform.rotation = Quaternion.identity;
             _dummyObj.name = "dummy animation";
+
+            //_dummyStateComponent = new OverlapBoxCollision()
 
             GameObject red = Instantiate(basicRedPrefab);
             red.transform.parent = _dummyObj.transform;
