@@ -27,7 +27,7 @@ namespace RB
                 _unit.unitData.listNextStates.Add(new Runner_Jump_Fall(_unit, _userInput));
             }
 
-            UpdateComponents();
+            FixedUpdateComponents();
         }
 
         public override void OnLateUpdate()

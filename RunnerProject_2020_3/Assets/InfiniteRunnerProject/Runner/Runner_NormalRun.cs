@@ -30,7 +30,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            UpdateComponents();
+            FixedUpdateComponents();
 
             if (updateCount != 0 && updateCount % animationSpec.spriteInterval == 0)
             {

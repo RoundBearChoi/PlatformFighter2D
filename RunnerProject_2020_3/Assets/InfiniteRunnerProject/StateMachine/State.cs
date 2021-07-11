@@ -26,7 +26,7 @@ namespace RB
 
         }
 
-        public virtual void UpdateComponents()
+        public virtual void FixedUpdateComponents()
         {
             foreach (StateComponent component in _listStateComponents)
             {

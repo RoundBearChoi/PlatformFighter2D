@@ -17,7 +17,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            UpdateComponents();
+            FixedUpdateComponents();
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

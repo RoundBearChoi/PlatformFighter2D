@@ -30,7 +30,7 @@ namespace RB
                 Units.instance.GetUnit<LandingDust>().transform.position = _unit.transform.position;
             }
 
-            UpdateComponents();
+            FixedUpdateComponents();
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
