@@ -8,9 +8,10 @@ namespace RB
     {
         uint _totalHitStopFrames = 0;
 
-        public HitStopMessage(uint totalHitStopFrames)
+        public HitStopMessage(uint totalHitStopFrames, MessageType messageType)
         {
             _totalHitStopFrames = totalHitStopFrames;
+            mMessageType = messageType;
         }
 
         public override void Register()

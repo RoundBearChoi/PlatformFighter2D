@@ -7,22 +7,15 @@ namespace RB
     public class UIMessage : BaseMessage
     {
         public static UI ui = null;
-        
-        private string _message = string.Empty;
 
-        public UIMessage(string message)
+        public UIMessage(MessageType messageType)
         {
-            _message = message;
+            mMessageType = messageType;
         }
 
         public override void Register()
         {
             ui.AddMessage(this);
-        }
-
-        public override string GetStringMessage()
-        {
-            return _message;
         }
     }
 }

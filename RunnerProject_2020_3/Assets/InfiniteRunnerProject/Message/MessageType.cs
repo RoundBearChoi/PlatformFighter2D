@@ -6,6 +6,10 @@ namespace RB
 {
     public enum MessageType
     {
+        NONE,
 
+        RUNNER_IS_DEAD = 100,
+
+        HITSTOP_REGISTER = 200,
     }
 }

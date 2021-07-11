@@ -15,7 +15,7 @@ namespace RB
         }
         public override void OnEnter()
         {
-            BaseMessage message = new UIMessage("runner is dead");
+            BaseMessage message = new UIMessage(MessageType.RUNNER_IS_DEAD);
             message.Register();
 
             _unit.unitData.unitTransform.position = _unit.unitData.unitTransform.position + (Vector3.back * 1f);

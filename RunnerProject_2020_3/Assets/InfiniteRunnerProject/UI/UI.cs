@@ -62,7 +62,7 @@ namespace RB
 
         public void ProcessMessage(BaseMessage message)
         {
-            if (message.GetStringMessage().Equals("runner is dead"))
+            if (message.MESSAGE_TYPE == MessageType.RUNNER_IS_DEAD)
             {
                 Debugger.Log("runner death message received by ui");
                 RunnerDeathNotification notification = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.RUNNER_DEATH_NOTIFICATION), _canvas.transform) as RunnerDeathNotification;

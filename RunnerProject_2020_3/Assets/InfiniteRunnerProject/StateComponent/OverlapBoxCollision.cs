@@ -58,7 +58,7 @@ namespace RB
                             {
                                 Debugger.Log(_unit.name + " hit: " + col.gameObject.name);
 
-                                BaseMessage hitStopMessage = new HitStopMessage(10);
+                                BaseMessage hitStopMessage = new HitStopMessage(10, MessageType.HITSTOP_REGISTER);
                                 hitStopMessage.Register();
                             }
                             else

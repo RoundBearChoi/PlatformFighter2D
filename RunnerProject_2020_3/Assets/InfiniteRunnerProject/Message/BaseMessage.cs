@@ -6,13 +6,18 @@ namespace RB
 {
     public abstract class BaseMessage
     {
+        protected MessageType mMessageType = MessageType.NONE;
+
         public abstract void Register();
 
-        public virtual string GetStringMessage()
+        public MessageType MESSAGE_TYPE
         {
-            return string.Empty;
+            get
+            {
+                return mMessageType;
+            }
         }
-        
+                
         public virtual uint GetUnsignedIntMessage()
         {
             return 0;

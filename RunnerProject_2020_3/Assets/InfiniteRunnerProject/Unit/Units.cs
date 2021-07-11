@@ -118,7 +118,7 @@ namespace RB
         {
             foreach (BaseMessage message in listMessages)
             { 
-                if (message is HitStopMessage)
+                if (message.MESSAGE_TYPE == MessageType.HITSTOP_REGISTER)
                 {
                     Debugger.Log("hitstopmessage received by units: " + message.GetUnsignedIntMessage() + " frames");
                 }
