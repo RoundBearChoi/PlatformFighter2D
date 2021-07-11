@@ -7,10 +7,16 @@ namespace RB
     public abstract class BaseUpdater
     {
         protected Unit _unit = null;
+        protected uint _totalHitStopFrames = 0;
 
         public virtual void SetOwnerUnit(Unit unit)
         {
             _unit = unit;
+        }
+
+        public virtual void AddHitStopFrames(uint frames)
+        {
+            _totalHitStopFrames += frames;
         }
 
         public abstract void CustomFixedUpdate();

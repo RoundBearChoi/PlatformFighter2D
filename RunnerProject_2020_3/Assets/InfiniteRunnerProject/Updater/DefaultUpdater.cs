@@ -8,9 +8,29 @@ namespace RB
     {
         public override void CustomFixedUpdate()
         {
-            _unit.iStateController.TransitionToNextState();
-            _unit.iStateController.OnFixedUpdate();
-            _unit.unitData.spriteAnimations.OnFixedUpdate();
+            if (_totalHitStopFrames == 0)
+            {
+                if (_unit.unitData.rigidBody2D != null)
+                {
+                    if (_unit.unitData.rigidBody2D.IsSleeping())
+                    {
+                        _unit.unitData.rigidBody2D.WakeUp();
+                    }
+                }
+
+                _unit.iStateController.TransitionToNextState();
+                _unit.iStateController.OnFixedUpdate();
+                _unit.unitData.spriteAnimations.OnFixedUpdate();
+            }
+            else
+            {
+                if (_unit.unitData.rigidBody2D != null)
+                {
+                    _unit.unitData.rigidBody2D.Sleep();
+                }
+
+                _totalHitStopFrames--;
+            }
         }
 
         public override void CustomLateUpdate()

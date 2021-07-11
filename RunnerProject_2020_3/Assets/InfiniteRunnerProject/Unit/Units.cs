@@ -121,6 +121,14 @@ namespace RB
                 if (message.MESSAGE_TYPE == MessageType.HITSTOP_REGISTER)
                 {
                     Debugger.Log("hitstopmessage received by units: " + message.GetUnsignedIntMessage() + " frames");
+
+                    foreach(Unit unit in _listUnits)
+                    {
+                        if (unit.unitUpdater != null)
+                        {
+                            unit.unitUpdater.AddHitStopFrames(message.GetUnsignedIntMessage());
+                        }
+                    }
                 }
             }
 

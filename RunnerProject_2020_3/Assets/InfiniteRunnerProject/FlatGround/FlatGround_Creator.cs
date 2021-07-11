@@ -32,6 +32,13 @@ namespace RB
             {
                 //should be done early (resourceloader)
                 arrSprites = Resources.LoadAll<Sprite>("Texture_White100x100");
+
+                if (arrSprites.Length == 0)
+                {
+                    Debugger.Log("missing sprite resource: Texture_White100x100");
+                    arrSprites = Resources.LoadAll<Sprite>("Texture_MissingSprite");
+                }
+
                 renderer.sprite = arrSprites[0];
             }
 

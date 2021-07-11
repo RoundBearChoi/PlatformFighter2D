@@ -56,9 +56,9 @@ namespace RB
 
                             if (_currentHitCount <= specs.mMaxHits)
                             {
-                                Debugger.Log(_unit.name + " hit: " + col.gameObject.name);
+                                Debugger.Log(_unit.name + " hit: " + col.gameObject.name + " (spriteindex: " + _unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX + ")");
 
-                                BaseMessage hitStopMessage = new HitStopMessage(10, MessageType.HITSTOP_REGISTER);
+                                BaseMessage hitStopMessage = new HitStopMessage(100, MessageType.HITSTOP_REGISTER);
                                 hitStopMessage.Register();
                             }
                             else
