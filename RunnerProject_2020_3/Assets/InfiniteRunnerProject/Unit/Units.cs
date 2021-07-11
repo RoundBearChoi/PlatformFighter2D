@@ -53,7 +53,10 @@ namespace RB
 
         public void OnUpdate()
         {
-
+            foreach(Unit unit in _listUnits)
+            {
+                unit.OnUpdate();
+            }
         }
 
         public void OnFixedUpdate()

@@ -52,6 +52,11 @@ namespace RB
             return _listSpriteAnimations[_listSpriteAnimations.Count - 1];
         }
 
+        public void OnUpdate()
+        {
+            MatchAnimationToState();
+        }
+
         public void OnFixedUpdate()
         {
             MatchAnimationToState();

@@ -19,6 +19,7 @@ namespace RB
             _totalHitStopFrames += frames;
         }
 
+        public abstract void CustomUpdate();
         public abstract void CustomFixedUpdate();
         public abstract void CustomLateUpdate();
     }

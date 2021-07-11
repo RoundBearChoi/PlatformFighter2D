@@ -16,6 +16,11 @@ namespace RB
         protected ICollisionSideChecker _collisionChecker = null;
         [SerializeField] protected Vector3 currentVelocity = new Vector3();
 
+        public virtual void OnUpdate()
+        {
+
+        }
+
         public virtual void OnFixedUpdate()
         {
 

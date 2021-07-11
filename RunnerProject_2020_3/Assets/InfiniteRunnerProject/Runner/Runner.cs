@@ -6,6 +6,11 @@ namespace RB
 {
     public class Runner : Unit
     {
+        public override void OnUpdate()
+        {
+            unitUpdater.CustomUpdate();
+        }
+
         public override void OnFixedUpdate()
         {
             unitUpdater.CustomFixedUpdate();

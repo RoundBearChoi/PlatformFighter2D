@@ -6,6 +6,12 @@ namespace RB
 {
     public class DefaultUpdater : BaseUpdater
     {
+        public override void CustomUpdate()
+        {
+            _unit.unitData.spriteAnimations.OnUpdate();
+            _unit.iStateController.TransitionToNextState();
+        }
+
         public override void CustomFixedUpdate()
         {
             if (_totalHitStopFrames == 0)
@@ -18,7 +24,9 @@ namespace RB
                     }
                 }
 
-                UpdateOrder();
+                _unit.unitData.spriteAnimations.OnFixedUpdate();
+                _unit.iStateController.OnFixedUpdate();
+                _unit.iStateController.TransitionToNextState();
             }
             else
             {
@@ -34,13 +42,6 @@ namespace RB
         public override void CustomLateUpdate()
         {
             _unit.iStateController.OnLateUpdate();
-        }
-
-        void UpdateOrder()
-        {
-            _unit.unitData.spriteAnimations.OnFixedUpdate();
-            _unit.iStateController.TransitionToNextState();
-            _unit.iStateController.OnFixedUpdate();
         }
     }
 }
