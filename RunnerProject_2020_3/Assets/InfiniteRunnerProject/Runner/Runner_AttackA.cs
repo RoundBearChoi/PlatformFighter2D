@@ -15,19 +15,8 @@ namespace RB
             _unit = unit;
             _userInput = input;
 
-            List<OverlapBoxeCollisionSpecs> listOverlapBoxSpecs = new List<OverlapBoxeCollisionSpecs>();
-            ContactFilter2D contactFilter = new ContactFilter2D();
-
-            OverlapBoxBounds boxBounds0 = new OverlapBoxBounds(new Vector2(1f, 1f), new Vector2(2f, 2f), 0f);
-            OverlapBoxBounds boxBounds1 = new OverlapBoxBounds(new Vector2(3f, 3f), new Vector3(2f, 2f), 0f);
-            List<OverlapBoxBounds> listBounds = new List<OverlapBoxBounds>();
-            listBounds.Add(boxBounds0);
-            listBounds.Add(boxBounds1);
-
-            listOverlapBoxSpecs.Add(new OverlapBoxeCollisionSpecs(1, 1, 10, listBounds, contactFilter));
-
             _listStateComponents.Add(new LerpRunSpeed(_unit, 2f, 0.05f));
-            _listStateComponents.Add(new OverlapBoxCollision(_unit, listOverlapBoxSpecs));
+            _listStateComponents.Add(new OverlapBoxCollision(_unit, StaticRefs.runner_overlapBoxCollisionData.listSpecs));
         }
 
         public override void OnFixedUpdate()

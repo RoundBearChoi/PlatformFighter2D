@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
+    [System.Serializable]
     public struct OverlapBoxBounds
     {
         public OverlapBoxBounds(Vector2 relativePoint, Vector2 size, float angle)

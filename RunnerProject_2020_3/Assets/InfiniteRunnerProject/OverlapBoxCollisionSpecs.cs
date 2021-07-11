@@ -4,21 +4,22 @@ using UnityEngine;
 
 namespace RB
 {
-    public struct OverlapBoxeCollisionSpecs
+    [System.Serializable]
+    public struct OverlapBoxCollisionSpecs
     {
-        public OverlapBoxeCollisionSpecs(int targetSpriteIndex, int maxHits, uint stopFrames, List<OverlapBoxBounds> listBounds, ContactFilter2D contactFilter)
+        public OverlapBoxCollisionSpecs(int targetSpriteIndex, int maxHits, uint stopFrames, List<OverlapBoxBounds> listBounds, ContactFilter2D contactFilter)
         {
+            mTargetSpriteIndex = targetSpriteIndex;
             mMaxHits = maxHits;
             mStopFrames = stopFrames;
-            mlistBounds = listBounds;
             mContactFilter2D = contactFilter;
-            mTargetSpriteIndex = targetSpriteIndex;
+            mlistBounds = listBounds;
         }
 
         public int mTargetSpriteIndex;
         public int mMaxHits;
         public uint mStopFrames;
-        public List<OverlapBoxBounds> mlistBounds;
         public ContactFilter2D mContactFilter2D;
+        public List<OverlapBoxBounds> mlistBounds;
     }
 }

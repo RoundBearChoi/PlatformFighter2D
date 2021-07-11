@@ -10,7 +10,7 @@ namespace RB
         public static SwampParallax swampParallaxData;
 
         public static List<BaseUnitCreationSpec> listCreationSpecs = new List<BaseUnitCreationSpec>();
-        public static DefaultUnitCreationSpec landingDustCreationSpec = null;
+        public static OverlapBoxCollisionData runner_overlapBoxCollisionData;
 
         public static List<BaseUnitCreationSpec> GetSpecs_BySpecType<T>()
         {

@@ -6,10 +6,10 @@ namespace RB
 {
     public class OverlapBoxCollision : StateComponent
     {
-        List<OverlapBoxeCollisionSpecs> _listSpecs;
+        List<OverlapBoxCollisionSpecs> _listSpecs;
         int _currentHitCount = 0;
 
-        public OverlapBoxCollision(Unit unit, List<OverlapBoxeCollisionSpecs> listSpecs)
+        public OverlapBoxCollision(Unit unit, List<OverlapBoxCollisionSpecs> listSpecs)
         {
             _unit = unit;
             _listSpecs = listSpecs;
@@ -17,7 +17,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            foreach(OverlapBoxeCollisionSpecs specs in _listSpecs)
+            foreach(OverlapBoxCollisionSpecs specs in _listSpecs)
             {
                 if (_unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX == specs.mTargetSpriteIndex)
                 {

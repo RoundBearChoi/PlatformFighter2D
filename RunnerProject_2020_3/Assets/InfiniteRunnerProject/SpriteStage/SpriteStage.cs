@@ -11,16 +11,16 @@ namespace RB
         UserInput _userInput = new UserInput();
 
         [SerializeField]
-        Vector2 overlapBoxPoint = new Vector2();
+        SpriteAnimationSpec animationSpec = null;
 
         [SerializeField]
-        Vector2 overlapBoxSize = new Vector2();
+        OverlapBoxCollisionData _dummyOverlapBoxCollisionData;
+
+        [SerializeField]
+        int _collisionDataIndex;
 
         [SerializeField]
         GameObject basicRedPrefab;
-
-        [SerializeField]
-        SpriteAnimationSpec animationSpec = null;
 
         public override void Init()
         {
@@ -66,15 +66,10 @@ namespace RB
                 _dummyAnimation.currentAnimation.UpdateSpriteOnIndex();
             }
 
-            ContactFilter2D contactFilter = new ContactFilter2D();
-
-            OverlapBoxBounds boxBounds0 = new OverlapBoxBounds(overlapBoxPoint, overlapBoxSize, 0f);
-            List<OverlapBoxBounds> listBounds = new List<OverlapBoxBounds>();
-            listBounds.Add(boxBounds0);
-                        
-            foreach(OverlapBoxBounds bounds in listBounds)
+            foreach(OverlapBoxBounds bounds in _dummyOverlapBoxCollisionData.listSpecs[0].mlistBounds)
             {
-                BoxCalculator.GetCollisionResults(overlapBoxPoint, bounds, contactFilter, 0f);
+                Vector2 centerPoint = new Vector2(bounds.mRelativePoint.x, bounds.mRelativePoint.y);
+                BoxCalculator.GetCollisionResults(centerPoint, bounds, _dummyOverlapBoxCollisionData.listSpecs[_collisionDataIndex].mContactFilter2D, 0f);
             }
 
             

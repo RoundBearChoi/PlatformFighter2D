@@ -18,6 +18,9 @@ namespace RB
         [Space(15)]
         [SerializeField] private List<BaseUnitCreationSpec> listCreationSpecsSO = new List<BaseUnitCreationSpec>();
 
+        [Space(15)]
+        [SerializeField] private OverlapBoxCollisionData runner_overlapBoxCollsionDataSO = null;
+
         private void Start()
         {
             current = this;
@@ -25,6 +28,7 @@ namespace RB
             StaticRefs.gameData = gameDataSO;
             StaticRefs.swampParallaxData = swampParallaxSO;
             StaticRefs.listCreationSpecs = listCreationSpecsSO;
+            StaticRefs.runner_overlapBoxCollisionData = runner_overlapBoxCollsionDataSO;
 
             Debugger.Log("setting current GameInitializer instance");
 
