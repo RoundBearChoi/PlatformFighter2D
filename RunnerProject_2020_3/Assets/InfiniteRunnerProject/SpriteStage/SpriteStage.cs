@@ -67,7 +67,7 @@ namespace RB
             }
 
             ContactFilter2D contactFilter = new ContactFilter2D();
-            OverlapBoxSpecs specs = new OverlapBoxSpecs(0, 0, overlapBoxPoint, overlapBoxSize, 0f, contactFilter);
+            OverlapBoxSpecs specs = new OverlapBoxSpecs(0, 0, 0, overlapBoxPoint, overlapBoxSize, 0f, contactFilter);
             BoxCalculator.GetCollisionResults(overlapBoxPoint, specs, 0f);
 
             _userInput.ClearKeyDictionary();

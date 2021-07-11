@@ -6,10 +6,11 @@ namespace RB
 {
     public struct OverlapBoxSpecs
     {
-        public OverlapBoxSpecs(int targetSpriteIndex, int maxHits, Vector2 relativePoint, Vector2 size, float angle, ContactFilter2D contactFilter)
+        public OverlapBoxSpecs(int targetSpriteIndex, int maxHits, uint stopFrames, Vector2 relativePoint, Vector2 size, float angle, ContactFilter2D contactFilter)
         {
             mRelativePoint = relativePoint;
             mMaxHits = maxHits;
+            mStopFrames = stopFrames;
             mSize = size;
             mContactFilter2D = contactFilter;
             mAngle = angle;
@@ -18,6 +19,7 @@ namespace RB
 
         public int mTargetSpriteIndex;
         public int mMaxHits;
+        public uint mStopFrames;
         public Vector2 mRelativePoint;
         public Vector2 mSize;
         public float mAngle;
@@ -58,7 +60,7 @@ namespace RB
                             {
                                 Debugger.Log(_unit.name + " hit: " + col.gameObject.name + " (spriteindex: " + _unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX + ")");
 
-                                BaseMessage hitStopMessage = new HitStopMessage(100, _unit, MessageType.HITSTOP_REGISTER);
+                                BaseMessage hitStopMessage = new HitStopMessage(specs.mStopFrames, _unit, MessageType.HITSTOP_REGISTER);
                                 hitStopMessage.Register();
                             }
                             else

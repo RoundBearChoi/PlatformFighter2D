@@ -17,7 +17,7 @@ namespace RB
 
             List<OverlapBoxSpecs> listOverlapBoxSpecs = new List<OverlapBoxSpecs>();
             ContactFilter2D contactFilter = new ContactFilter2D();
-            listOverlapBoxSpecs.Add(new OverlapBoxSpecs(1, 1, new Vector2(1f, 1f), new Vector2(10f, 10f), 0f, contactFilter));
+            listOverlapBoxSpecs.Add(new OverlapBoxSpecs(1, 1, 10, new Vector2(1f, 1f), new Vector2(10f, 10f), 0f, contactFilter));
 
             _listStateComponents.Add(new LerpRunSpeed(_unit, 2f, 0.05f));
             _listStateComponents.Add(new OverlapBoxCollision(_unit, listOverlapBoxSpecs));
