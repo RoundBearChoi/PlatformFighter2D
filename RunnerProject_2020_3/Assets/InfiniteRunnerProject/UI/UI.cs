@@ -9,13 +9,15 @@ namespace RB
     {
         private FixedUpdateCounter fixedUpdateCounter = null;
         private UpdateCounter updateCounter = null;
-        private List<BaseMessage> _listMessages = new List<BaseMessage>();
         private Canvas _canvas = null;
         private List<UIBlock> _listUIBlocks = new List<UIBlock>();
         private UserInput _userInput = null;
 
+        public List<BaseMessage> listMessages = new List<BaseMessage>();
         public Text text_fixedUpdate = null;
         public Text text_FPS = null;
+
+        public static UI currentUI = null;
 
         private void Start()
         {
@@ -47,17 +49,12 @@ namespace RB
             //only update the latest block
             _listUIBlocks[_listUIBlocks.Count - 1].UpdateUIBlock();
 
-            foreach(BaseMessage message in _listMessages)
+            foreach(BaseMessage message in listMessages)
             {
                 ProcessMessage(message);
             }
 
-            _listMessages.Clear();
-        }
-
-        public void AddMessage(BaseMessage message)
-        {
-            _listMessages.Add(message);
+            listMessages.Clear();
         }
 
         public void ProcessMessage(BaseMessage message)

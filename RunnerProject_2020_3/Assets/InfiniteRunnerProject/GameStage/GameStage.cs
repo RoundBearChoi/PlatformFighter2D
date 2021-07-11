@@ -31,7 +31,7 @@ namespace RB
             ui.transform.localPosition = Vector3.zero;
             ui.transform.localRotation = Quaternion.identity;
 
-            UIMessage.ui = ui;
+            UI.currentUI = ui;
         }
 
         public override void OnUpdate()

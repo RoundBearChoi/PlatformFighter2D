@@ -6,8 +6,6 @@ namespace RB
 {
     public class UIMessage : BaseMessage
     {
-        public static UI ui = null;
-
         public UIMessage(MessageType messageType)
         {
             mMessageType = messageType;
@@ -15,7 +13,7 @@ namespace RB
 
         public override void Register()
         {
-            ui.AddMessage(this);
+            UI.currentUI.listMessages.Add(this);
         }
     }
 }
