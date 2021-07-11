@@ -67,11 +67,6 @@ namespace RB
             //main update
             for (int i = _listUnits.Count - 1; i >= 0; i--)
             {
-                //if (_listUnits[i].unitData.spriteAnimations != null)
-                //{
-                //    _listUnits[i].unitData.spriteAnimations.MatchAnimationToState();
-                //}
-                
                 if (_listUnits[i].unitData.faceRight)
                 {
                     if (_listUnits[i].transform.rotation.y != 0f)
