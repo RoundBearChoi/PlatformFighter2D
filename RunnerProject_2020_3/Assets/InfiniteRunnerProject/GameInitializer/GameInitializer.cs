@@ -6,6 +6,8 @@ namespace RB
 {
     public class GameInitializer : MonoBehaviour
     {
+        public static GameInitializer current = null;
+
         public List<IStageTransition> listStageTransitions = new List<IStageTransition>();
 
         [Space(15)]
@@ -17,6 +19,8 @@ namespace RB
 
         private void Start()
         {
+            current = this;
+
             StaticRefs.gameData = gameDataSO;
             StaticRefs.swampParallaxData = swampParallaxSO;
             StaticRefs.listCreationSpecs = listCreationSpecsSO;
@@ -51,6 +55,11 @@ namespace RB
         private void LateUpdate()
         {
             Stage.currentStage.OnLateUpdate();
+        }
+
+        public void RunCoroutine(IEnumerator enumerator)
+        {
+            StartCoroutine(enumerator);
         }
     }
 }

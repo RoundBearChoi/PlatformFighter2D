@@ -54,7 +54,9 @@ namespace RB
 
         public void OnFixedUpdate()
         {
-            foreach(SpriteAnimation spriteAnimation in _listSpriteAnimations)
+            MatchAnimationToState();
+
+            foreach (SpriteAnimation spriteAnimation in _listSpriteAnimations)
             {
                 if (!spriteAnimation.ProcessingAdditionalInterval())
                 {

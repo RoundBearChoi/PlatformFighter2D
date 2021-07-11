@@ -53,18 +53,17 @@ namespace RB
 
         public void OnUpdate()
         {
-            for (int i = _listUnits.Count - 1; i >= 0; i--)
-            {
-                if (_listUnits[i].unitData.spriteAnimations != null)
-                {
-                    _listUnits[i].unitData.spriteAnimations.MatchAnimationToState();
-                }
-            }
+            //for (int i = _listUnits.Count - 1; i >= 0; i--)
+            //{
+            //    if (_listUnits[i].unitData.spriteAnimations != null)
+            //    {
+            //        _listUnits[i].unitData.spriteAnimations.MatchAnimationToState();
+            //    }
+            //}
         }
 
         public void OnFixedUpdate()
         {
-            //main update
             for (int i = _listUnits.Count - 1; i >= 0; i--)
             {
                 if (_listUnits[i].unitData.faceRight)
@@ -108,8 +107,6 @@ namespace RB
                     _listUnits.RemoveAt(i);
                 }
             }
-
-            ProcessMessage();
         }
 
         public void OnLateUpdate()
@@ -118,6 +115,8 @@ namespace RB
             {
                 _listUnits[i].OnLateUpdate();
             }
+
+            ProcessMessage();
         }
 
         public void ProcessMessage()

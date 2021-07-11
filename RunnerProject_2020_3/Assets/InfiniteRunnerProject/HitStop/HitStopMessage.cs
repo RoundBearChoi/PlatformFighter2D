@@ -7,17 +7,32 @@ namespace RB
     public class HitStopMessage : BaseMessage
     {
         uint _totalHitStopFrames = 0;
+        Unit _unit = null;
 
-        public HitStopMessage(uint totalHitStopFrames, MessageType messageType)
+        public HitStopMessage(uint totalHitStopFrames, Unit unit, MessageType messageType)
         {
             _totalHitStopFrames = totalHitStopFrames;
             mMessageType = messageType;
+            _unit = unit;
         }
 
         public override void Register()
         {
+            //GameInitializer.current.RunCoroutine(_register());
+
             Stage.currentStage.units.listMessages.Add(this);
+            Debugger.Log("hitstop message registered.. " + "spriteindex: " + _unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX);
         }
+
+        //IEnumerator _register()
+        //{
+        //    Debugger.Log("waiting 1 frame before register");
+        //
+        //    yield return new WaitForEndOfFrame();
+        //    Stage.currentStage.units.listMessages.Add(this);
+        //
+        //    Debugger.Log("hitstop message registered.. " + "spriteindex: " + _unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX);
+        //}
 
         public override uint GetUnsignedIntMessage()
         {

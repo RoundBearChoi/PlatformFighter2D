@@ -18,9 +18,7 @@ namespace RB
                     }
                 }
 
-                _unit.iStateController.TransitionToNextState();
-                _unit.iStateController.OnFixedUpdate();
-                _unit.unitData.spriteAnimations.OnFixedUpdate();
+                UpdateOrder();
             }
             else
             {
@@ -36,6 +34,13 @@ namespace RB
         public override void CustomLateUpdate()
         {
             _unit.iStateController.OnLateUpdate();
+        }
+
+        void UpdateOrder()
+        {
+            _unit.unitData.spriteAnimations.OnFixedUpdate();
+            _unit.iStateController.TransitionToNextState();
+            _unit.iStateController.OnFixedUpdate();
         }
     }
 }
