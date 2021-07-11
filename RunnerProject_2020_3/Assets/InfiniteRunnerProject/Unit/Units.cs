@@ -51,15 +51,26 @@ namespace RB
             _listUnitCreators.Clear();
         }
 
-        public void OnFixedUpdate()
+        public void OnUpdate()
         {
-            //main update
             for (int i = _listUnits.Count - 1; i >= 0; i--)
             {
                 if (_listUnits[i].unitData.spriteAnimations != null)
                 {
                     _listUnits[i].unitData.spriteAnimations.MatchAnimationToState();
                 }
+            }
+        }
+
+        public void OnFixedUpdate()
+        {
+            //main update
+            for (int i = _listUnits.Count - 1; i >= 0; i--)
+            {
+                //if (_listUnits[i].unitData.spriteAnimations != null)
+                //{
+                //    _listUnits[i].unitData.spriteAnimations.MatchAnimationToState();
+                //}
                 
                 if (_listUnits[i].unitData.faceRight)
                 {

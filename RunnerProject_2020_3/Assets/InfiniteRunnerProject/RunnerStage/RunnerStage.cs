@@ -26,6 +26,7 @@ namespace RB
         public override void OnUpdate()
         {
             _userInput.OnUpdate();
+            units.OnUpdate();
         }
 
         public override void OnFixedUpdate()

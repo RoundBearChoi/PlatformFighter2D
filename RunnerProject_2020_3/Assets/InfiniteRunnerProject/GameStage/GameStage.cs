@@ -38,6 +38,7 @@ namespace RB
         {
             updateCounter.OnUpdate();
             _userInput.OnUpdate();
+            units.OnUpdate();
             ui.OnUpdate();
         }
 
