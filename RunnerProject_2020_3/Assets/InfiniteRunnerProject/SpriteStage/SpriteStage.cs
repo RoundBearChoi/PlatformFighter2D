@@ -67,9 +67,17 @@ namespace RB
             }
 
             ContactFilter2D contactFilter = new ContactFilter2D();
-            OverlapBoxBounds boxBounds = new OverlapBoxBounds(overlapBoxPoint, overlapBoxSize, 0f);
-            OverlapBoxSpecs specs = new OverlapBoxSpecs(0, 0, 0, boxBounds, contactFilter);
-            BoxCalculator.GetCollisionResults(overlapBoxPoint, specs, 0f);
+
+            OverlapBoxBounds boxBounds0 = new OverlapBoxBounds(overlapBoxPoint, overlapBoxSize, 0f);
+            List<OverlapBoxBounds> listBounds = new List<OverlapBoxBounds>();
+            listBounds.Add(boxBounds0);
+                        
+            foreach(OverlapBoxBounds bounds in listBounds)
+            {
+                BoxCalculator.GetCollisionResults(overlapBoxPoint, bounds, contactFilter, 0f);
+            }
+
+            
 
             _userInput.ClearKeyDictionary();
             _userInput.ClearButtonDictionary();

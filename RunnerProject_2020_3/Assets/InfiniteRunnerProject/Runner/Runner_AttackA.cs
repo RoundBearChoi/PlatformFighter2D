@@ -15,10 +15,16 @@ namespace RB
             _unit = unit;
             _userInput = input;
 
-            List<OverlapBoxSpecs> listOverlapBoxSpecs = new List<OverlapBoxSpecs>();
+            List<OverlapBoxeCollisionSpecs> listOverlapBoxSpecs = new List<OverlapBoxeCollisionSpecs>();
             ContactFilter2D contactFilter = new ContactFilter2D();
-            OverlapBoxBounds boxBounds = new OverlapBoxBounds(new Vector2(1f, 1f), new Vector2(10f, 10f), 0f);
-            listOverlapBoxSpecs.Add(new OverlapBoxSpecs(1, 1, 10, boxBounds, contactFilter));
+
+            OverlapBoxBounds boxBounds0 = new OverlapBoxBounds(new Vector2(1f, 1f), new Vector2(2f, 2f), 0f);
+            OverlapBoxBounds boxBounds1 = new OverlapBoxBounds(new Vector2(3f, 3f), new Vector3(2f, 2f), 0f);
+            List<OverlapBoxBounds> listBounds = new List<OverlapBoxBounds>();
+            listBounds.Add(boxBounds0);
+            listBounds.Add(boxBounds1);
+
+            listOverlapBoxSpecs.Add(new OverlapBoxeCollisionSpecs(1, 1, 10, listBounds, contactFilter));
 
             _listStateComponents.Add(new LerpRunSpeed(_unit, 2f, 0.05f));
             _listStateComponents.Add(new OverlapBoxCollision(_unit, listOverlapBoxSpecs));

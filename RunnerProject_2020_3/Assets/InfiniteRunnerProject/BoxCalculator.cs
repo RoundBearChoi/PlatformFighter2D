@@ -6,21 +6,21 @@ namespace RB
 {
     public class BoxCalculator
     {
-        public static List<Collider2D> GetCollisionResults(Vector2 centerPoint, OverlapBoxSpecs specs, float DrawLineDuration)
+        public static List<Collider2D> GetCollisionResults(Vector2 centerPoint, OverlapBoxBounds bounds, ContactFilter2D contactFilter, float DrawLineDuration)
         {
             List<Collider2D> results = new List<Collider2D>();
 
-            float p0_x = centerPoint.x - specs.mBoxBounds.mSize.x / 2f;
-            float p0_y = centerPoint.y + specs.mBoxBounds.mSize.y / 2f;
+            float p0_x = centerPoint.x - bounds.mSize.x / 2f;
+            float p0_y = centerPoint.y + bounds.mSize.y / 2f;
 
-            float p1_x = centerPoint.x - specs.mBoxBounds.mSize.x / 2f;
-            float p1_y = centerPoint.y - specs.mBoxBounds.mSize.y / 2f;
+            float p1_x = centerPoint.x - bounds.mSize.x / 2f;
+            float p1_y = centerPoint.y - bounds.mSize.y / 2f;
 
-            float p2_x = centerPoint.x + specs.mBoxBounds.mSize.x / 2f;
-            float p2_y = centerPoint.y - specs.mBoxBounds.mSize.y / 2f;
+            float p2_x = centerPoint.x + bounds.mSize.x / 2f;
+            float p2_y = centerPoint.y - bounds.mSize.y / 2f;
 
-            float p3_x = centerPoint.x + specs.mBoxBounds.mSize.x / 2f;
-            float p3_y = centerPoint.y + specs.mBoxBounds.mSize.y / 2f;
+            float p3_x = centerPoint.x + bounds.mSize.x / 2f;
+            float p3_y = centerPoint.y + bounds.mSize.y / 2f;
 
             Vector2 p0 = new Vector2(p0_x, p0_y);
             Vector2 p1 = new Vector2(p1_x, p1_y);
@@ -43,7 +43,7 @@ namespace RB
             }
 
 
-            Physics2D.OverlapBox(centerPoint, specs.mBoxBounds.mSize, specs.mBoxBounds.mAngle, specs.mContactFilter2D, results);
+            Physics2D.OverlapBox(centerPoint, bounds.mSize, bounds.mAngle, contactFilter, results);
 
             return results;
         }
