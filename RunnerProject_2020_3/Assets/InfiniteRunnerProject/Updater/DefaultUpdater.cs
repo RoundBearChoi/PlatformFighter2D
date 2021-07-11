@@ -9,6 +9,8 @@ namespace RB
         public override void CustomUpdate()
         {
             _unit.unitData.spriteAnimations.OnUpdate();
+
+            //only make transition in the update, not in fixedupdate (avoid transitioning multiple times in between frames)
             _unit.iStateController.TransitionToNextState();
         }
 
@@ -26,7 +28,6 @@ namespace RB
 
                 _unit.unitData.spriteAnimations.OnFixedUpdate();
                 _unit.iStateController.OnFixedUpdate();
-                _unit.iStateController.TransitionToNextState();
             }
             else
             {

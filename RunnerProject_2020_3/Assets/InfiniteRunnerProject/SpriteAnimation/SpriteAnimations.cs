@@ -54,6 +54,7 @@ namespace RB
 
         public void OnUpdate()
         {
+            //matching state to sprites happens as often as possible (both in update and fixedupdate)
             MatchAnimationToState();
         }
 
