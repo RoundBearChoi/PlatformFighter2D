@@ -6,17 +6,15 @@ namespace RB
 {
     public enum UnitType
     {
-        RUNNER,
-        GOLEM,
-        SAMPLE_LEFT_ENEMY,
-        FLAT_GROUND,
+        RUNNER = 100,
+        GOLEM = 101,
 
-        //separate into different groups later
+        FLAT_GROUND = 200,
 
-        LANDING_DUST,
-        STEP_DUST,
+        LANDING_DUST = 301,
+        STEP_DUST = 302,
 
-        SWAMP,
+        SWAMP = 400,
 
         NONE = 1000,
     }
