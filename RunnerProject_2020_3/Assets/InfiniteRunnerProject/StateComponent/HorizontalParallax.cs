@@ -19,7 +19,7 @@ namespace RB
             _percentage = percentage;
         }
 
-        public override void Update()
+        public override void OnFixedUpdate()
         {
             if (_parallaxAnchor != null)
             {

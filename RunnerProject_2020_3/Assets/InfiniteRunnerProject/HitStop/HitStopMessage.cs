@@ -18,21 +18,21 @@ namespace RB
 
         public override void Register()
         {
-            //GameInitializer.current.RunCoroutine(_register());
+            GameInitializer.current.RunCoroutine(_register());
 
-            Stage.currentStage.units.listMessages.Add(this);
-            Debugger.Log("hitstop message registered.. " + "spriteindex: " + _unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX);
+            //Stage.currentStage.units.listMessages.Add(this);
+            //Debugger.Log("hitstop message registered.. " + "spriteindex: " + _unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX);
         }
 
-        //IEnumerator _register()
-        //{
-        //    Debugger.Log("waiting 1 frame before register");
-        //
-        //    yield return new WaitForEndOfFrame();
-        //    Stage.currentStage.units.listMessages.Add(this);
-        //
-        //    Debugger.Log("hitstop message registered.. " + "spriteindex: " + _unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX);
-        //}
+        IEnumerator _register()
+        {
+            Debugger.Log("waiting 1 frame before register");
+        
+            yield return new WaitForEndOfFrame();
+            Stage.currentStage.units.listMessages.Add(this);
+        
+            Debugger.Log("hitstop message registered.. " + "spriteindex: " + _unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX);
+        }
 
         public override uint GetUnsignedIntMessage()
         {

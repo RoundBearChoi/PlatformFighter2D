@@ -30,7 +30,7 @@ namespace RB
         {
             foreach (StateComponent component in _listStateComponents)
             {
-                component.Update();
+                component.OnFixedUpdate();
             }
         }
 

@@ -14,7 +14,7 @@ namespace RB
             _userInput = userInput;
         }
 
-        public override void Update()
+        public override void OnFixedUpdate()
         {
             if (_userInput.ContainsKeyPress(UserInput.keyboard.spaceKey))
             {

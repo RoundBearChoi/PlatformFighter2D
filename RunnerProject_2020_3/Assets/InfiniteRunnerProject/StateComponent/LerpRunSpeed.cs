@@ -16,7 +16,7 @@ namespace RB
             _lerpRate = lerpRate;
         }
 
-        public override void Update()
+        public override void OnFixedUpdate()
         {
             float dif = _unit.unitData.rigidBody2D.velocity.x - _targetHorizontalForce;
 

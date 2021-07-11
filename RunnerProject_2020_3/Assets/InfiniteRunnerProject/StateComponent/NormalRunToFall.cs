@@ -14,7 +14,7 @@ namespace RB
             _userInput = userInput;
         }
 
-        public override void Update()
+        public override void OnFixedUpdate()
         {
             //in the air
             if (_unit.unitData.collisionStays.GetCount() == 0)

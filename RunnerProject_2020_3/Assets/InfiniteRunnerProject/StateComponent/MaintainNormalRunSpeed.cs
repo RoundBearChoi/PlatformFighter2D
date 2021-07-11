@@ -11,7 +11,7 @@ namespace RB
             _unit = unit;
         }
 
-        public override void Update()
+        public override void OnFixedUpdate()
         {
             if (IsOnFlatGround())
             {

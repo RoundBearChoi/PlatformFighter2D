@@ -35,7 +35,7 @@ namespace RB
             _listSpecs = listSpecs;
         }
 
-        public override void Update()
+        public override void OnFixedUpdate()
         {
             foreach(OverlapBoxSpecs specs in _listSpecs)
             {
