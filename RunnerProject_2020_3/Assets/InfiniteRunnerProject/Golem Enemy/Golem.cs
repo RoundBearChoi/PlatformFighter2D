@@ -8,8 +8,7 @@ namespace RB
     {
         public override void OnFixedUpdate()
         {
-            iStateController.OnFixedUpdate();
-            unitData.spriteAnimations.OnFixedUpdate();
+            unitUpdater.CustomFixedUpdate();
 
             //only clear after updating states
             unitData.collisionStays.Clear();

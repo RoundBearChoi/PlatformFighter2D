@@ -34,6 +34,18 @@ MonoBehaviour:
         m_CallState: 2
   setUpdater:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 31907ae62721fbe41a6394f45ef12229, type: 2}
+        m_TargetAssemblyTypeName: RB.UpdaterFactory, Assembly-CSharp
+        m_MethodName: New_Updater_Default
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   listSpriteAnimationSpecs:
   - {fileID: 11400000, guid: 27810ed6719719d458f8b968f6975d9e, type: 2}
