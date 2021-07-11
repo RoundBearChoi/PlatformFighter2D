@@ -4,28 +4,6 @@ using UnityEngine;
 
 namespace RB
 {
-    public struct OverlapBoxSpecs
-    {
-        public OverlapBoxSpecs(int targetSpriteIndex, int maxHits, uint stopFrames, Vector2 relativePoint, Vector2 size, float angle, ContactFilter2D contactFilter)
-        {
-            mRelativePoint = relativePoint;
-            mMaxHits = maxHits;
-            mStopFrames = stopFrames;
-            mSize = size;
-            mContactFilter2D = contactFilter;
-            mAngle = angle;
-            mTargetSpriteIndex = targetSpriteIndex;
-        }
-
-        public int mTargetSpriteIndex;
-        public int mMaxHits;
-        public uint mStopFrames;
-        public Vector2 mRelativePoint;
-        public Vector2 mSize;
-        public float mAngle;
-        public ContactFilter2D mContactFilter2D;
-    }
-
     public class OverlapBoxCollision : StateComponent
     {
         List<OverlapBoxSpecs> _listSpecs;
@@ -43,7 +21,7 @@ namespace RB
             {
                 if (_unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX == specs.mTargetSpriteIndex)
                 {
-                    Vector2 centerPoint = new Vector2(_unit.transform.position.x + specs.mRelativePoint.x, _unit.transform.position.y + specs.mRelativePoint.y);
+                    Vector2 centerPoint = new Vector2(_unit.transform.position.x + specs.mBoxBounds.mRelativePoint.x, _unit.transform.position.y + specs.mBoxBounds.mRelativePoint.y);
 
                     List<Collider2D> results = BoxCalculator.GetCollisionResults(centerPoint, specs, 0.5f);
 

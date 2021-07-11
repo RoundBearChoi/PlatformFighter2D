@@ -10,17 +10,17 @@ namespace RB
         {
             List<Collider2D> results = new List<Collider2D>();
 
-            float p0_x = centerPoint.x - specs.mSize.x / 2f;
-            float p0_y = centerPoint.y + specs.mSize.y / 2f;
+            float p0_x = centerPoint.x - specs.mBoxBounds.mSize.x / 2f;
+            float p0_y = centerPoint.y + specs.mBoxBounds.mSize.y / 2f;
 
-            float p1_x = centerPoint.x - specs.mSize.x / 2f;
-            float p1_y = centerPoint.y - specs.mSize.y / 2f;
+            float p1_x = centerPoint.x - specs.mBoxBounds.mSize.x / 2f;
+            float p1_y = centerPoint.y - specs.mBoxBounds.mSize.y / 2f;
 
-            float p2_x = centerPoint.x + specs.mSize.x / 2f;
-            float p2_y = centerPoint.y - specs.mSize.y / 2f;
+            float p2_x = centerPoint.x + specs.mBoxBounds.mSize.x / 2f;
+            float p2_y = centerPoint.y - specs.mBoxBounds.mSize.y / 2f;
 
-            float p3_x = centerPoint.x + specs.mSize.x / 2f;
-            float p3_y = centerPoint.y + specs.mSize.y / 2f;
+            float p3_x = centerPoint.x + specs.mBoxBounds.mSize.x / 2f;
+            float p3_y = centerPoint.y + specs.mBoxBounds.mSize.y / 2f;
 
             Vector2 p0 = new Vector2(p0_x, p0_y);
             Vector2 p1 = new Vector2(p1_x, p1_y);
@@ -43,7 +43,7 @@ namespace RB
             }
 
 
-            Physics2D.OverlapBox(centerPoint, specs.mSize, specs.mAngle, specs.mContactFilter2D, results);
+            Physics2D.OverlapBox(centerPoint, specs.mBoxBounds.mSize, specs.mBoxBounds.mAngle, specs.mContactFilter2D, results);
 
             return results;
         }
