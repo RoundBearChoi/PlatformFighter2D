@@ -7,6 +7,7 @@ namespace RB
     public class LandingDust_DefaultState : State
     {
         public static SpriteAnimationSpec animationSpec;
+
         public LandingDust_DefaultState(Unit unit)
         {
             _unit = unit;

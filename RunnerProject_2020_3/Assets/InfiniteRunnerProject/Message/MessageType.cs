@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class FrontEnemySpawn : MonoBehaviour
+    public enum MessageType
     {
 
     }

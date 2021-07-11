@@ -12,7 +12,6 @@ namespace RB
 
             LoadObj<Runner>(UnitType.RUNNER, "Prefab_Runner");
             LoadObj<Golem>(UnitType.GOLEM, "Golem");
-            LoadObj<SampleLeftEnemy>(UnitType.SAMPLE_LEFT_ENEMY, "SampleFrontEnemy");
 
             LoadObj<GameObject>(UnitType.FLAT_GROUND, "FlatGround");
 
@@ -20,7 +19,6 @@ namespace RB
             LoadObj<StepDust>(UnitType.STEP_DUST, "StepDust");
 
             LoadObj<Swamp>(UnitType.SWAMP, "SwampBackground");
-            //LoadObj<Swamp>(UnitType.SWAMP_RIVER, "SwampBackground");
         }
     }
 }
