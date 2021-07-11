@@ -13,6 +13,7 @@ namespace RB
         [Space(15)]
         [SerializeField] private GameData gameDataSO = null;
         [SerializeField] private SwampParallax swampParallaxSO = null;
+        [SerializeField] private bool _useDebugLog;
 
         [Space(15)]
         [SerializeField] private List<BaseUnitCreationSpec> listCreationSpecsSO = new List<BaseUnitCreationSpec>();
@@ -36,6 +37,8 @@ namespace RB
 
         private void Update()
         {
+            Debugger.useLog = _useDebugLog;
+
             Stage.currentStage.OnUpdate();
 
             foreach(IStageTransition transition in listStageTransitions)
