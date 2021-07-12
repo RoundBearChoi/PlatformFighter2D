@@ -28,6 +28,9 @@ namespace RB
                         spriteAni.gameObject.SetActive(true);
                         currentAnimation = spriteAni;
                         currentAnimation.ResetSpriteIndex();
+
+                        //updating on new state & reset
+                        currentAnimation.UpdateSpriteOnIndex();
                     }
                 }
                 else

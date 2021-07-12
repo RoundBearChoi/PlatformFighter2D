@@ -59,12 +59,6 @@ namespace RB
             foreach(Unit unit in _listUnits)
             {
                 unit.OnUpdate();
-
-                if (unit.unitMessageHandler != null)
-                {
-                    unit.unitMessageHandler.HandleMessages();
-                    unit.unitMessageHandler.ClearMessages();
-                }
             }
         }
 
@@ -124,6 +118,15 @@ namespace RB
 
             unitsMessageHandler.HandleMessages();
             unitsMessageHandler.ClearMessages();
+
+            foreach (Unit unit in _listUnits)
+            {
+                if (unit.unitMessageHandler != null)
+                {
+                    unit.unitMessageHandler.HandleMessages();
+                    unit.unitMessageHandler.ClearMessages();
+                }
+            }
         }
     }
 }
