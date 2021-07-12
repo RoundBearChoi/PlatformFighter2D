@@ -13,7 +13,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (GroundCheck.IsOnFlatGround(_unit.unitData.collisionStays))
+            if (_unit.unitData.collisionStays.IsOnFlatGround())
             {
                 if (!_unit.unitData.collisionStays.IsTouchingSide())
                 {

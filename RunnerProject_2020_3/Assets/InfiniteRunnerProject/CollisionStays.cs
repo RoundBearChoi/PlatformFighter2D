@@ -68,5 +68,25 @@ namespace RB
 
             return false;
         }
+
+        public bool IsOnFlatGround()
+        {
+            List<Ground> listGrounds = GetTouchingGrounds();
+
+            if (listGrounds.Count == 0)
+            {
+                return false;
+            }
+
+            foreach (Ground ground in listGrounds)
+            {
+                if (Mathf.Abs(ground.transform.rotation.z) >= 0.001f)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }

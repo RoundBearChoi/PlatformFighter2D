@@ -9,6 +9,7 @@ namespace RB
         public static SpriteAnimationSpec animationSpec = null;
 
         private bool _initialPushBack = false;
+        private Material _defaultMaterial = null;
 
         public Golem_Wincing(Unit unit)
         {
@@ -24,15 +25,32 @@ namespace RB
                 _unit.unitData.rigidBody2D.velocity = ((_unit.transform.right * 3.5f * -1f) + (Vector3.up * 2.75f));
             }
 
-            if (GroundCheck.IsOnFlatGround((_unit.unitData.collisionStays)))
+            if (_defaultMaterial == null)
+            {
+                _defaultMaterial = _unit.unitData.spriteAnimations.currentAnimation.RENDERER.sharedMaterial;
+                _unit.unitData.spriteAnimations.currentAnimation.RENDERER.sharedMaterial = GameInitializer.current.white_GUIText_material;
+            }
+
+            if (updateCount > 8)
+            {
+                _unit.unitData.spriteAnimations.currentAnimation.RENDERER.sharedMaterial = _defaultMaterial;
+            }
+
+
+            if (_unit.unitData.collisionStays.IsOnFlatGround())
             {
                 _unit.unitData.rigidBody2D.velocity = Vector2.Lerp(_unit.unitData.rigidBody2D.velocity, Vector2.zero, 0.1f);
             }
 
-            if (updateCount >= 30)
+            if (updateCount >= 20)
             {
                 _unit.unitData.listNextStates.Add(new Golem_Idle(_unit));
             }
+        }
+
+        public override void OnExit()
+        {
+
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

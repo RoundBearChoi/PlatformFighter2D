@@ -37,6 +37,8 @@ namespace RB
         {
             if (_unit.unitData.listNextStates.Count > 0)
             {
+                currentState.OnExit();
+
                 SetNewState(_unit.unitData.listNextStates[_unit.unitData.listNextStates.Count - 1]);
                 _unit.unitData.listNextStates.Clear();
             }

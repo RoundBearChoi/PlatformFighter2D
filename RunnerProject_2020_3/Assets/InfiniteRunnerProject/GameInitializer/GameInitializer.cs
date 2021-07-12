@@ -13,6 +13,7 @@ namespace RB
         [Space(15)]
         public GameData gameDataSO = null;
         public SwampParallax swampParallaxSO;
+        public Material white_GUIText_material;
         [SerializeField] private bool _useDebugLog;
 
         [Space(15)]

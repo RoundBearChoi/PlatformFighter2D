@@ -26,6 +26,11 @@ namespace RB
 
         }
 
+        public virtual void OnExit()
+        {
+
+        }
+
         public virtual void FixedUpdateComponents()
         {
             foreach (StateComponent component in _listStateComponents)

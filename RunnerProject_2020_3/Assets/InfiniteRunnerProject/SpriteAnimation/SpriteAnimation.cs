@@ -32,6 +32,14 @@ namespace RB
             }
         }
 
+        public SpriteRenderer RENDERER
+        {
+            get
+            {
+                return spriteRenderer;
+            }
+        }
+
         public void Init(SpriteAnimationSpec spec)
         {
             animationSpec = spec;
