@@ -17,7 +17,11 @@ namespace RB
         {
             foreach(BaseMessage message in _listMessages)
             {
-                Debugger.Log("message received by golem!");
+                if (message.MESSAGE_TYPE == MessageType.WINCE)
+                {
+                    _unit.unitData.listNextStates.Add(new Golem_Wincing(_unit));
+                    break;
+                }
             }
         }
     }
