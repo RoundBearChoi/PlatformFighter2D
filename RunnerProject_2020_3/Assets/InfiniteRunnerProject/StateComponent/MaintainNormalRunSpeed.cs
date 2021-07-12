@@ -13,7 +13,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (IsOnFlatGround())
+            if (GroundCheck.IsOnFlatGround(_unit.unitData.collisionStays))
             {
                 if (!_unit.unitData.collisionStays.IsTouchingSide())
                 {
@@ -30,26 +30,6 @@ namespace RB
                     }
                 }
             }
-        }
-
-        bool IsOnFlatGround()
-        {
-            List<Ground> listGrounds = _unit.unitData.collisionStays.GetTouchingGrounds();
-
-            if (listGrounds.Count == 0)
-            {
-                return false;
-            }
-
-            foreach (Ground ground in listGrounds)
-            {
-                if (Mathf.Abs(ground.transform.rotation.z) >= 0.001f)
-                {
-                    return false;
-                }
-            }
-
-            return true;
         }
     }
 }
