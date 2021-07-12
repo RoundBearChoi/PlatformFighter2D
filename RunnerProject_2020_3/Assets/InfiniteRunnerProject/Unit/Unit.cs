@@ -12,15 +12,10 @@ namespace RB
         public UnitData unitData = null;
         public bool deathAnimationTriggered = false;
         public bool destroy = false;
-        public List<BaseMessage> listMessages = new List<BaseMessage>();
+        public BaseMessageHandler unitMessageHandler = null;
 
         protected ICollisionSideChecker _collisionChecker = null;
         [SerializeField] protected Vector3 currentVelocity = new Vector3();
-
-        private void Start()
-        {
-            listMessages.Clear();
-        }
 
         public virtual void OnUpdate()
         {
@@ -33,6 +28,11 @@ namespace RB
         }
 
         public virtual void OnLateUpdate()
+        {
+
+        }
+
+        public virtual void HandleMessages()
         {
 
         }

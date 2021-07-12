@@ -137,7 +137,7 @@ namespace RB
 
         public void ResetSpriteIndex()
         {
-            Debugger.Log("resetting sprite index: " + animationSpec.name);
+            //Debugger.Log("resetting sprite index: " + animationSpec.name);
             _updateCount = 0;
             _spriteIndex = 0;
         }

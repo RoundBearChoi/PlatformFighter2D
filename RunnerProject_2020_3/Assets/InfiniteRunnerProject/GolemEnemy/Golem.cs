@@ -6,6 +6,11 @@ namespace RB
 {
     public class Golem : Unit
     {
+        public Golem()
+        {
+            unitMessageHandler = new GolemMessageHandler(this);
+        }
+
         public override void OnUpdate()
         {
             unitUpdater.CustomUpdate();

@@ -13,7 +13,7 @@ namespace RB
             _listUnits = listUnits;
         }
 
-        public override void ProcessMessages()
+        public override void HandleMessages()
         {
             foreach (BaseMessage message in _listMessages)
             {

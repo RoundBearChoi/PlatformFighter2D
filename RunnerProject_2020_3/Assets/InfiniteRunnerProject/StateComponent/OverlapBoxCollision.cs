@@ -40,6 +40,9 @@ namespace RB
                                 {
                                     Debugger.Log(_unit.name + " hit: " + col.gameObject.name + " (spriteindex: " + _unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX + ")");
 
+                                    BaseMessage winceMessage = new WinceMessage(collidingUnit, MessageType.WINCE);
+                                    winceMessage.Register();
+
                                     BaseMessage hitStopMessage = new HitStopMessage(specs.mStopFrames, _unit, MessageType.HITSTOP_REGISTER_ALL);
                                     hitStopMessage.Register();
                                 }

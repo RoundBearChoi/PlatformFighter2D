@@ -7,7 +7,7 @@ namespace RB
     public class Units
     {
         public static Units instance = null;
-        public BaseMessageHandler messageHandler = null;
+        public BaseMessageHandler unitsMessageHandler = null;
 
         private List<Unit> _listUnits = new List<Unit>();
         private List<BaseUnitCreator> _listUnitCreators = new List<BaseUnitCreator>();
@@ -18,7 +18,7 @@ namespace RB
         public Units()
         {
             instance = this;
-            messageHandler = new UnitsMessageHandler(_listUnits);
+            unitsMessageHandler = new UnitsMessageHandler(_listUnits);
         }
 
         public void AddCreator(BaseUnitCreator creator)
@@ -59,6 +59,12 @@ namespace RB
             foreach(Unit unit in _listUnits)
             {
                 unit.OnUpdate();
+
+                if (unit.unitMessageHandler != null)
+                {
+                    unit.unitMessageHandler.HandleMessages();
+                    unit.unitMessageHandler.ClearMessages();
+                }
             }
         }
 
@@ -116,8 +122,8 @@ namespace RB
                 _listUnits[i].OnLateUpdate();
             }
 
-            messageHandler.ProcessMessages();
-            messageHandler.ClearMessages();
+            unitsMessageHandler.HandleMessages();
+            unitsMessageHandler.ClearMessages();
         }
     }
 }

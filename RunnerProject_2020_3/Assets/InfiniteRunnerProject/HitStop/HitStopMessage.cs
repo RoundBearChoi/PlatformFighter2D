@@ -27,7 +27,7 @@ namespace RB
         
             yield return new WaitForEndOfFrame();
 
-            Stage.currentStage.units.messageHandler.RegisterMessage(this);
+            Stage.currentStage.units.unitsMessageHandler.RegisterMessage(this);
         
             Debugger.Log("hitstop message registered.. " + "spriteindex: " + _unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX);
         }

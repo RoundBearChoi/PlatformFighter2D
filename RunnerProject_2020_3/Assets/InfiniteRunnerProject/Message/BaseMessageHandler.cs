@@ -8,7 +8,7 @@ namespace RB
     {
         protected List<BaseMessage> _listMessages = new List<BaseMessage>();
 
-        public abstract void ProcessMessages();
+        public abstract void HandleMessages();
 
         public virtual void RegisterMessage(BaseMessage message)
         {
