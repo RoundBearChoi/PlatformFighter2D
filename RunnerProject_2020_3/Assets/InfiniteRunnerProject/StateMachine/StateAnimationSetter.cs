@@ -42,6 +42,11 @@ namespace RB
             Golem_Idle.animationSpec = spec;
         }
 
+        public void State_Golem_Wincing(SpriteAnimationSpec spec)
+        {
+            Golem_Wincing.animationSpec = spec;
+        }
+
         public void State_Swamp_Grass_Idle(SpriteAnimationSpec spec)
         {
             Swamp_Grass_DefaultState.animationSpec = spec;

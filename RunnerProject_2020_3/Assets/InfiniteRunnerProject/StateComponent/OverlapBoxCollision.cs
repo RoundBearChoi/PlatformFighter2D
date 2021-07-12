@@ -40,7 +40,7 @@ namespace RB
                                 {
                                     Debugger.Log(_unit.name + " hit: " + col.gameObject.name + " (spriteindex: " + _unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX + ")");
 
-                                    BaseMessage hitStopMessage = new HitStopMessage(specs.mStopFrames, _unit, MessageType.HITSTOP_REGISTER);
+                                    BaseMessage hitStopMessage = new HitStopMessage(specs.mStopFrames, _unit, MessageType.HITSTOP_REGISTER_ALL);
                                     hitStopMessage.Register();
                                 }
                             }

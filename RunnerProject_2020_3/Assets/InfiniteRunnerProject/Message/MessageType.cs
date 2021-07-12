@@ -10,6 +10,8 @@ namespace RB
 
         RUNNER_IS_DEAD = 100,
 
-        HITSTOP_REGISTER = 200,
+        HITSTOP_REGISTER_ALL = 200,
+
+        WINCE = 300,
     }
 }

@@ -19,9 +19,6 @@ namespace RB
         public override void Register()
         {
             GameInitializer.current.RunCoroutine(_register());
-
-            //Stage.currentStage.units.listMessages.Add(this);
-            //Debugger.Log("hitstop message registered.. " + "spriteindex: " + _unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX);
         }
 
         IEnumerator _register()
@@ -29,7 +26,8 @@ namespace RB
             Debugger.Log("waiting 1 frame before register");
         
             yield return new WaitForEndOfFrame();
-            Stage.currentStage.units.listMessages.Add(this);
+
+            Stage.currentStage.units.messageHandler.RegisterMessage(this);
         
             Debugger.Log("hitstop message registered.. " + "spriteindex: " + _unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX);
         }
