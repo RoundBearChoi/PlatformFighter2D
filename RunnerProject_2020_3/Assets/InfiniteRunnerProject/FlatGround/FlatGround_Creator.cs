@@ -21,7 +21,7 @@ namespace RB
             SpriteRenderer renderer = groundObj.GetComponentInChildren<SpriteRenderer>();
 
             //should be done early (resourceloader)
-            Sprite[] arrSprites = Resources.LoadAll<Sprite>(StaticRefs.swampParallaxData.Swamp_GroundTile25_SpriteName);
+            Sprite[] arrSprites = Resources.LoadAll<Sprite>(GameInitializer.current.swampParallaxSO.Swamp_GroundTile25_SpriteName);
 
             if (arrSprites.Length != 0)
             {
@@ -58,8 +58,8 @@ namespace RB
             Rigidbody2D r2d = objComposite.GetComponent<Rigidbody2D>();
             r2d.bodyType = RigidbodyType2D.Static;
 
-            c2d.sharedMaterial = StaticRefs.gameData.physicsMaterial_NoFrictionNoBounce;
-            r2d.sharedMaterial = StaticRefs.gameData.physicsMaterial_NoFrictionNoBounce;
+            c2d.sharedMaterial = GameInitializer.current.gameDataSO.physicsMaterial_NoFrictionNoBounce;
+            r2d.sharedMaterial = GameInitializer.current.gameDataSO.physicsMaterial_NoFrictionNoBounce;
 
             objComposite.AddComponent<Ground>();
 

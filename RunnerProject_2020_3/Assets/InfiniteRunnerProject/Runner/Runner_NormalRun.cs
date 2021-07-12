@@ -23,7 +23,7 @@ namespace RB
         {
             if (!initialPush)
             {
-                _unit.unitData.rigidBody2D.velocity = StaticRefs.gameData.Runner_NormalRun_StartForce;
+                _unit.unitData.rigidBody2D.velocity = GameInitializer.current.gameDataSO.Runner_NormalRun_StartForce;
                 initialPush = true;
             }
         }

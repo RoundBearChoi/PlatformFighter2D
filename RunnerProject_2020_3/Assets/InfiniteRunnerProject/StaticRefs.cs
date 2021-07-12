@@ -6,17 +6,11 @@ namespace RB
 {
     public static class StaticRefs
     {
-        public static GameData gameData = null;
-        public static SwampParallax swampParallaxData;
-
-        public static List<BaseUnitCreationSpec> listCreationSpecs = new List<BaseUnitCreationSpec>();
-        public static OverlapBoxCollisionData runner_overlapBoxCollisionData;
-
         public static List<BaseUnitCreationSpec> GetSpecs_BySpecType<T>()
         {
             List<BaseUnitCreationSpec> subList = new List<BaseUnitCreationSpec>();
 
-            foreach(BaseUnitCreationSpec spec in listCreationSpecs)
+            foreach(BaseUnitCreationSpec spec in GameInitializer.current.listCreationSpecsSO)
             {
                 if (spec is T)
                 {
@@ -31,7 +25,7 @@ namespace RB
         {
             List<BaseUnitCreationSpec> subList = new List<BaseUnitCreationSpec>();
 
-            foreach (BaseUnitCreationSpec spec in listCreationSpecs)
+            foreach (BaseUnitCreationSpec spec in GameInitializer.current.listCreationSpecsSO)
             {
                 if (spec.unitType == unitType)
                 {
@@ -44,11 +38,11 @@ namespace RB
 
         public static BaseUnitCreationSpec GetSpec_ByUnitType(UnitType unitType)
         {
-            for(int i = listCreationSpecs.Count - 1; i >= 0; i--)
+            for(int i = GameInitializer.current.listCreationSpecsSO.Count - 1; i >= 0; i--)
             {
-                if (listCreationSpecs[i].unitType == unitType)
+                if (GameInitializer.current.listCreationSpecsSO[i].unitType == unitType)
                 {
-                    return listCreationSpecs[i];
+                    return GameInitializer.current.listCreationSpecsSO[i];
                 }
             }
 

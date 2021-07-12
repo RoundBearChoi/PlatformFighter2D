@@ -12,7 +12,7 @@ namespace RB
         {
             _unit = unit;
 
-            _listStateComponents.Add(new HorizontalParallax(unit, StaticRefs.swampParallaxData.Swamp_Grass_ParallaxPercentage));
+            _listStateComponents.Add(new HorizontalParallax(unit, GameInitializer.current.swampParallaxSO.Swamp_Grass_ParallaxPercentage));
         }
 
         public override void OnFixedUpdate()
