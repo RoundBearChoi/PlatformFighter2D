@@ -40,6 +40,23 @@ namespace RB
             return touchingGrounds;
         }
 
+        public List<Unit> GetTouchingUnits()
+        {
+            List<Unit> touchingUnits = new List<Unit>();
+
+            foreach (CollisionData data in _listCollisionStays)
+            {
+                Unit unit = data.collidingObject.GetComponent<Unit>();
+
+                if (unit != null)
+                {
+                    touchingUnits.Add(unit);
+                }
+            }
+
+            return touchingUnits;
+        }
+
         public bool IsTouchingGround(CollisionType collisionType)
         {
             foreach (CollisionData data in _listCollisionStays)

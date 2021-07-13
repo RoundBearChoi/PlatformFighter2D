@@ -20,13 +20,15 @@ namespace RB
                 _unit.unitData.rigidBody2D.velocity = Vector2.Lerp(_unit.unitData.rigidBody2D.velocity, Vector2.zero, 0.03f);
             }
 
-            List<CollisionData> listData = _unit.unitData.collisionStays.GetSideCollisionData();
+            List<Unit> listUnits = _unit.unitData.collisionStays.GetTouchingUnits();
 
-            //temp: attack on any kind of collision
-            if (listData.Count > 0)
+            foreach(Unit unit in listUnits)
             {
-                _unit.unitData.listNextStates.Add(new Golem_Attack(_unit));
-                //Debugger.Log("start attacking");
+                if (unit.unitType == UnitType.RUNNER)
+                {
+                    _unit.unitData.listNextStates.Add(new Golem_Attack(_unit));
+                    break;
+                }
             }
         }
 
