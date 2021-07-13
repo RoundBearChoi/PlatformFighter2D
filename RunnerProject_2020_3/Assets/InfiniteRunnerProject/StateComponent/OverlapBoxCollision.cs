@@ -41,10 +41,8 @@ namespace RB
                                     BaseMessage winceMessage = new WinceMessage(collidingUnit);
                                     winceMessage.Register();
 
-                                    BaseMessage hm0 = new HitStopMessage(specs.mStopFrames, UnitType.RUNNER);
-                                    BaseMessage hm1 = new HitStopMessage(specs.mStopFrames, UnitType.GOLEM);
-                                    hm0.Register();
-                                    hm1.Register();
+                                    BaseMessage attackerHitStop = new HitStopMessage(specs.mStopFrames, UnitType.RUNNER);
+                                    attackerHitStop.Register();
 
                                     //show blood
                                     Vector2 closest = col.ClosestPoint(centerPoint);
