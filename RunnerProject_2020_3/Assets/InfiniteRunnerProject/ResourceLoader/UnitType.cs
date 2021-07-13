@@ -16,6 +16,8 @@ namespace RB
 
         SWAMP = 400,
 
+        BLOOD_5 = 500,
+
         NONE = 1000,
     }
 }

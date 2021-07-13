@@ -45,6 +45,12 @@ namespace RB
 
                                     BaseMessage hitStopMessage = new HitStopMessage(specs.mStopFrames, _unit, MessageType.HITSTOP_REGISTER_ALL);
                                     hitStopMessage.Register();
+
+                                    //show blood
+                                    Vector2 closest = col.ClosestPoint(centerPoint);
+
+                                    Stage.currentStage.InstantiateUnit_ByUnitType(UnitType.BLOOD_5, null);
+                                    Units.instance.GetUnit<Blood_5>().transform.position = new Vector3(closest.x, closest.y, -0.5f);
                                 }
                             }
                         }
