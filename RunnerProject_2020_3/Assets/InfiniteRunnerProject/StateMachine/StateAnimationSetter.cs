@@ -42,6 +42,11 @@ namespace RB
             Golem_Idle.animationSpec = spec;
         }
 
+        public void State_Golem_Attack(SpriteAnimationSpec spec)
+        {
+            Golem_Attack.animationSpec = spec;
+        }
+
         public void State_Golem_Wincing(SpriteAnimationSpec spec)
         {
             Golem_Wincing.animationSpec = spec;

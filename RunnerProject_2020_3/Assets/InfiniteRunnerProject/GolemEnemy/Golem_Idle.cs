@@ -19,6 +19,15 @@ namespace RB
             {
                 _unit.unitData.rigidBody2D.velocity = Vector2.Lerp(_unit.unitData.rigidBody2D.velocity, Vector2.zero, 0.03f);
             }
+
+            List<CollisionData> listData = _unit.unitData.collisionStays.GetSideCollisionData();
+
+            //temp: attack on any kind of collision
+            if (listData.Count > 0)
+            {
+                _unit.unitData.listNextStates.Add(new Golem_Attack(_unit));
+                //Debugger.Log("start attacking");
+            }
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

@@ -69,6 +69,21 @@ namespace RB
             return false;
         }
 
+        public List<CollisionData> GetSideCollisionData()
+        {
+            List<CollisionData> listCollisionData = new List<CollisionData>();
+
+            foreach (CollisionData data in _listCollisionStays)
+            {
+                if (data.collisionType == CollisionType.LEFT || data.collisionType == CollisionType.RIGHT)
+                {
+                    listCollisionData.Add(data);
+                }
+            }
+
+            return listCollisionData;
+        }
+
         public bool IsOnFlatGround()
         {
             List<Ground> listGrounds = GetTouchingGrounds();
