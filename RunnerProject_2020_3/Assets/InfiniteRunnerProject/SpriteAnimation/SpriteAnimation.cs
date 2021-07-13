@@ -119,6 +119,11 @@ namespace RB
             {
                 _spriteIndex++;
 
+                if (_spriteIndex >= int.MaxValue)
+                {
+                    _spriteIndex = 0;
+                }
+
                 //only reset after going to next index
                 ResetAdditionalIntervals();
             }
