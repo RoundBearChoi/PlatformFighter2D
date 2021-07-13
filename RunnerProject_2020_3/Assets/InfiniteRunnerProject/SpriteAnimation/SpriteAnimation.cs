@@ -125,6 +125,12 @@ namespace RB
 
             _updateCount++;
 
+            if (_updateCount >= uint.MaxValue)
+            {
+                Debugger.Log("uint max value reached! resetting to 0 (updateCount)");
+                _updateCount = 0;
+            }
+
             if (_spriteIndex >= _listSprites.Count)
             {
                 if (!animationSpec.playOnce)
