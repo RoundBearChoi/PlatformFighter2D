@@ -38,8 +38,6 @@ namespace RB
 
                                 if (_currentHitCount <= specs.mMaxHits)
                                 {
-                                    Debugger.Log(_unit.name + " hit: " + col.gameObject.name + " (spriteindex: " + _unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX + ")");
-
                                     BaseMessage winceMessage = new WinceMessage(collidingUnit);
                                     winceMessage.Register();
 
@@ -48,9 +46,8 @@ namespace RB
 
                                     //show blood
                                     Vector2 closest = col.ClosestPoint(centerPoint);
-
-                                    Stage.currentStage.InstantiateUnit_ByUnitType(UnitType.BLOOD_5, null);
-                                    Units.instance.GetUnit<Blood_5>().transform.position = new Vector3(closest.x, closest.y, -0.5f);
+                                    BaseMessage showBloodMessage = new BloodMessage(true, new Vector3(closest.x, closest.y, -0.5f));
+                                    showBloodMessage.Register();
                                 }
                             }
                         }

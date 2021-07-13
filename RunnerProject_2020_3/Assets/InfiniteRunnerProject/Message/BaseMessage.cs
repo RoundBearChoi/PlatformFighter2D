@@ -32,5 +32,10 @@ namespace RB
         {
             return false;
         }
+
+        public virtual Vector3 GetVector3Message()
+        {
+            return Vector3.zero;
+        }
     }
 }

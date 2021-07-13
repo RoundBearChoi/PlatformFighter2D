@@ -29,6 +29,13 @@ namespace RB
                         }
                     }
                 }
+                else if (message.MESSAGE_TYPE == MessageType.SHOW_BLOOD)
+                {
+                    Stage.currentStage.InstantiateUnit_ByUnitType(UnitType.BLOOD_5, null);
+                    Unit blood = Units.instance.GetUnit<Blood_5>();
+                    blood.unitData.faceRight = message.GetBoolMessage();
+                    blood.transform.position = message.GetVector3Message();
+                }
             }
         }
     }
