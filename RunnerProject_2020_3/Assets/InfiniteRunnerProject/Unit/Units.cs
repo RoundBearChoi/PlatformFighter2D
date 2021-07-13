@@ -12,8 +12,6 @@ namespace RB
         private List<Unit> _listUnits = new List<Unit>();
         private List<BaseUnitCreator> _listUnitCreators = new List<BaseUnitCreator>();
 
-        //public List<BaseMessage> listMessages = new List<BaseMessage>();
-
         public Units()
         {
             instance = this;

@@ -17,15 +17,18 @@ namespace RB
         {
             foreach (BaseMessage message in _listMessages)
             {
-                if (message.MESSAGE_TYPE == MessageType.HITSTOP_REGISTER_ALL)
+                if (message.MESSAGE_TYPE == MessageType.HITSTOP_REGISTER)
                 {
                     Debugger.Log("hitstopmessage received by units: " + message.GetUnsignedIntMessage() + " frames");
 
                     foreach (Unit unit in _listUnits)
                     {
-                        if (unit.unitUpdater != null)
+                        if (unit.unitType == message.GetUnitTypeMessage())
                         {
-                            unit.unitUpdater.AddHitStopFrames(message.GetUnsignedIntMessage());
+                            if (unit.unitUpdater != null)
+                            {
+                                unit.unitUpdater.AddHitStopFrames(message.GetUnsignedIntMessage());
+                            }
                         }
                     }
                 }

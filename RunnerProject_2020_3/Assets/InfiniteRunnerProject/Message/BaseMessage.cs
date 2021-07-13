@@ -37,5 +37,10 @@ namespace RB
         {
             return Vector3.zero;
         }
+
+        public virtual UnitType GetUnitTypeMessage()
+        {
+            return UnitType.NONE;
+        }
     }
 }
