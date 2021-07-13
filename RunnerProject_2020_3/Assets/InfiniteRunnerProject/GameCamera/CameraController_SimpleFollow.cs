@@ -17,7 +17,7 @@ namespace RB
         {
             if (_targetRunner != null)
             {
-                CameraController.gameCam.transform.position = new Vector3(_targetRunner.transform.position.x, _targetRunner.transform.position.y + 2.5f, _targetRunner.transform.position.z - 5f);
+                CameraController.gameCam.transform.position = new Vector3(_targetRunner.transform.position.x, _targetRunner.transform.position.y + 5f, _targetRunner.transform.position.z - 5f);
             }
         }
 
