@@ -8,10 +8,10 @@ namespace RB
     {
         private Unit _receiverUnit = null;
 
-        public WinceMessage(Unit receiverUnit, MessageType messageType)
+        public WinceMessage(Unit receiverUnit)
         {
             _receiverUnit = receiverUnit;
-            mMessageType = messageType;
+            mMessageType = MessageType.WINCE;
         }
 
         public override void Register()

@@ -27,5 +27,10 @@ namespace RB
         {
             return 0f;
         }
+
+        public virtual bool GetBoolMessage()
+        {
+            return false;
+        }
     }
 }

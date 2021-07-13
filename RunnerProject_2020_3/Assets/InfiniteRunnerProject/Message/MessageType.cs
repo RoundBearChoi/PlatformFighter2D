@@ -13,5 +13,7 @@ namespace RB
         HITSTOP_REGISTER_ALL = 200,
 
         WINCE = 300,
+
+        SHOW_BLOOD = 400,
     }
 }

@@ -9,10 +9,10 @@ namespace RB
         uint _totalHitStopFrames = 0;
         Unit _unit = null;
 
-        public HitStopMessage(uint totalHitStopFrames, Unit unit, MessageType messageType)
+        public HitStopMessage(uint totalHitStopFrames, Unit unit)
         {
             _totalHitStopFrames = totalHitStopFrames;
-            mMessageType = messageType;
+            mMessageType = MessageType.HITSTOP_REGISTER_ALL;
             _unit = unit;
         }
 
