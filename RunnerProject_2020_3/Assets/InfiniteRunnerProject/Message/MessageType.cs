@@ -15,5 +15,7 @@ namespace RB
         WINCE = 300,
 
         SHOW_BLOOD = 400,
+
+        SHAKE_CAMERA = 500,
     }
 }

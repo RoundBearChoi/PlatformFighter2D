@@ -12,7 +12,7 @@ namespace RB
         {
             _parentTransform = parentTransform;
             _runner = runner;
-            CameraController.gameCam = gameCam;
+            RunnerCam.gameCam = gameCam;
         }
 
         public override Unit DefineUnit()
@@ -22,7 +22,8 @@ namespace RB
             cameraConObj.transform.localPosition = Vector3.zero;
             cameraConObj.transform.localRotation = Quaternion.identity;
 
-            Unit cameraController = cameraConObj.AddComponent<CameraController>();
+            Unit cameraController = cameraConObj.AddComponent<RunnerCam>();
+            RunnerCam.current = cameraController;
 
             cameraController.unitData = new UnitData(cameraController.transform);
 

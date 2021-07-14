@@ -44,10 +44,12 @@ namespace RB
                                     BaseMessage attackerHitStop = new HitStopMessage(specs.mStopFrames, UnitType.RUNNER);
                                     attackerHitStop.Register();
 
-                                    //show blood
                                     Vector2 closest = col.ClosestPoint(centerPoint);
                                     BaseMessage showBloodMessage = new BloodMessage(true, new Vector3(closest.x, closest.y, -0.5f));
                                     showBloodMessage.Register();
+
+                                    BaseMessage shakeCam = new ShakeCameraMessage(10);
+                                    shakeCam.Register();
                                 }
                             }
                         }

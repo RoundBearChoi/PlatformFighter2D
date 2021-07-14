@@ -4,9 +4,15 @@ using UnityEngine;
 
 namespace RB
 {
-    public class CameraController : Unit
+    public class RunnerCam : Unit
     {
         public static Camera gameCam = null;
+        public static Unit current = null;
+
+        public RunnerCam()
+        {
+            unitMessageHandler = new CameraMessageHandler(this);
+        }
 
         public override void OnFixedUpdate()
         {
