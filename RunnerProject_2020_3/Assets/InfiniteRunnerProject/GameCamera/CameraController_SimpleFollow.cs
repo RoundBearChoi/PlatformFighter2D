@@ -7,11 +7,13 @@ namespace RB
     public class CameraController_SimpleFollow : State
     {
         private Unit _targetRunner = null;
+        private RunnerCam _runnerCam = null;
         private Vector3 _targetPosition;
 
-        public CameraController_SimpleFollow(Unit runner)
+        public CameraController_SimpleFollow(Unit runner, RunnerCam runnerCam)
         {
             _targetRunner = runner;
+            _runnerCam = runnerCam;
             _targetPosition = Vector3.zero;
         }
 
@@ -22,9 +24,10 @@ namespace RB
                 _targetPosition = new Vector3(_targetRunner.transform.position.x, _targetRunner.transform.position.y + 5f, _targetRunner.transform.position.z - 5f);
             }
 
-            Vector3 shakeOffset = new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), 0f);
+            _runnerCam.mTargetPosition = _targetPosition;
 
-            RunnerCam.gameCam.transform.position = _targetPosition;// + shakeOffset;
+            //Vector3 shakeOffset = new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), 0f);
+            //RunnerCam.gameCam.transform.position = _targetPosition + shakeOffset;
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

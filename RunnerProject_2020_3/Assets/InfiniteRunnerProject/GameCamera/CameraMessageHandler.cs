@@ -6,30 +6,20 @@ namespace RB
 {
     public class CameraMessageHandler : BaseMessageHandler
     {
-        private Unit _unit = null;
-        private uint _totalShakeFrames = 0;
+        private RunnerCam _runnerCam = null;
         
-        public CameraMessageHandler(Unit unit)
+        public CameraMessageHandler(RunnerCam runnerCam)
         {
-            _unit = unit;
+            _runnerCam = runnerCam;
         }
 
         public override void HandleMessages()
         {
-            if (_totalShakeFrames > 0)
-            {
-                _totalShakeFrames--;
-            }
-            else
-            {
-
-            }
-
             foreach(BaseMessage message in _listMessages)
             {
                 if (message.MESSAGE_TYPE == MessageType.SHAKE_CAMERA)
                 {
-                    _totalShakeFrames = message.GetUnsignedIntMessage();
+                    _runnerCam.mTotalShakeFrames += message.GetUnsignedIntMessage();
                 }
             }
         }

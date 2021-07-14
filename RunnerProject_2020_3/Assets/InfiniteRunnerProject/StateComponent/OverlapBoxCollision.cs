@@ -48,7 +48,7 @@ namespace RB
                                     BaseMessage showBloodMessage = new BloodMessage(true, new Vector3(closest.x, closest.y, -0.5f));
                                     showBloodMessage.Register();
 
-                                    BaseMessage shakeCam = new ShakeCameraMessage(10);
+                                    BaseMessage shakeCam = new ShakeCameraMessage(7);
                                     shakeCam.Register();
                                 }
                             }
