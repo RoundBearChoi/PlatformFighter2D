@@ -35,12 +35,12 @@ namespace RB
 
             if (_userInput.ContainsKeyPress(UserInput.keyboard.f5Key))
             {
-                _gameIntializer.listStageTransitions.Add(new RunnerStageTransition(_gameIntializer));
+                _gameIntializer.stageTransitioner.AddTransition(new RunnerStageTransition(_gameIntializer));
             }
 
             if (_userInput.ContainsKeyPress(UserInput.keyboard.f6Key))
             {
-                _gameIntializer.listStageTransitions.Add(new IntroStageTransition(_gameIntializer));
+                _gameIntializer.stageTransitioner.AddTransition(new IntroStageTransition(_gameIntializer));
             }
 
             _userInput.ClearKeyDictionary();

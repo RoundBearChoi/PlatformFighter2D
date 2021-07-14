@@ -8,8 +8,6 @@ namespace RB
     {
         public static GameInitializer current = null;
 
-        public List<IStageTransition> listStageTransitions = new List<IStageTransition>();
-
         [Space(15)]
         public GameData gameDataSO = null;
         public SwampParallax swampParallaxSO;
@@ -24,6 +22,7 @@ namespace RB
         public OverlapBoxCollisionData runner_overlapBoxCollsionDataSO;
 
         public SpecsGetter specsGetter = null;
+        public StageTransitioner stageTransitioner = null;
 
         private void Start()
         {
@@ -37,21 +36,15 @@ namespace RB
             Stage.currentStage = introStageTransition.MakeTransition();
 
             specsGetter = new SpecsGetter(listCreationSpecsSO);
+            stageTransitioner = new StageTransitioner();
         }
 
         private void Update()
         {
             Debugger.useLog = _useDebugLog;
 
+            stageTransitioner.Update();
             Stage.currentStage.OnUpdate();
-
-            foreach(IStageTransition transition in listStageTransitions)
-            {
-                Destroy(Stage.currentStage.gameObject);
-                Stage.currentStage = transition.MakeTransition();
-            }
-
-            listStageTransitions.Clear();
         }
 
         private void FixedUpdate()
