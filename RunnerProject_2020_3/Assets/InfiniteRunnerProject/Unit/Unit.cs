@@ -77,14 +77,6 @@ namespace RB
             }
         }
 
-        public virtual void RunDeathAnimation()
-        {
-            Debugger.Log("Death animation not defined");
-
-            //destroy by default if death animation is not defined
-            destroy = true;
-        }
-
         public virtual void SetCurrentVelocity(Vector2 velocity)
         {
             currentVelocity = velocity;

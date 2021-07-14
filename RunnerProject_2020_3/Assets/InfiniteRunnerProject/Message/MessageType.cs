@@ -17,5 +17,7 @@ namespace RB
         SHOW_BLOOD = 400,
 
         SHAKE_CAMERA = 500,
+
+        TAKE_DAMAGE = 600,
     }
 }

@@ -50,6 +50,9 @@ namespace RB
 
                                     BaseMessage shakeCam = new ShakeCameraMessage(7);
                                     shakeCam.Register();
+
+                                    BaseMessage takeDamage = new TakeDamageMessage(collidingUnit, 1);
+                                    takeDamage.Register();
                                 }
                             }
                         }

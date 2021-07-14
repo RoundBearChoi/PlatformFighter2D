@@ -94,11 +94,6 @@ namespace RB
 
             for (int i = _listUnits.Count - 1; i >= 0; i--)
             {
-                if (_listUnits[i].unitData.health <= 0)
-                {
-                    _listUnits[i].RunDeathAnimation();
-                }
-
                 if (_listUnits[i].destroy)
                 {
                     GameObject.Destroy(_listUnits[i].gameObject);
