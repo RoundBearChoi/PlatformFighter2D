@@ -17,10 +17,13 @@ namespace RB
         [SerializeField] private bool _useDebugLog;
 
         [Space(15)]
-        public List<BaseUnitCreationSpec> listCreationSpecsSO = new List<BaseUnitCreationSpec>();
+        [SerializeField]
+        private List<BaseUnitCreationSpec> listCreationSpecsSO = new List<BaseUnitCreationSpec>();
 
         [Space(15)]
         public OverlapBoxCollisionData runner_overlapBoxCollsionDataSO;
+
+        public SpecsGetter specsGetter = null;
 
         private void Start()
         {
@@ -32,6 +35,8 @@ namespace RB
             //first stage
             IntroStageTransition introStageTransition = new IntroStageTransition(this);
             Stage.currentStage = introStageTransition.MakeTransition();
+
+            specsGetter = new SpecsGetter(listCreationSpecsSO);
         }
 
         private void Update()

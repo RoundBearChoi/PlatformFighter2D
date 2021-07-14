@@ -55,19 +55,19 @@ namespace RB
 
         public virtual void InstantiateUnit_ByUnitType(UnitType unitType, UserInput userInput)
         {
-            BaseUnitCreationSpec spec = StaticRefs.GetSpec_ByUnitType(unitType);
+            BaseUnitCreationSpec spec = GameInitializer.current.specsGetter.GetSpec_ByUnitType(unitType);
             InstantiateUnit(spec, userInput);
         }
 
         public virtual void InstantiateUnits_ByUnitType(UnitType unitType, UserInput userInput)
         {
-            List<BaseUnitCreationSpec> specsList = StaticRefs.GetSpecs_ByUnitType(unitType);
+            List<BaseUnitCreationSpec> specsList = GameInitializer.current.specsGetter.GetSpecs_ByUnitType(unitType);
             InstantiateUnits(specsList, userInput);
         }
 
         public virtual void InstantiateUnits_BySpecType<T>(UserInput userInput)
         {
-            List<BaseUnitCreationSpec> specsList = StaticRefs.GetSpecs_BySpecType<T>();
+            List<BaseUnitCreationSpec> specsList = GameInitializer.current.specsGetter.GetSpecs_BySpecType<T>();
             InstantiateUnits(specsList, userInput);
         }
     }

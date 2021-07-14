@@ -4,13 +4,20 @@ using UnityEngine;
 
 namespace RB
 {
-    public static class StaticRefs
+    public class SpecsGetter
     {
-        public static List<BaseUnitCreationSpec> GetSpecs_BySpecType<T>()
+        private List<BaseUnitCreationSpec> _listSpecs = null;
+
+        public SpecsGetter(List<BaseUnitCreationSpec> listSpecs)
+        {
+            _listSpecs = listSpecs;
+        }
+
+        public List<BaseUnitCreationSpec> GetSpecs_BySpecType<T>()
         {
             List<BaseUnitCreationSpec> subList = new List<BaseUnitCreationSpec>();
 
-            foreach(BaseUnitCreationSpec spec in GameInitializer.current.listCreationSpecsSO)
+            foreach (BaseUnitCreationSpec spec in _listSpecs)
             {
                 if (spec is T)
                 {
@@ -21,11 +28,11 @@ namespace RB
             return subList;
         }
 
-        public static List<BaseUnitCreationSpec> GetSpecs_ByUnitType(UnitType unitType)
+        public List<BaseUnitCreationSpec> GetSpecs_ByUnitType(UnitType unitType)
         {
             List<BaseUnitCreationSpec> subList = new List<BaseUnitCreationSpec>();
 
-            foreach (BaseUnitCreationSpec spec in GameInitializer.current.listCreationSpecsSO)
+            foreach (BaseUnitCreationSpec spec in _listSpecs)
             {
                 if (spec.unitType == unitType)
                 {
@@ -36,13 +43,13 @@ namespace RB
             return subList;
         }
 
-        public static BaseUnitCreationSpec GetSpec_ByUnitType(UnitType unitType)
+        public BaseUnitCreationSpec GetSpec_ByUnitType(UnitType unitType)
         {
-            for(int i = GameInitializer.current.listCreationSpecsSO.Count - 1; i >= 0; i--)
+            for (int i = _listSpecs.Count - 1; i >= 0; i--)
             {
-                if (GameInitializer.current.listCreationSpecsSO[i].unitType == unitType)
+                if (_listSpecs[i].unitType == unitType)
                 {
-                    return GameInitializer.current.listCreationSpecsSO[i];
+                    return _listSpecs[i];
                 }
             }
 
