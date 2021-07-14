@@ -4,15 +4,16 @@ using UnityEngine;
 
 namespace RB
 {
-    public class RunnerCam : Unit
+    public class GameCameraController : Unit
     {
-        public static Camera gameCam = null;
-        public static Unit current = null;
+        //public static Camera gameCam = null;
+        public static GameCameraController current = null;
 
         public uint mTotalShakeFrames = 0;
         public Vector3 mTargetPosition = Vector3.zero;
+        public Camera gameCam = null;
 
-        public RunnerCam()
+        public GameCameraController()
         {
             unitMessageHandler = new CameraMessageHandler(this);
         }
@@ -32,8 +33,6 @@ namespace RB
             {
                 gameCam.transform.position = mTargetPosition;
             }
-
-            
         }
     }
 }

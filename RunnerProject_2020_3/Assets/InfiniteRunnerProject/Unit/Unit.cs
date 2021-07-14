@@ -77,11 +77,6 @@ namespace RB
             }
         }
 
-        public virtual void RunHitReactionAnimation()
-        {
-            Debugger.Log("HitReaction animation not defined");
-        }
-
         public virtual void RunDeathAnimation()
         {
             Debugger.Log("Death animation not defined");

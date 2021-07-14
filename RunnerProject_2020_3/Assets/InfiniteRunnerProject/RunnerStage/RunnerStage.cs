@@ -17,7 +17,7 @@ namespace RB
             Unit runner = units.GetUnit<Runner>();
             Runner_NormalRun.initialPush = false;
 
-            units.AddCreator(new CameraController_Creator(this.transform, runner, FindObjectOfType<Camera>()));
+            units.AddCreator(new CameraController_Creator(this.transform, runner));
             units.AddCreator(new FlatGround_Creator(this.transform));
 
             units.ProcessCreators();

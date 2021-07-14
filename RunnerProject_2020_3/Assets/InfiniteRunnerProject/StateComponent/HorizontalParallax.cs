@@ -28,7 +28,7 @@ namespace RB
             }
             else
             {
-                _parallaxAnchor = RunnerCam.gameCam.gameObject;
+                _parallaxAnchor = GameCameraController.current.gameCam.gameObject;
             }
         }
     }

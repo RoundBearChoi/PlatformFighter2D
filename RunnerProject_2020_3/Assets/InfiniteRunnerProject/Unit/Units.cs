@@ -85,9 +85,10 @@ namespace RB
 
                 _listUnits[i].OnFixedUpdate();
 
+                //old code, can replaced by a message
                 if (_listUnits[i].ProcessDamage())
                 {
-                    _listUnits[i].RunHitReactionAnimation();
+
                 }
             }
 

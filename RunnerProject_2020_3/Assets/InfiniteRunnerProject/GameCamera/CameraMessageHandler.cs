@@ -6,9 +6,9 @@ namespace RB
 {
     public class CameraMessageHandler : BaseMessageHandler
     {
-        private RunnerCam _runnerCam = null;
+        private GameCameraController _runnerCam = null;
         
-        public CameraMessageHandler(RunnerCam runnerCam)
+        public CameraMessageHandler(GameCameraController runnerCam)
         {
             _runnerCam = runnerCam;
         }

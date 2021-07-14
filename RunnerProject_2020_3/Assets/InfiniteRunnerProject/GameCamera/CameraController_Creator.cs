@@ -8,11 +8,10 @@ namespace RB
     {
         private Unit _runner;
 
-        public CameraController_Creator(Transform parentTransform, Unit runner, Camera gameCam)
+        public CameraController_Creator(Transform parentTransform, Unit runner)
         {
             _parentTransform = parentTransform;
             _runner = runner;
-            RunnerCam.gameCam = gameCam;
         }
 
         public override Unit DefineUnit()
@@ -22,18 +21,19 @@ namespace RB
             cameraConObj.transform.localPosition = Vector3.zero;
             cameraConObj.transform.localRotation = Quaternion.identity;
 
-            Unit cameraController = cameraConObj.AddComponent<RunnerCam>();
-            RunnerCam.current = cameraController;
+            GameCameraController camController = cameraConObj.AddComponent<GameCameraController>();
+            GameCameraController.current = camController;
+            GameCameraController.current.gameCam = GameObject.FindObjectOfType<Camera>();
 
-            cameraController.unitData = new UnitData(cameraController.transform);
+            camController.unitData = new UnitData(camController.transform);
 
-            cameraController.iStateController = new StateController(cameraController);
+            camController.iStateController = new StateController(camController);
 
-            cameraController.iStateController.SetNewState(new CameraController_SimpleFollow(_runner, cameraController as RunnerCam));
+            camController.iStateController.SetNewState(new CameraController_SimpleFollow(_runner, camController as GameCameraController));
 
-            cameraController.unitData.spriteAnimations = new SpriteAnimations(cameraController.iStateController);
+            camController.unitData.spriteAnimations = new SpriteAnimations(camController.iStateController);
 
-            return cameraController;
+            return camController;
         }
 
         public override void AddUnits(List<Unit> listUnits)

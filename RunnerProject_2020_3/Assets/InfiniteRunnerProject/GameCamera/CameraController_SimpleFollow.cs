@@ -7,10 +7,10 @@ namespace RB
     public class CameraController_SimpleFollow : State
     {
         private Unit _targetRunner = null;
-        private RunnerCam _runnerCam = null;
+        private GameCameraController _runnerCam = null;
         private Vector3 _targetPosition;
 
-        public CameraController_SimpleFollow(Unit runner, RunnerCam runnerCam)
+        public CameraController_SimpleFollow(Unit runner, GameCameraController runnerCam)
         {
             _targetRunner = runner;
             _runnerCam = runnerCam;

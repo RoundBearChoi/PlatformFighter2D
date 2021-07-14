@@ -16,7 +16,7 @@ namespace RB
 
         public override void Register()
         {
-            RunnerCam.current.unitMessageHandler.RegisterMessage(this);
+            GameCameraController.current.unitMessageHandler.RegisterMessage(this);
         }
 
         public override uint GetUnsignedIntMessage()
