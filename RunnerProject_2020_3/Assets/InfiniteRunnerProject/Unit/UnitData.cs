@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace RB
 {
+    [System.Serializable]
     public class UnitData
     {
         public UnitData(Transform transform)
         {
             unitTransform = transform;
             listNextStates.Clear();
-            listDamageData.Clear();
         }
 
         public float health = 1f;
@@ -25,6 +25,5 @@ namespace RB
         public SpriteAnimations spriteAnimations = null;
 
         public List<State> listNextStates = new List<State>();
-        public List<DamageData> listDamageData = new List<DamageData>();
     }
 }

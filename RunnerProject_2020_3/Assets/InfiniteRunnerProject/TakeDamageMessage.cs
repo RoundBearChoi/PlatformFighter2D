@@ -20,5 +20,10 @@ namespace RB
         {
             _targetUnit.unitMessageHandler.RegisterMessage(this);
         }
+
+        public override int GetIntMessage()
+        {
+            return _damageAmount;
+        }
     }
 }

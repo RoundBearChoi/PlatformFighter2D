@@ -17,7 +17,12 @@ namespace RB
                 return mMessageType;
             }
         }
-                
+
+        public virtual int GetIntMessage()
+        {
+            return 0;
+        }
+
         public virtual uint GetUnsignedIntMessage()
         {
             return 0;

@@ -15,7 +15,6 @@ namespace RB
         public BaseMessageHandler unitMessageHandler = null;
 
         protected ICollisionSideChecker _collisionChecker = null;
-        [SerializeField] protected Vector3 currentVelocity = new Vector3();
 
         public virtual void OnUpdate()
         {
@@ -52,21 +51,6 @@ namespace RB
             }
         }
 
-        public virtual bool ProcessDamage()
-        {
-            bool damageTaken = false;
-
-            foreach (DamageData data in unitData.listDamageData)
-            {
-                unitData.health -= data.damageAmount;
-                damageTaken = true;
-            }
-
-            unitData.listDamageData.Clear();
-
-            return damageTaken;
-        }
-
         public virtual void InitCollisionChecker()
         {
             BoxCollider2D collider = this.gameObject.GetComponent<BoxCollider2D>();
@@ -75,11 +59,6 @@ namespace RB
             {
                 _collisionChecker = new CollisionChecker(collider);
             }
-        }
-
-        public virtual void SetCurrentVelocity(Vector2 velocity)
-        {
-            currentVelocity = velocity;
         }
     }
 }

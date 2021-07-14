@@ -24,8 +24,7 @@ namespace RB
             }
             else if (reactionData.reactionType == CollisionReactionType.DEAL_DAMAGE)
             {
-                //old code, can be replaced by a message
-                reactionData.collidingUnit.unitData.listDamageData.Add(new DamageData(1f, this));
+                //needs to be put somewhere else
                 unitData.rigidBody2D.velocity = GameInitializer.current.gameDataSO.Runner_JumpUp_StartForce;
             }
 
