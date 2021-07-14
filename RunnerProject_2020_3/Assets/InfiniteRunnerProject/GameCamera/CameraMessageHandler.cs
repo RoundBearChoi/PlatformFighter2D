@@ -6,11 +6,11 @@ namespace RB
 {
     public class CameraMessageHandler : BaseMessageHandler
     {
-        private GameCameraController _runnerCam = null;
+        private GameCameraController _cameraController = null;
         
-        public CameraMessageHandler(GameCameraController runnerCam)
+        public CameraMessageHandler(GameCameraController cameraController)
         {
-            _runnerCam = runnerCam;
+            _cameraController = cameraController;
         }
 
         public override void HandleMessages()
@@ -19,7 +19,7 @@ namespace RB
             {
                 if (message.MESSAGE_TYPE == MessageType.SHAKE_CAMERA)
                 {
-                    _runnerCam.mTotalShakeFrames += message.GetUnsignedIntMessage();
+                    _cameraController.mTotalShakeFrames += message.GetUnsignedIntMessage();
                 }
             }
         }

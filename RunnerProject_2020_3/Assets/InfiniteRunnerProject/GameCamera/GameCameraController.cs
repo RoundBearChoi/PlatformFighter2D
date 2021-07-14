@@ -6,7 +6,6 @@ namespace RB
 {
     public class GameCameraController : Unit
     {
-        //public static Camera gameCam = null;
         public static GameCameraController current = null;
 
         public uint mTotalShakeFrames = 0;
