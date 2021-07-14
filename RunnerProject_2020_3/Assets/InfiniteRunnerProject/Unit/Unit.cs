@@ -36,6 +36,11 @@ namespace RB
 
         }
 
+        public virtual void OnZeroHealth()
+        {
+
+        }
+
         public virtual void InitBoxCollider(BaseUnitCreationSpec spec)
         {
             if (spec.BoxCollider2DSize.x > 0f && spec.BoxCollider2DSize.y > 0f)

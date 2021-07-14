@@ -81,6 +81,14 @@ namespace RB
                 _listUnits[i].OnFixedUpdate();
             }
 
+            foreach(Unit unit in _listUnits)
+            {
+                if (unit.unitData.health <= 0)
+                {
+                    unit.OnZeroHealth();
+                }
+            }
+
             for (int i = _listUnits.Count - 1; i >= 0; i--)
             {
                 if (_listUnits[i].destroy)
