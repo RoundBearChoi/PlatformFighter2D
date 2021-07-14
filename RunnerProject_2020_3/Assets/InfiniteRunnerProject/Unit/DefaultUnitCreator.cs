@@ -20,6 +20,7 @@ namespace RB
 
             unit.unitData = new UnitData(unit.transform);
             unit.unitData.faceRight = _creationSpec.faceRight;
+            unit.unitData.health = _creationSpec.hp;
             unit.iStateController = new StateController(unit);
 
             _creationSpec.setInitialState.Invoke(unit, _userInput);
