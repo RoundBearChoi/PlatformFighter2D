@@ -13,7 +13,7 @@ namespace RB
             listNextStates.Clear();
         }
 
-        public float health = 1f;
+        public int hp = 1;
         public bool faceRight = true;
         public Transform unitTransform = null;
         public Rigidbody2D rigidBody2D = null;

@@ -83,7 +83,7 @@ namespace RB
 
             foreach(Unit unit in _listUnits)
             {
-                if (unit.unitData.health <= 0)
+                if (unit.unitData.hp <= 0)
                 {
                     BaseMessage zeroHealthMessage = new ZeroHealthMessage(unit);
                     zeroHealthMessage.Register();

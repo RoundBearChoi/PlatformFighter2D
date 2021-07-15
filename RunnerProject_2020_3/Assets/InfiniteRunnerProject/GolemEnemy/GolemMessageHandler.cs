@@ -24,7 +24,7 @@ namespace RB
                 }
                 else if (message.MESSAGE_TYPE == MessageType.TAKE_DAMAGE)
                 {
-                    _unit.unitData.health -= message.GetIntMessage();
+                    _unit.unitData.hp -= message.GetIntMessage();
                 }
                 else if (message.MESSAGE_TYPE == MessageType.ZERO_HEALTH)
                 {
