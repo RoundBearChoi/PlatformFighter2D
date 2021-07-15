@@ -10,6 +10,7 @@ namespace RB
         public static UnitLoader unitLoader = null;
         public static LevelLoader levelLoader = null;
         public static UILoader uiLoader = null;
+        public static etcLoader etcLoader = null;
 
         public static void Init()
         {
@@ -17,6 +18,7 @@ namespace RB
             unitLoader = new UnitLoader();
             levelLoader = new LevelLoader();
             uiLoader = new UILoader();
+            etcLoader = new etcLoader();
         }
     }
 }
