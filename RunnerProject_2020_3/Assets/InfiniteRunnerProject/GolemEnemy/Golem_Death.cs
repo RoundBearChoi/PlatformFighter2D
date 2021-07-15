@@ -11,6 +11,7 @@ namespace RB
         public Golem_Death(Unit unit)
         {
             _unit = unit;
+            _unit.gameObject.layer = (int)LayerType.DEAD_UNIT;
         }
 
         public override void OnFixedUpdate()

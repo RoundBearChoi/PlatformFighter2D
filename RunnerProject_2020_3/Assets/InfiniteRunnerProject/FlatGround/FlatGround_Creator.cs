@@ -53,6 +53,7 @@ namespace RB
             objComposite.transform.localPosition = Vector3.zero;
             objComposite.transform.localRotation = Quaternion.identity;
             objComposite.name = "CompositeGround";
+            objComposite.layer = (int)LayerType.DEFAULT;
 
             CompositeCollider2D c2d = objComposite.AddComponent<CompositeCollider2D>();
             Rigidbody2D r2d = objComposite.GetComponent<Rigidbody2D>();
