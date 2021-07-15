@@ -7,6 +7,7 @@ namespace RB
     public class GolemMessageHandler : BaseMessageHandler
     {
         private Unit _unit = null;
+        private bool zeroHealthTriggered = false;
 
         public GolemMessageHandler(Unit unit)
         {
@@ -24,6 +25,14 @@ namespace RB
                 else if (message.MESSAGE_TYPE == MessageType.TAKE_DAMAGE)
                 {
                     _unit.unitData.health -= message.GetIntMessage();
+                }
+                else if (message.MESSAGE_TYPE == MessageType.ZERO_HEALTH)
+                {
+                    if (!zeroHealthTriggered)
+                    {
+                        zeroHealthTriggered = true;
+                        _unit.unitData.listNextStates.Add(new Golem_Death(_unit));
+                    }
                 }
             }
         }

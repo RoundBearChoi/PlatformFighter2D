@@ -85,7 +85,8 @@ namespace RB
             {
                 if (unit.unitData.health <= 0)
                 {
-                    unit.OnZeroHealth();
+                    BaseMessage zeroHealthMessage = new ZeroHealthMessage(unit);
+                    zeroHealthMessage.Register();
                 }
             }
 
@@ -111,10 +112,10 @@ namespace RB
 
             foreach (Unit unit in _listUnits)
             {
-                if (unit.unitMessageHandler != null)
+                if (unit.messageHandler != null)
                 {
-                    unit.unitMessageHandler.HandleMessages();
-                    unit.unitMessageHandler.ClearMessages();
+                    unit.messageHandler.HandleMessages();
+                    unit.messageHandler.ClearMessages();
                 }
             }
         }

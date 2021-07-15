@@ -18,7 +18,7 @@ namespace RB
 
         public override void Register()
         {
-            _targetUnit.unitMessageHandler.RegisterMessage(this);
+            _targetUnit.messageHandler.Register(this);
         }
 
         public override int GetIntMessage()

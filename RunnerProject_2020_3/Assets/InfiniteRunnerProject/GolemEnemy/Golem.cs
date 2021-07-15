@@ -10,7 +10,7 @@ namespace RB
 
         public Golem()
         {
-            unitMessageHandler = new GolemMessageHandler(this);
+            messageHandler = new GolemMessageHandler(this);
         }
 
         public override void OnUpdate()
@@ -45,15 +45,6 @@ namespace RB
                 CollisionData collisionData = new CollisionData(collisionType, collision.gameObject, contactPoint);
 
                 unitData.collisionStays.AddCollisionStay(collisionData);
-            }
-        }
-
-        public override void OnZeroHealth()
-        {
-            if (!zeroHealthTriggered)
-            {
-                zeroHealthTriggered = true;
-                unitData.listNextStates.Add(new Golem_Death(this));
             }
         }
     }

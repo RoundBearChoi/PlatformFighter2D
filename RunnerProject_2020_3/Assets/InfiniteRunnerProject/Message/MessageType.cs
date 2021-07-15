@@ -19,5 +19,6 @@ namespace RB
         SHAKE_CAMERA = 500,
 
         TAKE_DAMAGE = 600,
+        ZERO_HEALTH = 610,
     }
 }

@@ -18,7 +18,7 @@ namespace RB
 
         public override void Register()
         {
-            Stage.currentStage.units.unitsMessageHandler.RegisterMessage(this);
+            Stage.currentStage.units.unitsMessageHandler.Register(this);
         }
 
         public override bool GetBoolMessage()

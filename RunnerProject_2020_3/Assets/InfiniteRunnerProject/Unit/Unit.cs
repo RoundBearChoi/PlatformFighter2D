@@ -12,7 +12,7 @@ namespace RB
         public UnitData unitData = null;
         public bool deathAnimationTriggered = false;
         public bool destroy = false;
-        public BaseMessageHandler unitMessageHandler = null;
+        public BaseMessageHandler messageHandler = null;
 
         protected ICollisionSideChecker _collisionChecker = null;
 
@@ -32,11 +32,6 @@ namespace RB
         }
 
         public virtual void HandleMessages()
-        {
-
-        }
-
-        public virtual void OnZeroHealth()
         {
 
         }

@@ -10,7 +10,7 @@ namespace RB
 
         public abstract void HandleMessages();
 
-        public virtual void RegisterMessage(BaseMessage message)
+        public virtual void Register(BaseMessage message)
         {
             _listMessages.Add(message);
         }

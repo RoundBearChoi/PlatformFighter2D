@@ -16,7 +16,7 @@ namespace RB
 
         public override void Register()
         {
-            GameCameraController.current.unitMessageHandler.RegisterMessage(this);
+            GameCameraController.current.messageHandler.Register(this);
         }
 
         public override uint GetUnsignedIntMessage()

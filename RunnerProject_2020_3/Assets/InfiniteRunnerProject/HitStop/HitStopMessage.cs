@@ -27,7 +27,7 @@ namespace RB
         
             yield return new WaitForEndOfFrame();
 
-            Stage.currentStage.units.unitsMessageHandler.RegisterMessage(this);
+            Stage.currentStage.units.unitsMessageHandler.Register(this);
         }
 
         public override uint GetUnsignedIntMessage()

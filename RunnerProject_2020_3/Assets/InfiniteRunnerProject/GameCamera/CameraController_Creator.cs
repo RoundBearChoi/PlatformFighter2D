@@ -29,7 +29,7 @@ namespace RB
 
             camController.iStateController = new StateController(camController);
 
-            camController.iStateController.SetNewState(new CameraController_SimpleFollow(_runner, camController as GameCameraController));
+            camController.iStateController.SetNewState(new CameraController_SimpleFollow(_runner, camController));
 
             camController.unitData.spriteAnimations = new SpriteAnimations(camController.iStateController);
 
