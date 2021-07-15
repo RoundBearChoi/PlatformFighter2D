@@ -25,6 +25,14 @@ namespace RB
                 else if (message.MESSAGE_TYPE == MessageType.TAKE_DAMAGE)
                 {
                     _unit.unitData.hp -= message.GetIntMessage();
+
+                    if (_unit.hpBar == null)
+                    {
+                        HPBar bar = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.HP_BAR)) as HPBar;
+                        _unit.hpBar = bar;
+                        bar.transform.parent = Stage.currentStage.transform;
+                        bar.SetOwnerUnit(_unit, new Vector2(-1.26f, 4.66f));
+                    }
                 }
                 else if (message.MESSAGE_TYPE == MessageType.ZERO_HEALTH)
                 {
@@ -32,6 +40,12 @@ namespace RB
                     {
                         zeroHealthTriggered = true;
                         _unit.unitData.listNextStates.Add(new Golem_Death(_unit));
+                    }
+
+                    if (_unit.hpBar != null)
+                    {
+                        GameObject.Destroy(_unit.hpBar.gameObject);
+                        _unit.hpBar = null;
                     }
                 }
             }

@@ -65,7 +65,7 @@ namespace RB
 
             spriteRenderer.transform.localScale = new Vector2(xScale, yScale);
 
-            //later other pivots should be defined as well
+            //other pivots should be defined as well
             if (spec.offsetType == OffsetType.BOTTOM_CENTER)
             {
                 spriteRenderer.transform.localPosition = new Vector3(0f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);

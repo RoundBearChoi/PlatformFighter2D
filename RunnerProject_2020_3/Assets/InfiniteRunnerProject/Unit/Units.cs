@@ -56,6 +56,11 @@ namespace RB
             foreach(Unit unit in _listUnits)
             {
                 unit.OnUpdate();
+
+                if (unit.hpBar != null)
+                {
+                    unit.hpBar.Update();
+                }
             }
         }
 

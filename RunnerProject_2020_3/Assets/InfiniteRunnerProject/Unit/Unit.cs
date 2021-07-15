@@ -13,6 +13,7 @@ namespace RB
         public bool deathAnimationTriggered = false;
         public bool destroy = false;
         public BaseMessageHandler messageHandler = null;
+        public HPBar hpBar = null;
 
         protected ICollisionSideChecker _collisionChecker = null;
 
