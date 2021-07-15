@@ -14,6 +14,7 @@ namespace RB
         }
 
         public int hp = 1;
+        public int initialHP;
         public bool faceRight = true;
         public Transform unitTransform = null;
         public Rigidbody2D rigidBody2D = null;
