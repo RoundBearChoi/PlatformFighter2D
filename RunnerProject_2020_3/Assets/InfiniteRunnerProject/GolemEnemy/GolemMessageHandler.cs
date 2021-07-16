@@ -31,7 +31,7 @@ namespace RB
                         HPBar bar = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.HP_BAR)) as HPBar;
                         _unit.hpBar = bar;
                         bar.transform.parent = Stage.currentStage.transform;
-                        bar.SetOwnerUnit(_unit, new Vector2(-1.26f, 4.66f));
+                        bar.SetOwnerUnit(_unit, new Vector2(-1.26f, 4.6f));
                     }
                 }
                 else if (message.MESSAGE_TYPE == MessageType.ZERO_HEALTH)
