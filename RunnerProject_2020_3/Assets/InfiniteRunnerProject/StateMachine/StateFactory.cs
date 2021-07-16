@@ -51,5 +51,10 @@ namespace RB
         {
             unit.iStateController.SetNewState(new Blood_5_DefaultState(unit));
         }
+
+        public void New_ParryEffect(Unit unit, UserInput userInput)
+        {
+            unit.iStateController.SetNewState(new ParryEffect_DefaultState(unit));
+        }
     }
 }

@@ -91,5 +91,10 @@ namespace RB
         {
             Blood_5_DefaultState.animationSpec = spec;
         }
+
+        public void State_ParryEffect_DefaultState(SpriteAnimationSpec spec)
+        {
+            ParryEffect_DefaultState.animationSpec = spec;
+        }
     }
 }

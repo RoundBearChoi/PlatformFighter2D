@@ -6,6 +6,8 @@ namespace RB
 {
     public enum UnitType
     {
+        NONE = 0,
+
         RUNNER = 100,
         GOLEM = 101,
 
@@ -18,6 +20,6 @@ namespace RB
 
         BLOOD_5 = 500,
 
-        NONE = 1000,
+        PARRY_EFFECT = 600,
     }
 }

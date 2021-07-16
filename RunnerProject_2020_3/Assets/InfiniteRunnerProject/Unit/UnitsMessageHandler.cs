@@ -39,6 +39,12 @@ namespace RB
                     blood.unitData.faceRight = message.GetBoolMessage();
                     blood.transform.position = message.GetVector3Message();
                 }
+                else if (message.MESSAGE_TYPE == MessageType.SHOW_PARRY_EFFECT)
+                {
+                    Stage.currentStage.InstantiateUnit_ByUnitType(UnitType.PARRY_EFFECT, null);
+                    Unit parryEffect = Units.instance.GetUnit<ParryEffect>();
+                    parryEffect.transform.position = message.GetVector3Message();
+                }
             }
         }
     }

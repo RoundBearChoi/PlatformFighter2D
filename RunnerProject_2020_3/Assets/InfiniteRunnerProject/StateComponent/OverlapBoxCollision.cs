@@ -48,6 +48,9 @@ namespace RB
                                     BaseMessage showBloodMessage = new BloodMessage(true, new Vector3(closest.x, closest.y, -0.5f));
                                     showBloodMessage.Register();
 
+                                    BaseMessage showParryEffectMessage = new ParryEffectMessage(new Vector3(closest.x, closest.y, -0.5f));
+                                    showParryEffectMessage.Register();
+
                                     BaseMessage shakeCam = new ShakeCameraMessage(7);
                                     shakeCam.Register();
 
