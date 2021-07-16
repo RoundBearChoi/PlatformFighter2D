@@ -31,31 +31,34 @@ namespace RB
                         {
                             Unit collidingUnit = col.gameObject.GetComponent<Unit>();
 
-                            //check against self, none, ground
-                            if (collidingUnit.unitType != _unit.unitType && collidingUnit.unitType != UnitType.NONE && collidingUnit.unitType != UnitType.FLAT_GROUND)
+                            if (collidingUnit.unitData.hp > 0)
                             {
-                                _currentHitCount++;
-
-                                if (_currentHitCount <= specs.mMaxHits)
+                                //check against self, none, ground
+                                if (collidingUnit.unitType != _unit.unitType && collidingUnit.unitType != UnitType.NONE && collidingUnit.unitType != UnitType.FLAT_GROUND)
                                 {
-                                    BaseMessage winceMessage = new WinceMessage(collidingUnit);
-                                    winceMessage.Register();
+                                    _currentHitCount++;
 
-                                    BaseMessage attackerHitStop = new HitStopMessage(specs.mStopFrames, UnitType.RUNNER);
-                                    attackerHitStop.Register();
+                                    if (_currentHitCount <= specs.mMaxHits)
+                                    {
+                                        BaseMessage winceMessage = new WinceMessage(collidingUnit);
+                                        winceMessage.Register();
 
-                                    Vector2 closest = col.ClosestPoint(centerPoint);
-                                    BaseMessage showBloodMessage = new BloodMessage(true, new Vector3(closest.x, closest.y, -0.5f));
-                                    showBloodMessage.Register();
+                                        BaseMessage attackerHitStop = new HitStopMessage(specs.mStopFrames, UnitType.RUNNER);
+                                        attackerHitStop.Register();
 
-                                    BaseMessage showParryEffectMessage = new ParryEffectMessage(new Vector3(closest.x, closest.y, -0.5f));
-                                    showParryEffectMessage.Register();
+                                        Vector2 closest = col.ClosestPoint(centerPoint);
+                                        BaseMessage showBloodMessage = new BloodMessage(true, new Vector3(closest.x, closest.y, -0.5f));
+                                        showBloodMessage.Register();
 
-                                    BaseMessage shakeCam = new ShakeCameraMessage(7);
-                                    shakeCam.Register();
+                                        BaseMessage showParryEffectMessage = new ParryEffectMessage(new Vector3(closest.x, closest.y, -0.5f));
+                                        showParryEffectMessage.Register();
 
-                                    BaseMessage takeDamage = new TakeDamageMessage(collidingUnit, 1);
-                                    takeDamage.Register();
+                                        BaseMessage shakeCam = new ShakeCameraMessage(7);
+                                        shakeCam.Register();
+
+                                        BaseMessage takeDamage = new TakeDamageMessage(collidingUnit, 1);
+                                        takeDamage.Register();
+                                    }
                                 }
                             }
                         }
