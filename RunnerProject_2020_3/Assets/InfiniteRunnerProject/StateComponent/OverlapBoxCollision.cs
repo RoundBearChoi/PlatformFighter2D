@@ -23,8 +23,17 @@ namespace RB
                 {
                     foreach(OverlapBoxBounds bounds in specs.mlistBounds)
                     {
-                        Vector2 centerPoint = new Vector2(_unit.transform.position.x + bounds.mRelativePoint.x, _unit.transform.position.y + bounds.mRelativePoint.y);
-
+                        Vector2 centerPoint = Vector2.zero;
+                        
+                        if (_unit.unitData.faceRight)
+                        {
+                            centerPoint = new Vector2(_unit.transform.position.x + bounds.mRelativePoint.x, _unit.transform.position.y + bounds.mRelativePoint.y);
+                        }
+                        else
+                        {
+                            centerPoint = new Vector2(_unit.transform.position.x - bounds.mRelativePoint.x, _unit.transform.position.y + bounds.mRelativePoint.y);
+                        }
+                        
                         List<Collider2D> results = BoxCalculator.GetCollisionResults(centerPoint, bounds, specs.mContactFilter2D, 0.5f);
 
                         foreach (Collider2D col in results)
