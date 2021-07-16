@@ -66,13 +66,22 @@ namespace RB
                 _dummyAnimation.currentAnimation.UpdateSpriteOnIndex();
             }
 
-            foreach(OverlapBoxBounds bounds in _dummyOverlapBoxCollisionData.listSpecs[0].mlistBounds)
+            if (_collisionDataIndex < _dummyOverlapBoxCollisionData.listSpecs.Count)
             {
-                Vector2 centerPoint = new Vector2(bounds.mRelativePoint.x, bounds.mRelativePoint.y);
-                BoxCalculator.GetCollisionResults(centerPoint, bounds, _dummyOverlapBoxCollisionData.listSpecs[_collisionDataIndex].mContactFilter2D, 0f);
+                OverlapBoxCollisionSpecs specs = _dummyOverlapBoxCollisionData.listSpecs[_collisionDataIndex];
+
+                foreach(OverlapBoxBounds bounds in specs.mlistBounds)
+                {
+                    Vector2 centerPoint = new Vector2(bounds.mRelativePoint.x, bounds.mRelativePoint.y);
+                    BoxCalculator.GetCollisionResults(centerPoint, bounds, specs.mContactFilter2D, 0f);
+                }
             }
 
-            
+            //foreach(OverlapBoxBounds bounds in _dummyOverlapBoxCollisionData.listSpecs[0].mlistBounds)
+            //{
+            //    Vector2 centerPoint = new Vector2(bounds.mRelativePoint.x, bounds.mRelativePoint.y);
+            //    BoxCalculator.GetCollisionResults(centerPoint, bounds, _dummyOverlapBoxCollisionData.listSpecs[_collisionDataIndex].mContactFilter2D, 0f);
+            //}
 
             _userInput.ClearKeyDictionary();
             _userInput.ClearButtonDictionary();

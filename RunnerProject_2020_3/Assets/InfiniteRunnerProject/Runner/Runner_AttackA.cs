@@ -16,7 +16,7 @@ namespace RB
             _userInput = input;
 
             _listStateComponents.Add(new LerpRunSpeed(_unit, 2f, 0.05f));
-            _listStateComponents.Add(new OverlapBoxCollision(_unit, GameInitializer.current.runner_overlapBoxCollsionDataSO.listSpecs));
+            _listStateComponents.Add(new OverlapBoxCollision(_unit, GameInitializer.current.runner_AttackA_OverlapBoxSO.listSpecs));
         }
 
         public override void OnFixedUpdate()

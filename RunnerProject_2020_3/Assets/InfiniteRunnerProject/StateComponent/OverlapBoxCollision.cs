@@ -43,7 +43,7 @@ namespace RB
                                         BaseMessage winceMessage = new WinceMessage(collidingUnit);
                                         winceMessage.Register();
 
-                                        BaseMessage attackerHitStop = new HitStopMessage(specs.mStopFrames, UnitType.RUNNER);
+                                        BaseMessage attackerHitStop = new HitStopMessage(specs.mStopFrames, _unit.unitType);
                                         attackerHitStop.Register();
 
                                         Vector2 closest = col.ClosestPoint(centerPoint);

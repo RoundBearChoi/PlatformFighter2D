@@ -19,7 +19,8 @@ namespace RB
         private List<BaseUnitCreationSpec> listCreationSpecsSO = new List<BaseUnitCreationSpec>();
 
         [Space(15)]
-        public OverlapBoxCollisionData runner_overlapBoxCollsionDataSO;
+        public OverlapBoxCollisionData runner_AttackA_OverlapBoxSO;
+        public OverlapBoxCollisionData golem_Attack_OverlapBoxSO;
 
         public SpecsGetter specsGetter = null;
         public StageTransitioner stageTransitioner = null;
