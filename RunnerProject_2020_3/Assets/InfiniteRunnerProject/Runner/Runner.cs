@@ -6,6 +6,11 @@ namespace RB
 {
     public class Runner : Unit
     {
+        public Runner()
+        {
+            messageHandler = new RunnerMessageHandler(this);
+        }
+
         public override void OnUpdate()
         {
             unitUpdater.CustomUpdate();

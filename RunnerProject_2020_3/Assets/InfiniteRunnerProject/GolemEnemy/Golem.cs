@@ -6,8 +6,6 @@ namespace RB
 {
     public class Golem : Unit
     {
-        bool zeroHealthTriggered = false;
-
         public Golem()
         {
             messageHandler = new GolemMessageHandler(this);
