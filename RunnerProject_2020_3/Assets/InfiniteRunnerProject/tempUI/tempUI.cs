@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace RB.UITest
 {
-    public class UI : MonoBehaviour
+    public class tempUI : MonoBehaviour
     {
         private FixedUpdateCounter fixedUpdateCounter = null;
         private UpdateCounter updateCounter = null;
@@ -17,7 +17,7 @@ namespace RB.UITest
         public Text text_fixedUpdate = null;
         public Text text_FPS = null;
 
-        public static UI currentUI = null;
+        public static tempUI currentUI = null;
 
         private void Start()
         {

@@ -6,12 +6,14 @@ namespace RB
 {
     public class GameStage : Stage
     {
-        private UITest.UI ui = null;
+        private UITest.tempUI ui = null;
         private FixedUpdateCounter fixedUpdateCounter = new FixedUpdateCounter();
         private UpdateCounter updateCounter = new UpdateCounter();
 
         public override void Init()
         {
+            _userInput = new UserInput();
+
             InstantiateUnits_ByUnitType(UnitType.RUNNER, _userInput);
 
             Unit runner = units.GetUnit<Runner>();
@@ -23,14 +25,14 @@ namespace RB
             GameObject levelObj = Instantiate(ResourceLoader.levelLoader.GetObj(1)) as GameObject;
             levelObj.transform.parent = this.transform;
 
-            ui = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.UI)) as UITest.UI;
+            ui = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.UI)) as UITest.tempUI;
             ui.SetCounters(fixedUpdateCounter, updateCounter);
             ui.SetInput(_userInput);
             ui.transform.parent = this.transform;
             ui.transform.localPosition = Vector3.zero;
             ui.transform.localRotation = Quaternion.identity;
 
-            UITest.UI.currentUI = ui;
+            UITest.tempUI.currentUI = ui;
         }
 
         public override void OnUpdate()

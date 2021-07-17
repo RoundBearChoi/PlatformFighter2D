@@ -13,7 +13,7 @@ namespace RB
 
         public override void Register()
         {
-            UITest.UI.currentUI.listMessages.Add(this);
+            UITest.tempUI.currentUI.listMessages.Add(this);
         }
     }
 }
