@@ -4,8 +4,16 @@ using UnityEngine;
 
 namespace RB
 {
-    public class UIElement : MonoBehaviour
+    public abstract class UIElement : MonoBehaviour
     {
+        public virtual void OnFixedUpdate()
+        {
 
+        }
+
+        public virtual void OnUpdate()
+        {
+
+        }
     }
 }

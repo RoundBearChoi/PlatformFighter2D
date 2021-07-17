@@ -11,12 +11,18 @@ namespace RB
 
         public virtual void OnFixedUpdate()
         {
-
+            foreach(UIElement element in _uiElements)
+            {
+                element.OnFixedUpdate();
+            }
         }
 
         public virtual void OnUpdate()
         {
-
+            foreach (UIElement element in _uiElements)
+            {
+                element.OnUpdate();
+            }
         }
     }
 }
