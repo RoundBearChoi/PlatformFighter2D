@@ -7,9 +7,9 @@ namespace RB
     public class TakeDamageMessage : BaseMessage
     {
         private Unit _targetUnit = null;
-        private int _damageAmount = 0;
+        private uint _damageAmount = 0;
 
-        public TakeDamageMessage(Unit targetUnit, int damageAmount)
+        public TakeDamageMessage(Unit targetUnit, uint damageAmount)
         {
             _targetUnit = targetUnit;
             _damageAmount = damageAmount;
@@ -21,7 +21,7 @@ namespace RB
             _targetUnit.messageHandler.Register(this);
         }
 
-        public override int GetIntMessage()
+        public override uint GetUnsignedIntMessage()
         {
             return _damageAmount;
         }

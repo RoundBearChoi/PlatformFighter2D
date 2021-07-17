@@ -13,8 +13,8 @@ namespace RB
             listNextStates.Clear();
         }
 
-        public int hp = 1;
-        public int initialHP;
+        public uint hp = 1;
+        public uint initialHP;
         public bool facingRight = true;
         public Transform unitTransform = null;
         public Rigidbody2D rigidBody2D = null;

@@ -21,6 +21,10 @@ namespace RB
                 {
                     _unit.unitData.listNextStates.Add(new Runner_Wincing(_unit));
                 }
+                else if (message.MESSAGE_TYPE == MessageType.TAKE_DAMAGE)
+                {
+                    _unit.unitData.hp -= message.GetUnsignedIntMessage();
+                }
             }
         }
     }

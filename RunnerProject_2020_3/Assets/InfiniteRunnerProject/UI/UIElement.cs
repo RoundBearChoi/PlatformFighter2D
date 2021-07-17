@@ -6,6 +6,8 @@ namespace RB
 {
     public abstract class UIElement : MonoBehaviour
     {
+        public BaseMessageHandler messageHandler = null;
+
         public virtual void OnFixedUpdate()
         {
 
