@@ -12,10 +12,14 @@ namespace RB
         {
             _unit = unit;
             _unit.gameObject.layer = (int)LayerType.DEAD_UNIT;
+
+            _listStateComponents.Add(new InitialTextGUIMaterial(_unit, 8));
         }
 
         public override void OnFixedUpdate()
         {
+            FixedUpdateComponents();
+
             if (_unit.unitData.collisionStays.IsOnFlatGround())
             {
                 _unit.unitData.rigidBody2D.velocity = Vector2.Lerp(_unit.unitData.rigidBody2D.velocity, Vector2.zero, 0.05f);
