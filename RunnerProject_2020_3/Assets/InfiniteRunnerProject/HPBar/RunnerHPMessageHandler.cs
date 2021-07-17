@@ -19,7 +19,8 @@ namespace RB
             {
                 if (message.MESSAGE_TYPE == MessageType.UPDATE_RUNNER_HP_UI)
                 {
-                    _hpBar.UpdateBar(message.GetFloatMessage());
+                    _hpBar.UpdateRedBar(message.GetFloatMessage());
+                    _hpBar.LerpOrangeBar();
                 }
             }
         }
