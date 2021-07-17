@@ -10,9 +10,9 @@ namespace RB
         {
             Debugger.Log("loading ui..");
 
-            LoadObj<UI>(UIType.UI, "UI");
-            LoadObj<DefaultUIBlock>(UIType.DEFAULT_UI_BLOCK, "DefaultUIBlock");
-            LoadObj<RunnerDeathNotification>(UIType.RUNNER_DEATH_NOTIFICATION, "RunnerDeathNotification");
+            LoadObj<UITest.UI>(UIType.UI, "UI");
+            LoadObj<UITest.DefaultUIBlock>(UIType.DEFAULT_UI_BLOCK, "DefaultUIBlock");
+            LoadObj<UITest.RunnerDeathNotification>(UIType.RUNNER_DEATH_NOTIFICATION, "RunnerDeathNotification");
         }
     }
 }

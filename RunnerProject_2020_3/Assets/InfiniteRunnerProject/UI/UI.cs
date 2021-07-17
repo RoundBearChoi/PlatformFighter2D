@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RB
+namespace RB.UITest
 {
     public class UI : MonoBehaviour
     {

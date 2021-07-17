@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RB
+namespace RB.UITest
 {
     public class DefaultUIBlock : UIBlock
     {

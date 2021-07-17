@@ -6,8 +6,6 @@ namespace RB
 {
     public class NormalRunToFall : StateComponent
     {
-        UserInput _userInput = null;
-
         public NormalRunToFall(Unit unit)
         {
             _unit = unit;
