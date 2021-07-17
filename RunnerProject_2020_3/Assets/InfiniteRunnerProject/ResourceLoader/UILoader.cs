@@ -10,6 +10,8 @@ namespace RB
         {
             Debugger.Log("loading ui..");
 
+            LoadObj<GameUI>(UIType.GAME_UI, "GameUI");
+
             LoadObj<UITest.tempUI>(UIType.UI, "tempUI");
             LoadObj<UITest.DefaultUIBlock>(UIType.DEFAULT_UI_BLOCK, "DefaultUIBlock");
             LoadObj<UITest.RunnerDeathNotification>(UIType.RUNNER_DEATH_NOTIFICATION, "RunnerDeathNotification");

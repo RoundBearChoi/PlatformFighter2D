@@ -21,6 +21,9 @@ namespace RB
             units.AddCreator(new FlatGround_Creator(this.transform));
 
             units.ProcessCreators();
+
+            GameUI gameUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.GAME_UI)) as GameUI;
+            gameUI.transform.parent = this.transform;
         }
 
         public override void OnUpdate()
