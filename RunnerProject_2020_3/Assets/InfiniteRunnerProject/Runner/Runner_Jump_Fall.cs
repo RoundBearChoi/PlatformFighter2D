@@ -24,10 +24,10 @@ namespace RB
         {
             if (_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
             {
-                _unit.unitData.listNextStates.Add(new Runner_NormalRun(_unit, _userInput));
+                BaseMessage showLandingDust = new ShowLandingDustMessage(true, _unit.transform.position);
+                showLandingDust.Register();
 
-                Stage.currentStage.InstantiateUnits_ByUnitType(UnitType.LANDING_DUST, null);
-                Units.instance.GetUnit<LandingDust>().transform.position = _unit.transform.position;
+                _unit.unitData.listNextStates.Add(new Runner_NormalRun(_unit, _userInput));
             }
 
             FixedUpdateComponents();

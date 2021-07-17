@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace RB
 {
-    public class BloodMessage : BaseMessage
+    public class ShowBloodMessage : BaseMessage
     {
         bool _faceRightSide = true;
         Vector3 _position;
 
-        public BloodMessage(bool faceRightSide, Vector3 position)
+        public ShowBloodMessage(bool faceRightSide, Vector3 position)
         {
             _faceRightSide = faceRightSide;
             _position = position;

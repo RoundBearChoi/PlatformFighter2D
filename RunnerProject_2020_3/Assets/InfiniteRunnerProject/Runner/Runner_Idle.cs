@@ -19,8 +19,8 @@ namespace RB
         {
             if (_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
             {
-                Stage.currentStage.InstantiateUnits_ByUnitType(UnitType.LANDING_DUST, null);
-                Units.instance.GetUnit<LandingDust>().transform.position = _unit.transform.position;
+                BaseMessage showLandingDust = new ShowLandingDustMessage(true, _unit.transform.position);
+                showLandingDust.Register();
 
                 _unit.unitData.listNextStates.Add(new Runner_NormalRun(_unit, _userInput));
             }

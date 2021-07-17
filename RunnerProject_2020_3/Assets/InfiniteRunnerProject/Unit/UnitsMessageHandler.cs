@@ -37,13 +37,22 @@ namespace RB
                     Stage.currentStage.InstantiateUnit_ByUnitType(UnitType.BLOOD_5, null);
                     Unit blood = Units.instance.GetUnit<Blood_5>();
                     blood.unitData.faceRight = message.GetBoolMessage();
-                    blood.transform.position = message.GetVector3Message();
+
+                    Vector3 localPos = blood.transform.localPosition;
+
+                    blood.transform.position = message.GetVector3Message() + localPos;
                 }
                 else if (message.MESSAGE_TYPE == MessageType.SHOW_PARRY_EFFECT)
                 {
                     Stage.currentStage.InstantiateUnit_ByUnitType(UnitType.PARRY_EFFECT, null);
                     Unit parryEffect = Units.instance.GetUnit<ParryEffect>();
                     parryEffect.transform.position = message.GetVector3Message();
+                }
+                else if (message.MESSAGE_TYPE == MessageType.SHOW_LANDING_DUST)
+                {
+                    Stage.currentStage.InstantiateUnit_ByUnitType(UnitType.LANDING_DUST, null);
+                    Unit landingDust = Units.instance.GetUnit<LandingDust>();
+                    landingDust.transform.position = message.GetVector3Message();
                 }
             }
         }

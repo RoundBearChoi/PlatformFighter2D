@@ -21,5 +21,7 @@ namespace RB
 
         TAKE_DAMAGE = 600,
         ZERO_HEALTH = 610,
+
+        SHOW_LANDING_DUST = 700,
     }
 }
