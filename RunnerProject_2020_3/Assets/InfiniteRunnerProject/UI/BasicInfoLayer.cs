@@ -9,6 +9,10 @@ namespace RB
         public override void InitLayer()
         {
             Debugger.Log("starting basicInfoLayer");
+
+            UIElement runnerHPBar = Instantiate(ResourceLoader.uiElementLoader.GetObj(UIElementType.RUNNER_HP_BAR)) as RunnerHPBar;
+            AddUIElement(runnerHPBar);
+            runnerHPBar.transform.SetParent(this.transform, false);
         }
 
         public override void OnFixedUpdate()

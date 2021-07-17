@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class HPBar : MonoBehaviour
+    public class EnemyHPBar : MonoBehaviour
     {
         Unit _ownerUnit = null;
         Vector2 _targetLocalPos = Vector2.zero;

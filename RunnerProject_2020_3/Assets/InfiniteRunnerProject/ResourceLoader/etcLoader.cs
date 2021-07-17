@@ -10,7 +10,7 @@ namespace RB
         {
             Debugger.Log("loading other stuff..");
 
-            LoadObj<HPBar>(etcType.HP_BAR, "HPBar");
+            LoadObj<EnemyHPBar>(etcType.HP_BAR, "EnemyHPBar");
         }
     }
 }

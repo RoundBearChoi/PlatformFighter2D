@@ -28,7 +28,7 @@ namespace RB
 
                     if (_unit.hpBar == null)
                     {
-                        HPBar bar = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.HP_BAR)) as HPBar;
+                        EnemyHPBar bar = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.HP_BAR)) as EnemyHPBar;
                         _unit.hpBar = bar;
                         bar.transform.parent = Stage.currentStage.transform;
                         bar.SetOwnerUnit(_unit, new Vector2(-1.26f, 4.6f));
