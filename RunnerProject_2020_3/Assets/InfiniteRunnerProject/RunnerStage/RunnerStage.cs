@@ -6,10 +6,10 @@ namespace RB
 {
     public class RunnerStage : Stage
     {
-        private UserInput _userInput = new UserInput();
-
         public override void Init()
         {
+            _userInput = new UserInput();
+
             InstantiateUnit_ByUnitType(UnitType.RUNNER, _userInput);
             InstantiateUnits_ByUnitType(UnitType.SWAMP, null);
             InstantiateUnits_ByUnitType(UnitType.GOLEM, null);

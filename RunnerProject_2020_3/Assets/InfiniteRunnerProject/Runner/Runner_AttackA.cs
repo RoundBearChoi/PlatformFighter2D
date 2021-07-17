@@ -6,14 +6,12 @@ namespace RB
 {
     public class Runner_AttackA : State
     {
-        private UserInput _userInput = null;
         private bool _dustCreated = false;
         public static SpriteAnimationSpec animationSpec = null;
 
-        public Runner_AttackA(Unit unit, UserInput input)
+        public Runner_AttackA(Unit unit)
         {
             _unit = unit;
-            _userInput = input;
 
             _listStateComponents.Add(new LerpRunSpeedOnFlatGround(_unit, 2f, 0.05f));
             _listStateComponents.Add(new OverlapBoxCollision(_unit, GameInitializer.current.runner_AttackA_OverlapBoxSO.listSpecs));
@@ -35,7 +33,7 @@ namespace RB
             {
                 if (_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
                 {
-                    _unit.unitData.listNextStates.Add(new Runner_NormalRun(_unit, _userInput));
+                    _unit.unitData.listNextStates.Add(new Runner_NormalRun(_unit));
                 }
             }
         }

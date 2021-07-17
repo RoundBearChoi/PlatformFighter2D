@@ -25,7 +25,7 @@ namespace RB
             unit.unitData.initialHP = _creationSpec.hp;
             unit.iStateController = new StateController(unit);
 
-            _creationSpec.setInitialState.Invoke(unit, _userInput);
+            _creationSpec.setInitialState.Invoke(unit);
             _creationSpec.setUpdater.Invoke(unit);
 
             unit.InitBoxCollider(_creationSpec);

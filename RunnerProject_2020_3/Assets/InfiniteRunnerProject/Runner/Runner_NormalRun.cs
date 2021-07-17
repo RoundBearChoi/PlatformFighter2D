@@ -10,13 +10,13 @@ namespace RB
         public static bool initialPush = false;
         public static SpriteAnimationSpec animationSpec = null;
 
-        public Runner_NormalRun(Unit unit, UserInput userInput)
+        public Runner_NormalRun(Unit unit)
         {
             _unit = unit;
 
-            _listStateComponents.Add(new NormalRunToFall(_unit, userInput));
+            _listStateComponents.Add(new NormalRunToFall(_unit));
             _listStateComponents.Add(new LerpRunSpeedOnFlatGround(_unit, 3.5f, 0.05f));
-            _listStateComponents.Add(new NormalRun_OnUserInput(_unit, userInput));
+            _listStateComponents.Add(new NormalRun_OnUserInput(_unit));
         }
 
         public override void OnEnter()

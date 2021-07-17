@@ -25,11 +25,11 @@ namespace RB
 
                 if (!_unit.unitData.facingRight)
                 {
-                    push = (_unit.transform.right * _force.x * -1f) + (Vector3.up * _force.y);
+                    push = new Vector3(_force.x, _force.y, 0f);
                 }
                 else
                 {
-                    push = (_unit.transform.right * _force.x) + (Vector3.up * _force.y);
+                    push = new Vector3(_force.x * -1f, _force.y, 0f);
                 }
 
                 _unit.unitData.rigidBody2D.velocity = push;

@@ -6,23 +6,20 @@ namespace RB
 {
     public class NormalRun_OnUserInput : StateComponent
     {
-        UserInput _userInput = null;
-
-        public NormalRun_OnUserInput(Unit unit, UserInput userInput)
+        public NormalRun_OnUserInput(Unit unit)
         {
             _unit = unit;
-            _userInput = userInput;
         }
 
         public override void OnFixedUpdate()
         {
-            if (_userInput.ContainsKeyPress(UserInput.keyboard.spaceKey))
+            if (Stage.currentStage.USER_INPUT.ContainsKeyPress(UserInput.keyboard.spaceKey))
             {
-                _unit.unitData.listNextStates.Add(new Runner_Jump_Up(_unit, _userInput));
+                _unit.unitData.listNextStates.Add(new Runner_Jump_Up(_unit));
             }
-            else if (_userInput.ContainsButtonPress(UserInput.mouse.leftButton))
+            else if (Stage.currentStage.USER_INPUT.ContainsButtonPress(UserInput.mouse.leftButton))
             {
-                _unit.unitData.listNextStates.Add(new Runner_AttackA(_unit, _userInput));
+                _unit.unitData.listNextStates.Add(new Runner_AttackA(_unit));
             }
         }
     }

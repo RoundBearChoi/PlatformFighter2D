@@ -11,6 +11,15 @@ namespace RB
         public Units units = new Units();
 
         protected GameInitializer _gameIntializer = null;
+        protected UserInput _userInput = null;
+
+        public UserInput USER_INPUT
+        {
+            get
+            {
+                return _userInput;
+            }
+        }
 
         public virtual void Init()
         {
@@ -35,6 +44,11 @@ namespace RB
         public virtual void SetInitializer(GameInitializer gameInitializer)
         {
             _gameIntializer = gameInitializer;
+        }
+
+        public virtual void SetUserInput(UserInput userInput)
+        {
+            _userInput = userInput;
         }
 
         public virtual void InstantiateUnit(BaseUnitCreationSpec spec, UserInput userInput)

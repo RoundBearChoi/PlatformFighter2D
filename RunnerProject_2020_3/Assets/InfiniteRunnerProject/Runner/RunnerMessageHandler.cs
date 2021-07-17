@@ -17,7 +17,10 @@ namespace RB
         {
             foreach (BaseMessage message in _listMessages)
             {
-                Debugger.Log("received!");
+                if (message.MESSAGE_TYPE == MessageType.WINCE)
+                {
+                    _unit.unitData.listNextStates.Add(new Runner_Wincing(_unit));
+                }
             }
         }
     }

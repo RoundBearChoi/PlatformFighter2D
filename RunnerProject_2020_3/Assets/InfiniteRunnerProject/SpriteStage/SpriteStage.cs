@@ -8,7 +8,6 @@ namespace RB
     {
         SpriteAnimations _dummyAnimation;
         GameObject _dummyObj;
-        UserInput _userInput = new UserInput();
 
         [SerializeField]
         SpriteAnimationSpec animationSpec = null;
@@ -24,6 +23,8 @@ namespace RB
 
         public override void Init()
         {
+            _userInput = new UserInput();
+
             _dummyObj = new GameObject();
             _dummyObj.transform.parent = this.transform;
             _dummyObj.transform.position = Vector3.zero;
@@ -76,12 +77,6 @@ namespace RB
                     BoxCalculator.GetCollisionResults(centerPoint, bounds, specs.mContactFilter2D, 0f);
                 }
             }
-
-            //foreach(OverlapBoxBounds bounds in _dummyOverlapBoxCollisionData.listSpecs[0].mlistBounds)
-            //{
-            //    Vector2 centerPoint = new Vector2(bounds.mRelativePoint.x, bounds.mRelativePoint.y);
-            //    BoxCalculator.GetCollisionResults(centerPoint, bounds, _dummyOverlapBoxCollisionData.listSpecs[_collisionDataIndex].mContactFilter2D, 0f);
-            //}
 
             _userInput.ClearKeyDictionary();
             _userInput.ClearButtonDictionary();

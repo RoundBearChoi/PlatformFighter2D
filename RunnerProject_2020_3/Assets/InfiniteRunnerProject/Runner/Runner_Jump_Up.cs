@@ -6,13 +6,11 @@ namespace RB
 {
     public class Runner_Jump_Up : State
     {
-        private UserInput _userInput = null;
         public static SpriteAnimationSpec animationSpec = null;
 
-        public Runner_Jump_Up(Unit unit, UserInput input)
+        public Runner_Jump_Up(Unit unit)
         {
             _unit = unit;
-            _userInput = input;
         }
 
         public override void OnEnter()
@@ -24,7 +22,7 @@ namespace RB
         {
             if (_unit.unitData.rigidBody2D.velocity.y < 0f && updateCount >= 2)
             {
-                _unit.unitData.listNextStates.Add(new Runner_Jump_Fall(_unit, _userInput));
+                _unit.unitData.listNextStates.Add(new Runner_Jump_Fall(_unit));
             }
 
             FixedUpdateComponents();

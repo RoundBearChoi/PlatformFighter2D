@@ -8,10 +8,9 @@ namespace RB
     {
         UserInput _userInput = null;
 
-        public NormalRunToFall(Unit unit, UserInput userInput)
+        public NormalRunToFall(Unit unit)
         {
             _unit = unit;
-            _userInput = userInput;
         }
 
         public override void OnFixedUpdate()
@@ -22,7 +21,7 @@ namespace RB
                 //falling
                 if (_unit.unitData.rigidBody2D.velocity.y < 0f)
                 {
-                    _unit.unitData.listNextStates.Add(new Runner_Jump_Fall(_unit, _userInput));
+                    _unit.unitData.listNextStates.Add(new Runner_Jump_Fall(_unit));
                 }
             }
         }

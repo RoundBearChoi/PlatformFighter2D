@@ -9,7 +9,6 @@ namespace RB
         private UI ui = null;
         private FixedUpdateCounter fixedUpdateCounter = new FixedUpdateCounter();
         private UpdateCounter updateCounter = new UpdateCounter();
-        private UserInput _userInput = new UserInput();
 
         public override void Init()
         {

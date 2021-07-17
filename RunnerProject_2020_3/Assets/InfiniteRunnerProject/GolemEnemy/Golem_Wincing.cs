@@ -27,11 +27,6 @@ namespace RB
             }
         }
 
-        public override void OnExit()
-        {
-
-        }
-
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
         {
             return animationSpec;

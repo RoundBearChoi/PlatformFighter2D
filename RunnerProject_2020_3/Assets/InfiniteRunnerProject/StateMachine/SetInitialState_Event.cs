@@ -6,7 +6,7 @@ using UnityEngine.Events;
 namespace RB
 {
     [System.Serializable]
-    public class SetInitialState_Event : UnityEvent<Unit, UserInput>
+    public class SetInitialState_Event : UnityEvent<Unit>
     {
 
     }

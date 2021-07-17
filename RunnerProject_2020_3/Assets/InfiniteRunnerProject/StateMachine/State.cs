@@ -10,7 +10,7 @@ namespace RB
         
         protected Unit _unit = null;
         protected List<StateComponent> _listStateComponents = new List<StateComponent>();
-
+        
         public virtual void OnEnter()
         {
 

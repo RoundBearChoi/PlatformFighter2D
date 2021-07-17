@@ -37,6 +37,11 @@ namespace RB
             Runner_NormalRun.animationSpec = spec;
         }
 
+        public void State_Runner_Wincing(SpriteAnimationSpec spec)
+        {
+            Runner_Wincing.animationSpec = spec;
+        }
+
         public void State_Golem_Idle(SpriteAnimationSpec spec)
         {
             Golem_Idle.animationSpec = spec;
