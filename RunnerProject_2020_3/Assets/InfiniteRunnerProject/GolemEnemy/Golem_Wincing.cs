@@ -21,11 +21,6 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            //if (_unit.unitData.collisionStays.IsOnFlatGround())
-            //{
-            //    _unit.unitData.rigidBody2D.velocity = Vector2.Lerp(_unit.unitData.rigidBody2D.velocity, Vector2.zero, 0.1f);
-            //}
-
             if (updateCount >= 20)
             {
                 _unit.unitData.listNextStates.Add(new Golem_Idle(_unit));
