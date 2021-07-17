@@ -36,6 +36,19 @@ namespace RB
                     _unit.unitData.listNextStates.Add(new Runner_NormalRun(_unit));
                 }
             }
+
+            //temp
+            if (updateCount == 1)
+            {
+                
+                _unit.unitData.rigidBody2D.velocity = new Vector2(1000f, 0f);
+                _unit.unitData.rigidBody2D.mass = 0.001f;
+            }
+            else if (updateCount >= 2)
+            {
+                _unit.unitData.rigidBody2D.velocity = Vector2.zero;
+                _unit.unitData.rigidBody2D.mass = 1f;
+            }
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
