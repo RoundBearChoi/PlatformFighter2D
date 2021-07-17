@@ -27,6 +27,9 @@ namespace RB
             foreach (UIElement element in _uiElements)
             {
                 element.OnUpdate();
+
+                element.messageHandler.HandleMessages();
+                element.messageHandler.ClearMessages();
             }
         }
 

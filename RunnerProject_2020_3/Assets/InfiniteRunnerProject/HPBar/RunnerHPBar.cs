@@ -6,6 +6,9 @@ namespace RB
 {
     public class RunnerHPBar : UIElement
     {
-
+        public override void InitElement()
+        {
+            RunnerHPUpdateMessage.uiElement = this;
+        }
     }
 }

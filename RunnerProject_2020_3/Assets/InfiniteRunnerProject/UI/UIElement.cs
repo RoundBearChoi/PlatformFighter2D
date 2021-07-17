@@ -8,6 +8,11 @@ namespace RB
     {
         public BaseMessageHandler messageHandler = null;
 
+        public virtual void InitElement()
+        {
+
+        }
+
         public virtual void OnFixedUpdate()
         {
 

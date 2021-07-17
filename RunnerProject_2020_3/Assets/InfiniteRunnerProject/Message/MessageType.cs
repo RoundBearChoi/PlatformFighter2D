@@ -9,6 +9,7 @@ namespace RB
         NONE,
 
         RUNNER_IS_DEAD = 100,
+        UPDATE_RUNNER_HP_UI = 101,
 
         HITSTOP_REGISTER = 200,
 

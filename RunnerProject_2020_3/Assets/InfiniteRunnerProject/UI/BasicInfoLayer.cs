@@ -13,16 +13,8 @@ namespace RB
             UIElement runnerHPBar = Instantiate(ResourceLoader.uiElementLoader.GetObj(UIElementType.RUNNER_HP_BAR)) as RunnerHPBar;
             AddUIElement(runnerHPBar);
             runnerHPBar.transform.SetParent(this.transform, false);
-        }
-
-        public override void OnFixedUpdate()
-        {
-
-        }
-
-        public override void OnUpdate()
-        {
-
+            runnerHPBar.messageHandler = new RunnerHPMessageHandler();
+            runnerHPBar.InitElement();
         }
     }
 }

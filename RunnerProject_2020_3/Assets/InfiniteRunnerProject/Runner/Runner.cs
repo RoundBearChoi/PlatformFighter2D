@@ -41,6 +41,9 @@ namespace RB
         public override void OnLateUpdate()
         {
             unitUpdater.CustomLateUpdate();
+
+            BaseMessage runnerHPUpdate = new RunnerHPUpdateMessage(unitData.hp, unitData.initialHP);
+            runnerHPUpdate.Register();
         }
 
         public void OnCollisionEnter2D(Collision2D collision)
