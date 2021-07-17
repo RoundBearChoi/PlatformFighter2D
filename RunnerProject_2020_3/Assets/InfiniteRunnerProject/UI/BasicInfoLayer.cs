@@ -6,6 +6,11 @@ namespace RB
 {
     public class BasicInfoLayer : UILayer
     {
+        public override void InitLayer()
+        {
+            Debugger.Log("starting basicInfoLayer");
+        }
+
         public override void OnFixedUpdate()
         {
 

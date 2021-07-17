@@ -9,6 +9,11 @@ namespace RB
         [SerializeField]
         protected List<UIElement> _uiElements = new List<UIElement>();
 
+        public virtual void InitLayer()
+        {
+
+        }
+
         public virtual void OnFixedUpdate()
         {
             foreach(UIElement element in _uiElements)
