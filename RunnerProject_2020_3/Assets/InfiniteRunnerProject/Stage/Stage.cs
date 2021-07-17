@@ -13,6 +13,9 @@ namespace RB
         protected GameInitializer _gameIntializer = null;
         protected UserInput _userInput = null;
 
+        [SerializeField]
+        protected BaseUI _baseUI = null;
+
         public UserInput USER_INPUT
         {
             get

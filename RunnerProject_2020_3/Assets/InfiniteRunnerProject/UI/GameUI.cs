@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class GameUI : MonoBehaviour
+    public class GameUI : BaseUI
     {
 
     }

@@ -22,8 +22,8 @@ namespace RB
 
             units.ProcessCreators();
 
-            GameUI gameUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.GAME_UI)) as GameUI;
-            gameUI.transform.parent = this.transform;
+            _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.GAME_UI)) as GameUI;
+            _baseUI.transform.parent = this.transform;
         }
 
         public override void OnUpdate()

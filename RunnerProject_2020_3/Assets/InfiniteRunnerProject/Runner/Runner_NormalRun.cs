@@ -15,7 +15,7 @@ namespace RB
             _unit = unit;
 
             _listStateComponents.Add(new NormalRunToFall(_unit));
-            _listStateComponents.Add(new LerpRunSpeedOnFlatGround(_unit, 3.5f, 0.05f));
+            _listStateComponents.Add(new LerpRunSpeedOnFlatGround(_unit, 3.5f, 0.1f));
             _listStateComponents.Add(new NormalRun_OnUserInput(_unit));
         }
 
