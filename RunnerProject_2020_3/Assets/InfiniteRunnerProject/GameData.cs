@@ -7,9 +7,7 @@ namespace RB
     [CreateAssetMenu(fileName = "Data", menuName = "InfiniteRunner/GameData/GameData")]
     public class GameData : ScriptableObject
     {
-        public Vector2 Runner_NormalRun_StartForce = new Vector2();
         public Vector2 Runner_JumpUp_StartForce = new Vector2();
-        public float Runner_RunSpeed_LerpRate = new float();
 
         public AnimationCurve JumpPull;
         public AnimationCurve JumpFall;

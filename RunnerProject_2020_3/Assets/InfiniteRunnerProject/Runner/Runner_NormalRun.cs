@@ -15,7 +15,7 @@ namespace RB
             _unit = unit;
 
             _listStateComponents.Add(new NormalRunToFall(_unit, userInput));
-            _listStateComponents.Add(new MaintainNormalRunSpeed(_unit));
+            _listStateComponents.Add(new LerpRunSpeedOnFlatGround(_unit, 3.5f, 0.05f));
             _listStateComponents.Add(new NormalRun_OnUserInput(_unit, userInput));
         }
 
@@ -23,7 +23,6 @@ namespace RB
         {
             if (!initialPush)
             {
-                _unit.unitData.rigidBody2D.velocity = GameInitializer.current.gameDataSO.Runner_NormalRun_StartForce;
                 initialPush = true;
             }
         }
@@ -40,7 +39,7 @@ namespace RB
                     Stage.currentStage.InstantiateUnit_ByUnitType(UnitType.STEP_DUST, null);
                     Unit dust = Units.instance.GetUnit<StepDust>();
                     dust.transform.position = _unit.transform.position - new Vector3(_unit.transform.right.x * 1f, 0f, 0f);
-                    dust.unitData.faceRight = false;
+                    dust.unitData.facingRight = false;
 
                     //Units.instance.AddCreator(new StepDust_Creator(Stage.currentStage.transform));
                     //Units.instance.ProcessCreators();

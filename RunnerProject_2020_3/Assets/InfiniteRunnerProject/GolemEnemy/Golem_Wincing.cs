@@ -8,29 +8,23 @@ namespace RB
     {
         public static SpriteAnimationSpec animationSpec = null;
 
-        private bool _initialPushBack = false;
-
         public Golem_Wincing(Unit unit)
         {
             _unit = unit;
 
+            _listStateComponents.Add(new InitialPushBack(_unit, new Vector2(3.5f, 2.75f)));
             _listStateComponents.Add(new InitialTextGUIMaterial(_unit, 8));
+            _listStateComponents.Add(new SlowDownToZeroOnFlatGround(_unit, 0.1f));
         }
 
         public override void OnFixedUpdate()
         {
             FixedUpdateComponents();
 
-            if (!_initialPushBack)
-            {
-                _initialPushBack = true;
-                _unit.unitData.rigidBody2D.velocity = ((_unit.transform.right * 3.5f * -1f) + (Vector3.up * 2.75f));
-            }
-
-            if (_unit.unitData.collisionStays.IsOnFlatGround())
-            {
-                _unit.unitData.rigidBody2D.velocity = Vector2.Lerp(_unit.unitData.rigidBody2D.velocity, Vector2.zero, 0.1f);
-            }
+            //if (_unit.unitData.collisionStays.IsOnFlatGround())
+            //{
+            //    _unit.unitData.rigidBody2D.velocity = Vector2.Lerp(_unit.unitData.rigidBody2D.velocity, Vector2.zero, 0.1f);
+            //}
 
             if (updateCount >= 20)
             {

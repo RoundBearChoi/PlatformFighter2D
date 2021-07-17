@@ -25,7 +25,7 @@ namespace RB
                     {
                         Vector2 centerPoint = Vector2.zero;
                         
-                        if (_unit.unitData.faceRight)
+                        if (_unit.unitData.facingRight)
                         {
                             centerPoint = new Vector2(_unit.transform.position.x + bounds.mRelativePoint.x, _unit.transform.position.y + bounds.mRelativePoint.y);
                         }
@@ -56,7 +56,7 @@ namespace RB
                                         attackerHitStop.Register();
 
                                         Vector2 closest = col.ClosestPoint(centerPoint);
-                                        BaseMessage showBloodMessage = new ShowBloodMessage(_unit.unitData.faceRight, new Vector3(closest.x, closest.y, -0.5f));
+                                        BaseMessage showBloodMessage = new ShowBloodMessage(_unit.unitData.facingRight, new Vector3(closest.x, closest.y, -0.5f));
                                         showBloodMessage.Register();
 
                                         BaseMessage showParryEffectMessage = new ParryEffectMessage(new Vector3(closest.x, closest.y, -0.5f));

@@ -36,7 +36,7 @@ namespace RB
                 {
                     Stage.currentStage.InstantiateUnit_ByUnitType(UnitType.BLOOD_5, null);
                     Unit blood = Units.instance.GetUnit<Blood_5>();
-                    blood.unitData.faceRight = message.GetBoolMessage();
+                    blood.unitData.facingRight = message.GetBoolMessage();
 
                     Vector3 localPos = blood.transform.localPosition;
 

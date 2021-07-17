@@ -68,7 +68,7 @@ namespace RB
         {
             for (int i = _listUnits.Count - 1; i >= 0; i--)
             {
-                if (_listUnits[i].unitData.faceRight)
+                if (_listUnits[i].unitData.facingRight)
                 {
                     if (_listUnits[i].transform.rotation.y != 0f)
                     {
