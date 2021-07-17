@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e79727ed8da2341438994d55ca92770b, type: 3}
-  m_Name: Runner_SpriteAnimationSpec_Death
+  m_Name: Runner_SpriteAnimationSpec_tempDeath
   m_EditorClassIdentifier: 
-  spriteName: Texture_PrototypeHero_Death
-  spriteInterval: 3
-  spriteSize: {x: 5.58, y: 6.48}
+  spriteName: Texture_Death_Orange
+  spriteInterval: 15
+  spriteSize: {x: 3, y: 4}
   offsetType: 1
   additionalOffset: {x: 0, y: 0}
   playOnce: 1
@@ -24,7 +24,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: b843f7797d09f824dbb56f845c95bdb8, type: 2}
         m_TargetAssemblyTypeName: RB.StateAnimationSetter, Assembly-CSharp
-        m_MethodName: State_Runner_Death
+        m_MethodName: State_Runner_tempDeath
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

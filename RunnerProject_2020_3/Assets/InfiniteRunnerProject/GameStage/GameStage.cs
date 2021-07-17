@@ -62,7 +62,7 @@ namespace RB
             if (_userInput.ContainsKeyPress(UserInput.keyboard.f10Key))
             {
                 Unit runner = units.GetUnit<Runner>();
-                runner.unitData.listNextStates.Add(new Runner_Death(runner));
+                runner.unitData.listNextStates.Add(new tempRunner_Death(runner));
             }
 
             _userInput.ClearKeyDictionary();

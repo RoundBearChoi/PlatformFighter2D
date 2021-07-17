@@ -26,8 +26,11 @@ namespace RB
             {
                 if (unit.unitType == UnitType.RUNNER)
                 {
-                    _unit.unitData.listNextStates.Add(new Golem_Attack(_unit));
-                    break;
+                    if (unit.unitData.hp > 0)
+                    {
+                        _unit.unitData.listNextStates.Add(new Golem_Attack(_unit));
+                        break;
+                    }
                 }
             }
         }

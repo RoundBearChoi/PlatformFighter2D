@@ -10,25 +10,14 @@ namespace RB
 
         public Runner_Death(Unit unit)
         {
-            Debugger.Log("runner is dead");
             _unit = unit;
-        }
-        public override void OnEnter()
-        {
-            BaseMessage message = new UIMessage(MessageType.RUNNER_IS_DEAD);
-            message.Register();
 
-            _unit.unitData.unitTransform.position = _unit.unitData.unitTransform.position + (Vector3.back * 1f);
-            _unit.unitData.rigidBody2D.velocity = new Vector3(0f, 6f, 0f);
-            _unit.unitData.boxCollider2D.enabled = false;
+            _listStateComponents.Add(new SlowDownToZeroOnFlatGround(_unit, 0.05f));
         }
 
         public override void OnFixedUpdate()
         {
-            if (_unit.unitData.unitTransform.position.y <= -20f)
-            {
-                _unit.unitData.rigidBody2D.Sleep();
-            }
+            FixedUpdateComponents();
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

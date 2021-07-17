@@ -17,6 +17,11 @@ namespace RB
             Runner_Death.animationSpec = spec;
         }
 
+        public void State_Runner_tempDeath(SpriteAnimationSpec spec)
+        {
+            tempRunner_Death.animationSpec = spec;
+        }
+
         public void State_Runner_Idle(SpriteAnimationSpec spec)
         {
             Runner_Idle.animationSpec = spec;

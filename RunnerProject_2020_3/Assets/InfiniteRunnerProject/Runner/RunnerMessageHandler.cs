@@ -7,6 +7,7 @@ namespace RB
     public class RunnerMessageHandler : BaseMessageHandler
     {
         private Unit _unit = null;
+        private bool _zeroHealthTriggered = false;
 
         public RunnerMessageHandler(Unit unit)
         {
@@ -24,6 +25,14 @@ namespace RB
                 else if (message.MESSAGE_TYPE == MessageType.TAKE_DAMAGE)
                 {
                     _unit.unitData.hp -= message.GetUnsignedIntMessage();
+                }
+                else if (message.MESSAGE_TYPE == MessageType.ZERO_HEALTH)
+                {
+                    if (!_zeroHealthTriggered)
+                    {
+                        _zeroHealthTriggered = true;
+                        _unit.unitData.listNextStates.Add(new Runner_Death(_unit));
+                    }
                 }
             }
         }
