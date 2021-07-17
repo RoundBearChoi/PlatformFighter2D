@@ -48,11 +48,15 @@ namespace RB
 
             _userInput.ClearKeyDictionary();
             _userInput.ClearButtonDictionary();
+
+            _baseUI.OnFixedUpdate();
         }
 
         public override void OnLateUpdate()
         {
             units.OnLateUpdate();
+
+            _baseUI.OnUpdate();
         }
     }
 }

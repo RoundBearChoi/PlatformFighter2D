@@ -7,6 +7,7 @@ namespace RB
     public enum UIType
     {
         GAME_UI,
+        BASIC_INFO_LAYER,
 
         UI,
         DEFAULT_UI_BLOCK,
