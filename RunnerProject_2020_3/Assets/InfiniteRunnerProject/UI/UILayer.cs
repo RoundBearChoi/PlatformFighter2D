@@ -24,5 +24,10 @@ namespace RB
                 element.OnUpdate();
             }
         }
+
+        public virtual void AddUIElement(UIElement element)
+        {
+            _uiElements.Add(element);
+        }
     }
 }

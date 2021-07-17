@@ -33,7 +33,7 @@ namespace RB
 
         public virtual void OnFixedUpdate()
         {
-            //update the latest layer
+            //only update the latest layer
             if (_uiLayers.Count > 0)
             {
                 _uiLayers[_uiLayers.Count - 1].OnFixedUpdate();
@@ -42,7 +42,7 @@ namespace RB
 
         public virtual void OnUpdate()
         {
-            //update the latest layer
+            //only update the latest layer
             if (_uiLayers.Count > 0)
             {
                 _uiLayers[_uiLayers.Count - 1].OnUpdate();
