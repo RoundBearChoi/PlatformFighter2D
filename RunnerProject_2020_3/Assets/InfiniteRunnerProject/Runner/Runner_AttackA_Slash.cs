@@ -24,6 +24,21 @@ namespace RB
                 force *= -1f;
             }
 
+            //temp trail
+            if (updateCount == 0)
+            {
+                GameObject trailObj = new GameObject();
+
+                TrailEffect trail = trailObj.AddComponent<TrailEffect>();
+                trail.gameObject.name = "trail - " + _unit.gameObject.name;
+                trail.gameObject.transform.position = _unit.gameObject.transform.position;
+                trail.gameObject.transform.rotation = Quaternion.identity;
+                trail.transform.parent = Stage.currentStage.transform;
+
+                SpriteRenderer spriteRenderer = trailObj.AddComponent<SpriteRenderer>();
+                spriteRenderer.sprite = _unit.unitData.spriteAnimations.currentAnimation.RENDERER.sprite;
+            }
+
             if (updateCount <= 2)
             {
                 _unit.unitData.rigidBody2D.velocity = new Vector2(100f, 0f);
