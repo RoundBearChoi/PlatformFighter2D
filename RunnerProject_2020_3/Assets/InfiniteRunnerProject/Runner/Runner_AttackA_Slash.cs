@@ -11,10 +11,13 @@ namespace RB
         public Runner_AttackA_Slash(Unit unit)
         {
             _unit = unit;
+            _listStateComponents.Add(new CreateRenderTrail(unit, 1));
         }
 
         public override void OnFixedUpdate()
         {
+            FixedUpdateComponents();
+
             _unit.unitData.rigidBody2D.mass = 0.001f;
 
             float force = 100f;
@@ -22,21 +25,6 @@ namespace RB
             if (!_unit.unitData.facingRight)
             {
                 force *= -1f;
-            }
-
-            //temp trail
-            if (updateCount == 0)
-            {
-                GameObject trailObj = new GameObject();
-
-                TrailEffect trail = trailObj.AddComponent<TrailEffect>();
-                trail.gameObject.name = "trail - " + _unit.gameObject.name;
-                trail.gameObject.transform.position = _unit.gameObject.transform.position;
-                trail.gameObject.transform.rotation = Quaternion.identity;
-                trail.transform.parent = Stage.currentStage.transform;
-
-                SpriteRenderer spriteRenderer = trailObj.AddComponent<SpriteRenderer>();
-                spriteRenderer.sprite = _unit.unitData.spriteAnimations.currentAnimation.RENDERER.sprite;
             }
 
             if (updateCount <= 2)

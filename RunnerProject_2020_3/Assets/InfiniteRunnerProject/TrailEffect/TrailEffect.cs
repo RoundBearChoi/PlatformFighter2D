@@ -6,6 +6,8 @@ namespace RB
 {
     public class TrailEffect : MonoBehaviour
     {
+        public SpriteRenderer spriteRenderer = null;
+
 
     }
 }
