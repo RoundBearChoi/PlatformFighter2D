@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class CameraController_SimpleFollow : State
+    public class CameraController_SimpleFollow : UnitState
     {
         private Unit _targetRunner = null;
         private GameCameraController _cameraController = null;

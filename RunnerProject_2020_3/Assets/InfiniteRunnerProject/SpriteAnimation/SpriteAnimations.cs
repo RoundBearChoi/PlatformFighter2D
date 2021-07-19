@@ -7,11 +7,11 @@ namespace RB
     public class SpriteAnimations
     {
         private List<SpriteAnimation> _listSpriteAnimations = null;
-        private IStateController _IStateController = null;
+        private IStateController<UnitState> _IStateController = null;
 
         public SpriteAnimation currentAnimation = null;
 
-        public SpriteAnimations(IStateController stateController)
+        public SpriteAnimations(IStateController<UnitState> stateController)
         {
             _listSpriteAnimations = new List<SpriteAnimation>();
             _IStateController = stateController;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Runner_Jump_Fall : State
+    public class Runner_Jump_Fall : UnitState
     {
         public static SpriteAnimationSpec animationSpec = null;
 

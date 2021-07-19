@@ -23,7 +23,7 @@ namespace RB
             unit.unitData.facingRight = _creationSpec.faceRight;
             unit.unitData.hp = _creationSpec.hp;
             unit.unitData.initialHP = _creationSpec.hp;
-            unit.iStateController = new StateController(unit);
+            unit.iStateController = new UnitStateController(unit);
 
             _creationSpec.setInitialState.Invoke(unit);
             _creationSpec.setUpdater.Invoke(unit);

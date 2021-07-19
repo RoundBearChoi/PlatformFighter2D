@@ -10,6 +10,8 @@ namespace RB
         {
             _unit.unitData.spriteAnimations.OnUpdate();
 
+            _unit.iStateController.OnUpdate();
+
             //only make transition in the update, not in fixedupdate (avoid transitioning multiple times in between frames)
             _unit.iStateController.TransitionToNextState();
         }

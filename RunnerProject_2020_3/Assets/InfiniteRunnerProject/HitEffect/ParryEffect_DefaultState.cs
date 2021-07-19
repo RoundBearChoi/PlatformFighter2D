@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class ParryEffect_DefaultState : State
+    public class ParryEffect_DefaultState : UnitState
     {
         public static SpriteAnimationSpec animationSpec;
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Swamp_BackTrees_DefaultState : State
+    public class Swamp_BackTrees_DefaultState : UnitState
     {
         public static SpriteAnimationSpec animationSpec;
 

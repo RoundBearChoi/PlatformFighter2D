@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Runner_AttackA_Dash : State
+    public class Runner_AttackA_Dash : UnitState
     {
         public static SpriteAnimationSpec animationSpec = null;
 
@@ -27,7 +27,7 @@ namespace RB
                 force *= -1f;
             }
 
-            if (updateCount <= 2)
+            if (fixedUpdateCount <= 2)
             {
                 _unit.unitData.rigidBody2D.velocity = new Vector2(100f, 0f);
             }

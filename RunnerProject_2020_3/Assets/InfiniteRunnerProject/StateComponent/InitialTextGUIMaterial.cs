@@ -23,7 +23,7 @@ namespace RB
                 _unit.unitData.spriteAnimations.currentAnimation.RENDERER.sharedMaterial = GameInitializer.current.white_GUIText_material;
             }
 
-            if (_unit.iStateController.GetCurrentState().updateCount > _totalFrames)
+            if (_unit.iStateController.GetCurrentState().fixedUpdateCount > _totalFrames)
             {
                 _unit.unitData.spriteAnimations.currentAnimation.RENDERER.sharedMaterial = _defaultMaterial;
             }

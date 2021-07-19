@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Golem_Death : State
+    public class Golem_Death : UnitState
     {
         public static SpriteAnimationSpec animationSpec = null;
 

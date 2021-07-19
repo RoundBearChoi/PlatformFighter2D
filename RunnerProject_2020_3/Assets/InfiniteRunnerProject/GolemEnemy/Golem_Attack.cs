@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Golem_Attack : State
+    public class Golem_Attack : UnitState
     {
         public static SpriteAnimationSpec animationSpec = null;
 

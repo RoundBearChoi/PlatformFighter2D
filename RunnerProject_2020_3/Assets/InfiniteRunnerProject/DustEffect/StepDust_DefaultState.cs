@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class StepDust_DefaultState : State
+    public class StepDust_DefaultState : UnitState
     {
         public static SpriteAnimationSpec animationSpec;
 

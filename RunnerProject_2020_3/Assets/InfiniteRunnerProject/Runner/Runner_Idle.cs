@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Runner_Idle : State
+    public class Runner_Idle : UnitState
     {
         public static SpriteAnimationSpec animationSpec = null;
 

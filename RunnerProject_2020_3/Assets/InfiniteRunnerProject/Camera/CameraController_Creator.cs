@@ -27,7 +27,7 @@ namespace RB
 
             camController.unitData = new UnitData(camController.transform);
 
-            camController.iStateController = new StateController(camController);
+            camController.iStateController = new UnitStateController(camController);
 
             camController.iStateController.SetNewState(new CameraController_SimpleFollow(_runner, camController));
 

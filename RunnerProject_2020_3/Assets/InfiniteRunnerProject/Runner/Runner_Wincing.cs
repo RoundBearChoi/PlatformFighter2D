@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Runner_Wincing : State
+    public class Runner_Wincing : UnitState
     {
         public static SpriteAnimationSpec animationSpec = null;
 
@@ -21,7 +21,7 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            if (updateCount >= 20)
+            if (fixedUpdateCount >= 20)
             {
                 _unit.unitData.listNextStates.Add(new Runner_Idle(_unit));
             }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Runner_AttackA : State
+    public class Runner_AttackA : UnitState
     {
         private bool _dustCreated = false;
         public static SpriteAnimationSpec animationSpec = null;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Blood_5_DefaultState : State
+    public class Blood_5_DefaultState : UnitState
     {
         public static SpriteAnimationSpec animationSpec;
 

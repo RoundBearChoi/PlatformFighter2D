@@ -5,7 +5,7 @@ using UnityEngine.InputSystem.Controls;
 
 namespace RB
 {
-    public class Runner_NormalRun : State
+    public class Runner_NormalRun : UnitState
     {
         public static bool initialPush = false;
         public static SpriteAnimationSpec animationSpec = null;
@@ -31,7 +31,7 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            if (updateCount != 0 && updateCount % animationSpec.spriteInterval == 0)
+            if (fixedUpdateCount != 0 && fixedUpdateCount % animationSpec.spriteInterval == 0)
             {
                 if (_unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX == 3 ||
                     _unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX == 7)

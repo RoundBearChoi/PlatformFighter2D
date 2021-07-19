@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Runner_Jump_Up : State
+    public class Runner_Jump_Up : UnitState
     {
         public static SpriteAnimationSpec animationSpec = null;
 
@@ -20,7 +20,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (_unit.unitData.rigidBody2D.velocity.y < 0f && updateCount >= 2)
+            if (_unit.unitData.rigidBody2D.velocity.y < 0f && fixedUpdateCount >= 2)
             {
                 _unit.unitData.listNextStates.Add(new Runner_Jump_Fall(_unit));
             }

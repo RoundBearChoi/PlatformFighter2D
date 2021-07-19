@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace RB
 {
-    public interface IStateController
+    public interface IStateController<T>
     {
+        public abstract void OnUpdate();
         public abstract void OnFixedUpdate();
         public abstract void OnLateUpdate();
-        public abstract void SetNewState(State newState);
+        public abstract void SetNewState(T newUnitState);
         public abstract void TransitionToNextState();
-
-        public abstract State GetCurrentState();
+        public abstract T GetCurrentState();
     }
 }

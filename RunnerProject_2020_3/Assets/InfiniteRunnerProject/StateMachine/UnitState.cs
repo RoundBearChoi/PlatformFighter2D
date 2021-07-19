@@ -4,14 +4,19 @@ using UnityEngine;
 
 namespace RB
 {
-    public abstract class State
+    public abstract class UnitState
     {
-        public uint updateCount = 0;
+        public uint fixedUpdateCount = 0;
         
         protected Unit _unit = null;
         protected List<StateComponent> _listStateComponents = new List<StateComponent>();
         
         public virtual void OnEnter()
+        {
+
+        }
+
+        public virtual void OnUpdate()
         {
 
         }

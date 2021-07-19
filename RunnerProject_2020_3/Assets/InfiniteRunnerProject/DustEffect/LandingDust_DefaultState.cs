@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class LandingDust_DefaultState : State
+    public class LandingDust_DefaultState : UnitState
     {
         public static SpriteAnimationSpec animationSpec;
 

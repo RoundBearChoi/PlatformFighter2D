@@ -25,6 +25,6 @@ namespace RB
 
         public SpriteAnimations spriteAnimations = null;
 
-        public List<State> listNextStates = new List<State>();
+        public List<UnitState> listNextStates = new List<UnitState>();
     }
 }
