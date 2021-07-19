@@ -15,6 +15,7 @@ namespace RB
 
         LANDING_DUST = 301,
         STEP_DUST = 302,
+        DASH_DUST = 303,
 
         SWAMP = 400,
 

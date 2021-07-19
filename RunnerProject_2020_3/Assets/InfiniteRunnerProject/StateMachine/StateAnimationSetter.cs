@@ -14,7 +14,7 @@ namespace RB
 
         public void State_Runner_AttackA_Slash(SpriteAnimationSpec spec)
         {
-            Runner_AttackA_Slash.animationSpec = spec;
+            Runner_AttackA_Dash.animationSpec = spec;
         }
 
         public void State_Runner_Death(SpriteAnimationSpec spec)
@@ -100,6 +100,11 @@ namespace RB
         public void State_StepDust_DefaultState(SpriteAnimationSpec spec)
         {
             StepDust_DefaultState.animationSpec = spec;
+        }
+
+        public void State_DashDust_DefaultState(SpriteAnimationSpec spec)
+        {
+            DashDust_DefaultState.animationSpec = spec;
         }
 
         public void State_Blood_5_DefaultState(SpriteAnimationSpec spec)

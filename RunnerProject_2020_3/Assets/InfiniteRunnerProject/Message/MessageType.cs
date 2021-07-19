@@ -24,5 +24,6 @@ namespace RB
         ZERO_HEALTH = 610,
 
         SHOW_LANDING_DUST = 700,
+        SHOW_DASH_DUST = 701,
     }
 }

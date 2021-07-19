@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Runner_AttackA_Slash : State
+    public class Runner_AttackA_Dash : State
     {
         public static SpriteAnimationSpec animationSpec = null;
 
-        public Runner_AttackA_Slash(Unit unit)
+        public Runner_AttackA_Dash(Unit unit)
         {
             _unit = unit;
             _listStateComponents.Add(new CreateRenderTrail(unit, 1));

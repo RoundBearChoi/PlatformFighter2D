@@ -69,13 +69,21 @@ namespace RB
             if (spec.offsetType == OffsetType.BOTTOM_CENTER)
             {
                 spriteRenderer.transform.localPosition = new Vector3(0f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);
-                spriteRenderer.transform.localPosition += new Vector3(spec.additionalOffset.x, spec.additionalOffset.y, 0f);
             }
             else if (spec.offsetType == OffsetType.BOTTOM_LEFT)
             {
                 spriteRenderer.transform.localPosition = new Vector3(_listSprites[0].bounds.size.x * xScale * 0.5f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);
-                spriteRenderer.transform.localPosition += new Vector3(spec.additionalOffset.x, spec.additionalOffset.y, 0f);
             }
+            else if (spec.offsetType == OffsetType.CENTER_LEFT)
+            {
+                spriteRenderer.transform.localPosition = new Vector3(_listSprites[0].bounds.size.x * xScale * 0.5f, 0f, 0f);
+            }
+            else if (spec.offsetType == OffsetType.CENTER_RIGHT)
+            {
+                spriteRenderer.transform.localPosition = new Vector3(-_listSprites[0].bounds.size.x * xScale * 0.5f, 0f, 0f);
+            }
+
+            spriteRenderer.transform.localPosition += new Vector3(spec.additionalOffset.x, spec.additionalOffset.y, 0f);
         }
         
         public void AddAdditionalInterval(AdditionalInterval interval)

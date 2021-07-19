@@ -19,7 +19,10 @@ namespace RB
             }
             else if (Stage.currentStage.USER_INPUT.ContainsButtonPress(UserInput.mouse.leftButton))
             {
-                _unit.unitData.listNextStates.Add(new Runner_AttackA_Slash(_unit));
+                BaseMessage showDashDust = new ShowDashDustMessage(true, _unit.transform.position);
+                showDashDust.Register();
+
+                _unit.unitData.listNextStates.Add(new Runner_AttackA_Dash(_unit));
             }
         }
     }

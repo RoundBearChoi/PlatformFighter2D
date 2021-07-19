@@ -12,5 +12,7 @@ namespace RB
         BOTTOM_LEFT,
 
         CENTER_CENTER,
+        CENTER_LEFT,
+        CENTER_RIGHT,
     }
 }

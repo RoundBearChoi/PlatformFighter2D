@@ -17,6 +17,7 @@ namespace RB
 
             LoadObj<LandingDust>(UnitType.LANDING_DUST, "LandingDust");
             LoadObj<StepDust>(UnitType.STEP_DUST, "StepDust");
+            LoadObj<DashDust>(UnitType.DASH_DUST, "DashDust");
 
             LoadObj<Blood_5>(UnitType.BLOOD_5, "Blood_5");
             LoadObj<ParryEffect>(UnitType.PARRY_EFFECT, "ParryEffect");

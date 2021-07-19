@@ -54,6 +54,12 @@ namespace RB
                     Unit landingDust = Units.instance.GetUnit<LandingDust>();
                     landingDust.transform.position = message.GetVector3Message();
                 }
+                else if (message.MESSAGE_TYPE == MessageType.SHOW_DASH_DUST)
+                {
+                    Stage.currentStage.InstantiateUnit_ByUnitType(UnitType.DASH_DUST, null);
+                    Unit dashDust = Units.instance.GetUnit<DashDust>();
+                    dashDust.transform.position = message.GetVector3Message();
+                }
             }
         }
     }
