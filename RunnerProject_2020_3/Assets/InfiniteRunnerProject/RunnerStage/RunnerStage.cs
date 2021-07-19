@@ -30,6 +30,7 @@ namespace RB
         {
             _userInput.OnUpdate();
             units.OnUpdate();
+            trailEffects.OnUpdate();
         }
 
         public override void OnFixedUpdate()

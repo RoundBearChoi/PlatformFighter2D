@@ -9,6 +9,7 @@ namespace RB
         public static Stage currentStage = null;
 
         public Units units = new Units();
+        public TrailEffects trailEffects = new TrailEffects();
 
         protected GameInitializer _gameIntializer = null;
         protected UserInput _userInput = null;

@@ -34,6 +34,8 @@ namespace RB
                 trail.spriteRenderer.transform.localPosition = _unit.unitData.spriteAnimations.currentAnimation.RENDERER.transform.position;
                 trail.spriteRenderer.transform.localScale = _unit.unitData.spriteAnimations.currentAnimation.RENDERER.transform.localScale;
                 trail.spriteRenderer.transform.localRotation = _unit.unitData.spriteAnimations.currentAnimation.RENDERER.transform.localRotation;
+
+                Stage.currentStage.trailEffects.AddTrail(trail);
             }
         }
     }
