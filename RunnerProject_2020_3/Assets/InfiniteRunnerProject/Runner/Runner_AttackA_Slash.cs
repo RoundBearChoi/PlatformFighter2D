@@ -11,7 +11,7 @@ namespace RB
         public Runner_AttackA_Slash(Unit unit)
         {
             _unit = unit;
-            _listStateComponents.Add(new CreateRenderTrail(unit, 3));
+            _listStateComponents.Add(new CreateRenderTrail(unit, 1));
         }
 
         public override void OnFixedUpdate()

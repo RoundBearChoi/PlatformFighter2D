@@ -31,11 +31,13 @@ namespace RB
                 trail.spriteRenderer = trailObj.AddComponent<SpriteRenderer>();
                 trail.spriteRenderer.sprite = _unit.unitData.spriteAnimations.currentAnimation.RENDERER.sprite;
 
+                trail.rootUnit = _unit;
+
                 trail.spriteRenderer.transform.localPosition = _unit.unitData.spriteAnimations.currentAnimation.RENDERER.transform.position;
                 trail.spriteRenderer.transform.localScale = _unit.unitData.spriteAnimations.currentAnimation.RENDERER.transform.localScale;
                 trail.spriteRenderer.transform.localRotation = _unit.unitData.spriteAnimations.currentAnimation.RENDERER.transform.localRotation;
 
-                trail.spriteRenderer.color = Color.blue;
+                //trail.spriteRenderer.color = Color.blue;
 
                 Stage.currentStage.trailEffects.AddTrail(trail);
             }
