@@ -19,7 +19,7 @@ namespace RB
             }
             else if (Stage.currentStage.USER_INPUT.ContainsButtonPress(UserInput.mouse.leftButton))
             {
-                _unit.unitData.listNextStates.Add(new Runner_AttackA(_unit));
+                _unit.unitData.listNextStates.Add(new Runner_AttackA_Slash(_unit));
             }
         }
     }
