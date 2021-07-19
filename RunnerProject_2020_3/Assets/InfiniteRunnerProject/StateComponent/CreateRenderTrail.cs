@@ -35,6 +35,8 @@ namespace RB
                 trail.spriteRenderer.transform.localScale = _unit.unitData.spriteAnimations.currentAnimation.RENDERER.transform.localScale;
                 trail.spriteRenderer.transform.localRotation = _unit.unitData.spriteAnimations.currentAnimation.RENDERER.transform.localRotation;
 
+                trail.spriteRenderer.color = Color.blue;
+
                 Stage.currentStage.trailEffects.AddTrail(trail);
             }
         }
