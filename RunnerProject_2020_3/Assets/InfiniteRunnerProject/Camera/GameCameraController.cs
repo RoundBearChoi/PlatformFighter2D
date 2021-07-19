@@ -22,10 +22,12 @@ namespace RB
             iStateController.TransitionToNextState();
             iStateController.OnFixedUpdate();
 
+            float shakeAmount = 0.15f;
+
             if (mTotalShakeFrames > 0)
             {
                 mTotalShakeFrames--;
-                Vector3 shakeOffset = new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.075f, 0.075f), 0f);
+                Vector3 shakeOffset = new Vector3(Random.Range(-shakeAmount, shakeAmount), Random.Range(-shakeAmount, shakeAmount), 0f);
                 gameCam.transform.position = mTargetPosition + shakeOffset;
             }
             else
