@@ -24,6 +24,10 @@ namespace RB
 
             _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.GAME_UI)) as GameUI;
             _baseUI.transform.parent = this.transform;
+
+            cameraScript.SetCamera(FindObjectOfType<Camera>());
+            cameraScript.AddCameraState(new Camera_FollowRunner(cameraScript));
+            cameraScript.SetTarget(runner.gameObject);
         }
 
         public override void OnUpdate()
