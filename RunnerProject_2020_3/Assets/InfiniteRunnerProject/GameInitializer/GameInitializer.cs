@@ -33,8 +33,8 @@ namespace RB
             ResourceLoader.Init();
 
             //first stage
-            IntroStageTransition introStageTransition = new IntroStageTransition(this);
-            Stage.currentStage = introStageTransition.MakeTransition();
+            IStageTransition intro = new IntroStageTransition(this);
+            Stage.currentStage = intro.MakeTransition();
 
             specsGetter = new SpecsGetter(listCreationSpecsSO);
             stageTransitioner = new StageTransitioner();
