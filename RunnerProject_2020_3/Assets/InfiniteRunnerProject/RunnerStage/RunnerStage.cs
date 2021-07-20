@@ -14,10 +14,8 @@ namespace RB
             InstantiateUnits_ByUnitType(UnitType.SWAMP, null);
             InstantiateUnits_ByUnitType(UnitType.GOLEM, null);
 
-            Unit runner = units.GetUnit<Runner>();
             Runner_NormalRun.initialPush = false;
 
-            //units.AddCreator(new CameraController_Creator(this.transform, runner));
             units.AddCreator(new FlatGround_Creator(this.transform));
 
             units.ProcessCreators();
@@ -28,6 +26,8 @@ namespace RB
             cameraScript = new CameraScript();
             cameraScript.SetCamera(FindObjectOfType<Camera>());
             cameraScript.AddCameraState(new Camera_FollowRunner(cameraScript));
+
+            Unit runner = units.GetUnit<Runner>();
             cameraScript.SetTarget(runner.gameObject);
         }
 
