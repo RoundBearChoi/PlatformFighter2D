@@ -30,23 +30,8 @@ namespace RB
             Unit runner = units.GetUnit<Runner>();
             cameraScript.SetTarget(runner.gameObject);
 
-            //testing repeating background
-            Unit prevGrass = units.GetLatestUnitByState<Swamp_Grass_DefaultState>();
-
-            SpriteAnimation animation = prevGrass.unitData.spriteAnimations.GetLastSpriteAnimation();
-            Sprite sprite = animation.GetSprite(0);
-            float x = animation.gameObject.transform.localScale.x;
-            float y = animation.gameObject.transform.localScale.y;
-            Vector2 edge = new Vector2(sprite.bounds.size.x * x, sprite.bounds.size.y * y);
-            Debug.DrawLine(new Vector3(10f, 50f), edge, Color.red, 3f);
-
-            SpriteAnimationSpec spriteSpec = prevGrass.iStateController.GetCurrentState().GetSpriteAnimationSpec();
-            InstantiateUnit_BySpriteAnimationSpec(spriteSpec, _userInput);
-            Unit newGrass = units.GetLatestUnitByState<Swamp_Grass_DefaultState>();
-            newGrass.transform.position = new Vector3(prevGrass.transform.position.x + edge.x, prevGrass.transform.position.y, prevGrass.transform.position.z);
-
-            newGrass.iStateController.SetNewState(new Swamp_Grass_DefaultState(newGrass));
-            units.AddUnit(newGrass);
+            AddAdditionalSwamp_Grass();
+            AddAdditionalSwamp_Grass();
         }
 
         public override void OnUpdate()
@@ -84,6 +69,40 @@ namespace RB
             units.OnLateUpdate();
             _baseUI.OnLateUpdate();
             cameraScript.OnLateUpdate();
+        }
+
+        public void AddAdditionalSwamp_Grass()
+        {
+            Unit newGrass = InstantiateAdditionalBackgroundUnit<Swamp_Grass_DefaultState>();
+            newGrass.iStateController.SetNewState(new Swamp_Grass_DefaultState(newGrass));
+        }
+
+        public Unit InstantiateAdditionalBackgroundUnit<T>()
+        {
+            Unit prevUnit = units.GetLatestUnitByState<T>();
+
+            if (prevUnit != null)
+            {
+                SpriteAnimation animation = prevUnit.unitData.spriteAnimations.GetLastSpriteAnimation();
+                Sprite sprite = animation.GetSprite(0);
+                float x = animation.gameObject.transform.localScale.x;
+                float y = animation.gameObject.transform.localScale.y;
+                Vector2 edge = new Vector2(sprite.bounds.size.x * x, sprite.bounds.size.y * y);
+                Debug.DrawLine(new Vector3(10f, 50f), edge, Color.red, 3f);
+
+                SpriteAnimationSpec spriteSpec = prevUnit.iStateController.GetCurrentState().GetSpriteAnimationSpec();
+                InstantiateUnit_BySpriteAnimationSpec(spriteSpec, _userInput);
+                Unit newGrass = units.GetLatestUnitByState<T>();
+                newGrass.transform.position = new Vector3(prevUnit.transform.position.x + edge.x, prevUnit.transform.position.y, prevUnit.transform.position.z);
+
+                units.AddUnit(newGrass);
+
+                return newGrass;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
