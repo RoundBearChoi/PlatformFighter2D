@@ -32,6 +32,7 @@ namespace RB
 
             //testing edge of sprite
             Unit latestGrass = units.GetLatestUnitByState<Swamp_Grass_DefaultState>();
+            SpriteAnimationSpec spec = latestGrass.iStateController.GetCurrentState().GetSpriteAnimationSpec();
             SpriteAnimation animation = latestGrass.unitData.spriteAnimations.GetLastSpriteAnimation();
             Sprite sprite = animation.GetSprite(0);
             float x = animation.gameObject.transform.localScale.x;
