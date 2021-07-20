@@ -33,7 +33,7 @@ namespace RB
 
             cameraScript = new CameraScript();
             cameraScript.SetCamera(FindObjectOfType<Camera>());
-            cameraScript.AddCameraState(new Camera_FollowRunner(cameraScript));
+            cameraScript.SetCameraState(new Camera_FollowRunner());
 
             Unit runner = units.GetUnit<Runner>();
             cameraScript.SetTarget(runner.gameObject);

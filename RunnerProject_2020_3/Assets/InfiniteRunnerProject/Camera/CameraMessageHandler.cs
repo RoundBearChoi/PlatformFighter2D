@@ -17,7 +17,7 @@ namespace RB
             {
                 if (message.MESSAGE_TYPE == MessageType.SHAKE_CAMERA)
                 {
-                    //_cameraController.mTotalShakeFrames += message.GetUnsignedIntMessage();
+                    CameraScript.current.SetCameraState(new Camera_Shake(message.GetUnsignedIntMessage()));
                 }
             }
         }

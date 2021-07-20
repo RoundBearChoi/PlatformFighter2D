@@ -6,9 +6,9 @@ namespace RB
 {
     public class Camera_FollowRunner : CameraState
     {
-        public Camera_FollowRunner(CameraScript cameraScript)
+        public Camera_FollowRunner()
         {
-            _cameraScript = cameraScript;
+
         }
 
         public override void OnUpdate()
@@ -18,17 +18,14 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            GameObject target = _cameraScript.GetTarget();
+            GameObject target = CameraScript.current.GetTarget();
 
             if (target != null)
             {
                 _targetPosition = new Vector3(target.transform.position.x, target.transform.position.y + 5f, target.transform.position.z - 5f);
             }
 
-            if (CameraScript.current.GetCamera() != null)
-            {
-                CameraScript.current.GetCamera().transform.position = _targetPosition;
-            }
+            CameraScript.current.UpdateCameraPositionOnTarget(_targetPosition);
         }
     }
 }

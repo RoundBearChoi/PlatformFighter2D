@@ -33,11 +33,12 @@ namespace RB
 
         public void OnLateUpdate()
         {
+            _cameraStateController.OnLateUpdate();
             messageHandler.HandleMessages();
             messageHandler.ClearMessages();
         }
 
-        public void AddCameraState(CameraState cameraState)
+        public void SetCameraState(CameraState cameraState)
         {
             _cameraStateController.SetNewState(cameraState);
         }
@@ -60,6 +61,11 @@ namespace RB
         public GameObject GetTarget()
         {
             return _target;
+        }
+
+        public void UpdateCameraPositionOnTarget(Vector3 pos)
+        {
+            _camera.transform.position = pos;
         }
     }
 }
