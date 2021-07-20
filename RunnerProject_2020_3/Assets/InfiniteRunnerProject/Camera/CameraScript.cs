@@ -8,7 +8,15 @@ namespace RB
     {
         IStateController<CameraState> _cameraStateController = null;
         GameObject _target = null;
-        Camera _camera = null;
+        static Camera _currentCam = null;
+
+        public static Camera CURRENT_CAM
+        {
+            get
+            {
+                return _currentCam;
+            }
+        }
 
         public CameraScript()
         {
@@ -33,7 +41,7 @@ namespace RB
 
         public void SetCamera(Camera camera)
         {
-            _camera = camera;
+            _currentCam = camera;
         }
 
         public void SetTarget(GameObject target)

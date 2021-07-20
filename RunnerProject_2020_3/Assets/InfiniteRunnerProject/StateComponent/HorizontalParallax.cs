@@ -28,7 +28,10 @@ namespace RB
             }
             else
             {
-                _parallaxAnchor = GameCameraController.current.gameCam.gameObject;
+                if (CameraScript.CURRENT_CAM != null)
+                {
+                    _parallaxAnchor = CameraScript.CURRENT_CAM.gameObject;
+                }
             }
         }
     }
