@@ -32,7 +32,7 @@ namespace RB
             }
         }
 
-        public SpriteRenderer RENDERER
+        public SpriteRenderer SPRITE_RENDERER
         {
             get
             {
@@ -185,6 +185,11 @@ namespace RB
         public void ManualSetSpriteIndex(int index)
         {
             _spriteIndex = index;
+        }
+
+        public Sprite GetSprite(int index)
+        {
+            return _listSprites[index];
         }
     }
 }

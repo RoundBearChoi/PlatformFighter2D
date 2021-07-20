@@ -6,8 +6,6 @@ namespace RB
 {
     public class Swamp : Unit
     {
-        public Vector2 basePosition = Vector2.zero;
-
         public override void OnUpdate()
         {
             unitUpdater.CustomUpdate();

@@ -19,13 +19,13 @@ namespace RB
         {
             if (_defaultMaterial == null)
             {
-                _defaultMaterial = _unit.unitData.spriteAnimations.currentAnimation.RENDERER.sharedMaterial;
-                _unit.unitData.spriteAnimations.currentAnimation.RENDERER.sharedMaterial = GameInitializer.current.white_GUIText_material;
+                _defaultMaterial = _unit.unitData.spriteAnimations.currentAnimation.SPRITE_RENDERER.sharedMaterial;
+                _unit.unitData.spriteAnimations.currentAnimation.SPRITE_RENDERER.sharedMaterial = GameInitializer.current.white_GUIText_material;
             }
 
             if (_unit.iStateController.GetCurrentState().fixedUpdateCount > _totalFrames)
             {
-                _unit.unitData.spriteAnimations.currentAnimation.RENDERER.sharedMaterial = _defaultMaterial;
+                _unit.unitData.spriteAnimations.currentAnimation.SPRITE_RENDERER.sharedMaterial = _defaultMaterial;
             }
         }
     }

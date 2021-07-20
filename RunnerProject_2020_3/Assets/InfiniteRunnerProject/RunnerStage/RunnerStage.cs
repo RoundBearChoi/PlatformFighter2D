@@ -30,7 +30,14 @@ namespace RB
             Unit runner = units.GetUnit<Runner>();
             cameraScript.SetTarget(runner.gameObject);
 
+            //testing edge of sprite
             Unit latestGrass = units.GetLatestUnitByState<Swamp_Grass_DefaultState>();
+            SpriteAnimation animation = latestGrass.unitData.spriteAnimations.GetLastSpriteAnimation();
+            Sprite sprite = animation.GetSprite(0);
+            float x = animation.gameObject.transform.localScale.x;
+            float y = animation.gameObject.transform.localScale.y;
+            Vector2 right = new Vector2(sprite.bounds.size.x * x, sprite.bounds.size.y * y);
+            Debug.DrawLine(new Vector3(10f, 50f), right, Color.red, 3f);
         }
 
         public override void OnUpdate()
