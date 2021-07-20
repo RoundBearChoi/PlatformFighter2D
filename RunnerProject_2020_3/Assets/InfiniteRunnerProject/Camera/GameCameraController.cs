@@ -14,7 +14,7 @@ namespace RB
 
         public GameCameraController()
         {
-            messageHandler = new CameraMessageHandler(this);
+            messageHandler = new CameraMessageHandler();
         }
 
         public override void OnFixedUpdate()
