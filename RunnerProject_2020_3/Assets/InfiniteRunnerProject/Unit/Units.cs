@@ -41,6 +41,25 @@ namespace RB
             return null;
         }
 
+        public Unit GetLatestUnitByState<T>()
+        {
+            for (int i = _listUnits.Count - 1; i >= 0; i--)
+            {
+                if (_listUnits[i].iStateController != null)
+                {
+                    if (_listUnits[i].iStateController.GetCurrentState() != null)
+                    {
+                        if (_listUnits[i].iStateController.GetCurrentState() is T)
+                        {
+                            return _listUnits[i];
+                        }
+                    }
+                }
+            }
+
+            return null;
+        }
+
         public void ProcessCreators()
         {
             foreach (BaseUnitCreator creator in _listUnitCreators)

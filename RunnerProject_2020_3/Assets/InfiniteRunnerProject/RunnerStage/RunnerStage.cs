@@ -29,6 +29,8 @@ namespace RB
 
             Unit runner = units.GetUnit<Runner>();
             cameraScript.SetTarget(runner.gameObject);
+
+            Unit latestGrass = units.GetLatestUnitByState<Swamp_Grass_DefaultState>();
         }
 
         public override void OnUpdate()

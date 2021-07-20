@@ -6,16 +6,14 @@ namespace RB
 {
     public class HorizontalParallax : StateComponent
     {
-        float _yPositionFix = 0f;
-        float _xStartingPos = 0f;
+        Vector2 _basePos = Vector2.zero;
         float _percentage = 0f;
         GameObject _parallaxAnchor = null;
 
-        public HorizontalParallax(Unit unit, float percentage)
+        public HorizontalParallax(Unit unit, Vector2 basePos, float percentage)
         {
             _unit = unit;
-            _xStartingPos = unit.transform.position.x;
-            _yPositionFix = unit.transform.position.y;
+            _basePos = basePos;
             _percentage = percentage;
         }
 
@@ -24,7 +22,7 @@ namespace RB
             if (_parallaxAnchor != null)
             {
                 Vector3 pos = _parallaxAnchor.transform.position * _percentage;
-                _unit.transform.position = new Vector3(_xStartingPos + pos.x, _yPositionFix, _unit.transform.position.z);
+                _unit.transform.position = new Vector3(_basePos.x + pos.x, _basePos.y, _unit.transform.position.z);
             }
             else
             {
