@@ -78,6 +78,12 @@ namespace RB
             InstantiateUnit(spec, userInput);
         }
 
+        public virtual void InstantiateUnit_BySpriteAnimationSpec(SpriteAnimationSpec spriteSpec, UserInput userInput)
+        {
+            BaseUnitCreationSpec creationSpec = GameInitializer.current.specsGetter.GetSpec_BySpriteAnimationSpec(spriteSpec);
+            InstantiateUnit(creationSpec, userInput);
+        }
+
         public virtual void InstantiateUnits_ByUnitType(UnitType unitType, UserInput userInput)
         {
             List<BaseUnitCreationSpec> specsList = GameInitializer.current.specsGetter.GetSpecs_ByUnitType(unitType);

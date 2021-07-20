@@ -43,6 +43,22 @@ namespace RB
             return subList;
         }
 
+        public BaseUnitCreationSpec GetSpec_BySpriteAnimationSpec(SpriteAnimationSpec spriteSpec)
+        {
+            foreach (BaseUnitCreationSpec creationSpec in _listSpecs)
+            {
+                foreach(SpriteAnimationSpec s in creationSpec.listSpriteAnimationSpecs)
+                {
+                    if (s == spriteSpec)
+                    {
+                        return creationSpec;
+                    }
+                }
+            }
+
+            return null;
+        }
+
         public BaseUnitCreationSpec GetSpec_ByUnitType(UnitType unitType)
         {
             for (int i = _listSpecs.Count - 1; i >= 0; i--)
