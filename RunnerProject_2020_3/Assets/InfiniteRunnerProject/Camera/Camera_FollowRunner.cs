@@ -25,9 +25,9 @@ namespace RB
                 _targetPosition = new Vector3(target.transform.position.x, target.transform.position.y + 5f, target.transform.position.z - 5f);
             }
 
-            if (CameraScript.CURRENT_CAM != null)
+            if (CameraScript.current.GetCamera() != null)
             {
-                CameraScript.CURRENT_CAM.transform.position = _targetPosition;
+                CameraScript.current.GetCamera().transform.position = _targetPosition;
             }
         }
     }

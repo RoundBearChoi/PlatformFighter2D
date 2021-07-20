@@ -49,6 +49,15 @@ namespace RB
             }
         }
 
+        public virtual void OnLateUpdate()
+        {
+            //only update the latest layer
+            if (_uiLayers.Count > 0)
+            {
+                _uiLayers[_uiLayers.Count - 1].OnLateUpdate();
+            }
+        }
+
         public virtual void AddUILayer(UILayer layer)
         {
             _uiLayers.Add(layer);

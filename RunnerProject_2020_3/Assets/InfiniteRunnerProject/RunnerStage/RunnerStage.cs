@@ -25,6 +25,7 @@ namespace RB
             _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.GAME_UI)) as GameUI;
             _baseUI.transform.parent = this.transform;
 
+            cameraScript = new CameraScript();
             cameraScript.SetCamera(FindObjectOfType<Camera>());
             cameraScript.AddCameraState(new Camera_FollowRunner(cameraScript));
             cameraScript.SetTarget(runner.gameObject);
@@ -36,6 +37,7 @@ namespace RB
             units.OnUpdate();
             trailEffects.OnUpdate();
             cameraScript.OnUpdate();
+            _baseUI.OnLateUpdate();
         }
 
         public override void OnFixedUpdate()
@@ -56,14 +58,14 @@ namespace RB
             _userInput.ClearButtonDictionary();
 
             _baseUI.OnFixedUpdate();
-
             cameraScript.OnFixedUpdate();
         }
 
         public override void OnLateUpdate()
         {
             units.OnLateUpdate();
-            _baseUI.OnUpdate();
+            _baseUI.OnLateUpdate();
+            cameraScript.OnLateUpdate();
         }
     }
 }

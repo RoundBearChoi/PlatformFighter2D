@@ -18,7 +18,7 @@ namespace RB
 
             Unit runner = units.GetUnit<Runner>();
             
-            units.AddCreator(new CameraController_Creator(this.transform, runner));
+            //units.AddCreator(new CameraController_Creator(this.transform, runner));
             units.ProcessCreators();
 
             //level and enemies
@@ -33,6 +33,11 @@ namespace RB
             ui.transform.localRotation = Quaternion.identity;
 
             UITest.tempUI.currentUI = ui;
+
+            cameraScript = new CameraScript();
+            cameraScript.SetCamera(FindObjectOfType<Camera>());
+            cameraScript.AddCameraState(new Camera_FollowRunner(cameraScript));
+            cameraScript.SetTarget(runner.gameObject);
         }
 
         public override void OnUpdate()
@@ -41,6 +46,7 @@ namespace RB
             _userInput.OnUpdate();
             units.OnUpdate();
             ui.OnUpdate();
+            cameraScript.OnUpdate();
         }
 
         public override void OnFixedUpdate()
@@ -67,11 +73,14 @@ namespace RB
 
             _userInput.ClearKeyDictionary();
             _userInput.ClearButtonDictionary();
+
+            cameraScript.OnFixedUpdate();
         }
 
         public override void OnLateUpdate()
         {
             units.OnLateUpdate();
+            cameraScript.OnLateUpdate();
         }
     }
 }

@@ -24,6 +24,11 @@ namespace RB
 
         public virtual void OnUpdate()
         {
+
+        }
+
+        public virtual void OnLateUpdate()
+        {
             foreach (UIElement element in _uiElements)
             {
                 element.OnUpdate();

@@ -9,8 +9,8 @@ namespace RB
         public static Stage currentStage = null;
 
         public Units units = new Units();
-        public CameraScript cameraScript = new CameraScript(); 
         public TrailEffects trailEffects = new TrailEffects();
+        public CameraScript cameraScript = null;
 
         protected GameInitializer _gameIntializer = null;
         protected UserInput _userInput = null;

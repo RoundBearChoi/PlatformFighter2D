@@ -6,9 +6,9 @@ namespace RB
 {
     public class CameraMessageHandler : BaseMessageHandler
     {
-        public CameraMessageHandler(/*GameCameraController cameraController*/)
+        public CameraMessageHandler()
         {
-            //_cameraController = cameraController;
+
         }
 
         public override void HandleMessages()

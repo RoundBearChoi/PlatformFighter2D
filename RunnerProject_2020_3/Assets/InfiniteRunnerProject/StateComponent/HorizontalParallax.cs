@@ -28,9 +28,9 @@ namespace RB
             }
             else
             {
-                if (CameraScript.CURRENT_CAM != null)
+                if (CameraScript.current.GetCamera() != null)
                 {
-                    _parallaxAnchor = CameraScript.CURRENT_CAM.gameObject;
+                    _parallaxAnchor = CameraScript.current.GetCamera().gameObject;
                 }
             }
         }

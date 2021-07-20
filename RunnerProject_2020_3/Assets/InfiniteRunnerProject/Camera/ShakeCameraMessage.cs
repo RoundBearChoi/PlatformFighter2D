@@ -16,6 +16,7 @@ namespace RB
 
         public override void Register()
         {
+            CameraScript.current.messageHandler.Register(this);
             //GameCameraController.current.messageHandler.Register(this);
         }
 
