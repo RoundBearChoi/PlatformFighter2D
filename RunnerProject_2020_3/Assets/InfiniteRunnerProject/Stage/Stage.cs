@@ -11,14 +11,13 @@ namespace RB
         public Units units = new Units();
         public TrailEffects trailEffects = new TrailEffects();
         public CameraScript cameraScript = null;
+        public IBackgroundSetup backgroundSetup = null;
 
         protected GameInitializer _gameIntializer = null;
         protected UserInput _userInput = null;
 
         [SerializeField]
         protected BaseUI _baseUI = null;
-
-        protected IBackgroundSetup _backgroundSetup = null;
 
         public UserInput USER_INPUT
         {

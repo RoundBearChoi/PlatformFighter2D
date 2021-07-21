@@ -24,16 +24,16 @@ namespace RB
             cameraScript.SetCameraState(new Camera_FollowRunner());
             cameraScript.SetTarget(units.GetUnit<Runner>().gameObject);
 
-            _backgroundSetup = new SwampSetup();
-            _backgroundSetup.InstantiateBaseLayer();
-            _backgroundSetup.AddAdditionalBackground<Swamp_Grass_DefaultState>();
-            _backgroundSetup.AddAdditionalBackground<Swamp_Grass_DefaultState>();
-            _backgroundSetup.AddAdditionalBackground<Swamp_River_DefaultState>();
-            _backgroundSetup.AddAdditionalBackground<Swamp_River_DefaultState>();
-            _backgroundSetup.AddAdditionalBackground<Swamp_FrontTrees_DefaultState>();
-            _backgroundSetup.AddAdditionalBackground<Swamp_FrontTrees_DefaultState>();
-            _backgroundSetup.AddAdditionalBackground<Swamp_BackTrees_DefaultState>();
-            _backgroundSetup.AddAdditionalBackground<Swamp_BackTrees_DefaultState>();
+            backgroundSetup = new SwampSetup();
+            backgroundSetup.InstantiateBaseLayer();
+            backgroundSetup.AddAdditionalBackground<Swamp_Grass_DefaultState>();
+            backgroundSetup.AddAdditionalBackground<Swamp_Grass_DefaultState>();
+            backgroundSetup.AddAdditionalBackground<Swamp_River_DefaultState>();
+            backgroundSetup.AddAdditionalBackground<Swamp_River_DefaultState>();
+            backgroundSetup.AddAdditionalBackground<Swamp_FrontTrees_DefaultState>();
+            backgroundSetup.AddAdditionalBackground<Swamp_FrontTrees_DefaultState>();
+            backgroundSetup.AddAdditionalBackground<Swamp_BackTrees_DefaultState>();
+            backgroundSetup.AddAdditionalBackground<Swamp_BackTrees_DefaultState>();
         }
 
         public override void OnUpdate()
