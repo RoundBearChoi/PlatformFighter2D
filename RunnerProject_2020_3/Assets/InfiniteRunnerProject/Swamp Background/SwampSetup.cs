@@ -57,6 +57,8 @@ namespace RB
             }
             else if (typeof(T) == typeof(Swamp_FrontTrees_DefaultState))
             {
+                float offsetX = camObj.transform.position.x * GameInitializer.current.swampParallaxSO.Swamp_FrontTrees_ParallaxPercentage;
+                additionalBackground.gameObject.transform.localPosition -= new Vector3(offsetX, 0f, 0f);
                 additionalBackground.iStateController.SetNewState(new Swamp_FrontTrees_DefaultState(additionalBackground));
             }
             else if (typeof(T) == typeof(Swamp_BackTrees_DefaultState))

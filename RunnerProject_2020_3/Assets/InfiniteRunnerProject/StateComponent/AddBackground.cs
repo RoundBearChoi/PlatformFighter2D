@@ -32,6 +32,7 @@ namespace RB
 
                         if (latest_edges[3].x <= CameraScript.current.cameraEdges.GetEdges()[3].x)
                         {
+                            Debugger.Log("adding additional background: " + _state.GetType().Name);
                             Stage.currentStage.backgroundSetup.AddAdditionalBackground<T>();
                         }
                     }
