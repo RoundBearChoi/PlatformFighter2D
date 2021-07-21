@@ -17,6 +17,7 @@ namespace RB
         [Space(15)]
 
         public float RunnerCamFollowLimitY = 0f;
+        public float DefaultFallDeathY = 0f;
         public int InitialFlatGroundCount = 0;
     }
 }
