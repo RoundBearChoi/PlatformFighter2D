@@ -85,39 +85,18 @@ namespace RB
 
         public void OnFixedUpdate()
         {
-            foreach (Unit unit in _listUnits)
+            for (int i = 0; i < _listUnits.Count; i++)
             {
-                if (unit.unitData.hp <= 0)
+                if (_listUnits[i].unitData.hp <= 0)
                 {
-                    BaseMessage zeroHealthMessage = new ZeroHealthMessage(unit);
+                    BaseMessage zeroHealthMessage = new ZeroHealthMessage(_listUnits[i]);
                     zeroHealthMessage.Register();
                 }
             }
 
-            //death by fall
-            foreach(Unit unit in _listUnits)
+            //directions
+            for (int i = 0; i < _listUnits.Count; i++)
             {
-                if (unit.transform.position.y < GameInitializer.current.gameDataSO.DefaultFallDeathY)
-                {
-                    if (unit.unitData.rigidBody2D != null)
-                    {
-                        unit.unitData.rigidBody2D.gravityScale = 0f;
-                        unit.unitData.rigidBody2D.velocity = Vector2.zero;
-                        unit.unitData.hp = 0;
-                    }
-                }
-            }
-
-            //main fixed update
-            for (int i = _listUnits.Count - 1; i >= 0; i--)
-            {
-                if (_listUnits[i].destroy)
-                {
-                    GameObject.Destroy(_listUnits[i].gameObject);
-                    _listUnits.RemoveAt(i);
-                    continue;
-                }
-
                 if (_listUnits[i].unitData.facingRight)
                 {
                     if (_listUnits[i].transform.rotation.y != 0f)
@@ -132,8 +111,36 @@ namespace RB
                         _listUnits[i].transform.rotation = Quaternion.Euler(_listUnits[i].transform.rotation.x, 180f, _listUnits[i].transform.rotation.z);
                     }
                 }
-            
+            }
+
+            //death by fall
+            for (int i = 0; i < _listUnits.Count; i++)
+            {
+                if (_listUnits[i].transform.position.y < GameInitializer.current.gameDataSO.DefaultFallDeathY)
+                {
+                    if (_listUnits[i].unitData.rigidBody2D != null)
+                    {
+                        _listUnits[i].unitData.rigidBody2D.gravityScale = 0f;
+                        _listUnits[i].unitData.rigidBody2D.velocity = Vector2.zero;
+                        _listUnits[i].unitData.hp = 0;
+                    }
+                }
+            }
+
+            //main fixedupdate
+            for (int i = 0; i < _listUnits.Count; i++)
+            {
                 _listUnits[i].OnFixedUpdate();
+            }
+
+            for (int i = _listUnits.Count - 1; i >= 0; i--)
+            {
+                if (_listUnits[i].destroy)
+                {
+                    GameObject.Destroy(_listUnits[i].gameObject);
+                    _listUnits.RemoveAt(i);
+                    continue;
+                }
             }
         }
 
