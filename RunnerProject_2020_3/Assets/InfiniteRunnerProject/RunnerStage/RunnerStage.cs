@@ -39,10 +39,11 @@ namespace RB
         public override void OnUpdate()
         {
             _userInput.OnUpdate();
+            _baseUI.OnUpdate();
             units.OnUpdate();
             trailEffects.OnUpdate();
             cameraScript.OnUpdate();
-            _baseUI.OnLateUpdate();
+            
         }
 
         public override void OnFixedUpdate()
@@ -61,15 +62,14 @@ namespace RB
 
             _userInput.ClearKeyDictionary();
             _userInput.ClearButtonDictionary();
-
             _baseUI.OnFixedUpdate();
             cameraScript.OnFixedUpdate();
         }
 
         public override void OnLateUpdate()
         {
-            units.OnLateUpdate();
             _baseUI.OnLateUpdate();
+            units.OnLateUpdate();
             cameraScript.OnLateUpdate();
         }
     }
