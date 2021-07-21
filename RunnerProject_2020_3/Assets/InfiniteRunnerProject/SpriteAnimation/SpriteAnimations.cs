@@ -47,6 +47,7 @@ namespace RB
             obj.transform.localPosition = Vector3.zero;
             obj.transform.localRotation = Quaternion.identity;
             _listSpriteAnimations.Add(obj.AddComponent<SpriteAnimation>());
+
             _listSpriteAnimations[_listSpriteAnimations.Count - 1].Init(spec);
         }
 

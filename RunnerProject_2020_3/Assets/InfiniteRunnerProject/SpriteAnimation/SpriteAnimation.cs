@@ -8,7 +8,7 @@ namespace RB
     {
         List<Sprite> _listSprites = new List<Sprite>();
         SpriteRenderer spriteRenderer = null;
-        
+
         //serialized for debugging
         [SerializeField] List<AdditionalInterval> _listAdditionalIntervals = new List<AdditionalInterval>();
         [SerializeField] uint _updateCount = 0;
