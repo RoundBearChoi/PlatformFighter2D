@@ -21,8 +21,6 @@ namespace RB
             spritesStage.transform.localPosition = Vector3.zero;
             spritesStage.transform.localRotation = Quaternion.identity;
 
-            spritesStage.Init();
-
             return spritesStage;
         }
     }

@@ -21,8 +21,6 @@ namespace RB
             runnerStage.transform.localPosition = Vector3.zero;
             runnerStage.transform.localRotation = Quaternion.identity;
 
-            runnerStage.Init();
-
             return runnerStage;
         }
     }

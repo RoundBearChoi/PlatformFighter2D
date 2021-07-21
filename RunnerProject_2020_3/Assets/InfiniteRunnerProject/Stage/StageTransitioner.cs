@@ -19,6 +19,7 @@ namespace RB
             {
                 GameObject.Destroy(Stage.currentStage.gameObject);
                 Stage.currentStage = transition.MakeTransition();
+                Stage.currentStage.Init();
             }
 
             _listStageTransitions.Clear();

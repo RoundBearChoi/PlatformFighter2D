@@ -6,18 +6,20 @@ namespace RB
 {
     public class RunnerStage : Stage
     {
+        private SwampSetup _swampSetup = null;
+
         public override void Init()
         {
             _userInput = new UserInput();
+            _swampSetup = new SwampSetup();
+            _swampSetup.InstantiateBaseLayer(_userInput);
 
             InstantiateUnit_ByUnitType(UnitType.RUNNER, _userInput);
-            InstantiateUnits_ByUnitType(UnitType.SWAMP, null);
             InstantiateUnits_ByUnitType(UnitType.GOLEM, null);
 
             Runner_NormalRun.initialPush = false;
 
             units.AddCreator(new FlatGround_Creator(this.transform));
-
             units.ProcessCreators();
 
             _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.GAME_UI)) as GameUI;
