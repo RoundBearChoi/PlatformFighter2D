@@ -17,6 +17,11 @@ namespace RB
             _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, GameInitializer.current.runner_AttackA_OverlapBoxSO.listSpecs));
         }
 
+        public override SpriteAnimationSpec GetSpriteAnimationSpec()
+        {
+            return animationSpec;
+        }
+
         public override void OnFixedUpdate()
         {
             if (!_dustCreated)
@@ -36,11 +41,6 @@ namespace RB
                     ownerUnit.unitData.listNextStates.Add(new Runner_NormalRun(ownerUnit));
                 }
             }
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
     }
 }

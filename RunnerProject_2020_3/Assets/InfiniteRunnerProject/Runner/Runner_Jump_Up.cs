@@ -13,6 +13,11 @@ namespace RB
             ownerUnit = unit;
         }
 
+        public override SpriteAnimationSpec GetSpriteAnimationSpec()
+        {
+            return animationSpec;
+        }
+
         public override void OnEnter()
         {
             ownerUnit.unitData.rigidBody2D.velocity = GameInitializer.current.gameDataSO.Runner_JumpUp_StartForce;
@@ -31,11 +36,6 @@ namespace RB
         public override void OnLateUpdate()
         {
 
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
     }
 }

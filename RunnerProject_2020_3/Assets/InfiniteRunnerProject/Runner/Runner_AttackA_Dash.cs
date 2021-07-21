@@ -14,6 +14,11 @@ namespace RB
             _listStateComponents.Add(new CreateRenderTrail(unit, 1));
         }
 
+        public override SpriteAnimationSpec GetSpriteAnimationSpec()
+        {
+            return animationSpec;
+        }
+
         public override void OnFixedUpdate()
         {
             FixedUpdateComponents();
@@ -37,11 +42,6 @@ namespace RB
                 ownerUnit.unitData.rigidBody2D.mass = 1f;
                 ownerUnit.unitData.listNextStates.Add(new Runner_AttackA(ownerUnit));
             }
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
     }
 }

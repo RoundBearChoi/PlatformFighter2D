@@ -18,6 +18,11 @@ namespace RB
             _listStateComponents.Add(new NormalRun_OnUserInput(ownerUnit));
         }
 
+        public override SpriteAnimationSpec GetSpriteAnimationSpec()
+        {
+            return animationSpec;
+        }
+
         public override void OnFixedUpdate()
         {
             FixedUpdateComponents();
@@ -33,11 +38,6 @@ namespace RB
                     dust.unitData.facingRight = false;
                 }
             }
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
     }
 }

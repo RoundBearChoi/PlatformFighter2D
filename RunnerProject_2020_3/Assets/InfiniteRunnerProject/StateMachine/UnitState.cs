@@ -10,7 +10,9 @@ namespace RB
         
         public Unit ownerUnit = null;
         protected List<StateComponent> _listStateComponents = new List<StateComponent>();
-        
+
+        public abstract SpriteAnimationSpec GetSpriteAnimationSpec();
+
         public virtual void OnEnter()
         {
 
@@ -36,6 +38,11 @@ namespace RB
 
         }
 
+        public virtual UnitState GetLastestInstantiatedState()
+        {
+            return null;
+        }
+
         public virtual void UpdateComponents()
         {
             foreach (StateComponent component in _listStateComponents)
@@ -51,7 +58,5 @@ namespace RB
                 component.OnFixedUpdate();
             }
         }
-
-        public abstract SpriteAnimationSpec GetSpriteAnimationSpec();
     }
 }

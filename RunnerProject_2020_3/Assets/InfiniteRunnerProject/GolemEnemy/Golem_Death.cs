@@ -16,6 +16,11 @@ namespace RB
             _listStateComponents.Add(new InitialTextGUIMaterial(ownerUnit, 8));
         }
 
+        public override SpriteAnimationSpec GetSpriteAnimationSpec()
+        {
+            return animationSpec;
+        }
+
         public override void OnFixedUpdate()
         {
             FixedUpdateComponents();
@@ -24,11 +29,6 @@ namespace RB
             {
                 ownerUnit.unitData.rigidBody2D.velocity = Vector2.Lerp(ownerUnit.unitData.rigidBody2D.velocity, Vector2.zero, 0.05f);
             }
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
     }
 }

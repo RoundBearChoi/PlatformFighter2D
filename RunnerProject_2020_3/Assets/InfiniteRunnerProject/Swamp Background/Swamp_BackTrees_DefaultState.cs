@@ -15,14 +15,14 @@ namespace RB
             _listStateComponents.Add(new HorizontalParallax(unit, unit.transform.position, GameInitializer.current.swampParallaxSO.Swamp_BackTrees_ParallaxPercentage));
         }
 
-        public override void OnFixedUpdate()
-        {
-            FixedUpdateComponents();
-        }
-
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
         {
             return animationSpec;
+        }
+
+        public override void OnFixedUpdate()
+        {
+            FixedUpdateComponents();
         }
     }
 }

@@ -14,6 +14,11 @@ namespace RB
             _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, GameInitializer.current.golem_Attack_OverlapBoxSO.listSpecs));
         }
 
+        public override SpriteAnimationSpec GetSpriteAnimationSpec()
+        {
+            return animationSpec;
+        }
+
         public override void OnFixedUpdate()
         {
             FixedUpdateComponents();
@@ -22,11 +27,6 @@ namespace RB
             {
                 ownerUnit.unitData.listNextStates.Add(new Golem_Idle(ownerUnit));
             }
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
     }
 }

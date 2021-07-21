@@ -13,6 +13,11 @@ namespace RB
             ownerUnit = unit;
         }
 
+        public override SpriteAnimationSpec GetSpriteAnimationSpec()
+        {
+            return animationSpec;
+        }
+
         public override void OnFixedUpdate()
         {
             if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
@@ -22,11 +27,6 @@ namespace RB
 
                 ownerUnit.unitData.listNextStates.Add(new Runner_NormalRun(ownerUnit));
             }
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
     }
 }

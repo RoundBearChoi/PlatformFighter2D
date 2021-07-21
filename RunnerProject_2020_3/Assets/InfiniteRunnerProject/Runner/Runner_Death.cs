@@ -15,14 +15,14 @@ namespace RB
             _listStateComponents.Add(new SlowDownToZeroOnFlatGround(ownerUnit, 0.05f));
         }
 
-        public override void OnFixedUpdate()
-        {
-            FixedUpdateComponents();
-        }
-
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
         {
             return animationSpec;
+        }
+
+        public override void OnFixedUpdate()
+        {
+            FixedUpdateComponents();
         }
     }
 }

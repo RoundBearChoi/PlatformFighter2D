@@ -13,6 +13,11 @@ namespace RB
             ownerUnit = unit;
         }
 
+        public override SpriteAnimationSpec GetSpriteAnimationSpec()
+        {
+            return animationSpec;
+        }
+
         public override void OnEnter()
         {
 
@@ -29,11 +34,6 @@ namespace RB
             }
 
             FixedUpdateComponents();
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
     }
 }

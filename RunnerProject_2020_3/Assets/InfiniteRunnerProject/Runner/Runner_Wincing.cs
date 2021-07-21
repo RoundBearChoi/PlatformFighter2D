@@ -17,6 +17,11 @@ namespace RB
             _listStateComponents.Add(new SlowDownToZeroOnFlatGround(ownerUnit, 0.1f));
         }
 
+        public override SpriteAnimationSpec GetSpriteAnimationSpec()
+        {
+            return animationSpec;
+        }
+
         public override void OnFixedUpdate()
         {
             FixedUpdateComponents();
@@ -25,11 +30,6 @@ namespace RB
             {
                 ownerUnit.unitData.listNextStates.Add(new Runner_Idle(ownerUnit));
             }
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
     }
 }

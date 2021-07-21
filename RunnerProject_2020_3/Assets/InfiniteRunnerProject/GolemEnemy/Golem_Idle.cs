@@ -13,6 +13,11 @@ namespace RB
             ownerUnit = unit;
         }
 
+        public override SpriteAnimationSpec GetSpriteAnimationSpec()
+        {
+            return animationSpec;
+        }
+
         public override void OnFixedUpdate()
         {
             if (ownerUnit.unitData.collisionStays.IsOnFlatGround())
@@ -33,11 +38,6 @@ namespace RB
                     }
                 }
             }
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
     }
 }

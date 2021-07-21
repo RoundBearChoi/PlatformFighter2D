@@ -13,17 +13,17 @@ namespace RB
             ownerUnit = unit;
         }
 
+        public override SpriteAnimationSpec GetSpriteAnimationSpec()
+        {
+            return animationSpec;
+        }
+
         public override void OnFixedUpdate()
         {
             if (ownerUnit.unitData.spriteAnimations.currentAnimation.IsOnEnd())
             {
                 ownerUnit.destroy = true;
             }
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
     }
 }

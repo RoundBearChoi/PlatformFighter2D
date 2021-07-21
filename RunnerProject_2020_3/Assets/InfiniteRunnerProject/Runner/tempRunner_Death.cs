@@ -13,6 +13,12 @@ namespace RB
             Debugger.Log("runner is dead");
             ownerUnit = unit;
         }
+
+        public override SpriteAnimationSpec GetSpriteAnimationSpec()
+        {
+            return animationSpec;
+        }
+
         public override void OnEnter()
         {
             BaseMessage message = new UIMessage(MessageType.RUNNER_IS_DEAD);
@@ -29,11 +35,6 @@ namespace RB
             {
                 ownerUnit.unitData.rigidBody2D.Sleep();
             }
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
     }
 }
