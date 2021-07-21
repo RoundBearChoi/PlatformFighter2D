@@ -18,6 +18,14 @@ namespace RB
         public override void OnFixedUpdate()
         {
             FixedUpdateComponents();
+
+            //testing
+            Vector2[] edges = _unit.unitData.spriteAnimations.currentAnimation.GetSpriteWorldEdges(0);
+
+            foreach(Vector2 edge in edges)
+            {
+                Debug.DrawLine(Vector3.zero, edge, Color.blue, 0.1f);
+            }
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

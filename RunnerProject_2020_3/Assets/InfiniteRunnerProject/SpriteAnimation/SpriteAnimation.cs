@@ -191,5 +191,29 @@ namespace RB
         {
             return _listSprites[index];
         }
+
+        public Vector2 GetSpriteWorldSize(int spriteIndex)
+        {
+            Sprite sprite = GetSprite(spriteIndex);
+            float x = this.gameObject.transform.localScale.x;
+            float y = this.gameObject.transform.localScale.y;
+            Vector2 worldSize = new Vector2(sprite.bounds.size.x * x, sprite.bounds.size.y * y);
+
+            return worldSize;
+        }
+
+        public Vector2[] GetSpriteWorldEdges(int spriteIndex)
+        {
+            Vector2 worldSize = GetSpriteWorldSize(spriteIndex);
+
+            Vector2[] edges = new Vector2[4];
+
+            edges[0] = new Vector2(this.transform.position.x - (worldSize.x * 0.5f), this.transform.position.y + (worldSize.y * 0.5f));
+            edges[1] = new Vector2(this.transform.position.x - (worldSize.x * 0.5f), this.transform.position.y - (worldSize.y * 0.5f));
+            edges[2] = new Vector2(this.transform.position.x + (worldSize.x * 0.5f), this.transform.position.y - (worldSize.y * 0.5f));
+            edges[3] = new Vector2(this.transform.position.x + (worldSize.x * 0.5f), this.transform.position.y + (worldSize.y * 0.5f));
+
+            return edges;
+        }
     }
 }

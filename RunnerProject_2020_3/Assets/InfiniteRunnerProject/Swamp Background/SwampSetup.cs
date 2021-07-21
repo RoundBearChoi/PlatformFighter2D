@@ -18,16 +18,13 @@ namespace RB
             if (prevUnit != null)
             {
                 SpriteAnimation animation = prevUnit.unitData.spriteAnimations.GetLastSpriteAnimation();
-                Sprite sprite = animation.GetSprite(0);
-                float x = animation.gameObject.transform.localScale.x;
-                float y = animation.gameObject.transform.localScale.y;
-                Vector2 edge = new Vector2(sprite.bounds.size.x * x, sprite.bounds.size.y * y);
-                Debug.DrawLine(new Vector3(10f, 50f), edge, Color.red, 3f);
+                Vector2 worldSize = animation.GetSpriteWorldSize(0);
+                Debug.DrawLine(new Vector3(10f, 50f), worldSize, Color.red, 3f);
 
                 SpriteAnimationSpec spriteSpec = prevUnit.iStateController.GetCurrentState().GetSpriteAnimationSpec();
                 Stage.currentStage.InstantiateUnit_BySpriteAnimationSpec(spriteSpec);
                 Unit newGrass = Stage.currentStage.units.GetLatestUnitByState<T>();
-                newGrass.transform.position = new Vector3(prevUnit.transform.position.x + edge.x, prevUnit.transform.position.y, prevUnit.transform.position.z);
+                newGrass.transform.position = new Vector3(prevUnit.transform.position.x + worldSize.x, prevUnit.transform.position.y, prevUnit.transform.position.z);
 
                 Stage.currentStage.units.AddUnit(newGrass);
 
