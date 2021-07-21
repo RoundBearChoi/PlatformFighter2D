@@ -6,13 +6,11 @@ namespace RB
 {
     public class RunnerStage : Stage
     {
-        private SwampSetup _swampSetup = null;
-
         public override void Init()
         {
             _userInput = new UserInput();
-            _swampSetup = new SwampSetup();
-            _swampSetup.InstantiateBaseLayer();
+            _backgroundSetup = new SwampSetup();
+            _backgroundSetup.InstantiateBaseLayer();
 
             InstantiateUnit_ByUnitType(UnitType.RUNNER);
             InstantiateUnits_ByUnitType(UnitType.GOLEM);
@@ -32,14 +30,14 @@ namespace RB
             Unit runner = units.GetUnit<Runner>();
             cameraScript.SetTarget(runner.gameObject);
 
-            _swampSetup.AddAdditionalSwamp_Grass();
-            _swampSetup.AddAdditionalSwamp_Grass();
-            _swampSetup.AddAdditionalSwamp_River();
-            _swampSetup.AddAdditionalSwamp_River();
-            _swampSetup.AddAdditionalSwamp_FrontTrees();
-            _swampSetup.AddAdditionalSwamp_FrontTrees();
-            _swampSetup.AddAdditionalSwamp_BackTrees();
-            _swampSetup.AddAdditionalSwamp_BackTrees();
+            _backgroundSetup.AddAdditionalBackground<Swamp_Grass_DefaultState>();
+            _backgroundSetup.AddAdditionalBackground<Swamp_Grass_DefaultState>();
+            _backgroundSetup.AddAdditionalBackground<Swamp_River_DefaultState>();
+            _backgroundSetup.AddAdditionalBackground<Swamp_River_DefaultState>();
+            _backgroundSetup.AddAdditionalBackground<Swamp_FrontTrees_DefaultState>();
+            _backgroundSetup.AddAdditionalBackground<Swamp_FrontTrees_DefaultState>();
+            _backgroundSetup.AddAdditionalBackground<Swamp_BackTrees_DefaultState>();
+            _backgroundSetup.AddAdditionalBackground<Swamp_BackTrees_DefaultState>();
         }
 
         public override void OnUpdate()

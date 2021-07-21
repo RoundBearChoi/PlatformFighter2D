@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class SwampSetup
+    public class SwampSetup : IBackgroundSetup
     {
         public void InstantiateBaseLayer()
         {
@@ -36,28 +36,26 @@ namespace RB
             }
         }
 
-        public void AddAdditionalSwamp_Grass()
+        public void AddAdditionalBackground<T>() where T: UnitState
         {
-            Unit newGrass = InstantiateAdditionalBackgroundUnit<Swamp_Grass_DefaultState>();
-            newGrass.iStateController.SetNewState(new Swamp_Grass_DefaultState(newGrass));
-        }
-
-        public void AddAdditionalSwamp_River()
-        {
-            Unit newRiver = InstantiateAdditionalBackgroundUnit<Swamp_River_DefaultState>();
-            newRiver.iStateController.SetNewState(new Swamp_River_DefaultState(newRiver));
-        }
-
-        public void AddAdditionalSwamp_FrontTrees()
-        {
-            Unit newRiver = InstantiateAdditionalBackgroundUnit<Swamp_FrontTrees_DefaultState>();
-            newRiver.iStateController.SetNewState(new Swamp_FrontTrees_DefaultState(newRiver));
-        }
-
-        public void AddAdditionalSwamp_BackTrees()
-        {
-            Unit newRiver = InstantiateAdditionalBackgroundUnit<Swamp_BackTrees_DefaultState>();
-            newRiver.iStateController.SetNewState(new Swamp_BackTrees_DefaultState(newRiver));
+            Unit additionalBackground = InstantiateAdditionalBackgroundUnit<T>();
+            
+            if (typeof(T) == typeof(Swamp_Grass_DefaultState))
+            {
+                additionalBackground.iStateController.SetNewState(new Swamp_Grass_DefaultState(additionalBackground));
+            }
+            else if (typeof(T) == typeof(Swamp_River_DefaultState))
+            {
+                additionalBackground.iStateController.SetNewState(new Swamp_River_DefaultState(additionalBackground));
+            }
+            else if (typeof(T) == typeof(Swamp_FrontTrees_DefaultState))
+            {
+                additionalBackground.iStateController.SetNewState(new Swamp_FrontTrees_DefaultState(additionalBackground));
+            }
+            else if (typeof(T) == typeof(Swamp_BackTrees_DefaultState))
+            {
+                additionalBackground.iStateController.SetNewState(new Swamp_BackTrees_DefaultState(additionalBackground));
+            }
         }
     }
 }

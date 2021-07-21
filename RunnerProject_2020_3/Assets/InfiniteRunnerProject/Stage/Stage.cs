@@ -18,6 +18,8 @@ namespace RB
         [SerializeField]
         protected BaseUI _baseUI = null;
 
+        protected IBackgroundSetup _backgroundSetup = null;
+
         public UserInput USER_INPUT
         {
             get
