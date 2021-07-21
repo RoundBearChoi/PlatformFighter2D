@@ -10,19 +10,19 @@ namespace RB
 
         public Golem_Death(Unit unit)
         {
-            _unit = unit;
-            _unit.gameObject.layer = (int)LayerType.DEAD_UNIT;
+            ownerUnit = unit;
+            ownerUnit.gameObject.layer = (int)LayerType.DEAD_UNIT;
 
-            _listStateComponents.Add(new InitialTextGUIMaterial(_unit, 8));
+            _listStateComponents.Add(new InitialTextGUIMaterial(ownerUnit, 8));
         }
 
         public override void OnFixedUpdate()
         {
             FixedUpdateComponents();
 
-            if (_unit.unitData.collisionStays.IsOnFlatGround())
+            if (ownerUnit.unitData.collisionStays.IsOnFlatGround())
             {
-                _unit.unitData.rigidBody2D.velocity = Vector2.Lerp(_unit.unitData.rigidBody2D.velocity, Vector2.zero, 0.05f);
+                ownerUnit.unitData.rigidBody2D.velocity = Vector2.Lerp(ownerUnit.unitData.rigidBody2D.velocity, Vector2.zero, 0.05f);
             }
         }
 

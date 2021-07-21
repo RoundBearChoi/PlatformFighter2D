@@ -11,10 +11,10 @@ namespace RB
 
         public Runner_AttackA(Unit unit)
         {
-            _unit = unit;
+            ownerUnit = unit;
 
-            _listStateComponents.Add(new LerpRunSpeedOnFlatGround(_unit, 2f, 0.05f));
-            _listStateComponents.Add(new OverlapBoxCollision(_unit, GameInitializer.current.runner_AttackA_OverlapBoxSO.listSpecs));
+            _listStateComponents.Add(new LerpRunSpeedOnFlatGround(ownerUnit, 2f, 0.05f));
+            _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, GameInitializer.current.runner_AttackA_OverlapBoxSO.listSpecs));
         }
 
         public override void OnFixedUpdate()
@@ -24,16 +24,16 @@ namespace RB
                 _dustCreated = true;
 
                 Stage.currentStage.InstantiateUnit_ByUnitType(UnitType.STEP_DUST);
-                Units.instance.GetUnit<StepDust>().transform.position = _unit.transform.position + new Vector3(_unit.transform.right.x * 0.8f, 0f, 0f);
+                Units.instance.GetUnit<StepDust>().transform.position = ownerUnit.transform.position + new Vector3(ownerUnit.transform.right.x * 0.8f, 0f, 0f);
             }
 
             FixedUpdateComponents();
 
-            if (_unit.unitData.spriteAnimations.currentAnimation.IsOnEnd())
+            if (ownerUnit.unitData.spriteAnimations.currentAnimation.IsOnEnd())
             {
-                if (_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
+                if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
                 {
-                    _unit.unitData.listNextStates.Add(new Runner_NormalRun(_unit));
+                    ownerUnit.unitData.listNextStates.Add(new Runner_NormalRun(ownerUnit));
                 }
             }
         }

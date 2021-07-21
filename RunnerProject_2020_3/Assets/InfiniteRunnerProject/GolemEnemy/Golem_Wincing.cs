@@ -10,11 +10,11 @@ namespace RB
 
         public Golem_Wincing(Unit unit)
         {
-            _unit = unit;
+            ownerUnit = unit;
 
-            _listStateComponents.Add(new InitialPushBack(_unit, new Vector2(3.5f, 2.75f)));
-            _listStateComponents.Add(new InitialTextGUIMaterial(_unit, 8));
-            _listStateComponents.Add(new SlowDownToZeroOnFlatGround(_unit, 0.1f));
+            _listStateComponents.Add(new InitialPushBack(ownerUnit, new Vector2(3.5f, 2.75f)));
+            _listStateComponents.Add(new InitialTextGUIMaterial(ownerUnit, 8));
+            _listStateComponents.Add(new SlowDownToZeroOnFlatGround(ownerUnit, 0.1f));
         }
 
         public override void OnFixedUpdate()
@@ -23,7 +23,7 @@ namespace RB
 
             if (fixedUpdateCount >= 20)
             {
-                _unit.unitData.listNextStates.Add(new Golem_Idle(_unit));
+                ownerUnit.unitData.listNextStates.Add(new Golem_Idle(ownerUnit));
             }
         }
 

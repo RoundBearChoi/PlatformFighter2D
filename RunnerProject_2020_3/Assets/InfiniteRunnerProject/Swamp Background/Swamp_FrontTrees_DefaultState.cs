@@ -10,7 +10,7 @@ namespace RB
 
         public Swamp_FrontTrees_DefaultState(Unit unit)
         {
-            _unit = unit;
+            ownerUnit = unit;
 
             _listStateComponents.Add(new HorizontalParallax(unit, unit.transform.position, GameInitializer.current.swampParallaxSO.Swamp_FrontTrees_ParallaxPercentage));
         }

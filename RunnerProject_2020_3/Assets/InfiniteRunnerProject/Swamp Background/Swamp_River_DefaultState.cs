@@ -10,7 +10,7 @@ namespace RB
 
         public Swamp_River_DefaultState(Unit unit)
         {
-            _unit = unit;
+            ownerUnit = unit;
 
             _listStateComponents.Add(new HorizontalParallax(unit, unit.transform.position, GameInitializer.current.swampParallaxSO.Swamp_River_ParallaxPercentage));
         }

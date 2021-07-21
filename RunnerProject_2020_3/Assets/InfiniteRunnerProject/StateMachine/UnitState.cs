@@ -8,7 +8,7 @@ namespace RB
     {
         public uint fixedUpdateCount = 0;
         
-        protected Unit _unit = null;
+        public Unit ownerUnit = null;
         protected List<StateComponent> _listStateComponents = new List<StateComponent>();
         
         public virtual void OnEnter()
@@ -34,6 +34,14 @@ namespace RB
         public virtual void OnExit()
         {
 
+        }
+
+        public virtual void UpdateComponents()
+        {
+            foreach (StateComponent component in _listStateComponents)
+            {
+                component.OnUpdate();
+            }
         }
 
         public virtual void FixedUpdateComponents()

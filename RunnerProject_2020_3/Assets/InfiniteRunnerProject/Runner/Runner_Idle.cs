@@ -10,17 +10,17 @@ namespace RB
 
         public Runner_Idle(Unit unit)
         {
-            _unit = unit;
+            ownerUnit = unit;
         }
 
         public override void OnFixedUpdate()
         {
-            if (_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
+            if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
             {
-                BaseMessage showLandingDust = new ShowLandingDustMessage(true, _unit.transform.position);
+                BaseMessage showLandingDust = new ShowLandingDustMessage(true, ownerUnit.transform.position);
                 showLandingDust.Register();
 
-                _unit.unitData.listNextStates.Add(new Runner_NormalRun(_unit));
+                ownerUnit.unitData.listNextStates.Add(new Runner_NormalRun(ownerUnit));
             }
         }
 

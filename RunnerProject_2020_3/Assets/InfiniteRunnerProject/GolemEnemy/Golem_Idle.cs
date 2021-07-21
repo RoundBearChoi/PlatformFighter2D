@@ -10,17 +10,17 @@ namespace RB
 
         public Golem_Idle(Unit unit)
         {
-            _unit = unit;
+            ownerUnit = unit;
         }
 
         public override void OnFixedUpdate()
         {
-            if (_unit.unitData.collisionStays.IsOnFlatGround())
+            if (ownerUnit.unitData.collisionStays.IsOnFlatGround())
             {
-                _unit.unitData.rigidBody2D.velocity = Vector2.Lerp(_unit.unitData.rigidBody2D.velocity, Vector2.zero, 0.03f);
+                ownerUnit.unitData.rigidBody2D.velocity = Vector2.Lerp(ownerUnit.unitData.rigidBody2D.velocity, Vector2.zero, 0.03f);
             }
 
-            List<Unit> listUnits = _unit.unitData.collisionStays.GetTouchingUnits();
+            List<Unit> listUnits = ownerUnit.unitData.collisionStays.GetTouchingUnits();
 
             foreach(Unit unit in listUnits)
             {
@@ -28,7 +28,7 @@ namespace RB
                 {
                     if (unit.unitData.hp > 0)
                     {
-                        _unit.unitData.listNextStates.Add(new Golem_Attack(_unit));
+                        ownerUnit.unitData.listNextStates.Add(new Golem_Attack(ownerUnit));
                         break;
                     }
                 }

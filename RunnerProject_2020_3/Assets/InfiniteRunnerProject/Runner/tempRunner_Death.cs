@@ -11,23 +11,23 @@ namespace RB
         public tempRunner_Death(Unit unit)
         {
             Debugger.Log("runner is dead");
-            _unit = unit;
+            ownerUnit = unit;
         }
         public override void OnEnter()
         {
             BaseMessage message = new UIMessage(MessageType.RUNNER_IS_DEAD);
             message.Register();
 
-            _unit.unitData.unitTransform.position = _unit.unitData.unitTransform.position + (Vector3.back * 1f);
-            _unit.unitData.rigidBody2D.velocity = new Vector3(0f, 6f, 0f);
-            _unit.unitData.boxCollider2D.enabled = false;
+            ownerUnit.unitData.unitTransform.position = ownerUnit.unitData.unitTransform.position + (Vector3.back * 1f);
+            ownerUnit.unitData.rigidBody2D.velocity = new Vector3(0f, 6f, 0f);
+            ownerUnit.unitData.boxCollider2D.enabled = false;
         }
 
         public override void OnFixedUpdate()
         {
-            if (_unit.unitData.unitTransform.position.y <= -20f)
+            if (ownerUnit.unitData.unitTransform.position.y <= -20f)
             {
-                _unit.unitData.rigidBody2D.Sleep();
+                ownerUnit.unitData.rigidBody2D.Sleep();
             }
         }
 

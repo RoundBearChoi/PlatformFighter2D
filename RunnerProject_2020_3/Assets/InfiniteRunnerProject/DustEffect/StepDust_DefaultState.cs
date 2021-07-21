@@ -10,14 +10,14 @@ namespace RB
 
         public StepDust_DefaultState(Unit unit)
         {
-            _unit = unit;
+            ownerUnit = unit;
         }
 
         public override void OnFixedUpdate()
         {
-            if (_unit.unitData.spriteAnimations.currentAnimation.IsOnEnd())
+            if (ownerUnit.unitData.spriteAnimations.currentAnimation.IsOnEnd())
             {
-                _unit.destroy = true;
+                ownerUnit.destroy = true;
             }
         }
 

@@ -10,7 +10,7 @@ namespace RB
 
         public Runner_AttackA_Dash(Unit unit)
         {
-            _unit = unit;
+            ownerUnit = unit;
             _listStateComponents.Add(new CreateRenderTrail(unit, 1));
         }
 
@@ -18,24 +18,24 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            _unit.unitData.rigidBody2D.mass = 0.001f;
+            ownerUnit.unitData.rigidBody2D.mass = 0.001f;
 
             float force = 100f;
 
-            if (!_unit.unitData.facingRight)
+            if (!ownerUnit.unitData.facingRight)
             {
                 force *= -1f;
             }
 
             if (fixedUpdateCount <= 2)
             {
-                _unit.unitData.rigidBody2D.velocity = new Vector2(100f, 0f);
+                ownerUnit.unitData.rigidBody2D.velocity = new Vector2(100f, 0f);
             }
             else
             {
-                _unit.unitData.rigidBody2D.velocity = Vector2.zero;
-                _unit.unitData.rigidBody2D.mass = 1f;
-                _unit.unitData.listNextStates.Add(new Runner_AttackA(_unit));
+                ownerUnit.unitData.rigidBody2D.velocity = Vector2.zero;
+                ownerUnit.unitData.rigidBody2D.mass = 1f;
+                ownerUnit.unitData.listNextStates.Add(new Runner_AttackA(ownerUnit));
             }
         }
 

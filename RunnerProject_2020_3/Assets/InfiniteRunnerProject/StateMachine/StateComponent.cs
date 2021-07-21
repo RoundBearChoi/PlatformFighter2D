@@ -8,6 +8,13 @@ namespace RB
     {
         protected Unit _unit = null;
 
-        public abstract void OnFixedUpdate();
+        public virtual void OnUpdate()
+        {
+
+        }
+        public virtual void OnFixedUpdate()
+        {
+
+        }
     }
 }

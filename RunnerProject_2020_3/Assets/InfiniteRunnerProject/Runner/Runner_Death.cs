@@ -10,9 +10,9 @@ namespace RB
 
         public Runner_Death(Unit unit)
         {
-            _unit = unit;
+            ownerUnit = unit;
 
-            _listStateComponents.Add(new SlowDownToZeroOnFlatGround(_unit, 0.05f));
+            _listStateComponents.Add(new SlowDownToZeroOnFlatGround(ownerUnit, 0.05f));
         }
 
         public override void OnFixedUpdate()
