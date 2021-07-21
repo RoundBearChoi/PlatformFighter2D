@@ -17,21 +17,19 @@ namespace RB
             _listStateComponents.Add(new HorizontalParallax(unit, unit.transform.position, GameInitializer.current.swampParallaxSO.Swamp_Grass_ParallaxPercentage));
         }
 
-        public override void OnFixedUpdate()
+        public override void OnUpdate()
         {
-            FixedUpdateComponents();
-
             //testing latest sprite edges
             if (latest._unit.unitData.spriteAnimations.currentAnimation != null)
             {
                 Vector2[] latest_edges = latest._unit.unitData.spriteAnimations.currentAnimation.GetSpriteWorldEdges(0);
 
-                foreach(Vector2 edge in latest_edges)
+                foreach (Vector2 edge in latest_edges)
                 {
                     Debug.DrawLine(Vector3.zero, edge, Color.blue, 0.1f);
                 }
 
-                if (latest_edges[3].x < CameraScript.current.cameraEdges.GetEdges()[3].x)
+                if (latest_edges[3].x < CameraScript.current.cameraEdges.GetEdges()[3].x + 10f)
                 {
                     Debugger.Log("latest grass edge inside frustum");
                     Stage.currentStage.backgroundSetup.AddAdditionalBackground<Swamp_Grass_DefaultState>();
@@ -49,6 +47,12 @@ namespace RB
                     _unit.destroy = true;
                 }
             }
+        }
+
+        public override void OnFixedUpdate()
+        {
+            FixedUpdateComponents();
+
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

@@ -72,13 +72,13 @@ namespace RB
 
         public void OnUpdate()
         {
-            foreach(Unit unit in _listUnits)
+            for (int i = 0; i < _listUnits.Count; i++)
             {
-                unit.OnUpdate();
+                _listUnits[i].OnUpdate();
 
-                if (unit.hpBar != null)
+                if (_listUnits[i].hpBar != null)
                 {
-                    unit.hpBar.Update();
+                    _listUnits[i].hpBar.Update();
                 }
             }
         }
@@ -135,11 +135,10 @@ namespace RB
 
             for (int i = _listUnits.Count - 1; i >= 0; i--)
             {
-                if (_listUnits[i].destroy)
+                if (_listUnits[i].destroy == true)
                 {
                     GameObject.Destroy(_listUnits[i].gameObject);
                     _listUnits.RemoveAt(i);
-                    continue;
                 }
             }
         }

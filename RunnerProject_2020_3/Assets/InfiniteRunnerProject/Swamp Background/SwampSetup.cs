@@ -17,15 +17,16 @@ namespace RB
 
             if (prevUnit != null)
             {
-                SpriteAnimation animation = prevUnit.unitData.spriteAnimations.GetLastSpriteAnimation();
-                Vector2 worldSize = animation.GetSpriteWorldSize(0);
-                Debug.DrawLine(new Vector3(10f, 50f), worldSize, Color.red, 3f);
-
+                //use existing background (same type)
                 SpriteAnimationSpec spriteSpec = prevUnit.iStateController.GetCurrentState().GetSpriteAnimationSpec();
+                SpriteAnimation animation = prevUnit.unitData.spriteAnimations.GetLastSpriteAnimation();
+
+                //existing specs
+                Vector2 worldSize = animation.GetSpriteWorldSize(0);
+
                 Stage.currentStage.InstantiateUnit_BySpriteAnimationSpec(spriteSpec);
                 Unit newGrass = Stage.currentStage.units.GetLatestUnitByState<T>();
                 newGrass.transform.position = new Vector3(prevUnit.transform.position.x + worldSize.x, prevUnit.transform.position.y, prevUnit.transform.position.z);
-
                 Stage.currentStage.units.AddUnit(newGrass);
 
                 return newGrass;

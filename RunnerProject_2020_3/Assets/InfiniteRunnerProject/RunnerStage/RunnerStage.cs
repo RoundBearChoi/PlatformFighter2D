@@ -26,14 +26,14 @@ namespace RB
 
             backgroundSetup = new SwampSetup();
             backgroundSetup.InstantiateBaseLayer();
-            backgroundSetup.AddAdditionalBackground<Swamp_Grass_DefaultState>();
-            backgroundSetup.AddAdditionalBackground<Swamp_Grass_DefaultState>();
-            backgroundSetup.AddAdditionalBackground<Swamp_River_DefaultState>();
-            backgroundSetup.AddAdditionalBackground<Swamp_River_DefaultState>();
-            backgroundSetup.AddAdditionalBackground<Swamp_FrontTrees_DefaultState>();
-            backgroundSetup.AddAdditionalBackground<Swamp_FrontTrees_DefaultState>();
-            backgroundSetup.AddAdditionalBackground<Swamp_BackTrees_DefaultState>();
-            backgroundSetup.AddAdditionalBackground<Swamp_BackTrees_DefaultState>();
+            //backgroundSetup.AddAdditionalBackground<Swamp_Grass_DefaultState>();
+            //backgroundSetup.AddAdditionalBackground<Swamp_Grass_DefaultState>();
+            //backgroundSetup.AddAdditionalBackground<Swamp_River_DefaultState>();
+            //backgroundSetup.AddAdditionalBackground<Swamp_River_DefaultState>();
+            //backgroundSetup.AddAdditionalBackground<Swamp_FrontTrees_DefaultState>();
+            //backgroundSetup.AddAdditionalBackground<Swamp_FrontTrees_DefaultState>();
+            //backgroundSetup.AddAdditionalBackground<Swamp_BackTrees_DefaultState>();
+            //backgroundSetup.AddAdditionalBackground<Swamp_BackTrees_DefaultState>();
         }
 
         public override void OnUpdate()
