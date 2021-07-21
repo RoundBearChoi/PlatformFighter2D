@@ -13,5 +13,10 @@ namespace RB
         public AnimationCurve JumpFall;
 
         public PhysicsMaterial2D physicsMaterial_NoFrictionNoBounce = null;
+
+        [Space(15)]
+
+        public float RunnerCamFollowLimitY = 0f;
+        public int InitialFlatGroundCount = 0;
     }
 }

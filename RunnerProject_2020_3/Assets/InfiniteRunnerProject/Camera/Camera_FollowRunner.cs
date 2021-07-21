@@ -26,6 +26,11 @@ namespace RB
             }
 
             CameraScript.current.UpdateCameraPositionOnTarget(_targetPosition);
+
+            if (target.transform.position.y < GameInitializer.current.gameDataSO.RunnerCamFollowLimitY)
+            {
+                CameraScript.current.SetCameraState(new Camera_EmptyState());
+            }
         }
     }
 }

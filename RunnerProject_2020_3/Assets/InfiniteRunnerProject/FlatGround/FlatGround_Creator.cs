@@ -64,7 +64,7 @@ namespace RB
 
             objComposite.AddComponent<Ground>();
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < GameInitializer.current.gameDataSO.InitialFlatGroundCount; i++)
             {
                 GameObject obj = GetGroundUnit();
                 obj.transform.parent = objComposite.transform;
