@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class AddBackground : StateComponent
+    public class AddBackground<T> : StateComponent where T : UnitState
     {
         UnitState _state = null;
 
@@ -31,7 +31,7 @@ namespace RB
                     if (latest_edges[3].x < CameraScript.current.cameraEdges.GetEdges()[3].x + 5f)
                     {
                         Debugger.Log("latest grass edge inside frustum");
-                        Stage.currentStage.backgroundSetup.AddAdditionalBackground<Swamp_Grass_DefaultState>();
+                        Stage.currentStage.backgroundSetup.AddAdditionalBackground<T>();
                     }
                 }
             }

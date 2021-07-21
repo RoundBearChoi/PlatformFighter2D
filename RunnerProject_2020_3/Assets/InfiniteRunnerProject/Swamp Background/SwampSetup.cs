@@ -25,11 +25,11 @@ namespace RB
                 Vector2 worldSize = animation.GetSpriteWorldSize(0);
 
                 Stage.currentStage.InstantiateUnit_BySpriteAnimationSpec(spriteSpec);
-                Unit newGrass = Stage.currentStage.units.GetLatestUnitByState<T>();
-                newGrass.transform.position = new Vector3(prevUnit.transform.position.x + worldSize.x, prevUnit.transform.position.y, prevUnit.transform.position.z);
-                Stage.currentStage.units.AddUnit(newGrass);
+                Unit newBackground = Stage.currentStage.units.GetLatestUnitByState<T>();
+                newBackground.transform.position = new Vector3(prevUnit.transform.position.x + worldSize.x, prevUnit.transform.position.y, prevUnit.transform.position.z);
+                Stage.currentStage.units.AddUnit(newBackground);
 
-                return newGrass;
+                return newBackground;
             }
             else
             {
@@ -40,31 +40,27 @@ namespace RB
         public void AddAdditionalBackground<T>() where T: UnitState
         {
             Unit additionalBackground = InstantiateAdditionalBackgroundUnit<T>();
-            Camera cam = CameraScript.current.GetCamera();
+            GameObject camObj = CameraScript.current.GetCamera().gameObject;
 
             if (typeof(T) == typeof(Swamp_Grass_DefaultState))
             {
                 //negate existing camera offset
-                float offsetX = cam.transform.position.x * GameInitializer.current.swampParallaxSO.Swamp_Grass_ParallaxPercentage;
-                additionalBackground.transform.position -= new Vector3(offsetX, 0f, 0f);
+                //float offsetX = camObj.transform.position.x * GameInitializer.current.swampParallaxSO.Swamp_Grass_ParallaxPercentage;
+                //additionalBackground.transform.position -= new Vector3(offsetX, 0f, 0f);
                 additionalBackground.iStateController.SetNewState(new Swamp_Grass_DefaultState(additionalBackground));
             }
             else if (typeof(T) == typeof(Swamp_River_DefaultState))
             {
-                float offsetX = cam.transform.position.x * GameInitializer.current.swampParallaxSO.Swamp_River_ParallaxPercentage;
-                additionalBackground.transform.position -= new Vector3(offsetX, 0f, 0f);
+                //float offsetX = camObj.transform.position.x * GameInitializer.current.swampParallaxSO.Swamp_River_ParallaxPercentage;
+                //additionalBackground.transform.position -= new Vector3(offsetX, 0f, 0f);
                 additionalBackground.iStateController.SetNewState(new Swamp_River_DefaultState(additionalBackground));
             }
             else if (typeof(T) == typeof(Swamp_FrontTrees_DefaultState))
             {
-                float offsetX = cam.transform.position.x * GameInitializer.current.swampParallaxSO.Swamp_FrontTrees_ParallaxPercentage;
-                additionalBackground.transform.position -= new Vector3(offsetX, 0f, 0f);
                 additionalBackground.iStateController.SetNewState(new Swamp_FrontTrees_DefaultState(additionalBackground));
             }
             else if (typeof(T) == typeof(Swamp_BackTrees_DefaultState))
             {
-                float offsetX = cam.transform.position.x * GameInitializer.current.swampParallaxSO.Swamp_BackTrees_ParallaxPercentage;
-                additionalBackground.transform.position -= new Vector3(offsetX, 0f, 0f);
                 additionalBackground.iStateController.SetNewState(new Swamp_BackTrees_DefaultState(additionalBackground));
             }
         }

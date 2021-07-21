@@ -16,12 +16,17 @@ namespace RB
 
             _listStateComponents.Add(new HorizontalParallax(unit, unit.transform.position, GameInitializer.current.swampParallaxSO.Swamp_Grass_ParallaxPercentage));
             _listStateComponents.Add(new DeletePassedBackground(unit));
-            _listStateComponents.Add(new AddBackground(this));
+            _listStateComponents.Add(new AddBackground<Swamp_Grass_DefaultState>(this));
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
         {
             return animationSpec;
+        }
+
+        public override UnitState GetLastestInstantiatedState()
+        {
+            return latest;
         }
 
         public override void OnUpdate()
@@ -32,11 +37,6 @@ namespace RB
         public override void OnFixedUpdate()
         {
             FixedUpdateComponents();
-        }
-
-        public override UnitState GetLastestInstantiatedState()
-        {
-            return latest;
         }
     }
 }
