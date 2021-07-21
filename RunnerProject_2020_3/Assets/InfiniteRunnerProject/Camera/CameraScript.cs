@@ -29,6 +29,16 @@ namespace RB
         {
             _cameraStateController.OnFixedUpdate();
             _cameraStateController.GetCurrentState().cameraUpdateCount++;
+
+            //temp getting camera edges
+            Vector3 topRight = _camera.ScreenToWorldPoint(new Vector3(_camera.pixelWidth, _camera.pixelHeight, _camera.nearClipPlane));
+            Vector3 topLeft = _camera.ScreenToWorldPoint(new Vector3(0f, _camera.pixelHeight, _camera.nearClipPlane));
+            Vector3 bottomRight = _camera.ScreenToWorldPoint(new Vector3(_camera.pixelWidth, 0f, _camera.nearClipPlane));
+            Vector3 bottomLeft = _camera.ScreenToWorldPoint(new Vector3(0f, 0f, _camera.nearClipPlane));
+            Debug.DrawLine(Vector3.zero, topRight, Color.yellow, 0.025f);
+            Debug.DrawLine(Vector3.zero, topLeft, Color.yellow, 0.025f);
+            Debug.DrawLine(Vector3.zero, bottomRight, Color.yellow, 0.025f);
+            Debug.DrawLine(Vector3.zero, bottomLeft, Color.yellow, 0.025f);
         }
 
         public void OnLateUpdate()
