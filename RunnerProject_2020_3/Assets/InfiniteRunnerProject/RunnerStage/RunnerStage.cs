@@ -35,6 +35,11 @@ namespace RB
             _swampSetup.AddAdditionalSwamp_Grass();
             _swampSetup.AddAdditionalSwamp_Grass();
             _swampSetup.AddAdditionalSwamp_River();
+            _swampSetup.AddAdditionalSwamp_River();
+            _swampSetup.AddAdditionalSwamp_FrontTrees();
+            _swampSetup.AddAdditionalSwamp_FrontTrees();
+            _swampSetup.AddAdditionalSwamp_BackTrees();
+            _swampSetup.AddAdditionalSwamp_BackTrees();
         }
 
         public override void OnUpdate()

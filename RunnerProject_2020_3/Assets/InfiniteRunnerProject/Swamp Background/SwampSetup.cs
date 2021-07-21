@@ -50,5 +50,17 @@ namespace RB
             Unit newRiver = InstantiateAdditionalBackgroundUnit<Swamp_River_DefaultState>();
             newRiver.iStateController.SetNewState(new Swamp_River_DefaultState(newRiver));
         }
+
+        public void AddAdditionalSwamp_FrontTrees()
+        {
+            Unit newRiver = InstantiateAdditionalBackgroundUnit<Swamp_FrontTrees_DefaultState>();
+            newRiver.iStateController.SetNewState(new Swamp_FrontTrees_DefaultState(newRiver));
+        }
+
+        public void AddAdditionalSwamp_BackTrees()
+        {
+            Unit newRiver = InstantiateAdditionalBackgroundUnit<Swamp_BackTrees_DefaultState>();
+            newRiver.iStateController.SetNewState(new Swamp_BackTrees_DefaultState(newRiver));
+        }
     }
 }
