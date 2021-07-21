@@ -29,7 +29,7 @@ namespace RB
                     Debug.DrawLine(Vector3.zero, edge, Color.blue, 0.1f);
                 }
 
-                if (latest_edges[3].x < CameraScript.current.cameraEdges.GetEdges()[3].x + 10f)
+                if (latest_edges[3].x < CameraScript.current.cameraEdges.GetEdges()[3].x + 5f)
                 {
                     Debugger.Log("latest grass edge inside frustum");
                     Stage.currentStage.backgroundSetup.AddAdditionalBackground<Swamp_Grass_DefaultState>();
@@ -41,7 +41,7 @@ namespace RB
             {
                 Vector2[] edges = _unit.unitData.spriteAnimations.currentAnimation.GetSpriteWorldEdges(0);
 
-                if (edges[3].x < CameraScript.current.cameraEdges.GetEdges()[0].x)
+                if (edges[3].x < CameraScript.current.cameraEdges.GetEdges()[0].x - 5f)
                 {
                     Debugger.Log("outside frustum: " + _unit.gameObject.name);
                     _unit.destroy = true;
