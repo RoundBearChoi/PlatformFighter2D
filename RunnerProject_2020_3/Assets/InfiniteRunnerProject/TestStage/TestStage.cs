@@ -44,6 +44,7 @@ namespace RB
             updateCounter.OnUpdate();
             _userInput.OnUpdate();
             units.OnUpdate();
+            trailEffects.OnUpdate();
             ui.OnUpdate();
             cameraScript.OnUpdate();
         }
