@@ -26,7 +26,7 @@ namespace RB
 
                 Stage.currentStage.InstantiateUnit_BySpriteAnimationSpec(spriteSpec);
                 Unit newBackground = Stage.currentStage.units.GetLatestUnitByState<T>();
-                newBackground.transform.position = new Vector3(prevUnit.transform.position.x + worldSize.x, prevUnit.transform.position.y, prevUnit.transform.position.z);
+                newBackground.transform.localPosition = new Vector3(prevUnit.transform.position.x + worldSize.x, prevUnit.transform.position.y, prevUnit.transform.position.z);
                 Stage.currentStage.units.AddUnit(newBackground);
 
                 return newBackground;
@@ -45,14 +45,14 @@ namespace RB
             if (typeof(T) == typeof(Swamp_Grass_DefaultState))
             {
                 //negate existing camera offset
-                //float offsetX = camObj.transform.position.x * GameInitializer.current.swampParallaxSO.Swamp_Grass_ParallaxPercentage;
-                //additionalBackground.transform.position -= new Vector3(offsetX, 0f, 0f);
+                float offsetX = camObj.transform.position.x * GameInitializer.current.swampParallaxSO.Swamp_Grass_ParallaxPercentage;
+                additionalBackground.gameObject.transform.localPosition -= new Vector3(offsetX, 0f, 0f);
                 additionalBackground.iStateController.SetNewState(new Swamp_Grass_DefaultState(additionalBackground));
             }
             else if (typeof(T) == typeof(Swamp_River_DefaultState))
             {
-                //float offsetX = camObj.transform.position.x * GameInitializer.current.swampParallaxSO.Swamp_River_ParallaxPercentage;
-                //additionalBackground.transform.position -= new Vector3(offsetX, 0f, 0f);
+                float offsetX = camObj.transform.position.x * GameInitializer.current.swampParallaxSO.Swamp_River_ParallaxPercentage;
+                additionalBackground.gameObject.transform.localPosition -= new Vector3(offsetX, 0f, 0f);
                 additionalBackground.iStateController.SetNewState(new Swamp_River_DefaultState(additionalBackground));
             }
             else if (typeof(T) == typeof(Swamp_FrontTrees_DefaultState))

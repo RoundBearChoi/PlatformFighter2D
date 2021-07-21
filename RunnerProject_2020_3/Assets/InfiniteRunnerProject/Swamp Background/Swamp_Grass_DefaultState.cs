@@ -29,11 +29,6 @@ namespace RB
             return latest;
         }
 
-        public override void OnUpdate()
-        {
-            UpdateComponents();
-        }
-
         public override void OnFixedUpdate()
         {
             FixedUpdateComponents();
