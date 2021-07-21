@@ -7,7 +7,6 @@ namespace RB
 {
     public class Runner_NormalRun : UnitState
     {
-        public static bool initialPush = false;
         public static SpriteAnimationSpec animationSpec = null;
 
         public Runner_NormalRun(Unit unit)
@@ -17,14 +16,6 @@ namespace RB
             _listStateComponents.Add(new NormalRunToFall(_unit));
             _listStateComponents.Add(new LerpRunSpeedOnFlatGround(_unit, 3.5f, 0.1f));
             _listStateComponents.Add(new NormalRun_OnUserInput(_unit));
-        }
-
-        public override void OnEnter()
-        {
-            if (!initialPush)
-            {
-                initialPush = true;
-            }
         }
 
         public override void OnFixedUpdate()

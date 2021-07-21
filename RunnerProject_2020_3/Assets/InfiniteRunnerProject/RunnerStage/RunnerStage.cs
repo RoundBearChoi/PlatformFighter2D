@@ -9,13 +9,9 @@ namespace RB
         public override void Init()
         {
             _userInput = new UserInput();
-            _backgroundSetup = new SwampSetup();
-            _backgroundSetup.InstantiateBaseLayer();
 
             InstantiateUnit_ByUnitType(UnitType.RUNNER);
             InstantiateUnits_ByUnitType(UnitType.GOLEM);
-
-            Runner_NormalRun.initialPush = false;
 
             units.AddCreator(new FlatGround_Creator(this.transform));
             units.ProcessCreators();
@@ -26,10 +22,10 @@ namespace RB
             cameraScript = new CameraScript();
             cameraScript.SetCamera(FindObjectOfType<Camera>());
             cameraScript.SetCameraState(new Camera_FollowRunner());
+            cameraScript.SetTarget(units.GetUnit<Runner>().gameObject);
 
-            Unit runner = units.GetUnit<Runner>();
-            cameraScript.SetTarget(runner.gameObject);
-
+            _backgroundSetup = new SwampSetup();
+            _backgroundSetup.InstantiateBaseLayer();
             _backgroundSetup.AddAdditionalBackground<Swamp_Grass_DefaultState>();
             _backgroundSetup.AddAdditionalBackground<Swamp_Grass_DefaultState>();
             _backgroundSetup.AddAdditionalBackground<Swamp_River_DefaultState>();
