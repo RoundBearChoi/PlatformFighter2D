@@ -23,7 +23,7 @@ namespace RB
             {
                 _dustCreated = true;
 
-                Stage.currentStage.InstantiateUnit_ByUnitType(UnitType.STEP_DUST, null);
+                Stage.currentStage.InstantiateUnit_ByUnitType(UnitType.STEP_DUST);
                 Units.instance.GetUnit<StepDust>().transform.position = _unit.transform.position + new Vector3(_unit.transform.right.x * 0.8f, 0f, 0f);
             }
 

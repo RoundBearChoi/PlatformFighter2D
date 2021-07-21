@@ -12,10 +12,10 @@ namespace RB
         {
             _userInput = new UserInput();
             _swampSetup = new SwampSetup();
-            _swampSetup.InstantiateBaseLayer(_userInput);
+            _swampSetup.InstantiateBaseLayer();
 
-            InstantiateUnit_ByUnitType(UnitType.RUNNER, _userInput);
-            InstantiateUnits_ByUnitType(UnitType.GOLEM, null);
+            InstantiateUnit_ByUnitType(UnitType.RUNNER);
+            InstantiateUnits_ByUnitType(UnitType.GOLEM);
 
             Runner_NormalRun.initialPush = false;
 
@@ -32,8 +32,9 @@ namespace RB
             Unit runner = units.GetUnit<Runner>();
             cameraScript.SetTarget(runner.gameObject);
 
-            AddAdditionalSwamp_Grass();
-            AddAdditionalSwamp_Grass();
+            _swampSetup.AddAdditionalSwamp_Grass();
+            _swampSetup.AddAdditionalSwamp_Grass();
+            _swampSetup.AddAdditionalSwamp_River();
         }
 
         public override void OnUpdate()
@@ -73,38 +74,44 @@ namespace RB
             cameraScript.OnLateUpdate();
         }
 
-        public void AddAdditionalSwamp_Grass()
-        {
-            Unit newGrass = InstantiateAdditionalBackgroundUnit<Swamp_Grass_DefaultState>();
-            newGrass.iStateController.SetNewState(new Swamp_Grass_DefaultState(newGrass));
-        }
-
-        public Unit InstantiateAdditionalBackgroundUnit<T>()
-        {
-            Unit prevUnit = units.GetLatestUnitByState<T>();
-
-            if (prevUnit != null)
-            {
-                SpriteAnimation animation = prevUnit.unitData.spriteAnimations.GetLastSpriteAnimation();
-                Sprite sprite = animation.GetSprite(0);
-                float x = animation.gameObject.transform.localScale.x;
-                float y = animation.gameObject.transform.localScale.y;
-                Vector2 edge = new Vector2(sprite.bounds.size.x * x, sprite.bounds.size.y * y);
-                Debug.DrawLine(new Vector3(10f, 50f), edge, Color.red, 3f);
-
-                SpriteAnimationSpec spriteSpec = prevUnit.iStateController.GetCurrentState().GetSpriteAnimationSpec();
-                InstantiateUnit_BySpriteAnimationSpec(spriteSpec, _userInput);
-                Unit newGrass = units.GetLatestUnitByState<T>();
-                newGrass.transform.position = new Vector3(prevUnit.transform.position.x + edge.x, prevUnit.transform.position.y, prevUnit.transform.position.z);
-
-                units.AddUnit(newGrass);
-
-                return newGrass;
-            }
-            else
-            {
-                return null;
-            }
-        }
+        //public void AddAdditionalSwamp_Grass()
+        //{
+        //    Unit newGrass = InstantiateAdditionalBackgroundUnit<Swamp_Grass_DefaultState>();
+        //    newGrass.iStateController.SetNewState(new Swamp_Grass_DefaultState(newGrass));
+        //}
+        //
+        //public void AddAdditionalSwamp_River()
+        //{
+        //    Unit newRiver = InstantiateAdditionalBackgroundUnit<Swamp_River_DefaultState>();
+        //    newRiver.iStateController.SetNewState(new Swamp_River_DefaultState(newRiver));
+        //}
+        //
+        //public Unit InstantiateAdditionalBackgroundUnit<T>()
+        //{
+        //    Unit prevUnit = units.GetLatestUnitByState<T>();
+        //
+        //    if (prevUnit != null)
+        //    {
+        //        SpriteAnimation animation = prevUnit.unitData.spriteAnimations.GetLastSpriteAnimation();
+        //        Sprite sprite = animation.GetSprite(0);
+        //        float x = animation.gameObject.transform.localScale.x;
+        //        float y = animation.gameObject.transform.localScale.y;
+        //        Vector2 edge = new Vector2(sprite.bounds.size.x * x, sprite.bounds.size.y * y);
+        //        Debug.DrawLine(new Vector3(10f, 50f), edge, Color.red, 3f);
+        //
+        //        SpriteAnimationSpec spriteSpec = prevUnit.iStateController.GetCurrentState().GetSpriteAnimationSpec();
+        //        InstantiateUnit_BySpriteAnimationSpec(spriteSpec, _userInput);
+        //        Unit newGrass = units.GetLatestUnitByState<T>();
+        //        newGrass.transform.position = new Vector3(prevUnit.transform.position.x + edge.x, prevUnit.transform.position.y, prevUnit.transform.position.z);
+        //
+        //        units.AddUnit(newGrass);
+        //
+        //        return newGrass;
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
+        //}
     }
 }

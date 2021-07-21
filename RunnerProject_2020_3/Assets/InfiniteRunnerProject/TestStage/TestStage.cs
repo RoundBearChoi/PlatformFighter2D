@@ -14,7 +14,7 @@ namespace RB
         {
             _userInput = new UserInput();
 
-            InstantiateUnits_ByUnitType(UnitType.RUNNER, _userInput);
+            InstantiateUnits_ByUnitType(UnitType.RUNNER);
 
             units.ProcessCreators();
 

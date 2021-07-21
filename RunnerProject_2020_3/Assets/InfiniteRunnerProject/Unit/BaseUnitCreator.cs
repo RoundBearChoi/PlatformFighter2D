@@ -6,7 +6,6 @@ namespace RB
 {
     public abstract class BaseUnitCreator
     {
-        protected UserInput _userInput = null;
         protected Transform _parentTransform = null;
         protected BaseUnitCreationSpec _creationSpec = null;
 

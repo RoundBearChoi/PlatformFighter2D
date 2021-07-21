@@ -6,9 +6,8 @@ namespace RB
 {
     public class DefaultUnitCreator : BaseUnitCreator
     {
-        public DefaultUnitCreator(UserInput userInput, Transform parentTransform, BaseUnitCreationSpec creationSpec)
+        public DefaultUnitCreator(Transform parentTransform, BaseUnitCreationSpec creationSpec)
         {
-            _userInput = userInput;
             _parentTransform = parentTransform;
             _creationSpec = creationSpec;
         }
