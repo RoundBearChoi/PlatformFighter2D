@@ -9,8 +9,8 @@ namespace RB
     {
         public void New_Updater_Default(Unit unit)
         {
-            unit.unitUpdater = new DefaultUpdater();
-            unit.unitUpdater.SetOwnerUnit(unit);
+            unit.unitUpdater = new DefaultUpdater(unit);
+            //unit.unitUpdater.SetOwnerUnit(unit);
         }
     }
 }

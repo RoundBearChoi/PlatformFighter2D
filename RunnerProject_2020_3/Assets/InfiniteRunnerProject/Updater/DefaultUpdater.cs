@@ -6,6 +6,11 @@ namespace RB
 {
     public class DefaultUpdater : BaseUpdater
     {
+        public DefaultUpdater(Unit ownerUnit)
+        {
+            _unit = ownerUnit;
+        }
+
         public override void CustomUpdate()
         {
             _unit.unitData.spriteAnimations.OnUpdate();

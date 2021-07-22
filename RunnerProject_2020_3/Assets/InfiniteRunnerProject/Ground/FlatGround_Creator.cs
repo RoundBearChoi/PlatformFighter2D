@@ -65,7 +65,8 @@ namespace RB
             Ground newGround = objComposite.AddComponent<Ground>();
             newGround.unitData = new UnitData(newGround.transform);
 
-            newGround.unitUpdater = new DefaultUpdater();
+            newGround.unitUpdater = new DefaultUpdater(newGround);
+            newGround.unitData.spriteAnimations = new EmptySpriteAnimations();
 
             Stage.currentStage.units.AddUnit(newGround);
 
