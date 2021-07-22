@@ -13,9 +13,9 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (_unit.unitData.spriteAnimations.currentAnimation != null)
+            if (_unit.unitData.spriteAnimations.GetCurrentAnimation() != null)
             {
-                Vector2[] edges = _unit.unitData.spriteAnimations.currentAnimation.GetSpriteWorldEdges(0);
+                Vector2[] edges = _unit.unitData.spriteAnimations.GetCurrentAnimation().GetSpriteWorldEdges(0);
 
                 if (edges[3].x < CameraScript.current.cameraEdges.GetEdges()[0].x - 5f)
                 {

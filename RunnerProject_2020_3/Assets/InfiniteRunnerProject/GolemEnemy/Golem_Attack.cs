@@ -23,7 +23,7 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            if (ownerUnit.unitData.spriteAnimations.currentAnimation.IsOnEnd())
+            if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().IsOnEnd())
             {
                 ownerUnit.unitData.listNextStates.Add(new Golem_Idle(ownerUnit));
             }

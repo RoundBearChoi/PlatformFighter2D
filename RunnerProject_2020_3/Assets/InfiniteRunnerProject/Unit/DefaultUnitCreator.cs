@@ -30,7 +30,7 @@ namespace RB
             unit.InitBoxCollider(_creationSpec);
             unit.InitCollisionChecker();
 
-            unit.unitData.spriteAnimations = new SpriteAnimations(unit.iStateController);
+            unit.unitData.spriteAnimations = new DefaultSpriteAnimations(unit.iStateController);
 
             if (_creationSpec.listSpriteAnimationSpecs.Count > 0)
             {

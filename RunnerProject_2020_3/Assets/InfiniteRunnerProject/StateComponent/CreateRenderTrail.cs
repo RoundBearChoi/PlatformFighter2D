@@ -29,13 +29,13 @@ namespace RB
                 trail.transform.parent = Stage.currentStage.transform;
 
                 trail.spriteRenderer = trailObj.AddComponent<SpriteRenderer>();
-                trail.spriteRenderer.sprite = _unit.unitData.spriteAnimations.currentAnimation.SPRITE_RENDERER.sprite;
+                trail.spriteRenderer.sprite = _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.sprite;
 
                 trail.rootUnit = _unit;
 
-                trail.spriteRenderer.transform.localPosition = _unit.unitData.spriteAnimations.currentAnimation.SPRITE_RENDERER.transform.position;
-                trail.spriteRenderer.transform.localScale = _unit.unitData.spriteAnimations.currentAnimation.SPRITE_RENDERER.transform.localScale;
-                trail.spriteRenderer.transform.localRotation = _unit.unitData.spriteAnimations.currentAnimation.SPRITE_RENDERER.transform.localRotation;
+                trail.spriteRenderer.transform.localPosition = _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.transform.position;
+                trail.spriteRenderer.transform.localScale = _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.transform.localScale;
+                trail.spriteRenderer.transform.localRotation = _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.transform.localRotation;
 
                 //trail.spriteRenderer.color = Color.blue;
 

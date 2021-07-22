@@ -4,17 +4,48 @@ using UnityEngine;
 
 namespace RB
 {
-    public class SpriteAnimations
+    public class DefaultSpriteAnimations : ISpriteAnimations
     {
         private List<SpriteAnimation> _listSpriteAnimations = null;
         private IStateController<UnitState> _IStateController = null;
 
-        public SpriteAnimation currentAnimation = null;
+        private SpriteAnimation _currentAnimation = null;
 
-        public SpriteAnimations(IStateController<UnitState> stateController)
+        public DefaultSpriteAnimations(IStateController<UnitState> stateController)
         {
             _listSpriteAnimations = new List<SpriteAnimation>();
             _IStateController = stateController;
+        }
+
+        public SpriteAnimation GetCurrentAnimation()
+        {
+            return _currentAnimation;
+        }
+
+        public void SetCurrentAnimation(SpriteAnimation animation)
+        {
+            _currentAnimation = animation;
+        }
+
+        public void OnUpdate()
+        {
+            //matching state to sprites happens as often as possible (both in update and fixedupdate)
+            MatchAnimationToState();
+        }
+
+        public void OnFixedUpdate()
+        {
+            MatchAnimationToState();
+
+            foreach (SpriteAnimation spriteAnimation in _listSpriteAnimations)
+            {
+                if (!spriteAnimation.ProcessingAdditionalInterval())
+                {
+                    spriteAnimation.UpdateSpriteIndex();
+                }
+
+                spriteAnimation.UpdateSpriteOnIndex();
+            }
         }
 
         public void MatchAnimationToState()
@@ -23,14 +54,14 @@ namespace RB
             {
                 if (spriteAni.animationSpec == _IStateController.GetCurrentState().GetSpriteAnimationSpec())
                 {
-                    if (currentAnimation != spriteAni)
+                    if (_currentAnimation != spriteAni)
                     {
                         spriteAni.gameObject.SetActive(true);
-                        currentAnimation = spriteAni;
-                        currentAnimation.ResetSpriteIndex();
+                        _currentAnimation = spriteAni;
+                        _currentAnimation.ResetSpriteIndex();
 
                         //updating on new state & reset
-                        currentAnimation.UpdateSpriteOnIndex();
+                        _currentAnimation.UpdateSpriteOnIndex();
                     }
                 }
                 else
@@ -56,30 +87,9 @@ namespace RB
             return _listSpriteAnimations[_listSpriteAnimations.Count - 1];
         }
 
-        public void OnUpdate()
-        {
-            //matching state to sprites happens as often as possible (both in update and fixedupdate)
-            MatchAnimationToState();
-        }
-
-        public void OnFixedUpdate()
-        {
-            MatchAnimationToState();
-
-            foreach (SpriteAnimation spriteAnimation in _listSpriteAnimations)
-            {
-                if (!spriteAnimation.ProcessingAdditionalInterval())
-                {
-                    spriteAnimation.UpdateSpriteIndex();
-                }
-
-                spriteAnimation.UpdateSpriteOnIndex();
-            }
-        }
-
         public void ManualSetSpriteIndex(int index)
         {
-            currentAnimation.ManualSetSpriteIndex(index);
+            _currentAnimation.ManualSetSpriteIndex(index);
         }
     }
 }

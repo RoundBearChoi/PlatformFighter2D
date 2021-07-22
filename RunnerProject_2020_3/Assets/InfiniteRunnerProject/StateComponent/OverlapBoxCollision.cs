@@ -19,7 +19,7 @@ namespace RB
         {
             foreach(OverlapBoxCollisionSpecs specs in _listSpecs)
             {
-                if (_unit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX == specs.mTargetSpriteIndex)
+                if (_unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == specs.mTargetSpriteIndex)
                 {
                     foreach(OverlapBoxBounds bounds in specs.mlistBounds)
                     {

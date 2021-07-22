@@ -13,9 +13,6 @@ namespace RB
             InstantiateUnit_ByUnitType(UnitType.RUNNER);
             InstantiateUnits_ByUnitType(UnitType.GOLEM);
 
-            units.AddCreator(new FlatGround_Creator(this.transform));
-            units.ProcessCreators();
-
             _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.GAME_UI)) as GameUI;
             _baseUI.transform.parent = this.transform;
 
@@ -26,14 +23,9 @@ namespace RB
 
             backgroundSetup = new SwampSetup();
             backgroundSetup.InstantiateBaseLayer();
-            //backgroundSetup.AddAdditionalBackground<Swamp_Grass_DefaultState>();
-            //backgroundSetup.AddAdditionalBackground<Swamp_Grass_DefaultState>();
-            //backgroundSetup.AddAdditionalBackground<Swamp_River_DefaultState>();
-            //backgroundSetup.AddAdditionalBackground<Swamp_River_DefaultState>();
-            //backgroundSetup.AddAdditionalBackground<Swamp_FrontTrees_DefaultState>();
-            //backgroundSetup.AddAdditionalBackground<Swamp_FrontTrees_DefaultState>();
-            //backgroundSetup.AddAdditionalBackground<Swamp_BackTrees_DefaultState>();
-            //backgroundSetup.AddAdditionalBackground<Swamp_BackTrees_DefaultState>();
+
+            groundSetup = new RandomFlatgroundSetup();
+            groundSetup.InstantiateBaseLayer();
         }
 
         public override void OnUpdate()
@@ -43,7 +35,6 @@ namespace RB
             units.OnUpdate();
             trailEffects.OnUpdate();
             cameraScript.OnUpdate();
-            
         }
 
         public override void OnFixedUpdate()

@@ -11,7 +11,7 @@ namespace RB
             _parentTransform = parentTransform;
         }
 
-        public GameObject GetGroundUnit()
+        public GameObject GetGroundObj()
         {
             GameObject groundObj = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(UnitType.FLAT_GROUND)) as GameObject;
             groundObj.transform.parent = _parentTransform;
@@ -62,11 +62,16 @@ namespace RB
             c2d.sharedMaterial = GameInitializer.current.gameDataSO.physicsMaterial_NoFrictionNoBounce;
             r2d.sharedMaterial = GameInitializer.current.gameDataSO.physicsMaterial_NoFrictionNoBounce;
 
-            objComposite.AddComponent<Ground>();
+            Ground newGround = objComposite.AddComponent<Ground>();
+            newGround.unitData = new UnitData(newGround.transform);
+
+            newGround.unitUpdater = new DefaultUpdater();
+
+            Stage.currentStage.units.AddUnit(newGround);
 
             for (int i = 0; i < GameInitializer.current.gameDataSO.InitialFlatGroundCount; i++)
             {
-                GameObject obj = GetGroundUnit();
+                GameObject obj = GetGroundObj();
                 obj.transform.parent = objComposite.transform;
                 obj.transform.localPosition = new Vector3(i * 1, obj.transform.localPosition.y, obj.transform.localPosition.z);
             }

@@ -6,7 +6,7 @@ namespace RB
 {
     public class SpriteStage : Stage
     {
-        SpriteAnimations _dummyAnimation;
+        DefaultSpriteAnimations _dummyAnimation;
         GameObject _dummyObj;
 
         [SerializeField]
@@ -36,11 +36,11 @@ namespace RB
             red.transform.localPosition = Vector3.zero;
             red.transform.localRotation = Quaternion.identity;
 
-            _dummyAnimation = new SpriteAnimations(null);
+            _dummyAnimation = new DefaultSpriteAnimations(null);
             _dummyAnimation.AddSpriteAnimation(animationSpec, _dummyObj.transform);
-            _dummyAnimation.currentAnimation = _dummyAnimation.GetLastSpriteAnimation();
+            _dummyAnimation.SetCurrentAnimation(_dummyAnimation.GetLastSpriteAnimation());
             _dummyAnimation.ManualSetSpriteIndex(0);
-            _dummyAnimation.currentAnimation.UpdateSpriteOnIndex();
+            _dummyAnimation.GetCurrentAnimation().UpdateSpriteOnIndex();
         }
 
         public override void OnUpdate()
@@ -57,14 +57,14 @@ namespace RB
         {
             if (_userInput.ContainsKeyPress(UserInput.keyboard.spaceKey))
             {
-                _dummyAnimation.ManualSetSpriteIndex(_dummyAnimation.currentAnimation.SPRITE_INDEX + 1);
+                _dummyAnimation.ManualSetSpriteIndex(_dummyAnimation.GetCurrentAnimation().SPRITE_INDEX + 1);
 
-                if (_dummyAnimation.currentAnimation.SPRITE_INDEX >= _dummyAnimation.currentAnimation.SPRITES_COUNT)
+                if (_dummyAnimation.GetCurrentAnimation().SPRITE_INDEX >= _dummyAnimation.GetCurrentAnimation().SPRITES_COUNT)
                 {
                     _dummyAnimation.ManualSetSpriteIndex(0);
                 }
 
-                _dummyAnimation.currentAnimation.UpdateSpriteOnIndex();
+                _dummyAnimation.GetCurrentAnimation().UpdateSpriteOnIndex();
             }
 
             if (_collisionDataIndex < _dummyOverlapBoxCollisionData.listSpecs.Count)

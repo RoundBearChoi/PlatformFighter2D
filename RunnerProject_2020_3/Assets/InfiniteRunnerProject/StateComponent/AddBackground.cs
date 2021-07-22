@@ -21,9 +21,9 @@ namespace RB
 
                 if (latest != null)
                 {
-                    if (latest.ownerUnit.unitData.spriteAnimations.currentAnimation != null)
+                    if (latest.ownerUnit.unitData.spriteAnimations.GetCurrentAnimation() != null)
                     {
-                        Vector2[] latest_edges = latest.ownerUnit.unitData.spriteAnimations.currentAnimation.GetSpriteWorldEdges(0);
+                        Vector2[] latest_edges = latest.ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().GetSpriteWorldEdges(0);
 
                         foreach (Vector2 edge in latest_edges)
                         {

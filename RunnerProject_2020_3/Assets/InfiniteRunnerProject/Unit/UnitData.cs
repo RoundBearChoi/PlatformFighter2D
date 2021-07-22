@@ -23,7 +23,7 @@ namespace RB
         public CollisionStays collisionStays = new CollisionStays();
         public CollisionEnters collisionEnters = new CollisionEnters();
 
-        public SpriteAnimations spriteAnimations = null;
+        public ISpriteAnimations spriteAnimations = null;
 
         public List<UnitState> listNextStates = new List<UnitState>();
     }

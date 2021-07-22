@@ -29,8 +29,8 @@ namespace RB
 
             if (fixedUpdateCount != 0 && fixedUpdateCount % animationSpec.spriteInterval == 0)
             {
-                if (ownerUnit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX == 3 ||
-                    ownerUnit.unitData.spriteAnimations.currentAnimation.SPRITE_INDEX == 7)
+                if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 3 ||
+                    ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 7)
                 {
                     Stage.currentStage.InstantiateUnit_ByUnitType(UnitType.STEP_DUST);
                     Unit dust = Units.instance.GetUnit<StepDust>();
