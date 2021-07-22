@@ -4,15 +4,16 @@ using UnityEngine;
 
 namespace RB
 {
-    public class EmptyGroundState : UnitState
+    public class FlatGround_DefaultState : UnitState
     {
-        public static EmptyGroundState latest;
+        public static FlatGround_DefaultState latest;
 
-        public EmptyGroundState(Unit unit)
+        public FlatGround_DefaultState(Unit unit)
         {
             latest = this;
             ownerUnit = unit;
 
+            _listStateComponents.Add(new DeletedPassedGround(unit));
             _listStateComponents.Add(new AddFlatGround(this));
         }
 

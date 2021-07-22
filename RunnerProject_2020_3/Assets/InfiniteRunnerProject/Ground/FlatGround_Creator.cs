@@ -68,7 +68,7 @@ namespace RB
             newGround.unitUpdater = new DefaultUpdater(newGround);
             newGround.unitData.spriteAnimations = new EmptySpriteAnimations();
             newGround.iStateController = new UnitStateController(newGround);
-            newGround.iStateController.SetNewState(new EmptyGroundState(newGround));
+            newGround.iStateController.SetNewState(new FlatGround_DefaultState(newGround));
 
             Stage.currentStage.units.AddUnit(newGround);
 

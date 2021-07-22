@@ -13,14 +13,17 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (_unit.unitData.spriteAnimations.GetCurrentAnimation() != null)
+            if (_unit.iStateController.GetCurrentState().fixedUpdateCount >= 1)
             {
-                Vector2[] edges = _unit.unitData.spriteAnimations.GetCurrentAnimation().GetSpriteWorldEdges(0);
-
-                if (edges[3].x < CameraScript.current.cameraEdges.GetEdges()[0].x - 5f)
+                if (_unit.unitData.spriteAnimations.GetCurrentAnimation() != null)
                 {
-                    Debugger.Log("outside frustum: " + _unit.gameObject.name);
-                    _unit.destroy = true;
+                    Vector2[] edges = _unit.unitData.spriteAnimations.GetCurrentAnimation().GetSpriteWorldEdges(0);
+
+                    if (edges[3].x < CameraScript.current.cameraEdges.GetEdges()[0].x - 5f)
+                    {
+                        Debugger.Log("outside frustum: " + _unit.gameObject.name);
+                        _unit.destroy = true;
+                    }
                 }
             }
         }
