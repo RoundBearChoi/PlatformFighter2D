@@ -17,7 +17,9 @@ namespace RB
             _baseUI.transform.parent = this.transform;
 
             cameraScript = new CameraScript();
-            cameraScript.SetCamera(FindObjectOfType<Camera>());
+            Camera cam = FindObjectOfType<Camera>();
+            cam.orthographicSize = 7f;
+            cameraScript.SetCamera(cam);
             cameraScript.SetCameraState(new Camera_FollowRunner());
             cameraScript.SetTarget(units.GetUnit<Runner>().gameObject);
 
