@@ -120,6 +120,15 @@ namespace RB
                 {
                     if (_listUnits[i].unitData.rigidBody2D != null)
                     {
+                        if (_listUnits[i].unitType == UnitType.RUNNER)
+                        {
+                            if (_listUnits[i].unitData.hp > 0)
+                            {
+                                BaseMessage shakeCamOnPosition = new ShakeCameraOnPositionMessage(20);
+                                shakeCamOnPosition.Register();
+                            }
+                        }
+
                         _listUnits[i].unitData.rigidBody2D.gravityScale = 0f;
                         _listUnits[i].unitData.rigidBody2D.velocity = Vector2.zero;
                         _listUnits[i].unitData.hp = 0;

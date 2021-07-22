@@ -15,9 +15,13 @@ namespace RB
         {
             foreach(BaseMessage message in _listMessages)
             {
-                if (message.MESSAGE_TYPE == MessageType.SHAKE_CAMERA)
+                if (message.MESSAGE_TYPE == MessageType.SHAKE_CAMERA_ONTARGET)
                 {
-                    CameraScript.current.SetCameraState(new Camera_Shake(message.GetUnsignedIntMessage()));
+                    CameraScript.current.SetCameraState(new Camera_Shake_OnTarget(message.GetUnsignedIntMessage()));
+                }
+                else if (message.MESSAGE_TYPE == MessageType.SHAKE_CAMERA_ONPOSITION)
+                {
+                    CameraScript.current.SetCameraState(new Camera_Shake_OnPosition(message.GetUnsignedIntMessage()));
                 }
             }
         }

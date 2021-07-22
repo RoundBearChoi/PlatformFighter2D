@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Camera_Shake : CameraState
+    public class Camera_Shake_OnTarget : CameraState
     {
         uint _totalShakeFrames = 0;
         float _shakeAmount = 0.5f;
 
-        public Camera_Shake(uint totalShakeFrames)
+        public Camera_Shake_OnTarget(uint totalShakeFrames)
         {
             _totalShakeFrames = totalShakeFrames;
         }

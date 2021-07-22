@@ -18,7 +18,8 @@ namespace RB
         SHOW_BLOOD = 400,
         SHOW_PARRY_EFFECT = 401,
 
-        SHAKE_CAMERA = 500,
+        SHAKE_CAMERA_ONTARGET = 500,
+        SHAKE_CAMERA_ONPOSITION = 501,
 
         TAKE_DAMAGE = 600,
         ZERO_HEALTH = 610,
