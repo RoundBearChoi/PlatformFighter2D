@@ -4,18 +4,17 @@ using UnityEngine;
 
 namespace RB
 {
-    public class RandomFlatGroundSetup : IBackgroundSetup
+    public class FlatGroundSetup : IBackgroundSetup
     {
         public void InstantiateBaseLayer()
         {
-            Stage.currentStage.units.AddCreator(new FlatGround_Creator(Stage.currentStage.transform));
+            Stage.currentStage.units.AddCreator(new FlatGround_Creator(Stage.currentStage.transform, 5, 10));
             Stage.currentStage.units.ProcessCreators();
         }
 
         public void AddAdditionalUnit<T>() where T : UnitState
         {
             Unit prevUnit = Stage.currentStage.units.GetLatestUnitByState<T>();
-            //Unit prevUnit = Stage.currentStage.units.GetUnit<Ground>();
 
             if (prevUnit != null)
             {

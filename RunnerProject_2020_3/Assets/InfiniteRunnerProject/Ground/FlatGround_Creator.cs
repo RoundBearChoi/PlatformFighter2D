@@ -6,9 +6,14 @@ namespace RB
 {
     public class FlatGround_Creator : BaseUnitCreator
     {
-        public FlatGround_Creator(Transform parentTransform)
+        int _minGroundCount = 0;
+        int _maxGroundCount = 0;
+
+        public FlatGround_Creator(Transform parentTransform, int minGroundCount, int maxGroundCount)
         {
             _parentTransform = parentTransform;
+            _minGroundCount = minGroundCount;
+            _maxGroundCount = maxGroundCount;
         }
 
         public GameObject GetGroundObj()
@@ -72,7 +77,9 @@ namespace RB
 
             Stage.currentStage.units.AddUnit(newGround);
 
-            for (int i = 0; i < GameInitializer.current.gameDataSO.InitialFlatGroundCount; i++)
+            int count = Random.Range(_minGroundCount, _maxGroundCount + 1);
+
+            for (int i = 0; i < count /*GameInitializer.current.gameDataSO.InitialFlatGroundCount*/; i++)
             {
                 GameObject obj = GetGroundObj();
                 obj.transform.parent = objComposite.transform;
