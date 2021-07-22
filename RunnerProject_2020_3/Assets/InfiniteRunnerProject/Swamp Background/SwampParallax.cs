@@ -15,5 +15,6 @@ namespace RB
 
         [Space(20)]
         public string Swamp_GroundTile25_SpriteName;
+        public string Swamp_GroundTile_BackupSpriteName;
     }
 }

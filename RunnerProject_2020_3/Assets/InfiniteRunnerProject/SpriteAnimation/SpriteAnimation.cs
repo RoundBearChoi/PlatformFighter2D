@@ -44,7 +44,7 @@ namespace RB
         {
             animationSpec = spec;
 
-            Sprite[] arrSprites = ResourceLoader.LoadSpriteSet(spec);
+            Sprite[] arrSprites = ResourceLoader.LoadSpriteBySpec(spec);
 
             foreach (Sprite spr in arrSprites)
             {

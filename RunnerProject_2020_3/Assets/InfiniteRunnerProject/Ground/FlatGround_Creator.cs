@@ -23,9 +23,14 @@ namespace RB
             groundObj.transform.localRotation = Quaternion.identity;
             groundObj.transform.localPosition = Vector3.zero;
 
-            SpriteRenderer renderer = groundObj.GetComponentInChildren<SpriteRenderer>();
+            Sprite[] arrSprites = ResourceLoader.LoadSpriteByString(GameInitializer.current.swampParallaxSO.Swamp_GroundTile25_SpriteName);
 
-            Sprite[] arrSprites = ResourceLoader.LoadSpriteSet(GameInitializer.current.swampParallaxSO.Swamp_GroundTile25_SpriteName, "Texture_MissingSprite");
+            if (arrSprites.Length == 0)
+            {
+                ResourceLoader.LoadSpriteByString(GameInitializer.current.swampParallaxSO.Swamp_GroundTile_BackupSpriteName);
+            }
+
+            SpriteRenderer renderer = groundObj.GetComponentInChildren<SpriteRenderer>();
             renderer.sprite = arrSprites[0];
             renderer.gameObject.transform.localScale = new Vector3(3.13f, 3.13f, 1f);
 

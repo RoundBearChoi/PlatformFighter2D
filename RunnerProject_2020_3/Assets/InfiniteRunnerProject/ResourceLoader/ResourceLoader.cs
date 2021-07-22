@@ -13,6 +13,8 @@ namespace RB
         public static UIElementLoader uiElementLoader = null;
         public static etcLoader etcLoader = null;
 
+        static Dictionary<string, Sprite[]> _dicSpriteSets = new Dictionary<string, Sprite[]>();
+
         public static void Init()
         {
             stageLoader = new StageLoader();
@@ -21,32 +23,40 @@ namespace RB
             uiLoader = new UILoader();
             uiElementLoader = new UIElementLoader();
             etcLoader = new etcLoader();
+
+            _dicSpriteSets.Clear();
         }
 
-        public static Sprite[] LoadSpriteSet(SpriteAnimationSpec spec)
+        //fix string keys to int/hash keys
+        public static Sprite[] LoadSpriteBySpec(SpriteAnimationSpec spec)
         {
-            Sprite[] arrSprites = Resources.LoadAll<Sprite>(spec.spriteName);
+            Sprite[] arrSprite = LoadSpriteByString(spec.spriteName);
 
-            if (arrSprites.Length == 0)
+            if (arrSprite.Length == 0)
             {
-                Debugger.Log("missing sprite resource: " + spec.spriteName);
-                arrSprites = Resources.LoadAll<Sprite>(spec.backupSpriteName);
+                arrSprite = LoadSpriteByString(spec.backupSpriteName);
             }
 
-            return arrSprites;
+            return arrSprite;
         }
 
-        public static Sprite[] LoadSpriteSet(string spriteName, string backupSpriteName)
+        public static Sprite[] LoadSpriteByString(string spriteName)
         {
-            Sprite[] arrSprites = Resources.LoadAll<Sprite>(spriteName);
-
-            if (arrSprites.Length == 0)
+            if (_dicSpriteSets.ContainsKey(spriteName))
             {
-                Debugger.Log("missing sprite resource: " + spriteName);
-                arrSprites = Resources.LoadAll<Sprite>(backupSpriteName);
+                return _dicSpriteSets[spriteName];
             }
+            else
+            {
+                Sprite[] arrSprites = Resources.LoadAll<Sprite>(spriteName);
 
-            return arrSprites;
+                if (arrSprites.Length > 0)
+                {
+                    _dicSpriteSets.Add(spriteName, arrSprites);
+                }
+
+                return arrSprites;
+            }
         }
     }
 }
