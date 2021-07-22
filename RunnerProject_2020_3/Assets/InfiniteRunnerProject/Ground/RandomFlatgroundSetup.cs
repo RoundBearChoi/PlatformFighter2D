@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class RandomFlatgroundSetup : IBackgroundSetup
+    public class RandomFlatGroundSetup : IBackgroundSetup
     {
         public void InstantiateBaseLayer()
         {
@@ -12,14 +12,18 @@ namespace RB
             Stage.currentStage.units.ProcessCreators();
         }
 
-        public Unit InstantiateAdditionalBackgroundUnit<T>()
+        public void AddAdditionalUnit<T>() where T : UnitState
         {
-            return null;
-        }
+            Unit prevUnit = Stage.currentStage.units.GetLatestUnitByState<T>();
 
-        public void AddAdditionalBackground<T>() where T : UnitState
-        {
+            if (prevUnit != null)
+            {
+                Vector3 topRight = prevUnit.unitData.compositeCollider2D.bounds.center + (prevUnit.unitData.compositeCollider2D.bounds.size * 0.5f);
 
+                //InstantiateBaseLayer();
+                //Unit newGround = Stage.currentStage.units.GetUnit<Ground>();
+                //newGround.transform.position = new Vector3(topRight.x, prevUnit.transform.position.y, prevUnit.transform.position.z);
+            }
         }
     }
 }

@@ -24,7 +24,7 @@ namespace RB
             backgroundSetup = new SwampSetup();
             backgroundSetup.InstantiateBaseLayer();
 
-            groundSetup = new RandomFlatgroundSetup();
+            groundSetup = new RandomFlatGroundSetup();
             groundSetup.InstantiateBaseLayer();
         }
 
