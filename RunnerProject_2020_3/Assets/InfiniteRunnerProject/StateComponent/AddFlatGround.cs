@@ -19,16 +19,20 @@ namespace RB
             {
                 UnitState latest = _state.GetLastestInstantiatedState();
 
+                //only check if i'm the latest state
                 if (latest != null)
                 {
-                    Vector3 topRight = latest.ownerUnit.unitData.compositeCollider2D.bounds.center + (latest.ownerUnit.unitData.compositeCollider2D.bounds.size * 0.5f);
-
-                    Debug.DrawLine(new Vector3(0f, -5f, 0f), topRight, Color.cyan, 0.05f);
-
-                    if (topRight.x <= CameraScript.current.cameraEdges.GetEdges()[3].x)
+                    if (latest == _state)
                     {
-                        Debugger.Log("ground edge inside frustum");
-                        Stage.currentStage.groundSetup.AddAdditionalUnit<EmptyGroundState>();
+                        Vector3 topRight = latest.ownerUnit.unitData.compositeCollider2D.bounds.center + (latest.ownerUnit.unitData.compositeCollider2D.bounds.size * 0.5f);
+
+                        Debug.DrawLine(new Vector3(0f, -5f, 0f), topRight, Color.cyan, 0.05f);
+
+                        if (topRight.x <= CameraScript.current.cameraEdges.GetEdges()[3].x)
+                        {
+                            Debugger.Log("ground edge inside frustum");
+                            Stage.currentStage.groundSetup.AddAdditionalUnit<EmptyGroundState>();
+                        }
                     }
                 }
             }

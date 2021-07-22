@@ -21,19 +21,22 @@ namespace RB
 
                 if (latest != null)
                 {
-                    if (latest.ownerUnit.unitData.spriteAnimations.GetCurrentAnimation() != null)
+                    if (latest == _state)
                     {
-                        Vector2[] latest_edges = latest.ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().GetSpriteWorldEdges(0);
-
-                        foreach (Vector2 edge in latest_edges)
+                        if (latest.ownerUnit.unitData.spriteAnimations.GetCurrentAnimation() != null)
                         {
-                            Debug.DrawLine(Vector3.zero, edge, Color.blue, 0.1f);
-                        }
+                            Vector2[] latest_edges = latest.ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().GetSpriteWorldEdges(0);
 
-                        if (latest_edges[3].x <= CameraScript.current.cameraEdges.GetEdges()[3].x)
-                        {
-                            Debugger.Log("adding additional background: " + _state.GetType().Name);
-                            Stage.currentStage.backgroundSetup.AddAdditionalUnit<T>();
+                            foreach (Vector2 edge in latest_edges)
+                            {
+                                Debug.DrawLine(Vector3.zero, edge, Color.blue, 0.1f);
+                            }
+
+                            if (latest_edges[3].x <= CameraScript.current.cameraEdges.GetEdges()[3].x)
+                            {
+                                Debugger.Log("adding additional background: " + _state.GetType().Name);
+                                Stage.currentStage.backgroundSetup.AddAdditionalUnit<T>();
+                            }
                         }
                     }
                 }
