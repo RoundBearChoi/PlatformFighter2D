@@ -29,6 +29,11 @@ namespace RB
         {
             currentUnitState.OnFixedUpdate();
             currentUnitState.fixedUpdateCount++;
+
+            if (currentUnitState.fixedUpdateCount >= uint.MaxValue - 1)
+            {
+                currentUnitState.fixedUpdateCount = 0;
+            }
         }
 
         public void OnLateUpdate()
