@@ -9,6 +9,7 @@ namespace RB
     public class SpriteAnimationSpec : ScriptableObject
     {
         public string spriteName;
+        public string backupSpriteName;
         public uint spriteInterval;
         public Vector2 spriteSize;
         public OffsetType offsetType;

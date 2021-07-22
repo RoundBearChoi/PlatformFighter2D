@@ -25,27 +25,9 @@ namespace RB
 
             SpriteRenderer renderer = groundObj.GetComponentInChildren<SpriteRenderer>();
 
-            //should be done early (resourceloader)
-            Sprite[] arrSprites = Resources.LoadAll<Sprite>(GameInitializer.current.swampParallaxSO.Swamp_GroundTile25_SpriteName);
-
-            if (arrSprites.Length != 0)
-            {
-                renderer.sprite = arrSprites[0];
-                renderer.gameObject.transform.localScale = new Vector3(3.13f, 3.13f, 1f);
-            }
-            else
-            {
-                //should be done early (resourceloader)
-                arrSprites = Resources.LoadAll<Sprite>("Texture_White100x100");
-
-                if (arrSprites.Length == 0)
-                {
-                    Debugger.Log("missing sprite resource: Texture_White100x100");
-                    arrSprites = Resources.LoadAll<Sprite>("Texture_MissingSprite");
-                }
-
-                renderer.sprite = arrSprites[0];
-            }
+            Sprite[] arrSprites = ResourceLoader.LoadSpriteSet(GameInitializer.current.swampParallaxSO.Swamp_GroundTile25_SpriteName, "Texture_MissingSprite");
+            renderer.sprite = arrSprites[0];
+            renderer.gameObject.transform.localScale = new Vector3(3.13f, 3.13f, 1f);
 
             return groundObj;
         }

@@ -44,14 +44,7 @@ namespace RB
         {
             animationSpec = spec;
 
-            //should be done early (resourceloader)
-            Sprite[] arrSprites = Resources.LoadAll<Sprite>(spec.spriteName);
-
-            if (arrSprites.Length == 0)
-            {
-                Debugger.Log("missing sprite resource: " + spec.spriteName);
-                arrSprites = Resources.LoadAll<Sprite>("Texture_MissingSprite");
-            }
+            Sprite[] arrSprites = ResourceLoader.LoadSpriteSet(spec);
 
             foreach (Sprite spr in arrSprites)
             {

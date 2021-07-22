@@ -22,5 +22,31 @@ namespace RB
             uiElementLoader = new UIElementLoader();
             etcLoader = new etcLoader();
         }
+
+        public static Sprite[] LoadSpriteSet(SpriteAnimationSpec spec)
+        {
+            Sprite[] arrSprites = Resources.LoadAll<Sprite>(spec.spriteName);
+
+            if (arrSprites.Length == 0)
+            {
+                Debugger.Log("missing sprite resource: " + spec.spriteName);
+                arrSprites = Resources.LoadAll<Sprite>(spec.backupSpriteName);
+            }
+
+            return arrSprites;
+        }
+
+        public static Sprite[] LoadSpriteSet(string spriteName, string backupSpriteName)
+        {
+            Sprite[] arrSprites = Resources.LoadAll<Sprite>(spriteName);
+
+            if (arrSprites.Length == 0)
+            {
+                Debugger.Log("missing sprite resource: " + spriteName);
+                arrSprites = Resources.LoadAll<Sprite>(backupSpriteName);
+            }
+
+            return arrSprites;
+        }
     }
 }
