@@ -55,20 +55,20 @@ namespace RB
             objComposite.name = "CompositeGround";
             objComposite.layer = (int)LayerType.DEFAULT;
 
-            CompositeCollider2D c2d = objComposite.AddComponent<CompositeCollider2D>();
-            Rigidbody2D r2d = objComposite.GetComponent<Rigidbody2D>();
-            r2d.bodyType = RigidbodyType2D.Static;
-
-            c2d.sharedMaterial = GameInitializer.current.gameDataSO.physicsMaterial_NoFrictionNoBounce;
-            r2d.sharedMaterial = GameInitializer.current.gameDataSO.physicsMaterial_NoFrictionNoBounce;
-
             Ground newGround = objComposite.AddComponent<Ground>();
             newGround.unitData = new UnitData(newGround.transform);
+
+            newGround.unitData.compositeCollider2D = objComposite.AddComponent<CompositeCollider2D>();
+            newGround.unitData.rigidBody2D = objComposite.GetComponent<Rigidbody2D>();
+            newGround.unitData.rigidBody2D.bodyType = RigidbodyType2D.Static;
+
+            newGround.unitData.compositeCollider2D.sharedMaterial = GameInitializer.current.gameDataSO.physicsMaterial_NoFrictionNoBounce;
+            newGround.unitData.rigidBody2D.sharedMaterial = GameInitializer.current.gameDataSO.physicsMaterial_NoFrictionNoBounce;
 
             newGround.unitUpdater = new DefaultUpdater(newGround);
             newGround.unitData.spriteAnimations = new EmptySpriteAnimations();
             newGround.iStateController = new UnitStateController(newGround);
-            newGround.iStateController.SetNewState(new EmptyGroundState());
+            newGround.iStateController.SetNewState(new EmptyGroundState(newGround));
 
             Stage.currentStage.units.AddUnit(newGround);
 

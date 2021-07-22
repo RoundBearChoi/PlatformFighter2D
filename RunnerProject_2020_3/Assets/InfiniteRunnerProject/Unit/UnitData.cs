@@ -19,6 +19,7 @@ namespace RB
         public Transform unitTransform = null;
         public Rigidbody2D rigidBody2D = null;
         public BoxCollider2D boxCollider2D = null;
+        public CompositeCollider2D compositeCollider2D = null;
 
         public CollisionStays collisionStays = new CollisionStays();
         public CollisionEnters collisionEnters = new CollisionEnters();
