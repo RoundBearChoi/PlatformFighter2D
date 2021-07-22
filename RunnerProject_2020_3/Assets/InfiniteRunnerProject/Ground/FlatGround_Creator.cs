@@ -27,7 +27,7 @@ namespace RB
 
             if (arrSprites.Length == 0)
             {
-                ResourceLoader.LoadSpriteByString(GameInitializer.current.swampParallaxSO.Swamp_GroundTile_BackupSpriteName);
+                arrSprites = ResourceLoader.LoadSpriteByString(GameInitializer.current.swampParallaxSO.Swamp_GroundTile_BackupSpriteName);
             }
 
             SpriteRenderer renderer = groundObj.GetComponentInChildren<SpriteRenderer>();
