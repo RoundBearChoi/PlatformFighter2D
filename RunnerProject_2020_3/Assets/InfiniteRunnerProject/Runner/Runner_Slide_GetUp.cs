@@ -8,6 +8,8 @@ namespace RB
     {
         public static SpriteAnimationSpec animationSpec = null;
 
+        //private bool _stepDustCreated = false;
+
         public Runner_Slide_GetUp(Unit unit)
         {
             ownerUnit = unit;
@@ -22,6 +24,23 @@ namespace RB
         public override void OnFixedUpdate()
         {
             FixedUpdateComponents();
+
+            //if (!_stepDustCreated)
+            //{
+            //    _stepDustCreated = true;
+            //
+            //    Vector3 offset = new Vector3(1.15f, 0f, 0f);
+            //    bool faceRight = true;
+            //
+            //    if (!ownerUnit.unitData.facingRight)
+            //    {
+            //        offset *= -1f;
+            //        faceRight = false;
+            //    }
+            //
+            //    BaseMessage showStepDust = new ShowStepDustMessage(faceRight, ownerUnit.transform.position + offset);
+            //    showStepDust.Register();
+            //}
 
             if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().IsOnEnd())
             {

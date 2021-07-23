@@ -24,9 +24,22 @@ namespace RB
         {
             FixedUpdateComponents();
 
+            if (fixedUpdateCount % 20 == 0)
+            {
+                Vector3 offset = new Vector3(1.25f, 0f, 0f);
+
+                if (!ownerUnit.unitData.facingRight)
+                {
+                    offset *= -1f;
+                }
+
+                BaseMessage showSlideDust = new ShowStepDustMessage(true, ownerUnit.transform.position + offset);
+                showSlideDust.Register();
+            }
+
             if (fixedUpdateCount == 0)
             {
-                Vector3 offset = new Vector3(-0.25f, 0f, 0f);
+                Vector3 offset = new Vector3(-0.4f, 0f, 0f);
 
                 if (!ownerUnit.unitData.facingRight)
                 {

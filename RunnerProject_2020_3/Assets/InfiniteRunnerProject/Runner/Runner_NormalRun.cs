@@ -35,7 +35,7 @@ namespace RB
                 if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 3 ||
                     ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 7)
                 {
-                    BaseMessage showStepDust = new ShowStepDustMessage(false, ownerUnit.transform.position - new Vector3(ownerUnit.transform.right.x * 1f, 0f, 0f));
+                    BaseMessage showStepDust = new ShowStepDustMessage(false, ownerUnit.transform.position - new Vector3(ownerUnit.transform.right.x * 0.8f, 0f, 0f));
                     showStepDust.Register();
                 }
             }
