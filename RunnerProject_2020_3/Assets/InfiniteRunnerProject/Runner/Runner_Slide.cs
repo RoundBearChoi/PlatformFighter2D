@@ -11,6 +11,7 @@ namespace RB
         public Runner_Slide(Unit unit)
         {
             ownerUnit = unit;
+            _listStateComponents.Add(new UpdateCollider2DSize(ownerUnit, new Vector2(0.8f, 2f)));
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

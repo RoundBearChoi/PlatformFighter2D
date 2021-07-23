@@ -16,6 +16,7 @@ namespace RB
             _listStateComponents.Add(new NormalRunToFall(ownerUnit));
             _listStateComponents.Add(new LerpRunSpeedOnFlatGround(ownerUnit, 3.5f, 0.1f));
             _listStateComponents.Add(new NormalRun_OnUserInput(ownerUnit));
+            _listStateComponents.Add(new UpdateCollider2DSize(ownerUnit, new Vector2(0.8f, 3.4f)));
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
