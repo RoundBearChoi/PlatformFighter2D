@@ -74,6 +74,7 @@ namespace RB
             UpdateKeyPress(keyboard.spaceKey);
 
             UpdateButtonPress(mouse.leftButton);
+            UpdateButtonPress(mouse.rightButton);
         }
 
         public bool ContainsKeyPress(KeyControl keyControl)

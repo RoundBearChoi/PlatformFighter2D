@@ -15,6 +15,7 @@ namespace RB
 
             _listStateComponents.Add(new LerpRunSpeedOnFlatGround(ownerUnit, 2f, 0.05f));
             _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, GameInitializer.current.runner_AttackA_OverlapBoxSO.listSpecs));
+            _listStateComponents.Add(new TransitionStateOnEnd(ownerUnit, new Runner_Idle(ownerUnit)));
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
@@ -34,12 +35,9 @@ namespace RB
 
             FixedUpdateComponents();
 
-            if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().IsOnEnd())
+            if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 3)
             {
-                if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
-                {
-                    ownerUnit.unitData.listNextStates.Add(new Runner_NormalRun(ownerUnit));
-                }
+                int n = 0;
             }
         }
     }

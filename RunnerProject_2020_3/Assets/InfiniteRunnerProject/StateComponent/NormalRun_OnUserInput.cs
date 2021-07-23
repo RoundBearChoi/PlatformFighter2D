@@ -24,6 +24,10 @@ namespace RB
 
                 _unit.unitData.listNextStates.Add(new Runner_AttackA_Dash(_unit));
             }
+            else if (Stage.currentStage.USER_INPUT.ContainsButtonPress(UserInput.mouse.rightButton))
+            {
+                _unit.unitData.listNextStates.Add(new Runner_AttackB(_unit));
+            }
         }
     }
 }
