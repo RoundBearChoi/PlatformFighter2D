@@ -6,7 +6,7 @@ namespace RB
 {
     public class Runner_AttackB : UnitState
     {
-        private bool _dustCreated = false;
+        //private bool _dustCreated = false;
         public static SpriteAnimationSpec animationSpec = null;
 
         public Runner_AttackB(Unit unit)

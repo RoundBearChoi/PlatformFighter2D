@@ -35,10 +35,8 @@ namespace RB
                 if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 3 ||
                     ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 7)
                 {
-                    Stage.currentStage.InstantiateUnit_ByUnitType(UnitType.STEP_DUST);
-                    Unit dust = Units.instance.GetUnit<StepDust>();
-                    dust.transform.position = ownerUnit.transform.position - new Vector3(ownerUnit.transform.right.x * 1f, 0f, 0f);
-                    dust.unitData.facingRight = false;
+                    BaseMessage showStepDust = new ShowStepDustMessage(false, ownerUnit.transform.position - new Vector3(ownerUnit.transform.right.x * 1f, 0f, 0f));
+                    showStepDust.Register();
                 }
             }
         }

@@ -60,6 +60,13 @@ namespace RB
                     Unit dashDust = Units.instance.GetUnit<DashDust>();
                     dashDust.transform.position = message.GetVector3Message();
                 }
+                else if (message.MESSAGE_TYPE == MessageType.SHOW_STEP_DUST)
+                {
+                    Stage.currentStage.InstantiateUnit_ByUnitType(UnitType.STEP_DUST);
+                    Unit stepDust = Units.instance.GetUnit<StepDust>();
+                    stepDust.transform.position = message.GetVector3Message();
+                    stepDust.unitData.facingRight = message.GetBoolMessage();
+                }
             }
         }
     }
