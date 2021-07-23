@@ -35,9 +35,12 @@ namespace RB
 
             FixedUpdateComponents();
 
-            if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 3)
+            if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 1)
             {
-                int n = 0;
+                if (Stage.currentStage.USER_INPUT.ContainsButtonPress(UserInput.mouse.rightButton))
+                {
+                    ownerUnit.unitData.listNextStates.Add(new Runner_AttackB(ownerUnit));
+                }
             }
         }
     }
