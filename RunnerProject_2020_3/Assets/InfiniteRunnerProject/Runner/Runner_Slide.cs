@@ -24,6 +24,19 @@ namespace RB
         {
             FixedUpdateComponents();
 
+            if (fixedUpdateCount == 0)
+            {
+                Vector3 offset = new Vector3(-0.25f, 0f, 0f);
+
+                if (!ownerUnit.unitData.facingRight)
+                {
+                    offset *= -1f;
+                }
+
+                BaseMessage showSlideDust = new ShowSlideDust_Message(true, ownerUnit.transform.position + offset);
+                showSlideDust.Register();
+            }
+
             if (fixedUpdateCount > 20)
             {
                 if (ownerUnit.unitData.rigidBody2D.velocity.x < 1.25f)

@@ -4,16 +4,16 @@ using UnityEngine;
 
 namespace RB
 {
-    public class ShowBloodMessage : BaseMessage
+    public class ShowSlideDust_Message : BaseMessage
     {
         bool _faceRightSide = true;
         Vector3 _position;
 
-        public ShowBloodMessage(bool faceRightSide, Vector3 position)
+        public ShowSlideDust_Message(bool faceRightSide, Vector3 position)
         {
             _faceRightSide = faceRightSide;
             _position = position;
-            mMessageType = MessageType.SHOW_BLOOD;
+            mMessageType = MessageType.SHOW_SLIDE_DUST;
         }
 
         public override void Register()

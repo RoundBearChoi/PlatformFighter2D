@@ -67,6 +67,13 @@ namespace RB
                     stepDust.transform.position = message.GetVector3Message();
                     stepDust.unitData.facingRight = message.GetBoolMessage();
                 }
+                else if (message.MESSAGE_TYPE == MessageType.SHOW_SLIDE_DUST)
+                {
+                    Stage.currentStage.InstantiateUnit_ByUnitType(UnitType.SLIDE_DUST);
+                    Unit slideDust = Units.instance.GetUnit<SlideDust>();
+                    slideDust.transform.position = message.GetVector3Message();
+                    slideDust.unitData.facingRight = message.GetBoolMessage();
+                }
             }
         }
     }
