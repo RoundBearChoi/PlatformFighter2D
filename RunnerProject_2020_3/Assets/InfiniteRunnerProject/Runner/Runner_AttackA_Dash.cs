@@ -44,6 +44,9 @@ namespace RB
                     if (collidingUnit != null)
                     {
                         Debugger.Log("colliding against unit: " + collidingUnit.gameObject.name);
+
+                        BaseMessage winceMessage = new WinceMessage(ownerUnit);
+                        winceMessage.Register();
                     }
                 }
             }
