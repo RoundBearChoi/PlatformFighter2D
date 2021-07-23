@@ -19,5 +19,18 @@ namespace RB
         {
             _listMessages.Clear();
         }
+
+        public virtual bool Contains(MessageType messageType)
+        {
+            foreach(BaseMessage message in _listMessages)
+            {
+                if (message.MESSAGE_TYPE == messageType)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

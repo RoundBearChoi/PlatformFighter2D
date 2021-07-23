@@ -11,6 +11,7 @@ namespace RB
         public Golem_Wincing(Unit unit)
         {
             ownerUnit = unit;
+            noHitStopAllowed = true;
 
             _listStateComponents.Add(new InitialPushBack(ownerUnit, new Vector2(3.5f, 2.75f)));
             _listStateComponents.Add(new InitialTextGUIMaterial(ownerUnit, 8));

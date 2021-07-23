@@ -9,9 +9,19 @@ namespace RB
         public uint fixedUpdateCount = 0;
         
         public Unit ownerUnit = null;
+
+        protected bool noHitStopAllowed = false;
         protected List<StateComponent> _listStateComponents = new List<StateComponent>();
 
         public abstract SpriteAnimationSpec GetSpriteAnimationSpec();
+
+        public bool NO_HITSTOP_ALLOWED
+        {
+            get
+            {
+                return noHitStopAllowed;
+            }
+        }
 
         public virtual void OnEnter()
         {

@@ -38,12 +38,20 @@ namespace RB
             }
             else
             {
-                if (_unit.unitData.rigidBody2D != null)
+                //cancel hitstop when taking damage (wincing)
+                if (_unit.iStateController.GetCurrentState().NO_HITSTOP_ALLOWED)
                 {
-                    _unit.unitData.rigidBody2D.Sleep();
+                    _totalHitStopFrames = 0;
                 }
+                else
+                {
+                    if (_unit.unitData.rigidBody2D != null)
+                    {
+                        _unit.unitData.rigidBody2D.Sleep();
+                    }
 
-                _totalHitStopFrames--;
+                    _totalHitStopFrames--;
+                }
             }
         }
 

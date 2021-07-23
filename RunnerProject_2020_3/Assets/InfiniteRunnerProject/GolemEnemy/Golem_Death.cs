@@ -12,6 +12,7 @@ namespace RB
         {
             ownerUnit = unit;
             ownerUnit.gameObject.layer = (int)LayerType.DEAD_UNIT;
+            noHitStopAllowed = true;
 
             _listStateComponents.Add(new InitialTextGUIMaterial(ownerUnit, 8));
         }
