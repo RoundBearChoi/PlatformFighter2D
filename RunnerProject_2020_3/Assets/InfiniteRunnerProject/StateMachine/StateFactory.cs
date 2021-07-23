@@ -52,6 +52,11 @@ namespace RB
             unit.iStateController.SetNewState(new DashDust_DefaultState(unit));
         }
 
+        public void New_SlideDust(Unit unit)
+        {
+            unit.iStateController.SetNewState(new SlideDust_DefaultState(unit));
+        }
+
         public void New_Blood_5(Unit unit)
         {
             unit.iStateController.SetNewState(new Blood_5_DefaultState(unit));
