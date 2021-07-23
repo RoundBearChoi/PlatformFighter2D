@@ -68,6 +68,9 @@ namespace RB
         {
             UpdateKeyPress(keyboard.upArrowKey);
             UpdateKeyPress(keyboard.downArrowKey);
+
+            UpdateKeyPress(keyboard.sKey);
+
             UpdateKeyPress(keyboard.f5Key);
             UpdateKeyPress(keyboard.f6Key);
             UpdateKeyPress(keyboard.f10Key);

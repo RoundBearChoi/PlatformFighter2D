@@ -17,6 +17,10 @@ namespace RB
             {
                 _unit.unitData.listNextStates.Add(new Runner_Jump_Up(_unit));
             }
+            else if (Stage.currentStage.USER_INPUT.ContainsKeyPress(UserInput.keyboard.sKey))
+            {
+                _unit.unitData.listNextStates.Add(new Runner_Slide(_unit));
+            }
             else if (Stage.currentStage.USER_INPUT.ContainsButtonPress(UserInput.mouse.leftButton))
             {
                 BaseMessage showDashDust = new ShowDashDustMessage(true, _unit.transform.position);
