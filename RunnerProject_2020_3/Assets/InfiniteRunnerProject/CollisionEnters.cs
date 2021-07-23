@@ -4,26 +4,14 @@ using UnityEngine;
 
 namespace RB
 {
-    public class CollisionEnters
+    public class CollisionEnters : Collisions
     {
-        private List<CollisionData> _listCollisionEnters = new List<CollisionData>();
-
-        public void Clear()
-        {
-            _listCollisionEnters.Clear();
-        }
-
-        public void Add(CollisionData collisionData)
-        {
-            _listCollisionEnters.Add(collisionData);
-        }
-
-        public CollisionReaction GetReactionData()
+        public override CollisionReaction GetReactionData()
         {
             CollisionReaction takeDamage = new CollisionReaction(CollisionReactionType.NONE, null);
             CollisionReaction dealDamage = new CollisionReaction(CollisionReactionType.NONE, null);
 
-            foreach (CollisionData data in _listCollisionEnters)
+            foreach (CollisionData data in _listCollisionData)
             {
                 if (data.collidingObject == null)
                 {

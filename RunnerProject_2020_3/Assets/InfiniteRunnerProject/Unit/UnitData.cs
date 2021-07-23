@@ -21,8 +21,8 @@ namespace RB
         public BoxCollider2D boxCollider2D = null;
         public CompositeCollider2D compositeCollider2D = null;
 
-        public CollisionStays collisionStays = new CollisionStays();
-        public CollisionEnters collisionEnters = new CollisionEnters();
+        public Collisions collisionStays = new CollisionStays();
+        public Collisions collisionEnters = new CollisionEnters();
 
         public ISpriteAnimations spriteAnimations = null;
 

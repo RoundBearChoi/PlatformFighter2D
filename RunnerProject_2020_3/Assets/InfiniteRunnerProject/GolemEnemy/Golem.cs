@@ -21,8 +21,8 @@ namespace RB
             unitUpdater.CustomFixedUpdate();
 
             //only clear after updating states
-            unitData.collisionStays.Clear();
-            unitData.collisionEnters.Clear();
+            unitData.collisionStays.ClearList();
+            unitData.collisionEnters.ClearList();
         }
 
         public void OnCollisionEnter2D(Collision2D collision)
@@ -31,7 +31,7 @@ namespace RB
             {
                 CollisionType collisionType = _collisionChecker.GetCollisionType(contactPoint);
                 CollisionData collisionData = new CollisionData(collisionType, collision.gameObject, contactPoint);
-                unitData.collisionEnters.Add(collisionData);
+                unitData.collisionEnters.AddCollisionData(collisionData);
             }
         }
 
@@ -42,7 +42,7 @@ namespace RB
                 CollisionType collisionType = _collisionChecker.GetCollisionType(contactPoint);
                 CollisionData collisionData = new CollisionData(collisionType, collision.gameObject, contactPoint);
 
-                unitData.collisionStays.AddCollisionStay(collisionData);
+                unitData.collisionStays.AddCollisionData(collisionData);
             }
         }
     }

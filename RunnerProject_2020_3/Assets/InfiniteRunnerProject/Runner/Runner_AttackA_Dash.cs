@@ -35,6 +35,17 @@ namespace RB
             if (fixedUpdateCount <= GameInitializer.current.gameDataSO.DashFixedUpdateCount)
             {
                 ownerUnit.unitData.rigidBody2D.velocity = new Vector2(force, 0f);
+
+                List<CollisionData> listCollidingUnits = ownerUnit.unitData.collisionEnters.GetSideCollisionData();
+
+                foreach (CollisionData c in listCollidingUnits)
+                {
+                    Unit collidingUnit = c.collidingObject.GetComponent<Unit>();
+                    if (collidingUnit != null)
+                    {
+                        Debugger.Log("colliding against unit: " + collidingUnit.gameObject.name);
+                    }
+                }
             }
             else
             {
