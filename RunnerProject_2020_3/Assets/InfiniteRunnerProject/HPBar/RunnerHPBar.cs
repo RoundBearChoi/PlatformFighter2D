@@ -21,7 +21,7 @@ namespace RB
 
         public override void InitElement()
         {
-            RunnerHPUpdateMessage.uiElement = this;
+            UpdateRunnerHP_Message.uiElement = this;
         }
 
         public void UpdateRedBar(float hpPercentage)

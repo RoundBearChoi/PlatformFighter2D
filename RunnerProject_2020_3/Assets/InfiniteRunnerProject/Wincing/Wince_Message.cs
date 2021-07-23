@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace RB
 {
-    public class WinceMessage : BaseMessage
+    public class Wince_Message : BaseMessage
     {
         private Unit _receiverUnit = null;
 
-        public WinceMessage(Unit receiverUnit)
+        public Wince_Message(Unit receiverUnit)
         {
             _receiverUnit = receiverUnit;
             mMessageType = MessageType.WINCE;

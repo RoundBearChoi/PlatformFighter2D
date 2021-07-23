@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace RB
 {
-    public class ParryEffectMessage : BaseMessage
+    public class ShowParryEffect_Message : BaseMessage
     {
         Vector3 _position;
 
-        public ParryEffectMessage(Vector3 position)
+        public ShowParryEffect_Message(Vector3 position)
         {
             _position = position;
             mMessageType = MessageType.SHOW_PARRY_EFFECT;

@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace RB
 {
-    public class ShowDashDustMessage : BaseMessage
+    public class ShowDashDust_Message : BaseMessage
     {
         bool _faceRightSide = true;
         Vector3 _position;
 
-        public ShowDashDustMessage(bool faceRightSide, Vector3 position)
+        public ShowDashDust_Message(bool faceRightSide, Vector3 position)
         {
             _faceRightSide = faceRightSide;
             _position = position;

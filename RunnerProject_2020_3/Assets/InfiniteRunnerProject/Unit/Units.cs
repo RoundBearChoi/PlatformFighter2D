@@ -89,7 +89,7 @@ namespace RB
             {
                 if (_listUnits[i].unitData.hp <= 0)
                 {
-                    BaseMessage zeroHealthMessage = new ZeroHealthMessage(_listUnits[i]);
+                    BaseMessage zeroHealthMessage = new ZeroHealth_Message(_listUnits[i]);
                     zeroHealthMessage.Register();
                 }
             }

@@ -49,17 +49,17 @@ namespace RB
 
                                     if (_currentHitCount <= specs.mMaxHits)
                                     {
-                                        BaseMessage winceMessage = new WinceMessage(collidingUnit);
+                                        BaseMessage winceMessage = new Wince_Message(collidingUnit);
                                         winceMessage.Register();
 
-                                        BaseMessage attackerHitStop = new HitStopMessage(specs.mStopFrames, _unit.unitType);
+                                        BaseMessage attackerHitStop = new HitStop_Message(specs.mStopFrames, _unit.unitType);
                                         attackerHitStop.Register();
 
                                         Vector2 closest = col.ClosestPoint(centerPoint);
                                         BaseMessage showBloodMessage = new ShowBlood_Message(_unit.unitData.facingRight, new Vector3(closest.x, closest.y, -0.5f));
                                         showBloodMessage.Register();
 
-                                        BaseMessage showParryEffectMessage = new ParryEffectMessage(new Vector3(closest.x, closest.y, -0.5f));
+                                        BaseMessage showParryEffectMessage = new ShowParryEffect_Message(new Vector3(closest.x, closest.y, -0.5f));
                                         showParryEffectMessage.Register();
 
                                         BaseMessage shakeCam = new ShakeCameraOnTargetMessage(7);

@@ -42,7 +42,7 @@ namespace RB
         {
             unitUpdater.CustomLateUpdate();
 
-            BaseMessage runnerHPUpdate = new RunnerHPUpdateMessage(unitData.hp, unitData.initialHP);
+            BaseMessage runnerHPUpdate = new UpdateRunnerHP_Message(unitData.hp, unitData.initialHP);
             runnerHPUpdate.Register();
         }
 

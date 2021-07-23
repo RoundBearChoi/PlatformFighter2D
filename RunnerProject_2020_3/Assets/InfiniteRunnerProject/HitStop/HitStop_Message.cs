@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace RB
 {
-    public class HitStopMessage : BaseMessage
+    public class HitStop_Message : BaseMessage
     {
         uint _totalHitStopFrames = 0;
         UnitType _targetUnitType = UnitType.NONE;
 
-        public HitStopMessage(uint totalHitStopFrames, UnitType targetUnitType)
+        public HitStop_Message(uint totalHitStopFrames, UnitType targetUnitType)
         {
             _totalHitStopFrames = totalHitStopFrames;
             mMessageType = MessageType.HITSTOP_REGISTER;

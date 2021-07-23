@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class RunnerHPUpdateMessage : BaseMessage
+    public class UpdateRunnerHP_Message : BaseMessage
     {
         public static UIElement uiElement = null;
 
@@ -12,7 +12,7 @@ namespace RB
         private uint _totalHP = 1;
         private float _hpPercentage = 0f;
 
-        public RunnerHPUpdateMessage(uint currentHP, uint totalHP)
+        public UpdateRunnerHP_Message(uint currentHP, uint totalHP)
         {
             _currentHP = currentHP;
             _totalHP = totalHP;
