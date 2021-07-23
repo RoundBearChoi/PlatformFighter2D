@@ -25,16 +25,16 @@ namespace RB
 
             ownerUnit.unitData.rigidBody2D.mass = 0.001f;
 
-            float force = 100f;
+            float force = GameInitializer.current.gameDataSO.DashForcePerFixedUpdate;
 
             if (!ownerUnit.unitData.facingRight)
             {
                 force *= -1f;
             }
 
-            if (fixedUpdateCount <= 2)
+            if (fixedUpdateCount <= GameInitializer.current.gameDataSO.DashFixedUpdateCount)
             {
-                ownerUnit.unitData.rigidBody2D.velocity = new Vector2(100f, 0f);
+                ownerUnit.unitData.rigidBody2D.velocity = new Vector2(force, 0f);
             }
             else
             {

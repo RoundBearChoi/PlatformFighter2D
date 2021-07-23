@@ -19,5 +19,7 @@ namespace RB
         public float RunnerCamFollowLimitY = 0f;
         public float DefaultFallDeathY = 0f;
         public int InitialFlatGroundCount = 0;
+        public int DashFixedUpdateCount = 0;
+        public float DashForcePerFixedUpdate = 0;
     }
 }
