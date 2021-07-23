@@ -13,6 +13,7 @@ namespace RB
         {
             ownerUnit = unit;
 
+            _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, GameInitializer.current.runner_AttackB_OverlapBoxSO.listSpecs));
             _listStateComponents.Add(new LerpRunSpeedOnFlatGround(ownerUnit, 0f, 0.1f));
             _listStateComponents.Add(new TransitionStateOnEnd(ownerUnit, new Runner_NormalRun(ownerUnit)));
         }

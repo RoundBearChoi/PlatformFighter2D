@@ -20,6 +20,7 @@ namespace RB
 
         [Space(15)]
         public OverlapBoxCollisionData runner_AttackA_OverlapBoxSO;
+        public OverlapBoxCollisionData runner_AttackB_OverlapBoxSO;
         public OverlapBoxCollisionData golem_Attack_OverlapBoxSO;
 
         public SpecsGetter specsGetter = null;
