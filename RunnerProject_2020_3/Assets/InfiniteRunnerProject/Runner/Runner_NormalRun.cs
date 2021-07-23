@@ -25,6 +25,8 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
+            ownerUnit.unitData.rigidBody2D.mass = 0.2f;
+
             FixedUpdateComponents();
 
             if (fixedUpdateCount != 0 && fixedUpdateCount % animationSpec.spriteInterval == 0)

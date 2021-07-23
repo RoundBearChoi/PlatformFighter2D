@@ -21,9 +21,9 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            FixedUpdateComponents();
-
             ownerUnit.unitData.rigidBody2D.mass = 0.001f;
+
+            FixedUpdateComponents();
 
             float force = GameInitializer.current.gameDataSO.DashForcePerFixedUpdate;
 
@@ -36,19 +36,19 @@ namespace RB
             {
                 ownerUnit.unitData.rigidBody2D.velocity = new Vector2(force, 0f);
 
-                List<CollisionData> listCollidingUnits = ownerUnit.unitData.collisionEnters.GetSideCollisionData();
-
-                foreach (CollisionData c in listCollidingUnits)
-                {
-                    Unit collidingUnit = c.collidingObject.GetComponent<Unit>();
-                    if (collidingUnit != null)
-                    {
-                        Debugger.Log("colliding against unit: " + collidingUnit.gameObject.name);
-
-                        BaseMessage winceMessage = new WinceMessage(ownerUnit);
-                        winceMessage.Register();
-                    }
-                }
+                //List<CollisionData> listCollidingUnits = ownerUnit.unitData.collisionEnters.GetSideCollisionData();
+                //
+                //foreach (CollisionData c in listCollidingUnits)
+                //{
+                //    Unit collidingUnit = c.collidingObject.GetComponent<Unit>();
+                //    if (collidingUnit != null)
+                //    {
+                //        Debugger.Log("colliding against unit: " + collidingUnit.gameObject.name);
+                //
+                //        BaseMessage winceMessage = new WinceMessage(ownerUnit);
+                //        winceMessage.Register();
+                //    }
+                //}
             }
             else
             {
