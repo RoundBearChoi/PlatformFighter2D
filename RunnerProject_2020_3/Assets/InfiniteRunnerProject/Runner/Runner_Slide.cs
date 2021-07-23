@@ -8,6 +8,8 @@ namespace RB
     {
         public static SpriteAnimationSpec animationSpec = null;
 
+        float _speedMultiplier = 1.8f;
+
         public Runner_Slide(Unit unit)
         {
             ownerUnit = unit;
@@ -23,6 +25,12 @@ namespace RB
         public override void OnFixedUpdate()
         {
             FixedUpdateComponents();
+
+            if (_speedMultiplier > 0f)
+            {
+                ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x * _speedMultiplier, ownerUnit.unitData.rigidBody2D.velocity.y);
+                _speedMultiplier = 0f;
+            }
 
             if (fixedUpdateCount % 20 == 0)
             {
@@ -52,7 +60,7 @@ namespace RB
 
             if (fixedUpdateCount > 20)
             {
-                if (ownerUnit.unitData.rigidBody2D.velocity.x < 1.25f)
+                if (ownerUnit.unitData.rigidBody2D.velocity.x < 2f)
                 {
                     ownerUnit.unitData.listNextStates.Add(new Runner_Slide_GetUp(ownerUnit));
                 }
