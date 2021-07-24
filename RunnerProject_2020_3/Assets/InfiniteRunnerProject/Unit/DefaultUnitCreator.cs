@@ -53,12 +53,6 @@ namespace RB
             if (spec != null)
             {
                 unit.unitData.spriteAnimations.AddSpriteAnimation(spec, unit.transform);
-
-                foreach (AdditionalInterval additionalInterval in spec.additionalIntervals)
-                {
-                    unit.unitData.spriteAnimations.GetLastSpriteAnimation().AddAdditionalInterval(additionalInterval);
-                }
-
                 spec.setCorrespondingState.Invoke(spec);
             }
         }

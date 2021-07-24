@@ -10,7 +10,6 @@ namespace RB
         SpriteRenderer spriteRenderer = null;
 
         //serialized for debugging
-        [SerializeField] List<AdditionalInterval> _listAdditionalIntervals = new List<AdditionalInterval>();
         [SerializeField] uint _updateCount = 0;
         [SerializeField] int _spriteIndex = 0;
 
@@ -79,41 +78,6 @@ namespace RB
             spriteRenderer.transform.localPosition += new Vector3(spec.additionalOffset.x, spec.additionalOffset.y, 0f);
         }
         
-        public void AddAdditionalInterval(AdditionalInterval interval)
-        {
-            _listAdditionalIntervals.Add(interval);
-        }
-
-        public bool ProcessingAdditionalInterval()
-        {
-            foreach (AdditionalInterval interval in _listAdditionalIntervals)
-            {
-                if (_spriteIndex == interval.TARGET_SPRITE_INDEX)
-                {
-                    interval.ProcessInterval();
-
-                    if (interval.LEFTOVER_INTERVALS > 0)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-            }
-
-            return false;
-        }
-
-        public void ResetAdditionalIntervals()
-        {
-            foreach (AdditionalInterval interval in _listAdditionalIntervals)
-            {
-                interval.ResetCount();
-            }
-        }
-
         public void UpdateSpriteIndex()
         {
             if (_updateCount != 0 && _updateCount % animationSpec.spriteInterval == 0)
@@ -124,9 +88,6 @@ namespace RB
                 {
                     _spriteIndex = 0;
                 }
-
-                //only reset after going to next index
-                ResetAdditionalIntervals();
             }
 
             _updateCount++;

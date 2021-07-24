@@ -16,10 +16,6 @@ namespace RB
         public Vector2 additionalOffset;
         public bool playOnce;
 
-        [Space(15)]
-
-        public List<AdditionalInterval> additionalIntervals = new List<AdditionalInterval>();
-
         [Space(10)]
         public SetStateAnimation_Event setCorrespondingState;
     }
