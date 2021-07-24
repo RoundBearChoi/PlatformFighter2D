@@ -13,11 +13,14 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (Stage.currentStage.USER_INPUT.ContainsKeyPress(UserInput.keyboard.spaceKey))
+            //press
+            if (Stage.currentStage.USER_INPUT.ContainsKeyPress(UserInput.keyboard.spaceKey) ||
+                Stage.currentStage.USER_INPUT.ContainsKeyHold(UserInput.keyboard.spaceKey))
             {
                 _unit.unitData.listNextStates.Add(new Runner_Jump_Up(_unit));
             }
-            else if (Stage.currentStage.USER_INPUT.ContainsKeyPress(UserInput.keyboard.sKey))
+            else if (Stage.currentStage.USER_INPUT.ContainsKeyPress(UserInput.keyboard.sKey) ||
+                Stage.currentStage.USER_INPUT.ContainsKeyHold(UserInput.keyboard.sKey))
             {
                 _unit.unitData.listNextStates.Add(new Runner_Slide(_unit));
             }
