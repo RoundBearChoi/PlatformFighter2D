@@ -8,9 +8,9 @@ namespace RB
     public class GameData : ScriptableObject
     {
         public Vector2 Runner_JumpUp_StartForce = new Vector2();
+        public float JumpPullPercentagePerFixedUpdate = 0f;
 
-        public AnimationCurve JumpPull;
-        public AnimationCurve JumpFall;
+        [Space(15)]
 
         public PhysicsMaterial2D physicsMaterial_NoFrictionNoBounce = null;
 
@@ -19,6 +19,7 @@ namespace RB
         public float RunnerCamFollowLimitY = 0f;
         public float DefaultFallDeathY = 0f;
         public int InitialFlatGroundCount = 0;
+        
         public int DashFixedUpdateCount = 0;
         public float DashForcePerFixedUpdate = 0;
     }

@@ -7,6 +7,7 @@ namespace RB
     public class Runner_Jump_Up : UnitState
     {
         public static SpriteAnimationSpec animationSpec = null;
+        private bool _startPullDown = false;
 
         public Runner_Jump_Up(Unit unit)
         {
@@ -25,18 +26,36 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
+
+            FixedUpdateComponents();
+
+            if (!_startPullDown)
+            {
+                if (!Stage.currentStage.USER_INPUT.ContainsKeyHold(UserInput.keyboard.spaceKey))
+                {
+                    _startPullDown = true;
+                }
+            }
+            else
+            {
+                if (ownerUnit.unitData.rigidBody2D.velocity.y > 0f)
+                {
+                    float y = Mathf.Lerp(ownerUnit.unitData.rigidBody2D.velocity.y, 0f, GameInitializer.current.gameDataSO.JumpPullPercentagePerFixedUpdate);
+                    ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x, y);
+                }
+            }
+
             if (fixedUpdateCount == 0)
             {
                 BaseMessage jumpDustMessage = new ShowJumpDust_Message(true, ownerUnit.transform.position);
                 jumpDustMessage.Register();
             }
 
-            if (ownerUnit.unitData.rigidBody2D.velocity.y < 0f && fixedUpdateCount >= 2)
+            if (ownerUnit.unitData.rigidBody2D.velocity.y <= 0f && fixedUpdateCount >= 2)
             {
                 ownerUnit.unitData.listNextStates.Add(new Runner_Jump_Fall(ownerUnit));
             }
 
-            FixedUpdateComponents();
         }
 
         public override void OnLateUpdate()
