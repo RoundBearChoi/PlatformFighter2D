@@ -74,6 +74,13 @@ namespace RB
                     slideDust.transform.position = message.GetVector3Message();
                     slideDust.unitData.facingRight = message.GetBoolMessage();
                 }
+                else if (message.MESSAGE_TYPE == MessageType.SHOW_JUMP_DUST)
+                {
+                    Stage.currentStage.InstantiateUnit_ByUnitType(UnitType.JUMP_DUST);
+                    Unit slideDust = Units.instance.GetUnit<JumpDust>();
+                    slideDust.transform.position = message.GetVector3Message();
+                    slideDust.unitData.facingRight = message.GetBoolMessage();
+                }
             }
         }
     }

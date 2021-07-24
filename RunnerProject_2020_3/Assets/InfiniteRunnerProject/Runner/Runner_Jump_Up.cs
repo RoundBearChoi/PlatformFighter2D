@@ -25,6 +25,12 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
+            if (fixedUpdateCount == 0)
+            {
+                BaseMessage jumpDustMessage = new ShowJumpDust_Message(true, ownerUnit.transform.position);
+                jumpDustMessage.Register();
+            }
+
             if (ownerUnit.unitData.rigidBody2D.velocity.y < 0f && fixedUpdateCount >= 2)
             {
                 ownerUnit.unitData.listNextStates.Add(new Runner_Jump_Fall(ownerUnit));

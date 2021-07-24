@@ -8,7 +8,7 @@ namespace RB
     {
         public static SpriteAnimationSpec animationSpec = null;
 
-        float _speedMultiplier = 1.8f;
+        float _speedMultiplier = 1.6f;
 
         public Runner_Slide(Unit unit)
         {

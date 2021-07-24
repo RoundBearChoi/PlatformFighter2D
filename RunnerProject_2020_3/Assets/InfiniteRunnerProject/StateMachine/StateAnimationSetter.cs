@@ -126,6 +126,10 @@ namespace RB
         {
             SlideDust_DefaultState.animationSpec = spec;
         }
+        public void State_JumpDust_DefaultState(SpriteAnimationSpec spec)
+        {
+            JumpDust_DefaultState.animationSpec = spec;
+        }
 
         public void State_Blood_5_DefaultState(SpriteAnimationSpec spec)
         {

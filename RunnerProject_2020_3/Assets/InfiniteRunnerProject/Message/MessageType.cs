@@ -28,5 +28,6 @@ namespace RB
         SHOW_DASH_DUST = 701,
         SHOW_STEP_DUST = 702,
         SHOW_SLIDE_DUST = 703,
+        SHOW_JUMP_DUST = 704,
     }
 }

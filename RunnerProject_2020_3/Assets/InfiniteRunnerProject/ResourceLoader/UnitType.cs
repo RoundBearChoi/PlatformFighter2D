@@ -17,6 +17,7 @@ namespace RB
         STEP_DUST = 302,
         DASH_DUST = 303,
         SLIDE_DUST = 304,
+        JUMP_DUST = 305,
 
         SWAMP = 400,
 
