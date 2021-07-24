@@ -7,7 +7,7 @@ namespace RB
     public class SpriteAnimation : MonoBehaviour
     {
         List<Sprite> _listSprites = new List<Sprite>();
-        SpriteRenderer spriteRenderer = null;
+        SpriteRenderer _spriteRenderer = null;
 
         //serialized for debugging
         [SerializeField] uint _updateCount = 0;
@@ -35,7 +35,7 @@ namespace RB
         {
             get
             {
-                return spriteRenderer;
+                return _spriteRenderer;
             }
         }
 
@@ -50,32 +50,32 @@ namespace RB
                 _listSprites.Add(spr);
             }
 
-            spriteRenderer = this.gameObject.AddComponent<SpriteRenderer>();
+            _spriteRenderer = this.gameObject.AddComponent<SpriteRenderer>();
 
             float xScale = spec.spriteSize.x / _listSprites[0].bounds.size.x;
             float yScale = spec.spriteSize.y / _listSprites[0].bounds.size.y;
 
-            spriteRenderer.transform.localScale = new Vector2(xScale, yScale);
+            _spriteRenderer.transform.localScale = new Vector2(xScale, yScale);
 
             //other pivots should be defined as well
             if (spec.offsetType == OffsetType.BOTTOM_CENTER)
             {
-                spriteRenderer.transform.localPosition = new Vector3(0f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);
+                _spriteRenderer.transform.localPosition = new Vector3(0f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);
             }
             else if (spec.offsetType == OffsetType.BOTTOM_LEFT)
             {
-                spriteRenderer.transform.localPosition = new Vector3(_listSprites[0].bounds.size.x * xScale * 0.5f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);
+                _spriteRenderer.transform.localPosition = new Vector3(_listSprites[0].bounds.size.x * xScale * 0.5f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);
             }
             else if (spec.offsetType == OffsetType.CENTER_LEFT)
             {
-                spriteRenderer.transform.localPosition = new Vector3(_listSprites[0].bounds.size.x * xScale * 0.5f, 0f, 0f);
+                _spriteRenderer.transform.localPosition = new Vector3(_listSprites[0].bounds.size.x * xScale * 0.5f, 0f, 0f);
             }
             else if (spec.offsetType == OffsetType.CENTER_RIGHT)
             {
-                spriteRenderer.transform.localPosition = new Vector3(-_listSprites[0].bounds.size.x * xScale * 0.5f, 0f, 0f);
+                _spriteRenderer.transform.localPosition = new Vector3(-_listSprites[0].bounds.size.x * xScale * 0.5f, 0f, 0f);
             }
 
-            spriteRenderer.transform.localPosition += new Vector3(spec.additionalOffset.x, spec.additionalOffset.y, 0f);
+            _spriteRenderer.transform.localPosition += new Vector3(spec.additionalOffset.x, spec.additionalOffset.y, 0f);
         }
         
         public void UpdateSpriteIndex()
@@ -113,7 +113,7 @@ namespace RB
 
         public void UpdateSpriteOnIndex()
         {
-            spriteRenderer.sprite = _listSprites[_spriteIndex];
+            _spriteRenderer.sprite = _listSprites[_spriteIndex];
         }
 
         public void ResetSpriteIndex()
