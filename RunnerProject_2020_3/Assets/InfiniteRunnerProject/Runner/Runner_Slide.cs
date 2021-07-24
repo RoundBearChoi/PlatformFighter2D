@@ -60,9 +60,13 @@ namespace RB
 
             if (fixedUpdateCount > 20)
             {
-                if (ownerUnit.unitData.rigidBody2D.velocity.x < 2f)
+                //getup if down ISN'T held
+                if (!Stage.currentStage.USER_INPUT.ContainsKeyHold(UserInput.keyboard.sKey))
                 {
-                    ownerUnit.unitData.listNextStates.Add(new Runner_Slide_GetUp(ownerUnit));
+                    if (ownerUnit.unitData.rigidBody2D.velocity.x < 2f)
+                    {
+                        ownerUnit.unitData.listNextStates.Add(new Runner_Slide_GetUp(ownerUnit));
+                    }
                 }
             }
         }
