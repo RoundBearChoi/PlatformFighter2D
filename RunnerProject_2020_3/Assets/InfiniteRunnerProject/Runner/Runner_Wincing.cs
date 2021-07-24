@@ -29,7 +29,7 @@ namespace RB
 
             if (fixedUpdateCount >= 20)
             {
-                ownerUnit.unitData.listNextStates.Add(new Runner_Idle(ownerUnit));
+                ownerUnit.unitData.listNextStates.Add(new Runner_NormalRun(ownerUnit));
             }
         }
     }

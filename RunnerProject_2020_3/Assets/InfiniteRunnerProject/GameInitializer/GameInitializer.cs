@@ -37,7 +37,7 @@ namespace RB
             IStageTransition intro = new IntroStageTransition(this);
             Stage.currentStage = intro.MakeTransition();
             Stage.currentStage.Init();
-
+            
             specsGetter = new SpecsGetter(listCreationSpecsSO);
             stageTransitioner = new StageTransitioner();
         }

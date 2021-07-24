@@ -18,15 +18,18 @@ namespace RB
             return animationSpec;
         }
 
-        public override void OnFixedUpdate()
+        public override void OnUpdate()
         {
-            if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
+            if (UserInput.keyboard.anyKey.wasReleasedThisFrame)
             {
-                BaseMessage showLandingDust = new ShowLandingDust_Message(true, ownerUnit.transform.position);
-                showLandingDust.Register();
-
-                ownerUnit.unitData.listNextStates.Add(new Runner_NormalRun(ownerUnit));
+                GameInitializer.current.RunCoroutine(TriggerRun());
             }
+        }
+
+        IEnumerator TriggerRun()
+        {
+            yield return new WaitForEndOfFrame();
+            ownerUnit.unitData.listNextStates.Add(new Runner_NormalRun(ownerUnit));
         }
     }
 }
