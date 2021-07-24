@@ -136,6 +136,28 @@ namespace RB
                 }
             }
 
+            //cumulative gravity force on fall
+            for (int i = 0; i < _listUnits.Count; i++)
+            {
+                if (_listUnits[i].unitData.rigidBody2D != null)
+                {
+                    if (_listUnits[i].unitData.collisionStays.GetCount() == 0)
+                    {
+                        if (_listUnits[i].unitData.rigidBody2D.bodyType != RigidbodyType2D.Static)
+                        {
+                            Debugger.Log("adding downforce to unit: " + _listUnits[i].gameObject.name);
+
+                            if (_listUnits[i].unitData.rigidBody2D.velocity.y <= 0f)
+                            {
+                                float y = _listUnits[i].unitData.rigidBody2D.velocity.y * GameInitializer.current.gameDataSO.CumulativeGravityForcePercentage;
+                                float x = _listUnits[i].unitData.rigidBody2D.velocity.x;
+                                _listUnits[i].unitData.rigidBody2D.velocity = new Vector2(x, y);
+                            }
+                        }
+                    }
+                }
+            }
+
             //main fixedupdate
             for (int i = 0; i < _listUnits.Count; i++)
             {

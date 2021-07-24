@@ -9,6 +9,7 @@ namespace RB
     {
         public Vector2 Runner_JumpUp_StartForce = new Vector2();
         public float JumpPullPercentagePerFixedUpdate = 0f;
+        public float CumulativeGravityForcePercentage = 0f;
 
         [Space(15)]
 
