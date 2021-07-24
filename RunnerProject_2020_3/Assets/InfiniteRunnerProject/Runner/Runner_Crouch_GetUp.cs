@@ -4,15 +4,14 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Runner_Slide_GetUp : UnitState
+    public class Runner_Crouch_GetUp : UnitState
     {
         public static SpriteAnimationSpec animationSpec = null;
 
-        public Runner_Slide_GetUp(Unit unit)
+        public Runner_Crouch_GetUp(Unit unit)
         {
             ownerUnit = unit;
             _listStateComponents.Add(new LerpRunSpeedOnFlatGround(ownerUnit, 0f, 0.05f));
-            _listStateComponents.Add(new UpdateCollider2DSize(ownerUnit, new Vector2(0.8f, 3.4f)));
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

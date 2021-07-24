@@ -145,13 +145,16 @@ namespace RB
                     {
                         if (_listUnits[i].unitData.rigidBody2D.bodyType != RigidbodyType2D.Static)
                         {
-                            Debugger.Log("adding downforce to unit: " + _listUnits[i].gameObject.name);
-
-                            if (_listUnits[i].unitData.rigidBody2D.velocity.y <= 0f)
+                            if (_listUnits[i].unitData.rigidBody2D.gravityScale > 0f)
                             {
-                                float y = _listUnits[i].unitData.rigidBody2D.velocity.y * GameInitializer.current.gameDataSO.CumulativeGravityForcePercentage;
-                                float x = _listUnits[i].unitData.rigidBody2D.velocity.x;
-                                _listUnits[i].unitData.rigidBody2D.velocity = new Vector2(x, y);
+                                Debugger.Log("adding downforce to unit: " + _listUnits[i].gameObject.name);
+
+                                if (_listUnits[i].unitData.rigidBody2D.velocity.y <= 0f)
+                                {
+                                    float y = _listUnits[i].unitData.rigidBody2D.velocity.y * GameInitializer.current.gameDataSO.CumulativeGravityForcePercentage;
+                                    float x = _listUnits[i].unitData.rigidBody2D.velocity.x;
+                                    _listUnits[i].unitData.rigidBody2D.velocity = new Vector2(x, y);
+                                }
                             }
                         }
                     }

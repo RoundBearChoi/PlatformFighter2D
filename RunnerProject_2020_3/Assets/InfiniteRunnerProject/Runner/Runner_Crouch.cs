@@ -26,7 +26,7 @@ namespace RB
 
             if (!Stage.currentStage.USER_INPUT.ContainsKeyHold(UserInput.keyboard.sKey))
             {
-                ownerUnit.unitData.listNextStates.Add(new Runner_NormalRun(ownerUnit));
+                ownerUnit.unitData.listNextStates.Add(new Runner_Crouch_GetUp(ownerUnit));
             }
         }
     }

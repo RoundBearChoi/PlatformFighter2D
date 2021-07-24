@@ -72,6 +72,11 @@ namespace RB
             Runner_Crouch.animationSpec = spec;
         }
 
+        public void State_Runner_Crouch_GetUp(SpriteAnimationSpec spec)
+        {
+            Runner_Crouch_GetUp.animationSpec = spec;
+        }
+
         public void State_Golem_Idle(SpriteAnimationSpec spec)
         {
             Golem_Idle.animationSpec = spec;
