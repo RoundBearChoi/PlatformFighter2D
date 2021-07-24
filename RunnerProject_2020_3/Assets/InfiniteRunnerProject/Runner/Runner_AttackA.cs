@@ -25,6 +25,8 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
+            FixedUpdateComponents();
+
             if (!_dustCreated)
             {
                 _dustCreated = true;
@@ -32,8 +34,6 @@ namespace RB
                 Stage.currentStage.InstantiateUnit_ByUnitType(UnitType.STEP_DUST);
                 Units.instance.GetUnit<StepDust>().transform.position = ownerUnit.transform.position + new Vector3(ownerUnit.transform.right.x * 0.8f, 0f, 0f);
             }
-
-            FixedUpdateComponents();
 
             if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 1)
             {

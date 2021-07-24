@@ -26,6 +26,14 @@ namespace RB
         public override void OnFixedUpdate()
         {
             FixedUpdateComponents();
+
+            if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 2)
+            {
+                if (Stage.currentStage.USER_INPUT.ContainsButtonPress(UserInput.mouse.leftButton))
+                {
+                    ownerUnit.unitData.listNextStates.Add(new Runner_AttackA_Dash(ownerUnit));
+                }
+            }
         }
     }
 }
