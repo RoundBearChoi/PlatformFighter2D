@@ -13,7 +13,6 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            //press
             if (Stage.currentStage.USER_INPUT.ContainsKeyPress(UserInput.keyboard.spaceKey) ||
                 Stage.currentStage.USER_INPUT.ContainsKeyHold(UserInput.keyboard.spaceKey))
             {
@@ -22,7 +21,14 @@ namespace RB
             else if (Stage.currentStage.USER_INPUT.ContainsKeyPress(UserInput.keyboard.sKey) ||
                 Stage.currentStage.USER_INPUT.ContainsKeyHold(UserInput.keyboard.sKey))
             {
-                _unit.unitData.listNextStates.Add(new Runner_Slide(_unit));
+                if (_unit.unitData.rigidBody2D.velocity.x > GameInitializer.current.gameDataSO.SlideSpeedThreshold)
+                {   
+                    _unit.unitData.listNextStates.Add(new Runner_Slide(_unit));
+                }
+                else
+                {
+                    _unit.unitData.listNextStates.Add(new Runner_Crouch(_unit));
+                }
             }
             else if (Stage.currentStage.USER_INPUT.ContainsButtonPress(UserInput.mouse.leftButton))
             {

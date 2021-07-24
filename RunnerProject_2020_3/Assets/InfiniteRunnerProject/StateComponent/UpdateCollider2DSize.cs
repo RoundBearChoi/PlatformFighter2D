@@ -24,7 +24,7 @@ namespace RB
                 {
                     _unit.unitData.boxCollider2D.size = Vector2.Lerp(_unit.unitData.boxCollider2D.size, _targetSize, 0.3f);
                     _unit.unitData.boxCollider2D.offset = new Vector2(0f, _unit.unitData.boxCollider2D.size.y / 2f);
-                    Debugger.Log("target size: " + _targetSize + "  current size: " + _unit.unitData.boxCollider2D.size + "  sqmag: " + sq);
+                    //Debugger.Log("target size: " + _targetSize + "  current size: " + _unit.unitData.boxCollider2D.size + "  sqmag: " + sq);
                 }
             }
         }

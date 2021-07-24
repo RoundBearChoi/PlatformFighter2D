@@ -23,5 +23,7 @@ namespace RB
         
         public int DashFixedUpdateCount = 0;
         public float DashForcePerFixedUpdate = 0;
+
+        public float SlideSpeedThreshold = 0f;
     }
 }
