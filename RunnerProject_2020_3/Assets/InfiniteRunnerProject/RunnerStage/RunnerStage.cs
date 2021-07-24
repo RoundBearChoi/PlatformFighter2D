@@ -29,6 +29,9 @@ namespace RB
 
             groundSetup = new FlatGroundSetup();
             groundSetup.InstantiateBaseLayer();
+
+            Unit firstGround = units.GetUnit<Ground>();
+            firstGround.transform.position -= new Vector3(20f, 0f, 0f);
         }
 
         public override void OnUpdate()

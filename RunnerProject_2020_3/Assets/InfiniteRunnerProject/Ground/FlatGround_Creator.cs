@@ -66,7 +66,7 @@ namespace RB
 
             int count = Random.Range(_minGroundCount, _maxGroundCount + 1);
 
-            for (int i = 0; i < count /*GameInitializer.current.gameDataSO.InitialFlatGroundCount*/; i++)
+            for (int i = 0; i < count; i++)
             {
                 GameObject obj = GetGroundObj();
                 obj.transform.parent = objComposite.transform;
