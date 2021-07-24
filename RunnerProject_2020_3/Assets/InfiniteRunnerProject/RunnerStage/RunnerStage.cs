@@ -19,8 +19,9 @@ namespace RB
             cameraScript = new CameraScript();
             Camera cam = FindObjectOfType<Camera>();
             cam.orthographicSize = 7f;
+            cam.transform.position = new Vector3(0f, 5f, 0f);
             cameraScript.SetCamera(cam);
-            cameraScript.SetCameraState(new Camera_FollowRunner());
+            cameraScript.SetCameraState(new Camera_LerpOnRunnerY());
             cameraScript.SetTarget(units.GetUnit<Runner>().gameObject);
 
             backgroundSetup = new SwampSetup();

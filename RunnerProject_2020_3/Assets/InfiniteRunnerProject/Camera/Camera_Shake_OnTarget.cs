@@ -33,7 +33,7 @@ namespace RB
             }
             else
             {
-                CameraScript.current.SetCameraState(new Camera_FollowRunner());
+                CameraScript.current.SetCameraState(new Camera_LerpOnRunnerY());
             }
         }
 
