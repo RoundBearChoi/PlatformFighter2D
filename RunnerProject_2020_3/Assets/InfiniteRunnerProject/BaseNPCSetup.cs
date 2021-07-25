@@ -6,13 +6,8 @@ namespace RB
 {
     public abstract class BaseNPCSetup
     {
-        private BaseStage _stage = null;
-        private BaseUpdater _updater = null;
-
-        public BaseNPCSetup(BaseStage ownerStage)
-        {
-            _stage = ownerStage;
-        }
+        protected BaseStage _stage = null;
+        protected BaseUpdater _updater = null;
 
         public abstract void OnFixedUpdate();
     }
