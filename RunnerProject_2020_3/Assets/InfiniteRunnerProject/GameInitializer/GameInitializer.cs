@@ -27,7 +27,7 @@ namespace RB
         public StageTransitioner stageTransitioner = null;
 
 
-        private Stage _stage = null;
+        private BaseStage _stage = null;
 
         private void Start()
         {
@@ -45,7 +45,7 @@ namespace RB
             stageTransitioner = new StageTransitioner();
         }
 
-        public Stage STAGE
+        public BaseStage STAGE
         {
             get
             {
@@ -53,7 +53,7 @@ namespace RB
             }
         }
 
-        public void SetStage(Stage stage)
+        public void SetStage(BaseStage stage)
         {
             _stage = stage;
         }

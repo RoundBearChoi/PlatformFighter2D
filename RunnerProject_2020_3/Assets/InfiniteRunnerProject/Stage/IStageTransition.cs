@@ -6,6 +6,6 @@ namespace RB
 {
     public interface IStageTransition
     {
-        public abstract Stage MakeTransition();
+        public abstract BaseStage MakeTransition();
     }
 }

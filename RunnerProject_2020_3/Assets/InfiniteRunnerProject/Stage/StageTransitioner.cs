@@ -19,7 +19,7 @@ namespace RB
             {
                 GameObject.Destroy(GameInitializer.current.STAGE.gameObject);
 
-                Stage newStage = transition.MakeTransition();
+                BaseStage newStage = transition.MakeTransition();
                 GameInitializer.current.SetStage(newStage);
                 newStage.Init();
             }

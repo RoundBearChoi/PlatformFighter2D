@@ -13,9 +13,9 @@ namespace RB
             _gameInitializer = initializer;
         }
 
-        public Stage MakeTransition()
+        public BaseStage MakeTransition()
         {
-            Stage introStage = GameObject.Instantiate(ResourceLoader.stageLoader.GetObj(StageType.INTRO_STAGE)) as Stage;
+            BaseStage introStage = GameObject.Instantiate(ResourceLoader.stageLoader.GetObj(StageType.INTRO_STAGE)) as BaseStage;
             introStage.SetInitializer(_gameInitializer);
             introStage.transform.parent = _gameInitializer.transform;
             introStage.transform.localPosition = Vector3.zero;

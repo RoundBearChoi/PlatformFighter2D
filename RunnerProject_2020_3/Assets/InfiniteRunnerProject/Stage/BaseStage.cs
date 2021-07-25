@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Stage : MonoBehaviour
+    public class BaseStage : MonoBehaviour
     {
         public Units units = null;
         public TrailEffects trailEffects = new TrailEffects();

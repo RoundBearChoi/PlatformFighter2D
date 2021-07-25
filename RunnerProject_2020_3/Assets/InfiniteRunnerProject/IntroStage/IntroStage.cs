@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 namespace RB
 {
-    public class IntroStage : Stage
+    public class IntroStage : BaseStage
     {
         Keyboard _keyboard = null;
         Camera _mainCam = null;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class SpriteStage : Stage
+    public class SpriteStage : BaseStage
     {
         DefaultSpriteAnimations _dummyAnimation;
         GameObject _dummyObj;

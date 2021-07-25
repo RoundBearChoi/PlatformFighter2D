@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class RunnerStage : Stage
+    public class RunnerStage : BaseStage
     {
         public override void Init()
         {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class TestStage : Stage
+    public class TestStage : BaseStage
     {
         private UITest.tempUI ui = null;
         private FixedUpdateCounter fixedUpdateCounter = new FixedUpdateCounter();
