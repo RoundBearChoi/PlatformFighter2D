@@ -4,9 +4,11 @@ using UnityEngine;
 
 namespace RB
 {
-    public class DefaultUpdater : BaseUpdater
+    public class DefaultUnitUpdater : BaseUpdater
     {
-        public DefaultUpdater(Unit ownerUnit)
+        private Unit _unit = null;
+
+        public DefaultUnitUpdater(Unit ownerUnit)
         {
             _unit = ownerUnit;
         }

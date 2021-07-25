@@ -57,7 +57,7 @@ namespace RB
             newGround.unitData.compositeCollider2D.sharedMaterial = GameInitializer.current.gameDataSO.physicsMaterial_NoFrictionNoBounce;
             newGround.unitData.rigidBody2D.sharedMaterial = GameInitializer.current.gameDataSO.physicsMaterial_NoFrictionNoBounce;
 
-            newGround.unitUpdater = new DefaultUpdater(newGround);
+            newGround.unitUpdater = new DefaultUnitUpdater(newGround);
             newGround.unitData.spriteAnimations = new EmptySpriteAnimations();
             newGround.iStateController = new UnitStateController(newGround);
             newGround.iStateController.SetNewState(new FlatGround_DefaultState(newGround));

@@ -6,7 +6,6 @@ namespace RB
 {
     public abstract class BaseUpdater
     {
-        protected Unit _unit = null;
         protected uint _totalHitStopFrames = 0;
 
         public virtual void AddHitStopFrames(uint frames)
