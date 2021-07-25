@@ -12,7 +12,7 @@ namespace RB
             GameInitializer.current.STAGE.units.ProcessCreators();
         }
 
-        public void AddAdditionalUnit<T>() where T : UnitState
+        public void AddAdditionalAdjacentUnit<T>() where T : UnitState
         {
             Unit prevUnit = GameInitializer.current.STAGE.units.GetLatestUnitByState<T>();
 

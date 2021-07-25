@@ -7,6 +7,6 @@ namespace RB
     public interface IBackgroundSetup
     {
         public abstract void InstantiateBaseLayer();
-        public abstract void AddAdditionalUnit<T>() where T : UnitState;
+        public abstract void AddAdditionalAdjacentUnit<T>() where T : UnitState;
     }
 }

@@ -37,7 +37,7 @@ namespace RB
             }
         }
 
-        public void AddAdditionalUnit<T>() where T: UnitState
+        public void AddAdditionalAdjacentUnit<T>() where T: UnitState
         {
             Unit additionalBackground = InstantiateAdditionalBackgroundUnit<T>();
             GameObject camObj = CameraScript.current.GetCamera().gameObject;
