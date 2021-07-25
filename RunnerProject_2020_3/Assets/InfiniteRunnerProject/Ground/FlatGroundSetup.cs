@@ -22,7 +22,13 @@ namespace RB
 
                 InstantiateBaseLayer();
                 Unit newGround = GameInitializer.current.STAGE.units.GetUnit<Ground>();
+
+                //temp
+                //float gap = Random.Range(0f, 3f);
+                //newGround.transform.position = new Vector3(topRight.x + gap, prevUnit.transform.position.y, prevUnit.transform.position.z);
+
                 newGround.transform.position = new Vector3(topRight.x, prevUnit.transform.position.y, prevUnit.transform.position.z);
+
                 Debugger.Log("latest ground position: " + newGround.transform.position);
             }
         }
