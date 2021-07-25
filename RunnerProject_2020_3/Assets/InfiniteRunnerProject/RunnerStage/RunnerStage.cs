@@ -17,7 +17,11 @@ namespace RB
             _baseUI.transform.parent = this.transform;
 
             cameraScript = new CameraScript();
-            Camera cam = FindObjectOfType<Camera>();
+
+            GameCamera gameCamera = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.GAME_CAMERA)) as GameCamera;
+            gameCamera.transform.parent = this.transform;
+            Camera cam = gameCamera.GetComponent<Camera>();
+
             cam.orthographicSize = 7f;
             cam.transform.position = new Vector3(0f, 5f, 0f);
             cameraScript.SetCamera(cam);

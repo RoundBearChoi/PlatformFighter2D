@@ -4,12 +4,8 @@ using UnityEngine;
 
 namespace RB
 {
-    public enum etcType
+    public class GameCamera : MonoBehaviour
     {
-        NONE = 0,
 
-        GAME_CAMERA = 50,
-
-        HP_BAR = 100,
     }
 }

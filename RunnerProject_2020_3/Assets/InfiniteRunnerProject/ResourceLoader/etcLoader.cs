@@ -10,6 +10,7 @@ namespace RB
         {
             Debugger.Log("loading other stuff..");
 
+            LoadObj<GameCamera>(etcType.GAME_CAMERA, "GameCamera");
             LoadObj<EnemyHPBar>(etcType.HP_BAR, "EnemyHPBar");
         }
     }

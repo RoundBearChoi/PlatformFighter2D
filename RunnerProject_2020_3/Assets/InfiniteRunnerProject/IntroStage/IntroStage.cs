@@ -14,7 +14,10 @@ namespace RB
         {
             _keyboard = Keyboard.current;
 
-            _mainCam = FindObjectOfType<Camera>();
+            GameCamera gameCamera = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.GAME_CAMERA)) as GameCamera;
+            gameCamera.transform.parent = this.transform;
+
+            _mainCam = gameCamera.GetComponent<Camera>();
             _mainCam.transform.position = new Vector3(0f, 0f, -5f);
 
             Application.targetFrameRate = 80;

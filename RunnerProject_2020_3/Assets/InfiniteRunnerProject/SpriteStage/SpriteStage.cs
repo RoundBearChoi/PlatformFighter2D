@@ -36,6 +36,12 @@ namespace RB
             red.transform.localPosition = Vector3.zero;
             red.transform.localRotation = Quaternion.identity;
 
+            GameCamera gameCamera = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.GAME_CAMERA)) as GameCamera;
+            gameCamera.transform.parent = this.transform;
+            gameCamera.transform.localPosition = new Vector3(0f, 3f, -5f);
+
+            gameCamera.GetComponent<Camera>().orthographicSize = 6.5f;
+
             _dummyAnimation = new DefaultSpriteAnimations(null);
             _dummyAnimation.AddSpriteAnimation(animationSpec, _dummyObj.transform);
             _dummyAnimation.SetCurrentAnimation(_dummyAnimation.GetLastSpriteAnimation());

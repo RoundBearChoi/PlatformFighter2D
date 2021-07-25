@@ -32,7 +32,12 @@ namespace RB
             UITest.tempUI.currentUI = ui;
 
             cameraScript = new CameraScript();
-            cameraScript.SetCamera(FindObjectOfType<Camera>());
+
+            GameCamera gameCamera = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.GAME_CAMERA)) as GameCamera;
+            Camera camera = gameCamera.GetComponent<Camera>();
+            gameCamera.transform.parent = this.transform;
+
+            cameraScript.SetCamera(camera);
             cameraScript.SetCameraState(new Camera_LerpOnRunnerY());
 
             Unit runner = units.GetUnit<Runner>();

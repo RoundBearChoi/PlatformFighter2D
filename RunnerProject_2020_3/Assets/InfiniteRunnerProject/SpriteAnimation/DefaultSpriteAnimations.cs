@@ -69,6 +69,7 @@ namespace RB
 
         public void AddSpriteAnimation(SpriteAnimationSpec spec, Transform parent)
         {
+            //instantiate prefab
             GameObject obj = new GameObject(spec.spriteName);
             obj.transform.parent = parent;
             obj.transform.localPosition = Vector3.zero;
