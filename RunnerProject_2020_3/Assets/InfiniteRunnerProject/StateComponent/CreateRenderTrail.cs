@@ -26,7 +26,7 @@ namespace RB
                 trail.gameObject.name = "trail - " + _unit.gameObject.name;
                 trail.gameObject.transform.position = _unit.gameObject.transform.position;
                 trail.gameObject.transform.rotation = Quaternion.identity;
-                trail.transform.parent = Stage.currentStage.transform;
+                trail.transform.parent = GameInitializer.current.STAGE.transform;
 
                 trail.spriteRenderer = trailObj.AddComponent<SpriteRenderer>();
                 trail.spriteRenderer.sprite = _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.sprite;
@@ -39,7 +39,7 @@ namespace RB
 
                 //trail.spriteRenderer.color = Color.blue;
 
-                Stage.currentStage.trailEffects.AddTrail(trail);
+                GameInitializer.current.STAGE.trailEffects.AddTrail(trail);
             }
         }
     }

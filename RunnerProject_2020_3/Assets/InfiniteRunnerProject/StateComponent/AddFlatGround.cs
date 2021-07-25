@@ -31,7 +31,7 @@ namespace RB
                         if (topRight.x <= CameraScript.current.cameraEdges.GetEdges()[3].x)
                         {
                             Debugger.Log("ground edge inside frustum");
-                            Stage.currentStage.groundSetup.AddAdditionalUnit<FlatGround_DefaultState>();
+                            GameInitializer.current.STAGE.groundSetup.AddAdditionalUnit<FlatGround_DefaultState>();
                         }
                     }
                 }

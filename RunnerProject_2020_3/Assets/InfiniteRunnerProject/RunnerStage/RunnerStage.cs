@@ -9,6 +9,7 @@ namespace RB
         public override void Init()
         {
             _userInput = new UserInput();
+            units = new Units(this);
 
             InstantiateUnit_ByUnitType(UnitType.RUNNER);
             InstantiateUnits_ByUnitType(UnitType.GOLEM);

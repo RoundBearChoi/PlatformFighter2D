@@ -13,6 +13,7 @@ namespace RB
         public override void Init()
         {
             _userInput = new UserInput();
+            units = new Units(this);
 
             InstantiateUnits_ByUnitType(UnitType.RUNNER);
 

@@ -26,6 +26,9 @@ namespace RB
         public SpecsGetter specsGetter = null;
         public StageTransitioner stageTransitioner = null;
 
+
+        private Stage _stage = null;
+
         private void Start()
         {
             current = this;
@@ -35,11 +38,24 @@ namespace RB
 
             //first stage
             IStageTransition intro = new IntroStageTransition(this);
-            Stage.currentStage = intro.MakeTransition();
-            Stage.currentStage.Init();
+            _stage = intro.MakeTransition();
+            _stage.Init();
             
             specsGetter = new SpecsGetter(listCreationSpecsSO);
             stageTransitioner = new StageTransitioner();
+        }
+
+        public Stage STAGE
+        {
+            get
+            {
+                return _stage;
+            }
+        }
+
+        public void SetStage(Stage stage)
+        {
+            _stage = stage;
         }
 
         private void Update()
@@ -47,17 +63,17 @@ namespace RB
             Debugger.useLog = _useDebugLog;
 
             stageTransitioner.Update();
-            Stage.currentStage.OnUpdate();
+            _stage.OnUpdate();
         }
 
         private void FixedUpdate()
         {
-            Stage.currentStage.OnFixedUpdate();
+            _stage.OnFixedUpdate();
         }
 
         private void LateUpdate()
         {
-            Stage.currentStage.OnLateUpdate();
+            _stage.OnLateUpdate();
         }
 
         public void RunCoroutine(IEnumerator enumerator)

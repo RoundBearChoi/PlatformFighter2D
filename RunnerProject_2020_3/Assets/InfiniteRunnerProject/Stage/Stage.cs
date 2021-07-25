@@ -6,9 +6,7 @@ namespace RB
 {
     public class Stage : MonoBehaviour
     {
-        public static Stage currentStage = null;
-
-        public Units units = new Units();
+        public Units units = null;
         public TrailEffects trailEffects = new TrailEffects();
         public CameraScript cameraScript = null;
         public IBackgroundSetup backgroundSetup = null;

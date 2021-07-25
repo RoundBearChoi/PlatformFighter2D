@@ -58,11 +58,11 @@ namespace RB
                 showSlideDust.Register();
             }
 
-            if (!Stage.currentStage.USER_INPUT.ContainsKeyHold(UserInput.keyboard.sKey) ||
+            if (!GameInitializer.current.STAGE.USER_INPUT.ContainsKeyHold(UserInput.keyboard.sKey) ||
                 ownerUnit.unitData.rigidBody2D.velocity.x < 1.5f)
             {
                 //getup if down ISN'T held
-                if (!Stage.currentStage.USER_INPUT.ContainsKeyHold(UserInput.keyboard.sKey))
+                if (!GameInitializer.current.STAGE.USER_INPUT.ContainsKeyHold(UserInput.keyboard.sKey))
                 {
                     ownerUnit.unitData.listNextStates.Add(new Runner_Slide_GetUp(ownerUnit));
                 }

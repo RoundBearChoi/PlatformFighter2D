@@ -11,10 +11,12 @@ namespace RB
 
         private List<Unit> _listUnits = new List<Unit>();
         private List<BaseUnitCreator> _listUnitCreators = new List<BaseUnitCreator>();
+        private Stage _stage = null;
 
-        public Units()
+        public Units(Stage ownerStage)
         {
             instance = this;
+            _stage = ownerStage;
             unitsMessageHandler = new UnitsMessageHandler(_listUnits);
         }
 

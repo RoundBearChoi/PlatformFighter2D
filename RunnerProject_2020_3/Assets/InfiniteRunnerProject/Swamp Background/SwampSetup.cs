@@ -8,12 +8,12 @@ namespace RB
     {
         public void InstantiateBaseLayer()
         {
-            Stage.currentStage.InstantiateUnits_ByUnitType(UnitType.SWAMP);
+            GameInitializer.current.STAGE.InstantiateUnits_ByUnitType(UnitType.SWAMP);
         }
 
         public Unit InstantiateAdditionalBackgroundUnit<T>()
         {
-            Unit prevUnit = Stage.currentStage.units.GetLatestUnitByState<T>();
+            Unit prevUnit = GameInitializer.current.STAGE.units.GetLatestUnitByState<T>();
 
             if (prevUnit != null)
             {
@@ -24,10 +24,10 @@ namespace RB
                 //existing specs
                 Vector2 worldSize = animation.GetSpriteWorldSize(0);
 
-                Stage.currentStage.InstantiateUnit_BySpriteAnimationSpec(spriteSpec);
-                Unit newBackground = Stage.currentStage.units.GetLatestUnitByState<T>();
+                GameInitializer.current.STAGE.InstantiateUnit_BySpriteAnimationSpec(spriteSpec);
+                Unit newBackground = GameInitializer.current.STAGE.units.GetLatestUnitByState<T>();
                 newBackground.transform.localPosition = new Vector3(prevUnit.transform.position.x + worldSize.x, prevUnit.transform.position.y, prevUnit.transform.position.z);
-                Stage.currentStage.units.AddUnit(newBackground);
+                GameInitializer.current.STAGE.units.AddUnit(newBackground);
 
                 return newBackground;
             }

@@ -31,13 +31,13 @@ namespace RB
             {
                 _dustCreated = true;
 
-                Stage.currentStage.InstantiateUnit_ByUnitType(UnitType.STEP_DUST);
+                GameInitializer.current.STAGE.InstantiateUnit_ByUnitType(UnitType.STEP_DUST);
                 Units.instance.GetUnit<StepDust>().transform.position = ownerUnit.transform.position + new Vector3(ownerUnit.transform.right.x * 0.8f, 0f, 0f);
             }
 
             if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 1)
             {
-                if (Stage.currentStage.USER_INPUT.ContainsButtonPress(UserInput.mouse.rightButton))
+                if (GameInitializer.current.STAGE.USER_INPUT.ContainsButtonPress(UserInput.mouse.rightButton))
                 {
                     ownerUnit.unitData.listNextStates.Add(new Runner_AttackB(ownerUnit));
                 }

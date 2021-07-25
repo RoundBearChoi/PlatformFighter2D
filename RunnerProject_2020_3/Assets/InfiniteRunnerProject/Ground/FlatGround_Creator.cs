@@ -62,7 +62,7 @@ namespace RB
             newGround.iStateController = new UnitStateController(newGround);
             newGround.iStateController.SetNewState(new FlatGround_DefaultState(newGround));
 
-            Stage.currentStage.units.AddUnit(newGround);
+            GameInitializer.current.STAGE.units.AddUnit(newGround);
 
             int count = Random.Range(_minGroundCount, _maxGroundCount + 1);
 

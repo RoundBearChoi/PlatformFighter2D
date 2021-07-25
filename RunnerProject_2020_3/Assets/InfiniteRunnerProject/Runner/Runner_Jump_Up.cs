@@ -31,7 +31,7 @@ namespace RB
 
             if (!_startPullDown)
             {
-                if (!Stage.currentStage.USER_INPUT.ContainsKeyHold(UserInput.keyboard.spaceKey))
+                if (!GameInitializer.current.STAGE.USER_INPUT.ContainsKeyHold(UserInput.keyboard.spaceKey))
                 {
                     _startPullDown = true;
                 }
