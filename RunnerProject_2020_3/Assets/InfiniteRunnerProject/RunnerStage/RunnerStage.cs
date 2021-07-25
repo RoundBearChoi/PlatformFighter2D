@@ -37,6 +37,8 @@ namespace RB
 
             Unit firstGround = units.GetUnit<Ground>();
             firstGround.transform.position -= new Vector3(20f, 0f, 0f);
+
+            npcSetup = new RunnerStageNPCSetup(this);
         }
 
         public override void OnUpdate()
@@ -46,6 +48,7 @@ namespace RB
             units.OnUpdate();
             trailEffects.OnUpdate();
             cameraScript.OnUpdate();
+            npcSetup.OnUpdate();
         }
 
         public override void OnFixedUpdate()
@@ -66,6 +69,7 @@ namespace RB
             _userInput.ClearButtonDictionary();
             _baseUI.OnFixedUpdate();
             cameraScript.OnFixedUpdate();
+            npcSetup.OnFixedUpdate();
         }
 
         public override void OnLateUpdate()
@@ -73,6 +77,7 @@ namespace RB
             _baseUI.OnLateUpdate();
             units.OnLateUpdate();
             cameraScript.OnLateUpdate();
+            npcSetup.OnLateUpdate();
         }
     }
 }
