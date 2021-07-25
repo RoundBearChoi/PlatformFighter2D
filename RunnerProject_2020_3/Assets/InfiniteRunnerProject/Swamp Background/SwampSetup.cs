@@ -26,7 +26,7 @@ namespace RB
 
                 GameInitializer.current.STAGE.InstantiateUnit_BySpriteAnimationSpec(spriteSpec);
                 Unit newBackground = GameInitializer.current.STAGE.units.GetLatestUnitByState<T>();
-                newBackground.transform.localPosition = new Vector3(prevUnit.transform.position.x + worldSize.x, prevUnit.transform.position.y, prevUnit.transform.position.z);
+                newBackground.transform.position = new Vector3(prevUnit.transform.position.x + worldSize.x, prevUnit.transform.position.y, prevUnit.transform.position.z);
                 GameInitializer.current.STAGE.units.AddUnit(newBackground);
 
                 return newBackground;

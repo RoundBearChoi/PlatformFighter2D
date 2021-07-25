@@ -37,7 +37,7 @@ namespace RB
 
             if (_keyboard.f5Key.wasPressedThisFrame)
             {
-                _gameIntializer.stageTransitioner.AddTransition(new GameStageTransition(_gameIntializer));
+                _gameIntializer.stageTransitioner.AddTransition(new TestStageTransition(_gameIntializer));
             }
         }
     }

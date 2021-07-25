@@ -18,7 +18,7 @@ namespace RB
             Stage runnerStage = GameObject.Instantiate(ResourceLoader.stageLoader.GetObj(StageType.RUNNER_STAGE)) as Stage;
             runnerStage.SetInitializer(_gameInitializer);
             runnerStage.transform.parent = _gameInitializer.transform;
-            runnerStage.transform.localPosition = Vector3.zero;
+            runnerStage.transform.localPosition = new Vector3(0f, -3f, 0f); //testing stage position
             runnerStage.transform.localRotation = Quaternion.identity;
 
             return runnerStage;

@@ -118,7 +118,7 @@ namespace RB
             //death by fall
             for (int i = 0; i < _listUnits.Count; i++)
             {
-                if (_listUnits[i].transform.position.y < GameInitializer.current.gameDataSO.DefaultFallDeathY)
+                if (_listUnits[i].transform.position.y < _stage.transform.position.y + GameInitializer.current.gameDataSO.DefaultFallDeathY)
                 {
                     if (_listUnits[i].unitData.rigidBody2D != null)
                     {

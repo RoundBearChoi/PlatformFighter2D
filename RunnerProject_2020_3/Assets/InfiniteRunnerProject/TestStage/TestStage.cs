@@ -63,7 +63,7 @@ namespace RB
 
             if (_userInput.ContainsKeyPress(UserInput.keyboard.f5Key))
             {
-                _gameIntializer.stageTransitioner.AddTransition(new GameStageTransition(_gameIntializer));
+                _gameIntializer.stageTransitioner.AddTransition(new TestStageTransition(_gameIntializer));
             }
 
             if (_userInput.ContainsKeyPress(UserInput.keyboard.f6Key))

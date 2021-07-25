@@ -24,20 +24,16 @@ namespace RB
 
                 TrailEffect trail = trailObj.AddComponent<TrailEffect>();
                 trail.gameObject.name = "trail - " + _unit.gameObject.name;
-                trail.gameObject.transform.position = _unit.gameObject.transform.position;
-                trail.gameObject.transform.rotation = Quaternion.identity;
-                trail.transform.parent = GameInitializer.current.STAGE.transform;
+                trail.transform.SetParent(GameInitializer.current.STAGE.transform, false);
 
                 trail.spriteRenderer = trailObj.AddComponent<SpriteRenderer>();
                 trail.spriteRenderer.sprite = _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.sprite;
 
                 trail.rootUnit = _unit;
 
-                trail.spriteRenderer.transform.localPosition = _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.transform.position;
+                trail.spriteRenderer.transform.position = _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.transform.position;
                 trail.spriteRenderer.transform.localScale = _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.transform.localScale;
                 trail.spriteRenderer.transform.localRotation = _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.transform.localRotation;
-
-                //trail.spriteRenderer.color = Color.blue;
 
                 GameInitializer.current.STAGE.trailEffects.AddTrail(trail);
             }

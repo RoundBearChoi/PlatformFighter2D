@@ -15,7 +15,7 @@ namespace RB
         public override Unit DefineUnit()
         {
             Unit unit = InstantiateUnit(_creationSpec);
-            unit.transform.parent = _parentTransform;
+            unit.transform.SetParent(_parentTransform, false);
             unit.gameObject.layer = (int)LayerType.LIVE_UNIT;
 
             unit.unitData = new UnitData(unit.transform);
