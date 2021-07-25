@@ -9,6 +9,19 @@ namespace RB
         protected BaseStage _stage = null;
         protected BaseUpdater _updater = null;
 
-        public abstract void OnFixedUpdate();
+        public virtual void OnFixedUpdate()
+        {
+
+        }
+
+        public virtual void OnUpdate()
+        {
+
+        }
+
+        public virtual void OnLateUpdate()
+        {
+
+        }
     }
 }
