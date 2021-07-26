@@ -8,12 +8,12 @@ namespace RB
     {
         public void InstantiateBaseLayer()
         {
-            GameInitializer.current.STAGE.InstantiateUnits_ByUnitType(UnitType.SWAMP);
+            GameInitializer.current.GetStage().InstantiateUnits_ByUnitType(UnitType.SWAMP);
         }
 
         public Unit InstantiateAdditionalBackgroundUnit<T>()
         {
-            Unit prevUnit = GameInitializer.current.STAGE.units.GetLatestUnitByState<T>();
+            Unit prevUnit = GameInitializer.current.GetStage().units.GetLatestUnitByState<T>();
 
             if (prevUnit != null)
             {
@@ -24,10 +24,10 @@ namespace RB
                 //existing specs
                 Vector2 worldSize = animation.GetSpriteWorldSize(0);
 
-                GameInitializer.current.STAGE.InstantiateUnit_BySpriteAnimationSpec(spriteSpec);
-                Unit newBackground = GameInitializer.current.STAGE.units.GetLatestUnitByState<T>();
+                GameInitializer.current.GetStage().InstantiateUnit_BySpriteAnimationSpec(spriteSpec);
+                Unit newBackground = GameInitializer.current.GetStage().units.GetLatestUnitByState<T>();
                 newBackground.transform.position = new Vector3(prevUnit.transform.position.x + worldSize.x, prevUnit.transform.position.y, prevUnit.transform.position.z);
-                GameInitializer.current.STAGE.units.AddUnit(newBackground);
+                GameInitializer.current.GetStage().units.AddUnit(newBackground);
 
                 return newBackground;
             }
@@ -45,25 +45,25 @@ namespace RB
             if (typeof(T) == typeof(Swamp_Grass_DefaultState))
             {
                 //negate existing camera offset
-                float offsetX = camObj.transform.position.x * GameInitializer.current.swampParallaxSO.Swamp_Grass_ParallaxPercentage;
+                float offsetX = camObj.transform.position.x * GameInitializer.current.GetParallaxData(ParallaxDataType.SWAMP).Swamp_Grass_ParallaxPercentage;
                 additionalBackground.gameObject.transform.localPosition -= new Vector3(offsetX, 0f, 0f);
                 additionalBackground.iStateController.SetNewState(new Swamp_Grass_DefaultState(additionalBackground));
             }
             else if (typeof(T) == typeof(Swamp_River_DefaultState))
             {
-                float offsetX = camObj.transform.position.x * GameInitializer.current.swampParallaxSO.Swamp_River_ParallaxPercentage;
+                float offsetX = camObj.transform.position.x * GameInitializer.current.GetParallaxData(ParallaxDataType.SWAMP).Swamp_River_ParallaxPercentage;
                 additionalBackground.gameObject.transform.localPosition -= new Vector3(offsetX, 0f, 0f);
                 additionalBackground.iStateController.SetNewState(new Swamp_River_DefaultState(additionalBackground));
             }
             else if (typeof(T) == typeof(Swamp_FrontTrees_DefaultState))
             {
-                float offsetX = camObj.transform.position.x * GameInitializer.current.swampParallaxSO.Swamp_FrontTrees_ParallaxPercentage;
+                float offsetX = camObj.transform.position.x * GameInitializer.current.GetParallaxData(ParallaxDataType.SWAMP).Swamp_FrontTrees_ParallaxPercentage;
                 additionalBackground.gameObject.transform.localPosition -= new Vector3(offsetX, 0f, 0f);
                 additionalBackground.iStateController.SetNewState(new Swamp_FrontTrees_DefaultState(additionalBackground));
             }
             else if (typeof(T) == typeof(Swamp_BackTrees_DefaultState))
             {
-                float offsetX = camObj.transform.position.x * GameInitializer.current.swampParallaxSO.Swamp_BackTrees_ParallaxPercentage;
+                float offsetX = camObj.transform.position.x * GameInitializer.current.GetParallaxData(ParallaxDataType.SWAMP).Swamp_BackTrees_ParallaxPercentage;
                 additionalBackground.gameObject.transform.localPosition -= new Vector3(offsetX, 0f, 0f);
                 additionalBackground.iStateController.SetNewState(new Swamp_BackTrees_DefaultState(additionalBackground));
             }

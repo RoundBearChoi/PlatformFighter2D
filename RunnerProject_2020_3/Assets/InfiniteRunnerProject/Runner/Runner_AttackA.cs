@@ -14,7 +14,7 @@ namespace RB
             ownerUnit = unit;
 
             _listStateComponents.Add(new LerpRunSpeedOnFlatGround(ownerUnit, 2f, 0.05f));
-            _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, GameInitializer.current.runner_AttackA_OverlapBoxSO.listSpecs));
+            _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, GameInitializer.current.GetHitBoxData(HitBoxDataType.RUNNER_ATTACK_A).listSpecs));
             _listStateComponents.Add(new TransitionStateOnEnd(ownerUnit, new Runner_NormalRun(ownerUnit)));
         }
 
@@ -31,13 +31,13 @@ namespace RB
             {
                 _dustCreated = true;
 
-                GameInitializer.current.STAGE.InstantiateUnit_ByUnitType(UnitType.STEP_DUST);
+                GameInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.STEP_DUST);
                 Units.instance.GetUnit<StepDust>().transform.position = ownerUnit.transform.position + new Vector3(ownerUnit.transform.right.x * 0.8f, 0f, 0f);
             }
 
             if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 1)
             {
-                if (GameInitializer.current.STAGE.USER_INPUT.ContainsButtonPress(UserInput.mouse.rightButton))
+                if (GameInitializer.current.GetStage().USER_INPUT.ContainsButtonPress(UserInput.mouse.rightButton))
                 {
                     ownerUnit.unitData.listNextStates.Add(new Runner_AttackB(ownerUnit));
                 }

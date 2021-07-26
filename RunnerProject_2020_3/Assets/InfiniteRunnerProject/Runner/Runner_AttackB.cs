@@ -13,7 +13,7 @@ namespace RB
         {
             ownerUnit = unit;
 
-            _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, GameInitializer.current.runner_AttackB_OverlapBoxSO.listSpecs));
+            _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, GameInitializer.current.GetHitBoxData(HitBoxDataType.RUNNER_ATTACK_B).listSpecs));
             _listStateComponents.Add(new LerpRunSpeedOnFlatGround(ownerUnit, 0f, 0.1f));
             _listStateComponents.Add(new TransitionStateOnEnd(ownerUnit, new Runner_NormalRun(ownerUnit)));
         }
@@ -29,7 +29,7 @@ namespace RB
 
             if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 2)
             {
-                if (GameInitializer.current.STAGE.USER_INPUT.ContainsButtonPress(UserInput.mouse.leftButton))
+                if (GameInitializer.current.GetStage().USER_INPUT.ContainsButtonPress(UserInput.mouse.leftButton))
                 {
                     ownerUnit.unitData.listNextStates.Add(new Runner_AttackA_Dash(ownerUnit));
                 }

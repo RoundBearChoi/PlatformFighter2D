@@ -13,15 +13,15 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (GameInitializer.current.STAGE.USER_INPUT.ContainsKeyPress(UserInput.keyboard.spaceKey) ||
-                GameInitializer.current.STAGE.USER_INPUT.ContainsKeyHold(UserInput.keyboard.spaceKey))
+            if (GameInitializer.current.GetStage().USER_INPUT.ContainsKeyPress(UserInput.keyboard.spaceKey) ||
+                GameInitializer.current.GetStage().USER_INPUT.ContainsKeyHold(UserInput.keyboard.spaceKey))
             {
                 _unit.unitData.listNextStates.Add(new Runner_Jump_Up(_unit));
             }
-            else if (GameInitializer.current.STAGE.USER_INPUT.ContainsKeyPress(UserInput.keyboard.sKey) ||
-                GameInitializer.current.STAGE.USER_INPUT.ContainsKeyHold(UserInput.keyboard.sKey))
+            else if (GameInitializer.current.GetStage().USER_INPUT.ContainsKeyPress(UserInput.keyboard.sKey) ||
+                GameInitializer.current.GetStage().USER_INPUT.ContainsKeyHold(UserInput.keyboard.sKey))
             {
-                if (_unit.unitData.rigidBody2D.velocity.x > GameInitializer.current.gameDataSO.SlideSpeedThreshold)
+                if (_unit.unitData.rigidBody2D.velocity.x > GameInitializer.current.GetGameData(GameDataType.RUNNER).SlideSpeedThreshold)
                 {   
                     _unit.unitData.listNextStates.Add(new Runner_Slide(_unit));
                 }
@@ -30,14 +30,14 @@ namespace RB
                     _unit.unitData.listNextStates.Add(new Runner_Crouch(_unit));
                 }
             }
-            else if (GameInitializer.current.STAGE.USER_INPUT.ContainsButtonPress(UserInput.mouse.leftButton))
+            else if (GameInitializer.current.GetStage().USER_INPUT.ContainsButtonPress(UserInput.mouse.leftButton))
             {
                 BaseMessage showDashDust = new ShowDashDust_Message(true, _unit.transform.position);
                 showDashDust.Register();
 
                 _unit.unitData.listNextStates.Add(new Runner_AttackA_Dash(_unit));
             }
-            else if (GameInitializer.current.STAGE.USER_INPUT.ContainsButtonPress(UserInput.mouse.rightButton))
+            else if (GameInitializer.current.GetStage().USER_INPUT.ContainsButtonPress(UserInput.mouse.rightButton))
             {
                 _unit.unitData.listNextStates.Add(new Runner_AttackB(_unit));
             }

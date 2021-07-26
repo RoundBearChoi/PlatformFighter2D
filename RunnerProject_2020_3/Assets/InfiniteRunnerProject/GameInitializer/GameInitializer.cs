@@ -4,14 +4,11 @@ using UnityEngine;
 
 namespace RB
 {
-    public class GameInitializer : MonoBehaviour
+    public class GameInitializer : BaseInitializer
     {
-        public static GameInitializer current = null;
-
         [Space(15)]
         public GameData gameDataSO = null;
         public SwampParallax swampParallaxSO;
-        public Material white_GUIText_material;
         [SerializeField] private bool _useDebugLog;
 
         [Space(15)]
@@ -23,10 +20,7 @@ namespace RB
         public OverlapBoxCollisionData runner_AttackB_OverlapBoxSO;
         public OverlapBoxCollisionData golem_Attack_OverlapBoxSO;
 
-        public SpecsGetter specsGetter = null;
         public StageTransitioner stageTransitioner = null;
-
-        private BaseStage _stage = null;
 
         private void Start()
         {
@@ -42,19 +36,6 @@ namespace RB
             
             specsGetter = new SpecsGetter(listCreationSpecsSO);
             stageTransitioner = new StageTransitioner();
-        }
-
-        public BaseStage STAGE
-        {
-            get
-            {
-                return _stage;
-            }
-        }
-
-        public void SetStage(BaseStage stage)
-        {
-            _stage = stage;
         }
 
         private void Update()
@@ -75,9 +56,43 @@ namespace RB
             _stage.OnLateUpdate();
         }
 
-        public void RunCoroutine(IEnumerator enumerator)
+        public override OverlapBoxCollisionData GetHitBoxData(HitBoxDataType boxType)
         {
-            StartCoroutine(enumerator);
+            if (boxType == HitBoxDataType.RUNNER_ATTACK_A)
+            {
+                return runner_AttackA_OverlapBoxSO;
+            }
+            else if (boxType == HitBoxDataType.RUNNER_ATTACK_B)
+            {
+                return runner_AttackB_OverlapBoxSO;
+            }
+
+            else if (boxType == HitBoxDataType.GOLEM_ATTACK_A)
+            {
+                return golem_Attack_OverlapBoxSO;
+            }
+
+            return null;
+        }
+
+        public override SwampParallax GetParallaxData(ParallaxDataType parallaxType)
+        {
+            if (parallaxType == ParallaxDataType.SWAMP)
+            {
+                return swampParallaxSO;
+            }
+
+            return null;
+        }
+
+        public override GameData GetGameData(GameDataType gameDataType)
+        {
+            if (gameDataType == GameDataType.RUNNER)
+            {
+                return gameDataSO;
+            }
+
+            return null;
         }
     }
 }

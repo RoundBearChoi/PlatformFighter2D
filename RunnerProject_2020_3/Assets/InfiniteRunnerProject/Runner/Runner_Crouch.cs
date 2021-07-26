@@ -24,7 +24,7 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            if (!GameInitializer.current.STAGE.USER_INPUT.ContainsKeyHold(UserInput.keyboard.sKey))
+            if (!GameInitializer.current.GetStage().USER_INPUT.ContainsKeyHold(UserInput.keyboard.sKey))
             {
                 ownerUnit.unitData.listNextStates.Add(new Runner_Crouch_GetUp(ownerUnit));
             }

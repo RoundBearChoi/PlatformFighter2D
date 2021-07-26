@@ -27,7 +27,7 @@ namespace RB
         
             yield return new WaitForEndOfFrame();
 
-            GameInitializer.current.STAGE.units.unitsMessageHandler.Register(this);
+            GameInitializer.current.GetStage().units.unitsMessageHandler.Register(this);
         }
 
         public override uint GetUnsignedIntMessage()

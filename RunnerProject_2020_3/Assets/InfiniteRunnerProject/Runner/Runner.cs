@@ -30,7 +30,7 @@ namespace RB
             else if (reactionData.reactionType == CollisionReactionType.DEAL_DAMAGE)
             {
                 //needs to be put somewhere else
-                unitData.rigidBody2D.velocity = GameInitializer.current.gameDataSO.Runner_JumpUp_StartForce;
+                unitData.rigidBody2D.velocity = GameInitializer.current.GetGameData(GameDataType.RUNNER).Runner_JumpUp_StartForce;
             }
 
             //only clear after updating states

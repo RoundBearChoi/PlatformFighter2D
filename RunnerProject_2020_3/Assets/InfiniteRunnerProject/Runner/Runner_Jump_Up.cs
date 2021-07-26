@@ -21,7 +21,7 @@ namespace RB
 
         public override void OnEnter()
         {
-            ownerUnit.unitData.rigidBody2D.velocity = GameInitializer.current.gameDataSO.Runner_JumpUp_StartForce;
+            ownerUnit.unitData.rigidBody2D.velocity = GameInitializer.current.GetGameData(GameDataType.RUNNER).Runner_JumpUp_StartForce;
         }
 
         public override void OnFixedUpdate()
@@ -31,7 +31,7 @@ namespace RB
 
             if (!_startPullDown)
             {
-                if (!GameInitializer.current.STAGE.USER_INPUT.ContainsKeyHold(UserInput.keyboard.spaceKey))
+                if (!GameInitializer.current.GetStage().USER_INPUT.ContainsKeyHold(UserInput.keyboard.spaceKey))
                 {
                     _startPullDown = true;
                 }
@@ -40,7 +40,7 @@ namespace RB
             {
                 if (ownerUnit.unitData.rigidBody2D.velocity.y > 0f)
                 {
-                    float y = Mathf.Lerp(ownerUnit.unitData.rigidBody2D.velocity.y, 0f, GameInitializer.current.gameDataSO.JumpPullPercentagePerFixedUpdate);
+                    float y = Mathf.Lerp(ownerUnit.unitData.rigidBody2D.velocity.y, 0f, GameInitializer.current.GetGameData(GameDataType.RUNNER).JumpPullPercentagePerFixedUpdate);
                     ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x, y);
                 }
             }
