@@ -12,19 +12,9 @@ namespace RB
             _updater = new NPCSetupUpdater(ownerStage, this);
         }
 
-        public override void OnFixedUpdate()
+        public override void InstantiateNPC()
         {
-
-        }
-
-        public override void OnUpdate()
-        {
-
-        }
-
-        public override void OnLateUpdate()
-        {
-
+            Debugger.Log("npc instantiation triggered");
         }
     }
 }

@@ -10,6 +10,10 @@ namespace RB
         BaseNPCSetup _setup = null;
         private Unit _runner = null;
 
+        private float _runnerPreviousPosX = 0f;
+        private float _runDistance = 0f;
+        private float _runCumulativeDistance = 0f;
+
         public NPCSetupUpdater(BaseStage stage, BaseNPCSetup setup)
         {
             _stage = stage;
@@ -19,17 +23,26 @@ namespace RB
 
         public override void CustomFixedUpdate()
         {
-            _setup.OnFixedUpdate();
+            _runDistance = _runner.transform.position.x - _runnerPreviousPosX;
+            _runCumulativeDistance += _runDistance;
+            
+            _runnerPreviousPosX = _runner.transform.position.x;
+
+            if (_runCumulativeDistance >= 20f)
+            {
+                _setup.InstantiateNPC();
+                _runCumulativeDistance = 0f;
+            }
         }
 
         public override void CustomUpdate()
         {
-            _setup.OnUpdate();
+
         }
 
         public override void CustomLateUpdate()
         {
-            _setup.OnLateUpdate();
+
         }
     }
 }
