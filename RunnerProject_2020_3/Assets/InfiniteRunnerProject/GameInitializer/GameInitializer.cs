@@ -26,7 +26,6 @@ namespace RB
         public SpecsGetter specsGetter = null;
         public StageTransitioner stageTransitioner = null;
 
-
         private BaseStage _stage = null;
 
         private void Start()
