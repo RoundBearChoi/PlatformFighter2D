@@ -16,7 +16,7 @@ namespace RB
 
         public override void Register()
         {
-            CameraScript.current.messageHandler.Register(this);
+            GameInitializer.current.GetStage().cameraScript.messageHandler.Register(this);
         }
 
         public override uint GetUnsignedIntMessage()

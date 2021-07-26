@@ -6,6 +6,13 @@ namespace RB
 {
     public class SwampSetup : IBackgroundSetup
     {
+        CameraScript _cameraScript = null;
+
+        public SwampSetup()
+        {
+            _cameraScript = GameInitializer.current.GetStage().cameraScript;
+        }
+
         public void InstantiateBaseLayer()
         {
             GameInitializer.current.GetStage().InstantiateUnits_ByUnitType(UnitType.SWAMP);
@@ -40,7 +47,7 @@ namespace RB
         public void AddAdditionalAdjacentUnit<T>() where T: UnitState
         {
             Unit additionalBackground = InstantiateAdditionalBackgroundUnit<T>();
-            GameObject camObj = CameraScript.current.GetCamera().gameObject;
+            GameObject camObj = _cameraScript.GetCamera().gameObject;
 
             if (typeof(T) == typeof(Swamp_Grass_DefaultState))
             {

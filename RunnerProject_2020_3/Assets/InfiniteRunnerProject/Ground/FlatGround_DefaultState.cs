@@ -13,7 +13,7 @@ namespace RB
             latest = this;
             ownerUnit = unit;
 
-            _listStateComponents.Add(new DeletedPassedGround(unit));
+            _listStateComponents.Add(new DeletePassedGround(unit));
             _listStateComponents.Add(new AddFlatGround(this));
         }
 

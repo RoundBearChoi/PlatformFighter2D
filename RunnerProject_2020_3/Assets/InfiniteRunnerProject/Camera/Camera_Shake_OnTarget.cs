@@ -12,6 +12,7 @@ namespace RB
         public Camera_Shake_OnTarget(uint totalShakeFrames)
         {
             _totalShakeFrames = totalShakeFrames;
+            _cameraScript = GameInitializer.current.GetStage().cameraScript;
         }
 
         public override void OnFixedUpdate()
@@ -20,7 +21,7 @@ namespace RB
             {
                 Vector3 shakeOffset = new Vector3(Random.Range(-_shakeAmount, _shakeAmount), Random.Range(-_shakeAmount, _shakeAmount), 0f);
 
-                GameObject target = CameraScript.current.GetTarget();
+                GameObject target = _cameraScript.GetTarget();
 
                 if (target != null)
                 {
@@ -29,11 +30,11 @@ namespace RB
 
                 _targetPosition += shakeOffset;
 
-                CameraScript.current.UpdateCameraPositionOnTarget(_targetPosition);
+                _cameraScript.UpdateCameraPositionOnTarget(_targetPosition);
             }
             else
             {
-                CameraScript.current.SetCameraState(new Camera_LerpOnRunnerY());
+                _cameraScript.SetCameraState(new Camera_LerpOnRunnerY());
             }
         }
 

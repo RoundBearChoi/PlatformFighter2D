@@ -13,7 +13,8 @@ namespace RB
         public Camera_Shake_OnPosition(uint totalShakeFrames)
         {
             _totalShakeFrames = totalShakeFrames;
-            _initialPosition = CameraScript.current.GetCamera().gameObject.transform.position;
+            _cameraScript = GameInitializer.current.GetStage().cameraScript;
+            _initialPosition = _cameraScript.GetCamera().gameObject.transform.position;
         }
 
         public override void OnFixedUpdate()
@@ -24,11 +25,11 @@ namespace RB
 
                 _targetPosition = _initialPosition + shakeOffset;
 
-                CameraScript.current.UpdateCameraPositionOnTarget(_targetPosition);
+                _cameraScript.UpdateCameraPositionOnTarget(_targetPosition);
             }
             else
             {
-                CameraScript.current.SetCameraState(new Camera_EmptyState());
+                _cameraScript.SetCameraState(new Camera_EmptyState());
             }
         }
 

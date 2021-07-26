@@ -10,13 +10,13 @@ namespace RB
 
         public Camera_LerpOnRunnerY()
         {
-
+            _cameraScript = GameInitializer.current.GetStage().cameraScript;
         }
 
         public override void OnFixedUpdate()
         {
-            GameObject target = CameraScript.current.GetTarget();
-            Camera currentCam = CameraScript.current.GetCamera();
+            GameObject target = _cameraScript.GetTarget();
+            Camera currentCam = _cameraScript.GetCamera();
 
             if (target != null)
             {
@@ -27,12 +27,12 @@ namespace RB
                     lerpPercentage = 0.05f;
                 }
 
-                float camY = Mathf.Lerp(CameraScript.current.GetCamera().transform.position.y, target.transform.position.y + _yOffsetOnPlayer, lerpPercentage);
+                float camY = Mathf.Lerp(_cameraScript.GetCamera().transform.position.y, target.transform.position.y + _yOffsetOnPlayer, lerpPercentage);
 
                 _targetPosition = new Vector3(target.transform.position.x, camY, target.transform.position.z - 5f);
             }
 
-            CameraScript.current.UpdateCameraPositionOnTarget(_targetPosition);
+            _cameraScript.UpdateCameraPositionOnTarget(_targetPosition);
         }
     }
 }

@@ -6,9 +6,12 @@ namespace RB
 {
     public class DeletePassedBackground : StateComponent
     {
+        CameraScript _cameraScript = null;
+
         public DeletePassedBackground(Unit unit)
         {
             _unit = unit;
+            _cameraScript = GameInitializer.current.GetStage().cameraScript;
         }
 
         public override void OnFixedUpdate()
@@ -19,7 +22,7 @@ namespace RB
                 {
                     Vector2[] edges = _unit.unitData.spriteAnimations.GetCurrentAnimation().GetSpriteWorldEdges(0);
 
-                    if (edges[3].x < CameraScript.current.cameraEdges.GetEdges()[0].x - 5f)
+                    if (edges[3].x < _cameraScript.cameraEdges.GetEdges()[0].x - 5f)
                     {
                         Debugger.Log("outside frustum: " + _unit.gameObject.name);
                         _unit.destroy = true;

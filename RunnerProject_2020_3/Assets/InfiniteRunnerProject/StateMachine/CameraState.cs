@@ -9,6 +9,7 @@ namespace RB
         public uint cameraUpdateCount = 0;
 
         protected Vector3 _targetPosition = Vector3.zero;
+        protected CameraScript _cameraScript = null;
 
         public virtual void OnUpdate()
         {

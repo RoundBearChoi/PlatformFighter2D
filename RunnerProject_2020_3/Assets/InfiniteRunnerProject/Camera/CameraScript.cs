@@ -6,9 +6,7 @@ namespace RB
 {
     public class CameraScript
     {
-        public static CameraScript current = null;
-
-        public BaseMessageHandler messageHandler = new CameraMessageHandler();
+        public BaseMessageHandler messageHandler = null;
         public CameraEdges cameraEdges = null;
 
         IStateController<CameraState> _cameraStateController = null;
@@ -17,8 +15,8 @@ namespace RB
 
         public CameraScript()
         {
-            current = this;
             _cameraStateController = new CameraStateController();
+            messageHandler = new CameraMessageHandler(this);
         }
 
         public void OnUpdate()

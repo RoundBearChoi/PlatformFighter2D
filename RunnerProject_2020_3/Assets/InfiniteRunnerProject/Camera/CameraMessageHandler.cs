@@ -6,9 +6,11 @@ namespace RB
 {
     public class CameraMessageHandler : BaseMessageHandler
     {
-        public CameraMessageHandler()
-        {
+        CameraScript _cameraScript = null;
 
+        public CameraMessageHandler(CameraScript cameraScript)
+        {
+            _cameraScript = cameraScript;
         }
 
         public override void HandleMessages()
@@ -17,11 +19,11 @@ namespace RB
             {
                 if (message.MESSAGE_TYPE == MessageType.SHAKE_CAMERA_ONTARGET)
                 {
-                    CameraScript.current.SetCameraState(new Camera_Shake_OnTarget(message.GetUnsignedIntMessage()));
+                    _cameraScript.SetCameraState(new Camera_Shake_OnTarget(message.GetUnsignedIntMessage()));
                 }
                 else if (message.MESSAGE_TYPE == MessageType.SHAKE_CAMERA_ONPOSITION)
                 {
-                    CameraScript.current.SetCameraState(new Camera_Shake_OnPosition(message.GetUnsignedIntMessage()));
+                    _cameraScript.SetCameraState(new Camera_Shake_OnPosition(message.GetUnsignedIntMessage()));
                 }
             }
         }

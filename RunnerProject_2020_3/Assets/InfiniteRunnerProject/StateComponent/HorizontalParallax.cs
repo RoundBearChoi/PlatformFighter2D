@@ -9,12 +9,14 @@ namespace RB
         Vector2 _basePos = Vector2.zero;
         float _percentage = 0f;
         GameObject _parallaxAnchor = null;
+        CameraScript _cameraScript = null;
 
         public HorizontalParallax(Unit unit, Vector2 basePos, float percentage)
         {
             _unit = unit;
             _basePos = basePos;
             _percentage = percentage;
+            _cameraScript = GameInitializer.current.GetStage().cameraScript;
         }
 
         public override void OnFixedUpdate()
@@ -26,9 +28,9 @@ namespace RB
             }
             else
             {
-                if (CameraScript.current.GetCamera() != null)
+                if (_cameraScript.GetCamera() != null)
                 {
-                    _parallaxAnchor = CameraScript.current.GetCamera().gameObject;
+                    _parallaxAnchor = _cameraScript.GetCamera().gameObject;
                 }
             }
         }

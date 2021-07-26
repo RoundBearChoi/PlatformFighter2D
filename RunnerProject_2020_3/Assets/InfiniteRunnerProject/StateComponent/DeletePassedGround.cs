@@ -4,11 +4,14 @@ using UnityEngine;
 
 namespace RB
 {
-    public class DeletedPassedGround : StateComponent
+    public class DeletePassedGround : StateComponent
     {
-        public DeletedPassedGround(Unit unit)
+        CameraScript _cameraScript = null;
+
+        public DeletePassedGround(Unit unit)
         {
             _unit = unit;
+            _cameraScript = GameInitializer.current.GetStage().cameraScript;
         }
 
         public override void OnFixedUpdate()
@@ -17,7 +20,7 @@ namespace RB
             {
                 Vector3 topRight = _unit.unitData.compositeCollider2D.bounds.center + (_unit.unitData.compositeCollider2D.bounds.size * 0.5f);
 
-                if (topRight.x < CameraScript.current.cameraEdges.GetEdges()[0].x - 5f)
+                if (topRight.x < _cameraScript.cameraEdges.GetEdges()[0].x - 5f)
                 {
                     Debugger.Log("outside frustum: " + _unit.gameObject.name);
                     _unit.destroy = true;

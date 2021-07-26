@@ -7,10 +7,12 @@ namespace RB
     public class AddBackground<T> : StateComponent where T : UnitState
     {
         UnitState _state = null;
+        CameraScript _cameraScript = null;
 
         public AddBackground(UnitState state)
         {
             _state = state;
+            _cameraScript = GameInitializer.current.GetStage().cameraScript;
         }
 
         public override void OnFixedUpdate()
@@ -32,7 +34,7 @@ namespace RB
                                 Debug.DrawLine(Vector3.zero, edge, Color.blue, 0.1f);
                             }
 
-                            if (latest_edges[3].x <= CameraScript.current.cameraEdges.GetEdges()[3].x)
+                            if (latest_edges[3].x <= _cameraScript.cameraEdges.GetEdges()[3].x)
                             {
                                 Debugger.Log("adding additional background: " + _state.GetType().Name);
                                 GameInitializer.current.GetStage().backgroundSetup.AddAdditionalAdjacentUnit<T>();
