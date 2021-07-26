@@ -9,22 +9,22 @@ namespace RB
         public RunnerStageNPCSetup(BaseStage ownerStage)
         {
             _stage = ownerStage;
-            _updater = new NPCSetupUpdater(ownerStage);
+            _updater = new NPCSetupUpdater(ownerStage, this);
         }
 
         public override void OnFixedUpdate()
         {
-            _updater.CustomFixedUpdate();
+
         }
 
         public override void OnUpdate()
         {
-            _updater.CustomUpdate();
+
         }
 
         public override void OnLateUpdate()
         {
-            _updater.CustomLateUpdate();
+
         }
     }
 }

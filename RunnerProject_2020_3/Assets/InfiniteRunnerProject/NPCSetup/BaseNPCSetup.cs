@@ -9,6 +9,14 @@ namespace RB
         protected BaseStage _stage = null;
         protected BaseUpdater _updater = null;
 
+        public BaseUpdater UPDATER
+        {
+            get
+            {
+                return _updater;
+            }
+        }
+
         public virtual void OnFixedUpdate()
         {
 

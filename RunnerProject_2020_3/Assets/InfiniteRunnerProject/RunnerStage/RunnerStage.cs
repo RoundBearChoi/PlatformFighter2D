@@ -48,7 +48,7 @@ namespace RB
             units.OnUpdate();
             trailEffects.OnUpdate();
             cameraScript.OnUpdate();
-            npcSetup.OnUpdate();
+            npcSetup.UPDATER.CustomUpdate();
         }
 
         public override void OnFixedUpdate()
@@ -69,7 +69,7 @@ namespace RB
             _userInput.ClearButtonDictionary();
             _baseUI.OnFixedUpdate();
             cameraScript.OnFixedUpdate();
-            npcSetup.OnFixedUpdate();
+            npcSetup.UPDATER.CustomFixedUpdate();
         }
 
         public override void OnLateUpdate()
@@ -77,7 +77,7 @@ namespace RB
             _baseUI.OnLateUpdate();
             units.OnLateUpdate();
             cameraScript.OnLateUpdate();
-            npcSetup.OnLateUpdate();
+            npcSetup.UPDATER.CustomLateUpdate();
         }
     }
 }
