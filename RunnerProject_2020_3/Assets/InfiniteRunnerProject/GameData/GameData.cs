@@ -18,7 +18,7 @@ namespace RB
 
         public float SlideSpeedThreshold = 0f;
 
-        //put elsewhere (other than runner)
+        //put elsewhere (general info)
         [Space(15)]
         public Material white_GUIText_material;
         public PhysicsMaterial2D physicsMaterial_NoFrictionNoBounce = null;

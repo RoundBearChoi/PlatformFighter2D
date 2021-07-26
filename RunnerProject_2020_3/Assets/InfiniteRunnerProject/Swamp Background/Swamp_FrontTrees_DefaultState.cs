@@ -14,7 +14,7 @@ namespace RB
             ownerUnit = unit;
             latest = this;
 
-            _listStateComponents.Add(new HorizontalParallax(unit, unit.transform.position, GameInitializer.current.GetParallaxData(ParallaxDataType.SWAMP).Swamp_FrontTrees_ParallaxPercentage));
+            _listStateComponents.Add(new HorizontalParallax(unit, unit.transform.position, GameInitializer.current.swampParallaxSO.Swamp_FrontTrees_ParallaxPercentage));
             _listStateComponents.Add(new DeletePassedBackground(unit));
             _listStateComponents.Add(new AddBackground<Swamp_FrontTrees_DefaultState>(this));
         }

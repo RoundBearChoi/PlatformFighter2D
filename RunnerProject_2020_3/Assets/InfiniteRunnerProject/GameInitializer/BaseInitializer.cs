@@ -7,8 +7,23 @@ namespace RB
     public abstract class BaseInitializer : MonoBehaviour
     {
         public static BaseInitializer current = null;
-
         public SpecsGetter specsGetter = null;
+        public StageTransitioner stageTransitioner = null;
+
+        [Space(10)] [SerializeField]
+        protected List<BaseUnitCreationSpec> listCreationSpecsSO = new List<BaseUnitCreationSpec>();
+
+        [Space(10)] [SerializeField]
+        protected bool _useDebugLog;
+
+        [Space(10)]
+        public HitBoxData hitBoxData = new HitBoxData();
+
+        [Space(10)]
+        public GameData gameDataSO = null;
+
+        [Space(10)]
+        public SwampParallax swampParallaxSO;
 
         protected BaseStage _stage = null;
 
@@ -26,9 +41,5 @@ namespace RB
         {
             StartCoroutine(enumerator);
         }
-
-        public abstract OverlapBoxCollisionData GetHitBoxData(HitBoxDataType boxType);
-        public abstract SwampParallax GetParallaxData(ParallaxDataType parallaxType);
-        public abstract GameData GetGameData(GameDataType gameDataType);
     }
 }

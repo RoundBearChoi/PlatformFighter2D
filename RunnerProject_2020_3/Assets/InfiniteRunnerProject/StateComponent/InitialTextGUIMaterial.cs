@@ -20,7 +20,7 @@ namespace RB
             if (_defaultMaterial == null)
             {
                 _defaultMaterial = _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.sharedMaterial;
-                _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.sharedMaterial = GameInitializer.current.GetGameData(GameDataType.RUNNER).white_GUIText_material;
+                _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.sharedMaterial = GameInitializer.current.gameDataSO.white_GUIText_material;
             }
 
             if (_unit.iStateController.GetCurrentState().fixedUpdateCount > _totalFrames)

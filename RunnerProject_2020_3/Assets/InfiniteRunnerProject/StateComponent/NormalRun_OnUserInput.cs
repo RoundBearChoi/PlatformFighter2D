@@ -21,7 +21,7 @@ namespace RB
             else if (GameInitializer.current.GetStage().USER_INPUT.ContainsKeyPress(UserInput.keyboard.sKey) ||
                 GameInitializer.current.GetStage().USER_INPUT.ContainsKeyHold(UserInput.keyboard.sKey))
             {
-                if (_unit.unitData.rigidBody2D.velocity.x > GameInitializer.current.GetGameData(GameDataType.RUNNER).SlideSpeedThreshold)
+                if (_unit.unitData.rigidBody2D.velocity.x > GameInitializer.current.gameDataSO.SlideSpeedThreshold)
                 {   
                     _unit.unitData.listNextStates.Add(new Runner_Slide(_unit));
                 }
