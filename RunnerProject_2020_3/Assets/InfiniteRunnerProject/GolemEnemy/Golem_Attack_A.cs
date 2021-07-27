@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Golem_Attack : UnitState
+    public class Golem_Attack_A : UnitState
     {
         public static SpriteAnimationSpec animationSpec = null;
 
-        public Golem_Attack(Unit unit)
+        public Golem_Attack_A(Unit unit)
         {
             ownerUnit = unit;
             _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, GameInitializer.current.hitBoxData.golem_Attack_A.listSpecs));

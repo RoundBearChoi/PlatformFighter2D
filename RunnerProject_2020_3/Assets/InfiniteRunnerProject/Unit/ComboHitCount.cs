@@ -21,11 +21,16 @@ namespace RB
             _count++;
         }
 
+        public uint GetCount()
+        {
+            return _count;
+        }
+
         public void OnFixedUpdate()
         {
             _fixedUpdates++;
 
-            if (_fixedUpdates >= 60)
+            if (_fixedUpdates >= 70)
             {
                 _fixedUpdates = 0;
 

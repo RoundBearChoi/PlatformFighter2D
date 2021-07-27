@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Runner_AttackA : UnitState
+    public class Runner_Attack_A : UnitState
     {
         private bool _dustCreated = false;
         public static SpriteAnimationSpec animationSpec = null;
 
-        public Runner_AttackA(Unit unit)
+        public Runner_Attack_A(Unit unit)
         {
             ownerUnit = unit;
 
@@ -39,7 +39,7 @@ namespace RB
             {
                 if (GameInitializer.current.GetStage().USER_INPUT.ContainsButtonPress(UserInput.mouse.rightButton))
                 {
-                    ownerUnit.unitData.listNextStates.Add(new Runner_AttackB(ownerUnit));
+                    ownerUnit.unitData.listNextStates.Add(new Runner_Attack_B(ownerUnit));
                 }
             }
         }

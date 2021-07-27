@@ -9,17 +9,17 @@ namespace RB
     {
         public void State_Runner_AttackA(SpriteAnimationSpec spec)
         {
-            Runner_AttackA.animationSpec = spec;
+            Runner_Attack_A.animationSpec = spec;
         }
 
         public void State_Runner_AttackA_Slash(SpriteAnimationSpec spec)
         {
-            Runner_AttackA_Dash.animationSpec = spec;
+            Runner_Attack_A_Dash.animationSpec = spec;
         }
 
         public void State_Runner_AttackB(SpriteAnimationSpec spec)
         {
-            Runner_AttackB.animationSpec = spec;
+            Runner_Attack_B.animationSpec = spec;
         }
 
         public void State_Runner_Death(SpriteAnimationSpec spec)
@@ -84,7 +84,7 @@ namespace RB
 
         public void State_Golem_Attack(SpriteAnimationSpec spec)
         {
-            Golem_Attack.animationSpec = spec;
+            Golem_Attack_A.animationSpec = spec;
         }
 
         public void State_Golem_Wincing(SpriteAnimationSpec spec)

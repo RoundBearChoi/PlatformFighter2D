@@ -33,7 +33,7 @@ namespace RB
                 {
                     if (unit.unitData.hp > 0)
                     {
-                        ownerUnit.unitData.listNextStates.Add(new Golem_Attack(ownerUnit));
+                        ownerUnit.unitData.listNextStates.Add(new Golem_Attack_A(ownerUnit));
                         break;
                     }
                 }

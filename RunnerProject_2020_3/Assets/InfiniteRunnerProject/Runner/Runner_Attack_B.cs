@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Runner_AttackB : UnitState
+    public class Runner_Attack_B : UnitState
     {
         //private bool _dustCreated = false;
         public static SpriteAnimationSpec animationSpec = null;
 
-        public Runner_AttackB(Unit unit)
+        public Runner_Attack_B(Unit unit)
         {
             ownerUnit = unit;
 
@@ -31,7 +31,14 @@ namespace RB
             {
                 if (GameInitializer.current.GetStage().USER_INPUT.ContainsButtonPress(UserInput.mouse.leftButton))
                 {
-                    ownerUnit.unitData.listNextStates.Add(new Runner_AttackA_Dash(ownerUnit));
+                    if (ownerUnit.unitData.comboHitCount.GetCount() >= 2)
+                    {
+                        Debugger.Log("combo triggered!");
+                    }
+                    else
+                    {
+                        ownerUnit.unitData.listNextStates.Add(new Runner_Attack_A_Dash(ownerUnit));
+                    }
                 }
             }
         }

@@ -35,11 +35,11 @@ namespace RB
                 BaseMessage showDashDust = new ShowDashDust_Message(true, _unit.transform.position);
                 showDashDust.Register();
 
-                _unit.unitData.listNextStates.Add(new Runner_AttackA_Dash(_unit));
+                _unit.unitData.listNextStates.Add(new Runner_Attack_A_Dash(_unit));
             }
             else if (GameInitializer.current.GetStage().USER_INPUT.ContainsButtonPress(UserInput.mouse.rightButton))
             {
-                _unit.unitData.listNextStates.Add(new Runner_AttackB(_unit));
+                _unit.unitData.listNextStates.Add(new Runner_Attack_B(_unit));
             }
         }
     }
