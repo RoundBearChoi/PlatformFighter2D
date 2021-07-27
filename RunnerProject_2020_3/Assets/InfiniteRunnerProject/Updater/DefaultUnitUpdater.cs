@@ -47,6 +47,16 @@ namespace RB
                 }
                 else
                 {
+                    if (GameInitializer.current.GetStage().USER_INPUT.ContainsButtonPress(UserInput.mouse.leftButton))
+                    {
+                        _unit.iStateController.GetCurrentState().AddButtonQueue(UserInput.mouse.leftButton);
+                    }
+
+                    if (GameInitializer.current.GetStage().USER_INPUT.ContainsButtonPress(UserInput.mouse.rightButton))
+                    {
+                        _unit.iStateController.GetCurrentState().AddButtonQueue(UserInput.mouse.rightButton);
+                    }
+
                     if (_unit.unitData.rigidBody2D != null)
                     {
                         _unit.unitData.rigidBody2D.Sleep();

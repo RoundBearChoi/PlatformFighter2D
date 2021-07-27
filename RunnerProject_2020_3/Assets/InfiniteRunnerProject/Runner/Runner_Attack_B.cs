@@ -28,7 +28,7 @@ namespace RB
 
             if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 2)
             {
-                if (GameInitializer.current.GetStage().USER_INPUT.ContainsButtonPress(UserInput.mouse.leftButton))
+                if (ButtonIsPressed(UserInput.mouse.leftButton))
                 {
                     if (ownerUnit.unitData.comboHitCount.GetCount() >= 2)
                     {
@@ -40,7 +40,7 @@ namespace RB
                     }
                 }
 
-                if (GameInitializer.current.GetStage().USER_INPUT.ContainsButtonPress(UserInput.mouse.rightButton))
+                if (ButtonIsPressed(UserInput.mouse.rightButton))
                 {
                     if (ownerUnit.unitData.comboHitCount.GetCount() >= 2)
                     {
