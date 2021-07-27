@@ -166,6 +166,11 @@ namespace RB
                 }
             }
 
+            for (int i = 0; i < _listUnits.Count; i++)
+            {
+                _listUnits[i].unitData.comboHitCount.OnFixedUpdate();
+            }
+
             //main fixedupdate
             for (int i = 0; i < _listUnits.Count; i++)
             {

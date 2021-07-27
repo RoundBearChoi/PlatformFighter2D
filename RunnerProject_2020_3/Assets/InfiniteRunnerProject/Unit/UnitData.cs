@@ -16,6 +16,7 @@ namespace RB
         public uint hp = 1;
         public uint initialHP;
         public bool facingRight = true;
+        public ComboHitCount comboHitCount = new ComboHitCount();
         public Transform unitTransform = null;
         public Rigidbody2D rigidBody2D = null;
         public BoxCollider2D boxCollider2D = null;

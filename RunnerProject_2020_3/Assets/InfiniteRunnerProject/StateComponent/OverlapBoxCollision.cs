@@ -67,6 +67,8 @@ namespace RB
 
                                         BaseMessage takeDamage = new TakeDamageMessage(collidingUnit, 1);
                                         takeDamage.Register();
+
+                                        _unit.unitData.comboHitCount.AddCount();
                                     }
                                 }
                             }
