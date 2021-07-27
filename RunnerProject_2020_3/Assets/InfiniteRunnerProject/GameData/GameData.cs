@@ -25,5 +25,7 @@ namespace RB
         public float CumulativeGravityForcePercentage = 0f;
         public float DefaultFallDeathY = 0f;
         public int InitialFlatGroundCount = 0;
+        public float GroundCreationCushionX = 0f;
+        public float EnemyCreationCushionX = 0f;
     }
 }
