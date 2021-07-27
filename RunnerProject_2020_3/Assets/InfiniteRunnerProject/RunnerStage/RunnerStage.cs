@@ -12,7 +12,7 @@ namespace RB
             units = new Units(this);
 
             InstantiateUnit_ByUnitType(UnitType.RUNNER);
-            InstantiateUnits_ByUnitType(UnitType.GOLEM);
+            //InstantiateUnits_ByUnitType(UnitType.GOLEM);
 
             _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.GAME_UI)) as GameUI;
             _baseUI.transform.parent = this.transform;

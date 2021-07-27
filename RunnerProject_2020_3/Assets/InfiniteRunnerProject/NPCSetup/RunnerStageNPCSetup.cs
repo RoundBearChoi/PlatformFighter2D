@@ -26,6 +26,10 @@ namespace RB
             if (hit.collider != null)
             {
                 Debug.DrawLine(spawn, hit.point, Color.yellow, 5f);
+
+                GameInitializer.current.GetStage().InstantiateUnits_ByUnitType(UnitType.GOLEM);
+                Unit golem = GameInitializer.current.GetStage().units.GetUnit<Golem>();
+                golem.transform.position = hit.point;
             }
         }
     }
