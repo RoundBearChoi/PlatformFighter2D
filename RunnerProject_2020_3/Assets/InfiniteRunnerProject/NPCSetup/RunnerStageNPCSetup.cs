@@ -7,19 +7,22 @@ namespace RB
     public class RunnerStageNPCSetup : BaseNPCSetup
     {
         Unit _runner = null;
+        CameraScript _cameraScript = null;
 
         public RunnerStageNPCSetup(BaseStage ownerStage)
         {
             _stage = ownerStage;
             _runner = ownerStage.units.GetUnit<Runner>();
             _updater = new NPCSetupUpdater(ownerStage, this);
+            _cameraScript = GameInitializer.current.GetStage().cameraScript;
         }
 
         public override void InstantiateNPC()
         {
             Debugger.Log("npc instantiation triggered");
 
-            Vector3 spawn = _runner.transform.position + new Vector3(10f, 20f, 0f);
+            Vector3[] edges = _cameraScript.cameraEdges.GetEdges();
+            Vector3 spawn = new Vector3(edges[3].x + 5f, 20f, 0f);
 
             RaycastHit2D hit = Physics2D.Raycast(spawn, Vector2.down, Mathf.Infinity);
 
