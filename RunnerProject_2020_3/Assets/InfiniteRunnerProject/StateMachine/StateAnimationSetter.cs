@@ -22,6 +22,11 @@ namespace RB
             Runner_Attack_B.animationSpec = spec;
         }
 
+        public void State_Runner_Smash_Grounded(SpriteAnimationSpec spec)
+        {
+            Runner_Smash_Grounded.animationSpec = spec;
+        }
+
         public void State_Runner_Death(SpriteAnimationSpec spec)
         {
             Runner_Death.animationSpec = spec;

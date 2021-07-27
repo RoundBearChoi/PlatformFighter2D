@@ -33,7 +33,8 @@ namespace RB
                 {
                     if (ownerUnit.unitData.comboHitCount.GetCount() >= 2)
                     {
-                        Debugger.Log("combo triggered!");
+                        //Debugger.Log("combo triggered!");
+                        ownerUnit.unitData.listNextStates.Add(new Runner_Smash_Grounded(ownerUnit));
                     }
                     else
                     {
