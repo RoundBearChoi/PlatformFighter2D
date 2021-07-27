@@ -6,7 +6,6 @@ namespace RB
 {
     public class Runner_Attack_B : UnitState
     {
-        //private bool _dustCreated = false;
         public static SpriteAnimationSpec animationSpec = null;
 
         public Runner_Attack_B(Unit unit)
@@ -33,12 +32,19 @@ namespace RB
                 {
                     if (ownerUnit.unitData.comboHitCount.GetCount() >= 2)
                     {
-                        //Debugger.Log("combo triggered!");
                         ownerUnit.unitData.listNextStates.Add(new Runner_Smash_Grounded(ownerUnit));
                     }
                     else
                     {
                         ownerUnit.unitData.listNextStates.Add(new Runner_Attack_A_Dash(ownerUnit));
+                    }
+                }
+
+                if (GameInitializer.current.GetStage().USER_INPUT.ContainsButtonPress(UserInput.mouse.rightButton))
+                {
+                    if (ownerUnit.unitData.comboHitCount.GetCount() >= 2)
+                    {
+                        ownerUnit.unitData.listNextStates.Add(new Runner_Overhead(ownerUnit));
                     }
                 }
             }

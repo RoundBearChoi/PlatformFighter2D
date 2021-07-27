@@ -30,7 +30,7 @@ namespace RB
         {
             _fixedUpdates++;
 
-            if (_fixedUpdates >= 70)
+            if (_fixedUpdates >= 100)
             {
                 _fixedUpdates = 0;
 

@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Runner_Smash_Grounded : UnitState
+    public class Runner_Overhead : UnitState
     {
         public static SpriteAnimationSpec animationSpec = null;
 
-        public Runner_Smash_Grounded(Unit unit)
+        public Runner_Overhead(Unit unit)
         {
             ownerUnit = unit;
-            _listStateComponents.Add(new LerpRunSpeedOnFlatGround(ownerUnit, 1f, 0.05f));
+            _listStateComponents.Add(new LerpRunSpeedOnFlatGround(ownerUnit, 3f, 0.05f));
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
