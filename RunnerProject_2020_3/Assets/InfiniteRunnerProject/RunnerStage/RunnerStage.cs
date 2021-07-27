@@ -14,9 +14,6 @@ namespace RB
             InstantiateUnit_ByUnitType(UnitType.RUNNER);
             //InstantiateUnits_ByUnitType(UnitType.GOLEM);
 
-            _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.GAME_UI)) as GameUI;
-            _baseUI.transform.parent = this.transform;
-
             cameraScript = new CameraScript();
 
             GameCamera gameCamera = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.GAME_CAMERA)) as GameCamera;
@@ -28,6 +25,9 @@ namespace RB
             cameraScript.SetCamera(cam);
             cameraScript.SetCameraState(new Camera_LerpOnRunnerY());
             cameraScript.SetTarget(units.GetUnit<Runner>().gameObject);
+
+            _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.GAME_UI)) as GameUI;
+            _baseUI.transform.parent = this.transform;
 
             backgroundSetup = new SwampSetup();
             backgroundSetup.InstantiateBaseLayer();
