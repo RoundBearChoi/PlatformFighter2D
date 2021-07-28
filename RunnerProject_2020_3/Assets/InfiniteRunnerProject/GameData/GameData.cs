@@ -9,6 +9,7 @@ namespace RB
     {
         public float Runner_FlatGround_RunSpeed = 0f;
         public Vector2 Runner_JumpForce = new Vector2();
+        public float Runner_ComboSmashJumpForce = 0f;
         public float JumpPullPercentagePerFixedUpdate = 0f;
         public float SlideSpeedThreshold = 0f;
 

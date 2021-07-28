@@ -32,7 +32,7 @@ namespace RB
                 {
                     if (ownerUnit.unitData.comboHitCount.GetCount() >= 2)
                     {
-                        ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x, 4f);
+                        ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x, GameInitializer.current.gameDataSO.Runner_ComboSmashJumpForce);
                         ownerUnit.unitData.listNextStates.Add(new Runner_ComboTransitionTo_Smash(ownerUnit));
                     }
                     else
