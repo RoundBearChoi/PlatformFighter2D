@@ -24,6 +24,10 @@ namespace RB
         {
             FixedUpdateComponents();
 
+            if (ownerUnit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM) || ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
+            {
+                ownerUnit.unitData.listNextStates.Add(new Runner_Smash_Air_Land(ownerUnit));
+            }
         }
     }
 }
