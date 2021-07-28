@@ -7,7 +7,7 @@ namespace RB
     public enum LayerType
     {
         DEFAULT = 0,
-        DEAD_UNIT = 10,
-        LIVE_UNIT = 11,
+        GHOSTING_UNIT = 10,
+        PHYSICAL_UNIT = 11,
     }
 }

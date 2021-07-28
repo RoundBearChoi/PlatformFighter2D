@@ -11,7 +11,7 @@ namespace RB
         public Golem_Death(Unit unit)
         {
             ownerUnit = unit;
-            ownerUnit.gameObject.layer = (int)LayerType.DEAD_UNIT;
+            ownerUnit.gameObject.layer = (int)LayerType.GHOSTING_UNIT;
             noHitStopAllowed = true;
 
             _listStateComponents.Add(new InitialTextGUIMaterial(ownerUnit, 8));

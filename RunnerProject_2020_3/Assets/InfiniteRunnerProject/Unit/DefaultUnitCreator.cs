@@ -16,7 +16,7 @@ namespace RB
         {
             Unit unit = InstantiateUnit(_creationSpec);
             unit.transform.SetParent(_parentTransform, false);
-            unit.gameObject.layer = (int)LayerType.LIVE_UNIT;
+            unit.gameObject.layer = (int)LayerType.PHYSICAL_UNIT;
 
             unit.unitData = new UnitData(unit.transform);
             unit.unitData.facingRight = _creationSpec.faceRight;

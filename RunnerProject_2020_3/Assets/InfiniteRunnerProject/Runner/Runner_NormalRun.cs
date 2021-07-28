@@ -17,6 +17,8 @@ namespace RB
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 5f, 0.1f));
             _listStateComponents.Add(new NormalRun_OnUserInput(ownerUnit));
             _listStateComponents.Add(new UpdateCollider2DSize(ownerUnit, new Vector2(0.8f, 3.4f)));
+
+            ownerUnit.gameObject.layer = (int)LayerType.PHYSICAL_UNIT;
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

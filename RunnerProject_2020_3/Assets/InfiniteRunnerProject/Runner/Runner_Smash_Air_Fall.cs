@@ -13,6 +13,8 @@ namespace RB
             ownerUnit = unit;
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, 0.05f));
             _listStateComponents.Add(new AddCumulativeVelocity(ownerUnit, 1.2f));
+
+            ownerUnit.gameObject.layer = (int)LayerType.GHOSTING_UNIT;
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
