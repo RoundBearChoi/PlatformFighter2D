@@ -62,6 +62,11 @@ namespace RB
             unit.iStateController.SetNewState(new JumpDust_DefaultState(unit));
         }
 
+        public void New_SmashDust(Unit unit)
+        {
+            unit.iStateController.SetNewState(new SmashDust_DefaultState(unit));
+        }
+
         public void New_Blood_5(Unit unit)
         {
             unit.iStateController.SetNewState(new Blood_5_DefaultState(unit));
