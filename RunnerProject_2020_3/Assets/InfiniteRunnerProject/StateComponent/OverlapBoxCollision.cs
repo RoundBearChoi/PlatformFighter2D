@@ -6,18 +6,18 @@ namespace RB
 {
     public class OverlapBoxCollision : StateComponent
     {
-        List<OverlapBoxCollisionSpecs> _listSpecs;
         int _currentHitCount = 0;
+        OverlapBoxCollisionData _boxCollisionData = null;
 
-        public OverlapBoxCollision(Unit unit, List<OverlapBoxCollisionSpecs> listSpecs)
+        public OverlapBoxCollision(Unit unit, OverlapBoxCollisionData boxCollisionData)
         {
             _unit = unit;
-            _listSpecs = listSpecs;
+            _boxCollisionData = boxCollisionData;
         }
 
         public override void OnFixedUpdate()
         {
-            foreach(OverlapBoxCollisionSpecs specs in _listSpecs)
+            foreach(OverlapBoxCollisionSpecs specs in _boxCollisionData.listSpecs)
             {
                 if (_unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == specs.mTargetSpriteIndex)
                 {
@@ -49,7 +49,7 @@ namespace RB
 
                                     if (_currentHitCount <= specs.mMaxHits)
                                     {
-                                        BaseMessage winceMessage = new Wince_Message(collidingUnit, _unit);
+                                        BaseMessage winceMessage = new Wince_Message(collidingUnit, _boxCollisionData.pushForce, _unit);
                                         winceMessage.Register();
 
                                         BaseMessage attackerHitStop = new HitStop_Message(specs.mStopFrames, _unit.unitType);

@@ -43,6 +43,11 @@ namespace RB
             return Vector3.zero;
         }
 
+        public virtual Vector2 GetVector2Message()
+        {
+            return Vector2.zero;
+        }
+
         public virtual UnitType GetUnitTypeMessage()
         {
             return UnitType.NONE;

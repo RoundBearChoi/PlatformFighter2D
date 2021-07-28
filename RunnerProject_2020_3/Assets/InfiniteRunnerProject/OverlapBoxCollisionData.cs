@@ -8,5 +8,6 @@ namespace RB
     public class OverlapBoxCollisionData : ScriptableObject
     {
         public List<OverlapBoxCollisionSpecs> listSpecs = new List<OverlapBoxCollisionSpecs>();
+        public Vector2 pushForce = new Vector2();
     }
 }
