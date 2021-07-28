@@ -8,10 +8,14 @@ namespace RB
     {
         public static SpriteAnimationSpec animationSpec = null;
 
+        private UserInput _userInput = null;
+
         public Runner_Smash_Air_Land(Unit unit)
         {
             ownerUnit = unit;
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, 0.3f));
+
+            _userInput = GameInitializer.current.GetStage().USER_INPUT;
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
@@ -23,9 +27,25 @@ namespace RB
         {
             FixedUpdateComponents();
 
+            //cancel last frame and go straight to crouch
+            if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 5)
+            {
+                if (_userInput.ContainsKeyHold(UserInput.keyboard.sKey))
+                {
+                    ownerUnit.unitData.listNextStates.Add(new Runner_Crouch(ownerUnit));
+                }
+            }
+
             if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().IsOnEnd())
             {
-                ownerUnit.unitData.listNextStates.Add(new Runner_NormalRun(ownerUnit));
+                if (_userInput.ContainsKeyHold(UserInput.keyboard.sKey))
+                {
+                    ownerUnit.unitData.listNextStates.Add(new Runner_Crouch(ownerUnit));
+                }
+                else
+                {
+                    ownerUnit.unitData.listNextStates.Add(new Runner_NormalRun(ownerUnit));
+                }
             }
         }
     }
