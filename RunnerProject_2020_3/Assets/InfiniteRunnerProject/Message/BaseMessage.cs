@@ -47,5 +47,10 @@ namespace RB
         {
             return UnitType.NONE;
         }
+
+        public virtual Unit GetUnitMessage()
+        {
+            return null;
+        }
     }
 }

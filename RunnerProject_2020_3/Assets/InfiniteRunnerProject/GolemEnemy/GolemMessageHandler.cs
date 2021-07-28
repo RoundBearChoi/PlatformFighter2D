@@ -20,7 +20,7 @@ namespace RB
             {
                 if (message.MESSAGE_TYPE == MessageType.WINCE)
                 {
-                    _unit.unitData.listNextStates.Add(new Golem_Wincing(_unit));
+                    _unit.unitData.listNextStates.Add(new Golem_Wincing(_unit, new Vector2(3.5f, 2.75f), message.GetUnitMessage()));
                 }
                 else if (message.MESSAGE_TYPE == MessageType.TAKE_DAMAGE)
                 {

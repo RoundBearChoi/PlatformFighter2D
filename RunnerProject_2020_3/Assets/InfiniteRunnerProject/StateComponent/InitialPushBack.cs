@@ -8,11 +8,13 @@ namespace RB
     {
         private bool _initialPushBack = false;
         private Vector2 _force = Vector2.zero;
+        private Unit _attacker = null;
 
-        public InitialPushBack(Unit unit, Vector2 force)
+        public InitialPushBack(Unit unit, Vector2 force, Unit attacker)
         {
             _unit = unit;
             _force = force;
+            _attacker = attacker;
         }
 
         public override void OnFixedUpdate()
@@ -22,6 +24,11 @@ namespace RB
                 _initialPushBack = true;
 
                 Vector3 push = Vector3.zero;
+
+                if (_attacker != null)
+                {
+
+                }
 
                 if (!_unit.unitData.facingRight)
                 {

@@ -8,12 +8,12 @@ namespace RB
     {
         public static SpriteAnimationSpec animationSpec = null;
 
-        public Golem_Wincing(Unit unit)
+        public Golem_Wincing(Unit unit, Vector2 pushForce, Unit attacker)
         {
             ownerUnit = unit;
             noHitStopAllowed = true;
 
-            _listStateComponents.Add(new InitialPushBack(ownerUnit, new Vector2(3.5f, 2.75f)));
+            _listStateComponents.Add(new InitialPushBack(ownerUnit, pushForce, attacker));
             _listStateComponents.Add(new InitialTextGUIMaterial(ownerUnit, 8));
             _listStateComponents.Add(new SlowDownToZeroOnFlatGround(ownerUnit, 0.1f));
         }

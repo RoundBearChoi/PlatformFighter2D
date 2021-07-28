@@ -49,7 +49,7 @@ namespace RB
 
                                     if (_currentHitCount <= specs.mMaxHits)
                                     {
-                                        BaseMessage winceMessage = new Wince_Message(collidingUnit);
+                                        BaseMessage winceMessage = new Wince_Message(collidingUnit, _unit);
                                         winceMessage.Register();
 
                                         BaseMessage attackerHitStop = new HitStop_Message(specs.mStopFrames, _unit.unitType);

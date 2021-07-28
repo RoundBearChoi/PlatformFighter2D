@@ -8,12 +8,12 @@ namespace RB
     {
         public static SpriteAnimationSpec animationSpec = null;
 
-        public Runner_Wincing(Unit unit)
+        public Runner_Wincing(Unit unit, Unit attacker)
         {
             ownerUnit = unit;
             noHitStopAllowed = true;
 
-            _listStateComponents.Add(new InitialPushBack(ownerUnit, new Vector2(3.5f, 2.75f)));
+            _listStateComponents.Add(new InitialPushBack(ownerUnit, new Vector2(3.5f, 2.75f), attacker));
             _listStateComponents.Add(new InitialTextGUIMaterial(ownerUnit, 15));
             _listStateComponents.Add(new SlowDownToZeroOnFlatGround(ownerUnit, 0.1f));
         }
