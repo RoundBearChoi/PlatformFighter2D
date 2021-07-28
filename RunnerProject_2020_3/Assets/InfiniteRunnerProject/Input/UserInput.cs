@@ -10,7 +10,8 @@ namespace RB
     {
         private Dictionary<KeyControl, int> _dicKeyPresses = new Dictionary<KeyControl, int>();
         private Dictionary<ButtonControl, int> _dicButtonPresses = new Dictionary<ButtonControl, int>();
-        private List<KeyControl> _listHolds = new List<KeyControl>();
+        private List<KeyControl> _listKeyHolds = new List<KeyControl>();
+        private List<ButtonControl> _listButtonHolds = new List<ButtonControl>();
 
         public static Keyboard keyboard = null;
         public static Mouse mouse = null;
@@ -36,7 +37,7 @@ namespace RB
 
                 if (!ContainsKeyHold(keyControl))
                 {
-                    _listHolds.Add(keyControl);
+                    _listKeyHolds.Add(keyControl);
                 }
             }
 
@@ -60,6 +61,19 @@ namespace RB
                 else
                 {
                     _dicButtonPresses.Add(buttonControl, 1);
+                }
+
+                if (!ContainsButtonHold(buttonControl))
+                {
+                    _listButtonHolds.Add(buttonControl);
+                }
+            }
+
+            if (buttonControl.wasReleasedThisFrame)
+            {
+                if (ContainsButtonHold(buttonControl))
+                {
+                    RemoveButtonHold(buttonControl);
                 }
             }
         }
@@ -92,7 +106,7 @@ namespace RB
 
         public bool ContainsKeyHold(KeyControl keyControl)
         {
-            foreach(KeyControl key in _listHolds)
+            foreach(KeyControl key in _listKeyHolds)
             {
                 if (keyControl == key)
                 {
@@ -103,13 +117,38 @@ namespace RB
             return false;
         }
 
+        public bool ContainsButtonHold(ButtonControl buttonControl)
+        {
+            foreach (ButtonControl key in _listButtonHolds)
+            {
+                if (buttonControl == key)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public void RemoveKeyHold(KeyControl keyControl)
         {
-            for (int i = _listHolds.Count - 1; i >= 0; i--)
+            for (int i = _listKeyHolds.Count - 1; i >= 0; i--)
             {
-                if (_listHolds[i] == keyControl)
+                if (_listKeyHolds[i] == keyControl)
                 {
-                    _listHolds.RemoveAt(i);
+                    _listKeyHolds.RemoveAt(i);
+                    return;
+                }
+            }
+        }
+
+        public void RemoveButtonHold(ButtonControl buttonControl)
+        {
+            for (int i = _listButtonHolds.Count - 1; i >= 0; i--)
+            {
+                if (_listButtonHolds[i] == buttonControl)
+                {
+                    _listButtonHolds.RemoveAt(i);
                     return;
                 }
             }

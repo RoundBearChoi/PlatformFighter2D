@@ -12,6 +12,8 @@ namespace RB
         public Runner_Jump_Up(Unit unit)
         {
             ownerUnit = unit;
+
+            _listStateComponents.Add(new TriggerAirDownSmash(unit));
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

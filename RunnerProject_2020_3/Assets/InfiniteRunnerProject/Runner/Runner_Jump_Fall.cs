@@ -11,6 +11,8 @@ namespace RB
         public Runner_Jump_Fall(Unit unit)
         {
             ownerUnit = unit;
+
+            _listStateComponents.Add(new TriggerAirDownSmash(unit));
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
@@ -25,6 +27,8 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
+            FixedUpdateComponents();
+
             if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
             {
                 BaseMessage showLandingDust = new ShowLandingDust_Message(true, ownerUnit.transform.position);
@@ -32,8 +36,6 @@ namespace RB
 
                 ownerUnit.unitData.listNextStates.Add(new Runner_NormalRun(ownerUnit));
             }
-
-            FixedUpdateComponents();
         }
     }
 }
