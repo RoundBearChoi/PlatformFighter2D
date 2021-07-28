@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Runner_Jump_Prep : UnitState
+    public class Runner_Jump_Fall : UnitState
     {
         public static SpriteAnimationSpec animationSpec = null;
 
-        public Runner_Jump_Prep(Unit unit)
+        public Runner_Jump_Fall(Unit unit)
         {
             ownerUnit = unit;
 

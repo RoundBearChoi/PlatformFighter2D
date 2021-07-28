@@ -19,7 +19,7 @@ namespace RB
                 //falling
                 if (_unit.unitData.rigidBody2D.velocity.y < 0f)
                 {
-                    _unit.unitData.listNextStates.Add(new Runner_Jump_Prep(_unit));
+                    _unit.unitData.listNextStates.Add(new Runner_Jump_Fall(_unit));
                 }
             }
         }
