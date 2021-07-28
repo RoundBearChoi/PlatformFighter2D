@@ -23,7 +23,7 @@ namespace RB
 
         public override void OnEnter()
         {
-            ownerUnit.unitData.rigidBody2D.velocity = GameInitializer.current.gameDataSO.Runner_JumpUp_StartForce;
+            ownerUnit.unitData.rigidBody2D.velocity = GameInitializer.current.gameDataSO.Runner_JumpForce;
         }
 
         public override void OnFixedUpdate()

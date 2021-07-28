@@ -12,7 +12,6 @@ namespace RB
             units = new Units(this);
 
             InstantiateUnit_ByUnitType(UnitType.RUNNER);
-            //InstantiateUnits_ByUnitType(UnitType.GOLEM);
 
             cameraScript = new CameraScript();
 
@@ -20,7 +19,7 @@ namespace RB
             gameCamera.transform.parent = this.transform;
             Camera cam = gameCamera.GetComponent<Camera>();
 
-            cam.orthographicSize = 7f;
+            cam.orthographicSize = 8f;
             cam.transform.position = new Vector3(0f, 5f, 0f);
             cameraScript.SetCamera(cam);
             cameraScript.SetCameraState(new Camera_LerpOnRunnerY());
