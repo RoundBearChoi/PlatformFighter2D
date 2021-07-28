@@ -4,14 +4,15 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Runner_Smash_Grounded : UnitState
+    public class Runner_ComboTransitionTo_Smash : UnitState
     {
         public static SpriteAnimationSpec animationSpec = null;
 
-        public Runner_Smash_Grounded(Unit unit)
+        public Runner_ComboTransitionTo_Smash(Unit unit)
         {
             ownerUnit = unit;
-            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 1f, 0.05f));
+            _listStateComponents.Add(new LerpHorizontalSpeed_Air(ownerUnit, 0.01f, 0.05f));
+            _listStateComponents.Add(new LerpVerticalSpeed_Air(ownerUnit, -0.1f, 0.15f));
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
@@ -23,9 +24,9 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().IsOnEnd())
+            if (ownerUnit.unitData.rigidBody2D.velocity.y <= 0f)
             {
-                ownerUnit.unitData.listNextStates.Add(new Runner_NormalRun(ownerUnit));
+                ownerUnit.unitData.listNextStates.Add(new Runner_Smash_Air_Fall(ownerUnit));
             }
         }
     }

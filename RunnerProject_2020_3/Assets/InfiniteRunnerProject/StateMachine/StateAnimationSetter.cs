@@ -22,11 +22,6 @@ namespace RB
             Runner_Attack_B.animationSpec = spec;
         }
 
-        public void State_Runner_Smash_Grounded(SpriteAnimationSpec spec)
-        {
-            Runner_Smash_Grounded.animationSpec = spec;
-        }
-
         public void State_Runner_Smash_Air_Prep(SpriteAnimationSpec spec)
         {
             Runner_Smash_Air_Prep.animationSpec = spec;
@@ -40,6 +35,11 @@ namespace RB
         public void State_Runner_Smash_Air_Land(SpriteAnimationSpec spec)
         {
             Runner_Smash_Air_Land.animationSpec = spec;
+        }
+
+        public void State_Runner_ComboTransitionTo_Smash(SpriteAnimationSpec spec)
+        {
+            Runner_ComboTransitionTo_Smash.animationSpec = spec;
         }
 
         public void State_Runner_Overhead(SpriteAnimationSpec spec)
