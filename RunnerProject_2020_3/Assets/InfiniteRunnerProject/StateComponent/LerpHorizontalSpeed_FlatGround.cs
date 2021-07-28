@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace RB
 {
-    public class LerpRunSpeedOnFlatGround : StateComponent
+    public class LerpHorizontalSpeed_FlatGround : StateComponent
     {
         float _targetHorizontalForce = 0f;
         float _percentagePerUpdate = 0f;
 
-        public LerpRunSpeedOnFlatGround(Unit unit, float targetHorizontalForce, float percentagePerUpdate)
+        public LerpHorizontalSpeed_FlatGround(Unit unit, float targetHorizontalForce, float percentagePerUpdate)
         {
             _unit = unit;
             _targetHorizontalForce = targetHorizontalForce;

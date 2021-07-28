@@ -27,6 +27,11 @@ namespace RB
             Runner_Smash_Grounded.animationSpec = spec;
         }
 
+        public void State_Runner_Smash_Air_Fall(SpriteAnimationSpec spec)
+        {
+            Runner_Smash_Air_Fall.animationSpec = spec;
+        }
+
         public void State_Runner_Overhead(SpriteAnimationSpec spec)
         {
             Runner_Overhead.animationSpec = spec;

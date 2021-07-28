@@ -11,7 +11,7 @@ namespace RB
         public Runner_Smash_Grounded(Unit unit)
         {
             ownerUnit = unit;
-            _listStateComponents.Add(new LerpRunSpeedOnFlatGround(ownerUnit, 1f, 0.05f));
+            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 1f, 0.05f));
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

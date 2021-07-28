@@ -11,7 +11,7 @@ namespace RB
         public Runner_Overhead(Unit unit)
         {
             ownerUnit = unit;
-            _listStateComponents.Add(new LerpRunSpeedOnFlatGround(ownerUnit, 3f, 0.05f));
+            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 3f, 0.05f));
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

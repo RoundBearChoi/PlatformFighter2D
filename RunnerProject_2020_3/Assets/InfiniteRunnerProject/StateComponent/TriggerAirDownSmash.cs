@@ -19,7 +19,7 @@ namespace RB
             if (_userInput.ContainsButtonHold(UserInput.mouse.leftButton) && _userInput.ContainsKeyHold(UserInput.keyboard.sKey) ||
                 _userInput.ContainsButtonPress(UserInput.mouse.leftButton) && _userInput.ContainsKeyPress(UserInput.keyboard.sKey))
             {
-                Debugger.Log("smash!");
+                _unit.unitData.listNextStates.Add(new Runner_Smash_Air_Fall(_unit));
             }
         }
     }

@@ -11,7 +11,7 @@ namespace RB
         public Runner_Crouch_GetUp(Unit unit)
         {
             ownerUnit = unit;
-            _listStateComponents.Add(new LerpRunSpeedOnFlatGround(ownerUnit, 0f, 0.05f));
+            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, 0.05f));
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
