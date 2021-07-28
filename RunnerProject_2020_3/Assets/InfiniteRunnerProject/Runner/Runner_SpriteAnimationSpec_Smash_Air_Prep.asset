@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e79727ed8da2341438994d55ca92770b, type: 3}
-  m_Name: Runner_SpriteAnimationSpec_Jump_Fall
+  m_Name: Runner_SpriteAnimationSpec_Smash_Air_Prep
   m_EditorClassIdentifier: 
-  spriteName: Texture_PrototypeHero_Jump_Fall
+  spriteName: Texture_PrototypeHero_Smash_Air_Prep
   backupSpriteName: Texture_MissingSprite
-  spriteInterval: 4
+  spriteInterval: 5
   spriteSize: {x: 5.58, y: 6.48}
   offsetType: 1
   additionalOffset: {x: 0, y: 0}
@@ -24,7 +24,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: b843f7797d09f824dbb56f845c95bdb8, type: 2}
         m_TargetAssemblyTypeName: RB.StateAnimationSetter, Assembly-CSharp
-        m_MethodName: State_Runner_Jump_Prep
+        m_MethodName: State_Runner_Smash_Air_Fall
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
