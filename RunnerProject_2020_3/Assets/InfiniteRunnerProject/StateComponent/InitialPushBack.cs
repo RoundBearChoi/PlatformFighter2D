@@ -27,16 +27,18 @@ namespace RB
 
                 if (_attacker != null)
                 {
+                    Vector2 dir = _attacker.transform.position - _unit.transform.position;
 
-                }
-
-                if (!_unit.unitData.facingRight)
-                {
-                    push = new Vector3(_force.x, _force.y, 0f);
-                }
-                else
-                {
-                    push = new Vector3(_force.x * -1f, _force.y, 0f);
+                    //attacker on rightside
+                    if (dir.x > 0f)
+                    {
+                        push = new Vector3(_force.x * -1f, _force.y, 0f);
+                    }
+                    //attacker on leftside
+                    else
+                    {
+                        push = new Vector3(_force.x, _force.y, 0f);
+                    }
                 }
 
                 _unit.unitData.rigidBody2D.velocity = push;
