@@ -11,7 +11,8 @@ namespace RB
         public Runner_Smash_Air_Prep(Unit unit)
         {
             ownerUnit = unit;
-            _listStateComponents.Add(new LerpHorizontalSpeed_Air(ownerUnit, 0f, 0.1f, true));
+            _listStateComponents.Add(new LerpVerticalSpeed_Air(ownerUnit, -0.01f, 0.1f));
+            _listStateComponents.Add(new LerpHorizontalSpeed_Air(ownerUnit, 0.01f, 0.1f));
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
@@ -25,7 +26,7 @@ namespace RB
 
             if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().IsOnEnd())
             {
-                if (ownerUnit.unitData.rigidBody2D.velocity.x <= 0.01f)
+                if (ownerUnit.unitData.rigidBody2D.velocity.y < 0f)
                 {
                     ownerUnit.unitData.listNextStates.Add(new Runner_Smash_Air_Fall(ownerUnit));
                 }

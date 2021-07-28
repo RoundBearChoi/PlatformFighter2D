@@ -11,8 +11,8 @@ namespace RB
         public Runner_Smash_Air_Fall(Unit unit)
         {
             ownerUnit = unit;
-            _listStateComponents.Add(new LerpHorizontalSpeed_Air(ownerUnit, 0f, 0.1f, true));
-            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, 0.1f));
+            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, 0.05f));
+            _listStateComponents.Add(new AddCumulativeVelocity(ownerUnit, 1.2f));
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
