@@ -41,7 +41,7 @@ namespace RB
                 }
             }
 
-            if (keyControl.wasReleasedThisFrame)
+            if (!keyControl.isPressed || keyControl.wasReleasedThisFrame)
             {
                 if (ContainsKeyHold(keyControl))
                 {
@@ -69,7 +69,7 @@ namespace RB
                 }
             }
 
-            if (buttonControl.wasReleasedThisFrame)
+            if (!buttonControl.isPressed || buttonControl.wasReleasedThisFrame)
             {
                 if (ContainsButtonHold(buttonControl))
                 {

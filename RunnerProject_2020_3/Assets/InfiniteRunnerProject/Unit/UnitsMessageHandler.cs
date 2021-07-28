@@ -81,6 +81,13 @@ namespace RB
                     slideDust.transform.position = message.GetVector3Message();
                     slideDust.unitData.facingRight = message.GetBoolMessage();
                 }
+                else if (message.MESSAGE_TYPE == MessageType.SHOW_SMASH_DUST)
+                {
+                    GameInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.SMASH_DUST);
+                    Unit smashDust = Units.instance.GetUnit<SmashDust>();
+                    smashDust.transform.position = message.GetVector3Message();
+                    smashDust.unitData.facingRight = message.GetBoolMessage();
+                }
             }
         }
     }

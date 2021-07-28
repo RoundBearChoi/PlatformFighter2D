@@ -29,5 +29,6 @@ namespace RB
         SHOW_STEP_DUST = 702,
         SHOW_SLIDE_DUST = 703,
         SHOW_JUMP_DUST = 704,
+        SHOW_SMASH_DUST = 705,
     }
 }
