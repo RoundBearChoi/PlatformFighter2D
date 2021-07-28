@@ -11,7 +11,7 @@ namespace RB
         public Runner_Smash_Air_Prep(Unit unit)
         {
             ownerUnit = unit;
-            _listStateComponents.Add(new LerpVerticalSpeed_Air(ownerUnit, -0.01f, 0.05f));
+            _listStateComponents.Add(new LerpVerticalSpeed_Air(ownerUnit, -0.1f, 0.05f));
             _listStateComponents.Add(new LerpHorizontalSpeed_Air(ownerUnit, 0.01f, 0.05f));
         }
 
