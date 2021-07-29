@@ -23,7 +23,7 @@ namespace RB.UITest
         {
             _canvas = this.gameObject.GetComponentInChildren<Canvas>();
 
-            DefaultUIBlock defaultUIBlock = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.DEFAULT_UI_BLOCK), _canvas.transform) as DefaultUIBlock;
+            DefaultUIBlock defaultUIBlock = Instantiate(ResourceLoader.uiLoader_RunnerStage.GetObj(UIType.DEFAULT_UI_BLOCK), _canvas.transform) as DefaultUIBlock;
             _listUIBlocks.Add(defaultUIBlock);
         }
 
@@ -62,7 +62,7 @@ namespace RB.UITest
             if (message.MESSAGE_TYPE == MessageType.RUNNER_IS_DEAD)
             {
                 Debugger.Log("runner death message received by ui");
-                RunnerDeathNotification notification = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.RUNNER_DEATH_NOTIFICATION), _canvas.transform) as RunnerDeathNotification;
+                RunnerDeathNotification notification = Instantiate(ResourceLoader.uiLoader_RunnerStage.GetObj(UIType.RUNNER_DEATH_NOTIFICATION), _canvas.transform) as RunnerDeathNotification;
                 notification.SetUserInput(_userInput);
                 _listUIBlocks.Add(notification);
             }

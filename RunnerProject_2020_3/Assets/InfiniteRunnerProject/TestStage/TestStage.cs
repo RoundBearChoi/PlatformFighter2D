@@ -23,7 +23,7 @@ namespace RB
             GameObject levelObj = Instantiate(ResourceLoader.levelLoader.GetObj(1)) as GameObject;
             levelObj.transform.parent = this.transform;
 
-            ui = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.UI)) as UITest.tempUI;
+            ui = Instantiate(ResourceLoader.uiLoader_RunnerStage.GetObj(UIType.UI)) as UITest.tempUI;
             ui.SetCounters(fixedUpdateCounter, updateCounter);
             ui.SetInput(_userInput);
             ui.transform.parent = this.transform;

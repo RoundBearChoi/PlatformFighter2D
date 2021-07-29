@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace RB
 {
-    public class UnitLoader : GameResources<UnitType>
+    public class UnitLoader_RunnerStage : GameResources<UnitType>
     {
-        public UnitLoader()
+        public UnitLoader_RunnerStage()
         {
             Debugger.Log("loading units..");
 

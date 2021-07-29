@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace RB
 {
-    public class UIElementLoader : GameResources<UIElementType>
+    public class UIElementLoader_RunnerStage : GameResources<UIElementType>
     {
-        public UIElementLoader()
+        public UIElementLoader_RunnerStage()
         {
             Debugger.Log("loading ui elements..");
 

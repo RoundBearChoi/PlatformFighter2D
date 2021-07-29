@@ -15,6 +15,8 @@ namespace RB
 
         public BaseStage MakeTransition()
         {
+            ResourceLoader.LoadRunnerStage();
+
             BaseStage runnerStage = GameObject.Instantiate(ResourceLoader.stageLoader.GetObj(StageType.RUNNER_STAGE)) as BaseStage;
             runnerStage.SetInitializer(_gameInitializer);
             runnerStage.transform.parent = _gameInitializer.transform;

@@ -25,7 +25,7 @@ namespace RB
             cameraScript.SetCameraState(new Camera_LerpOnRunnerY());
             cameraScript.SetTarget(units.GetUnit<PlayerUnit>().gameObject);
 
-            _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.GAME_UI)) as GameUI;
+            _baseUI = Instantiate(ResourceLoader.uiLoader_RunnerStage.GetObj(UIType.GAME_UI)) as GameUI;
             _baseUI.transform.parent = this.transform;
 
             backgroundSetup = new SwampSetup();

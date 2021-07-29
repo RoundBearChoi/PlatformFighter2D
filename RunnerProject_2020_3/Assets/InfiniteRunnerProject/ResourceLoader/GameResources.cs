@@ -10,8 +10,11 @@ namespace RB
 
         public virtual void LoadObj<ObjType>(KeyType keyType, string objName)
         {
-            Object createdObj = Resources.Load(objName, typeof(ObjType));
-            dicResources.Add(keyType, createdObj);
+            if (!dicResources.ContainsKey(keyType))
+            {
+                Object createdObj = Resources.Load(objName, typeof(ObjType));
+                dicResources.Add(keyType, createdObj);
+            }
         }
 
         public virtual Object GetObj(KeyType keyType)

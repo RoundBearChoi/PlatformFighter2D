@@ -11,7 +11,7 @@ namespace RB
 
         public virtual Unit InstantiateUnit(BaseUnitCreationSpec creationSpec)
         {
-            Unit unit = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(creationSpec.unitType)) as Unit;
+            Unit unit = GameObject.Instantiate(ResourceLoader.unitLoader_RunnerStage.GetObj(creationSpec.unitType)) as Unit;
             unit.unitType = creationSpec.unitType;
 
             unit.transform.localRotation = creationSpec.localRotation;
