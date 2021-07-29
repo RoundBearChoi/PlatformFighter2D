@@ -325,9 +325,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997299961724001
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,9 +463,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997299971596353
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,9 +601,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997299972304065
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,7 +885,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8371997300047499338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.28, y: -1.62, z: 0}
+  m_LocalPosition: {x: 0.5, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8371997301833348894}
@@ -984,9 +1017,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300059081544
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,9 +1236,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300101217778
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,9 +1374,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300105135939
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,9 +1512,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300110363322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1573,9 +1650,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300124705352
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,9 +1869,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300168379438
 GameObject:
   m_ObjectHideFlags: 0
@@ -1908,9 +2007,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300169056750
 GameObject:
   m_ObjectHideFlags: 0
@@ -2070,9 +2180,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300190894041
 GameObject:
   m_ObjectHideFlags: 0
@@ -2394,9 +2515,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300227491520
 GameObject:
   m_ObjectHideFlags: 0
@@ -2556,9 +2688,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300318052587
 GameObject:
   m_ObjectHideFlags: 0
@@ -3088,9 +3231,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300418633804
 GameObject:
   m_ObjectHideFlags: 0
@@ -3215,9 +3369,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300422381271
 GameObject:
   m_ObjectHideFlags: 0
@@ -3342,9 +3507,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300425795231
 GameObject:
   m_ObjectHideFlags: 0
@@ -3469,9 +3645,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300481398081
 GameObject:
   m_ObjectHideFlags: 0
@@ -3596,9 +3783,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300487781129
 GameObject:
   m_ObjectHideFlags: 0
@@ -3971,9 +4169,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300508425406
 GameObject:
   m_ObjectHideFlags: 0
@@ -4171,9 +4380,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300580392558
 GameObject:
   m_ObjectHideFlags: 0
@@ -4298,9 +4518,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300582488398
 GameObject:
   m_ObjectHideFlags: 0
@@ -4668,9 +4899,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300648052262
 GameObject:
   m_ObjectHideFlags: 0
@@ -4876,9 +5118,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300651019767
 GameObject:
   m_ObjectHideFlags: 0
@@ -5200,9 +5453,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300716081425
 GameObject:
   m_ObjectHideFlags: 0
@@ -5327,9 +5591,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300722514034
 GameObject:
   m_ObjectHideFlags: 0
@@ -5454,9 +5729,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300738889300
 GameObject:
   m_ObjectHideFlags: 0
@@ -5581,9 +5867,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300774306692
 GameObject:
   m_ObjectHideFlags: 0
@@ -5789,9 +6086,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300799748014
 GameObject:
   m_ObjectHideFlags: 0
@@ -5997,9 +6305,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300838445085
 GameObject:
   m_ObjectHideFlags: 0
@@ -6159,9 +6478,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300872960387
 GameObject:
   m_ObjectHideFlags: 0
@@ -6286,9 +6616,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300909151695
 GameObject:
   m_ObjectHideFlags: 0
@@ -6575,9 +6916,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300927696170
 GameObject:
   m_ObjectHideFlags: 0
@@ -6702,9 +7054,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300941341161
 GameObject:
   m_ObjectHideFlags: 0
@@ -6910,9 +7273,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300992829300
 GameObject:
   m_ObjectHideFlags: 0
@@ -7037,9 +7411,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997300996477269
 GameObject:
   m_ObjectHideFlags: 0
@@ -7650,9 +8035,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301092900231
 GameObject:
   m_ObjectHideFlags: 0
@@ -7939,9 +8335,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301113877857
 GameObject:
   m_ObjectHideFlags: 0
@@ -8147,9 +8554,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301126005927
 GameObject:
   m_ObjectHideFlags: 0
@@ -8274,9 +8692,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301134933518
 GameObject:
   m_ObjectHideFlags: 0
@@ -9246,9 +9675,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301377293639
 GameObject:
   m_ObjectHideFlags: 0
@@ -9373,9 +9813,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301411856745
 GameObject:
   m_ObjectHideFlags: 0
@@ -9500,9 +9951,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301431479556
 GameObject:
   m_ObjectHideFlags: 0
@@ -9627,9 +10089,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301432138515
 GameObject:
   m_ObjectHideFlags: 0
@@ -9754,9 +10227,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301433299312
 GameObject:
   m_ObjectHideFlags: 0
@@ -9881,9 +10365,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301443150747
 GameObject:
   m_ObjectHideFlags: 0
@@ -10251,9 +10746,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301525276944
 GameObject:
   m_ObjectHideFlags: 0
@@ -10540,9 +11046,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301554562030
 GameObject:
   m_ObjectHideFlags: 0
@@ -10667,9 +11184,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301604073975
 GameObject:
   m_ObjectHideFlags: 0
@@ -10794,9 +11322,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301609497107
 GameObject:
   m_ObjectHideFlags: 0
@@ -10921,9 +11460,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301651930020
 GameObject:
   m_ObjectHideFlags: 0
@@ -11210,9 +11760,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301690634931
 GameObject:
   m_ObjectHideFlags: 0
@@ -11337,9 +11898,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301694299965
 GameObject:
   m_ObjectHideFlags: 0
@@ -11464,9 +12036,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301695708203
 GameObject:
   m_ObjectHideFlags: 0
@@ -11591,9 +12174,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301696377115
 GameObject:
   m_ObjectHideFlags: 0
@@ -11799,9 +12393,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301699629185
 GameObject:
   m_ObjectHideFlags: 0
@@ -11926,9 +12531,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301711027450
 GameObject:
   m_ObjectHideFlags: 0
@@ -12215,9 +12831,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301761156835
 GameObject:
   m_ObjectHideFlags: 0
@@ -12342,9 +12969,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301768368107
 GameObject:
   m_ObjectHideFlags: 0
@@ -12550,9 +13188,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301797225997
 GameObject:
   m_ObjectHideFlags: 0
@@ -12677,9 +13326,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301804869785
 GameObject:
   m_ObjectHideFlags: 0
@@ -12804,9 +13464,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301812870920
 GameObject:
   m_ObjectHideFlags: 0
@@ -12931,9 +13602,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301823271826
 GameObject:
   m_ObjectHideFlags: 0
@@ -13058,9 +13740,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301833348895
 GameObject:
   m_ObjectHideFlags: 0
@@ -13185,9 +13878,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301842933962
 GameObject:
   m_ObjectHideFlags: 0
@@ -13312,9 +14016,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301846236302
 GameObject:
   m_ObjectHideFlags: 0
@@ -13601,9 +14316,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301873976900
 GameObject:
   m_ObjectHideFlags: 0
@@ -13809,9 +14535,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301913412613
 GameObject:
   m_ObjectHideFlags: 0
@@ -14098,9 +14835,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301930049055
 GameObject:
   m_ObjectHideFlags: 0
@@ -14225,9 +14973,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997301988441027
 GameObject:
   m_ObjectHideFlags: 0
@@ -14433,9 +15192,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997302011669585
 GameObject:
   m_ObjectHideFlags: 0
@@ -14560,9 +15330,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}
 --- !u!1 &8371997302022857487
 GameObject:
   m_ObjectHideFlags: 0
@@ -14687,6 +15468,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1000
+  unitData:
+    hp: 0
+    initialHP: 0
+    facingRight: 0
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    unitTransform: {fileID: 0}
+    rigidBody2D: {fileID: 0}
+    boxCollider2D: {fileID: 0}
+    compositeCollider2D: {fileID: 0}
   deathAnimationTriggered: 0
   destroy: 0
-  currentVelocity: {x: 0, y: 0, z: 0}
+  hpBar: {fileID: 0}

@@ -10,6 +10,9 @@ namespace RB
         {
             _userInput = new UserInput();
             units = new Units(this);
+
+            GameObject levelObj = Instantiate(ResourceLoader.levelLoader.GetObj(2)) as GameObject;
+            levelObj.transform.parent = this.transform;
         }
 
         public override void OnUpdate()

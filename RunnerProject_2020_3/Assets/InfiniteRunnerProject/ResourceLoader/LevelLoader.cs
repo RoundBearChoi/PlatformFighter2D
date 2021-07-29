@@ -11,6 +11,7 @@ namespace RB
             Debugger.Log("loading levels..");
 
             LoadObj<GameObject>(1, "Level_1_Temp");
+            LoadObj<GameObject>(2, "Level_2_Temp");
         }
     }
 }
