@@ -39,6 +39,11 @@ namespace RB
             {
                 _gameIntializer.stageTransitioner.AddTransition(new TestStageTransition(_gameIntializer));
             }
+
+            if (_keyboard.f6Key.wasPressedThisFrame)
+            {
+                _gameIntializer.stageTransitioner.AddTransition(new FightStageTransition(_gameIntializer));
+            }
         }
     }
 }
