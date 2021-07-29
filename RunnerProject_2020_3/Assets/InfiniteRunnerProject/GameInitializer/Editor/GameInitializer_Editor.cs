@@ -10,14 +10,18 @@ namespace RB
     {
         public override void OnInspectorGUI()
         {
-            DrawDefaultInspector();
-
             GameInitializer initializer = (GameInitializer)target;
+
+            EditorGUILayout.Space(15);
 
             if (GUILayout.Button("Find All Default Creation Specs"))
             {
                 initializer.FindAllDefaultCreationSpecs();
             }
+
+            EditorGUILayout.Space(15);
+
+            DrawDefaultInspector();
         }
     }
 }
