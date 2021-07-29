@@ -76,5 +76,10 @@ namespace RB
         {
             unit.iStateController.SetNewState(new ParryEffect_DefaultState(unit));
         }
+
+        public void New_LittleRed_Idle(Unit unit)
+        {
+            unit.iStateController.SetNewState(new LittleRed_Idle(unit));
+        }
     }
 }

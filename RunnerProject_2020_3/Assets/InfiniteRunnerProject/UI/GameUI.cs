@@ -8,7 +8,7 @@ namespace RB
     {
         public override void Init()
         {
-            BasicInfoLayer basicInfoLayer = Instantiate(ResourceLoader.uiLoader_RunnerStage.GetObj(UIType.BASIC_INFO_LAYER)) as BasicInfoLayer;
+            BasicInfoLayer basicInfoLayer = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.BASIC_INFO_LAYER)) as BasicInfoLayer;
             AddUILayer(basicInfoLayer);
             basicInfoLayer.transform.SetParent(CANVAS.transform, false);
             basicInfoLayer.InitLayer();

@@ -9,12 +9,9 @@ namespace RB
         public static StageLoader stageLoader = null;
         public static LevelLoader levelLoader = null;
         public static etcLoader etcLoader = null;
-
-        public static UnitLoader_RunnerStage unitLoader_RunnerStage = null;
-        public static UILoader_RunnerStage uiLoader_RunnerStage = null;
-        public static UIElementLoader_RunnerStage uiElementLoader_RunnerStage = null;
-
-        public static UnitLoader_FightStage unitLoader_FightStage = null;
+        public static UnitLoader unitLoader = null;
+        public static UILoader_RunnerStage uiLoader = null;
+        public static UIElementLoader_RunnerStage uiElementLoader = null;
 
         static Dictionary<string, Sprite[]> _dicSpriteSets = new Dictionary<string, Sprite[]>();
 
@@ -23,20 +20,22 @@ namespace RB
             stageLoader = new StageLoader();
             levelLoader = new LevelLoader();
             etcLoader = new etcLoader();
+            unitLoader = new UnitLoader();
+            uiLoader = new UILoader_RunnerStage();
+            uiElementLoader = new UIElementLoader_RunnerStage();
 
             _dicSpriteSets.Clear();
         }
 
         public static void LoadRunnerStage()
         {
-            unitLoader_RunnerStage = new UnitLoader_RunnerStage();
-            uiLoader_RunnerStage = new UILoader_RunnerStage();
-            uiElementLoader_RunnerStage = new UIElementLoader_RunnerStage();
+            unitLoader.LoadRunnerStageUnits();
+
         }
 
         public static void LoadFightStage()
         {
-            unitLoader_FightStage = new UnitLoader_FightStage();
+            unitLoader.LoadFightStageUnits();
         }
 
         //fix string keys to int/hash keys

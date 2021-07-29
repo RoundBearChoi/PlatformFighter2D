@@ -180,5 +180,10 @@ namespace RB
         {
             ParryEffect_DefaultState.animationSpec = spec;
         }
+
+        public void State_LittleRed_Idle(SpriteAnimationSpec spec)
+        {
+            LittleRed_Idle.animationSpec = spec;
+        }
     }
 }

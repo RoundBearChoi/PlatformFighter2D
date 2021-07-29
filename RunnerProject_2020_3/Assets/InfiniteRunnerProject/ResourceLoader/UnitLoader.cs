@@ -4,12 +4,15 @@ using UnityEngine;
 
 namespace RB
 {
-    public class UnitLoader_RunnerStage : GameResources<UnitType>
+    public class UnitLoader : GameResources<UnitType>
     {
-        public UnitLoader_RunnerStage()
+        public UnitLoader()
         {
-            Debugger.Log("loading units..");
 
+        }
+
+        public void LoadRunnerStageUnits()
+        {
             LoadObj<PlayerUnit>(UnitType.RUNNER, "Prefab_Runner");
             LoadObj<Golem>(UnitType.GOLEM, "Golem");
 
@@ -26,6 +29,11 @@ namespace RB
             LoadObj<ParryEffect>(UnitType.PARRY_EFFECT, "ParryEffect");
 
             LoadObj<Swamp>(UnitType.SWAMP, "SwampBackground");
+        }
+
+        public void LoadFightStageUnits()
+        {
+            LoadObj<PlayerUnit>(UnitType.LITTLERED_LIGHT, "Prefab_LittleRed_Light");
         }
     }
 }

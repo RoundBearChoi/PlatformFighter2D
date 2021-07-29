@@ -10,7 +10,7 @@ namespace RB
         {
             Debugger.Log("starting basicInfoLayer");
 
-            UIElement runnerHPBar = Instantiate(ResourceLoader.uiElementLoader_RunnerStage.GetObj(UIElementType.RUNNER_HP_BAR)) as RunnerHPBar;
+            UIElement runnerHPBar = Instantiate(ResourceLoader.uiElementLoader.GetObj(UIElementType.RUNNER_HP_BAR)) as RunnerHPBar;
             AddUIElement(runnerHPBar);
             runnerHPBar.transform.SetParent(this.transform, false);
             runnerHPBar.messageHandler = new RunnerHPMessageHandler(runnerHPBar as RunnerHPBar);
