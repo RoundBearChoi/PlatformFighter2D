@@ -7,12 +7,10 @@ namespace RB
     public class DefaultUnitUpdater : BaseUpdater
     {
         private Unit _unit = null;
-        private UserInput _userInput = null;
 
         public DefaultUnitUpdater(Unit ownerUnit)
         {
             _unit = ownerUnit;
-            _userInput = GameInitializer.current.GetStage().USER_INPUT;
         }
 
         public override void CustomUpdate()
@@ -50,12 +48,12 @@ namespace RB
                 else
                 {
                     //gotta fix
-                    if (_userInput.commands.ContainsPress(CommandType.ATTACK_A))
+                    if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A))
                     {
                         //_unit.iStateController.GetCurrentState().AddButtonQueue(UserInput.mouse.leftButton);
                     }
 
-                    if (_userInput.commands.ContainsPress(CommandType.ATTACK_B))
+                    if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_B))
                     {
                         //_unit.iStateController.GetCurrentState().AddButtonQueue(UserInput.mouse.rightButton);
                     }

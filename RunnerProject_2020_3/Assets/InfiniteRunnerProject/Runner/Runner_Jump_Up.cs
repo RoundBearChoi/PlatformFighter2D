@@ -33,7 +33,7 @@ namespace RB
 
             if (!_startPullDown)
             {
-                if (!GameInitializer.current.GetStage().USER_INPUT.commands.ContainsHold(CommandType.JUMP))
+                if (!ownerUnit.USER_INPUT.commands.ContainsHold(CommandType.JUMP))
                 {
                     _startPullDown = true;
                 }

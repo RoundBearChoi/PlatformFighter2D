@@ -18,11 +18,6 @@ namespace RB
             return animationSpec;
         }
 
-        public override void OnUpdate()
-        {
-
-        }
-
         public override void OnFixedUpdate()
         {
 

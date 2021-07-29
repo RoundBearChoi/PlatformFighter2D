@@ -16,8 +16,8 @@ namespace RB
             units = new Units(this);
 
             InstantiateUnits_ByUnitType(UnitType.RUNNER);
-
-            units.ProcessCreators();
+            Unit runner = units.GetUnit<PlayerUnit>();
+            runner.SetUserInput(_userInput);
 
             //level and enemies
             GameObject levelObj = Instantiate(ResourceLoader.levelLoader.GetObj(1)) as GameObject;
@@ -40,8 +40,6 @@ namespace RB
 
             cameraScript.SetCamera(camera);
             cameraScript.SetCameraState(new Camera_LerpOnRunnerY());
-
-            Unit runner = units.GetUnit<PlayerUnit>();
             cameraScript.SetTarget(runner.gameObject);
         }
 

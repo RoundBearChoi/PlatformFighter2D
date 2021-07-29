@@ -8,15 +8,11 @@ namespace RB
     {
         public static SpriteAnimationSpec animationSpec = null;
 
-        private UserInput _userInput = null;
-
         public Runner_Crouch(Unit unit)
         {
             ownerUnit = unit;
 
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, 0.1f));
-
-            _userInput = GameInitializer.current.GetStage().USER_INPUT;
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
@@ -28,7 +24,7 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            if (!_userInput.commands.ContainsHold(CommandType.MOVE_DOWN))
+            if (!ownerUnit.USER_INPUT.commands.ContainsHold(CommandType.MOVE_DOWN))
             {
                 ownerUnit.unitData.listNextStates.Add(new Runner_Crouch_GetUp(ownerUnit));
             }

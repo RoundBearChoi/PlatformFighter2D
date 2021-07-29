@@ -9,7 +9,6 @@ namespace RB
         public static SpriteAnimationSpec animationSpec = null;
 
         private bool _dustCreated = false;
-        private UserInput _userInput = null;
 
         public Runner_Attack_A(Unit unit)
         {
@@ -18,8 +17,6 @@ namespace RB
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 2f, 0.05f));
             _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, GameInitializer.current.GetOverlapBoxCollisionData(OverlapBoxDataType.RUNNER_ATTACK_A)));
             _listStateComponents.Add(new TransitionStateOnEnd(ownerUnit, new Runner_NormalRun(ownerUnit)));
-
-            _userInput = GameInitializer.current.GetStage().USER_INPUT;
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
@@ -41,7 +38,7 @@ namespace RB
 
             if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 1)
             {
-                if (_userInput.commands.ContainsPress(CommandType.ATTACK_B))
+                if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_B))
                 {
                     ownerUnit.unitData.listNextStates.Add(new Runner_Attack_B(ownerUnit));
                 }

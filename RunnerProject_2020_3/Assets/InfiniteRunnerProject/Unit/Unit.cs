@@ -14,8 +14,22 @@ namespace RB
         public bool destroy = false;
         public BaseMessageHandler messageHandler = null;
         public EnemyHPBar hpBar = null;
-
+        
+        protected UserInput _userInput = null;
         protected ICollisionSideChecker _collisionChecker = null;
+
+        public UserInput USER_INPUT
+        {
+            get
+            {
+                return _userInput;
+            }
+        }
+
+        public void SetUserInput(UserInput userInput)
+        {
+            _userInput = userInput;
+        }
 
         public virtual void OnUpdate()
         {

@@ -12,6 +12,8 @@ namespace RB
             units = new Units(this);
 
             InstantiateUnit_ByUnitType(UnitType.RUNNER);
+            Unit runner = units.GetUnit<PlayerUnit>();
+            runner.SetUserInput(_userInput);
 
             cameraScript = new CameraScript();
 

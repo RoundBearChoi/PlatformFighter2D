@@ -9,14 +9,12 @@ namespace RB
         public static SpriteAnimationSpec animationSpec = null;
 
         float _speedMultiplier = 1.4f;
-        UserInput _userInput = null;
 
         public Runner_Slide(Unit unit)
         {
             ownerUnit = unit;
             _listStateComponents.Add(new UpdateCollider2DSize(ownerUnit, new Vector2(0.8f, 2f)));
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0.1f, 0.035f));
-            _userInput = GameInitializer.current.GetStage().USER_INPUT;
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
@@ -60,7 +58,7 @@ namespace RB
                 showSlideDust.Register();
             }
 
-            if (_userInput.commands.ContainsHold(CommandType.MOVE_DOWN))
+            if (ownerUnit.USER_INPUT.commands.ContainsHold(CommandType.MOVE_DOWN))
             {
                 if (ownerUnit.unitData.rigidBody2D.velocity.x < 1.5f)
                 {

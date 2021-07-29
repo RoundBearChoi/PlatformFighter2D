@@ -21,14 +21,6 @@ namespace RB
         [SerializeField]
         protected BaseUI _baseUI = null;
 
-        public UserInput USER_INPUT
-        {
-            get
-            {
-                return _userInput;
-            }
-        }
-
         public virtual void Init()
         {
 
