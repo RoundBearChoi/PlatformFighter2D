@@ -31,7 +31,12 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            if (!ownerUnit.USER_INPUT.commands.ContainsHold(CommandType.MOVE_RIGHT))
+            if (!ownerUnit.USER_INPUT.commands.ContainsHold(CommandType.MOVE_RIGHT) && ownerUnit.unitData.facingRight)
+            {
+                ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
+            }
+
+            if (!ownerUnit.USER_INPUT.commands.ContainsHold(CommandType.MOVE_LEFT) && !ownerUnit.unitData.facingRight)
             {
                 ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
             }
