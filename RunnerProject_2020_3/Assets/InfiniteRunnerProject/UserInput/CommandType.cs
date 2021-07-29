@@ -18,7 +18,6 @@ namespace RB
         ATTACK_C = 202,
 
         JUMP = 300,
-        CROUCH = 301,
 
         F4 = 1000,
         F5 = 1001,
@@ -27,5 +26,6 @@ namespace RB
         F8 = 1004,
         F9 = 1005,
         F10 = 1006,
+        F11 = 1007,
     }
 }

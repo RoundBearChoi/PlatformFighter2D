@@ -71,12 +71,6 @@ namespace RB
                 _gameIntializer.stageTransitioner.AddTransition(new IntroStageTransition(_gameIntializer));
             }
 
-            if (_userInput.commands.ContainsPress(CommandType.F10))
-            {
-                Unit runner = units.GetUnit<PlayerUnit>();
-                runner.unitData.listNextStates.Add(new tempRunner_Death(runner));
-            }
-
             _userInput.commands.ClearKeyDictionary();
             _userInput.commands.ClearButtonDictionary();
 
