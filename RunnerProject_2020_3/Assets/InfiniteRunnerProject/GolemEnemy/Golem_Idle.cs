@@ -29,7 +29,7 @@ namespace RB
 
             foreach(Unit unit in listUnits)
             {
-                if (unit.unitType == UnitType.RUNNER)
+                if (unit.unitType == UnitType.PLAYER_UNIT)
                 {
                     if (unit.unitData.hp > 0)
                     {

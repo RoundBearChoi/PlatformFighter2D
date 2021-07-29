@@ -15,7 +15,7 @@ namespace RB
             _userInput = new UserInput();
             units = new Units(this);
 
-            InstantiateUnits_ByUnitType(UnitType.RUNNER);
+            InstantiateUnits_ByUnitType(UnitType.PLAYER_UNIT);
 
             units.ProcessCreators();
 
@@ -41,7 +41,7 @@ namespace RB
             cameraScript.SetCamera(camera);
             cameraScript.SetCameraState(new Camera_LerpOnRunnerY());
 
-            Unit runner = units.GetUnit<Runner>();
+            Unit runner = units.GetUnit<PlayerUnit>();
             cameraScript.SetTarget(runner.gameObject);
         }
 
@@ -73,7 +73,7 @@ namespace RB
 
             if (_userInput.ContainsKeyPress(UserInput.keyboard.f10Key))
             {
-                Unit runner = units.GetUnit<Runner>();
+                Unit runner = units.GetUnit<PlayerUnit>();
                 runner.unitData.listNextStates.Add(new tempRunner_Death(runner));
             }
 

@@ -8,7 +8,7 @@ namespace RB
     {
         NONE = 0,
 
-        RUNNER = 100,
+        PLAYER_UNIT = 100,
         GOLEM = 101,
 
         FLAT_GROUND = 200,

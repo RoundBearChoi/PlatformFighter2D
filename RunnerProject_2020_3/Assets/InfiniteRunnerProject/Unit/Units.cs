@@ -122,7 +122,7 @@ namespace RB
                 {
                     if (_listUnits[i].unitData.rigidBody2D != null)
                     {
-                        if (_listUnits[i].unitType == UnitType.RUNNER)
+                        if (_listUnits[i].unitType == UnitType.PLAYER_UNIT)
                         {
                             if (_listUnits[i].unitData.hp > 0)
                             {
