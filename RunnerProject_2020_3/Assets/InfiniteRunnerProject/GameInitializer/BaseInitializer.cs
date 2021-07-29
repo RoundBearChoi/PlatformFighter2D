@@ -22,8 +22,6 @@ namespace RB
 
         [Space(10)]
         public GameData gameDataSO = null;
-
-        [Space(10)]
         public SwampParallax swampParallaxSO;
 
         protected BaseStage _stage = null;
