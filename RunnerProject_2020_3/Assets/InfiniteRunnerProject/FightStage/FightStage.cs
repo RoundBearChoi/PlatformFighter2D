@@ -53,5 +53,10 @@ namespace RB
         {
             units.OnLateUpdate();
         }
+
+        public override float GetCumulativeGravityForcePercentage()
+        {
+            return GameInitializer.current.fighterDataSO.JumpPullPercentagePerFixedUpdate;
+        }
     }
 }

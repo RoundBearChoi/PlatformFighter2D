@@ -80,5 +80,10 @@ namespace RB
             units.OnLateUpdate();
             cameraScript.OnLateUpdate();
         }
+
+        public override float GetCumulativeGravityForcePercentage()
+        {
+            return GameInitializer.current.runnerDataSO.CumulativeGravityForcePercentage;
+        }
     }
 }

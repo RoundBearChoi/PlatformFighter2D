@@ -85,5 +85,10 @@ namespace RB
             List<BaseUnitCreationSpec> specsList = GameInitializer.current.specsGetter.GetSpecs_BySpecType<T>();
             InstantiateUnits(specsList);
         }
+
+        public virtual float GetCumulativeGravityForcePercentage()
+        {
+            return 0f;
+        }
     }
 }

@@ -80,5 +80,10 @@ namespace RB
             cameraScript.OnLateUpdate();
             npcSetup.UPDATER.CustomLateUpdate();
         }
+
+        public override float GetCumulativeGravityForcePercentage()
+        {
+            return GameInitializer.current.runnerDataSO.CumulativeGravityForcePercentage;
+        }
     }
 }
