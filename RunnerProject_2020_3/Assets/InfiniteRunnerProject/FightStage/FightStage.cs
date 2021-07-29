@@ -11,6 +11,10 @@ namespace RB
             _userInput = new UserInput();
             units = new Units(this);
 
+            FightCamera fightCamera = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.FIGHT_CAMERA)) as FightCamera;
+            fightCamera.transform.parent = this.transform;
+            Camera cam = fightCamera.GetComponent<Camera>();
+
             GameObject levelObj = Instantiate(ResourceLoader.levelLoader.GetObj(2)) as GameObject;
             levelObj.transform.parent = this.transform;
         }

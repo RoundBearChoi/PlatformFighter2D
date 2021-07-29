@@ -9,6 +9,7 @@ namespace RB
         NONE = 0,
 
         GAME_CAMERA = 50,
+        FIGHT_CAMERA = 51,
 
         HP_BAR = 100,
     }
