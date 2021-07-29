@@ -60,19 +60,16 @@ namespace RB
                 showSlideDust.Register();
             }
 
-            //gotta fix
-            if (!_userInput.userCommands.ContainsHold(CommandType.MOVE_DOWN) ||
-                ownerUnit.unitData.rigidBody2D.velocity.x < 1.5f)
+            if (_userInput.commands.ContainsHold(CommandType.MOVE_DOWN))
             {
-                //getup if down ISN'T held
-                if (!_userInput.userCommands.ContainsHold(CommandType.MOVE_DOWN))
-                {
-                    ownerUnit.unitData.listNextStates.Add(new Runner_Slide_GetUp(ownerUnit));
-                }
-                else
+                if (ownerUnit.unitData.rigidBody2D.velocity.x < 1.5f)
                 {
                     ownerUnit.unitData.listNextStates.Add(new Runner_Crouch(ownerUnit));
                 }
+            }
+            else
+            {
+                ownerUnit.unitData.listNextStates.Add(new Runner_Slide_GetUp(ownerUnit));
             }
         }
     }

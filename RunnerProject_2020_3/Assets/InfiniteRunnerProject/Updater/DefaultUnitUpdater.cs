@@ -50,14 +50,14 @@ namespace RB
                 else
                 {
                     //gotta fix
-                    if (_userInput.userCommands.ContainsPress(CommandType.ATTACK_A))
+                    if (_userInput.commands.ContainsPress(CommandType.ATTACK_A))
                     {
-                        _unit.iStateController.GetCurrentState().AddButtonQueue(UserInput.mouse.leftButton);
+                        //_unit.iStateController.GetCurrentState().AddButtonQueue(UserInput.mouse.leftButton);
                     }
 
-                    if (_userInput.userCommands.ContainsPress(CommandType.ATTACK_B))
+                    if (_userInput.commands.ContainsPress(CommandType.ATTACK_B))
                     {
-                        _unit.iStateController.GetCurrentState().AddButtonQueue(UserInput.mouse.rightButton);
+                        //_unit.iStateController.GetCurrentState().AddButtonQueue(UserInput.mouse.rightButton);
                     }
 
                     if (_unit.unitData.rigidBody2D != null)

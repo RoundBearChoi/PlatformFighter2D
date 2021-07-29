@@ -12,7 +12,6 @@ namespace RB
 
         protected bool noHitStopAllowed = false;
         protected List<StateComponent> _listStateComponents = new List<StateComponent>();
-        protected Dictionary<UnityEngine.InputSystem.Controls.ButtonControl, uint> _dicQueuedButtonPresses = new Dictionary<UnityEngine.InputSystem.Controls.ButtonControl, uint>();
 
         public abstract SpriteAnimationSpec GetSpriteAnimationSpec();
 
@@ -67,18 +66,6 @@ namespace RB
             foreach (StateComponent component in _listStateComponents)
             {
                 component.OnFixedUpdate();
-            }
-        }
-
-        public void AddButtonQueue(UnityEngine.InputSystem.Controls.ButtonControl button)
-        {
-            if (_dicQueuedButtonPresses.ContainsKey(button))
-            {
-                _dicQueuedButtonPresses[button] += 1;
-            }
-            else
-            {
-                _dicQueuedButtonPresses.Add(button, 0);
             }
         }
     }

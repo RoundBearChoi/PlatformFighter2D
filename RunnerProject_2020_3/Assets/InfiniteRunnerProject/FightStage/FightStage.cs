@@ -33,18 +33,18 @@ namespace RB
         {
             units.OnFixedUpdate();
 
-            if (_userInput.userCommands.ContainsPress(CommandType.F5))
+            if (_userInput.commands.ContainsPress(CommandType.F5))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new FightStageTransition(_gameIntializer));
             }
             
-            if (_userInput.userCommands.ContainsPress(CommandType.F6))
+            if (_userInput.commands.ContainsPress(CommandType.F6))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new IntroStageTransition(_gameIntializer));
             }
 
-            _userInput.userCommands.ClearKeyDictionary();
-            _userInput.userCommands.ClearButtonDictionary();
+            _userInput.commands.ClearKeyDictionary();
+            _userInput.commands.ClearButtonDictionary();
         }
 
         public override void OnLateUpdate()

@@ -28,7 +28,7 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            if (!_userInput.userCommands.ContainsHold(CommandType.MOVE_DOWN))
+            if (!_userInput.commands.ContainsHold(CommandType.MOVE_DOWN))
             {
                 ownerUnit.unitData.listNextStates.Add(new Runner_Crouch_GetUp(ownerUnit));
             }

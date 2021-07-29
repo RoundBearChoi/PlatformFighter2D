@@ -16,11 +16,11 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (_userInput.userCommands.ContainsPress(CommandType.JUMP) || _userInput.userCommands.ContainsHold(CommandType.JUMP))
+            if (_userInput.commands.ContainsPress(CommandType.JUMP) || _userInput.commands.ContainsHold(CommandType.JUMP))
             {
                 _unit.unitData.listNextStates.Add(new Runner_Jump_Up(_unit));
             }
-            else if (_userInput.userCommands.ContainsPress(CommandType.MOVE_DOWN) || _userInput.userCommands.ContainsHold(CommandType.MOVE_DOWN))
+            else if (_userInput.commands.ContainsPress(CommandType.MOVE_DOWN) || _userInput.commands.ContainsHold(CommandType.MOVE_DOWN))
             {
                 if (_unit.unitData.rigidBody2D.velocity.x > GameInitializer.current.gameDataSO.SlideSpeedThreshold)
                 {   
@@ -31,14 +31,14 @@ namespace RB
                     _unit.unitData.listNextStates.Add(new Runner_Crouch(_unit));
                 }
             }
-            else if (_userInput.userCommands.ContainsPress(CommandType.ATTACK_A))
+            else if (_userInput.commands.ContainsPress(CommandType.ATTACK_A))
             {
                 BaseMessage showDashDust = new ShowDashDust_Message(true, _unit.transform.position);
                 showDashDust.Register();
 
                 _unit.unitData.listNextStates.Add(new Runner_Attack_A_Dash(_unit));
             }
-            else if (_userInput.userCommands.ContainsPress(CommandType.ATTACK_B))
+            else if (_userInput.commands.ContainsPress(CommandType.ATTACK_B))
             {
                 _unit.unitData.listNextStates.Add(new Runner_Attack_B(_unit));
             }

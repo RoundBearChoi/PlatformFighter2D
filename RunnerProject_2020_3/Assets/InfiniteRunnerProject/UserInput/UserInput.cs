@@ -13,7 +13,7 @@ namespace RB
         public static Keyboard keyboard = null;
         public static Mouse mouse = null;
 
-        public UserCommands userCommands = null;
+        public UserCommands commands = null;
 
         public UserInput()
         {
@@ -33,23 +33,23 @@ namespace RB
             UserCommand f8 = new UserCommand(CommandType.F8, keyboard.f8Key);
             UserCommand f10 = new UserCommand(CommandType.F8, keyboard.f10Key);
 
-            userCommands = new UserCommands();
-            userCommands.AddCommand(attackA);
-            userCommands.AddCommand(attackB);
-            userCommands.AddCommand(up);
-            userCommands.AddCommand(down);
-            userCommands.AddCommand(jump);
-            userCommands.AddCommand(f4);
-            userCommands.AddCommand(f5);
-            userCommands.AddCommand(f6);
-            userCommands.AddCommand(f7);
-            userCommands.AddCommand(f8);
-            userCommands.AddCommand(f10);
+            commands = new UserCommands();
+            commands.AddCommand(attackA);
+            commands.AddCommand(attackB);
+            commands.AddCommand(up);
+            commands.AddCommand(down);
+            commands.AddCommand(jump);
+            commands.AddCommand(f4);
+            commands.AddCommand(f5);
+            commands.AddCommand(f6);
+            commands.AddCommand(f7);
+            commands.AddCommand(f8);
+            commands.AddCommand(f10);
         }
 
         public void OnUpdate()
         {
-            userCommands.OnUpdate();
+            commands.OnUpdate();
         }
     }
 }
