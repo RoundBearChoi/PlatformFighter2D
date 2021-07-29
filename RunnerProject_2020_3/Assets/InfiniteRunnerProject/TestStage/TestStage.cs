@@ -12,6 +12,8 @@ namespace RB
 
         public override void Init()
         {
+            ResourceLoader.LoadRunnerStage();
+
             _userInput = new UserInput();
             units = new Units(this);
 
