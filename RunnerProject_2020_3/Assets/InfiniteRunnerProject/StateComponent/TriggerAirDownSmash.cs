@@ -16,8 +16,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (_userInput.ContainsButtonHold(UserInput.mouse.leftButton) && _userInput.ContainsKeyHold(UserInput.keyboard.sKey) ||
-                _userInput.ContainsButtonPress(UserInput.mouse.leftButton) && _userInput.ContainsKeyPress(UserInput.keyboard.sKey))
+            if (_userInput.userCommands.ContainsHold(CommandType.MOVE_DOWN) || _userInput.userCommands.ContainsPress(CommandType.MOVE_DOWN))
             {
                 _unit.unitData.listNextStates.Add(new Runner_Smash_Air_Prep(_unit));
             }

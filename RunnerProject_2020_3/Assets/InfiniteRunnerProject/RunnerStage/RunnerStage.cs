@@ -54,18 +54,18 @@ namespace RB
         {
             units.OnFixedUpdate();
 
-            if (_userInput.ContainsKeyPress(UserInput.keyboard.f5Key))
+            if (_userInput.userCommands.ContainsPress(CommandType.F5))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new RunnerStageTransition(_gameIntializer));
             }
 
-            if (_userInput.ContainsKeyPress(UserInput.keyboard.f6Key))
+            if (_userInput.userCommands.ContainsPress(CommandType.F6))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new IntroStageTransition(_gameIntializer));
             }
 
-            _userInput.ClearKeyDictionary();
-            _userInput.ClearButtonDictionary();
+            _userInput.userCommands.ClearKeyDictionary();
+            _userInput.userCommands.ClearButtonDictionary();
             _baseUI.OnFixedUpdate();
             cameraScript.OnFixedUpdate();
             npcSetup.UPDATER.CustomFixedUpdate();

@@ -37,7 +37,7 @@ namespace RB
 
             if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 1)
             {
-                if (ButtonIsPressed(UserInput.mouse.rightButton))
+                if (GameInitializer.current.GetStage().USER_INPUT.userCommands.ContainsPress(CommandType.ATTACK_B))
                 {
                     ownerUnit.unitData.listNextStates.Add(new Runner_Attack_B(ownerUnit));
                 }

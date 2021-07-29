@@ -53,7 +53,7 @@ namespace RB
         {
             _userInput.OnUpdate();
 
-            if (_userInput.ContainsKeyPress(UserInput.keyboard.f6Key))
+            if (_userInput.userCommands.ContainsPress(CommandType.F6))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new IntroStageTransition(_gameIntializer));
             }
@@ -61,7 +61,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (_userInput.ContainsKeyPress(UserInput.keyboard.spaceKey))
+            if (_userInput.userCommands.ContainsPress(CommandType.JUMP))
             {
                 _dummyAnimation.ManualSetSpriteIndex(_dummyAnimation.GetCurrentAnimation().SPRITE_INDEX + 1);
 
@@ -84,8 +84,8 @@ namespace RB
                 }
             }
 
-            _userInput.ClearKeyDictionary();
-            _userInput.ClearButtonDictionary();
+            _userInput.userCommands.ClearKeyDictionary();
+            _userInput.userCommands.ClearButtonDictionary();
         }
 
         public override void OnLateUpdate()

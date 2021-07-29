@@ -30,7 +30,7 @@ namespace RB
             //cancel last frame and go straight to crouch
             if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 5)
             {
-                if (_userInput.ContainsKeyHold(UserInput.keyboard.sKey))
+                if (_userInput.userCommands.ContainsHold(CommandType.MOVE_DOWN))
                 {
                     ownerUnit.unitData.listNextStates.Add(new Runner_Crouch(ownerUnit));
                 }
@@ -38,7 +38,7 @@ namespace RB
 
             if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().IsOnEnd())
             {
-                if (_userInput.ContainsKeyHold(UserInput.keyboard.sKey))
+                if (_userInput.userCommands.ContainsHold(CommandType.MOVE_DOWN))
                 {
                     ownerUnit.unitData.listNextStates.Add(new Runner_Crouch(ownerUnit));
                 }

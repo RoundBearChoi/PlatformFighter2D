@@ -9,12 +9,14 @@ namespace RB
         public static SpriteAnimationSpec animationSpec = null;
 
         float _speedMultiplier = 1.4f;
+        UserInput _userInput = null;
 
         public Runner_Slide(Unit unit)
         {
             ownerUnit = unit;
             _listStateComponents.Add(new UpdateCollider2DSize(ownerUnit, new Vector2(0.8f, 2f)));
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0.1f, 0.035f));
+            _userInput = GameInitializer.current.GetStage().USER_INPUT;
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
@@ -58,11 +60,12 @@ namespace RB
                 showSlideDust.Register();
             }
 
-            if (!GameInitializer.current.GetStage().USER_INPUT.ContainsKeyHold(UserInput.keyboard.sKey) ||
+            //gotta fix
+            if (!_userInput.userCommands.ContainsHold(CommandType.MOVE_DOWN) ||
                 ownerUnit.unitData.rigidBody2D.velocity.x < 1.5f)
             {
                 //getup if down ISN'T held
-                if (!GameInitializer.current.GetStage().USER_INPUT.ContainsKeyHold(UserInput.keyboard.sKey))
+                if (!_userInput.userCommands.ContainsHold(CommandType.MOVE_DOWN))
                 {
                     ownerUnit.unitData.listNextStates.Add(new Runner_Slide_GetUp(ownerUnit));
                 }

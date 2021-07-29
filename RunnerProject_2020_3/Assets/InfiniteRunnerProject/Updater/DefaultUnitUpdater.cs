@@ -7,10 +7,12 @@ namespace RB
     public class DefaultUnitUpdater : BaseUpdater
     {
         private Unit _unit = null;
+        private UserInput _userInput = null;
 
         public DefaultUnitUpdater(Unit ownerUnit)
         {
             _unit = ownerUnit;
+            _userInput = GameInitializer.current.GetStage().USER_INPUT;
         }
 
         public override void CustomUpdate()
@@ -47,12 +49,13 @@ namespace RB
                 }
                 else
                 {
-                    if (GameInitializer.current.GetStage().USER_INPUT.ContainsButtonPress(UserInput.mouse.leftButton))
+                    //gotta fix
+                    if (_userInput.userCommands.ContainsPress(CommandType.ATTACK_A))
                     {
                         _unit.iStateController.GetCurrentState().AddButtonQueue(UserInput.mouse.leftButton);
                     }
 
-                    if (GameInitializer.current.GetStage().USER_INPUT.ContainsButtonPress(UserInput.mouse.rightButton))
+                    if (_userInput.userCommands.ContainsPress(CommandType.ATTACK_B))
                     {
                         _unit.iStateController.GetCurrentState().AddButtonQueue(UserInput.mouse.rightButton);
                     }

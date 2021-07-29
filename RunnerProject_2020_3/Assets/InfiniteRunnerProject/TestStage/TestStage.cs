@@ -61,24 +61,24 @@ namespace RB
             units.OnFixedUpdate();
             ui.OnFixedUpdate();
 
-            if (_userInput.ContainsKeyPress(UserInput.keyboard.f5Key))
+            if (_userInput.userCommands.ContainsPress(CommandType.F5))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new TestStageTransition(_gameIntializer));
             }
 
-            if (_userInput.ContainsKeyPress(UserInput.keyboard.f6Key))
+            if (_userInput.userCommands.ContainsPress(CommandType.F6))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new IntroStageTransition(_gameIntializer));
             }
 
-            if (_userInput.ContainsKeyPress(UserInput.keyboard.f10Key))
+            if (_userInput.userCommands.ContainsPress(CommandType.F10))
             {
                 Unit runner = units.GetUnit<PlayerUnit>();
                 runner.unitData.listNextStates.Add(new tempRunner_Death(runner));
             }
 
-            _userInput.ClearKeyDictionary();
-            _userInput.ClearButtonDictionary();
+            _userInput.userCommands.ClearKeyDictionary();
+            _userInput.userCommands.ClearButtonDictionary();
 
             cameraScript.OnFixedUpdate();
         }

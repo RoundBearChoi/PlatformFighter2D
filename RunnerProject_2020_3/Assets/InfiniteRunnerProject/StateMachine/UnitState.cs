@@ -81,23 +81,5 @@ namespace RB
                 _dicQueuedButtonPresses.Add(button, 0);
             }
         }
-
-        public bool ButtonIsPressed(UnityEngine.InputSystem.Controls.ButtonControl button)
-        {
-            if (GameInitializer.current.GetStage().USER_INPUT.ContainsButtonPress(button))
-            {
-                return true;
-            }
-
-            if (_dicQueuedButtonPresses.ContainsKey(button))
-            {
-                if (_dicQueuedButtonPresses[button] > 0)
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
     }
 }
