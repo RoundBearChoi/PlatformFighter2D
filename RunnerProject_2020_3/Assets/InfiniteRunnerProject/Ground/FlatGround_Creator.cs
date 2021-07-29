@@ -54,8 +54,8 @@ namespace RB
             newGround.unitData.rigidBody2D.bodyType = RigidbodyType2D.Static;
 
             //put elsewhere (other than runner)
-            newGround.unitData.compositeCollider2D.sharedMaterial = GameInitializer.current.gameDataSO.physicsMaterial_NoFrictionNoBounce;
-            newGround.unitData.rigidBody2D.sharedMaterial = GameInitializer.current.gameDataSO.physicsMaterial_NoFrictionNoBounce;
+            newGround.unitData.compositeCollider2D.sharedMaterial = GameInitializer.current.runnerDataSO.physicsMaterial_NoFrictionNoBounce;
+            newGround.unitData.rigidBody2D.sharedMaterial = GameInitializer.current.runnerDataSO.physicsMaterial_NoFrictionNoBounce;
 
             newGround.unitUpdater = new DefaultUnitUpdater(newGround);
             newGround.unitData.spriteAnimations = new EmptySpriteAnimations();

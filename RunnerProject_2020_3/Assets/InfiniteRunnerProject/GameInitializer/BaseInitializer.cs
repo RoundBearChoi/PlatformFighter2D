@@ -21,7 +21,8 @@ namespace RB
         protected bool _useDebugLog;
 
         [Space(10)]
-        public GameData gameDataSO = null;
+        public GameData runnerDataSO = null;
+        public FighterData fighterDataSO = null;
         public SwampParallax swampParallaxSO;
 
         protected BaseStage _stage = null;

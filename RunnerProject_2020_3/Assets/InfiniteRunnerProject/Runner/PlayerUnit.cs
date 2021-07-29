@@ -29,7 +29,7 @@ namespace RB
             }
             else if (reactionData.reactionType == CollisionReactionType.DEAL_DAMAGE)
             {
-                unitData.rigidBody2D.velocity = GameInitializer.current.gameDataSO.Runner_JumpForce;
+                unitData.rigidBody2D.velocity = GameInitializer.current.runnerDataSO.Runner_JumpForce;
             }
 
             //only clear after updating states

@@ -25,14 +25,14 @@ namespace RB
 
             FixedUpdateComponents();
 
-            float force = GameInitializer.current.gameDataSO.DashForcePerFixedUpdate;
+            float force = GameInitializer.current.runnerDataSO.DashForcePerFixedUpdate;
 
             if (!ownerUnit.unitData.facingRight)
             {
                 force *= -1f;
             }
 
-            if (fixedUpdateCount <= GameInitializer.current.gameDataSO.DashFixedUpdateCount)
+            if (fixedUpdateCount <= GameInitializer.current.runnerDataSO.DashFixedUpdateCount)
             {
                 ownerUnit.unitData.rigidBody2D.velocity = new Vector2(force, 0f);
             }

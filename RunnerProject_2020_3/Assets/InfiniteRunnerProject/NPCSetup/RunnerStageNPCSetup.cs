@@ -22,7 +22,7 @@ namespace RB
             Debugger.Log("npc instantiation triggered");
 
             Vector3[] edges = _cameraScript.cameraEdges.GetEdges();
-            Vector3 spawn = new Vector3(edges[3].x + GameInitializer.current.gameDataSO.EnemyCreationCushionX, 20f, 0f);
+            Vector3 spawn = new Vector3(edges[3].x + GameInitializer.current.runnerDataSO.EnemyCreationCushionX, 20f, 0f);
 
             RaycastHit2D hit = Physics2D.Raycast(spawn, Vector2.down, Mathf.Infinity);
 

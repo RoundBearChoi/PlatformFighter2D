@@ -30,7 +30,7 @@ namespace RB
 
                         Debug.DrawLine(new Vector3(0f, -5f, 0f), topRight, Color.cyan, 0.05f);
 
-                        if (topRight.x <= _cameraScript.cameraEdges.GetEdges()[3].x + GameInitializer.current.gameDataSO.GroundCreationCushionX)
+                        if (topRight.x <= _cameraScript.cameraEdges.GetEdges()[3].x + GameInitializer.current.runnerDataSO.GroundCreationCushionX)
                         {
                             Debugger.Log("ground edge inside frustum");
                             GameInitializer.current.GetStage().groundSetup.AddAdditionalAdjacentUnit<FlatGround_DefaultState>();
