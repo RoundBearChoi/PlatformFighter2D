@@ -151,7 +151,7 @@ namespace RB
                             {
                                 if (_listUnits[i].unitData.collisionStays.GetCount() == 0)
                                 {
-                                    if (_listUnits[i].unitData.rigidBody2D.velocity.y < 0f)
+                                    if (_listUnits[i].unitData.rigidBody2D.velocity.y < -0.001f)
                                     {
                                         Debugger.Log("adding downforce to unit: " + _listUnits[i].gameObject.name);
 

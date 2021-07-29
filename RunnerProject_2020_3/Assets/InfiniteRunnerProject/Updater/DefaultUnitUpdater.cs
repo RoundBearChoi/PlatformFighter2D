@@ -47,17 +47,6 @@ namespace RB
                 }
                 else
                 {
-                    //gotta fix
-                    if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A))
-                    {
-                        //_unit.iStateController.GetCurrentState().AddButtonQueue(UserInput.mouse.leftButton);
-                    }
-
-                    if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_B))
-                    {
-                        //_unit.iStateController.GetCurrentState().AddButtonQueue(UserInput.mouse.rightButton);
-                    }
-
                     if (_unit.unitData.rigidBody2D != null)
                     {
                         _unit.unitData.rigidBody2D.Sleep();
