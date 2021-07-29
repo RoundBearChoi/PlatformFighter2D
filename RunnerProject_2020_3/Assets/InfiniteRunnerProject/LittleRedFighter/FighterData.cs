@@ -12,5 +12,6 @@ namespace RB
         public float IdleSlowDownLerpPercentage = 0f;
         public Vector2 JumpForce_FromIdle = Vector2.zero;
         public float JumpPullPercentagePerFixedUpdate = 0f;
+        public float CumulativeGravityForcePercentage = 0f;
     }
 }

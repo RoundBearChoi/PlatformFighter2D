@@ -56,7 +56,7 @@ namespace RB
 
         public override float GetCumulativeGravityForcePercentage()
         {
-            return GameInitializer.current.fighterDataSO.JumpPullPercentagePerFixedUpdate;
+            return GameInitializer.current.fighterDataSO.CumulativeGravityForcePercentage;
         }
     }
 }

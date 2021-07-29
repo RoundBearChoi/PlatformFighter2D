@@ -39,6 +39,11 @@ namespace RB
                     ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x, y);
                 }
             }
+
+            if (ownerUnit.unitData.rigidBody2D.velocity.y <= 0f && fixedUpdateCount >= 2)
+            {
+                ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall(ownerUnit));
+            }
         }
     }
 }
