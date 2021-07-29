@@ -18,10 +18,19 @@ namespace RB
         public static Keyboard keyboard = null;
         public static Mouse mouse = null;
 
+        public UserCommands userCommands = null;
+
         public UserInput()
         {
             keyboard = Keyboard.current;
             mouse = Mouse.current;
+
+            UserCommand attackA = new UserCommand(CommandType.ATTACK_A, mouse.leftButton);
+            UserCommand attackB = new UserCommand(CommandType.ATTACK_B, mouse.rightButton);
+
+            userCommands = new UserCommands();
+            userCommands.AddCommand(attackA);
+            userCommands.AddCommand(attackB);
         }
 
         void UpdateKeyPress(KeyControl keyControl)
