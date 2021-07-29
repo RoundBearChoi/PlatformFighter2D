@@ -7,9 +7,8 @@ namespace RB
     [System.Serializable]
     public class UnitData
     {
-        public UnitData(Transform transform)
+        public UnitData()
         {
-            unitTransform = transform;
             listNextStates.Clear();
         }
 
@@ -17,7 +16,6 @@ namespace RB
         public uint initialHP;
         public bool facingRight = true;
         public ComboHitCount comboHitCount = new ComboHitCount();
-        public Transform unitTransform = null;
         public Rigidbody2D rigidBody2D = null;
         public BoxCollider2D boxCollider2D = null;
         public CompositeCollider2D compositeCollider2D = null;

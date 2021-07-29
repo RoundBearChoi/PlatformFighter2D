@@ -18,7 +18,6 @@ namespace RB
             unit.transform.SetParent(_parentTransform, false);
             unit.gameObject.layer = (int)LayerType.PHYSICAL_UNIT;
 
-            unit.unitData = new UnitData(unit.transform);
             unit.unitData.facingRight = _creationSpec.faceRight;
             unit.unitData.hp = _creationSpec.hp;
             unit.unitData.initialHP = _creationSpec.hp;

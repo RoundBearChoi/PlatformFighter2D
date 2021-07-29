@@ -48,7 +48,6 @@ namespace RB
             objComposite.layer = (int)LayerType.DEFAULT;
 
             Ground newGround = objComposite.AddComponent<Ground>();
-            newGround.unitData = new UnitData(newGround.transform);
 
             newGround.unitData.compositeCollider2D = objComposite.AddComponent<CompositeCollider2D>();
             newGround.unitData.rigidBody2D = objComposite.GetComponent<Rigidbody2D>();

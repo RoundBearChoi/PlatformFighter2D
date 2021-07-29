@@ -24,14 +24,14 @@ namespace RB
             BaseMessage message = new UIMessage(MessageType.RUNNER_IS_DEAD);
             message.Register();
 
-            ownerUnit.unitData.unitTransform.position = ownerUnit.unitData.unitTransform.position + (Vector3.back * 1f);
+            ownerUnit.transform.position = ownerUnit.transform.position + (Vector3.back * 1f);
             ownerUnit.unitData.rigidBody2D.velocity = new Vector3(0f, 6f, 0f);
             ownerUnit.unitData.boxCollider2D.enabled = false;
         }
 
         public override void OnFixedUpdate()
         {
-            if (ownerUnit.unitData.unitTransform.position.y <= -20f)
+            if (ownerUnit.transform.position.y <= -20f)
             {
                 ownerUnit.unitData.rigidBody2D.Sleep();
             }
