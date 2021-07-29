@@ -11,7 +11,7 @@ namespace RB
         public Golem_Attack_A(Unit unit)
         {
             ownerUnit = unit;
-            _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, GameInitializer.current.hitBoxData.golem_Attack_A));
+            _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, GameInitializer.current.GetOverlapBoxCollisionData(OverlapBoxDataType.GOLEM_ATTACK_A)));
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

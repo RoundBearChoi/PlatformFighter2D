@@ -13,11 +13,12 @@ namespace RB
         [Space(10)] [SerializeField]
         protected List<BaseUnitCreationSpec> listCreationSpecsSO = new List<BaseUnitCreationSpec>();
 
+        [Space(10)]
+        [SerializeField]
+        protected List<OverlapBoxCollisionData> listOverlapBoxCollisionDataSO = new List<OverlapBoxCollisionData>();
+
         [Space(10)] [SerializeField]
         protected bool _useDebugLog;
-
-        [Space(10)]
-        public HitBoxData hitBoxData = new HitBoxData();
 
         [Space(10)]
         public GameData gameDataSO = null;
@@ -40,6 +41,19 @@ namespace RB
         public virtual void RunCoroutine(IEnumerator enumerator)
         {
             StartCoroutine(enumerator);
+        }
+
+        public OverlapBoxCollisionData GetOverlapBoxCollisionData(OverlapBoxDataType dataType)
+        {
+            foreach(OverlapBoxCollisionData data in listOverlapBoxCollisionDataSO)
+            {
+                if (data.overlapBoxDataType == dataType)
+                {
+                    return data;
+                }
+            }
+
+            return null;
         }
     }
 }

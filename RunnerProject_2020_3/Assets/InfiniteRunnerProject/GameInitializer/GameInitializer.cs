@@ -51,5 +51,17 @@ namespace RB
                 listCreationSpecsSO.Add(spec);
             }
         }
+
+        public void FindAllOverlapBoxCollisionDataSpecs()
+        {
+            OverlapBoxCollisionData[] arr = Resources.FindObjectsOfTypeAll(typeof(OverlapBoxCollisionData)) as OverlapBoxCollisionData[];
+
+            listOverlapBoxCollisionDataSO.Clear();
+
+            foreach (OverlapBoxCollisionData data in arr)
+            {
+                listOverlapBoxCollisionDataSO.Add(data);
+            }
+        }
     }
 }

@@ -19,6 +19,11 @@ namespace RB
                 initializer.FindAllDefaultCreationSpecs();
             }
 
+            if (GUILayout.Button("Find All OverlapBoxCollisionData Specs"))
+            {
+                initializer.FindAllOverlapBoxCollisionDataSpecs();
+            }
+
             EditorGUILayout.Space(15);
 
             DrawDefaultInspector();
