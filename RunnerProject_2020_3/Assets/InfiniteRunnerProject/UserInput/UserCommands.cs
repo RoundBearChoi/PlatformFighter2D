@@ -114,6 +114,21 @@ namespace RB
             return false;
         }
 
+        public bool ContainsHoldOrPress(CommandType commandType)
+        {
+            if (ContainsPress(commandType))
+            {
+                return true;
+            }
+
+            if (ContainsHold(commandType))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         void UpdateKeyPress(KeyControl keyControl)
         {
             if (keyControl.wasPressedThisFrame)

@@ -23,15 +23,13 @@ namespace RB
         {
             FixedUpdateComponents();
 
-
-
-            if (ownerUnit.USER_INPUT.commands.ContainsHold(CommandType.MOVE_LEFT) || ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT))
+            if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_LEFT))
             {
                 ownerUnit.unitData.facingRight = false;
                 ownerUnit.unitData.listNextStates.Add(new LittleRed_Run(ownerUnit));
             }
 
-            if (ownerUnit.USER_INPUT.commands.ContainsHold(CommandType.MOVE_RIGHT) || ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT))
+            if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_RIGHT))
             {
                 ownerUnit.unitData.facingRight = true;
                 ownerUnit.unitData.listNextStates.Add(new LittleRed_Run(ownerUnit));
