@@ -1,4 +1,4 @@
-# Sample Infinite Runner
+# Sample Platformer
 
 ![early screenshot](https://i.imgur.com/eFCaCgh.jpg)
 
