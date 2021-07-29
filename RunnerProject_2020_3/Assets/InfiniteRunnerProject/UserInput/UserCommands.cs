@@ -7,7 +7,7 @@ namespace RB
 {
     public class UserCommands
     {
-        private Dictionary<CommandType, UserCommand> _dicCommands = new Dictionary<CommandType, UserCommand>();
+        private Dictionary<CommandType, UserCommand> _dicAllCommands = new Dictionary<CommandType, UserCommand>();
 
         private Dictionary<KeyControl, int> _dicKeyPresses = new Dictionary<KeyControl, int>();
         private Dictionary<ButtonControl, int> _dicButtonPresses = new Dictionary<ButtonControl, int>();
@@ -16,19 +16,19 @@ namespace RB
 
         public void AddCommand(UserCommand command)
         {
-            if (!_dicCommands.ContainsKey(command.COMMAND_TYPE))
+            if (!_dicAllCommands.ContainsKey(command.COMMAND_TYPE))
             {
-                _dicCommands.Add(command.COMMAND_TYPE, command);
+                _dicAllCommands.Add(command.COMMAND_TYPE, command);
             }
             else
             {
-                _dicCommands[command.COMMAND_TYPE] = command;
+                _dicAllCommands[command.COMMAND_TYPE] = command;
             }
         }
 
         public void OnUpdate()
         {
-            foreach(KeyValuePair<CommandType, UserCommand> data in _dicCommands)
+            foreach(KeyValuePair<CommandType, UserCommand> data in _dicAllCommands)
             {
                 KeyControl key = data.Value.KEY;
                 ButtonControl button = data.Value.BUTTON;
@@ -56,10 +56,10 @@ namespace RB
 
         public bool ContainsPress(CommandType commandType)
         {
-            if (_dicCommands.ContainsKey(commandType))
+            if (_dicAllCommands.ContainsKey(commandType))
             {
-                KeyControl key = _dicCommands[commandType].KEY;
-                ButtonControl button = _dicCommands[commandType].BUTTON;
+                KeyControl key = _dicAllCommands[commandType].KEY;
+                ButtonControl button = _dicAllCommands[commandType].BUTTON;
 
                 if (key != null)
                 {
@@ -82,10 +82,10 @@ namespace RB
 
         public bool ContainsHold(CommandType commandType)
         {
-            if (_dicCommands.ContainsKey(commandType))
+            if (_dicAllCommands.ContainsKey(commandType))
             {
-                KeyControl key = _dicCommands[commandType].KEY;
-                ButtonControl button = _dicCommands[commandType].BUTTON;
+                KeyControl key = _dicAllCommands[commandType].KEY;
+                ButtonControl button = _dicAllCommands[commandType].BUTTON;
 
                 if (key != null)
                 {
