@@ -190,5 +190,10 @@ namespace RB
         {
             LittleRed_Run.animationSpec = spec;
         }
+
+        public void State_LittleRed_Jump_Up(SpriteAnimationSpec spec)
+        {
+            LittleRed_Jump_Up.animationSpec = spec;
+        }
     }
 }
