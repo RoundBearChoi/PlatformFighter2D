@@ -39,5 +39,17 @@ namespace RB
         {
             _stage.OnLateUpdate();
         }
+
+        public void FindAllDefaultCreationSpecs()
+        {
+            DefaultUnitCreationSpec[] arr = Resources.FindObjectsOfTypeAll(typeof(DefaultUnitCreationSpec)) as DefaultUnitCreationSpec[];
+
+            listCreationSpecsSO.Clear();
+
+            foreach(DefaultUnitCreationSpec spec in arr)
+            {
+                listCreationSpecsSO.Add(spec);
+            }
+        }
     }
 }
