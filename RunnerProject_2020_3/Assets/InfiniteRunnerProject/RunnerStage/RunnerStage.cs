@@ -11,7 +11,7 @@ namespace RB
             _userInput = new UserInput();
             units = new Units(this);
 
-            InstantiateUnit_ByUnitType(UnitType.PLAYER_UNIT);
+            InstantiateUnit_ByUnitType(UnitType.RUNNER);
 
             cameraScript = new CameraScript();
 

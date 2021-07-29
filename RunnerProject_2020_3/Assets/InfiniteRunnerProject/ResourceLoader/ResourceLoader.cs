@@ -14,6 +14,8 @@ namespace RB
         public static UILoader_RunnerStage uiLoader_RunnerStage = null;
         public static UIElementLoader_RunnerStage uiElementLoader_RunnerStage = null;
 
+        public static UnitLoader_FightStage unitLoader_FightStage = null;
+
         static Dictionary<string, Sprite[]> _dicSpriteSets = new Dictionary<string, Sprite[]>();
 
         public static void Init()
@@ -30,6 +32,11 @@ namespace RB
             unitLoader_RunnerStage = new UnitLoader_RunnerStage();
             uiLoader_RunnerStage = new UILoader_RunnerStage();
             uiElementLoader_RunnerStage = new UIElementLoader_RunnerStage();
+        }
+
+        public static void LoadFightStage()
+        {
+            unitLoader_FightStage = new UnitLoader_FightStage();
         }
 
         //fix string keys to int/hash keys

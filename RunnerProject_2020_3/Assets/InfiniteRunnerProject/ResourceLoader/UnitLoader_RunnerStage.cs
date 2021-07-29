@@ -10,7 +10,7 @@ namespace RB
         {
             Debugger.Log("loading units..");
 
-            LoadObj<PlayerUnit>(UnitType.PLAYER_UNIT, "Prefab_Runner");
+            LoadObj<PlayerUnit>(UnitType.RUNNER, "Prefab_Runner");
             LoadObj<Golem>(UnitType.GOLEM, "Golem");
 
             LoadObj<GameObject>(UnitType.FLAT_GROUND, "FlatGround");

@@ -12,12 +12,10 @@ namespace RB
 
         public override void Init()
         {
-            ResourceLoader.LoadRunnerStage();
-
             _userInput = new UserInput();
             units = new Units(this);
 
-            InstantiateUnits_ByUnitType(UnitType.PLAYER_UNIT);
+            InstantiateUnits_ByUnitType(UnitType.RUNNER);
 
             units.ProcessCreators();
 

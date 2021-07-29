@@ -8,7 +8,7 @@ namespace RB
     {
         NONE = 0,
 
-        PLAYER_UNIT = 100,
+        RUNNER = 100,
         GOLEM = 101,
 
         FLAT_GROUND = 200,
@@ -25,5 +25,8 @@ namespace RB
         BLOOD_5 = 500,
 
         PARRY_EFFECT = 600,
+
+        LITTLERED_RED = 700,
+        LITTLERED_DARK = 701,
     }
 }
