@@ -21,6 +21,8 @@ namespace RB
             levelObj.transform.parent = this.transform;
 
             InstantiateUnit_ByUnitType(UnitType.LITTLERED_LIGHT);
+            Unit littleRed = units.GetUnit<PlayerUnit>();
+            littleRed.SetUserInput(_userInput);
         }
 
         public override void OnUpdate()
