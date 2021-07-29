@@ -14,6 +14,8 @@ namespace RB
         public BaseNPCSetup npcSetup = null;
 
         protected GameInitializer _gameIntializer = null;
+
+        [SerializeField]
         protected UserInput _userInput = null;
 
         [SerializeField]

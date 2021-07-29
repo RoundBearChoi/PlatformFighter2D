@@ -6,8 +6,10 @@ using UnityEngine.InputSystem.Controls;
 
 namespace RB
 {
+    [System.Serializable]
     public class UserInput
     {
+        [SerializeField] private UserInputType _userInputType = UserInputType.NONE;
         private Dictionary<KeyControl, int> _dicKeyPresses = new Dictionary<KeyControl, int>();
         private Dictionary<ButtonControl, int> _dicButtonPresses = new Dictionary<ButtonControl, int>();
         private List<KeyControl> _listKeyHolds = new List<KeyControl>();
