@@ -27,10 +27,16 @@ namespace RB
 
             UserCommand attackA = new UserCommand(CommandType.ATTACK_A, mouse.leftButton);
             UserCommand attackB = new UserCommand(CommandType.ATTACK_B, mouse.rightButton);
+            UserCommand up = new UserCommand(CommandType.MOVE_UP, keyboard.wKey);
+            UserCommand down = new UserCommand(CommandType.MOVE_DOWN, keyboard.sKey);
+            UserCommand jump = new UserCommand(CommandType.JUMP, keyboard.spaceKey);
 
             userCommands = new UserCommands();
             userCommands.AddCommand(attackA);
             userCommands.AddCommand(attackB);
+            userCommands.AddCommand(up);
+            userCommands.AddCommand(down);
+            userCommands.AddCommand(jump);
         }
 
         void UpdateKeyPress(KeyControl keyControl)
