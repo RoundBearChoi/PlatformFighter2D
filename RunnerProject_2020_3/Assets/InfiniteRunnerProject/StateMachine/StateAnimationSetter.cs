@@ -142,6 +142,11 @@ namespace RB
             Swamp_BackTrees_DefaultState.animationSpec = spec;
         }
 
+        public void State_OldCity_Platforms_Idle(SpriteAnimationSpec spec)
+        {
+            OldCity_Platforms_DefaultState.animationSpec = spec;
+        }
+
         public void State_LandingDust_DefaultState(SpriteAnimationSpec spec)
         {
             LandingDust_DefaultState.animationSpec = spec;

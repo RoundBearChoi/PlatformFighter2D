@@ -37,6 +37,11 @@ namespace RB
             unit.iStateController.SetNewState(new Swamp_BackTrees_DefaultState(unit));
         }
 
+        public void New_OldCity_Platforms(Unit unit)
+        {
+            unit.iStateController.SetNewState(new OldCity_Platforms_DefaultState(unit));
+        }
+
         public void New_LandingDust(Unit unit)
         {
             unit.iStateController.SetNewState(new LandingDust_DefaultState(unit));

@@ -20,6 +20,8 @@ namespace RB
             GameObject levelObj = Instantiate(ResourceLoader.levelLoader.GetObj(2)) as GameObject;
             levelObj.transform.parent = this.transform;
 
+            GameInitializer.current.GetStage().InstantiateUnits_ByUnitType(UnitType.OLD_CITY);
+
             InstantiateUnit_ByUnitType(UnitType.LITTLERED_LIGHT);
             Unit littleRed = units.GetUnit<PlayerUnit>();
             littleRed.SetUserInput(_userInput);

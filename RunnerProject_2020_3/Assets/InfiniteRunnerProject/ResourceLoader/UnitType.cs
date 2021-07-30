@@ -21,6 +21,7 @@ namespace RB
         SMASH_DUST = 306,
 
         SWAMP = 400,
+        OLD_CITY = 401,
 
         BLOOD_5 = 500,
 
