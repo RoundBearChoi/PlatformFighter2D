@@ -24,8 +24,8 @@ namespace RB
             cam.orthographicSize = 8f;
             cam.transform.position = new Vector3(0f, 5f, 0f);
             cameraScript.SetCamera(cam);
-            cameraScript.SetCameraState(new Camera_LerpOnRunnerY());
-            cameraScript.SetTarget(units.GetUnit<PlayerUnit>().gameObject);
+            cameraScript.SetCameraState(new Camera_LerpOnTargetY());
+            cameraScript.SetFollowTarget(units.GetUnit<PlayerUnit>().gameObject);
 
             _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.GAME_UI)) as GameUI;
             _baseUI.transform.parent = this.transform;

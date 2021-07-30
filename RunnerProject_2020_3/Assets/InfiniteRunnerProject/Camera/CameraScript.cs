@@ -55,7 +55,7 @@ namespace RB
             return _camera;
         }
 
-        public void SetTarget(GameObject target)
+        public void SetFollowTarget(GameObject target)
         {
             _target = target;
         }

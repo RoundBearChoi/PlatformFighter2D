@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Camera_LerpOnRunnerY : CameraState
+    public class Camera_LerpOnTargetY : CameraState
     {
         float _yOffsetOnPlayer = 5f;
 
-        public Camera_LerpOnRunnerY()
+        public Camera_LerpOnTargetY()
         {
             _cameraScript = GameInitializer.current.GetStage().cameraScript;
         }

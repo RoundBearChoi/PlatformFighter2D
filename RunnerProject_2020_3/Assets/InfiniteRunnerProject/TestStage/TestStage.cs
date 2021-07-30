@@ -39,8 +39,8 @@ namespace RB
             gameCamera.transform.parent = this.transform;
 
             cameraScript.SetCamera(camera);
-            cameraScript.SetCameraState(new Camera_LerpOnRunnerY());
-            cameraScript.SetTarget(runner.gameObject);
+            cameraScript.SetCameraState(new Camera_LerpOnTargetY());
+            cameraScript.SetFollowTarget(runner.gameObject);
         }
 
         public override void OnUpdate()

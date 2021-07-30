@@ -34,7 +34,7 @@ namespace RB
             }
             else
             {
-                _cameraScript.SetCameraState(new Camera_LerpOnRunnerY());
+                _cameraScript.SetCameraState(new Camera_LerpOnTargetY());
             }
         }
 

@@ -25,16 +25,23 @@ namespace RB
             InstantiateUnit_ByUnitType(UnitType.LITTLERED_LIGHT);
             Unit littleRed = units.GetUnit<PlayerUnit>();
             littleRed.SetUserInput(_userInput);
+
+            cameraScript = new CameraScript();
+            cameraScript.SetCamera(cam);
+            cameraScript.SetCameraState(new Camera_LerpOnTargetY());
+            cameraScript.SetFollowTarget(units.GetUnit<PlayerUnit>().gameObject);
         }
 
         public override void OnUpdate()
         {
             _userInput.OnUpdate();
+            cameraScript.OnUpdate();
             units.OnUpdate();
         }
 
         public override void OnFixedUpdate()
         {
+            cameraScript.OnFixedUpdate();
             units.OnFixedUpdate();
 
             if (_userInput.commands.ContainsPress(CommandType.F5))
@@ -53,6 +60,7 @@ namespace RB
 
         public override void OnLateUpdate()
         {
+            cameraScript.OnLateUpdate();
             units.OnLateUpdate();
         }
 
