@@ -38,7 +38,6 @@ namespace RB
             unitLoader.LoadFightStageUnits();
         }
 
-        //fix string keys to int/hash keys
         public static Sprite[] LoadSpriteBySpec(SpriteAnimationSpec spec)
         {
             Sprite[] arrSprite = LoadSpriteByString(spec.spriteName);

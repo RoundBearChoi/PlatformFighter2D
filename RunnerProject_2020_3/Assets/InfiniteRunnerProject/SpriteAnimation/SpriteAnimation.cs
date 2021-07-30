@@ -39,7 +39,7 @@ namespace RB
             }
         }
 
-        public void Init(SpriteAnimationSpec spec)
+        public void LoadSprite(SpriteAnimationSpec spec)
         {
             animationSpec = spec;
 
