@@ -6,8 +6,6 @@ namespace RB
 {
     public class Runner_Slide : UnitState
     {
-        public static SpriteAnimationSpec animationSpec = null;
-
         float _speedMultiplier = 1.4f;
 
         public Runner_Slide(Unit unit)
@@ -17,11 +15,6 @@ namespace RB
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0.1f, 0.035f));
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_SLIDE);
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
 
         public override void OnFixedUpdate()

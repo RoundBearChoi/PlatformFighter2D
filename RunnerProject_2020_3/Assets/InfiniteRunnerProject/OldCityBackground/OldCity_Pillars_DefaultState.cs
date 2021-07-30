@@ -6,8 +6,6 @@ namespace RB
 {
     public class OldCity_Pillars_DefaultState : UnitState
     {
-        public static SpriteAnimationSpec animationSpec;
-
         public OldCity_Pillars_DefaultState(Unit unit)
         {
             ownerUnit = unit;
@@ -15,11 +13,6 @@ namespace RB
             _listStateComponents.Add(new HorizontalParallax(unit, unit.transform.position, GameInitializer.current.oldCityParallaxSO.OldCity_Pillars_ParallaxPercentage));
 
             _listMatchingSpriteTypes.Add(SpriteType.OLDCITY_PILLARS);
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
 
         public override void OnFixedUpdate()

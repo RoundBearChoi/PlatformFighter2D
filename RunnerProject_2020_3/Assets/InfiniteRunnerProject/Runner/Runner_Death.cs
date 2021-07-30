@@ -6,8 +6,6 @@ namespace RB
 {
     public class Runner_Death : UnitState
     {
-        public static SpriteAnimationSpec animationSpec = null;
-
         public Runner_Death(Unit unit)
         {
             ownerUnit = unit;
@@ -16,11 +14,6 @@ namespace RB
             _listStateComponents.Add(new SlowDownToZeroOnFlatGround(ownerUnit, 0.05f));
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_DEATH);
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
 
         public override void OnFixedUpdate()

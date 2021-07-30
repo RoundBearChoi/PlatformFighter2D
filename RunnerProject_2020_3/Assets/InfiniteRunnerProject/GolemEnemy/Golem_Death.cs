@@ -6,8 +6,6 @@ namespace RB
 {
     public class Golem_Death : UnitState
     {
-        public static SpriteAnimationSpec animationSpec = null;
-
         public Golem_Death(Unit unit)
         {
             ownerUnit = unit;
@@ -17,11 +15,6 @@ namespace RB
             _listStateComponents.Add(new InitialTextGUIMaterial(ownerUnit, 8));
 
             _listMatchingSpriteTypes.Add(SpriteType.GOLEM_DEATH);
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
 
         public override void OnFixedUpdate()

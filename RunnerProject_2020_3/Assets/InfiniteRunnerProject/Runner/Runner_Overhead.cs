@@ -6,19 +6,12 @@ namespace RB
 {
     public class Runner_Overhead : UnitState
     {
-        public static SpriteAnimationSpec animationSpec = null;
-
         public Runner_Overhead(Unit unit)
         {
             ownerUnit = unit;
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 3f, 0.05f));
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_OVERHEAD);
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
 
         public override void OnFixedUpdate()

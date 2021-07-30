@@ -6,8 +6,6 @@ namespace RB
 {
     public class LittleRed_Jump_Fall : UnitState
     {
-        public static SpriteAnimationSpec animationSpec = null;
-
         public LittleRed_Jump_Fall(Unit unit)
         {
             ownerUnit = unit;
@@ -16,11 +14,6 @@ namespace RB
             _listStateComponents.Add(new UpdateDirectionOnVelocity(ownerUnit));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLERED_JUMP_FALL);
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
 
         public override void OnFixedUpdate()

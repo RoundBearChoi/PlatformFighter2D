@@ -6,8 +6,6 @@ namespace RB
 {
     public class Runner_Attack_B : UnitState
     {
-        public static SpriteAnimationSpec animationSpec = null;
-
         public Runner_Attack_B(Unit unit)
         {
             ownerUnit = unit;
@@ -17,11 +15,6 @@ namespace RB
             _listStateComponents.Add(new TransitionStateOnEnd(ownerUnit, new Runner_NormalRun(ownerUnit)));
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_ATTACK_B);
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
 
         public override void OnFixedUpdate()

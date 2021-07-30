@@ -52,7 +52,6 @@ namespace RB
             if (spriteSpec != null)
             {
                 unit.unitData.spriteAnimations.AddSpriteAnimation(creationSpec, spriteSpec, unit.transform);
-                spriteSpec.setCorrespondingState.Invoke(spriteSpec);
             }
         }
     }

@@ -6,19 +6,12 @@ namespace RB
 {
     public class Runner_Attack_A_Dash : UnitState
     {
-        public static SpriteAnimationSpec animationSpec = null;
-
         public Runner_Attack_A_Dash(Unit unit)
         {
             ownerUnit = unit;
             _listStateComponents.Add(new CreateRenderTrail(unit, 1));
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_ATTACK_A_DASH);
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
 
         public override void OnFixedUpdate()

@@ -6,8 +6,6 @@ namespace RB
 {
     public class Runner_ComboTransitionTo_Smash : UnitState
     {
-        public static SpriteAnimationSpec animationSpec = null;
-
         public Runner_ComboTransitionTo_Smash(Unit unit)
         {
             ownerUnit = unit;
@@ -15,11 +13,6 @@ namespace RB
             _listStateComponents.Add(new LerpVerticalSpeed_Air(ownerUnit, -0.1f, 0.15f));
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_COMBOTRANSITIONTO_SMASH);
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
 
         public override void OnFixedUpdate()

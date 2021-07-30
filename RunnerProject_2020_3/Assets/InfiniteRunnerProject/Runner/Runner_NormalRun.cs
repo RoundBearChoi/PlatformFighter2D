@@ -7,8 +7,6 @@ namespace RB
 {
     public class Runner_NormalRun : UnitState
     {
-        public static SpriteAnimationSpec animationSpec = null;
-
         public Runner_NormalRun(Unit unit)
         {
             ownerUnit = unit;
@@ -23,18 +21,14 @@ namespace RB
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_NORMAL_RUN);
         }
 
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
-        }
-
         public override void OnFixedUpdate()
         {
             ownerUnit.unitData.rigidBody2D.mass = 0.2f;
 
             FixedUpdateComponents();
 
-            if (fixedUpdateCount != 0 && fixedUpdateCount % animationSpec.spriteInterval == 0)
+            //sprite intervals is 4
+            if (fixedUpdateCount != 0 && fixedUpdateCount % 4 == 0)
             {
                 if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 3 ||
                     ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 7)

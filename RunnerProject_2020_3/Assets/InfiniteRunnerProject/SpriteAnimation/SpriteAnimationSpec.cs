@@ -24,7 +24,6 @@ namespace RB
         public bool playOnce;
 
         [Space(10)]
-        public SetStateAnimation_Event setCorrespondingState;
         public SpriteType spriteType;
     }
 }

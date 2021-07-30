@@ -6,7 +6,6 @@ namespace RB
 {
     public class Swamp_River_DefaultState : UnitState
     {
-        public static SpriteAnimationSpec animationSpec;
         public static Swamp_River_DefaultState latest;
 
         public Swamp_River_DefaultState(Unit unit)
@@ -19,11 +18,6 @@ namespace RB
             _listStateComponents.Add(new AddBackground<Swamp_River_DefaultState>(this));
 
             _listMatchingSpriteTypes.Add(SpriteType.SWAMP_RIVER);
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
 
         public override UnitState GetLastestInstantiatedState()

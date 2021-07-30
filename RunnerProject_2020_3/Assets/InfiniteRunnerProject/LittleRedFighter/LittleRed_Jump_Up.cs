@@ -6,8 +6,6 @@ namespace RB
 {
     public class LittleRed_Jump_Up : UnitState
     {
-        public static SpriteAnimationSpec animationSpec = null;
-
         private bool _startPullDown = false;
 
         public LittleRed_Jump_Up(Unit unit)
@@ -18,11 +16,6 @@ namespace RB
             _listStateComponents.Add(new UpdateDirectionOnVelocity(ownerUnit));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLERED_JUMP_UP);
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
 
         public override void OnEnter()

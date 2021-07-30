@@ -6,18 +6,11 @@ namespace RB
 {
     public class Runner_Idle : UnitState
     {
-        public static SpriteAnimationSpec animationSpec = null;
-
         public Runner_Idle(Unit unit)
         {
             ownerUnit = unit;
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_IDLE);
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
 
         public override void OnUpdate()

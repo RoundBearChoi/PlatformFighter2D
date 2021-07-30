@@ -6,8 +6,6 @@ namespace RB
 {
     public class Runner_Smash_Air_Fall : UnitState
     {
-        public static SpriteAnimationSpec animationSpec = null;
-
         public Runner_Smash_Air_Fall(Unit unit)
         {
             ownerUnit = unit;
@@ -17,11 +15,6 @@ namespace RB
             ownerUnit.gameObject.layer = (int)LayerType.GHOSTING_UNIT;
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_SMASH_AIR_FALL);
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
 
         public override void OnFixedUpdate()

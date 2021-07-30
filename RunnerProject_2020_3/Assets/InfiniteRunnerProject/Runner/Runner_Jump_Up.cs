@@ -6,7 +6,6 @@ namespace RB
 {
     public class Runner_Jump_Up : UnitState
     {
-        public static SpriteAnimationSpec animationSpec = null;
         private bool _startPullDown = false;
 
         public Runner_Jump_Up(Unit unit)
@@ -16,11 +15,6 @@ namespace RB
             _listStateComponents.Add(new TriggerAirDownSmash(unit));
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_JUMP_UP);
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
 
         public override void OnEnter()

@@ -6,19 +6,12 @@ namespace RB
 {
     public class tempRunner_Death : UnitState
     {
-        public static SpriteAnimationSpec animationSpec = null;
-
         public tempRunner_Death(Unit unit)
         {
             Debugger.Log("runner is dead");
             ownerUnit = unit;
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_TEMP_DEATH);
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
 
         public override void OnEnter()

@@ -6,8 +6,6 @@ namespace RB
 {
     public class LittleRed_Idle : UnitState
     {
-        public static SpriteAnimationSpec animationSpec = null;
-
         public LittleRed_Idle(Unit unit)
         {
             ownerUnit = unit;
@@ -17,11 +15,6 @@ namespace RB
             ownerUnit.unitData.airControl.SetMomentum(0f);
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLERED_IDLE);
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
 
         public override void OnFixedUpdate()

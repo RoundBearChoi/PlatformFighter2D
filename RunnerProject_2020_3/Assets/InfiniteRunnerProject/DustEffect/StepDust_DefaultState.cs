@@ -6,18 +6,11 @@ namespace RB
 {
     public class StepDust_DefaultState : UnitState
     {
-        public static SpriteAnimationSpec animationSpec;
-
         public StepDust_DefaultState(Unit unit)
         {
             ownerUnit = unit;
 
             _listMatchingSpriteTypes.Add(SpriteType.DUST_STEP);
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
 
         public override void OnFixedUpdate()

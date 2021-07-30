@@ -6,8 +6,6 @@ namespace RB
 {
     public class Runner_Slide_GetUp : UnitState
     {
-        public static SpriteAnimationSpec animationSpec = null;
-
         public Runner_Slide_GetUp(Unit unit)
         {
             ownerUnit = unit;
@@ -15,11 +13,6 @@ namespace RB
             _listStateComponents.Add(new UpdateCollider2DSize(ownerUnit, new Vector2(0.8f, 3.4f)));
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_SLIDE_GETUP);
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
 
         public override void OnFixedUpdate()

@@ -6,7 +6,6 @@ namespace RB
 {
     public class Swamp_Grass_DefaultState : UnitState
     {
-        public static SpriteAnimationSpec animationSpec;
         public static Swamp_Grass_DefaultState latest;
 
         public Swamp_Grass_DefaultState(Unit unit)
@@ -19,11 +18,6 @@ namespace RB
             _listStateComponents.Add(new AddBackground<Swamp_Grass_DefaultState>(this));
 
             _listMatchingSpriteTypes.Add(SpriteType.SWAMP_GRASS);
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
 
         public override UnitState GetLastestInstantiatedState()

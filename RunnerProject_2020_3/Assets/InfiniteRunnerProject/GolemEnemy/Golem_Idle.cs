@@ -6,18 +6,11 @@ namespace RB
 {
     public class Golem_Idle : UnitState
     {
-        public static SpriteAnimationSpec animationSpec = null;
-
         public Golem_Idle(Unit unit)
         {
             ownerUnit = unit;
 
             _listMatchingSpriteTypes.Add(SpriteType.GOLEM_IDLE);
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
 
         public override void OnFixedUpdate()

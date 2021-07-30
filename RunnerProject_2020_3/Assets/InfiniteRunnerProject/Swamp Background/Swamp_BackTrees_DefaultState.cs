@@ -6,7 +6,6 @@ namespace RB
 {
     public class Swamp_BackTrees_DefaultState : UnitState
     {
-        public static SpriteAnimationSpec animationSpec;
         public static Swamp_BackTrees_DefaultState latest;
 
         public Swamp_BackTrees_DefaultState(Unit unit)
@@ -19,11 +18,6 @@ namespace RB
             _listStateComponents.Add(new AddBackground<Swamp_BackTrees_DefaultState>(this));
 
             _listMatchingSpriteTypes.Add(SpriteType.SWAMP_BACKTREES);
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
 
         public override UnitState GetLastestInstantiatedState()

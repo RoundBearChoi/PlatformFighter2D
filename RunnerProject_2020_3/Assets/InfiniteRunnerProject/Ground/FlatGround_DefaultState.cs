@@ -17,11 +17,6 @@ namespace RB
             _listStateComponents.Add(new AddFlatGround(this));
         }
 
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return null;
-        }
-
         public override UnitState GetLastestInstantiatedState()
         {
             return latest;

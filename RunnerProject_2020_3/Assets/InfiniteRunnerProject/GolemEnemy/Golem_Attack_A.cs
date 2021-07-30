@@ -6,19 +6,12 @@ namespace RB
 {
     public class Golem_Attack_A : UnitState
     {
-        public static SpriteAnimationSpec animationSpec = null;
-
         public Golem_Attack_A(Unit unit)
         {
             ownerUnit = unit;
             _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, GameInitializer.current.GetOverlapBoxCollisionData(OverlapBoxDataType.GOLEM_ATTACK_A)));
 
             _listMatchingSpriteTypes.Add(SpriteType.GOLEM_ATTACK_A);
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
 
         public override void OnFixedUpdate()

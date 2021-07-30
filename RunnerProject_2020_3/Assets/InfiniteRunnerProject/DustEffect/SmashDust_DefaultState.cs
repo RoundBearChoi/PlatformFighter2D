@@ -6,18 +6,11 @@ namespace RB
 {
     public class SmashDust_DefaultState : UnitState
     {
-        public static SpriteAnimationSpec animationSpec;
-
         public SmashDust_DefaultState(Unit unit)
         {
             ownerUnit = unit;
 
             _listMatchingSpriteTypes.Add(SpriteType.DUST_SMASH);
-        }
-
-        public override SpriteAnimationSpec GetSpriteAnimationSpec()
-        {
-            return animationSpec;
         }
 
         public override void OnFixedUpdate()

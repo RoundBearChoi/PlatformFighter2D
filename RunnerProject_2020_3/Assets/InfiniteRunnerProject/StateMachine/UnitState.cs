@@ -14,8 +14,6 @@ namespace RB
         protected List<StateComponent> _listStateComponents = new List<StateComponent>();
         protected List<SpriteType> _listMatchingSpriteTypes = new List<SpriteType>();
 
-        public abstract SpriteAnimationSpec GetSpriteAnimationSpec();
-
         public bool NO_HITSTOP_ALLOWED
         {
             get
