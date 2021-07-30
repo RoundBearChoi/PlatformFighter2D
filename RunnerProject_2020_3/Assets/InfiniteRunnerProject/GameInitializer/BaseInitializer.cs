@@ -24,6 +24,7 @@ namespace RB
         public GameData runnerDataSO = null;
         public FighterData fighterDataSO = null;
         public SwampParallax swampParallaxSO;
+        public OldCityParallax oldCityParallaxSO;
 
         protected BaseStage _stage = null;
 
