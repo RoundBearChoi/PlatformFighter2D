@@ -11,6 +11,8 @@ namespace RB
             _userInput = new UserInput();
             units = new Units(this);
 
+            Physics2D.gravity = new Vector2(0f, GameInitializer.current.fighterDataSO.Gravity);
+
             FightCamera fightCamera = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.FIGHT_CAMERA)) as FightCamera;
             fightCamera.transform.parent = this.transform;
             Camera cam = fightCamera.GetComponent<Camera>();
@@ -28,7 +30,7 @@ namespace RB
 
             cameraScript = new CameraScript();
             cameraScript.SetCamera(cam);
-            cameraScript.SetCameraState(new Camera_LerpOnTargetY());
+            cameraScript.SetCameraState(new Camera_LerpOnTargetXAndY(0.01f, 0.01f));
             cameraScript.SetFollowTarget(units.GetUnit<PlayerUnit>().gameObject);
         }
 
