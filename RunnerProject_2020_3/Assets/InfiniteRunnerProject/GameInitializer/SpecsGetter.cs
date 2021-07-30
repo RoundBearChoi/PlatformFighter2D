@@ -43,13 +43,13 @@ namespace RB
             return subList;
         }
 
-        public UnitCreationSpec GetSpec_BySpriteAnimationSpec(SpriteAnimationSpec spriteSpec)
+        public UnitCreationSpec GetSpec_BySpriteType(SpriteType spriteType)
         {
             foreach (UnitCreationSpec creationSpec in _listSpecs)
             {
-                foreach(SpriteAnimationSpec s in creationSpec.listSpriteAnimationSpecs)
+                foreach (SpriteAnimationSpec s in creationSpec.listSpriteAnimationSpecs)
                 {
-                    if (s == spriteSpec)
+                    if (s.spriteType == spriteType)
                     {
                         return creationSpec;
                     }

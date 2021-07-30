@@ -68,9 +68,9 @@ namespace RB
             InstantiateUnit(spec);
         }
 
-        public virtual void InstantiateUnit_BySpriteAnimationSpec(SpriteAnimationSpec spriteSpec)
+        public virtual void InstantiateUnit_BySpriteType(SpriteType spriteType)
         {
-            UnitCreationSpec creationSpec = GameInitializer.current.specsGetter.GetSpec_BySpriteAnimationSpec(spriteSpec);
+            UnitCreationSpec creationSpec = GameInitializer.current.specsGetter.GetSpec_BySpriteType(spriteType);
             InstantiateUnit(creationSpec);
         }
 
