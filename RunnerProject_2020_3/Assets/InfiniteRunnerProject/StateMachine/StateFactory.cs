@@ -42,6 +42,11 @@ namespace RB
             unit.iStateController.SetNewState(new OldCity_Platforms_DefaultState(unit));
         }
 
+        public void New_OldCity_Arches(Unit unit)
+        {
+            unit.iStateController.SetNewState(new OldCity_Arches_DefaultState(unit));
+        }
+
         public void New_LandingDust(Unit unit)
         {
             unit.iStateController.SetNewState(new LandingDust_DefaultState(unit));
