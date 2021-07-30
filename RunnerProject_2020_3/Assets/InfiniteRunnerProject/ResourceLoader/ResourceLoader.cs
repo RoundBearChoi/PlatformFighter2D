@@ -38,6 +38,7 @@ namespace RB
             unitLoader.LoadFightStageUnits();
         }
 
+        //introduce array of spritenames, index defined in spec
         public static Sprite[] LoadSpriteBySpec(SpriteAnimationSpec spec)
         {
             Sprite[] arrSprite = LoadSpriteByString(spec.spriteName);
