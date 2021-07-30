@@ -28,15 +28,27 @@ namespace RB
         GOLEM_IDLE = 251,
         GOLEM_WINCING = 252,
 
-        LITTLERED_IDLE = 300,
-        LITTLERED_RUN = 301,
+        //original version
+        LITTLE_RED_IDLE = 300,
+        LITTLE_RED_RUN = 301,
 
-        LITTLERED_ATTACK_A = 350,
-        LITTLERED_ATTACK_B = 351,
-        LITTLERED_ATTACK_C = 352,
+        LITTLE_RED_ATTACK_A = 350,
+        LITTLE_RED_ATTACK_B = 351,
+        LITTLE_RED_ATTACK_C = 352,
 
-        LITTLERED_JUMP_FALL = 360,
-        LITTLERED_JUMP_UP = 361,
+        LITTLE_RED_JUMP_FALL = 360,
+        LITTLE_RED_JUMP_UP = 361,
+
+        //dark version
+        LITTLE_RED_DARK_IDLE = 9300,
+        LITTLE_RED_DARK_RUN = 9301,
+
+        LITTLE_RED_DARK_ATTACK_A = 9350,
+        LITTLE_RED_DARK_ATTACK_B = 9351,
+        LITTLE_RED_DARK_ATTACK_C = 9352,
+
+        LITTLE_RED_DARK_JUMP_FALL = 9360,
+        LITTLE_RED_DARK_JUMP_UP = 9361,
 
         OLDCITY_PLATFORMS = 400,
         OLDCITY_ARCHES = 401,

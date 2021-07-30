@@ -27,7 +27,7 @@ namespace RB
 
         PARRY_EFFECT = 600,
 
-        LITTLERED_LIGHT = 700,
-        LITTLERED_DARK = 701,
+        LITTLE_RED_LIGHT = 700,
+        LITTLE_RED_DARK = 701,
     }
 }

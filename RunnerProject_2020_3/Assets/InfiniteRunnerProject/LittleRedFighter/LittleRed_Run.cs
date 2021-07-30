@@ -19,7 +19,7 @@ namespace RB
 
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, runspeed, GameInitializer.current.fighterDataSO.RunSpeedLerpPercentage));
 
-            _listMatchingSpriteTypes.Add(SpriteType.LITTLERED_RUN);
+            _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_RUN);
         }
 
         public override void OnFixedUpdate()

@@ -12,7 +12,7 @@ namespace RB
 
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, GameInitializer.current.fighterDataSO.AttackASlowDownPercentage));
 
-            _listMatchingSpriteTypes.Add(SpriteType.LITTLERED_ATTACK_A);
+            _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_ATTACK_A);
         }
 
         public override void OnFixedUpdate()

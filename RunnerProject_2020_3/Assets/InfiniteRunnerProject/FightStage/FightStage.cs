@@ -24,7 +24,7 @@ namespace RB
 
             GameInitializer.current.GetStage().InstantiateUnits_ByUnitType(UnitType.OLD_CITY);
 
-            InstantiateUnit_ByUnitType(UnitType.LITTLERED_LIGHT);
+            InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_LIGHT);
             Unit littleRed = units.GetUnit<LittleRed>();
             littleRed.SetUserInput(_userInput);
 
@@ -32,6 +32,8 @@ namespace RB
             cameraScript.SetCamera(cam);
             cameraScript.SetCameraState(new Camera_LerpOnTargetXAndY(0.01f, 0.01f));
             cameraScript.SetFollowTarget(units.GetUnit<LittleRed>().gameObject);
+
+            InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_DARK);
         }
 
         public override void OnUpdate()
