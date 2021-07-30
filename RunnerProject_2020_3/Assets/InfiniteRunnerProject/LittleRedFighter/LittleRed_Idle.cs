@@ -31,7 +31,6 @@ namespace RB
             {
                 if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.JUMP))
                 {
-                    ownerUnit.unitData.rigidBody2D.velocity = new Vector2(0f, GameInitializer.current.fighterDataSO.JumpForce_FromIdle);
                     ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit));
                 }
 

@@ -36,7 +36,7 @@ namespace RB
                 }
                 else if (_unit.unitData.airControl.HORIZONTAL_MOMENTUM > 0)
                 {
-                    _unit.unitData.airControl.SetMomentum(_maxMomentum);
+                     _unit.unitData.airControl.SetMomentum(_maxMomentum);
                 }
             }
 

@@ -11,9 +11,7 @@ namespace RB
         public float RunSpeedLerpPercentage = 0f;
         public float IdleSlowDownLerpPercentage = 0f;
 
-        public float JumpForce_FromIdle = 0f;
-        public float JumpForce_FromRun = 0f;
-
+        public float JumpForce = 0f;
         public float JumpPullPercentagePerFixedUpdate = 0f;
         public float CumulativeGravityForcePercentage = 0f;
 

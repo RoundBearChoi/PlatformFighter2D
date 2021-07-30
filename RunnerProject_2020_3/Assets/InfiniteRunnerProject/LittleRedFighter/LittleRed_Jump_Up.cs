@@ -23,6 +23,12 @@ namespace RB
             return animationSpec;
         }
 
+        public override void OnEnter()
+        {
+            float x = ownerUnit.unitData.rigidBody2D.velocity.x * 0.95f;
+            ownerUnit.unitData.rigidBody2D.velocity = new Vector2(x, GameInitializer.current.fighterDataSO.JumpForce);
+        }
+
         public override void OnFixedUpdate()
         {
             FixedUpdateComponents();
