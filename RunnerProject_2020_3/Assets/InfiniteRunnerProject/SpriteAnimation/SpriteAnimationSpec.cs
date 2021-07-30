@@ -25,5 +25,6 @@ namespace RB
 
         [Space(10)]
         public SetStateAnimation_Event setCorrespondingState;
+        public SpriteType spriteType;
     }
 }
