@@ -15,7 +15,6 @@ namespace RB
             ownerUnit.unitData.airControl.SetMomentum(0f);
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_IDLE);
-            _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_DARK_IDLE);
         }
 
         public override void OnFixedUpdate()
