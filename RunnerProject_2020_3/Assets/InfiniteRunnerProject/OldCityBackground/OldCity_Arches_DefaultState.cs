@@ -11,6 +11,8 @@ namespace RB
         public OldCity_Arches_DefaultState(Unit unit)
         {
             ownerUnit = unit;
+
+            _listStateComponents.Add(new HorizontalParallax(unit, unit.transform.position, GameInitializer.current.oldCityParallaxSO.OldCity_Arches_ParallaxPercentage));
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

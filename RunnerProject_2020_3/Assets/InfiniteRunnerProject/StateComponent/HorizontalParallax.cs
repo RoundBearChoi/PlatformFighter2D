@@ -16,7 +16,6 @@ namespace RB
             _unit = unit;
             _basePos = basePos;
             _percentage = percentage;
-            _cameraScript = GameInitializer.current.GetStage().cameraScript;
         }
 
         public override void OnFixedUpdate()
@@ -28,6 +27,11 @@ namespace RB
             }
             else
             {
+                if (_cameraScript == null)
+                {
+                    _cameraScript = GameInitializer.current.GetStage().cameraScript;
+                }
+
                 if (_cameraScript.GetCamera() != null)
                 {
                     _parallaxAnchor = _cameraScript.GetCamera().gameObject;
