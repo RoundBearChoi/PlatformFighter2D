@@ -11,6 +11,8 @@ namespace RB
         public LittleRed_Jump_Fall(Unit unit)
         {
             ownerUnit = unit;
+
+            _listStateComponents.Add(new LerpHorizontalMomentumOnInput_Air(ownerUnit, GameInitializer.current.fighterDataSO.MaxHorizontalAirMomentum));
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

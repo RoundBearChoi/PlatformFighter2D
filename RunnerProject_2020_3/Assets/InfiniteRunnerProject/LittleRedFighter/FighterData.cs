@@ -13,5 +13,8 @@ namespace RB
         public Vector2 JumpForce_FromIdle = Vector2.zero;
         public float JumpPullPercentagePerFixedUpdate = 0f;
         public float CumulativeGravityForcePercentage = 0f;
+
+        public float HorizontalAirMomentumIncreaseAmount = 0f;
+        public float MaxHorizontalAirMomentum = 0f;
     }
 }

@@ -12,6 +12,9 @@ namespace RB
         {
             ownerUnit = unit;
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, GameInitializer.current.fighterDataSO.IdleSlowDownLerpPercentage));
+            _listStateComponents.Add(new UpdateDirectionOnInput(ownerUnit));
+
+            ownerUnit.unitData.airControl.SetMomentum(0f);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
@@ -31,13 +34,11 @@ namespace RB
 
             if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_LEFT))
             {
-                ownerUnit.unitData.facingRight = false;
                 ownerUnit.unitData.listNextStates.Add(new LittleRed_Run(ownerUnit));
             }
 
             if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_RIGHT))
             {
-                ownerUnit.unitData.facingRight = true;
                 ownerUnit.unitData.listNextStates.Add(new LittleRed_Run(ownerUnit));
             }
         }
