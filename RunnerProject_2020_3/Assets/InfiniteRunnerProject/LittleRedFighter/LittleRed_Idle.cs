@@ -26,27 +26,30 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM) ||
-                ownerUnit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM))
+            if (ownerUnit.USER_INPUT != null)
             {
-                if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.JUMP))
+                if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM) ||
+                    ownerUnit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM))
                 {
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit));
-                }
+                    if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.JUMP))
+                    {
+                        ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit));
+                    }
 
-                if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_LEFT))
-                {
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Run(ownerUnit));
-                }
+                    if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_LEFT))
+                    {
+                        ownerUnit.unitData.listNextStates.Add(new LittleRed_Run(ownerUnit));
+                    }
 
-                if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_RIGHT))
-                {
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Run(ownerUnit));
-                }
+                    if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_RIGHT))
+                    {
+                        ownerUnit.unitData.listNextStates.Add(new LittleRed_Run(ownerUnit));
+                    }
 
-                if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A))
-                {
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Attack_A(ownerUnit));
+                    if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A))
+                    {
+                        ownerUnit.unitData.listNextStates.Add(new LittleRed_Attack_A(ownerUnit));
+                    }
                 }
             }
         }
