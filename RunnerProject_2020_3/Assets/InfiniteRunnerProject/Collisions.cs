@@ -8,12 +8,6 @@ namespace RB
     {
         protected List<CollisionData> _listCollisionData = new List<CollisionData>();
 
-        public virtual CollisionReaction GetReactionData()
-        {
-            CollisionReaction emptyReaction = new CollisionReaction(CollisionReactionType.NONE, null);
-            return emptyReaction;
-        }
-
         public virtual void AddCollisionData(CollisionData data)
         {
             _listCollisionData.Add(data);

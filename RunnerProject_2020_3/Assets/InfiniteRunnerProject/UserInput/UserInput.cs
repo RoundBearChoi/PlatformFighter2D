@@ -13,14 +13,12 @@ namespace RB
         public static Keyboard keyboard = null;
         public static Mouse mouse = null;
 
-        public UserCommands commands = null;
+        public UserCommands commands = new UserCommands();
 
         public UserInput()
         {
             keyboard = Keyboard.current;
             mouse = Mouse.current;
-
-            commands = new UserCommands();
 
             commands.AddCommand(new UserCommand(CommandType.ATTACK_A, mouse.leftButton));
             commands.AddCommand(new UserCommand(CommandType.ATTACK_B, mouse.rightButton));

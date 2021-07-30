@@ -6,50 +6,6 @@ namespace RB
 {
     public class CollisionEnters : Collisions
     {
-        public override CollisionReaction GetReactionData()
-        {
-            CollisionReaction takeDamage = new CollisionReaction(CollisionReactionType.NONE, null);
-            CollisionReaction dealDamage = new CollisionReaction(CollisionReactionType.NONE, null);
 
-            foreach (CollisionData data in _listCollisionData)
-            {
-                if (data.collidingObject == null)
-                {
-                    Debugger.Log("colliding obj is null");
-                    continue;
-                }
-
-                Unit collidingUnit = data.collidingObject.GetComponent<Unit>();
-
-                //ground is also unit (should find a better way to differenciate)
-                if (collidingUnit != null && collidingUnit is Ground == false)
-                {
-                    //take damage
-                    //if (collidingUnit.attackData.IsAttackingSide(CollisionType.LEFT) && data.collisionType == CollisionType.RIGHT)
-                    //{
-                    //    takeDamage.reactionType = CollisionReactionType.TAKE_DAMAGE;
-                    //    takeDamage.collidingUnit = collidingUnit;
-                    //}
-
-                    //deal damage to unit that is stepped on
-                    if (data.collisionType == CollisionType.BOTTOM)
-                    {
-                        dealDamage.reactionType = CollisionReactionType.DEAL_DAMAGE;
-                        dealDamage.collidingUnit = collidingUnit;
-                    }
-                }
-            }
-
-            if (takeDamage.reactionType == CollisionReactionType.TAKE_DAMAGE)
-            {
-                return takeDamage;
-            }
-            else if (dealDamage.reactionType == CollisionReactionType.DEAL_DAMAGE)
-            {
-                return dealDamage;
-            }
-
-            return new CollisionReaction(CollisionReactionType.NONE, null);
-        }
     }
 }

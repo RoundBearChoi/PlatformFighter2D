@@ -20,18 +20,6 @@ namespace RB
         {
             unitUpdater.CustomFixedUpdate();
 
-            CollisionReaction reactionData = unitData.collisionEnters.GetReactionData();
-
-            if (reactionData.reactionType == CollisionReactionType.TAKE_DAMAGE)
-            {
-                Debugger.Log("take damage!");
-                unitData.listNextStates.Add(new tempRunner_Death(this));
-            }
-            else if (reactionData.reactionType == CollisionReactionType.DEAL_DAMAGE)
-            {
-                unitData.rigidBody2D.velocity = GameInitializer.current.runnerDataSO.Runner_JumpForce;
-            }
-
             //only clear after updating states
             unitData.collisionStays.ClearList();
             unitData.collisionEnters.ClearList();
