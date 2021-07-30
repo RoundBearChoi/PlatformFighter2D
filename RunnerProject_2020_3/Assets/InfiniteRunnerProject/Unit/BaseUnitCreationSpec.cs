@@ -25,6 +25,9 @@ namespace RB
 
         [Space(15)]
 
+        public int SpriteNameIndex = 0;
+
+        [Space(5)]
         public List<SpriteAnimationSpec> listSpriteAnimationSpecs = new List<SpriteAnimationSpec>();
     }
 }

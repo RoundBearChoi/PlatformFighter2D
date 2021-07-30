@@ -10,6 +10,10 @@ namespace RB
     {
         public string spriteName;
         public string backupSpriteName;
+        public List<string> listSpriteNames = new List<string>();
+
+        [Space(10)]
+                
         public uint spriteInterval;
         public Vector2 spriteSize;
         public OffsetType offsetType;
