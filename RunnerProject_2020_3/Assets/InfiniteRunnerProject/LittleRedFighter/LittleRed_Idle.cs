@@ -15,6 +15,8 @@ namespace RB
             _listStateComponents.Add(new UpdateDirectionOnInput(ownerUnit));
 
             ownerUnit.unitData.airControl.SetMomentum(0f);
+
+            _listMatchingSpriteTypes.Add(SpriteType.LITTLERED_IDLE);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

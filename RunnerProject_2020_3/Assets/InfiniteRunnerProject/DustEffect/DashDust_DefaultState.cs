@@ -11,6 +11,8 @@ namespace RB
         public DashDust_DefaultState(Unit unit)
         {
             ownerUnit = unit;
+
+            _listMatchingSpriteTypes.Add(SpriteType.DUST_DASH);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

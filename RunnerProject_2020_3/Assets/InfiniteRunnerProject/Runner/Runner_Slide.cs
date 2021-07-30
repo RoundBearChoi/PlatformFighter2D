@@ -15,6 +15,8 @@ namespace RB
             ownerUnit = unit;
             _listStateComponents.Add(new UpdateCollider2DSize(ownerUnit, new Vector2(0.8f, 2f)));
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0.1f, 0.035f));
+
+            _listMatchingSpriteTypes.Add(SpriteType.RUNNER_SLIDE);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

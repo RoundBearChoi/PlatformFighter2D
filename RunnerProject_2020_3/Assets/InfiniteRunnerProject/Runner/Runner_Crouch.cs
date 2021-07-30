@@ -13,6 +13,8 @@ namespace RB
             ownerUnit = unit;
 
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, 0.1f));
+
+            _listMatchingSpriteTypes.Add(SpriteType.RUNNER_CROUCH);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

@@ -17,6 +17,8 @@ namespace RB
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 2f, 0.05f));
             _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, GameInitializer.current.GetOverlapBoxCollisionData(OverlapBoxDataType.RUNNER_ATTACK_A)));
             _listStateComponents.Add(new TransitionStateOnEnd(ownerUnit, new Runner_NormalRun(ownerUnit)));
+
+            _listMatchingSpriteTypes.Add(SpriteType.RUNNER_ATTACK_A);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

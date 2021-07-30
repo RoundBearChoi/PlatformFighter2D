@@ -19,6 +19,8 @@ namespace RB
             _listStateComponents.Add(new UpdateCollider2DSize(ownerUnit, new Vector2(0.8f, 3.4f)));
 
             ownerUnit.gameObject.layer = (int)LayerType.PHYSICAL_UNIT;
+
+            _listMatchingSpriteTypes.Add(SpriteType.RUNNER_NORMAL_RUN);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

@@ -12,6 +12,8 @@ namespace RB
         {
             ownerUnit = unit;
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 3f, 0.05f));
+
+            _listMatchingSpriteTypes.Add(SpriteType.RUNNER_OVERHEAD);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

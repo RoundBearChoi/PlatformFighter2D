@@ -16,6 +16,8 @@ namespace RB
 
             _listStateComponents.Add(new LerpHorizontalMomentumOnInput_Air(ownerUnit, GameInitializer.current.fighterDataSO.MaxHorizontalAirMomentum));
             _listStateComponents.Add(new UpdateDirectionOnVelocity(ownerUnit));
+
+            _listMatchingSpriteTypes.Add(SpriteType.LITTLERED_JUMP_UP);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

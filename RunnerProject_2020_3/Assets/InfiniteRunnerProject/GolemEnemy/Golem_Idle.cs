@@ -11,6 +11,8 @@ namespace RB
         public Golem_Idle(Unit unit)
         {
             ownerUnit = unit;
+
+            _listMatchingSpriteTypes.Add(SpriteType.GOLEM_IDLE);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

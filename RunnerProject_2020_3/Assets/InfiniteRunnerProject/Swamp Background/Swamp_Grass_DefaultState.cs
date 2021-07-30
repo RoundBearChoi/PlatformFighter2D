@@ -17,6 +17,8 @@ namespace RB
             _listStateComponents.Add(new HorizontalParallax(unit, unit.transform.position, GameInitializer.current.swampParallaxSO.Swamp_Grass_ParallaxPercentage));
             _listStateComponents.Add(new DeletePassedBackground(unit));
             _listStateComponents.Add(new AddBackground<Swamp_Grass_DefaultState>(this));
+
+            _listMatchingSpriteTypes.Add(SpriteType.SWAMP_GRASS);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

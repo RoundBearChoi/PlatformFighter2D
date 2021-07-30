@@ -17,6 +17,8 @@ namespace RB
             _listStateComponents.Add(new HorizontalParallax(unit, unit.transform.position, GameInitializer.current.swampParallaxSO.Swamp_BackTrees_ParallaxPercentage));
             _listStateComponents.Add(new DeletePassedBackground(unit));
             _listStateComponents.Add(new AddBackground<Swamp_BackTrees_DefaultState>(this));
+
+            _listMatchingSpriteTypes.Add(SpriteType.SWAMP_BACKTREES);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

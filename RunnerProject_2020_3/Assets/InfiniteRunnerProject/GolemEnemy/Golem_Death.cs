@@ -15,6 +15,8 @@ namespace RB
             noHitStopAllowed = true;
 
             _listStateComponents.Add(new InitialTextGUIMaterial(ownerUnit, 8));
+
+            _listMatchingSpriteTypes.Add(SpriteType.GOLEM_DEATH);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

@@ -13,6 +13,8 @@ namespace RB
             ownerUnit = unit;
 
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, GameInitializer.current.fighterDataSO.AttackASlowDownPercentage));
+
+            _listMatchingSpriteTypes.Add(SpriteType.LITTLERED_ATTACK_A);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

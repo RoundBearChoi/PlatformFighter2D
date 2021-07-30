@@ -13,6 +13,8 @@ namespace RB
             ownerUnit = unit;
 
             _listStateComponents.Add(new TriggerAirDownSmash(unit));
+
+            _listMatchingSpriteTypes.Add(SpriteType.RUNNER_JUMP_FALL);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

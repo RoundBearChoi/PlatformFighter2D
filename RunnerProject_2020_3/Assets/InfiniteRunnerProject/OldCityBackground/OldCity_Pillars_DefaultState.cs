@@ -13,6 +13,8 @@ namespace RB
             ownerUnit = unit;
 
             _listStateComponents.Add(new HorizontalParallax(unit, unit.transform.position, GameInitializer.current.oldCityParallaxSO.OldCity_Pillars_ParallaxPercentage));
+
+            _listMatchingSpriteTypes.Add(SpriteType.OLDCITY_PILLARS);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

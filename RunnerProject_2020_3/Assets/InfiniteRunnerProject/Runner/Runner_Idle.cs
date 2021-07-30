@@ -11,6 +11,8 @@ namespace RB
         public Runner_Idle(Unit unit)
         {
             ownerUnit = unit;
+
+            _listMatchingSpriteTypes.Add(SpriteType.RUNNER_IDLE);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

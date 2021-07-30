@@ -12,6 +12,8 @@ namespace RB
         {
             ownerUnit = unit;
             _listStateComponents.Add(new CreateRenderTrail(unit, 1));
+
+            _listMatchingSpriteTypes.Add(SpriteType.RUNNER_ATTACK_A_DASH);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

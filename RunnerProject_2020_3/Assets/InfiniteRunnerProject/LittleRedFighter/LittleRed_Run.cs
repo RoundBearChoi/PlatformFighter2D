@@ -20,6 +20,8 @@ namespace RB
             }
 
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, runspeed, GameInitializer.current.fighterDataSO.RunSpeedLerpPercentage));
+
+            _listMatchingSpriteTypes.Add(SpriteType.LITTLERED_RUN);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

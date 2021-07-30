@@ -11,6 +11,8 @@ namespace RB
         public JumpDust_DefaultState(Unit unit)
         {
             ownerUnit = unit;
+
+            _listMatchingSpriteTypes.Add(SpriteType.DUST_JUMP);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

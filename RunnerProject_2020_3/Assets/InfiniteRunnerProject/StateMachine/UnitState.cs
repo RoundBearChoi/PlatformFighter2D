@@ -69,5 +69,18 @@ namespace RB
                 component.OnFixedUpdate();
             }
         }
+
+        public virtual bool IsMatching(SpriteType spriteType)
+        {
+            foreach(SpriteType s in _listMatchingSpriteTypes)
+            {
+                if (s == spriteType)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

@@ -11,6 +11,8 @@ namespace RB
         public Blood_5_DefaultState(Unit unit)
         {
             ownerUnit = unit;
+
+            _listMatchingSpriteTypes.Add(SpriteType.BLOOD_5);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

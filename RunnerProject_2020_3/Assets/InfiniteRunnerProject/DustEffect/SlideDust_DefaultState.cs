@@ -11,6 +11,8 @@ namespace RB
         public SlideDust_DefaultState(Unit unit)
         {
             ownerUnit = unit;
+
+            _listMatchingSpriteTypes.Add(SpriteType.DUST_SLIDE);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

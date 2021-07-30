@@ -13,6 +13,8 @@ namespace RB
             ownerUnit = unit;
             _listStateComponents.Add(new LerpVerticalSpeed_Air(ownerUnit, -0.1f, 0.05f));
             _listStateComponents.Add(new LerpHorizontalSpeed_Air(ownerUnit, 0.01f, 0.05f));
+
+            _listMatchingSpriteTypes.Add(SpriteType.RUNNER_SMASH_AIR_PREP);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

@@ -15,6 +15,8 @@ namespace RB
             _listStateComponents.Add(new AddCumulativeVelocity(ownerUnit, 1.3f));
 
             ownerUnit.gameObject.layer = (int)LayerType.GHOSTING_UNIT;
+
+            _listMatchingSpriteTypes.Add(SpriteType.RUNNER_SMASH_AIR_FALL);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

@@ -12,6 +12,8 @@ namespace RB
         {
             Debugger.Log("runner is dead");
             ownerUnit = unit;
+
+            _listMatchingSpriteTypes.Add(SpriteType.RUNNER_TEMP_DEATH);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

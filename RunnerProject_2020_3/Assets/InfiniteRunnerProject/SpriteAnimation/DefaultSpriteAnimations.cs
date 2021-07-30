@@ -48,7 +48,7 @@ namespace RB
         {
             foreach (SpriteAnimation spriteAni in _listSpriteAnimations)
             {
-                if (spriteAni.animationSpec == _IStateController.GetCurrentState().GetSpriteAnimationSpec())
+                if (_IStateController.GetCurrentState().IsMatching(spriteAni.animationSpec.spriteType)) //spriteAni.animationSpec == _IStateController.GetCurrentState().GetSpriteAnimationSpec())
                 {
                     if (_currentAnimation != spriteAni)
                     {

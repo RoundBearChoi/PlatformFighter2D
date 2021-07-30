@@ -11,6 +11,8 @@ namespace RB
         public ParryEffect_DefaultState(Unit unit)
         {
             ownerUnit = unit;
+
+            _listMatchingSpriteTypes.Add(SpriteType.HITEFFECT_PARRY);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

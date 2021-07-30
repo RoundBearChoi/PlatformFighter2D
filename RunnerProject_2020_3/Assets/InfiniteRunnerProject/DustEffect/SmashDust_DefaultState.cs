@@ -11,6 +11,8 @@ namespace RB
         public SmashDust_DefaultState(Unit unit)
         {
             ownerUnit = unit;
+
+            _listMatchingSpriteTypes.Add(SpriteType.DUST_SMASH);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

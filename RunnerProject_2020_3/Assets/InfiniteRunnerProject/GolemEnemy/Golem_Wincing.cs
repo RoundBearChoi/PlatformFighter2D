@@ -16,6 +16,8 @@ namespace RB
             _listStateComponents.Add(new InitialPushBack(ownerUnit, pushForce, attacker));
             _listStateComponents.Add(new InitialTextGUIMaterial(ownerUnit, 8));
             _listStateComponents.Add(new SlowDownToZeroOnFlatGround(ownerUnit, 0.1f));
+
+            _listMatchingSpriteTypes.Add(SpriteType.GOLEM_WINCING);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

@@ -14,6 +14,8 @@ namespace RB
             noHitStopAllowed = true;
 
             _listStateComponents.Add(new SlowDownToZeroOnFlatGround(ownerUnit, 0.05f));
+
+            _listMatchingSpriteTypes.Add(SpriteType.RUNNER_DEATH);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

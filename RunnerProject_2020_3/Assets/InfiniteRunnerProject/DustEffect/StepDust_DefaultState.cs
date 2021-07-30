@@ -11,6 +11,8 @@ namespace RB
         public StepDust_DefaultState(Unit unit)
         {
             ownerUnit = unit;
+
+            _listMatchingSpriteTypes.Add(SpriteType.DUST_STEP);
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()
