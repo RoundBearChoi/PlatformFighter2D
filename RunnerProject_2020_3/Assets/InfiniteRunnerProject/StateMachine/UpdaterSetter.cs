@@ -4,13 +4,12 @@ using UnityEngine;
 
 namespace RB
 {
-    [CreateAssetMenu(fileName = "UpdaterFactory", menuName = "InfiniteRunner/UpdaterFactory/UpdaterFactory")]
-    public class UpdaterFactory : ScriptableObject
+    [CreateAssetMenu(fileName = "UpdaterSetter", menuName = "InfiniteRunner/Setters/UpdaterSetter")]
+    public class UpdaterSetter : ScriptableObject
     {
         public void New_Updater_Default(Unit unit)
         {
             unit.unitUpdater = new DefaultUnitUpdater(unit);
-            //unit.unitUpdater.SetOwnerUnit(unit);
         }
     }
 }

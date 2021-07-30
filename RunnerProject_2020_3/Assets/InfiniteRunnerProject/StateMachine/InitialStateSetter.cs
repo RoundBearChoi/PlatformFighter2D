@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace RB
 {
-    [CreateAssetMenu(fileName = "StateFactory", menuName = "InfiniteRunner/StateFactory/StateFactory")]
-    public class StateFactory : ScriptableObject
+    [CreateAssetMenu(fileName = "InitialStateSetter", menuName = "InfiniteRunner/Setters/InitialStateSetter")]
+    public class InitialStateSetter : ScriptableObject
     {
         public void New_Runner_Idle(Unit unit)
         {
