@@ -39,13 +39,22 @@ namespace RB
         }
 
         //introduce array of spritenames, index defined in spec
-        public static Sprite[] LoadSpriteBySpec(SpriteAnimationSpec spec)
+        public static Sprite[] LoadSpriteBySpec(UnitCreationSpec creationSpec, SpriteAnimationSpec spriteSpec)
         {
-            Sprite[] arrSprite = LoadSpriteByString(spec.spriteName);
+            int index = 0;
+
+            if (creationSpec != null)
+            {
+                index = creationSpec.SpriteNameIndex;
+            }
+
+            string spriteName = spriteSpec.listSpriteNames[index];
+
+            Sprite[] arrSprite = LoadSpriteByString(spriteSpec.spriteName);
 
             if (arrSprite.Length == 0)
             {
-                arrSprite = LoadSpriteByString(spec.backupSpriteName);
+                arrSprite = LoadSpriteByString(spriteSpec.backupSpriteName);
             }
 
             return arrSprite;

@@ -31,7 +31,7 @@ namespace RB
 
         }
 
-        public void AddSpriteAnimation(SpriteAnimationSpec spec, Transform parent)
+        public void AddSpriteAnimation(UnitCreationSpec creationSpec, SpriteAnimationSpec spriteSpec, Transform parent)
         {
 
         }

@@ -33,9 +33,9 @@ namespace RB
 
             if (_creationSpec.listSpriteAnimationSpecs.Count > 0)
             {
-                foreach(SpriteAnimationSpec spec in _creationSpec.listSpriteAnimationSpecs)
+                foreach(SpriteAnimationSpec spriteSpec in _creationSpec.listSpriteAnimationSpecs)
                 {
-                    SetSpriteAnimation(unit, spec);
+                    SetSpriteAnimation(unit, _creationSpec, spriteSpec);
                 }
             }
 
@@ -47,12 +47,12 @@ namespace RB
             listUnits.Add(DefineUnit());
         }
 
-        void SetSpriteAnimation(Unit unit, SpriteAnimationSpec spec)
+        void SetSpriteAnimation(Unit unit, UnitCreationSpec creationSpec, SpriteAnimationSpec spriteSpec)
         {
-            if (spec != null)
+            if (spriteSpec != null)
             {
-                unit.unitData.spriteAnimations.AddSpriteAnimation(spec, unit.transform);
-                spec.setCorrespondingState.Invoke(spec);
+                unit.unitData.spriteAnimations.AddSpriteAnimation(creationSpec, spriteSpec, unit.transform);
+                spriteSpec.setCorrespondingState.Invoke(spriteSpec);
             }
         }
     }

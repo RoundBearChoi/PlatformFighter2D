@@ -39,11 +39,11 @@ namespace RB
             }
         }
 
-        public void LoadSprite(SpriteAnimationSpec spec)
+        public void LoadSprite(UnitCreationSpec creationSpec, SpriteAnimationSpec spriteSpec)
         {
-            animationSpec = spec;
+            animationSpec = spriteSpec;
 
-            Sprite[] arrSprites = ResourceLoader.LoadSpriteBySpec(spec);
+            Sprite[] arrSprites = ResourceLoader.LoadSpriteBySpec(creationSpec, spriteSpec);
 
             foreach (Sprite spr in arrSprites)
             {
@@ -52,30 +52,30 @@ namespace RB
 
             _spriteRenderer = this.gameObject.AddComponent<SpriteRenderer>();
 
-            float xScale = spec.spriteSize.x / _listSprites[0].bounds.size.x;
-            float yScale = spec.spriteSize.y / _listSprites[0].bounds.size.y;
+            float xScale = spriteSpec.spriteSize.x / _listSprites[0].bounds.size.x;
+            float yScale = spriteSpec.spriteSize.y / _listSprites[0].bounds.size.y;
 
             _spriteRenderer.transform.localScale = new Vector2(xScale, yScale);
 
             //other pivots should be defined as well
-            if (spec.offsetType == OffsetType.BOTTOM_CENTER)
+            if (spriteSpec.offsetType == OffsetType.BOTTOM_CENTER)
             {
                 _spriteRenderer.transform.localPosition = new Vector3(0f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);
             }
-            else if (spec.offsetType == OffsetType.BOTTOM_LEFT)
+            else if (spriteSpec.offsetType == OffsetType.BOTTOM_LEFT)
             {
                 _spriteRenderer.transform.localPosition = new Vector3(_listSprites[0].bounds.size.x * xScale * 0.5f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);
             }
-            else if (spec.offsetType == OffsetType.CENTER_LEFT)
+            else if (spriteSpec.offsetType == OffsetType.CENTER_LEFT)
             {
                 _spriteRenderer.transform.localPosition = new Vector3(_listSprites[0].bounds.size.x * xScale * 0.5f, 0f, 0f);
             }
-            else if (spec.offsetType == OffsetType.CENTER_RIGHT)
+            else if (spriteSpec.offsetType == OffsetType.CENTER_RIGHT)
             {
                 _spriteRenderer.transform.localPosition = new Vector3(-_listSprites[0].bounds.size.x * xScale * 0.5f, 0f, 0f);
             }
 
-            _spriteRenderer.transform.localPosition += new Vector3(spec.additionalOffset.x, spec.additionalOffset.y, 0f);
+            _spriteRenderer.transform.localPosition += new Vector3(spriteSpec.additionalOffset.x, spriteSpec.additionalOffset.y, 0f);
         }
         
         public void UpdateSpriteIndex()

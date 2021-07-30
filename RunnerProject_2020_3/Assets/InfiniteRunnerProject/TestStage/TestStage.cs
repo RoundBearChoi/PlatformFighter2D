@@ -15,6 +15,8 @@ namespace RB
             _userInput = new UserInput();
             units = new Units(this);
 
+            Physics2D.gravity = new Vector2(0f, -50);
+
             InstantiateUnits_ByUnitType(UnitType.RUNNER);
             Unit runner = units.GetUnit<Runner>();
             runner.SetUserInput(_userInput);
