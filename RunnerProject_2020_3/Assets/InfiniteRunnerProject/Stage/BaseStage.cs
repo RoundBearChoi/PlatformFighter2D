@@ -46,15 +46,15 @@ namespace RB
             _gameIntializer = gameInitializer;
         }
 
-        public virtual void InstantiateUnit(BaseUnitCreationSpec spec)
+        public virtual void InstantiateUnit(DefaultUnitCreationSpec spec)
         {
             units.AddCreator(new DefaultUnitCreator(this.transform, spec));
             units.ProcessCreators();
         }
 
-        public virtual void InstantiateUnits(List<BaseUnitCreationSpec> listSpecs)
+        public virtual void InstantiateUnits(List<DefaultUnitCreationSpec> listSpecs)
         {
-            foreach (BaseUnitCreationSpec spec in listSpecs)
+            foreach (DefaultUnitCreationSpec spec in listSpecs)
             {
                 units.AddCreator(new DefaultUnitCreator(this.transform, spec));
             }
@@ -64,25 +64,25 @@ namespace RB
 
         public virtual void InstantiateUnit_ByUnitType(UnitType unitType)
         {
-            BaseUnitCreationSpec spec = GameInitializer.current.specsGetter.GetSpec_ByUnitType(unitType);
+            DefaultUnitCreationSpec spec = GameInitializer.current.specsGetter.GetSpec_ByUnitType(unitType);
             InstantiateUnit(spec);
         }
 
         public virtual void InstantiateUnit_BySpriteAnimationSpec(SpriteAnimationSpec spriteSpec)
         {
-            BaseUnitCreationSpec creationSpec = GameInitializer.current.specsGetter.GetSpec_BySpriteAnimationSpec(spriteSpec);
+            DefaultUnitCreationSpec creationSpec = GameInitializer.current.specsGetter.GetSpec_BySpriteAnimationSpec(spriteSpec);
             InstantiateUnit(creationSpec);
         }
 
         public virtual void InstantiateUnits_ByUnitType(UnitType unitType)
         {
-            List<BaseUnitCreationSpec> specsList = GameInitializer.current.specsGetter.GetSpecs_ByUnitType(unitType);
+            List<DefaultUnitCreationSpec> specsList = GameInitializer.current.specsGetter.GetSpecs_ByUnitType(unitType);
             InstantiateUnits(specsList);
         }
 
         public virtual void InstantiateUnits_BySpecType<T>()
         {
-            List<BaseUnitCreationSpec> specsList = GameInitializer.current.specsGetter.GetSpecs_BySpecType<T>();
+            List<DefaultUnitCreationSpec> specsList = GameInitializer.current.specsGetter.GetSpecs_BySpecType<T>();
             InstantiateUnits(specsList);
         }
 

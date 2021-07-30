@@ -7,9 +7,9 @@ namespace RB
     public abstract class BaseUnitCreator
     {
         protected Transform _parentTransform = null;
-        protected BaseUnitCreationSpec _creationSpec = null;
+        protected DefaultUnitCreationSpec _creationSpec = null;
 
-        public virtual Unit InstantiateUnit(BaseUnitCreationSpec creationSpec)
+        public virtual Unit InstantiateUnit(DefaultUnitCreationSpec creationSpec)
         {
             Unit unit = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(creationSpec.unitType)) as Unit;
             unit.unitType = creationSpec.unitType;

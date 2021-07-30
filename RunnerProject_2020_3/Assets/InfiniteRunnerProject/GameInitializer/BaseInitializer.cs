@@ -11,7 +11,7 @@ namespace RB
         public StageTransitioner stageTransitioner = null;
 
         [Space(10)] [SerializeField]
-        protected List<BaseUnitCreationSpec> listCreationSpecsSO = new List<BaseUnitCreationSpec>();
+        protected List<DefaultUnitCreationSpec> listCreationSpecsSO = new List<DefaultUnitCreationSpec>();
 
         [Space(10)]
         [SerializeField]
