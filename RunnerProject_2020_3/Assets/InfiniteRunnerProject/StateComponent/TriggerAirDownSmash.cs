@@ -13,9 +13,12 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (_unit.USER_INPUT.commands.ContainsHold(CommandType.MOVE_DOWN) || _unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN))
+            if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_DOWN))
             {
-                _unit.unitData.listNextStates.Add(new Runner_Smash_Air_Prep(_unit));
+                if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.ATTACK_A))
+                {
+                    _unit.unitData.listNextStates.Add(new Runner_Smash_Air_Prep(_unit));
+                }
             }
         }
     }

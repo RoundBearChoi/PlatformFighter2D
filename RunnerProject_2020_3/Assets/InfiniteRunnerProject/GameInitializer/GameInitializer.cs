@@ -42,11 +42,11 @@ namespace RB
 
         public void FindAllDefaultCreationSpecs()
         {
-            DefaultUnitCreationSpec[] arr = Resources.FindObjectsOfTypeAll(typeof(DefaultUnitCreationSpec)) as DefaultUnitCreationSpec[];
+            UnitCreationSpec[] arr = Resources.FindObjectsOfTypeAll(typeof(UnitCreationSpec)) as UnitCreationSpec[];
 
             listCreationSpecsSO.Clear();
 
-            foreach(DefaultUnitCreationSpec spec in arr)
+            foreach(UnitCreationSpec spec in arr)
             {
                 listCreationSpecsSO.Add(spec);
             }

@@ -51,7 +51,7 @@ namespace RB
 
         }
 
-        public virtual void InitBoxCollider(DefaultUnitCreationSpec spec)
+        public virtual void InitBoxCollider(UnitCreationSpec spec)
         {
             if (spec.BoxCollider2DSize.x > 0f && spec.BoxCollider2DSize.y > 0f)
             {

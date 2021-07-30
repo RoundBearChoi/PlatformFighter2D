@@ -6,18 +6,18 @@ namespace RB
 {
     public class SpecsGetter
     {
-        private List<DefaultUnitCreationSpec> _listSpecs = null;
+        private List<UnitCreationSpec> _listSpecs = null;
 
-        public SpecsGetter(List<DefaultUnitCreationSpec> listSpecs)
+        public SpecsGetter(List<UnitCreationSpec> listSpecs)
         {
             _listSpecs = listSpecs;
         }
 
-        public List<DefaultUnitCreationSpec> GetSpecs_BySpecType<T>()
+        public List<UnitCreationSpec> GetSpecs_BySpecType<T>()
         {
-            List<DefaultUnitCreationSpec> subList = new List<DefaultUnitCreationSpec>();
+            List<UnitCreationSpec> subList = new List<UnitCreationSpec>();
 
-            foreach (DefaultUnitCreationSpec spec in _listSpecs)
+            foreach (UnitCreationSpec spec in _listSpecs)
             {
                 if (spec is T)
                 {
@@ -28,11 +28,11 @@ namespace RB
             return subList;
         }
 
-        public List<DefaultUnitCreationSpec> GetSpecs_ByUnitType(UnitType unitType)
+        public List<UnitCreationSpec> GetSpecs_ByUnitType(UnitType unitType)
         {
-            List<DefaultUnitCreationSpec> subList = new List<DefaultUnitCreationSpec>();
+            List<UnitCreationSpec> subList = new List<UnitCreationSpec>();
 
-            foreach (DefaultUnitCreationSpec spec in _listSpecs)
+            foreach (UnitCreationSpec spec in _listSpecs)
             {
                 if (spec.unitType == unitType)
                 {
@@ -43,9 +43,9 @@ namespace RB
             return subList;
         }
 
-        public DefaultUnitCreationSpec GetSpec_BySpriteAnimationSpec(SpriteAnimationSpec spriteSpec)
+        public UnitCreationSpec GetSpec_BySpriteAnimationSpec(SpriteAnimationSpec spriteSpec)
         {
-            foreach (DefaultUnitCreationSpec creationSpec in _listSpecs)
+            foreach (UnitCreationSpec creationSpec in _listSpecs)
             {
                 foreach(SpriteAnimationSpec s in creationSpec.listSpriteAnimationSpecs)
                 {
@@ -59,7 +59,7 @@ namespace RB
             return null;
         }
 
-        public DefaultUnitCreationSpec GetSpec_ByUnitType(UnitType unitType)
+        public UnitCreationSpec GetSpec_ByUnitType(UnitType unitType)
         {
             for (int i = _listSpecs.Count - 1; i >= 0; i--)
             {
