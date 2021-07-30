@@ -31,15 +31,28 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            if (!ownerUnit.USER_INPUT.commands.ContainsHold(CommandType.MOVE_RIGHT) && ownerUnit.unitData.facingRight)
+            if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM) ||
+                ownerUnit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM))
             {
-                ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
-            }
+                if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.JUMP))
+                {
+                    float x = ownerUnit.unitData.rigidBody2D.velocity.x * 0.9f;
 
-            if (!ownerUnit.USER_INPUT.commands.ContainsHold(CommandType.MOVE_LEFT) && !ownerUnit.unitData.facingRight)
-            {
-                ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
+                    ownerUnit.unitData.rigidBody2D.velocity = new Vector2(x, GameInitializer.current.fighterDataSO.JumpForce_FromRun);
+                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit));
+                }
+
+                if (!ownerUnit.USER_INPUT.commands.ContainsHold(CommandType.MOVE_RIGHT) && ownerUnit.unitData.facingRight)
+                {
+                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
+                }
+
+                if (!ownerUnit.USER_INPUT.commands.ContainsHold(CommandType.MOVE_LEFT) && !ownerUnit.unitData.facingRight)
+                {
+                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
+                }
             }
+                
         }
     }
 }

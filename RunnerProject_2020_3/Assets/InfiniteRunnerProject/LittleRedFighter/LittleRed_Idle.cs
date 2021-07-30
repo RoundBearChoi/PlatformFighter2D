@@ -26,11 +26,12 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
+            if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM) ||
+                ownerUnit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM))
             {
                 if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.JUMP))
                 {
-                    ownerUnit.unitData.rigidBody2D.velocity = GameInitializer.current.fighterDataSO.JumpForce_FromIdle;
+                    ownerUnit.unitData.rigidBody2D.velocity = new Vector2(0f, GameInitializer.current.fighterDataSO.JumpForce_FromIdle);
                     ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit));
                 }
 

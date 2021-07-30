@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 111a4cd6f169a0546b6a2414712db5f2, type: 3}
   m_Name: FighterData
   m_EditorClassIdentifier: 
-  DefaultRunSpeed: 13
+  DefaultRunSpeed: 14
   RunSpeedLerpPercentage: 0.1
   IdleSlowDownLerpPercentage: 0.35
-  JumpForce_FromIdle: {x: 0, y: 22}
+  JumpForce_FromIdle: 22
+  JumpForce_FromRun: 24
   JumpPullPercentagePerFixedUpdate: 0.5
   CumulativeGravityForcePercentage: 1.02
-  HorizontalAirMomentumIncreaseAmount: 0.5
-  MaxHorizontalAirMomentum: 6
+  HorizontalAirMomentumIncreaseAmount: 1
+  MaxHorizontalAirMomentum: 11
