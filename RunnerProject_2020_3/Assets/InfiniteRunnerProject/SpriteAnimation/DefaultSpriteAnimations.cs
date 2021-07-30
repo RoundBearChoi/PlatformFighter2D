@@ -89,6 +89,7 @@ namespace RB
             obj.transform.localRotation = Quaternion.identity;
             _listSpriteAnimations.Add(obj.AddComponent<SpriteAnimation>());
 
+            _listSpriteAnimations[_listSpriteAnimations.Count - 1].spriteType = spriteSpec.spriteType;
             _listSpriteAnimations[_listSpriteAnimations.Count - 1].LoadSprite(creationSpec, spriteSpec);
         }
 

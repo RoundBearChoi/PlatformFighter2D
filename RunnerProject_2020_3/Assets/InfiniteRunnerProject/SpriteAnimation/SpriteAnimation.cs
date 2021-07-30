@@ -14,6 +14,7 @@ namespace RB
         [SerializeField] int _spriteIndex = 0;
 
         public SpriteAnimationSpec animationSpec = null;
+        public SpriteType spriteType = SpriteType.NONE;
 
         public int SPRITE_INDEX
         {
