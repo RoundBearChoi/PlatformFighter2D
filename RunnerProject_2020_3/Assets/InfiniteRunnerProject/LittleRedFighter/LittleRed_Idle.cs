@@ -44,6 +44,11 @@ namespace RB
                 {
                     ownerUnit.unitData.listNextStates.Add(new LittleRed_Run(ownerUnit));
                 }
+
+                if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A))
+                {
+                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Attack_A(ownerUnit));
+                }
             }
         }
     }
