@@ -76,6 +76,11 @@ namespace RB
                 index = creationSpec.SpriteNameIndex;
             }
 
+            if (index >= spriteSpec.listSpriteNames.Count)
+            {
+                index = spriteSpec.listSpriteNames.Count - 1;
+            }
+
             string name = spriteSpec.listSpriteNames[index];
 
             GameObject obj = new GameObject(name);

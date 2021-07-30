@@ -47,6 +47,11 @@ namespace RB
                 index = creationSpec.SpriteNameIndex;
             }
 
+            if (index >= spriteSpec.listSpriteNames.Count)
+            {
+                index = spriteSpec.listSpriteNames.Count - 1;
+            }
+
             string spriteName = spriteSpec.listSpriteNames[index];
 
             Sprite[] arrSprite = LoadSpriteByString(spriteName);
