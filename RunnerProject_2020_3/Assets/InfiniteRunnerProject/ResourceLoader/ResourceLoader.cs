@@ -38,7 +38,6 @@ namespace RB
             unitLoader.LoadFightStageUnits();
         }
 
-        //introduce array of spritenames, index defined in spec
         public static Sprite[] LoadSpriteBySpec(UnitCreationSpec creationSpec, SpriteAnimationSpec spriteSpec)
         {
             int index = 0;
@@ -50,7 +49,7 @@ namespace RB
 
             string spriteName = spriteSpec.listSpriteNames[index];
 
-            Sprite[] arrSprite = LoadSpriteByString(spriteSpec.spriteName);
+            Sprite[] arrSprite = LoadSpriteByString(spriteName);
 
             if (arrSprite.Length == 0)
             {

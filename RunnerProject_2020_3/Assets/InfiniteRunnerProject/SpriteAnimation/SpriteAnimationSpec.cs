@@ -8,10 +8,13 @@ namespace RB
     [CreateAssetMenu(fileName = "SpriteAnimationSpec", menuName = "InfiniteRunner/SpriteAnimationSpec/SpriteAnimationSpec")]
     public class SpriteAnimationSpec : ScriptableObject
     {
-        public string spriteName;
-        public string backupSpriteName;
+        
         public List<string> listSpriteNames = new List<string>();
 
+        [Space(5)]
+
+        public string backupSpriteName;
+        
         [Space(10)]
                 
         public uint spriteInterval;

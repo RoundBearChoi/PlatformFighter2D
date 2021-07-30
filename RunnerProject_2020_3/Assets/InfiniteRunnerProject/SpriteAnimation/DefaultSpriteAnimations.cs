@@ -69,7 +69,16 @@ namespace RB
 
         public void AddSpriteAnimation(UnitCreationSpec creationSpec, SpriteAnimationSpec spriteSpec, Transform parent)
         {
-            GameObject obj = new GameObject(spriteSpec.spriteName);
+            int index = 0;
+
+            if (creationSpec != null)
+            {
+                index = creationSpec.SpriteNameIndex;
+            }
+
+            string name = spriteSpec.listSpriteNames[index];
+
+            GameObject obj = new GameObject(name);
             obj.transform.parent = parent;
             obj.transform.localPosition = Vector3.zero;
             obj.transform.localRotation = Quaternion.identity;
