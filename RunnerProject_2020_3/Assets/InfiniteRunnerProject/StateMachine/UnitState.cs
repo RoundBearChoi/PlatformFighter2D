@@ -12,6 +12,7 @@ namespace RB
 
         protected bool noHitStopAllowed = false;
         protected List<StateComponent> _listStateComponents = new List<StateComponent>();
+        protected List<SpriteType> _listMatchingSpriteTypes = new List<SpriteType>();
 
         public abstract SpriteAnimationSpec GetSpriteAnimationSpec();
 
