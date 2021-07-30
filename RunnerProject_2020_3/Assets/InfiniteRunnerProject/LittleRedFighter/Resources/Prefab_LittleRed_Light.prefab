@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9046079644221287687}
-  - component: {fileID: 3764505796746189860}
+  - component: {fileID: 6291663123432458572}
   m_Layer: 0
   m_Name: Prefab_LittleRed_Light
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3764505796746189860
+--- !u!114 &6291663123432458572
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,20 +41,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 9046079644221287680}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17974c94db429fe4e8d5fd1de46b761c, type: 3}
+  m_Script: {fileID: 11500000, guid: a940003ec28a0ee43a3ef896a995d897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitType: 700
+  unitType: 0
   unitData:
-    hp: 0
+    hp: 1
     initialHP: 0
-    facingRight: 0
-    comboHitCount:
-      _count: 0
-      _fixedUpdates: 0
+    facingRight: 1
     rigidBody2D: {fileID: 0}
     boxCollider2D: {fileID: 0}
     compositeCollider2D: {fileID: 0}
+    comboHitCount:
+      _count: 0
+      _fixedUpdates: 0
+    airControl:
+      _horizontalMomentum: 0
   deathAnimationTriggered: 0
   destroy: 0
   hpBar: {fileID: 0}

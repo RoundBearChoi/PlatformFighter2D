@@ -25,13 +25,13 @@ namespace RB
             GameInitializer.current.GetStage().InstantiateUnits_ByUnitType(UnitType.OLD_CITY);
 
             InstantiateUnit_ByUnitType(UnitType.LITTLERED_LIGHT);
-            Unit littleRed = units.GetUnit<PlayerUnit>();
+            Unit littleRed = units.GetUnit<LittleRed>();
             littleRed.SetUserInput(_userInput);
 
             cameraScript = new CameraScript();
             cameraScript.SetCamera(cam);
             cameraScript.SetCameraState(new Camera_LerpOnTargetXAndY(0.01f, 0.01f));
-            cameraScript.SetFollowTarget(units.GetUnit<PlayerUnit>().gameObject);
+            cameraScript.SetFollowTarget(units.GetUnit<LittleRed>().gameObject);
         }
 
         public override void OnUpdate()

@@ -33,7 +33,7 @@ namespace RB
 
         public void LoadFightStageUnits()
         {
-            LoadObj<PlayerUnit>(UnitType.LITTLERED_LIGHT, "Prefab_LittleRed_Light");
+            LoadObj<LittleRed>(UnitType.LITTLERED_LIGHT, "Prefab_LittleRed_Light");
 
             LoadObj<Swamp>(UnitType.OLD_CITY, "OldCityBackground");
         }

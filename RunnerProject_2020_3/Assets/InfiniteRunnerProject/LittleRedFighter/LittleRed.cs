@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace RB
 {
-    public class PlayerUnit : Unit
+    public class LittleRed : Unit
     {
-        public PlayerUnit()
+        public LittleRed()
         {
             messageHandler = new RunnerMessageHandler(this);
         }
