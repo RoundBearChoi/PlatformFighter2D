@@ -152,6 +152,11 @@ namespace RB
             OldCity_Arches_DefaultState.animationSpec = spec;
         }
 
+        public void State_OldCity_Pillars_Idle(SpriteAnimationSpec spec)
+        {
+            OldCity_Pillars_DefaultState.animationSpec = spec;
+        }
+
         public void State_LandingDust_DefaultState(SpriteAnimationSpec spec)
         {
             LandingDust_DefaultState.animationSpec = spec;
