@@ -11,6 +11,8 @@ namespace RB
         public LittleRed_Attack_A(Unit unit)
         {
             ownerUnit = unit;
+
+            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, GameInitializer.current.fighterDataSO.AttackASlowDownPercentage));
         }
 
         public override SpriteAnimationSpec GetSpriteAnimationSpec()

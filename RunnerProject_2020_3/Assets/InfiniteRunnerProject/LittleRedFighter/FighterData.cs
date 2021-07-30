@@ -19,5 +19,7 @@ namespace RB
 
         public float HorizontalAirMomentumIncreaseAmount = 0f;
         public float MaxHorizontalAirMomentum = 0f;
+
+        public float AttackASlowDownPercentage = 0f;
     }
 }
