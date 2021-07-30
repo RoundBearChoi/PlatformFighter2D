@@ -16,7 +16,7 @@ namespace RB
             units = new Units(this);
 
             InstantiateUnits_ByUnitType(UnitType.RUNNER);
-            Unit runner = units.GetUnit<PlayerUnit>();
+            Unit runner = units.GetUnit<Runner>();
             runner.SetUserInput(_userInput);
 
             //level and enemies

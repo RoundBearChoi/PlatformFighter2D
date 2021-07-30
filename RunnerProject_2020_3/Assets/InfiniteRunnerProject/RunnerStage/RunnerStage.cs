@@ -12,7 +12,7 @@ namespace RB
             units = new Units(this);
 
             InstantiateUnit_ByUnitType(UnitType.RUNNER);
-            Unit runner = units.GetUnit<PlayerUnit>();
+            Unit runner = units.GetUnit<Runner>();
             runner.SetUserInput(_userInput);
 
             cameraScript = new CameraScript();
@@ -25,7 +25,7 @@ namespace RB
             cam.transform.position = new Vector3(0f, 5f, 0f);
             cameraScript.SetCamera(cam);
             cameraScript.SetCameraState(new Camera_LerpOnTargetY());
-            cameraScript.SetFollowTarget(units.GetUnit<PlayerUnit>().gameObject);
+            cameraScript.SetFollowTarget(units.GetUnit<Runner>().gameObject);
 
             _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.GAME_UI)) as GameUI;
             _baseUI.transform.parent = this.transform;

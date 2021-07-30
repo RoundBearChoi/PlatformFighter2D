@@ -18,7 +18,7 @@ namespace RB
         {
             _stage = stage;
             _setup = setup;
-            _runner = stage.units.GetUnit<PlayerUnit>();
+            _runner = stage.units.GetUnit<Runner>();
         }
 
         public override void CustomFixedUpdate()

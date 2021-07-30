@@ -12,7 +12,7 @@ namespace RB
         public RunnerStageNPCSetup(BaseStage ownerStage)
         {
             _stage = ownerStage;
-            _runner = ownerStage.units.GetUnit<PlayerUnit>();
+            _runner = ownerStage.units.GetUnit<Runner>();
             _updater = new NPCSetupUpdater(ownerStage, this);
             _cameraScript = GameInitializer.current.GetStage().cameraScript;
         }

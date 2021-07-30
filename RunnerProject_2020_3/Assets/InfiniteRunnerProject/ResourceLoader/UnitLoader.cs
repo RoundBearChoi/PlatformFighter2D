@@ -13,7 +13,7 @@ namespace RB
 
         public void LoadRunnerStageUnits()
         {
-            LoadObj<PlayerUnit>(UnitType.RUNNER, "Prefab_Runner");
+            LoadObj<Runner>(UnitType.RUNNER, "Prefab_Runner");
             LoadObj<Golem>(UnitType.GOLEM, "Golem");
 
             LoadObj<GameObject>(UnitType.FLAT_GROUND, "FlatGround");
