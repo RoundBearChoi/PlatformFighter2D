@@ -6,10 +6,8 @@ using UnityEngine.InputSystem.Controls;
 
 namespace RB
 {
-    [System.Serializable]
     public class UserInput
     {
-        [SerializeField] private UserInputType _userInputType = UserInputType.NONE;
         public static Keyboard keyboard = null;
         public static Mouse mouse = null;
 
