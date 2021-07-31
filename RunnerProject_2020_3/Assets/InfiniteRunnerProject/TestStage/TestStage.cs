@@ -21,7 +21,6 @@ namespace RB
             Unit runner = units.GetUnit<Runner>();
             runner.SetUserInput(input);
 
-            //level and enemies
             GameObject levelObj = Instantiate(ResourceLoader.levelLoader.GetObj(1)) as GameObject;
             levelObj.transform.parent = this.transform;
 
