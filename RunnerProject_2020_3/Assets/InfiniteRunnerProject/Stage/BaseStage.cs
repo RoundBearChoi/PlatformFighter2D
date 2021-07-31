@@ -17,7 +17,6 @@ namespace RB
 
         [SerializeField]
         protected InputController _inputController = null;
-        protected UserInput _userInput = null;
 
         [SerializeField]
         protected BaseUI _baseUI = null;

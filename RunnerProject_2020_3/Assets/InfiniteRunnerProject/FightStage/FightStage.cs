@@ -8,7 +8,8 @@ namespace RB
     {
         public override void Init()
         {
-            _userInput = new UserInput();
+            //_userInput = new UserInput();
+            UserInput input = _inputController.AddInput();
             units = new Units(this);
 
             Physics2D.gravity = new Vector2(0f, GameInitializer.current.fighterDataSO.Gravity);
@@ -26,7 +27,7 @@ namespace RB
 
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_LIGHT);
             Unit littleRed = units.GetUnit<LittleRed>();
-            littleRed.SetUserInput(_userInput);
+            littleRed.SetUserInput(input);
 
             cameraScript = new CameraScript();
             cameraScript.SetCamera(cam);
@@ -38,7 +39,7 @@ namespace RB
 
         public override void OnUpdate()
         {
-            _userInput.OnUpdate();
+            _inputController.GetUserInput().OnUpdate();
             cameraScript.OnUpdate();
             units.OnUpdate();
         }
@@ -48,18 +49,18 @@ namespace RB
             cameraScript.OnFixedUpdate();
             units.OnFixedUpdate();
 
-            if (_userInput.commands.ContainsPress(CommandType.F5))
+            if (_inputController.GetUserInput().commands.ContainsPress(CommandType.F5))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new FightStageTransition(_gameIntializer));
             }
             
-            if (_userInput.commands.ContainsPress(CommandType.F6))
+            if (_inputController.GetUserInput().commands.ContainsPress(CommandType.F6))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new IntroStageTransition(_gameIntializer));
             }
 
-            _userInput.commands.ClearKeyDictionary();
-            _userInput.commands.ClearButtonDictionary();
+            _inputController.GetUserInput().commands.ClearKeyDictionary();
+            _inputController.GetUserInput().commands.ClearButtonDictionary();
         }
 
         public override void OnLateUpdate()

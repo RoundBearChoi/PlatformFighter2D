@@ -6,15 +6,21 @@ using UnityEngine.InputSystem.Controls;
 
 namespace RB
 {
+    [System.Serializable]
     public class UserInput
     {
+        [SerializeField]
+        InputType _inputType = InputType.NONE;
+
         public static Keyboard keyboard = null;
         public static Mouse mouse = null;
 
         public UserCommands commands = new UserCommands();
 
-        public UserInput()
+        public UserInput(InputType inputType)
         {
+            _inputType = inputType;
+
             keyboard = Keyboard.current;
             mouse = Mouse.current;
 

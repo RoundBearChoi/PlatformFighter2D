@@ -7,9 +7,9 @@ namespace RB
     public enum InputType
     {
         NONE = 0,
-        ONE = 1,
-        TWO = 2,
-        THREE = 3,
-        FOUR = 4,
+        PLAYER_ONE = 1,
+        PLAYER_TWO = 2,
+        PLAYER_THREE = 3,
+        PLAYER_FOUR = 4,
     }
 }

@@ -8,14 +8,15 @@ namespace RB
     {
         public override void Init()
         {
-            _userInput = new UserInput();
+            //_userInput = new UserInput();
+            UserInput input = _inputController.AddInput();
             units = new Units(this);
 
             Physics2D.gravity = new Vector2(0f, -50);
 
             InstantiateUnit_ByUnitType(UnitType.RUNNER);
             Unit runner = units.GetUnit<Runner>();
-            runner.SetUserInput(_userInput);
+            runner.SetUserInput(input);
 
             cameraScript = new CameraScript();
 
@@ -46,7 +47,7 @@ namespace RB
 
         public override void OnUpdate()
         {
-            _userInput.OnUpdate();
+            _inputController.GetUserInput().OnUpdate();
             _baseUI.OnUpdate();
             units.OnUpdate();
             trailEffects.OnUpdate();
@@ -58,18 +59,18 @@ namespace RB
         {
             units.OnFixedUpdate();
 
-            if (_userInput.commands.ContainsPress(CommandType.F5))
+            if (_inputController.GetUserInput().commands.ContainsPress(CommandType.F5))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new RunnerStageTransition(_gameIntializer));
             }
 
-            if (_userInput.commands.ContainsPress(CommandType.F6))
+            if (_inputController.GetUserInput().commands.ContainsPress(CommandType.F6))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new IntroStageTransition(_gameIntializer));
             }
 
-            _userInput.commands.ClearKeyDictionary();
-            _userInput.commands.ClearButtonDictionary();
+            _inputController.GetUserInput().commands.ClearKeyDictionary();
+            _inputController.GetUserInput().commands.ClearButtonDictionary();
             _baseUI.OnFixedUpdate();
             cameraScript.OnFixedUpdate();
             npcSetup.UPDATER.CustomFixedUpdate();

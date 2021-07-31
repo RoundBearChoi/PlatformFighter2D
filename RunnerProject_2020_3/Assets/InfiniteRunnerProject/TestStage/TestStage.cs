@@ -12,14 +12,15 @@ namespace RB
 
         public override void Init()
         {
-            _userInput = new UserInput();
+            //_userInput = new UserInput();
+            UserInput input = _inputController.AddInput();
             units = new Units(this);
 
             Physics2D.gravity = new Vector2(0f, -50);
 
             InstantiateUnits_ByUnitType(UnitType.RUNNER);
             Unit runner = units.GetUnit<Runner>();
-            runner.SetUserInput(_userInput);
+            runner.SetUserInput(input);
 
             //level and enemies
             GameObject levelObj = Instantiate(ResourceLoader.levelLoader.GetObj(1)) as GameObject;
@@ -27,7 +28,7 @@ namespace RB
 
             ui = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.UI)) as UITest.tempUI;
             ui.SetCounters(fixedUpdateCounter, updateCounter);
-            ui.SetInput(_userInput);
+            ui.SetInput(input);
             ui.transform.parent = this.transform;
             ui.transform.localPosition = Vector3.zero;
             ui.transform.localRotation = Quaternion.identity;
@@ -48,7 +49,7 @@ namespace RB
         public override void OnUpdate()
         {
             updateCounter.OnUpdate();
-            _userInput.OnUpdate();
+            _inputController.GetUserInput().OnUpdate();
             units.OnUpdate();
             trailEffects.OnUpdate();
             ui.OnUpdate();
@@ -61,18 +62,18 @@ namespace RB
             units.OnFixedUpdate();
             ui.OnFixedUpdate();
 
-            if (_userInput.commands.ContainsPress(CommandType.F5))
+            if (_inputController.GetUserInput().commands.ContainsPress(CommandType.F5))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new TestStageTransition(_gameIntializer));
             }
 
-            if (_userInput.commands.ContainsPress(CommandType.F6))
+            if (_inputController.GetUserInput().commands.ContainsPress(CommandType.F6))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new IntroStageTransition(_gameIntializer));
             }
 
-            _userInput.commands.ClearKeyDictionary();
-            _userInput.commands.ClearButtonDictionary();
+            _inputController.GetUserInput().commands.ClearKeyDictionary();
+            _inputController.GetUserInput().commands.ClearButtonDictionary();
 
             cameraScript.OnFixedUpdate();
         }

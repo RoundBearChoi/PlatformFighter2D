@@ -7,17 +7,19 @@ namespace RB
     [System.Serializable]
     public class InputController
     {
-        private List<UserInput> _listUserInputs = new List<UserInput>();
-
         [SerializeField]
         private InputType _inputType = InputType.NONE;
 
+        [SerializeField]
+        private List<UserInput> _listUserInputs = new List<UserInput>();
+
         public UserInput AddInput()
         {
-            if (_listUserInputs.Count < (int)InputType.FOUR)
+            if (_listUserInputs.Count < (int)InputType.PLAYER_FOUR)
             {
-                _listUserInputs.Add(new UserInput());
-                _listUserInputs.Add(new UserInput());
+                InputType inputType = (InputType)(_listUserInputs.Count + 1);
+                _listUserInputs.Add(new UserInput(inputType));
+                return _listUserInputs[_listUserInputs.Count - 1];
             }
 
             return null;
@@ -36,11 +38,6 @@ namespace RB
         public UserInput GetUserInput()
         {
             return _listUserInputs[GetInputTypeIndex()];
-        }
-
-        public void UpdateIndexInput()
-        {
-            _listUserInputs[GetInputTypeIndex()].OnUpdate();
         }
 
         int GetInputTypeIndex()
