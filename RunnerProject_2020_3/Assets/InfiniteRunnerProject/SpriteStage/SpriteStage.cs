@@ -11,6 +11,7 @@ namespace RB
 
         [SerializeField]
         SpriteAnimationSpec animationSpec = null;
+        SpriteAnimationSpec _prevSpec = null;
 
         [SerializeField]
         OverlapBoxCollisionData _dummyOverlapBoxCollisionData;
@@ -47,6 +48,8 @@ namespace RB
             _dummyAnimation.SetCurrentAnimation(_dummyAnimation.GetLastSpriteAnimation());
             _dummyAnimation.ManualSetSpriteIndex(0);
             _dummyAnimation.GetCurrentAnimation().UpdateSpriteOnIndex();
+
+            _prevSpec = animationSpec;
         }
 
         public override void OnUpdate()
@@ -56,6 +59,13 @@ namespace RB
             if (_userInput.commands.ContainsPress(CommandType.F6))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new IntroStageTransition(_gameIntializer));
+            }
+
+            if (_prevSpec != animationSpec)
+            {
+                Destroy(_dummyObj);
+                _dummyObj = null;
+                Init();
             }
         }
 

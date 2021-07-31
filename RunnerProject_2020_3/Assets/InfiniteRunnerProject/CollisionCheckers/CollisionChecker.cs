@@ -28,7 +28,7 @@ namespace RB
                     dotDown >= dotLeft &&
                     dotDown >= dotRight)
                 {
-                    Debug.DrawLine(_boxCollider2D.bounds.center, contactPoint.point, Color.green, 3f);
+                    Debug.DrawLine(_boxCollider2D.bounds.center, contactPoint.point, Color.green, 1f);
                     return CollisionType.BOTTOM;
                 }
             }
@@ -39,7 +39,7 @@ namespace RB
                     dotUp >= dotLeft &&
                     dotUp >= dotRight)
                 {
-                    Debug.DrawLine(_boxCollider2D.bounds.center, contactPoint.point, Color.yellow, 3f);
+                    Debug.DrawLine(_boxCollider2D.bounds.center, contactPoint.point, Color.yellow, 1f);
                     return CollisionType.TOP;
                 }
             }
@@ -50,7 +50,7 @@ namespace RB
                     dotRight >= dotDown &&
                     dotRight >= dotLeft)
                 {
-                    Debug.DrawLine(_boxCollider2D.bounds.center, contactPoint.point, Color.red, 3f);
+                    Debug.DrawLine(_boxCollider2D.bounds.center, contactPoint.point, Color.red, 1f);
                     return CollisionType.RIGHT;
                 }
             }
@@ -61,7 +61,7 @@ namespace RB
                     dotLeft >= dotDown &&
                     dotLeft >= dotRight)
                 {
-                    Debug.DrawLine(_boxCollider2D.bounds.center, contactPoint.point, Color.magenta, 3f);
+                    Debug.DrawLine(_boxCollider2D.bounds.center, contactPoint.point, Color.magenta, 1f);
                     return CollisionType.LEFT;
                 }
             }
