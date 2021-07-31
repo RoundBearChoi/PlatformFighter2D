@@ -62,7 +62,7 @@ namespace RB
                                         BaseMessage showParryEffectMessage = new ShowParryEffect_Message(new Vector3(closest.x, closest.y, -0.5f));
                                         showParryEffectMessage.Register();
 
-                                        BaseMessage shakeCam = new ShakeCameraOnTargetMessage(7);
+                                        BaseMessage shakeCam = new ShakeCameraOnTargetMessage(_boxCollisionData.cameraShakeFrames);
                                         shakeCam.Register();
 
                                         BaseMessage takeDamage = new TakeDamageMessage(collidingUnit, 1);

@@ -10,5 +10,6 @@ namespace RB
         public OverlapBoxDataType overlapBoxDataType = OverlapBoxDataType.NONE;
         public List<OverlapBoxCollisionSpecs> listSpecs = new List<OverlapBoxCollisionSpecs>();
         public Vector2 pushForce = new Vector2();
+        public uint cameraShakeFrames = 0;
     }
 }
