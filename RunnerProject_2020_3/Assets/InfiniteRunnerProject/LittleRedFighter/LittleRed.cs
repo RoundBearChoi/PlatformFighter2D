@@ -8,7 +8,7 @@ namespace RB
     {
         public LittleRed()
         {
-            messageHandler = new RunnerMessageHandler(this);
+            messageHandler = new LittleRedMessageHandler(this);
         }
 
         public override void OnUpdate()
@@ -29,8 +29,8 @@ namespace RB
         {
             unitUpdater.CustomLateUpdate();
 
-            BaseMessage runnerHPUpdate = new UpdateRunnerHP_Message(unitData.hp, unitData.initialHP);
-            runnerHPUpdate.Register();
+            //BaseMessage runnerHPUpdate = new UpdateRunnerHP_Message(unitData.hp, unitData.initialHP);
+            //runnerHPUpdate.Register();
         }
 
         public void OnCollisionEnter2D(Collision2D collision)
