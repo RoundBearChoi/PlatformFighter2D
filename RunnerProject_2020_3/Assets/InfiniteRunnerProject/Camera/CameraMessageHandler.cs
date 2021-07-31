@@ -19,7 +19,7 @@ namespace RB
             {
                 if (message.MESSAGE_TYPE == MessageType.SHAKE_CAMERA_ONTARGET)
                 {
-                    _cameraScript.SetCameraState(new Camera_Shake_OnTarget(message.GetUnsignedIntMessage()));
+                    _cameraScript.SetCameraState(new Camera_Shake_OnTarget(message.GetUnsignedIntMessage(), message.GetFloatMessage()));
                 }
                 else if (message.MESSAGE_TYPE == MessageType.SHAKE_CAMERA_ONPOSITION)
                 {

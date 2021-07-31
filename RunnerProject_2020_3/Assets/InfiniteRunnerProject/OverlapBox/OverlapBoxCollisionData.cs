@@ -11,5 +11,6 @@ namespace RB
         public List<OverlapBoxCollisionSpecs> listSpecs = new List<OverlapBoxCollisionSpecs>();
         public Vector2 pushForce = new Vector2();
         public uint cameraShakeFrames = 0;
+        public float cameraShakeAmount = 0f;
     }
 }

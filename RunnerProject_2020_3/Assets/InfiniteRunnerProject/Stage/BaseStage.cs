@@ -41,6 +41,11 @@ namespace RB
 
         }
 
+        public virtual CameraState GetDefaultCameraState()
+        {
+            return null;
+        }
+
         public virtual void SetInitializer(GameInitializer gameInitializer)
         {
             _gameIntializer = gameInitializer;

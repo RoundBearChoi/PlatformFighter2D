@@ -30,12 +30,15 @@ namespace RB
         public static void LoadRunnerStage()
         {
             unitLoader.LoadRunnerStageUnits();
-
+            unitLoader.LoadDustEffects();
+            unitLoader.LoadHitEffects();
         }
 
         public static void LoadFightStage()
         {
             unitLoader.LoadFightStageUnits();
+            unitLoader.LoadDustEffects();
+            unitLoader.LoadHitEffects();
         }
 
         public static Sprite[] LoadSpriteBySpec(UnitCreationSpec creationSpec, SpriteAnimationSpec spriteSpec)

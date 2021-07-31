@@ -7,12 +7,15 @@ namespace RB
     public class Camera_Shake_OnTarget : CameraState
     {
         uint _totalShakeFrames = 0;
-        float _shakeAmount = 0.5f;
+        float _shakeAmount = 0f;
+        private Vector3 _initialPos = Vector3.zero;
 
-        public Camera_Shake_OnTarget(uint totalShakeFrames)
+        public Camera_Shake_OnTarget(uint totalShakeFrames, float shakeAmount)
         {
             _totalShakeFrames = totalShakeFrames;
+            _shakeAmount = shakeAmount;
             _cameraScript = GameInitializer.current.GetStage().cameraScript;
+            _initialPos = _cameraScript.GetCamera().transform.position;
         }
 
         public override void OnFixedUpdate()
@@ -34,7 +37,10 @@ namespace RB
             }
             else
             {
-                _cameraScript.SetCameraState(new Camera_LerpOnTargetY());
+                _cameraScript.UpdateCameraPositionOnTarget(_initialPos);
+
+                CameraState defaultCameraState = GameInitializer.current.GetStage().GetDefaultCameraState();
+                _cameraScript.SetCameraState(defaultCameraState);
             }
         }
 
