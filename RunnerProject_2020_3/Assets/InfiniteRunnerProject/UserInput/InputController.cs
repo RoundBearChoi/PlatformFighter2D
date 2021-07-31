@@ -4,12 +4,24 @@ using UnityEngine;
 
 namespace RB
 {
+    [System.Serializable]
     public class InputController
     {
         private List<UserInput> _listUserInputs = new List<UserInput>();
 
         [SerializeField]
-        private int _inputIndex = 0;
+        private InputType _inputType = InputType.NONE;
+
+        public UserInput AddInput()
+        {
+            if (_listUserInputs.Count < (int)InputType.FOUR)
+            {
+                _listUserInputs.Add(new UserInput());
+                _listUserInputs.Add(new UserInput());
+            }
+
+            return null;
+        }
 
         public UserInput GetUserInput(int index)
         {
@@ -23,19 +35,23 @@ namespace RB
 
         public UserInput GetUserInput()
         {
-            if (_inputIndex < _listUserInputs.Count)
-            {
-                return _listUserInputs[_inputIndex];
-            }
-
-            return null;
+            return _listUserInputs[GetInputTypeIndex()];
         }
 
         public void UpdateIndexInput()
         {
-            if (_inputIndex < _listUserInputs.Count)
+            _listUserInputs[GetInputTypeIndex()].OnUpdate();
+        }
+
+        int GetInputTypeIndex()
+        {
+            if ((int)_inputType < _listUserInputs.Count)
             {
-                _listUserInputs[_inputIndex].OnUpdate();
+                return (int)_inputType;
+            }
+            else
+            {
+                return 0;
             }
         }
     }
