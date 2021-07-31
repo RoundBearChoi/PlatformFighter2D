@@ -7,12 +7,11 @@ namespace RB
     public class FightStage : BaseStage
     {
         [SerializeField]
-        private InputType currentInputSelection = InputType.PLAYER_ONE;
+        private InputType _currentInputSelection = InputType.PLAYER_ONE;
+        private InputType _prevInputSelection = InputType.NONE;
 
         public override void Init()
         {
-
-
             units = new Units(this);
 
             Physics2D.gravity = new Vector2(0f, GameInitializer.current.fighterDataSO.Gravity);
@@ -32,7 +31,8 @@ namespace RB
             Unit player1 = units.GetUnit<LittleRed>();
 
             UserInput input = _inputController.AddInput();
-            currentInputSelection = input.INPUT_TYPE;
+            _currentInputSelection = input.INPUT_TYPE;
+            _prevInputSelection = input.INPUT_TYPE;
             player1.SetUserInput(input);
 
             cameraScript = new CameraScript();
@@ -47,7 +47,7 @@ namespace RB
 
         public override void OnUpdate()
         {
-            _inputController.GetUserInput(currentInputSelection).OnUpdate();
+            _inputController.GetUserInput(_currentInputSelection).OnUpdate();
             cameraScript.OnUpdate();
             units.OnUpdate();
         }
@@ -57,18 +57,24 @@ namespace RB
             cameraScript.OnFixedUpdate();
             units.OnFixedUpdate();
 
-            if (_inputController.GetUserInput(currentInputSelection).commands.ContainsPress(CommandType.F5))
+            if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F5))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new FightStageTransition(_gameIntializer));
             }
             
-            if (_inputController.GetUserInput(currentInputSelection).commands.ContainsPress(CommandType.F6))
+            if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F6))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new IntroStageTransition(_gameIntializer));
             }
 
-            _inputController.GetUserInput(currentInputSelection).commands.ClearKeyDictionary();
-            _inputController.GetUserInput(currentInputSelection).commands.ClearButtonDictionary();
+            _inputController.GetUserInput(_currentInputSelection).commands.ClearKeyDictionary();
+            _inputController.GetUserInput(_currentInputSelection).commands.ClearButtonDictionary();
+
+            if (_currentInputSelection != _prevInputSelection)
+            {
+                _inputController.ClearAllKeysAndButtons();
+                _prevInputSelection = _currentInputSelection;
+            }
         }
 
         public override void OnLateUpdate()

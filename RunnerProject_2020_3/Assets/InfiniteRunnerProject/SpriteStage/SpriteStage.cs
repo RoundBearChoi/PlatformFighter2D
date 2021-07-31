@@ -54,10 +54,10 @@ namespace RB
 
         public override void OnUpdate()
         {
-            _inputController.GetUserInput().OnUpdate();
+            _inputController.GetUserInput(InputType.PLAYER_ONE).OnUpdate();
             //_userInput.OnUpdate();
 
-            if (_inputController.GetUserInput().commands.ContainsPress(CommandType.F6))
+            if (_inputController.GetUserInput(InputType.PLAYER_ONE).commands.ContainsPress(CommandType.F6))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new IntroStageTransition(_gameIntializer));
             }
@@ -72,7 +72,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (_inputController.GetUserInput().commands.ContainsPress(CommandType.JUMP))
+            if (_inputController.GetUserInput(InputType.PLAYER_ONE).commands.ContainsPress(CommandType.JUMP))
             {
                 _dummyAnimation.ManualSetSpriteIndex(_dummyAnimation.GetCurrentAnimation().SPRITE_INDEX + 1);
 
@@ -95,8 +95,8 @@ namespace RB
                 }
             }
 
-            _inputController.GetUserInput().commands.ClearKeyDictionary();
-            _inputController.GetUserInput().commands.ClearButtonDictionary();
+            _inputController.GetUserInput(InputType.PLAYER_ONE).commands.ClearKeyDictionary();
+            _inputController.GetUserInput(InputType.PLAYER_ONE).commands.ClearButtonDictionary();
         }
 
         public override void OnLateUpdate()

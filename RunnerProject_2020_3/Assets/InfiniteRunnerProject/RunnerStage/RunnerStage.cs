@@ -46,7 +46,7 @@ namespace RB
 
         public override void OnUpdate()
         {
-            _inputController.GetUserInput().OnUpdate();
+            _inputController.GetUserInput(InputType.PLAYER_ONE).OnUpdate();
             _baseUI.OnUpdate();
             units.OnUpdate();
             trailEffects.OnUpdate();
@@ -58,18 +58,18 @@ namespace RB
         {
             units.OnFixedUpdate();
 
-            if (_inputController.GetUserInput().commands.ContainsPress(CommandType.F5))
+            if (_inputController.GetUserInput(InputType.PLAYER_ONE).commands.ContainsPress(CommandType.F5))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new RunnerStageTransition(_gameIntializer));
             }
 
-            if (_inputController.GetUserInput().commands.ContainsPress(CommandType.F6))
+            if (_inputController.GetUserInput(InputType.PLAYER_ONE).commands.ContainsPress(CommandType.F6))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new IntroStageTransition(_gameIntializer));
             }
 
-            _inputController.GetUserInput().commands.ClearKeyDictionary();
-            _inputController.GetUserInput().commands.ClearButtonDictionary();
+            _inputController.GetUserInput(InputType.PLAYER_ONE).commands.ClearKeyDictionary();
+            _inputController.GetUserInput(InputType.PLAYER_ONE).commands.ClearButtonDictionary();
             _baseUI.OnFixedUpdate();
             cameraScript.OnFixedUpdate();
             npcSetup.UPDATER.CustomFixedUpdate();

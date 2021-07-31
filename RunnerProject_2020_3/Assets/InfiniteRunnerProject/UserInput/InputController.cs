@@ -8,9 +8,6 @@ namespace RB
     public class InputController
     {
         [SerializeField]
-        private InputType _inputType = InputType.NONE;
-
-        [SerializeField]
         private List<UserInput> _listUserInputs = new List<UserInput>();
 
         public UserInput AddInput()
@@ -38,20 +35,12 @@ namespace RB
             return null;
         }
 
-        public UserInput GetUserInput()
+        public void ClearAllKeysAndButtons()
         {
-            return _listUserInputs[GetInputTypeIndex()];
-        }
-
-        int GetInputTypeIndex()
-        {
-            if ((int)_inputType < _listUserInputs.Count)
+            foreach(UserInput input in _listUserInputs)
             {
-                return (int)_inputType;
-            }
-            else
-            {
-                return 0;
+                input.commands.ClearKeyDictionary();
+                input.commands.ClearButtonDictionary();
             }
         }
     }
