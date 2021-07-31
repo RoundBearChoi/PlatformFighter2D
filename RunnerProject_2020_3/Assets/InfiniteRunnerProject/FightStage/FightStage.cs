@@ -6,10 +6,13 @@ namespace RB
 {
     public class FightStage : BaseStage
     {
+        [SerializeField]
+        private InputType currentInputSelection = InputType.PLAYER_ONE;
+
         public override void Init()
         {
-            //_userInput = new UserInput();
-            UserInput input = _inputController.AddInput();
+
+
             units = new Units(this);
 
             Physics2D.gravity = new Vector2(0f, GameInitializer.current.fighterDataSO.Gravity);
@@ -26,8 +29,11 @@ namespace RB
             GameInitializer.current.GetStage().InstantiateUnits_ByUnitType(UnitType.OLD_CITY);
 
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_LIGHT);
-            Unit littleRed = units.GetUnit<LittleRed>();
-            littleRed.SetUserInput(input);
+            Unit player1 = units.GetUnit<LittleRed>();
+
+            UserInput input = _inputController.AddInput();
+            currentInputSelection = input.INPUT_TYPE;
+            player1.SetUserInput(input);
 
             cameraScript = new CameraScript();
             cameraScript.SetCamera(cam);
@@ -35,11 +41,13 @@ namespace RB
             cameraScript.SetFollowTarget(units.GetUnit<LittleRed>().gameObject);
 
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_DARK);
+            Unit player2 = units.GetUnit<LittleRed>();
+            player2.SetUserInput(_inputController.AddInput());
         }
 
         public override void OnUpdate()
         {
-            _inputController.GetUserInput().OnUpdate();
+            _inputController.GetUserInput(currentInputSelection).OnUpdate();
             cameraScript.OnUpdate();
             units.OnUpdate();
         }
@@ -49,18 +57,18 @@ namespace RB
             cameraScript.OnFixedUpdate();
             units.OnFixedUpdate();
 
-            if (_inputController.GetUserInput().commands.ContainsPress(CommandType.F5))
+            if (_inputController.GetUserInput(currentInputSelection).commands.ContainsPress(CommandType.F5))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new FightStageTransition(_gameIntializer));
             }
             
-            if (_inputController.GetUserInput().commands.ContainsPress(CommandType.F6))
+            if (_inputController.GetUserInput(currentInputSelection).commands.ContainsPress(CommandType.F6))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new IntroStageTransition(_gameIntializer));
             }
 
-            _inputController.GetUserInput().commands.ClearKeyDictionary();
-            _inputController.GetUserInput().commands.ClearButtonDictionary();
+            _inputController.GetUserInput(currentInputSelection).commands.ClearKeyDictionary();
+            _inputController.GetUserInput(currentInputSelection).commands.ClearButtonDictionary();
         }
 
         public override void OnLateUpdate()

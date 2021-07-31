@@ -12,7 +12,6 @@ namespace RB
 
         public override void Init()
         {
-            //_userInput = new UserInput();
             UserInput input = _inputController.AddInput();
             units = new Units(this);
 

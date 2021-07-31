@@ -25,11 +25,14 @@ namespace RB
             return null;
         }
 
-        public UserInput GetUserInput(int index)
+        public UserInput GetUserInput(InputType inputType)
         {
-            if (index < _listUserInputs.Count)
+            foreach(UserInput input in _listUserInputs)
             {
-                return _listUserInputs[index];
+                if (input.INPUT_TYPE == inputType)
+                {
+                    return input;
+                }
             }
 
             return null;

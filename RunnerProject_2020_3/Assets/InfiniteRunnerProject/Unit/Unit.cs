@@ -14,9 +14,12 @@ namespace RB
         public bool destroy = false;
         public BaseMessageHandler messageHandler = null;
         public EnemyHPBar hpBar = null;
-        
-        protected UserInput _userInput = null;
+
         protected ICollisionSideChecker _collisionChecker = null;
+
+        [Header("Debug")]
+        [SerializeField] protected UserInput _userInput = null;
+        
 
         public UserInput USER_INPUT
         {

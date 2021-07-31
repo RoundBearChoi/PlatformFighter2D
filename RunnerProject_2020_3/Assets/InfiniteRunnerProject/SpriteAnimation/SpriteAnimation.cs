@@ -9,12 +9,12 @@ namespace RB
         List<Sprite> _listSprites = new List<Sprite>();
         SpriteRenderer _spriteRenderer = null;
 
-        //serialized for debugging
-        [SerializeField] uint _updateCount = 0;
-        [SerializeField] int _spriteIndex = 0;
-
         public SpriteAnimationSpec animationSpec = null;
         public SpriteType spriteType = SpriteType.NONE;
+
+        [Header("Debug")]
+        [SerializeField] uint _updateCount = 0;
+        [SerializeField] int _spriteIndex = 0;
 
         public int SPRITE_INDEX
         {

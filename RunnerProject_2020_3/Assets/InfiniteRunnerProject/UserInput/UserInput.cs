@@ -17,6 +17,14 @@ namespace RB
 
         public UserCommands commands = new UserCommands();
 
+        public InputType INPUT_TYPE
+        {
+            get
+            {
+                return _inputType;
+            }
+        }
+
         public UserInput(InputType inputType)
         {
             _inputType = inputType;
