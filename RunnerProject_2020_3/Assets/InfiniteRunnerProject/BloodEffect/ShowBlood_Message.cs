@@ -13,7 +13,7 @@ namespace RB
         {
             _faceRightSide = faceRightSide;
             _position = position;
-            mMessageType = MessageType.SHOW_BLOOD;
+            mMessageType = MessageType.SHOW_BLOOD_5;
         }
 
         public override void Register()

@@ -15,7 +15,7 @@ namespace RB
 
         WINCE = 300,
 
-        SHOW_BLOOD = 400,
+        SHOW_BLOOD_5 = 400,
         SHOW_PARRY_EFFECT = 401,
 
         SHAKE_CAMERA_ONTARGET = 500,

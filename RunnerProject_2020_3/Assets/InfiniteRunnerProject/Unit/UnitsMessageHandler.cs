@@ -32,7 +32,7 @@ namespace RB
                         }
                     }
                 }
-                else if (message.MESSAGE_TYPE == MessageType.SHOW_BLOOD)
+                else if (message.MESSAGE_TYPE == MessageType.SHOW_BLOOD_5)
                 {
                     GameInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.BLOOD_5);
                     Unit blood = Units.instance.GetUnit<Blood_5>();
