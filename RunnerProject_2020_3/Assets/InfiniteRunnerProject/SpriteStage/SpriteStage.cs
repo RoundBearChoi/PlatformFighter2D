@@ -55,18 +55,17 @@ namespace RB
         public override void OnUpdate()
         {
             _inputController.GetUserInput(InputType.PLAYER_ONE).OnUpdate();
-            //_userInput.OnUpdate();
-
-            if (_inputController.GetUserInput(InputType.PLAYER_ONE).commands.ContainsPress(CommandType.F6))
-            {
-                _gameIntializer.stageTransitioner.AddTransition(new IntroStageTransition(_gameIntializer));
-            }
 
             if (_prevSpec != animationSpec)
             {
                 Destroy(_dummyObj);
                 _dummyObj = null;
                 Init();
+            }
+
+            if (_inputController.GetUserInput(InputType.PLAYER_ONE).commands.ContainsPress(CommandType.F6))
+            {
+                _gameIntializer.stageTransitioner.AddTransition(new IntroStageTransition(_gameIntializer));
             }
         }
 

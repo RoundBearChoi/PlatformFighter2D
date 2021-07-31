@@ -15,11 +15,11 @@ D:/SourceTreeProjects/SampleInfiniteRunner/RunnerProject_2020_3
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-9390
+10874
 Successfully changed project path to: D:/SourceTreeProjects/SampleInfiniteRunner/RunnerProject_2020_3
 D:/SourceTreeProjects/SampleInfiniteRunner/RunnerProject_2020_3
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 60.43 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 51.92 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.14f1 (d0d1bb862f9d)
 [Subsystems] Discovering subsystems at path D:/UnityHubInstalls/2020.3.14f1/Editor/Data/Resources/UnitySubsystems
@@ -36,43 +36,3200 @@ Initialize mono
 Mono path[0] = 'D:/UnityHubInstalls/2020.3.14f1/Editor/Data/Managed'
 Mono path[1] = 'D:/UnityHubInstalls/2020.3.14f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'D:/UnityHubInstalls/2020.3.14f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56212
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56928
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: D:/UnityHubInstalls/2020.3.14f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001209 seconds.
+Registered in 0.001251 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 97.34 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 51.12 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in 23.504 seconds
+- Completed reload, in 21.774 seconds
 Domain Reload Profiling:
-	ReloadAssembly (23504ms)
-		BeginReloadAssembly (64ms)
+	ReloadAssembly (21774ms)
+		BeginReloadAssembly (62ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (976ms)
-			LoadAssemblies (63ms)
+		EndReloadAssembly (415ms)
+			LoadAssemblies (61ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (439ms)
+			SetupTypeCache (137ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (35ms)
-			SetupLoadedEditorAssemblies (405ms)
+			RebuildScriptCaches (34ms)
+			SetupLoadedEditorAssemblies (178ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
+				InitializePlatformSupportModulesInManaged (3ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (97ms)
-				BeforeProcessingInitializeOnLoad (37ms)
-				ProcessInitializeOnLoadAttributes (170ms)
-				ProcessInitializeOnLoadMethodAttributes (97ms)
+				RefreshPlugins (51ms)
+				BeforeProcessingInitializeOnLoad (15ms)
+				ProcessInitializeOnLoadAttributes (78ms)
+				ProcessInitializeOnLoadMethodAttributes (31ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.027619 seconds.
+Registered in 0.004374 seconds.
 Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 51.48 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.195 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1196ms)
+		BeginReloadAssembly (150ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (18ms)
+		EndReloadAssembly (988ms)
+			LoadAssemblies (102ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (329ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (56ms)
+			SetupLoadedEditorAssemblies (400ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (52ms)
+				BeforeProcessingInitializeOnLoad (86ms)
+				ProcessInitializeOnLoadAttributes (251ms)
+				ProcessInitializeOnLoadMethodAttributes (5ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.10 seconds
+Refreshing native plugins compatible for Editor in 1.01 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3253 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 140.4 MB.
+System memory in use after: 140.6 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 3687.
+Total: 2.705600 ms (FindLiveObjects: 0.421700 ms CreateObjectMapping: 0.197600 ms MarkObjects: 2.013300 ms  DeleteObjects: 0.071800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/DarkSpecs/LittleRed_Dark_SpriteAnimationSpec_Idle.asset
+  artifactKey: Guid(fa6cbca43dd498a4ab8f66980e9f99a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/DarkSpecs/LittleRed_Dark_SpriteAnimationSpec_Idle.asset using Guid(fa6cbca43dd498a4ab8f66980e9f99a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d365d96d67d53eae2768ab6103f3719') in 0.075861 seconds 
+  Import took 0.082198 seconds .
+
+========================================================================
+Received Prepare
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 3.12 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 12 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 71.4 MB.
+System memory in use after: 71.7 MB.
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 3687.
+Total: 3.536000 ms (FindLiveObjects: 0.293600 ms CreateObjectMapping: 0.136500 ms MarkObjects: 3.082500 ms  DeleteObjects: 0.022400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 126.687810 seconds.
+  path: Assets/PlatformerPixelArt/D4RK
+  artifactKey: Guid(c992093812e0bcc4987c59d6d2efbde1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK using Guid(c992093812e0bcc4987c59d6d2efbde1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fb1e2ec0ed759bc2272846c74921663') in 0.005765 seconds 
+  Import took 0.024033 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.861455 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources
+  artifactKey: Guid(349eac1a950011a4dad6b9b4dba977f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources using Guid(349eac1a950011a4dad6b9b4dba977f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e6e39c1cf93bf3a3f23423a69cb88af') in 0.028527 seconds 
+  Import took 0.032877 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.204295 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Run.psd
+  artifactKey: Guid(fed8fa4a408e99d47af8afffe38b058b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Run.psd using Guid(fed8fa4a408e99d47af8afffe38b058b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '904c6e4834fe8e4438b08b188184975b') in 0.044306 seconds 
+  Import took 0.049061 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.009906 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Run.psd
+  artifactKey: Guid(fed8fa4a408e99d47af8afffe38b058b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Run.psd using Guid(fed8fa4a408e99d47af8afffe38b058b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '904c6e4834fe8e4438b08b188184975b') in 0.006336 seconds 
+  Import took 0.011210 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.122056 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Run.psd
+  artifactKey: Guid(fed8fa4a408e99d47af8afffe38b058b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Run.psd using Guid(fed8fa4a408e99d47af8afffe38b058b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c333e6aeedb5ec9fd32652a3c66bb10c') in 0.009967 seconds 
+  Import took 0.032964 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.474484 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Run.psd
+  artifactKey: Guid(fed8fa4a408e99d47af8afffe38b058b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Run.psd using Guid(fed8fa4a408e99d47af8afffe38b058b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b63bdeca0121f1ce0ee43e4c26d130b9') in 0.074047 seconds 
+  Import took 0.093073 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.800945 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Run.psd
+  artifactKey: Guid(fed8fa4a408e99d47af8afffe38b058b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Run.psd using Guid(fed8fa4a408e99d47af8afffe38b058b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f0ca609d00ba5e3cbec92f8dbb2c62a') in 0.031415 seconds 
+  Import took 0.051415 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.434005 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Run 1.asset
+  artifactKey: Guid(d46f79d393675d947a74a737954e1563) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Run 1.asset using Guid(d46f79d393675d947a74a737954e1563) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3dce1d7520f26dbda606e2c3f6bdf97e') in 0.006394 seconds 
+  Import took 0.011513 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.825711 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/DarkSpecs/LittleRed_Light_SpriteAnimationSpec_Run 1.asset
+  artifactKey: Guid(d46f79d393675d947a74a737954e1563) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/DarkSpecs/LittleRed_Light_SpriteAnimationSpec_Run 1.asset using Guid(d46f79d393675d947a74a737954e1563) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'efd0c8efd34a2ae76d080a4613d23cad') in 0.002444 seconds 
+  Import took 0.019925 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.748090 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/DarkSpecs/LittleRed_Dark_SpriteAnimationSpec_Run.asset
+  artifactKey: Guid(d46f79d393675d947a74a737954e1563) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/DarkSpecs/LittleRed_Dark_SpriteAnimationSpec_Run.asset using Guid(d46f79d393675d947a74a737954e1563) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dbb6b946698c08e49853bf24c99e7396') in 0.007466 seconds 
+  Import took 0.018735 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.068288 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/DarkSpecs/LittleRed_Dark_SpriteAnimationSpec_Run.asset
+  artifactKey: Guid(d46f79d393675d947a74a737954e1563) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/DarkSpecs/LittleRed_Dark_SpriteAnimationSpec_Run.asset using Guid(d46f79d393675d947a74a737954e1563) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e8a4f2171c68b8286c233ec7a0efbc6') in 0.002934 seconds 
+  Import took 0.024951 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.738038 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/DarkSpecs/LittleRed_Dark_CreationSpec.asset
+  artifactKey: Guid(ab14a2ea26943b1439dc4eca69998a1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/DarkSpecs/LittleRed_Dark_CreationSpec.asset using Guid(ab14a2ea26943b1439dc4eca69998a1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12594c85a2e0c0d2e5a5bb80cb83b114') in 0.012408 seconds 
+  Import took 0.026063 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004342 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.56 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.081 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1082ms)
+		BeginReloadAssembly (177ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (11ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (54ms)
+		EndReloadAssembly (850ms)
+			LoadAssemblies (104ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (294ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (44ms)
+			SetupLoadedEditorAssemblies (313ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (81ms)
+				ProcessInitializeOnLoadAttributes (219ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.02 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 136.5 MB.
+System memory in use after: 136.7 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3697.
+Total: 2.425500 ms (FindLiveObjects: 0.261600 ms CreateObjectMapping: 0.103000 ms MarkObjects: 2.043800 ms  DeleteObjects: 0.016200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004286 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.55 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.075 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1075ms)
+		BeginReloadAssembly (125ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (34ms)
+		EndReloadAssembly (892ms)
+			LoadAssemblies (107ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (336ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (42ms)
+			SetupLoadedEditorAssemblies (312ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (80ms)
+				ProcessInitializeOnLoadAttributes (221ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.58 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 136.6 MB.
+System memory in use after: 136.8 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3699.
+Total: 2.455900 ms (FindLiveObjects: 0.277300 ms CreateObjectMapping: 0.146900 ms MarkObjects: 2.010600 ms  DeleteObjects: 0.019900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1345.404750 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4c358e003438902ee5c67154ccba54d') in 0.081046 seconds 
+  Import took 0.105508 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004251 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.188 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1188ms)
+		BeginReloadAssembly (122ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (33ms)
+		EndReloadAssembly (987ms)
+			LoadAssemblies (108ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (353ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (43ms)
+			SetupLoadedEditorAssemblies (391ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (80ms)
+				ProcessInitializeOnLoadAttributes (299ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.55 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 136.6 MB.
+System memory in use after: 136.8 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3705.
+Total: 2.512000 ms (FindLiveObjects: 0.275400 ms CreateObjectMapping: 0.104800 ms MarkObjects: 2.113300 ms  DeleteObjects: 0.017700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 15.789367 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4395b31813fbbc8ffaecfdd8c9dca1d6') in 0.052400 seconds 
+  Import took 0.056990 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.451577 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4395b31813fbbc8ffaecfdd8c9dca1d6') in 0.008413 seconds 
+  Import took 0.012990 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004332 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.070 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1070ms)
+		BeginReloadAssembly (120ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (35ms)
+		EndReloadAssembly (898ms)
+			LoadAssemblies (107ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (300ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (47ms)
+			SetupLoadedEditorAssemblies (341ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (87ms)
+				ProcessInitializeOnLoadAttributes (241ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 136.6 MB.
+System memory in use after: 136.9 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3709.
+Total: 2.736900 ms (FindLiveObjects: 0.272700 ms CreateObjectMapping: 0.146800 ms MarkObjects: 2.299300 ms  DeleteObjects: 0.017000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 18.087474 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60ebbfecffdebd80f6fe9cf88a04b8f3') in 0.056277 seconds 
+  Import took 0.061041 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.030206 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '946675f263e72a2387a9eb243387c5fa') in 0.012501 seconds 
+  Import took 0.017262 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.326263 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7053c17e035aded6d9b02dcd7851f1af') in 0.012280 seconds 
+  Import took 0.017193 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.081858 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e0a7df4ed841ba57bf1613f7f4825e9') in 0.009068 seconds 
+  Import took 0.013902 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.302302 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52b8db752ea5879cb926bfbc0669ac4a') in 0.012299 seconds 
+  Import took 0.032514 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.746807 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be1f30bf6dd30835119d845a08650cf5') in 0.009974 seconds 
+  Import took 0.016930 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.004072 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be1f30bf6dd30835119d845a08650cf5') in 0.008705 seconds 
+  Import took 0.013362 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 23.769012 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ae0ec2ed04d5a5c3f18b8e5f39898ee') in 0.020553 seconds 
+  Import took 0.025711 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 19.896910 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6e9e18a6b7c94fca0c05d616767c3f4') in 0.013024 seconds 
+  Import took 0.021207 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.781247 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'daa0919842ebeec9de77650e796ef53d') in 0.009584 seconds 
+  Import took 0.014379 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.007054 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'daa0919842ebeec9de77650e796ef53d') in 0.008792 seconds 
+  Import took 0.013540 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.378713 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d646db5039744b014de726c3c23a9e0') in 0.012679 seconds 
+  Import took 0.035757 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.097915 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f555358984034dfdff509247d80fe6e') in 0.015271 seconds 
+  Import took 0.021839 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 194.369519 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/DarkSpecs/LittleRed_Dark_SpriteAnimationSpec_Idle.asset
+  artifactKey: Guid(fa6cbca43dd498a4ab8f66980e9f99a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/DarkSpecs/LittleRed_Dark_SpriteAnimationSpec_Idle.asset using Guid(fa6cbca43dd498a4ab8f66980e9f99a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37809c6bdd0c5bae2ed8ade284e67396') in 0.007310 seconds 
+  Import took 0.031827 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.945265 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ff699695b0ba8bbbedcbc588acbb9d0') in 0.012966 seconds 
+  Import took 0.020785 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004347 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.150 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1151ms)
+		BeginReloadAssembly (191ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (58ms)
+		EndReloadAssembly (891ms)
+			LoadAssemblies (162ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (281ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (44ms)
+			SetupLoadedEditorAssemblies (337ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (80ms)
+				ProcessInitializeOnLoadAttributes (245ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (12ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 136.6 MB.
+System memory in use after: 136.9 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3712.
+Total: 2.485100 ms (FindLiveObjects: 0.274900 ms CreateObjectMapping: 0.139600 ms MarkObjects: 2.050900 ms  DeleteObjects: 0.018200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 19.679929 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34d8e760bb6b7641cbe2adde6eb9767b') in 0.046660 seconds 
+  Import took 0.064523 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.719187 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34d8e760bb6b7641cbe2adde6eb9767b') in 0.009359 seconds 
+  Import took 0.014160 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004225 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.089 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1089ms)
+		BeginReloadAssembly (124ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (32ms)
+		EndReloadAssembly (907ms)
+			LoadAssemblies (107ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (311ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (47ms)
+			SetupLoadedEditorAssemblies (337ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (84ms)
+				ProcessInitializeOnLoadAttributes (240ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (12ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.59 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 136.7 MB.
+System memory in use after: 136.9 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3715.
+Total: 3.196500 ms (FindLiveObjects: 0.307100 ms CreateObjectMapping: 0.132800 ms MarkObjects: 2.736800 ms  DeleteObjects: 0.018600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 53.045835 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf72e19ecf4a496593c3a98e812d16e4') in 0.051557 seconds 
+  Import took 0.056796 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.799930 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46b18a0e0ea83a2b0952825642fe5ff3') in 0.011219 seconds 
+  Import took 0.031298 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.649804 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1594240d941075aad0f7c40026cc7c52') in 0.010421 seconds 
+  Import took 0.015357 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.004804 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1594240d941075aad0f7c40026cc7c52') in 0.008592 seconds 
+  Import took 0.013399 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.905558 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '071a32dec1f5f9df5b0e434b6b4fa355') in 0.014029 seconds 
+  Import took 0.019262 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001945 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '071a32dec1f5f9df5b0e434b6b4fa355') in 0.009325 seconds 
+  Import took 0.013975 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.246318 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d008b9eb3652f69e668a2d22a4f5722') in 0.010805 seconds 
+  Import took 0.015791 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.005392 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d008b9eb3652f69e668a2d22a4f5722') in 0.008589 seconds 
+  Import took 0.013287 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.114178 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36b9cf5f8cadeb9dcc4fe372da52390e') in 0.009012 seconds 
+  Import took 0.013937 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 121.034601 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29acd1e1059d01e0b196729dd9e4d1ff') in 0.017850 seconds 
+  Import took 0.023439 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004759 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.050 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1050ms)
+		BeginReloadAssembly (109ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (30ms)
+		EndReloadAssembly (890ms)
+			LoadAssemblies (97ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (294ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (43ms)
+			SetupLoadedEditorAssemblies (347ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (84ms)
+				ProcessInitializeOnLoadAttributes (252ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 136.7 MB.
+System memory in use after: 136.9 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3718.
+Total: 2.493400 ms (FindLiveObjects: 0.270600 ms CreateObjectMapping: 0.105800 ms MarkObjects: 2.100700 ms  DeleteObjects: 0.015500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 18.494689 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c76b64156ea61476a2e090ca69e28cc0') in 0.045627 seconds 
+  Import took 0.050057 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.944256 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a84b80b6b2dc34a28f5744d07150e542') in 0.011083 seconds 
+  Import took 0.035409 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005607 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.058 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1058ms)
+		BeginReloadAssembly (121ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (33ms)
+		EndReloadAssembly (884ms)
+			LoadAssemblies (106ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (315ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (46ms)
+			SetupLoadedEditorAssemblies (319ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (85ms)
+				ProcessInitializeOnLoadAttributes (222ms)
+				ProcessInitializeOnLoadMethodAttributes (3ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.55 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 136.7 MB.
+System memory in use after: 136.9 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3721.
+Total: 2.649200 ms (FindLiveObjects: 0.302600 ms CreateObjectMapping: 0.178900 ms MarkObjects: 2.151500 ms  DeleteObjects: 0.015400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 11.748679 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c229dd14fe33ca6b4a1a50fd6d8496b') in 0.048468 seconds 
+  Import took 0.053372 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.417706 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e61cd5813a80a75e09ccaa3f18a80107') in 0.010486 seconds 
+  Import took 0.015214 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.007462 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e61cd5813a80a75e09ccaa3f18a80107') in 0.009573 seconds 
+  Import took 0.014634 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.550478 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17bb7a59b69711d5bcfdc19ce2ac8f30') in 0.011205 seconds 
+  Import took 0.038688 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 35.049147 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4e7480b60e8e6c31ae8ec67aa2cf6f5') in 0.014455 seconds 
+  Import took 0.020615 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004410 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.015 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1015ms)
+		BeginReloadAssembly (127ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (42ms)
+		EndReloadAssembly (837ms)
+			LoadAssemblies (102ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (281ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (41ms)
+			SetupLoadedEditorAssemblies (316ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (84ms)
+				ProcessInitializeOnLoadAttributes (221ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 136.7 MB.
+System memory in use after: 136.9 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3724.
+Total: 2.737400 ms (FindLiveObjects: 0.283700 ms CreateObjectMapping: 0.118800 ms MarkObjects: 2.316600 ms  DeleteObjects: 0.017200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 13.637118 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '229fe63c10c0230f792c1b103be37999') in 0.048381 seconds 
+  Import took 0.066883 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.751592 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '229fe63c10c0230f792c1b103be37999') in 0.010078 seconds 
+  Import took 0.014871 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004611 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.009 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1010ms)
+		BeginReloadAssembly (122ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (31ms)
+		EndReloadAssembly (837ms)
+			LoadAssemblies (96ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (284ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (42ms)
+			SetupLoadedEditorAssemblies (315ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (78ms)
+				ProcessInitializeOnLoadAttributes (225ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.79 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 136.7 MB.
+System memory in use after: 136.9 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3727.
+Total: 2.542600 ms (FindLiveObjects: 0.281600 ms CreateObjectMapping: 0.127700 ms MarkObjects: 2.115600 ms  DeleteObjects: 0.016500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 24.961260 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6cfa5e57e35ac085f7ce379cdb01eb09') in 0.045574 seconds 
+  Import took 0.050424 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.577579 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6cfa5e57e35ac085f7ce379cdb01eb09') in 0.008341 seconds 
+  Import took 0.013043 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005238 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.110 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1110ms)
+		BeginReloadAssembly (118ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (32ms)
+		EndReloadAssembly (938ms)
+			LoadAssemblies (106ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (338ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (51ms)
+			SetupLoadedEditorAssemblies (335ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (86ms)
+				ProcessInitializeOnLoadAttributes (236ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 136.7 MB.
+System memory in use after: 137.0 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3730.
+Total: 2.652600 ms (FindLiveObjects: 0.293600 ms CreateObjectMapping: 0.136300 ms MarkObjects: 2.204600 ms  DeleteObjects: 0.017000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 7.607750 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a3ed35c715d4861ffb33ce71d6213d7') in 0.049440 seconds 
+  Import took 0.066177 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.397544 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba5a96b18cc5d9e4eb92e4964bd2212c') in 0.012034 seconds 
+  Import took 0.016892 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003170 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba5a96b18cc5d9e4eb92e4964bd2212c') in 0.009307 seconds 
+  Import took 0.014674 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004234 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.101 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1102ms)
+		BeginReloadAssembly (111ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (31ms)
+		EndReloadAssembly (937ms)
+			LoadAssemblies (101ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (289ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (104ms)
+			SetupLoadedEditorAssemblies (329ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (80ms)
+				ProcessInitializeOnLoadAttributes (238ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (12ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 136.7 MB.
+System memory in use after: 137.0 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3733.
+Total: 2.557600 ms (FindLiveObjects: 0.276900 ms CreateObjectMapping: 0.140000 ms MarkObjects: 2.122800 ms  DeleteObjects: 0.016800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 16.205562 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9091b0488759da0ea4eba2c843c926ae') in 0.046883 seconds 
+  Import took 0.051754 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004527 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.55 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.098 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1098ms)
+		BeginReloadAssembly (121ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (30ms)
+		EndReloadAssembly (902ms)
+			LoadAssemblies (110ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (288ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (42ms)
+			SetupLoadedEditorAssemblies (339ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (90ms)
+				ProcessInitializeOnLoadAttributes (237ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 136.7 MB.
+System memory in use after: 137.0 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3736.
+Total: 2.773600 ms (FindLiveObjects: 0.266300 ms CreateObjectMapping: 0.106700 ms MarkObjects: 2.382300 ms  DeleteObjects: 0.017300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 36.680784 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e56a04d8ecde095a031abdee77d5e49a') in 0.055729 seconds 
+  Import took 0.060613 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004354 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.87 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.254 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1255ms)
+		BeginReloadAssembly (144ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (36ms)
+		EndReloadAssembly (1049ms)
+			LoadAssemblies (120ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (367ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (57ms)
+			SetupLoadedEditorAssemblies (383ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (98ms)
+				ProcessInitializeOnLoadAttributes (269ms)
+				ProcessInitializeOnLoadMethodAttributes (6ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (14ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.89 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 136.7 MB.
+System memory in use after: 137.0 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3739.
+Total: 2.836800 ms (FindLiveObjects: 0.388400 ms CreateObjectMapping: 0.165000 ms MarkObjects: 2.265000 ms  DeleteObjects: 0.017300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 13.507566 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c83d3bed800faaaf7e949e1668176bd') in 0.064128 seconds 
+  Import took 0.069376 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.403426 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5761f468eb899e5938cb3cec0ddfe341') in 0.011914 seconds 
+  Import took 0.016918 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.004283 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5761f468eb899e5938cb3cec0ddfe341') in 0.012036 seconds 
+  Import took 0.016926 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.297260 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2041f7f07b734ac203d92c4ee0cf635f') in 0.018420 seconds 
+  Import took 0.040246 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.836754 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06c33c7efbad4b082a5e4a5c7e9424c2') in 0.014113 seconds 
+  Import took 0.020689 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.046910 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd55a1072573062f6472f1c41a0d4d1b8') in 0.010498 seconds 
+  Import took 0.015407 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.007091 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd55a1072573062f6472f1c41a0d4d1b8') in 0.009218 seconds 
+  Import took 0.013952 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.730704 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35ea06c90bf529a0718ff5cf5e0661c8') in 0.012291 seconds 
+  Import took 0.032520 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.955801 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2263577b4654ceec03bb7b3a7979729') in 0.010681 seconds 
+  Import took 0.015485 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.004085 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2263577b4654ceec03bb7b3a7979729') in 0.009182 seconds 
+  Import took 0.014452 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.123146 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe8f57bfc03a89133bc63b54697b0825') in 0.009985 seconds 
+  Import took 0.026693 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.868444 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e17a22861cee57003672ad461436387') in 0.010323 seconds 
+  Import took 0.016167 seconds .
+
+========================================================================
+Received Prepare
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 3.10 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 12 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 75.3 MB.
+System memory in use after: 75.5 MB.
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 3742.
+Total: 3.291700 ms (FindLiveObjects: 0.302100 ms CreateObjectMapping: 0.141600 ms MarkObjects: 2.834200 ms  DeleteObjects: 0.013200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 282.732434 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle (photoshop).psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle (photoshop).psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd23c3a801ee429e68fec632b7d4a566f') in 0.016700 seconds 
+  Import took 0.021806 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.479826 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.png
+  artifactKey: Guid(d2f9963517809d44a92c72142c329bfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.png using Guid(d2f9963517809d44a92c72142c329bfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b6c98a3849a452afe311a9a5a26a87e') in 0.014800 seconds 
+  Import took 0.019453 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.594299 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.png
+  artifactKey: Guid(d2f9963517809d44a92c72142c329bfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.png using Guid(d2f9963517809d44a92c72142c329bfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb948942f223f0c43c012d50e15272b8') in 0.012487 seconds 
+  Import took 0.018351 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.414097 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.png
+  artifactKey: Guid(d2f9963517809d44a92c72142c329bfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.png using Guid(d2f9963517809d44a92c72142c329bfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37861be4523818b76f9d90ecd3abeca4') in 0.015788 seconds 
+  Import took 0.020732 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.396369 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.png
+  artifactKey: Guid(d2f9963517809d44a92c72142c329bfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.png using Guid(d2f9963517809d44a92c72142c329bfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5bbc204b3d709f60c51b6c236f1b67f5') in 0.012647 seconds 
+  Import took 0.036024 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004696 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.040 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1040ms)
+		BeginReloadAssembly (127ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (33ms)
+		EndReloadAssembly (863ms)
+			LoadAssemblies (96ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (278ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (43ms)
+			SetupLoadedEditorAssemblies (346ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (103ms)
+				ProcessInitializeOnLoadAttributes (232ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 136.8 MB.
+System memory in use after: 137.0 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3745.
+Total: 2.392500 ms (FindLiveObjects: 0.302800 ms CreateObjectMapping: 0.140400 ms MarkObjects: 1.932200 ms  DeleteObjects: 0.016000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 46.152380 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Run.psd
+  artifactKey: Guid(fed8fa4a408e99d47af8afffe38b058b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Run.psd using Guid(fed8fa4a408e99d47af8afffe38b058b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea6da70915a316b8608bc6955ca4896c') in 0.090756 seconds 
+  Import took 0.095932 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.048887 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Run.png
+  artifactKey: Guid(f15270384c4f2e74ea4065be720fbe6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Run.png using Guid(f15270384c4f2e74ea4065be720fbe6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5059d61fd33ee7fc8596007616e02e2d') in 0.009769 seconds 
+  Import took 0.033740 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.657636 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Run (photoshop).psd
+  artifactKey: Guid(59a673c9362a12549b48c1fc431494bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Run (photoshop).psd using Guid(59a673c9362a12549b48c1fc431494bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1023f056647de3afc1df76ea6a0803f') in 0.011158 seconds 
+  Import took 0.015804 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.485804 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Run.png
+  artifactKey: Guid(f15270384c4f2e74ea4065be720fbe6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Run.png using Guid(f15270384c4f2e74ea4065be720fbe6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '21d22b32a3f0c63f5fcf759199f3e9b9') in 0.009902 seconds 
+  Import took 0.014865 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.154564 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Run.png
+  artifactKey: Guid(f15270384c4f2e74ea4065be720fbe6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Run.png using Guid(f15270384c4f2e74ea4065be720fbe6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57d5870c5ea6bf62c81d8c932b9516c8') in 0.039542 seconds 
+  Import took 0.044550 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.099000 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Run.png
+  artifactKey: Guid(f15270384c4f2e74ea4065be720fbe6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Run.png using Guid(f15270384c4f2e74ea4065be720fbe6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae6fe5f144b755f1925b80b2a04b10dc') in 0.059484 seconds 
+  Import took 0.064631 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004773 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.52 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.081 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1081ms)
+		BeginReloadAssembly (125ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (34ms)
+		EndReloadAssembly (900ms)
+			LoadAssemblies (109ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (305ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (54ms)
+			SetupLoadedEditorAssemblies (330ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (84ms)
+				ProcessInitializeOnLoadAttributes (234ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 136.8 MB.
+System memory in use after: 137.1 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3748.
+Total: 2.495500 ms (FindLiveObjects: 0.275400 ms CreateObjectMapping: 0.136600 ms MarkObjects: 2.067300 ms  DeleteObjects: 0.015400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004287 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.103 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1103ms)
+		BeginReloadAssembly (111ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (29ms)
+		EndReloadAssembly (922ms)
+			LoadAssemblies (120ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (315ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (48ms)
+			SetupLoadedEditorAssemblies (330ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (78ms)
+				ProcessInitializeOnLoadAttributes (241ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (12ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 136.8 MB.
+System memory in use after: 137.1 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3750.
+Total: 2.525100 ms (FindLiveObjects: 0.265800 ms CreateObjectMapping: 0.110700 ms MarkObjects: 2.132700 ms  DeleteObjects: 0.015000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 69.969034 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle (photoshop).psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle (photoshop).psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6dcba801bf97410a15b93afa733763af') in 0.036139 seconds 
+  Import took 0.040702 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.010393 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle (photoshop).psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle (photoshop).psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e84f299e0526a7a6a3a358c7d9dde66') in 0.011538 seconds 
+  Import took 0.016547 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002955 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle (photoshop).psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle (photoshop).psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e84f299e0526a7a6a3a358c7d9dde66') in 0.006771 seconds 
+  Import took 0.011731 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.489307 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle (photoshop).psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle (photoshop).psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af0825a897bafbfdfef3d37dc3767dac') in 0.009835 seconds 
+  Import took 0.015007 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003471 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle (photoshop).psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle (photoshop).psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af0825a897bafbfdfef3d37dc3767dac') in 0.006653 seconds 
+  Import took 0.012001 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.399430 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle (photoshop).psd
+  artifactKey: Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle (photoshop).psd using Guid(0f5ee366509914544b5485a61873bb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0400812392cda71dbf386fa42c4f4d1') in 0.008317 seconds 
+  Import took 0.014129 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004329 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.52 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.065 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1065ms)
+		BeginReloadAssembly (118ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (32ms)
+		EndReloadAssembly (895ms)
+			LoadAssemblies (103ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (271ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (42ms)
+			SetupLoadedEditorAssemblies (388ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (102ms)
+				ProcessInitializeOnLoadAttributes (274ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.56 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 136.8 MB.
+System memory in use after: 137.1 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3752.
+Total: 2.531900 ms (FindLiveObjects: 0.265500 ms CreateObjectMapping: 0.097800 ms MarkObjects: 2.151000 ms  DeleteObjects: 0.016800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 340.827349 seconds.
+  path: Assets/PlatformerPixelArt/PrototypeHero
+  artifactKey: Guid(6a3e1b0b95e4dbb4284a9d0701c9fb12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/PrototypeHero using Guid(6a3e1b0b95e4dbb4284a9d0701c9fb12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3af5203e9bc158f3e43e1e4fcbfe113f') in 0.012214 seconds 
+  Import took 0.017735 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 68.284626 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(a32343262ea107846bc546a96fd3b051) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(a32343262ea107846bc546a96fd3b051) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f086da49756fdb84843b2b866d63fd59') in 0.035215 seconds 
+  Import took 0.039864 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.004080 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle (photoshop).psd
+  artifactKey: Guid(a32343262ea107846bc546a96fd3b051) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle (photoshop).psd using Guid(a32343262ea107846bc546a96fd3b051) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c96e3cd7eee3c42c29afa8739495306f') in 0.005478 seconds 
+  Import took 0.010094 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 31.714492 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle (photoshop).psd
+  artifactKey: Guid(a32343262ea107846bc546a96fd3b051) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle (photoshop).psd using Guid(a32343262ea107846bc546a96fd3b051) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1e267b7487a4860670ec11ddf025974') in 0.024083 seconds 
+  Import took 0.029210 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.348293 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.png
+  artifactKey: Guid(d2f9963517809d44a92c72142c329bfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.png using Guid(d2f9963517809d44a92c72142c329bfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1eff9efcb33fa56ed487f2c471689569') in 0.008840 seconds 
+  Import took 0.013943 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.568201 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.png
+  artifactKey: Guid(d2f9963517809d44a92c72142c329bfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.png using Guid(d2f9963517809d44a92c72142c329bfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '883489dcdf29800983d2bd2ffe958f83') in 0.025064 seconds 
+  Import took 0.029875 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004493 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.55 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.072 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1072ms)
+		BeginReloadAssembly (119ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (33ms)
+		EndReloadAssembly (900ms)
+			LoadAssemblies (107ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (306ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (47ms)
+			SetupLoadedEditorAssemblies (337ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (85ms)
+				ProcessInitializeOnLoadAttributes (239ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 136.9 MB.
+System memory in use after: 137.1 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3756.
+Total: 2.672000 ms (FindLiveObjects: 0.312000 ms CreateObjectMapping: 0.166300 ms MarkObjects: 2.175500 ms  DeleteObjects: 0.017000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 87.339707 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Run (photoshop).psd
+  artifactKey: Guid(59a673c9362a12549b48c1fc431494bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Run (photoshop).psd using Guid(59a673c9362a12549b48c1fc431494bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c86eabb04fe2b497633ebbf5e1d333be') in 0.037896 seconds 
+  Import took 0.055011 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004484 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.069 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1070ms)
+		BeginReloadAssembly (120ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (33ms)
+		EndReloadAssembly (894ms)
+			LoadAssemblies (105ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (305ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (47ms)
+			SetupLoadedEditorAssemblies (329ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (87ms)
+				ProcessInitializeOnLoadAttributes (229ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.52 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 136.9 MB.
+System memory in use after: 137.1 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3758.
+Total: 2.755500 ms (FindLiveObjects: 0.312500 ms CreateObjectMapping: 0.132400 ms MarkObjects: 2.293100 ms  DeleteObjects: 0.016400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 334.009309 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Jump_Up.psd
+  artifactKey: Guid(d0bea32b8db007e439339e1263dae9ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Jump_Up.psd using Guid(d0bea32b8db007e439339e1263dae9ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00bfe0dea6f089313c7b876fdccd6bdd') in 0.061723 seconds 
+  Import took 0.111297 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002008 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Jump_Up.psd
+  artifactKey: Guid(d0bea32b8db007e439339e1263dae9ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Jump_Up.psd using Guid(d0bea32b8db007e439339e1263dae9ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00bfe0dea6f089313c7b876fdccd6bdd') in 0.041421 seconds 
+  Import took 0.047021 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.582186 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Run.psd
+  artifactKey: Guid(b4f2073843eaf8f49a7bfac551a3c980) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Run.psd using Guid(b4f2073843eaf8f49a7bfac551a3c980) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0be40ea522eaf5088cc536c422f141d9') in 0.035585 seconds 
+  Import took 0.040300 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.910358 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Run.asset
+  artifactKey: Guid(6d00c14f9f93f7241a817a22400e77c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Run.asset using Guid(6d00c14f9f93f7241a817a22400e77c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f0a38526455e2cf5d44da4447a521d0') in 0.007355 seconds 
+  Import took 0.028504 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004229 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.58 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.982 seconds
+Domain Reload Profiling:
+	ReloadAssembly (983ms)
+		BeginReloadAssembly (110ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (30ms)
+		EndReloadAssembly (822ms)
+			LoadAssemblies (97ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (276ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (44ms)
+			SetupLoadedEditorAssemblies (302ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (78ms)
+				ProcessInitializeOnLoadAttributes (213ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.55 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 136.9 MB.
+System memory in use after: 137.1 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3767.
+Total: 2.495900 ms (FindLiveObjects: 0.263400 ms CreateObjectMapping: 0.105200 ms MarkObjects: 2.111200 ms  DeleteObjects: 0.015300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 40.104951 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Jump_Up.asset
+  artifactKey: Guid(6412ec1b8950c8a4c9a9bd215a2383b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Jump_Up.asset using Guid(6412ec1b8950c8a4c9a9bd215a2383b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b47bda42f4aa3de032fc0bd15732fbdb') in 0.020010 seconds 
+  Import took 0.025077 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004246 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.076 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1076ms)
+		BeginReloadAssembly (184ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (9ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (61ms)
+		EndReloadAssembly (841ms)
+			LoadAssemblies (131ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (282ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (43ms)
+			SetupLoadedEditorAssemblies (308ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (79ms)
+				ProcessInitializeOnLoadAttributes (218ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.58 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 136.9 MB.
+System memory in use after: 137.1 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3769.
+Total: 2.706100 ms (FindLiveObjects: 0.289200 ms CreateObjectMapping: 0.136300 ms MarkObjects: 2.262400 ms  DeleteObjects: 0.017100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 18.897170 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Jump_Fall.psd
+  artifactKey: Guid(3fe8a01c6210b7f4cbbdeb2ff9f39fbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Jump_Fall.psd using Guid(3fe8a01c6210b7f4cbbdeb2ff9f39fbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8a79a76ade5f20c84190fbaa74b41b1') in 0.057153 seconds 
+  Import took 0.062286 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.113359 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Jump_Fall.asset
+  artifactKey: Guid(125731a2af011334a80a2df1c4bd89c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Jump_Fall.asset using Guid(125731a2af011334a80a2df1c4bd89c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2d7b381fddd1c4d8585c22ecdaaa193') in 0.006284 seconds 
+  Import took 0.010902 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004205 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.55 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.020 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1020ms)
+		BeginReloadAssembly (145ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (62ms)
+		EndReloadAssembly (812ms)
+			LoadAssemblies (100ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (273ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (44ms)
+			SetupLoadedEditorAssemblies (304ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (82ms)
+				ProcessInitializeOnLoadAttributes (211ms)
+				ProcessInitializeOnLoadMethodAttributes (3ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 136.9 MB.
+System memory in use after: 137.1 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3775.
+Total: 2.738400 ms (FindLiveObjects: 0.290400 ms CreateObjectMapping: 0.124800 ms MarkObjects: 2.306400 ms  DeleteObjects: 0.015500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 369.357533 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd
+  artifactKey: Guid(9c544c25e6855fd42a71f695742ee80c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Idle.psd using Guid(9c544c25e6855fd42a71f695742ee80c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eddd7f749c6bc25be4d7c597fee69db4') in 0.035602 seconds 
+  Import took 0.066210 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 30.485345 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Attack_A.psd
+  artifactKey: Guid(e44b91165b513f3449604a60a2d745ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Attack_A.psd using Guid(e44b91165b513f3449604a60a2d745ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e266eeb683458d0721fdfc501f95655a') in 0.009679 seconds 
+  Import took 0.038678 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.972274 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Attack_A.psd
+  artifactKey: Guid(e44b91165b513f3449604a60a2d745ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Attack_A.psd using Guid(e44b91165b513f3449604a60a2d745ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc1c8398f1c6adadbad1dc4136b6fafb') in 0.010729 seconds 
+  Import took 0.025746 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.448716 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Attack_A.psd
+  artifactKey: Guid(e44b91165b513f3449604a60a2d745ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Attack_A.psd using Guid(e44b91165b513f3449604a60a2d745ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb6225a50c184a35bc88fc90a1bd6e65') in 0.044958 seconds 
+  Import took 0.049728 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.603169 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Attack_A.psd
+  artifactKey: Guid(e44b91165b513f3449604a60a2d745ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Attack_A.psd using Guid(e44b91165b513f3449604a60a2d745ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c65fe09d897d63b314d24e42c984c8dd') in 0.033076 seconds 
+  Import took 0.050302 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 28.296608 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Attack_A.psd
+  artifactKey: Guid(e44b91165b513f3449604a60a2d745ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Attack_A.psd using Guid(e44b91165b513f3449604a60a2d745ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d7f59db4146d7e6cf0d082d56bcbd9e') in 0.040599 seconds 
+  Import took 0.045848 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 37.245209 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Attack_A.asset
+  artifactKey: Guid(caa76d92004565a458b8239b2ce952de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Attack_A.asset using Guid(caa76d92004565a458b8239b2ce952de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe6b5276e6608f0e4a8f7d500acb5c0e') in 0.007313 seconds 
+  Import took 0.012193 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.008452 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Attack_A.asset
+  artifactKey: Guid(caa76d92004565a458b8239b2ce952de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Attack_A.asset using Guid(caa76d92004565a458b8239b2ce952de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe6b5276e6608f0e4a8f7d500acb5c0e') in 0.002095 seconds 
+  Import took 0.006828 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.443127 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Attack_A.asset
+  artifactKey: Guid(caa76d92004565a458b8239b2ce952de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Attack_A.asset using Guid(caa76d92004565a458b8239b2ce952de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf4a19369b38b89d50913ad30fbd2d89') in 0.002148 seconds 
+  Import took 0.006808 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.008869 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Attack_A.asset
+  artifactKey: Guid(caa76d92004565a458b8239b2ce952de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Attack_A.asset using Guid(caa76d92004565a458b8239b2ce952de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf4a19369b38b89d50913ad30fbd2d89') in 0.002080 seconds 
+  Import took 0.006655 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004268 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.66 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.031 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1031ms)
+		BeginReloadAssembly (144ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (45ms)
+		EndReloadAssembly (829ms)
+			LoadAssemblies (105ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (279ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (43ms)
+			SetupLoadedEditorAssemblies (313ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (82ms)
+				ProcessInitializeOnLoadAttributes (219ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.56 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 136.9 MB.
+System memory in use after: 137.2 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3781.
+Total: 2.669100 ms (FindLiveObjects: 0.321900 ms CreateObjectMapping: 0.152100 ms MarkObjects: 2.174400 ms  DeleteObjects: 0.019300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 87.486140 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Attack_A.psd
+  artifactKey: Guid(e44b91165b513f3449604a60a2d745ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Attack_A.psd using Guid(e44b91165b513f3449604a60a2d745ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '631621f164964ee62578e1120904e4bd') in 0.072923 seconds 
+  Import took 0.077453 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.881344 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Idle.asset
+  artifactKey: Guid(03ba891451b11d9458a5850e81c84138) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Idle.asset using Guid(03ba891451b11d9458a5850e81c84138) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1673f824582c000fc0afbafef92d2aca') in 0.025551 seconds 
+  Import took 0.031418 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.646883 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Attack_A.asset
+  artifactKey: Guid(caa76d92004565a458b8239b2ce952de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Attack_A.asset using Guid(caa76d92004565a458b8239b2ce952de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '360935a225d33a971dc23d090d0b84ef') in 0.007321 seconds 
+  Import took 0.015783 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006339 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.005 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1006ms)
+		BeginReloadAssembly (109ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (30ms)
+		EndReloadAssembly (846ms)
+			LoadAssemblies (96ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (271ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (42ms)
+			SetupLoadedEditorAssemblies (308ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (80ms)
+				ProcessInitializeOnLoadAttributes (216ms)
+				ProcessInitializeOnLoadMethodAttributes (3ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (23ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.57 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 137.0 MB.
+System memory in use after: 137.2 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3786.
+Total: 2.619000 ms (FindLiveObjects: 0.317200 ms CreateObjectMapping: 0.130300 ms MarkObjects: 2.155100 ms  DeleteObjects: 0.015500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 210.686667 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Attack_A.psd
+  artifactKey: Guid(e44b91165b513f3449604a60a2d745ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Attack_A.psd using Guid(e44b91165b513f3449604a60a2d745ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87175a796df84711c897e7b88ad82171') in 0.069129 seconds 
+  Import took 0.073836 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004209 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.035 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1035ms)
+		BeginReloadAssembly (114ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (29ms)
+		EndReloadAssembly (870ms)
+			LoadAssemblies (96ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (301ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (50ms)
+			SetupLoadedEditorAssemblies (324ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (79ms)
+				ProcessInitializeOnLoadAttributes (234ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 137.0 MB.
+System memory in use after: 137.2 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3791.
+Total: 2.331100 ms (FindLiveObjects: 0.295200 ms CreateObjectMapping: 0.144500 ms MarkObjects: 1.876100 ms  DeleteObjects: 0.014400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 31.114653 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Attack_A.asset
+  artifactKey: Guid(caa76d92004565a458b8239b2ce952de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Attack_A.asset using Guid(caa76d92004565a458b8239b2ce952de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ad60c28f0bb7c24ca7a217ad917ae9e') in 0.015768 seconds 
+  Import took 0.020435 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 166.892687 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/LittleRed_OverlapBoxCollisionData_Attack_A.asset
+  artifactKey: Guid(50724012fc2cca24cbee1e4b7b4a418f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/LittleRed_OverlapBoxCollisionData_Attack_A.asset using Guid(50724012fc2cca24cbee1e4b7b4a418f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9fc88e270d8da16f6f0699f3b763ccb3') in 0.009884 seconds 
+  Import took 0.035237 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006934 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.973 seconds
+Domain Reload Profiling:
+	ReloadAssembly (974ms)
+		BeginReloadAssembly (118ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (29ms)
+		EndReloadAssembly (804ms)
+			LoadAssemblies (96ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (271ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (42ms)
+			SetupLoadedEditorAssemblies (302ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (78ms)
+				ProcessInitializeOnLoadAttributes (212ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.56 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 137.0 MB.
+System memory in use after: 137.2 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3793.
+Total: 2.441400 ms (FindLiveObjects: 0.297500 ms CreateObjectMapping: 0.139000 ms MarkObjects: 1.987700 ms  DeleteObjects: 0.016500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 64.307086 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/LittleRed_OverlapBoxCollisionData_Attack_A.asset
+  artifactKey: Guid(50724012fc2cca24cbee1e4b7b4a418f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/LittleRed_OverlapBoxCollisionData_Attack_A.asset using Guid(50724012fc2cca24cbee1e4b7b4a418f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df3f4054df50024b9511f73e725da1e0') in 0.016002 seconds 
+  Import took 0.020431 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.149565 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/LittleRed_OverlapBoxCollisionData_Attack_A.asset
+  artifactKey: Guid(50724012fc2cca24cbee1e4b7b4a418f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/LittleRed_OverlapBoxCollisionData_Attack_A.asset using Guid(50724012fc2cca24cbee1e4b7b4a418f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0aa923b6fe0fe1278aad0dc0fbc975c') in 0.002831 seconds 
+  Import took 0.011090 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004442 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.57 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.978 seconds
+Domain Reload Profiling:
+	ReloadAssembly (979ms)
+		BeginReloadAssembly (122ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (36ms)
+		EndReloadAssembly (808ms)
+			LoadAssemblies (95ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (266ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (41ms)
+			SetupLoadedEditorAssemblies (313ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (78ms)
+				ProcessInitializeOnLoadAttributes (221ms)
+				ProcessInitializeOnLoadMethodAttributes (5ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.56 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 137.0 MB.
+System memory in use after: 137.2 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3795.
+Total: 2.573700 ms (FindLiveObjects: 0.277100 ms CreateObjectMapping: 0.144800 ms MarkObjects: 2.135900 ms  DeleteObjects: 0.014900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 216.224026 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Run.psd
+  artifactKey: Guid(b4f2073843eaf8f49a7bfac551a3c980) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Run.psd using Guid(b4f2073843eaf8f49a7bfac551a3c980) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '251ccbbd2b6f72ff8bef8c8450ddd0e0') in 0.038208 seconds 
+  Import took 0.042986 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.230196 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Run.psd
+  artifactKey: Guid(b4f2073843eaf8f49a7bfac551a3c980) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Run.psd using Guid(b4f2073843eaf8f49a7bfac551a3c980) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b7ef5dce2ffae0700bfec5b5b74e399') in 0.009683 seconds 
+  Import took 0.014469 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.838085 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Run.psd
+  artifactKey: Guid(b4f2073843eaf8f49a7bfac551a3c980) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Run.psd using Guid(b4f2073843eaf8f49a7bfac551a3c980) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '30501f47ac92be474a066cbdcafe168c') in 0.049547 seconds 
+  Import took 0.073309 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.196599 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Run.psd
+  artifactKey: Guid(b4f2073843eaf8f49a7bfac551a3c980) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Light_Run.psd using Guid(b4f2073843eaf8f49a7bfac551a3c980) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1f210fdbae4ff6b165fd634079868ac') in 0.048828 seconds 
+  Import took 0.053405 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004502 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.62 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.990 seconds
+Domain Reload Profiling:
+	ReloadAssembly (991ms)
+		BeginReloadAssembly (111ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (31ms)
+		EndReloadAssembly (829ms)
+			LoadAssemblies (100ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (285ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (42ms)
+			SetupLoadedEditorAssemblies (311ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (77ms)
+				ProcessInitializeOnLoadAttributes (223ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 137.0 MB.
+System memory in use after: 137.2 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3799.
+Total: 2.541900 ms (FindLiveObjects: 0.280500 ms CreateObjectMapping: 0.115600 ms MarkObjects: 2.129300 ms  DeleteObjects: 0.015600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004221 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.048 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1048ms)
+		BeginReloadAssembly (123ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (29ms)
+		EndReloadAssembly (867ms)
+			LoadAssemblies (104ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (283ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (51ms)
+			SetupLoadedEditorAssemblies (331ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (98ms)
+				ProcessInitializeOnLoadAttributes (222ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 137.0 MB.
+System memory in use after: 137.2 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3801.
+Total: 4.087600 ms (FindLiveObjects: 0.477100 ms CreateObjectMapping: 0.260400 ms MarkObjects: 3.325000 ms  DeleteObjects: 0.023700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004239 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.58 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.063 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1064ms)
+		BeginReloadAssembly (114ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (31ms)
+		EndReloadAssembly (894ms)
+			LoadAssemblies (107ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (312ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (47ms)
+			SetupLoadedEditorAssemblies (328ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (83ms)
+				ProcessInitializeOnLoadAttributes (233ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.58 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 137.0 MB.
+System memory in use after: 137.2 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3803.
+Total: 2.880600 ms (FindLiveObjects: 0.319700 ms CreateObjectMapping: 0.126800 ms MarkObjects: 2.410600 ms  DeleteObjects: 0.022400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004249 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.047 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1048ms)
+		BeginReloadAssembly (171ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (71ms)
+		EndReloadAssembly (825ms)
+			LoadAssemblies (110ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (293ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (42ms)
+			SetupLoadedEditorAssemblies (302ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (77ms)
+				ProcessInitializeOnLoadAttributes (213ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 137.0 MB.
+System memory in use after: 137.2 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3805.
+Total: 2.583300 ms (FindLiveObjects: 0.271700 ms CreateObjectMapping: 0.114900 ms MarkObjects: 2.180200 ms  DeleteObjects: 0.015800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1853.995688 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Attack_A (photoshop).psd
+  artifactKey: Guid(6aae1c876998e7741b7cd87ffc3d50c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Attack_A (photoshop).psd using Guid(6aae1c876998e7741b7cd87ffc3d50c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3dea650dd413ee3b47de1b52a046e7ac') in 0.061850 seconds 
+  Import took 0.066610 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.014718 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Attack_A (photoshop).psd
+  artifactKey: Guid(6aae1c876998e7741b7cd87ffc3d50c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Attack_A (photoshop).psd using Guid(6aae1c876998e7741b7cd87ffc3d50c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3dea650dd413ee3b47de1b52a046e7ac') in 0.006684 seconds 
+  Import took 0.011607 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 27.871458 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Attack_A (photoshop).psd
+  artifactKey: Guid(6aae1c876998e7741b7cd87ffc3d50c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Attack_A (photoshop).psd using Guid(6aae1c876998e7741b7cd87ffc3d50c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13aabf5c0dc8c16ff77c1a56815b59ed') in 0.011879 seconds 
+  Import took 0.031764 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.813859 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Attack_A.png
+  artifactKey: Guid(87431ff3d9543384b9912a2d7d1e6874) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Attack_A.png using Guid(87431ff3d9543384b9912a2d7d1e6874) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e76c9935810f30c74d3338a960eff22') in 0.010214 seconds 
+  Import took 0.015776 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.219023 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Attack_A.png
+  artifactKey: Guid(87431ff3d9543384b9912a2d7d1e6874) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Attack_A.png using Guid(87431ff3d9543384b9912a2d7d1e6874) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05f4fdeec9a57b5be43ed58ae9b01b18') in 0.009812 seconds 
+  Import took 0.014429 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.865165 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Attack_A.png
+  artifactKey: Guid(87431ff3d9543384b9912a2d7d1e6874) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Attack_A.png using Guid(87431ff3d9543384b9912a2d7d1e6874) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a059b758594784423d7c7854ce89da7b') in 0.061874 seconds 
+  Import took 0.066419 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.484559 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Attack_A.png
+  artifactKey: Guid(87431ff3d9543384b9912a2d7d1e6874) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Attack_A.png using Guid(87431ff3d9543384b9912a2d7d1e6874) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '952a3fdf9e83139d51430c07ee193906') in 0.058021 seconds 
+  Import took 0.074490 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.942525 seconds.
+  path: Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Attack_A.png
+  artifactKey: Guid(87431ff3d9543384b9912a2d7d1e6874) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlatformerPixelArt/D4RK/Resources/Texture_LittleRed_Dark_Attack_A.png using Guid(87431ff3d9543384b9912a2d7d1e6874) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e19d6ab8829d377ffcbada6e4bf7e26') in 0.052920 seconds 
+  Import took 0.057441 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.075282 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Attack_A.asset
+  artifactKey: Guid(caa76d92004565a458b8239b2ce952de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Attack_A.asset using Guid(caa76d92004565a458b8239b2ce952de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d249b2924fa94ce9f4496de1aaa6f17') in 0.002519 seconds 
+  Import took 0.007280 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.475066 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Attack_A 1.asset
+  artifactKey: Guid(d747ac10c44c27646a011663099d8fe0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/LightSpecs/LittleRed_Light_SpriteAnimationSpec_Attack_A 1.asset using Guid(d747ac10c44c27646a011663099d8fe0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f934d14efcfd7afba30231667c332c3') in 0.005967 seconds 
+  Import took 0.010761 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.450773 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/DarkSpecs/LittleRed_Light_SpriteAnimationSpec_Attack_A 1.asset
+  artifactKey: Guid(d747ac10c44c27646a011663099d8fe0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/DarkSpecs/LittleRed_Light_SpriteAnimationSpec_Attack_A 1.asset using Guid(d747ac10c44c27646a011663099d8fe0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a40aea3e9f7e9105cb8efefac8ce88b3') in 0.002277 seconds 
+  Import took 0.007627 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.017221 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/DarkSpecs/LittleRed_Dark_SpriteAnimationSpec_Attack_A 1.asset
+  artifactKey: Guid(d747ac10c44c27646a011663099d8fe0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/DarkSpecs/LittleRed_Dark_SpriteAnimationSpec_Attack_A 1.asset using Guid(d747ac10c44c27646a011663099d8fe0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de141fed8ccedf75556cfad9f6a89951') in 0.006489 seconds 
+  Import took 0.014097 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.197239 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/DarkSpecs/LittleRed_Dark_SpriteAnimationSpec_Attack_A.asset
+  artifactKey: Guid(d747ac10c44c27646a011663099d8fe0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/DarkSpecs/LittleRed_Dark_SpriteAnimationSpec_Attack_A.asset using Guid(d747ac10c44c27646a011663099d8fe0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a14a5e3f9e63b3007b21a66768fcecd') in 0.005841 seconds 
+  Import took 0.011326 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.677895 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/DarkSpecs/LittleRed_Dark_SpriteAnimationSpec_Attack_A.asset
+  artifactKey: Guid(d747ac10c44c27646a011663099d8fe0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/DarkSpecs/LittleRed_Dark_SpriteAnimationSpec_Attack_A.asset using Guid(d747ac10c44c27646a011663099d8fe0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22220f68d23dffbca0c9b8f8559cf94c') in 0.003032 seconds 
+  Import took 0.008931 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.963622 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/DarkSpecs/LittleRed_Dark_CreationSpec.asset
+  artifactKey: Guid(ab14a2ea26943b1439dc4eca69998a1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/DarkSpecs/LittleRed_Dark_CreationSpec.asset using Guid(ab14a2ea26943b1439dc4eca69998a1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8194740b5836d6f14f2c0b5ddf28ca1a') in 0.010438 seconds 
+  Import took 0.015906 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004599 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.029 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1030ms)
+		BeginReloadAssembly (136ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (34ms)
+		EndReloadAssembly (841ms)
+			LoadAssemblies (119ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (275ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (43ms)
+			SetupLoadedEditorAssemblies (332ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (107ms)
+				ProcessInitializeOnLoadAttributes (213ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 137.0 MB.
+System memory in use after: 137.3 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3810.
+Total: 4.406200 ms (FindLiveObjects: 0.436300 ms CreateObjectMapping: 0.211400 ms MarkObjects: 3.729900 ms  DeleteObjects: 0.026800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 74.152468 seconds.
+  path: Assets/InfiniteRunnerProject/LittleRedFighter/DarkSpecs/LittleRed_Dark_SpriteAnimationSpec_Attack_A.asset
+  artifactKey: Guid(d747ac10c44c27646a011663099d8fe0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfiniteRunnerProject/LittleRedFighter/DarkSpecs/LittleRed_Dark_SpriteAnimationSpec_Attack_A.asset using Guid(d747ac10c44c27646a011663099d8fe0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '768e60339fbbd33c62f00d09794fedc7') in 0.023551 seconds 
+  Import took 0.031997 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005473 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.016 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1016ms)
+		BeginReloadAssembly (127ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (48ms)
+		EndReloadAssembly (839ms)
+			LoadAssemblies (97ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (273ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (64ms)
+			SetupLoadedEditorAssemblies (303ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (79ms)
+				ProcessInitializeOnLoadAttributes (212ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.65 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 137.1 MB.
+System memory in use after: 137.3 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 3812.
+Total: 3.026300 ms (FindLiveObjects: 0.289900 ms CreateObjectMapping: 0.217500 ms MarkObjects: 2.494700 ms  DeleteObjects: 0.022900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

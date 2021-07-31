@@ -43,5 +43,10 @@ namespace RB
                 input.commands.ClearButtonDictionary();
             }
         }
+
+        public int GetCount()
+        {
+            return _listUserInputs.Count;
+        }
     }
 }

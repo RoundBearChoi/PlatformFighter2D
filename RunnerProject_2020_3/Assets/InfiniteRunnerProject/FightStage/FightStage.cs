@@ -50,22 +50,32 @@ namespace RB
             _inputController.GetUserInput(_currentInputSelection).OnUpdate();
             cameraScript.OnUpdate();
             units.OnUpdate();
+
+            if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F5))
+            {
+                _gameIntializer.stageTransitioner.AddTransition(new FightStageTransition(_gameIntializer));
+            }
+
+            if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F6))
+            {
+                _gameIntializer.stageTransitioner.AddTransition(new IntroStageTransition(_gameIntializer));
+            }
+
+            if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F7))
+            {
+                _currentInputSelection++;
+
+                if ((int)_currentInputSelection > _inputController.GetCount())
+                {
+                    _currentInputSelection = InputType.PLAYER_ONE;
+                }
+            }
         }
 
         public override void OnFixedUpdate()
         {
             cameraScript.OnFixedUpdate();
             units.OnFixedUpdate();
-
-            if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F5))
-            {
-                _gameIntializer.stageTransitioner.AddTransition(new FightStageTransition(_gameIntializer));
-            }
-            
-            if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F6))
-            {
-                _gameIntializer.stageTransitioner.AddTransition(new IntroStageTransition(_gameIntializer));
-            }
 
             _inputController.GetUserInput(_currentInputSelection).commands.ClearKeyDictionary();
             _inputController.GetUserInput(_currentInputSelection).commands.ClearButtonDictionary();
