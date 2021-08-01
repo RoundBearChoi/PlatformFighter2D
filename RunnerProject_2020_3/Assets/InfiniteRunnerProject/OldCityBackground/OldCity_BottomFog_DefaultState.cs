@@ -13,6 +13,8 @@ namespace RB
             _listStateComponents.Add(new HorizontalParallax(unit, unit.transform.position, GameInitializer.current.oldCityParallaxSO.OldCity_Pillars_ParallaxPercentage));
 
             _listMatchingSpriteTypes.Add(SpriteType.OLDCITY_BOTTOMFOG);
+
+            ownerUnit.transform.position = new Vector3(ownerUnit.transform.position.x, ownerUnit.transform.position.y, GameInitializer.current.fighterDataSO.OldCity_BottomFog_z);
         }
 
         public override void OnFixedUpdate()

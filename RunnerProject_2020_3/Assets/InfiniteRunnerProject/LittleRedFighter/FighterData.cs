@@ -40,14 +40,15 @@ namespace RB
         [Space(10)]
 
         public float Camera_z = 0f;
-        public float Players_z = 0f;
-        public float tempPlatforms_z = 0f;
+        public float OldCity_BottomFog_z = 0f;
+        public float OldCity_TopFog_z = 0f;
         public float BloodEffects_z = 0f;
         public float DustEffects_z = 0f;
+        public float Players_z = 0f;
+        public float tempPlatforms_z = 0f;
         public float OldCity_Platforms_z = 0f;
         public float OldCity_Arches_z = 0f;
         public float OldCity_Pillars_z = 0f;
-        public float OldCity_BottomFog_z = 0f;
-        public float OldCity_TopFog_z = 0f;
+
     }
 }

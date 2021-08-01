@@ -41,6 +41,8 @@ namespace RB
                     Vector3 localPos = blood.transform.localPosition;
 
                     blood.transform.position = message.GetVector3Message() + localPos;
+
+                    SetBloodLayer(blood.gameObject);
                 }
                 else if (message.MESSAGE_TYPE == MessageType.SHOW_PARRY_EFFECT)
                 {
@@ -62,6 +64,8 @@ namespace RB
                     float y = spr.gameObject.transform.localScale.y * scaleMultiplier.y;
                     spr.gameObject.transform.localScale = new Vector3(x, y, spr.gameObject.transform.localScale.z);
                     spr.SetLocalPositionOnOffset();
+
+                    SetDustLayer(landingDust.gameObject);
                 }
                 else if (message.MESSAGE_TYPE == MessageType.SHOW_DASH_DUST)
                 {
@@ -97,6 +101,22 @@ namespace RB
                     smashDust.transform.position = message.GetVector3Message();
                     smashDust.unitData.facingRight = message.GetBoolMessage();
                 }
+            }
+        }
+
+        void SetBloodLayer(GameObject obj)
+        {
+            if (GameInitializer.current.GetStage() is FightStage)
+            {
+                obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y, GameInitializer.current.fighterDataSO.BloodEffects_z);
+            }
+        }
+
+        void SetDustLayer(GameObject obj)
+        {
+            if (GameInitializer.current.GetStage() is FightStage)
+            {
+                obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y, GameInitializer.current.fighterDataSO.DustEffects_z);
             }
         }
     }
