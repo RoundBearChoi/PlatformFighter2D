@@ -52,7 +52,16 @@ namespace RB
                 {
                     GameInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.LANDING_DUST);
                     Unit landingDust = Units.instance.GetUnit<LandingDust>();
+
                     landingDust.transform.position = message.GetVector3Message();
+
+                    //set custom scale
+                    Vector2 scaleMultiplier = message.GetVector2Message();
+                    SpriteAnimation spr = landingDust.unitData.spriteAnimations.GetLastSpriteAnimation();
+                    float x = spr.gameObject.transform.localScale.x * scaleMultiplier.x;
+                    float y = spr.gameObject.transform.localScale.y * scaleMultiplier.y;
+                    spr.gameObject.transform.localScale = new Vector3(x, y, spr.gameObject.transform.localScale.z);
+                    spr.SetLocalPositionOnOffset();
                 }
                 else if (message.MESSAGE_TYPE == MessageType.SHOW_DASH_DUST)
                 {

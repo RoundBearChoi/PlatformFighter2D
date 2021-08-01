@@ -26,7 +26,7 @@ namespace RB
 
             if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
             {
-                BaseMessage showLandingDust = new ShowLandingDust_Message(true, ownerUnit.transform.position);
+                BaseMessage showLandingDust = new ShowLandingDust_Message(true, ownerUnit.transform.position, new Vector2(1f, 1f));
                 showLandingDust.Register();
 
                 ownerUnit.unitData.listNextStates.Add(new Runner_NormalRun(ownerUnit));

@@ -58,25 +58,33 @@ namespace RB
 
             _spriteRenderer.transform.localScale = new Vector2(xScale, yScale);
 
+            SetLocalPositionOnOffset();
+        }
+
+        public void SetLocalPositionOnOffset()
+        {
+            float x = _spriteRenderer.transform.localScale.x;
+            float y = _spriteRenderer.transform.localScale.y;
+
             //other pivots should be defined as well
-            if (spriteSpec.offsetType == OffsetType.BOTTOM_CENTER)
+            if (animationSpec.offsetType == OffsetType.BOTTOM_CENTER)
             {
-                _spriteRenderer.transform.localPosition = new Vector3(0f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);
+                _spriteRenderer.transform.localPosition = new Vector3(0f, _listSprites[0].bounds.size.y * y * 0.5f, 0f);
             }
-            else if (spriteSpec.offsetType == OffsetType.BOTTOM_LEFT)
+            else if (animationSpec.offsetType == OffsetType.BOTTOM_LEFT)
             {
-                _spriteRenderer.transform.localPosition = new Vector3(_listSprites[0].bounds.size.x * xScale * 0.5f, _listSprites[0].bounds.size.y * yScale * 0.5f, 0f);
+                _spriteRenderer.transform.localPosition = new Vector3(_listSprites[0].bounds.size.x * x * 0.5f, _listSprites[0].bounds.size.y * y * 0.5f, 0f);
             }
-            else if (spriteSpec.offsetType == OffsetType.CENTER_LEFT)
+            else if (animationSpec.offsetType == OffsetType.CENTER_LEFT)
             {
-                _spriteRenderer.transform.localPosition = new Vector3(_listSprites[0].bounds.size.x * xScale * 0.5f, 0f, 0f);
+                _spriteRenderer.transform.localPosition = new Vector3(_listSprites[0].bounds.size.x * x * 0.5f, 0f, 0f);
             }
-            else if (spriteSpec.offsetType == OffsetType.CENTER_RIGHT)
+            else if (animationSpec.offsetType == OffsetType.CENTER_RIGHT)
             {
-                _spriteRenderer.transform.localPosition = new Vector3(-_listSprites[0].bounds.size.x * xScale * 0.5f, 0f, 0f);
+                _spriteRenderer.transform.localPosition = new Vector3(-_listSprites[0].bounds.size.x * x * 0.5f, 0f, 0f);
             }
 
-            _spriteRenderer.transform.localPosition += new Vector3(spriteSpec.additionalOffset.x, spriteSpec.additionalOffset.y, 0f);
+            _spriteRenderer.transform.localPosition += new Vector3(animationSpec.additionalOffset.x, animationSpec.additionalOffset.y, 0f);
         }
         
         public void UpdateSpriteIndex()
