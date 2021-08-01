@@ -27,7 +27,10 @@ namespace RB
                 float x = Mathf.Lerp(_cameraScript.GetCamera().transform.position.x, target.transform.position.x, _xPercentage);
                 float y = Mathf.Lerp(_cameraScript.GetCamera().transform.position.y, target.transform.position.y + _yOffsetOnPlayer, _yPercentage);
 
-                _targetPosition = new Vector3(x, y, GameInitializer.current.fighterDataSO.Camera_z);
+                if (GameInitializer.current.GetStage() is FightStage)
+                {
+                    _targetPosition = new Vector3(x, y, GameInitializer.current.fighterDataSO.Camera_z);
+                }
             }
 
             _cameraScript.UpdateCameraPositionOnTarget(_targetPosition);
