@@ -30,6 +30,7 @@ namespace RB
 
         LITTLE_RED_IDLE = 300,
         LITTLE_RED_RUN = 301,
+        LITTLE_RED_WALLSLIDE = 302,
 
         LITTLE_RED_ATTACK_A = 350,
         LITTLE_RED_ATTACK_B = 351,
