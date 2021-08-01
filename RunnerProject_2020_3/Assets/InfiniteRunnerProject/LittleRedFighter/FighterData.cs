@@ -26,6 +26,7 @@ namespace RB
 
         public float WallJumpForce = 0f;
         public float WallJumpHorizontalMomentum = 0f;
+        public float WallFallHorizontalMomentum = 0f;
         public float MaxWallSlideFallSpeed = 0f;
 
         [Space(10)]

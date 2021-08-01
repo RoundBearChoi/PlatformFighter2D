@@ -71,6 +71,24 @@ namespace RB
                         ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit, GameInitializer.current.fighterDataSO.WallJumpForce));
                     }
                 }
+
+                //fall off
+                if (ownerUnit.unitData.facingRight)
+                {
+                    if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_LEFT) && ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_DOWN))
+                    {
+                        ownerUnit.unitData.airControl.SetMomentum(GameInitializer.current.fighterDataSO.WallFallHorizontalMomentum * -1f);
+                        ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall(ownerUnit));
+                    }
+                }
+                else
+                {
+                    if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_RIGHT) && ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_DOWN))
+                    {
+                        ownerUnit.unitData.airControl.SetMomentum(GameInitializer.current.fighterDataSO.WallFallHorizontalMomentum);
+                        ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall(ownerUnit));
+                    }
+                }
             }
         }
     }
