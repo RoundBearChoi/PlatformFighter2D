@@ -20,7 +20,7 @@ namespace RB
             {
                 if (message.MESSAGE_TYPE == MessageType.WINCE)
                 {
-                    //_unit.unitData.listNextStates.Add(new Runner_Wincing(_unit, message.GetVector2Message(), message.GetUnitMessage()));
+                    _unit.unitData.listNextStates.Add(new LittleRed_Wincing(_unit, message.GetVector2Message(), message.GetUnitMessage()));
                 }
                 else if (message.MESSAGE_TYPE == MessageType.TAKE_DAMAGE)
                 {
