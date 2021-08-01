@@ -9,5 +9,6 @@ namespace RB
     {
         [Range(0f, 1f)] public float OldCity_Arches_ParallaxPercentage;
         [Range(0f, 1f)] public float OldCity_Pillars_ParallaxPercentage;
+        [Range(0f, 1f)] public float OldCity_BottomFog_ParallaxPercentage;
     }
 }
