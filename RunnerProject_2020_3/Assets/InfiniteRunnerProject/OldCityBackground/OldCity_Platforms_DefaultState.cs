@@ -11,6 +11,8 @@ namespace RB
             ownerUnit = unit;
 
             _listMatchingSpriteTypes.Add(SpriteType.OLDCITY_PLATFORMS);
+
+            ownerUnit.transform.position = new Vector3(ownerUnit.transform.position.x, ownerUnit.transform.position.y, GameInitializer.current.fighterDataSO.OldCity_Platforms_z);
         }
 
         public override void OnFixedUpdate()

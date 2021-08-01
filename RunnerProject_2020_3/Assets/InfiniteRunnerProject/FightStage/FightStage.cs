@@ -20,10 +20,11 @@ namespace RB
             fightCamera.transform.parent = this.transform;
             Camera cam = fightCamera.GetComponent<Camera>();
             cam.orthographicSize = 8;
-            cam.transform.position = new Vector3(8f, 4.5f, -5f);
+            cam.transform.position = new Vector3(8f, 4.5f, GameInitializer.current.fighterDataSO.Camera_z);
 
             GameObject levelObj = Instantiate(ResourceLoader.levelLoader.GetObj(2)) as GameObject;
             levelObj.transform.parent = this.transform;
+            levelObj.transform.position = new Vector3(levelObj.transform.position.x, levelObj.transform.position.y, GameInitializer.current.fighterDataSO.tempPlatforms_z);
 
             GameInitializer.current.GetStage().InstantiateUnits_ByUnitType(UnitType.OLD_CITY);
 
@@ -43,6 +44,14 @@ namespace RB
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_DARK);
             Unit player2 = units.GetUnit<LittleRed>();
             player2.SetUserInput(_inputController.AddInput());
+
+            //set z for all players
+            List<Unit> allPlayers = units.GetUnits<LittleRed>();
+
+            foreach(Unit player in allPlayers)
+            {
+                player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, GameInitializer.current.fighterDataSO.Players_z);
+            }
         }
 
         public override void OnUpdate()

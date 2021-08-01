@@ -43,6 +43,21 @@ namespace RB
             return null;
         }
 
+        public List<Unit> GetUnits<T>()
+        {
+            List<Unit> list = new List<Unit>();
+
+            for (int i = _listUnits.Count - 1; i >= 0; i--)
+            {
+                if (_listUnits[i] is T)
+                {
+                    list.Add(_listUnits[i]);
+                }
+            }
+
+            return list;
+        }
+
         public Unit GetLatestUnitByState<T>()
         {
             for (int i = _listUnits.Count - 1; i >= 0; i--)
