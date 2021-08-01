@@ -26,7 +26,7 @@ namespace RB
             {
                 if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.JUMP))
                 {
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit));
+                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit, GameInitializer.current.fighterDataSO.JumpForce));
                 }
 
                 if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_LEFT))

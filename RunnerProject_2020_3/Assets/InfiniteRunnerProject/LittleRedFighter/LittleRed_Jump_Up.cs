@@ -7,10 +7,12 @@ namespace RB
     public class LittleRed_Jump_Up : UnitState
     {
         private bool _startPullDown = false;
+        private float _jumpForce = 0f;
 
-        public LittleRed_Jump_Up(Unit unit)
+        public LittleRed_Jump_Up(Unit unit, float jumpForce)
         {
             ownerUnit = unit;
+            _jumpForce = jumpForce;
 
             _listStateComponents.Add(new LerpHorizontalMomentumOnInput_Air(ownerUnit, GameInitializer.current.fighterDataSO.MaxHorizontalAirMomentum));
             _listStateComponents.Add(new UpdateDirectionOnVelocity(ownerUnit));
@@ -22,7 +24,7 @@ namespace RB
         public override void OnEnter()
         {
             float x = ownerUnit.unitData.rigidBody2D.velocity.x * 0.95f;
-            ownerUnit.unitData.rigidBody2D.velocity = new Vector2(x, GameInitializer.current.fighterDataSO.JumpForce);
+            ownerUnit.unitData.rigidBody2D.velocity = new Vector2(x, _jumpForce);
         }
 
         public override void OnFixedUpdate()
