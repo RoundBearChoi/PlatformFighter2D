@@ -93,6 +93,25 @@ namespace RB
             return touchingGrounds;
         }
 
+        public virtual List<Ground> GetSideTouchingGrounds()
+        {
+            List<CollisionData> listData = GetSideCollisionData();
+            List<Ground> contactingGrounds = new List<Ground>();
+
+            //temp (needs more conditions)
+            foreach (CollisionData c in listData)
+            {
+                Ground ground = c.collidingObject.GetComponent<Ground>();
+
+                if (ground != null)
+                {
+                    contactingGrounds.Add(ground);
+                }
+            }
+
+            return contactingGrounds;
+        }
+
         public virtual List<Ground> GetTouchingGrounds(CollisionType collisionType)
         {
             List<Ground> touchingGrounds = new List<Ground>();

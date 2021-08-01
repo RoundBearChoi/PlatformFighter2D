@@ -13,24 +13,23 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            List<CollisionData> listData = _unit.unitData.collisionStays.GetSideCollisionData();
-            List<Ground> contactingGrounds = new List<Ground>();
+            List<Ground> grounds = _unit.unitData.collisionStays.GetSideTouchingGrounds();
 
-            //temp (needs more conditions)
-            foreach(CollisionData c in listData)
-            {
-                if (c.contactPoint.normal.y == 0f)
-                {
-                    Ground ground = c.collidingObject.GetComponent<Ground>();
+            //List<CollisionData> listData = _unit.unitData.collisionStays.GetSideCollisionData();
+            //List<Ground> contactingGrounds = new List<Ground>();
+            //
+            ////temp (needs more conditions)
+            //foreach(CollisionData c in listData)
+            //{
+            //    Ground ground = c.collidingObject.GetComponent<Ground>();
+            //
+            //    if (ground != null)
+            //    {
+            //        contactingGrounds.Add(ground);
+            //    }
+            //}
 
-                    if (ground != null)
-                    {
-                        contactingGrounds.Add(ground);
-                    }
-                }
-            }
-
-            if (contactingGrounds.Count >= 2)
+            if (grounds.Count >= 2)
             {
                 _unit.unitData.listNextStates.Add(new LittleRed_WallSlide(_unit));
             }

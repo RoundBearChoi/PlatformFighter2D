@@ -22,18 +22,30 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            List<Ground> groundsEnter = ownerUnit.unitData.collisionEnters.GetTouchingGrounds(CollisionType.BOTTOM);
-
-            if (groundsEnter.Count > 0)
+            if (fixedUpdateCount >= 1)
             {
-                ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
-            }
+                //not touching wall
+                List<Ground> sideTouchingGrounds = ownerUnit.unitData.collisionStays.GetSideTouchingGrounds();
 
-            List<Ground> groundsStay = ownerUnit.unitData.collisionStays.GetTouchingGrounds(CollisionType.BOTTOM);
+                if (sideTouchingGrounds.Count < 2)
+                {
+                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall(ownerUnit));
+                }
 
-            if (groundsStay.Count > 0)
-            {
-                ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
+                //hit ground
+                List<Ground> groundsEnter = ownerUnit.unitData.collisionEnters.GetTouchingGrounds(CollisionType.BOTTOM);
+
+                if (groundsEnter.Count > 0)
+                {
+                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
+                }
+
+                List<Ground> groundsStay = ownerUnit.unitData.collisionStays.GetTouchingGrounds(CollisionType.BOTTOM);
+
+                if (groundsStay.Count > 0)
+                {
+                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
+                }
             }
         }
     }
