@@ -15,23 +15,30 @@ namespace RB
         {
             List<Ground> grounds = _unit.unitData.collisionStays.GetSideTouchingGrounds();
 
-            //List<CollisionData> listData = _unit.unitData.collisionStays.GetSideCollisionData();
-            //List<Ground> contactingGrounds = new List<Ground>();
-            //
-            ////temp (needs more conditions)
-            //foreach(CollisionData c in listData)
-            //{
-            //    Ground ground = c.collidingObject.GetComponent<Ground>();
-            //
-            //    if (ground != null)
-            //    {
-            //        contactingGrounds.Add(ground);
-            //    }
-            //}
-
             if (grounds.Count >= 2)
             {
-                _unit.unitData.listNextStates.Add(new LittleRed_WallSlide(_unit));
+                Vector3 dir = _unit.transform.position - grounds[0].transform.position;
+                bool makeTransition = false;
+
+                if (dir.x > 0f)
+                {
+                    if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_RIGHT))
+                    {
+                        makeTransition = true;
+                    }
+                }
+                else if (dir.x < 0f)
+                {
+                    if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_LEFT))
+                    {
+                        makeTransition = true;
+                    }
+                }
+
+                if (makeTransition)
+                {
+                    _unit.unitData.listNextStates.Add(new LittleRed_WallSlide(_unit));
+                }
             }
         }
     }

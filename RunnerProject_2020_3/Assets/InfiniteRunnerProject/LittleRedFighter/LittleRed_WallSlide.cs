@@ -16,6 +16,7 @@ namespace RB
         public override void OnEnter()
         {
             ownerUnit.unitData.rigidBody2D.velocity = new Vector2(0f, ownerUnit.unitData.rigidBody2D.velocity.y);
+            ownerUnit.unitData.airControl.SetMomentum(0f);
         }
 
         public override void OnFixedUpdate()
