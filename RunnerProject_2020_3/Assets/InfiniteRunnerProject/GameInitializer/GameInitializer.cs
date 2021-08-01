@@ -8,6 +8,8 @@ namespace RB
     {
         private void Start()
         {
+            Application.targetFrameRate = 144;
+
             current = this;
             Debugger.Log("setting current GameInitializer instance");
 

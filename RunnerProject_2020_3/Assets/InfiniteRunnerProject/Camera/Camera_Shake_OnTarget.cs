@@ -20,8 +20,21 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
+            if (_totalShakeFrames <= 0)
+            {
+                //_cameraScript.UpdateCameraPositionOnTarget(_initialPos);
+
+                CameraState defaultCameraState = GameInitializer.current.GetStage().GetDefaultCameraState();
+                _cameraScript.SetCameraState(defaultCameraState);
+            }
+        }
+
+        public override void OnLateUpdate()
+        {
             if (_totalShakeFrames > 0)
             {
+                _totalShakeFrames--;
+
                 Vector3 shakeOffset = new Vector3(Random.Range(-_shakeAmount, _shakeAmount), Random.Range(-_shakeAmount, _shakeAmount), 0f);
 
                 GameObject target = _cameraScript.GetTarget();
@@ -34,21 +47,6 @@ namespace RB
                 _targetPosition += shakeOffset;
 
                 _cameraScript.UpdateCameraPositionOnTarget(_targetPosition);
-            }
-            else
-            {
-                _cameraScript.UpdateCameraPositionOnTarget(_initialPos);
-
-                CameraState defaultCameraState = GameInitializer.current.GetStage().GetDefaultCameraState();
-                _cameraScript.SetCameraState(defaultCameraState);
-            }
-        }
-
-        public override void OnLateUpdate()
-        {
-            if (_totalShakeFrames > 0)
-            {
-                _totalShakeFrames--;
             }
         }
     }
