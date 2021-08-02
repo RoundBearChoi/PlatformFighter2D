@@ -6,7 +6,6 @@ namespace RB
 {
     public class LittleRed_Jump_Up : UnitState
     {
-        private bool _startPullDown = false;
         private float _jumpForce = 0f;
 
         public LittleRed_Jump_Up(Unit unit, float jumpForce)
@@ -14,6 +13,7 @@ namespace RB
             ownerUnit = unit;
             _jumpForce = jumpForce;
 
+            _listStateComponents.Add(new CancelJumpForce(ownerUnit));
             _listStateComponents.Add(new LerpHorizontalMomentumOnInput_Air(ownerUnit, GameInitializer.current.fighterDataSO.MaxHorizontalAirMomentum));
             _listStateComponents.Add(new UpdateDirectionOnVelocity(ownerUnit));
             _listStateComponents.Add(new TriggerWallSlide(ownerUnit));
@@ -31,22 +31,6 @@ namespace RB
         public override void OnFixedUpdate()
         {
             FixedUpdateComponents();
-
-            if (!_startPullDown)
-            {
-                if (!ownerUnit.USER_INPUT.commands.ContainsHold(CommandType.JUMP))
-                {
-                    _startPullDown = true;
-                }
-            }
-            else
-            {
-                if (ownerUnit.unitData.rigidBody2D.velocity.y > 0f)
-                {
-                    float y = Mathf.Lerp(ownerUnit.unitData.rigidBody2D.velocity.y, 0f, GameInitializer.current.fighterDataSO.JumpPullPercentagePerFixedUpdate);
-                    ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x, y);
-                }
-            }
 
             if (ownerUnit.unitData.rigidBody2D.velocity.y <= 0f && fixedUpdateCount >= 2)
             {

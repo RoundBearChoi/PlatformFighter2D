@@ -16,31 +16,34 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            float abs = Mathf.Abs(_unit.unitData.airControl.HORIZONTAL_MOMENTUM);
-
-            if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_LEFT))
+            if (!_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
             {
-                _unit.unitData.airControl.AddMomentum(GameInitializer.current.fighterDataSO.HorizontalAirMomentumIncreaseAmount * -1f);
-            }
+                float abs = Mathf.Abs(_unit.unitData.airControl.HORIZONTAL_MOMENTUM);
 
-            if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_RIGHT))
-            {
-                _unit.unitData.airControl.AddMomentum(GameInitializer.current.fighterDataSO.HorizontalAirMomentumIncreaseAmount);
-            }
-
-            if (abs >= _maxMomentum)
-            {
-                if (_unit.unitData.airControl.HORIZONTAL_MOMENTUM < 0)
+                if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_LEFT))
                 {
-                    _unit.unitData.airControl.SetMomentum(_maxMomentum * -1f);
+                    _unit.unitData.airControl.AddMomentum(GameInitializer.current.fighterDataSO.HorizontalAirMomentumIncreaseAmount * -1f);
                 }
-                else if (_unit.unitData.airControl.HORIZONTAL_MOMENTUM > 0)
-                {
-                     _unit.unitData.airControl.SetMomentum(_maxMomentum);
-                }
-            }
 
-            _unit.unitData.rigidBody2D.velocity = new Vector2(_unit.unitData.airControl.HORIZONTAL_MOMENTUM, _unit.unitData.rigidBody2D.velocity.y);
+                if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_RIGHT))
+                {
+                    _unit.unitData.airControl.AddMomentum(GameInitializer.current.fighterDataSO.HorizontalAirMomentumIncreaseAmount);
+                }
+
+                if (abs >= _maxMomentum)
+                {
+                    if (_unit.unitData.airControl.HORIZONTAL_MOMENTUM < 0)
+                    {
+                        _unit.unitData.airControl.SetMomentum(_maxMomentum * -1f);
+                    }
+                    else if (_unit.unitData.airControl.HORIZONTAL_MOMENTUM > 0)
+                    {
+                        _unit.unitData.airControl.SetMomentum(_maxMomentum);
+                    }
+                }
+
+                _unit.unitData.rigidBody2D.velocity = new Vector2(_unit.unitData.airControl.HORIZONTAL_MOMENTUM, _unit.unitData.rigidBody2D.velocity.y);
+            }
         }
     }
 }
