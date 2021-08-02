@@ -34,19 +34,19 @@ namespace RB
                     if (data.collidingObject.GetComponent<Ground>() != null)
                     {
                         x = data.contactPoint.point.x;
+                        y = _unit.transform.position.y + 0.7f;
+
+                        Vector3 dustPosition = new Vector3(x, y, GameInitializer.current.fighterDataSO.DustEffects_z);
+
+                        BaseMessage showWallJumpDust = new ShowWallJumpDust_Message(_unit.unitData.facingRight, dustPosition, new Vector2(1f, 1f));
+                        showWallJumpDust.Register();
+
+                        _unit.unitData.airControl.SetMomentum(initialMomentum);
+                        _unit.unitData.listNextStates.Add(new LittleRed_Jump_Up(_unit, GameInitializer.current.fighterDataSO.WallJumpForce));
+
                         break;
                     }
                 }
-
-                y = _unit.transform.position.y + 0.7f;
-
-                Vector3 dustPosition = new Vector3(x, y, GameInitializer.current.fighterDataSO.DustEffects_z);
-
-                BaseMessage showWallJumpDust = new ShowWallJumpDust_Message(_unit.unitData.facingRight, dustPosition, new Vector2(1f, 1f));
-                showWallJumpDust.Register();
-
-                _unit.unitData.airControl.SetMomentum(initialMomentum);
-                _unit.unitData.listNextStates.Add(new LittleRed_Jump_Up(_unit, GameInitializer.current.fighterDataSO.WallJumpForce));
             }
         }
     }
