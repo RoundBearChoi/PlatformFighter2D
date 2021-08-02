@@ -55,31 +55,19 @@ namespace RB
 
                 else if (message.MESSAGE_TYPE == MessageType.SHOW_LANDING_DUST)
                 {
-                    GameInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.LANDING_DUST);
-                    Unit landingDust = Units.instance.GetUnit<LandingDust>();
-
-                    landingDust.transform.position = message.GetVector3Message();
-
-                    //set custom scale
-                    Vector2 scaleMultiplier = message.GetVector2Message();
-                    SpriteAnimation spr = landingDust.unitData.spriteAnimations.GetLastSpriteAnimation();
-                    float x = spr.gameObject.transform.localScale.x * scaleMultiplier.x;
-                    float y = spr.gameObject.transform.localScale.y * scaleMultiplier.y;
-                    spr.gameObject.transform.localScale = new Vector3(x, y, spr.gameObject.transform.localScale.z);
-                    spr.SetLocalPositionOnOffset();
-
-                    SetDustLayer(landingDust.gameObject);
+                    IHandleMessage handle = new Handle_LandingDust(message.GetVector3Message(), message.GetVector2Message(), message.GetBoolMessage());
+                    
+                    if (handle.Handle())
+                    {
+                        Unit landingDust = Units.instance.GetUnit<LandingDust>();
+                        SetDustLayer(landingDust.gameObject);
+                    }
                 }
 
                 else if (message.MESSAGE_TYPE == MessageType.SHOW_WALLSLIDE_DUST)
                 {
-                    GameInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.WALLSLIDE_DUST);
-                    Unit wallSlideDust = Units.instance.GetUnit<WallSlideDust>();
-
-                    wallSlideDust.transform.position = message.GetVector3Message();
-                    bool faceRight = message.GetBoolMessage();
-
-                    wallSlideDust.unitData.facingRight = faceRight;
+                    IHandleMessage handle = new Handle_WallSlideDust(message.GetVector3Message(), message.GetBoolMessage());
+                    handle.Handle();
                 }
 
                 else if (message.MESSAGE_TYPE == MessageType.SHOW_WALLJUMP_DUST)
