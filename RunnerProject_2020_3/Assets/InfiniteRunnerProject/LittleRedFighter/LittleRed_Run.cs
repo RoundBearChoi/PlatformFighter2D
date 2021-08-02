@@ -26,13 +26,13 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            //sprite intervals is 1
+            //show step dust
             if (fixedUpdateCount != 0 && fixedUpdateCount % ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().animationSpec.spriteInterval == 0)
             {
                 if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 1 ||
                     ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 6)
                 {
-                    BaseMessage showStepDust = new ShowStepDustMessage(false, ownerUnit.transform.position - new Vector3(ownerUnit.transform.right.x * 0.05f, 0f, 0f));
+                    BaseMessage showStepDust = new ShowStepDustMessage(false, ownerUnit.transform.position - new Vector3(ownerUnit.transform.right.x * 0.025f, 0f, 0f));
                     showStepDust.Register();
                 }
             }
@@ -42,6 +42,9 @@ namespace RB
             {
                 if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.JUMP))
                 {
+                    BaseMessage jumpDustMessage = new ShowJumpDust_Message(true, ownerUnit.transform.position);
+                    jumpDustMessage.Register();
+
                     ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit, GameInitializer.current.fighterDataSO.JumpForce));
                 }
 
