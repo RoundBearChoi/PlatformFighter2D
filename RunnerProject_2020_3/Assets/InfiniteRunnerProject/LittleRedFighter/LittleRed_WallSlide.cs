@@ -38,7 +38,7 @@ namespace RB
             if (fixedUpdateCount >= 1)
             {
                 //not touching wall
-                List<Ground> sideTouchingGrounds = ownerUnit.unitData.collisionStays.GetSideTouchingGrounds();
+                List<CollisionData> sideTouchingGrounds = ownerUnit.unitData.collisionStays.GetSideTouchingGrounds();
 
                 if (sideTouchingGrounds.Count < 2)
                 {

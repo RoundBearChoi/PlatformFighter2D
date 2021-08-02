@@ -15,23 +15,22 @@ namespace RB
         {
             if (_unit.iStateController.GetCurrentState().fixedUpdateCount >= 2)
             {
-                List<Ground> grounds = _unit.unitData.collisionStays.GetSideTouchingGrounds();
+                List<CollisionData> grounds = _unit.unitData.collisionStays.GetSideTouchingGrounds();
 
                 if (grounds.Count >= 2)
                 {
-                    Vector3 dir = _unit.transform.position - grounds[0].transform.position;
                     bool makeTransition = false;
 
-                    if (dir.x > 0f)
+                    if (grounds[0].contactPoint.point.x < _unit.transform.position.x)
                     {
-                        if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_RIGHT))
+                        if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_LEFT))
                         {
                             makeTransition = true;
                         }
                     }
-                    else if (dir.x < 0f)
+                    else if (grounds[0].contactPoint.point.x > _unit.transform.position.x)
                     {
-                        if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_LEFT))
+                        if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_RIGHT))
                         {
                             makeTransition = true;
                         }

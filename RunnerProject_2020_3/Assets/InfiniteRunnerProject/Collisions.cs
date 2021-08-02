@@ -93,10 +93,11 @@ namespace RB
             return touchingGrounds;
         }
 
-        public virtual List<Ground> GetSideTouchingGrounds()
+        public virtual List<CollisionData> GetSideTouchingGrounds()
         {
             List<CollisionData> listData = GetSideCollisionData();
-            List<Ground> contactingGrounds = new List<Ground>();
+            //List<Ground> contactingGrounds = new List<Ground>();
+            List<CollisionData> contactingGrounds = new List<CollisionData>();
 
             //temp (needs more conditions)
             foreach (CollisionData c in listData)
@@ -105,7 +106,7 @@ namespace RB
 
                 if (ground != null)
                 {
-                    contactingGrounds.Add(ground);
+                    contactingGrounds.Add(c);
                 }
             }
 
