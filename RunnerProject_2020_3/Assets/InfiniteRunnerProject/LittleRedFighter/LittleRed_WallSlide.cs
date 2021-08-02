@@ -38,19 +38,23 @@ namespace RB
                 if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 1 ||
                     ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 2)
                 {
-                    float x = 0.6f;
-                    float y = 1.5f;
+                    float x = 0f;
+                    float y = 0f;
 
-                    Vector3 dustPosition = Vector3.zero;
+                    List<CollisionData> sideCollisions = ownerUnit.unitData.collisionStays.GetSideCollisionData();
 
-                    if (ownerUnit.unitData.facingRight)
+                    foreach(CollisionData data in sideCollisions)
                     {
-                        dustPosition = ownerUnit.transform.position + new Vector3(x, y, 0f);
+                        if (data.collidingObject.GetComponent<Ground>() != null)
+                        {
+                            x = data.contactPoint.point.x;
+                            break;
+                        }
                     }
-                    else
-                    {
-                        dustPosition = ownerUnit.transform.position + new Vector3(-x, y, 0f);
-                    }
+
+                    y = ownerUnit.transform.position.y + 1.5f;
+
+                    Vector3 dustPosition = new Vector3(x, y, GameInitializer.current.fighterDataSO.DustEffects_z);
 
                     BaseMessage showWallSlideDust = new ShowWallSlideDust_Message(ownerUnit.unitData.facingRight, dustPosition, new Vector2(1f, 1f));
                     showWallSlideDust.Register();
