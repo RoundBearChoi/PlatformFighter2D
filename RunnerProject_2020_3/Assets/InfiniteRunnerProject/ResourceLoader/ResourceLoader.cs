@@ -64,6 +64,11 @@ namespace RB
                 arrSprite = LoadSpriteByString(spriteSpec.backupSpriteName);
             }
 
+            if (arrSprite.Length == 0)
+            {
+                arrSprite = LoadSpriteByString("Texture_MissingSprite");
+            }
+
             return arrSprite;
         }
 
