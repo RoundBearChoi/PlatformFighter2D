@@ -30,7 +30,7 @@ namespace RB
                     {
                         EnemyHPBar bar = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.HP_BAR)) as EnemyHPBar;
                         _unit.hpBar = bar;
-                        bar.transform.parent = GameInitializer.current.GetStage().transform;
+                        bar.transform.parent = BaseInitializer.current.GetStage().transform;
                         bar.SetOwnerUnit(_unit, new Vector2(-1.26f, 4.6f));
                     }
                 }

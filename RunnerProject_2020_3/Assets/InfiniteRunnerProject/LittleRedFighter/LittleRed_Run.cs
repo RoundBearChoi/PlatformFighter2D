@@ -10,14 +10,14 @@ namespace RB
         {
             ownerUnit = unit;
 
-            float runspeed = GameInitializer.current.fighterDataSO.DefaultRunSpeed;
+            float runspeed = BaseInitializer.current.fighterDataSO.DefaultRunSpeed;
 
             if (!ownerUnit.unitData.facingRight)
             {
                 runspeed *= -1f;
             }
 
-            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, runspeed, GameInitializer.current.fighterDataSO.RunSpeedLerpPercentage));
+            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, runspeed, BaseInitializer.current.fighterDataSO.RunSpeedLerpPercentage));
             _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_RUN);
@@ -46,7 +46,7 @@ namespace RB
                     BaseMessage jumpDustMessage = new ShowJumpDust_Message(true, ownerUnit.transform.position);
                     jumpDustMessage.Register();
 
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit, GameInitializer.current.fighterDataSO.JumpForce));
+                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit, BaseInitializer.current.fighterDataSO.JumpForce));
                 }
 
                 if (!ownerUnit.USER_INPUT.commands.ContainsHold(CommandType.MOVE_RIGHT) && ownerUnit.unitData.facingRight)

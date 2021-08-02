@@ -133,7 +133,7 @@ namespace RB
             //death by fall
             for (int i = 0; i < _listUnits.Count; i++)
             {
-                if (_listUnits[i].transform.position.y < _stage.transform.position.y + GameInitializer.current.runnerDataSO.DefaultFallDeathY)
+                if (_listUnits[i].transform.position.y < _stage.transform.position.y + BaseInitializer.current.runnerDataSO.DefaultFallDeathY)
                 {
                     if (_listUnits[i].unitData.rigidBody2D != null)
                     {
@@ -170,7 +170,7 @@ namespace RB
                                     {
                                         Debugger.Log("adding downforce to unit: " + _listUnits[i].gameObject.name);
 
-                                        float y = _listUnits[i].unitData.rigidBody2D.velocity.y * GameInitializer.current.GetStage().GetCumulativeGravityForcePercentage();
+                                        float y = _listUnits[i].unitData.rigidBody2D.velocity.y * BaseInitializer.current.GetStage().GetCumulativeGravityForcePercentage();
                                         float x = _listUnits[i].unitData.rigidBody2D.velocity.x;
                                         _listUnits[i].unitData.rigidBody2D.velocity = new Vector2(x, y);
                                     }

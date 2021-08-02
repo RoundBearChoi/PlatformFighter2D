@@ -16,7 +16,7 @@ namespace RB
             //wall jump
             if (_unit.USER_INPUT.commands.ContainsPress(CommandType.JUMP))
             {
-                float initialMomentum = GameInitializer.current.fighterDataSO.WallJumpHorizontalMomentum;
+                float initialMomentum = BaseInitializer.current.fighterDataSO.WallJumpHorizontalMomentum;
 
                 if (_unit.unitData.facingRight)
                 {
@@ -36,13 +36,13 @@ namespace RB
                         x = data.contactPoint.point.x;
                         y = _unit.transform.position.y + 0.7f;
 
-                        Vector3 dustPosition = new Vector3(x, y, GameInitializer.current.fighterDataSO.DustEffects_z);
+                        Vector3 dustPosition = new Vector3(x, y, BaseInitializer.current.fighterDataSO.DustEffects_z);
 
                         BaseMessage showWallJumpDust = new ShowWallJumpDust_Message(_unit.unitData.facingRight, dustPosition, new Vector2(1f, 1f));
                         showWallJumpDust.Register();
 
                         _unit.unitData.airControl.SetMomentum(initialMomentum);
-                        _unit.unitData.listNextStates.Add(new LittleRed_Jump_Up(_unit, GameInitializer.current.fighterDataSO.WallJumpForce));
+                        _unit.unitData.listNextStates.Add(new LittleRed_Jump_Up(_unit, BaseInitializer.current.fighterDataSO.WallJumpForce));
 
                         break;
                     }

@@ -29,7 +29,7 @@ namespace RB
             {
                 if (_cameraScript == null)
                 {
-                    _cameraScript = GameInitializer.current.GetStage().cameraScript;
+                    _cameraScript = BaseInitializer.current.GetStage().cameraScript;
                 }
 
                 if (_cameraScript.GetCamera() != null)

@@ -14,7 +14,7 @@ namespace RB
             _jumpForce = jumpForce;
 
             _listStateComponents.Add(new CancelJumpForce(ownerUnit));
-            _listStateComponents.Add(new LerpHorizontalMomentumOnInput_Air(ownerUnit, GameInitializer.current.fighterDataSO.MaxHorizontalAirMomentum));
+            _listStateComponents.Add(new LerpHorizontalMomentumOnInput_Air(ownerUnit, BaseInitializer.current.fighterDataSO.MaxHorizontalAirMomentum));
             _listStateComponents.Add(new UpdateDirectionOnVelocity(ownerUnit));
             _listStateComponents.Add(new TriggerWallSlide(ownerUnit));
             _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit));

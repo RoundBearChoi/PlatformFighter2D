@@ -69,25 +69,25 @@ namespace RB
 
         public virtual void InstantiateUnit_ByUnitType(UnitType unitType)
         {
-            UnitCreationSpec spec = GameInitializer.current.specsGetter.GetSpec_ByUnitType(unitType);
+            UnitCreationSpec spec = BaseInitializer.current.specsGetter.GetSpec_ByUnitType(unitType);
             InstantiateUnit(spec);
         }
 
         public virtual void InstantiateUnit_BySpriteType(SpriteType spriteType)
         {
-            UnitCreationSpec creationSpec = GameInitializer.current.specsGetter.GetSpec_BySpriteType(spriteType);
+            UnitCreationSpec creationSpec = BaseInitializer.current.specsGetter.GetSpec_BySpriteType(spriteType);
             InstantiateUnit(creationSpec);
         }
 
         public virtual void InstantiateUnits_ByUnitType(UnitType unitType)
         {
-            List<UnitCreationSpec> specsList = GameInitializer.current.specsGetter.GetSpecs_ByUnitType(unitType);
+            List<UnitCreationSpec> specsList = BaseInitializer.current.specsGetter.GetSpecs_ByUnitType(unitType);
             InstantiateUnits(specsList);
         }
 
         public virtual void InstantiateUnits_BySpecType<T>()
         {
-            List<UnitCreationSpec> specsList = GameInitializer.current.specsGetter.GetSpecs_BySpecType<T>();
+            List<UnitCreationSpec> specsList = BaseInitializer.current.specsGetter.GetSpecs_BySpecType<T>();
             InstantiateUnits(specsList);
         }
 

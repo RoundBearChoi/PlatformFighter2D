@@ -12,7 +12,7 @@ namespace RB
 
         public Camera_LerpOnTargetXAndY(float xPercentage, float yPercentage)
         {
-            _cameraScript = GameInitializer.current.GetStage().cameraScript;
+            _cameraScript = BaseInitializer.current.GetStage().cameraScript;
             _xPercentage = xPercentage;
             _yPercentage = yPercentage;
         }
@@ -27,9 +27,9 @@ namespace RB
                 float x = Mathf.Lerp(_cameraScript.GetCamera().transform.position.x, target.transform.position.x, _xPercentage);
                 float y = Mathf.Lerp(_cameraScript.GetCamera().transform.position.y, target.transform.position.y + _yOffsetOnPlayer, _yPercentage);
 
-                if (GameInitializer.current.GetStage() is FightStage)
+                if (BaseInitializer.current.GetStage() is FightStage)
                 {
-                    _targetPosition = new Vector3(x, y, GameInitializer.current.fighterDataSO.Camera_z);
+                    _targetPosition = new Vector3(x, y, BaseInitializer.current.fighterDataSO.Camera_z);
                 }
             }
 

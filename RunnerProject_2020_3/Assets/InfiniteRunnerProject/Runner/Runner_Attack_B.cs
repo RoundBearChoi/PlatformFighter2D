@@ -10,7 +10,7 @@ namespace RB
         {
             ownerUnit = unit;
 
-            _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, GameInitializer.current.GetOverlapBoxCollisionData(OverlapBoxDataType.RUNNER_ATTACK_B)));
+            _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, BaseInitializer.current.GetOverlapBoxCollisionData(OverlapBoxDataType.RUNNER_ATTACK_B)));
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, 0.1f));
             _listStateComponents.Add(new TransitionStateOnEnd(ownerUnit, new Runner_NormalRun(ownerUnit)));
 
@@ -27,7 +27,7 @@ namespace RB
                 {
                     if (ownerUnit.unitData.comboHitCount.GetCount() >= 2)
                     {
-                        ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x, GameInitializer.current.runnerDataSO.Runner_ComboSmashJumpForce);
+                        ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x, BaseInitializer.current.runnerDataSO.Runner_ComboSmashJumpForce);
                         ownerUnit.unitData.listNextStates.Add(new Runner_ComboTransitionTo_Smash(ownerUnit));
                     }
                     else

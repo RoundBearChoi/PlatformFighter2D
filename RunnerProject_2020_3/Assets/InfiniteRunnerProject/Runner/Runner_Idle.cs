@@ -17,7 +17,7 @@ namespace RB
         {
             if (UserInput.keyboard.anyKey.wasReleasedThisFrame)
             {
-                GameInitializer.current.RunCoroutine(TriggerRun());
+                BaseInitializer.current.RunCoroutine(TriggerRun());
             }
         }
 

@@ -28,7 +28,7 @@ namespace RB
                 {
                     if (_unit.unitData.rigidBody2D.velocity.y > 0f)
                     {
-                        float y = Mathf.Lerp(_unit.unitData.rigidBody2D.velocity.y, 0f, GameInitializer.current.fighterDataSO.JumpPullPercentagePerFixedUpdate);
+                        float y = Mathf.Lerp(_unit.unitData.rigidBody2D.velocity.y, 0f, BaseInitializer.current.fighterDataSO.JumpPullPercentagePerFixedUpdate);
                         _unit.unitData.rigidBody2D.velocity = new Vector2(_unit.unitData.rigidBody2D.velocity.x, y);
                     }
                 }

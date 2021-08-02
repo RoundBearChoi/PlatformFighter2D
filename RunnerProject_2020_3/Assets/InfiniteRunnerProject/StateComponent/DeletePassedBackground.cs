@@ -11,7 +11,7 @@ namespace RB
         public DeletePassedBackground(Unit unit)
         {
             _unit = unit;
-            _cameraScript = GameInitializer.current.GetStage().cameraScript;
+            _cameraScript = BaseInitializer.current.GetStage().cameraScript;
         }
 
         public override void OnFixedUpdate()

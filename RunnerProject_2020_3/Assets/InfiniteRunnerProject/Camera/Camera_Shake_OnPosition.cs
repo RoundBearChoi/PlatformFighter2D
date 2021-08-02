@@ -13,7 +13,7 @@ namespace RB
         public Camera_Shake_OnPosition(uint totalShakeFrames)
         {
             _totalShakeFrames = totalShakeFrames;
-            _cameraScript = GameInitializer.current.GetStage().cameraScript;
+            _cameraScript = BaseInitializer.current.GetStage().cameraScript;
             _initialPosition = _cameraScript.GetCamera().gameObject.transform.position;
         }
 

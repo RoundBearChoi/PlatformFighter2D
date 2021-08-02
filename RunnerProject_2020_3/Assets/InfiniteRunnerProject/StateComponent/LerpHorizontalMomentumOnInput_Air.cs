@@ -22,12 +22,12 @@ namespace RB
 
                 if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_LEFT))
                 {
-                    _unit.unitData.airControl.AddMomentum(GameInitializer.current.fighterDataSO.HorizontalAirMomentumIncreaseAmount * -1f);
+                    _unit.unitData.airControl.AddMomentum(BaseInitializer.current.fighterDataSO.HorizontalAirMomentumIncreaseAmount * -1f);
                 }
 
                 if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_RIGHT))
                 {
-                    _unit.unitData.airControl.AddMomentum(GameInitializer.current.fighterDataSO.HorizontalAirMomentumIncreaseAmount);
+                    _unit.unitData.airControl.AddMomentum(BaseInitializer.current.fighterDataSO.HorizontalAirMomentumIncreaseAmount);
                 }
 
                 if (abs >= _maxMomentum)

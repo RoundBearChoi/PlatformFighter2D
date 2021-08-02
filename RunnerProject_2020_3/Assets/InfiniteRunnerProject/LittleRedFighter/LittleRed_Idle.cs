@@ -10,7 +10,7 @@ namespace RB
         {
             ownerUnit = unit;
 
-            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, GameInitializer.current.fighterDataSO.IdleSlowDownLerpPercentage));
+            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, BaseInitializer.current.fighterDataSO.IdleSlowDownLerpPercentage));
             _listStateComponents.Add(new UpdateDirectionOnInput(ownerUnit));
             _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit));
 
@@ -31,7 +31,7 @@ namespace RB
                     BaseMessage jumpDustMessage = new ShowJumpDust_Message(true, ownerUnit.transform.position);
                     jumpDustMessage.Register();
 
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit, GameInitializer.current.fighterDataSO.JumpForce));
+                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit, BaseInitializer.current.fighterDataSO.JumpForce));
                 }
 
                 if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_LEFT))

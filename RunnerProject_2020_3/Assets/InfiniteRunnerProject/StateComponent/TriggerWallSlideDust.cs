@@ -36,7 +36,7 @@ namespace RB
 
                     y = _unit.transform.position.y + 1.5f;
 
-                    Vector3 dustPosition = new Vector3(x, y, GameInitializer.current.fighterDataSO.DustEffects_z);
+                    Vector3 dustPosition = new Vector3(x, y, BaseInitializer.current.fighterDataSO.DustEffects_z);
 
                     BaseMessage showWallSlideDust = new ShowWallSlideDust_Message(_unit.unitData.facingRight, dustPosition, new Vector2(1f, 1f));
                     showWallSlideDust.Register();

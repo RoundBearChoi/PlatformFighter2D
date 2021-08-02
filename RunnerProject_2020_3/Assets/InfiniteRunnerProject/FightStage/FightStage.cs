@@ -14,19 +14,19 @@ namespace RB
         {
             units = new Units(this);
 
-            Physics2D.gravity = new Vector2(0f, GameInitializer.current.fighterDataSO.Gravity);
+            Physics2D.gravity = new Vector2(0f, BaseInitializer.current.fighterDataSO.Gravity);
 
             FightCamera fightCamera = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.FIGHT_CAMERA)) as FightCamera;
             fightCamera.transform.parent = this.transform;
             Camera cam = fightCamera.GetComponent<Camera>();
             cam.orthographicSize = 8;
-            cam.transform.position = new Vector3(8f, 4.5f, GameInitializer.current.fighterDataSO.Camera_z);
+            cam.transform.position = new Vector3(8f, 4.5f, BaseInitializer.current.fighterDataSO.Camera_z);
 
             GameObject levelObj = Instantiate(ResourceLoader.levelLoader.GetObj(2)) as GameObject;
             levelObj.transform.parent = this.transform;
-            levelObj.transform.position = new Vector3(levelObj.transform.position.x, levelObj.transform.position.y, GameInitializer.current.fighterDataSO.tempPlatforms_z);
+            levelObj.transform.position = new Vector3(levelObj.transform.position.x, levelObj.transform.position.y, BaseInitializer.current.fighterDataSO.tempPlatforms_z);
 
-            GameInitializer.current.GetStage().InstantiateUnits_ByUnitType(UnitType.OLD_CITY);
+            BaseInitializer.current.GetStage().InstantiateUnits_ByUnitType(UnitType.OLD_CITY);
 
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_LIGHT);
             Unit player1 = units.GetUnit<LittleRed>();
@@ -50,7 +50,7 @@ namespace RB
 
             foreach(Unit player in allPlayers)
             {
-                player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, GameInitializer.current.fighterDataSO.Players_z);
+                player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, BaseInitializer.current.fighterDataSO.Players_z);
             }
         }
 
@@ -104,7 +104,7 @@ namespace RB
 
         public override float GetCumulativeGravityForcePercentage()
         {
-            return GameInitializer.current.fighterDataSO.CumulativeGravityForcePercentage;
+            return BaseInitializer.current.fighterDataSO.CumulativeGravityForcePercentage;
         }
 
         public override CameraState GetDefaultCameraState()

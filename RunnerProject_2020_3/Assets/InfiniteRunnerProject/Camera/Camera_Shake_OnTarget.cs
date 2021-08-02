@@ -14,7 +14,7 @@ namespace RB
         {
             _totalShakeFrames = totalShakeFrames;
             _shakeAmount = shakeAmount;
-            _cameraScript = GameInitializer.current.GetStage().cameraScript;
+            _cameraScript = BaseInitializer.current.GetStage().cameraScript;
             _initialPos = _cameraScript.GetCamera().transform.position;
         }
 
@@ -24,7 +24,7 @@ namespace RB
             {
                 //_cameraScript.UpdateCameraPositionOnTarget(_initialPos);
 
-                CameraState defaultCameraState = GameInitializer.current.GetStage().GetDefaultCameraState();
+                CameraState defaultCameraState = BaseInitializer.current.GetStage().GetDefaultCameraState();
                 _cameraScript.SetCameraState(defaultCameraState);
             }
         }

@@ -17,10 +17,10 @@ namespace RB
         {
             foreach (IStageTransition transition in _listStageTransitions)
             {
-                GameObject.Destroy(GameInitializer.current.GetStage().gameObject);
+                GameObject.Destroy(BaseInitializer.current.GetStage().gameObject);
 
                 BaseStage newStage = transition.MakeTransition();
-                GameInitializer.current.SetStage(newStage);
+                BaseInitializer.current.SetStage(newStage);
                 newStage.Init();
             }
 

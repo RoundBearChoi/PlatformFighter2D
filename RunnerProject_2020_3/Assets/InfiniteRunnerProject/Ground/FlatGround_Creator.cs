@@ -23,11 +23,11 @@ namespace RB
             groundObj.transform.localRotation = Quaternion.identity;
             groundObj.transform.localPosition = Vector3.zero;
 
-            Sprite[] arrSprites = ResourceLoader.LoadSpriteByString(GameInitializer.current.swampParallaxSO.Swamp_GroundTile25_SpriteName);
+            Sprite[] arrSprites = ResourceLoader.LoadSpriteByString(BaseInitializer.current.swampParallaxSO.Swamp_GroundTile25_SpriteName);
 
             if (arrSprites.Length == 0)
             {
-                arrSprites = ResourceLoader.LoadSpriteByString(GameInitializer.current.swampParallaxSO.Swamp_GroundTile_BackupSpriteName);
+                arrSprites = ResourceLoader.LoadSpriteByString(BaseInitializer.current.swampParallaxSO.Swamp_GroundTile_BackupSpriteName);
             }
 
             SpriteRenderer renderer = groundObj.GetComponentInChildren<SpriteRenderer>();
@@ -54,15 +54,15 @@ namespace RB
             newGround.unitData.rigidBody2D.bodyType = RigidbodyType2D.Static;
 
             //put elsewhere (other than runner)
-            newGround.unitData.compositeCollider2D.sharedMaterial = GameInitializer.current.runnerDataSO.physicsMaterial_NoFrictionNoBounce;
-            newGround.unitData.rigidBody2D.sharedMaterial = GameInitializer.current.runnerDataSO.physicsMaterial_NoFrictionNoBounce;
+            newGround.unitData.compositeCollider2D.sharedMaterial = BaseInitializer.current.runnerDataSO.physicsMaterial_NoFrictionNoBounce;
+            newGround.unitData.rigidBody2D.sharedMaterial = BaseInitializer.current.runnerDataSO.physicsMaterial_NoFrictionNoBounce;
 
             newGround.unitUpdater = new DefaultUnitUpdater(newGround);
             newGround.unitData.spriteAnimations = new EmptySpriteAnimations();
             newGround.iStateController = new UnitStateController(newGround);
             newGround.iStateController.SetNewState(new FlatGround_DefaultState(newGround));
 
-            GameInitializer.current.GetStage().units.AddUnit(newGround);
+            BaseInitializer.current.GetStage().units.AddUnit(newGround);
 
             int count = Random.Range(_minGroundCount, _maxGroundCount + 1);
 

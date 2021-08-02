@@ -9,7 +9,7 @@ namespace RB
         public Golem_Attack_A(Unit unit)
         {
             ownerUnit = unit;
-            _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, GameInitializer.current.GetOverlapBoxCollisionData(OverlapBoxDataType.GOLEM_ATTACK_A)));
+            _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, BaseInitializer.current.GetOverlapBoxCollisionData(OverlapBoxDataType.GOLEM_ATTACK_A)));
 
             _listMatchingSpriteTypes.Add(SpriteType.GOLEM_ATTACK_A);
         }

@@ -19,7 +19,7 @@ namespace RB
 
         public override void OnEnter()
         {
-            ownerUnit.unitData.rigidBody2D.velocity = GameInitializer.current.runnerDataSO.Runner_JumpForce;
+            ownerUnit.unitData.rigidBody2D.velocity = BaseInitializer.current.runnerDataSO.Runner_JumpForce;
         }
 
         public override void OnFixedUpdate()
@@ -38,7 +38,7 @@ namespace RB
             {
                 if (ownerUnit.unitData.rigidBody2D.velocity.y > 0f)
                 {
-                    float y = Mathf.Lerp(ownerUnit.unitData.rigidBody2D.velocity.y, 0f, GameInitializer.current.runnerDataSO.JumpPullPercentagePerFixedUpdate);
+                    float y = Mathf.Lerp(ownerUnit.unitData.rigidBody2D.velocity.y, 0f, BaseInitializer.current.runnerDataSO.JumpPullPercentagePerFixedUpdate);
                     ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x, y);
                 }
             }

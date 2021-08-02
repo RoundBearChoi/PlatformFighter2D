@@ -84,7 +84,7 @@ namespace RB
 
         public override float GetCumulativeGravityForcePercentage()
         {
-            return GameInitializer.current.runnerDataSO.CumulativeGravityForcePercentage;
+            return BaseInitializer.current.runnerDataSO.CumulativeGravityForcePercentage;
         }
 
         public override CameraState GetDefaultCameraState()

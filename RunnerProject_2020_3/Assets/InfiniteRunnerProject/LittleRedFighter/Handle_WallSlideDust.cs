@@ -17,7 +17,7 @@ namespace RB
 
         public bool Handle()
         {
-            GameInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.WALLSLIDE_DUST);
+            BaseInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.WALLSLIDE_DUST);
             Unit wallSlideDust = Units.instance.GetUnit<WallSlideDust>();
 
             wallSlideDust.transform.position = _dustPosition;

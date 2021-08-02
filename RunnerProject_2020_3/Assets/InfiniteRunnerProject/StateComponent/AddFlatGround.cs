@@ -12,7 +12,7 @@ namespace RB
         public AddFlatGround(UnitState state)
         {
             _state = state;
-            _cameraScript = GameInitializer.current.GetStage().cameraScript;
+            _cameraScript = BaseInitializer.current.GetStage().cameraScript;
         }
 
         public override void OnFixedUpdate()
@@ -30,10 +30,10 @@ namespace RB
 
                         Debug.DrawLine(new Vector3(0f, -5f, 0f), topRight, Color.cyan, 0.05f);
 
-                        if (topRight.x <= _cameraScript.cameraEdges.GetEdges()[3].x + GameInitializer.current.runnerDataSO.GroundCreationCushionX)
+                        if (topRight.x <= _cameraScript.cameraEdges.GetEdges()[3].x + BaseInitializer.current.runnerDataSO.GroundCreationCushionX)
                         {
                             Debugger.Log("ground edge inside frustum");
-                            GameInitializer.current.GetStage().groundSetup.AddAdditionalAdjacentUnit<FlatGround_DefaultState>();
+                            BaseInitializer.current.GetStage().groundSetup.AddAdditionalAdjacentUnit<FlatGround_DefaultState>();
                         }
                     }
                 }

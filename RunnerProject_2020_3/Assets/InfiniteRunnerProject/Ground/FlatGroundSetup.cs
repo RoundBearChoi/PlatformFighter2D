@@ -8,20 +8,20 @@ namespace RB
     {
         public void InstantiateBaseLayer()
         {
-            GameInitializer.current.GetStage().units.AddCreator(new FlatGround_Creator(GameInitializer.current.GetStage().transform, 5, 10));
-            GameInitializer.current.GetStage().units.ProcessCreators();
+            BaseInitializer.current.GetStage().units.AddCreator(new FlatGround_Creator(BaseInitializer.current.GetStage().transform, 5, 10));
+            BaseInitializer.current.GetStage().units.ProcessCreators();
         }
 
         public void AddAdditionalAdjacentUnit<T>() where T : UnitState
         {
-            Unit prevUnit = GameInitializer.current.GetStage().units.GetLatestUnitByState<T>();
+            Unit prevUnit = BaseInitializer.current.GetStage().units.GetLatestUnitByState<T>();
 
             if (prevUnit != null)
             {
                 Vector3 topRight = prevUnit.unitData.compositeCollider2D.bounds.center + (prevUnit.unitData.compositeCollider2D.bounds.size * 0.5f);
 
                 InstantiateBaseLayer();
-                Unit newGround = GameInitializer.current.GetStage().units.GetUnit<Ground>();
+                Unit newGround = BaseInitializer.current.GetStage().units.GetUnit<Ground>();
 
                 newGround.transform.position = new Vector3(topRight.x, prevUnit.transform.position.y, prevUnit.transform.position.z);
 
