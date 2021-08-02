@@ -39,8 +39,8 @@ namespace RB
         {
             foreach(UserInput input in _listUserInputs)
             {
-                input.commands.ClearKeyDictionary();
-                input.commands.ClearButtonDictionary();
+                input.commands.ClearKeyPressDictionary();
+                input.commands.ClearButtonPressDictionary();
             }
         }
 

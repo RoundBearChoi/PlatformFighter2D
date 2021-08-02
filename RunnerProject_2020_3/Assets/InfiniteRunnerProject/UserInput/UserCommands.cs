@@ -44,12 +44,12 @@ namespace RB
             }
         }
 
-        public void ClearKeyDictionary()
+        public void ClearKeyPressDictionary()
         {
             _dicKeyPresses.Clear();
         }
 
-        public void ClearButtonDictionary()
+        public void ClearButtonPressDictionary()
         {
             _dicButtonPresses.Clear();
         }

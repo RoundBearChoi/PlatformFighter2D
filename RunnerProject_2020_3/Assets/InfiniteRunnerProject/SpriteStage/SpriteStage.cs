@@ -94,8 +94,8 @@ namespace RB
                 }
             }
 
-            _inputController.GetUserInput(InputType.PLAYER_ONE).commands.ClearKeyDictionary();
-            _inputController.GetUserInput(InputType.PLAYER_ONE).commands.ClearButtonDictionary();
+            _inputController.GetUserInput(InputType.PLAYER_ONE).commands.ClearKeyPressDictionary();
+            _inputController.GetUserInput(InputType.PLAYER_ONE).commands.ClearButtonPressDictionary();
         }
 
         public override void OnLateUpdate()

@@ -86,8 +86,8 @@ namespace RB
             cameraScript.OnFixedUpdate();
             units.OnFixedUpdate();
 
-            _inputController.GetUserInput(_currentInputSelection).commands.ClearKeyDictionary();
-            _inputController.GetUserInput(_currentInputSelection).commands.ClearButtonDictionary();
+            _inputController.GetUserInput(_currentInputSelection).commands.ClearKeyPressDictionary();
+            _inputController.GetUserInput(_currentInputSelection).commands.ClearButtonPressDictionary();
 
             if (_currentInputSelection != _prevInputSelection)
             {
