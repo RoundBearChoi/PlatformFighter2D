@@ -9,8 +9,10 @@ namespace RB
         public LittleRed_Idle(Unit unit)
         {
             ownerUnit = unit;
+
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, GameInitializer.current.fighterDataSO.IdleSlowDownLerpPercentage));
             _listStateComponents.Add(new UpdateDirectionOnInput(ownerUnit));
+            _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit));
 
             ownerUnit.unitData.airControl.SetMomentum(0f);
 
@@ -40,11 +42,6 @@ namespace RB
                 if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_RIGHT))
                 {
                     ownerUnit.unitData.listNextStates.Add(new LittleRed_Run(ownerUnit));
-                }
-
-                if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A))
-                {
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Attack_A(ownerUnit));
                 }
             }
         }

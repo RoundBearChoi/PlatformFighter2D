@@ -18,6 +18,7 @@ namespace RB
             }
 
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, runspeed, GameInitializer.current.fighterDataSO.RunSpeedLerpPercentage));
+            _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_RUN);
         }
@@ -57,13 +58,7 @@ namespace RB
                 {
                     ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
                 }
-
-                if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A))
-                {
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Attack_A(ownerUnit));
-                }
             }
-                
         }
     }
 }
