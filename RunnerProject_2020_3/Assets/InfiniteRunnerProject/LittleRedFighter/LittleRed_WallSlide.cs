@@ -32,7 +32,7 @@ namespace RB
                 ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x, _maxFallVelocity);
             }
 
-            //show dust
+            //show wallslide dust
             if (fixedUpdateCount != 0 && fixedUpdateCount % ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().animationSpec.spriteInterval == 0)
             {
                 if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 1 ||
@@ -89,16 +89,37 @@ namespace RB
                 //wall jump
                 if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.JUMP))
                 {
+                    float initialMomentum = GameInitializer.current.fighterDataSO.WallJumpHorizontalMomentum;
+
                     if (ownerUnit.unitData.facingRight)
                     {
-                        ownerUnit.unitData.airControl.SetMomentum(GameInitializer.current.fighterDataSO.WallJumpHorizontalMomentum * -1f);
-                        ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit, GameInitializer.current.fighterDataSO.WallJumpForce));
+                        initialMomentum *= -1f;
                     }
-                    else
+
+                    //show walljump dust
+                    List<CollisionData> sideCollisions = ownerUnit.unitData.collisionStays.GetSideCollisionData();
+
+                    float x = 0f;
+                    float y = 0f;
+
+                    foreach (CollisionData data in sideCollisions)
                     {
-                        ownerUnit.unitData.airControl.SetMomentum(GameInitializer.current.fighterDataSO.WallJumpHorizontalMomentum);
-                        ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit, GameInitializer.current.fighterDataSO.WallJumpForce));
+                        if (data.collidingObject.GetComponent<Ground>() != null)
+                        {
+                            x = data.contactPoint.point.x;
+                            break;
+                        }
                     }
+
+                    y = ownerUnit.transform.position.y + 0.7f;
+
+                    Vector3 dustPosition = new Vector3(x, y, GameInitializer.current.fighterDataSO.DustEffects_z);
+
+                    BaseMessage showWallJumpDust = new ShowWallJumpDust_Message(ownerUnit.unitData.facingRight, dustPosition, new Vector2(1f, 1f));
+                    showWallJumpDust.Register();
+
+                    ownerUnit.unitData.airControl.SetMomentum(initialMomentum);
+                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit, GameInitializer.current.fighterDataSO.WallJumpForce));
                 }
 
                 //fall off

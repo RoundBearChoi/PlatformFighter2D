@@ -31,5 +31,6 @@ namespace RB
         SHOW_JUMP_DUST = 704,
         SHOW_SMASH_DUST = 705,
         SHOW_WALLSLIDE_DUST = 706,
+        SHOW_WALLJUMP_DUST = 708,
     }
 }

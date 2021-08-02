@@ -97,6 +97,11 @@ namespace RB
             unit.iStateController.SetNewState(new WallSlideDust_DefaultState(unit));
         }
 
+        public void New_WallJumpDust(Unit unit)
+        {
+            unit.iStateController.SetNewState(new WallJumpDust_DefaultState(unit));
+        }
+
         public void New_Blood_5(Unit unit)
         {
             unit.iStateController.SetNewState(new Blood_5_DefaultState(unit));

@@ -82,6 +82,17 @@ namespace RB
                     wallSlideDust.unitData.facingRight = faceRight;
                 }
 
+                else if (message.MESSAGE_TYPE == MessageType.SHOW_WALLJUMP_DUST)
+                {
+                    GameInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.WALLJUMP_DUST);
+                    Unit wallJumpDust = Units.instance.GetUnit<WallJumpDust>();
+
+                    wallJumpDust.transform.position = message.GetVector3Message();
+                    bool faceRight = message.GetBoolMessage();
+
+                    wallJumpDust.unitData.facingRight = faceRight;
+                }
+
                 else if (message.MESSAGE_TYPE == MessageType.SHOW_DASH_DUST)
                 {
                     GameInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.DASH_DUST);
