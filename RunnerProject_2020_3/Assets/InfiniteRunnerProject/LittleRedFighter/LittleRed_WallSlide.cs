@@ -13,6 +13,8 @@ namespace RB
             ownerUnit = unit;
             _maxFallVelocity = GameInitializer.current.fighterDataSO.MaxWallSlideFallSpeed;
 
+            _listStateComponents.Add(new TriggerWallSlideDust(ownerUnit));
+
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_WALLSLIDE);
         }
 
@@ -30,35 +32,6 @@ namespace RB
             if (ownerUnit.unitData.rigidBody2D.velocity.y <= _maxFallVelocity)
             {
                 ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x, _maxFallVelocity);
-            }
-
-            //show wallslide dust
-            if (fixedUpdateCount != 0 && fixedUpdateCount % ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().animationSpec.spriteInterval == 0)
-            {
-                if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 1 ||
-                    ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 2)
-                {
-                    float x = 0f;
-                    float y = 0f;
-
-                    List<CollisionData> sideCollisions = ownerUnit.unitData.collisionStays.GetSideCollisionData();
-
-                    foreach(CollisionData data in sideCollisions)
-                    {
-                        if (data.collidingObject.GetComponent<Ground>() != null)
-                        {
-                            x = data.contactPoint.point.x;
-                            break;
-                        }
-                    }
-
-                    y = ownerUnit.transform.position.y + 1.5f;
-
-                    Vector3 dustPosition = new Vector3(x, y, GameInitializer.current.fighterDataSO.DustEffects_z);
-
-                    BaseMessage showWallSlideDust = new ShowWallSlideDust_Message(ownerUnit.unitData.facingRight, dustPosition, new Vector2(1f, 1f));
-                    showWallSlideDust.Register();
-                }
             }
 
             if (fixedUpdateCount >= 1)
