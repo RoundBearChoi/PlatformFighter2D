@@ -25,7 +25,7 @@ namespace RB
         {
             if (_keyboard.enterKey.wasPressedThisFrame)
             {
-                _gameIntializer.stageTransitioner.AddTransition(new RunnerStageTransition(_gameIntializer));
+                _gameIntializer.stageTransitioner.AddTransition(new FightStageTransition(_gameIntializer));
             }
 
             if (_keyboard.f4Key.wasPressedThisFrame)
@@ -40,7 +40,7 @@ namespace RB
 
             if (_keyboard.f6Key.wasPressedThisFrame)
             {
-                _gameIntializer.stageTransitioner.AddTransition(new FightStageTransition(_gameIntializer));
+                _gameIntializer.stageTransitioner.AddTransition(new RunnerStageTransition(_gameIntializer));
             }
         }
     }
