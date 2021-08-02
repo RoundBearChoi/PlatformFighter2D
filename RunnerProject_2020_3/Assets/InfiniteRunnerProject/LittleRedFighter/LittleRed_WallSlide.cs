@@ -32,6 +32,31 @@ namespace RB
                 ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x, _maxFallVelocity);
             }
 
+            //show dust
+            if (fixedUpdateCount != 0 && fixedUpdateCount % ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().animationSpec.spriteInterval == 0)
+            {
+                if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 1 ||
+                    ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 2)
+                {
+                    float x = 0.6f;
+                    float y = 1.5f;
+
+                    Vector3 dustPosition = Vector3.zero;
+
+                    if (ownerUnit.unitData.facingRight)
+                    {
+                        dustPosition = ownerUnit.transform.position + new Vector3(x, y, 0f);
+                    }
+                    else
+                    {
+                        dustPosition = ownerUnit.transform.position + new Vector3(-x, y, 0f);
+                    }
+
+                    BaseMessage showWallSlideDust = new ShowWallSlideDust_Message(ownerUnit.unitData.facingRight, dustPosition, new Vector2(1f, 1f));
+                    showWallSlideDust.Register();
+                }
+            }
+
             if (fixedUpdateCount >= 1)
             {
                 //not touching wall

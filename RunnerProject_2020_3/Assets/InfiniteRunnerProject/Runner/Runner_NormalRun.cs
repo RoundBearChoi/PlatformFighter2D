@@ -27,7 +27,6 @@ namespace RB
 
             FixedUpdateComponents();
 
-            //sprite intervals is 4
             if (fixedUpdateCount != 0 && fixedUpdateCount % ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().animationSpec.spriteInterval == 0)
             {
                 if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 3 ||

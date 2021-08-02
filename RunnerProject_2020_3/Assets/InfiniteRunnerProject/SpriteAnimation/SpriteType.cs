@@ -20,6 +20,7 @@ namespace RB
         DUST_SLIDE = 102,
         DUST_SMASH = 103,
         DUST_STEP = 104,
+        DUST_WALLSLIDE = 105,
 
         GOLEM_ATTACK_A = 200,
         GOLEM_ATTACK_B = 201,

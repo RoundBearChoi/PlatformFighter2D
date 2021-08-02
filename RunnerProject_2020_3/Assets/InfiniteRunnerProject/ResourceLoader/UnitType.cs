@@ -19,6 +19,7 @@ namespace RB
         SLIDE_DUST = 304,
         JUMP_DUST = 305,
         SMASH_DUST = 306,
+        WALLSLIDE_DUST = 307,
 
         SWAMP = 400,
         OLD_CITY = 401,

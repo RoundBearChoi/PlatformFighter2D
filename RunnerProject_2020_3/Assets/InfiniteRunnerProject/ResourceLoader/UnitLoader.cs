@@ -31,6 +31,7 @@ namespace RB
         public void LoadDustEffects()
         {
             LoadObj<LandingDust>(UnitType.LANDING_DUST, "LandingDust");
+            LoadObj<WallSlideDust>(UnitType.WALLSLIDE_DUST, "WallSlideDust");
             LoadObj<StepDust>(UnitType.STEP_DUST, "StepDust");
             LoadObj<DashDust>(UnitType.DASH_DUST, "DashDust");
             LoadObj<SlideDust>(UnitType.SLIDE_DUST, "SlideDust");
