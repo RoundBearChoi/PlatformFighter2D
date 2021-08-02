@@ -14,6 +14,7 @@ namespace RB
             _maxFallVelocity = GameInitializer.current.fighterDataSO.MaxWallSlideFallSpeed;
 
             _listStateComponents.Add(new TriggerWallSlideDust(ownerUnit));
+            _listStateComponents.Add(new TriggerWallJump(ownerUnit));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_WALLSLIDE);
         }
@@ -57,42 +58,6 @@ namespace RB
                 if (groundsStay.Count > 0)
                 {
                     ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
-                }
-
-                //wall jump
-                if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.JUMP))
-                {
-                    float initialMomentum = GameInitializer.current.fighterDataSO.WallJumpHorizontalMomentum;
-
-                    if (ownerUnit.unitData.facingRight)
-                    {
-                        initialMomentum *= -1f;
-                    }
-
-                    //show walljump dust
-                    List<CollisionData> sideCollisions = ownerUnit.unitData.collisionStays.GetSideCollisionData();
-
-                    float x = 0f;
-                    float y = 0f;
-
-                    foreach (CollisionData data in sideCollisions)
-                    {
-                        if (data.collidingObject.GetComponent<Ground>() != null)
-                        {
-                            x = data.contactPoint.point.x;
-                            break;
-                        }
-                    }
-
-                    y = ownerUnit.transform.position.y + 0.7f;
-
-                    Vector3 dustPosition = new Vector3(x, y, GameInitializer.current.fighterDataSO.DustEffects_z);
-
-                    BaseMessage showWallJumpDust = new ShowWallJumpDust_Message(ownerUnit.unitData.facingRight, dustPosition, new Vector2(1f, 1f));
-                    showWallJumpDust.Register();
-
-                    ownerUnit.unitData.airControl.SetMomentum(initialMomentum);
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit, GameInitializer.current.fighterDataSO.WallJumpForce));
                 }
 
                 //fall off
