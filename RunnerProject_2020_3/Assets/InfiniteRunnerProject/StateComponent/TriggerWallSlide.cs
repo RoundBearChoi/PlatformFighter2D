@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace RB
 {
-    public class TransitionToWallSlide : StateComponent
+    public class TriggerWallSlide : StateComponent
     {
-        public TransitionToWallSlide(Unit unit)
+        public TriggerWallSlide(Unit unit)
         {
             _unit = unit;
         }

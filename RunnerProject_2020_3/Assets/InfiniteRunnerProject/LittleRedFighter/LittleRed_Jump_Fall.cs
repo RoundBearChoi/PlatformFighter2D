@@ -12,7 +12,7 @@ namespace RB
 
             _listStateComponents.Add(new LerpHorizontalMomentumOnInput_Air(ownerUnit, GameInitializer.current.fighterDataSO.MaxHorizontalAirMomentum));
             _listStateComponents.Add(new UpdateDirectionOnVelocity(ownerUnit));
-            _listStateComponents.Add(new TransitionToWallSlide(ownerUnit));
+            _listStateComponents.Add(new TriggerWallSlide(ownerUnit));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_JUMP_FALL);
         }
