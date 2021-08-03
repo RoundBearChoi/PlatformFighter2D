@@ -56,10 +56,10 @@ namespace RB
                                         attackerHitStop.Register();
 
                                         Vector2 closest = col.ClosestPoint(centerPoint);
-                                        BaseMessage showBloodMessage = new Message_ShowBlood5(_unit.unitData.facingRight, new Vector3(closest.x, closest.y, -1f));
+                                        BaseMessage showBloodMessage = new Message_ShowBlood5(_unit.unitData.facingRight, new Vector3(closest.x, closest.y, GameInitializer.current.fighterDataSO.BloodEffects_z));
                                         showBloodMessage.Register();
 
-                                        BaseMessage showParryEffectMessage = new Message_ShowParryEffect(new Vector3(closest.x, closest.y, -0.5f));
+                                        BaseMessage showParryEffectMessage = new Message_ShowParryEffect(new Vector3(closest.x, closest.y, GameInitializer.current.fighterDataSO.ParryEffects_z));
                                         showParryEffectMessage.Register();
 
                                         BaseMessage shakeCam = new Message_ShakeCameraOnTarget(_boxCollisionData.cameraShakeFrames, _boxCollisionData.cameraShakeAmount);
