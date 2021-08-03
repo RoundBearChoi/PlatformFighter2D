@@ -58,8 +58,9 @@ namespace RB
         {
             _inputController.GetUserInput(_currentInputSelection).OnUpdate();
             cameraScript.OnUpdate();
+            trailEffects.OnUpdate();
             units.OnUpdate();
-
+            
             if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F5))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new FightStageTransition(_gameIntializer));

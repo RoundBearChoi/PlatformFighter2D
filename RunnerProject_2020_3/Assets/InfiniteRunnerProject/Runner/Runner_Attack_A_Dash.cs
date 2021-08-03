@@ -9,7 +9,7 @@ namespace RB
         public Runner_Attack_A_Dash(Unit unit)
         {
             ownerUnit = unit;
-            _listStateComponents.Add(new CreateRenderTrail(unit, 1));
+            _listStateComponents.Add(new CreateRenderTrail(unit, 1, unit.unitData.facingRight));
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_ATTACK_A_DASH);
         }

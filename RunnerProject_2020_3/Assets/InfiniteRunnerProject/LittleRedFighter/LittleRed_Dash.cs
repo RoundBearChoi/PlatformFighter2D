@@ -10,6 +10,8 @@ namespace RB
         {
             ownerUnit = unit;
 
+            _listStateComponents.Add(new CreateRenderTrail(unit, 1, unit.unitData.facingRight));
+
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_DASH);
         }
 
