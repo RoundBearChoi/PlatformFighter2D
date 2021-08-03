@@ -46,6 +46,8 @@ namespace RB
                         {
                             //temp jump
                             ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit, GameInitializer.current.fighterDataSO.JumpForce * 0.8f));
+
+
                         }
                     }
                 }
