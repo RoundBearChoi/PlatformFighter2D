@@ -8,17 +8,21 @@ namespace RB
     {
         private float _jumpForce = 0f;
 
-        public LittleRed_Jump_Up(Unit unit, float jumpForce)
+        public LittleRed_Jump_Up(Unit unit, float jumpForce, bool cancelJumpOnNonPress)
         {
             ownerUnit = unit;
             _jumpForce = jumpForce;
 
-            _listStateComponents.Add(new CancelJumpForce(ownerUnit));
+            if (cancelJumpOnNonPress)
+            {
+                _listStateComponents.Add(new CancelJumpForceOnNonPress(ownerUnit));
+            }
+            
             _listStateComponents.Add(new LerpHorizontalMomentumOnInput_Air(ownerUnit, BaseInitializer.current.fighterDataSO.MaxHorizontalAirMomentum));
             _listStateComponents.Add(new UpdateDirectionOnVelocity(ownerUnit));
             _listStateComponents.Add(new TriggerWallSlide(ownerUnit));
-            _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit));
             _listStateComponents.Add(new TriggerLittleRedDash(ownerUnit));
+            _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_JUMP_UP);
         }
@@ -38,24 +42,6 @@ namespace RB
             {
                 ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall(ownerUnit));
             }
-
-            //if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.SHIFT) && fixedUpdateCount >= 2)
-            //{
-            //    if (ownerUnit.unitData.facingRight)
-            //    {
-            //        if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT))
-            //        {
-            //            ownerUnit.unitData.listNextStates.Add(new LittleRed_Dash(ownerUnit));
-            //        }
-            //    }
-            //    else
-            //    {
-            //        if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT))
-            //        {
-            //            ownerUnit.unitData.listNextStates.Add(new LittleRed_Dash(ownerUnit));
-            //        }
-            //    }
-            //}
         }
     }
 }

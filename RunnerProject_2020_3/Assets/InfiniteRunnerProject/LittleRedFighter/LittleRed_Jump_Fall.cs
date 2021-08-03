@@ -15,6 +15,7 @@ namespace RB
             _listStateComponents.Add(new TriggerWallSlide(ownerUnit));
             _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit));
             _listStateComponents.Add(new TriggerLittleRedDash(ownerUnit));
+            _listStateComponents.Add(new TriggerMarioStomp(ownerUnit));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_JUMP_FALL);
         }
@@ -29,29 +30,6 @@ namespace RB
                 showLandingDust.Register();
 
                 ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
-            }
-
-            List<CollisionData> collisions = ownerUnit.unitData.collisionEnters.GetCollisionData(CollisionType.BOTTOM);
-
-            foreach(CollisionData col in collisions)
-            {
-                Unit collidingUnit = col.collidingObject.GetComponent<Unit>();
-
-                if (collidingUnit != null)
-                {
-                    if (collidingUnit != ownerUnit)
-                    {
-                        if (collidingUnit.unitType == UnitType.LITTLE_RED_DARK ||
-                            collidingUnit.unitType == UnitType.LITTLE_RED_LIGHT)
-                        {
-                            //temp jump
-                            ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit, GameInitializer.current.fighterDataSO.JumpForce * 0.8f));
-
-                            BaseMessage triggerStompedState = new Message_TriggerStompedState(collidingUnit);
-                            triggerStompedState.Register();
-                        }
-                    }
-                }
             }
         }
     }

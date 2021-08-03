@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace RB
 {
-    public class CancelJumpForce : StateComponent
+    public class CancelJumpForceOnNonPress : StateComponent
     {
         private bool _startPullDown = false;
 
-        public CancelJumpForce(Unit unit)
+        public CancelJumpForceOnNonPress(Unit unit)
         {
             _unit = unit;
         }

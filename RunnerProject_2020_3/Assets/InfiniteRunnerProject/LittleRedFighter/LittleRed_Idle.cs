@@ -32,7 +32,7 @@ namespace RB
                     BaseMessage jumpDustMessage = new Message_ShowJumpDust(true, ownerUnit.transform.position);
                     jumpDustMessage.Register();
 
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit, BaseInitializer.current.fighterDataSO.JumpForce));
+                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit, BaseInitializer.current.fighterDataSO.JumpForce, true));
                 }
 
                 if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_LEFT))

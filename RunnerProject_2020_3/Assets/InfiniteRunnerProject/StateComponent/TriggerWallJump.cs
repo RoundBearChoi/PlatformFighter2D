@@ -42,7 +42,7 @@ namespace RB
                         showWallJumpDust.Register();
 
                         _unit.unitData.airControl.SetMomentum(initialMomentum);
-                        _unit.unitData.listNextStates.Add(new LittleRed_Jump_Up(_unit, BaseInitializer.current.fighterDataSO.WallJumpForce));
+                        _unit.unitData.listNextStates.Add(new LittleRed_Jump_Up(_unit, BaseInitializer.current.fighterDataSO.WallJumpForce, true));
 
                         break;
                     }
