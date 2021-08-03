@@ -20,16 +20,21 @@ namespace RB
                 ownerUnit.unitData.rigidBody2D.velocity = Vector2.Lerp(ownerUnit.unitData.rigidBody2D.velocity, Vector2.zero, 0.03f);
             }
 
-            List<Unit> listUnits = ownerUnit.unitData.collisionStays.GetTouchingUnits();
+            List<CollisionData> collisions = ownerUnit.unitData.collisionStays.GetCollisionData(CollisionType.LEFT);
 
-            foreach(Unit unit in listUnits)
+            foreach(CollisionData data in collisions)
             {
-                if (unit.unitType == UnitType.RUNNER)
+                Unit unit = data.collidingObject.GetComponent<Unit>();
+
+                if (unit != null)
                 {
-                    if (unit.unitData.hp > 0)
+                    if (unit.unitType == UnitType.RUNNER)
                     {
-                        ownerUnit.unitData.listNextStates.Add(new Golem_Attack_A(ownerUnit));
-                        break;
+                        if (unit.unitData.hp > 0)
+                        {
+                            ownerUnit.unitData.listNextStates.Add(new Golem_Attack_A(ownerUnit));
+                            break;
+                        }
                     }
                 }
             }

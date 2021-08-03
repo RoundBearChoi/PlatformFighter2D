@@ -23,23 +23,21 @@ namespace RB
             return _listCollisionData.Count;
         }
 
-        public virtual List<Unit> GetTouchingUnits()
+        public virtual List<CollisionData> GetCollisionData(CollisionType collisionType)
         {
-            List<Unit> touchingUnits = new List<Unit>();
+            List<CollisionData> listCollisionData = new List<CollisionData>();
 
             foreach (CollisionData data in _listCollisionData)
             {
-                Unit unit = data.collidingObject.GetComponent<Unit>();
-
-                if (unit != null)
+                if (data.collisionType == collisionType)
                 {
-                    touchingUnits.Add(unit);
+                    listCollisionData.Add(data);
                 }
             }
 
-            return touchingUnits;
+            return listCollisionData;
         }
-        
+
         public virtual bool IsTouchingGround(CollisionType collisionType)
         {
             foreach (CollisionData data in _listCollisionData)
@@ -58,26 +56,6 @@ namespace RB
 
         public virtual bool IsOnFlatGround()
         {
-            List<Ground> listGrounds = GetTouchingGrounds();
-
-            if (listGrounds.Count == 0)
-            {
-                return false;
-            }
-
-            foreach (Ground ground in listGrounds)
-            {
-                if (Mathf.Abs(ground.transform.rotation.z) >= 0.001f)
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
-        public virtual List<Ground> GetTouchingGrounds()
-        {
             List<Ground> touchingGrounds = new List<Ground>();
 
             foreach (CollisionData data in _listCollisionData)
@@ -90,7 +68,20 @@ namespace RB
                 }
             }
 
-            return touchingGrounds;
+            if (touchingGrounds.Count == 0)
+            {
+                return false;
+            }
+
+            foreach (Ground ground in touchingGrounds)
+            {
+                if (Mathf.Abs(ground.transform.rotation.z) >= 0.001f)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         public virtual List<CollisionData> GetSideTouchingGrounds()
@@ -130,21 +121,6 @@ namespace RB
             }
 
             return touchingGrounds;
-        }
-
-        public virtual List<CollisionData> GetCollisionData(CollisionType collisionType)
-        {
-            List<CollisionData> listCollisionData = new List<CollisionData>();
-
-            foreach (CollisionData data in _listCollisionData)
-            {
-                if (data.collisionType == collisionType)
-                {
-                    listCollisionData.Add(data);
-                }
-            }
-
-            return listCollisionData;
         }
 
         public virtual List<CollisionData> GetSideCollisionData()
