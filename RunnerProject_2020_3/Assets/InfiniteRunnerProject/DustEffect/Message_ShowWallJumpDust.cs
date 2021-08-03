@@ -4,16 +4,18 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Show_Blood5_Message : BaseMessage
+    public class Message_ShowWallJumpDust : BaseMessage
     {
         bool _faceRightSide = true;
         Vector3 _position;
+        Vector2 _scaleMultiplier;
 
-        public Show_Blood5_Message(bool faceRightSide, Vector3 position)
+        public Message_ShowWallJumpDust(bool faceRightSide, Vector3 position, Vector2 scaleMultiplier)
         {
             _faceRightSide = faceRightSide;
             _position = position;
-            mMessageType = MessageType.SHOW_BLOOD_5;
+            _scaleMultiplier = scaleMultiplier;
+            mMessageType = MessageType.SHOW_WALLJUMP_DUST;
         }
 
         public override void Register()
@@ -29,6 +31,11 @@ namespace RB
         public override Vector3 GetVector3Message()
         {
             return _position;
+        }
+
+        public override Vector2 GetVector2Message()
+        {
+            return _scaleMultiplier;
         }
     }
 }

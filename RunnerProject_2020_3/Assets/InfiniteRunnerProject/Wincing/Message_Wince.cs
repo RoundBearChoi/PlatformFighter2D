@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Wince_Message : BaseMessage
+    public class Message_Wince : BaseMessage
     {
         private Unit _receiverUnit = null;
         private Unit _attacker = null;
         private Vector2 _pushForce = Vector2.zero;
 
-        public Wince_Message(Unit receiverUnit, Vector2 pushForce, Unit attacker)
+        public Message_Wince(Unit receiverUnit, Vector2 pushForce, Unit attacker)
         {
             _receiverUnit = receiverUnit;
             _attacker = attacker;

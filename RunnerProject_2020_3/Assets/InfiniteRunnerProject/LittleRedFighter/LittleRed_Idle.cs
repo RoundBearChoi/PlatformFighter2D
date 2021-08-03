@@ -29,7 +29,7 @@ namespace RB
             {
                 if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.JUMP))
                 {
-                    BaseMessage jumpDustMessage = new ShowJumpDust_Message(true, ownerUnit.transform.position);
+                    BaseMessage jumpDustMessage = new Message_ShowJumpDust(true, ownerUnit.transform.position);
                     jumpDustMessage.Register();
 
                     ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit, BaseInitializer.current.fighterDataSO.JumpForce));

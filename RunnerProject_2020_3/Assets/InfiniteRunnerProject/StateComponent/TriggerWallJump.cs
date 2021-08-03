@@ -38,7 +38,7 @@ namespace RB
 
                         Vector3 dustPosition = new Vector3(x, y, BaseInitializer.current.fighterDataSO.DustEffects_z);
 
-                        BaseMessage showWallJumpDust = new ShowWallJumpDust_Message(_unit.unitData.facingRight, dustPosition, new Vector2(1f, 1f));
+                        BaseMessage showWallJumpDust = new Message_ShowWallJumpDust(_unit.unitData.facingRight, dustPosition, new Vector2(1f, 1f));
                         showWallJumpDust.Register();
 
                         _unit.unitData.airControl.SetMomentum(initialMomentum);

@@ -4,19 +4,26 @@ using UnityEngine;
 
 namespace RB
 {
-    public class ShowParryEffect_Message : BaseMessage
+    public class Message_ShowBlood5 : BaseMessage
     {
+        bool _faceRightSide = true;
         Vector3 _position;
 
-        public ShowParryEffect_Message(Vector3 position)
+        public Message_ShowBlood5(bool faceRightSide, Vector3 position)
         {
+            _faceRightSide = faceRightSide;
             _position = position;
-            mMessageType = MessageType.SHOW_PARRY_EFFECT;
+            mMessageType = MessageType.SHOW_BLOOD_5;
         }
 
         public override void Register()
         {
             BaseInitializer.current.GetStage().units.unitsMessageHandler.Register(this);
+        }
+
+        public override bool GetBoolMessage()
+        {
+            return _faceRightSide;
         }
 
         public override Vector3 GetVector3Message()

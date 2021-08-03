@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace RB
 {
-    public class TakeDamageMessage : BaseMessage
+    public class Message_TakeDamage : BaseMessage
     {
         private Unit _targetUnit = null;
         private uint _damageAmount = 0;
 
-        public TakeDamageMessage(Unit targetUnit, uint damageAmount)
+        public Message_TakeDamage(Unit targetUnit, uint damageAmount)
         {
             _targetUnit = targetUnit;
             _damageAmount = damageAmount;

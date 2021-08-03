@@ -45,7 +45,7 @@ namespace RB
 
             if (fixedUpdateCount == 0)
             {
-                BaseMessage jumpDustMessage = new ShowJumpDust_Message(true, ownerUnit.transform.position);
+                BaseMessage jumpDustMessage = new Message_ShowJumpDust(true, ownerUnit.transform.position);
                 jumpDustMessage.Register();
             }
 

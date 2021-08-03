@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace RB
 {
-    public class ShowWallSlideDust_Message : BaseMessage
+    public class Message_ShowWallSlideDust : BaseMessage
     {
         bool _faceRightSide = true;
         Vector3 _position;
         Vector2 _scaleMultiplier;
 
-        public ShowWallSlideDust_Message(bool faceRightSide, Vector3 position, Vector2 scaleMultiplier)
+        public Message_ShowWallSlideDust(bool faceRightSide, Vector3 position, Vector2 scaleMultiplier)
         {
             _faceRightSide = faceRightSide;
             _position = position;

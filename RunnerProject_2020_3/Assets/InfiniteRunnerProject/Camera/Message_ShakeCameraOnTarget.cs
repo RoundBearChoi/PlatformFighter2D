@@ -4,14 +4,16 @@ using UnityEngine;
 
 namespace RB
 {
-    public class ShakeCameraOnPositionMessage : BaseMessage
+    public class Message_ShakeCameraOnTarget : BaseMessage
     {
         private uint _totalShakeFrames = 0;
+        private float _shakeAmount = 0f;
 
-        public ShakeCameraOnPositionMessage(uint totalShakeFrames)
+        public Message_ShakeCameraOnTarget(uint totalShakeFrames, float shakeAmount)
         {
             _totalShakeFrames = totalShakeFrames;
-            mMessageType = MessageType.SHAKE_CAMERA_ONPOSITION;
+            _shakeAmount = shakeAmount;
+            mMessageType = MessageType.SHAKE_CAMERA_ONTARGET;
         }
 
         public override void Register()
@@ -22,6 +24,11 @@ namespace RB
         public override uint GetUnsignedIntMessage()
         {
             return _totalShakeFrames;
+        }
+
+        public override float GetFloatMessage()
+        {
+            return _shakeAmount;
         }
     }
 }

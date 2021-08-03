@@ -106,7 +106,7 @@ namespace RB
             {
                 if (_listUnits[i].unitData.hp <= 0)
                 {
-                    BaseMessage zeroHealthMessage = new ZeroHealth_Message(_listUnits[i]);
+                    BaseMessage zeroHealthMessage = new Message_ZeroHealth(_listUnits[i]);
                     zeroHealthMessage.Register();
                 }
             }
@@ -141,7 +141,7 @@ namespace RB
                         {
                             if (_listUnits[i].unitData.hp > 0)
                             {
-                                BaseMessage shakeCamOnPosition = new ShakeCameraOnPositionMessage(20);
+                                BaseMessage shakeCamOnPosition = new Message_ShakeCameraOnPosition(20);
                                 shakeCamOnPosition.Register();
                             }
                         }

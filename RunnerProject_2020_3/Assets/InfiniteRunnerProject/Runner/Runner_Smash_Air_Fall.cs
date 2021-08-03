@@ -23,7 +23,7 @@ namespace RB
 
             if (ownerUnit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM) || ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
             {
-                BaseMessage showSmashDust = new ShowSmashDustMessage(true, ownerUnit.transform.position);
+                BaseMessage showSmashDust = new Message_ShowSmashDust(true, ownerUnit.transform.position);
                 showSmashDust.Register();
 
                 ownerUnit.unitData.listNextStates.Add(new Runner_Smash_Air_Land(ownerUnit));

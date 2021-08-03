@@ -30,7 +30,7 @@ namespace RB
             }
             else if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A))
             {
-                BaseMessage showDashDust = new ShowDashDust_Message(true, _unit.transform.position);
+                BaseMessage showDashDust = new Message_ShowDashDust(true, _unit.transform.position);
                 showDashDust.Register();
 
                 _unit.unitData.listNextStates.Add(new Runner_Attack_A_Dash(_unit));

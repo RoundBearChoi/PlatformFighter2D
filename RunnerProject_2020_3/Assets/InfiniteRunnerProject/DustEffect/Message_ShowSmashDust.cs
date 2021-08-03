@@ -4,16 +4,16 @@ using UnityEngine;
 
 namespace RB
 {
-    public class ShowStepDustMessage : BaseMessage
+    public class Message_ShowSmashDust : BaseMessage
     {
         bool _faceRightSide = true;
         Vector3 _position;
 
-        public ShowStepDustMessage(bool faceRightSide, Vector3 position)
+        public Message_ShowSmashDust(bool faceRightSide, Vector3 position)
         {
             _faceRightSide = faceRightSide;
             _position = position;
-            mMessageType = MessageType.SHOW_STEP_DUST;
+            mMessageType = MessageType.SHOW_SMASH_DUST;
         }
 
         public override void Register()

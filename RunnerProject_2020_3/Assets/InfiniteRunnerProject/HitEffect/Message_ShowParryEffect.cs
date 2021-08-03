@@ -4,26 +4,19 @@ using UnityEngine;
 
 namespace RB
 {
-    public class ShowSmashDustMessage : BaseMessage
+    public class Message_ShowParryEffect : BaseMessage
     {
-        bool _faceRightSide = true;
         Vector3 _position;
 
-        public ShowSmashDustMessage(bool faceRightSide, Vector3 position)
+        public Message_ShowParryEffect(Vector3 position)
         {
-            _faceRightSide = faceRightSide;
             _position = position;
-            mMessageType = MessageType.SHOW_SMASH_DUST;
+            mMessageType = MessageType.SHOW_PARRY_EFFECT;
         }
 
         public override void Register()
         {
             BaseInitializer.current.GetStage().units.unitsMessageHandler.Register(this);
-        }
-
-        public override bool GetBoolMessage()
-        {
-            return _faceRightSide;
         }
 
         public override Vector3 GetVector3Message()

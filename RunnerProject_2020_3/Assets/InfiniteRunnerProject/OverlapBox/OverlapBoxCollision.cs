@@ -49,23 +49,23 @@ namespace RB
 
                                     if (_currentHitCount <= specs.mMaxHits)
                                     {
-                                        BaseMessage winceMessage = new Wince_Message(collidingUnit, _boxCollisionData.pushForce, _unit);
+                                        BaseMessage winceMessage = new Message_Wince(collidingUnit, _boxCollisionData.pushForce, _unit);
                                         winceMessage.Register();
 
-                                        BaseMessage attackerHitStop = new HitStop_Message(specs.mStopFrames, _unit.unitType);
+                                        BaseMessage attackerHitStop = new Message_HitStop(specs.mStopFrames, _unit.unitType);
                                         attackerHitStop.Register();
 
                                         Vector2 closest = col.ClosestPoint(centerPoint);
-                                        BaseMessage showBloodMessage = new Show_Blood5_Message(_unit.unitData.facingRight, new Vector3(closest.x, closest.y, -1f));
+                                        BaseMessage showBloodMessage = new Message_ShowBlood5(_unit.unitData.facingRight, new Vector3(closest.x, closest.y, -1f));
                                         showBloodMessage.Register();
 
-                                        BaseMessage showParryEffectMessage = new ShowParryEffect_Message(new Vector3(closest.x, closest.y, -0.5f));
+                                        BaseMessage showParryEffectMessage = new Message_ShowParryEffect(new Vector3(closest.x, closest.y, -0.5f));
                                         showParryEffectMessage.Register();
 
-                                        BaseMessage shakeCam = new ShakeCameraOnTargetMessage(_boxCollisionData.cameraShakeFrames, _boxCollisionData.cameraShakeAmount);
+                                        BaseMessage shakeCam = new Message_ShakeCameraOnTarget(_boxCollisionData.cameraShakeFrames, _boxCollisionData.cameraShakeAmount);
                                         shakeCam.Register();
 
-                                        BaseMessage takeDamage = new TakeDamageMessage(collidingUnit, 1);
+                                        BaseMessage takeDamage = new Message_TakeDamage(collidingUnit, 1);
                                         takeDamage.Register();
 
                                         _unit.unitData.comboHitCount.AddCount();

@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace RB
 {
-    public class ZeroHealth_Message : BaseMessage
+    public class Message_ZeroHealth : BaseMessage
     {
         private Unit _targetUnit = null;
 
-        public ZeroHealth_Message(Unit targetUnit)
+        public Message_ZeroHealth(Unit targetUnit)
         {
             _targetUnit = targetUnit;
             mMessageType = MessageType.ZERO_HEALTH;

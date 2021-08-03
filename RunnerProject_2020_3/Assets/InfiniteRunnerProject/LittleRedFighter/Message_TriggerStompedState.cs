@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class TriggerStompedState_Message : BaseMessage
+    public class Message_TriggerStompedState : BaseMessage
     {
         public override void Register()
         {

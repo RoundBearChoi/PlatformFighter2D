@@ -38,7 +38,7 @@ namespace RB
 
                     Vector3 dustPosition = new Vector3(x, y, BaseInitializer.current.fighterDataSO.DustEffects_z);
 
-                    BaseMessage showWallSlideDust = new ShowWallSlideDust_Message(_unit.unitData.facingRight, dustPosition, new Vector2(1f, 1f));
+                    BaseMessage showWallSlideDust = new Message_ShowWallSlideDust(_unit.unitData.facingRight, dustPosition, new Vector2(1f, 1f));
                     showWallSlideDust.Register();
                 }
             }

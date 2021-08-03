@@ -4,16 +4,18 @@ using UnityEngine;
 
 namespace RB
 {
-    public class ShowSlideDust_Message : BaseMessage
+    public class Message_ShowLandingDust : BaseMessage
     {
         bool _faceRightSide = true;
         Vector3 _position;
+        Vector2 _scaleMultiplier;
 
-        public ShowSlideDust_Message(bool faceRightSide, Vector3 position)
+        public Message_ShowLandingDust(bool faceRightSide, Vector3 position, Vector2 scaleMultiplier)
         {
             _faceRightSide = faceRightSide;
             _position = position;
-            mMessageType = MessageType.SHOW_SLIDE_DUST;
+            _scaleMultiplier = scaleMultiplier;
+            mMessageType = MessageType.SHOW_LANDING_DUST;
         }
 
         public override void Register()
@@ -29,6 +31,11 @@ namespace RB
         public override Vector3 GetVector3Message()
         {
             return _position;
+        }
+
+        public override Vector2 GetVector2Message()
+        {
+            return _scaleMultiplier;
         }
     }
 }

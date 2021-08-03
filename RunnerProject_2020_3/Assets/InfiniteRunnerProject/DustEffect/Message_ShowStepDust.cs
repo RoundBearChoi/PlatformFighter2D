@@ -4,18 +4,16 @@ using UnityEngine;
 
 namespace RB
 {
-    public class ShowLandingDust_Message : BaseMessage
+    public class Message_ShowStepDust : BaseMessage
     {
         bool _faceRightSide = true;
         Vector3 _position;
-        Vector2 _scaleMultiplier;
 
-        public ShowLandingDust_Message(bool faceRightSide, Vector3 position, Vector2 scaleMultiplier)
+        public Message_ShowStepDust(bool faceRightSide, Vector3 position)
         {
             _faceRightSide = faceRightSide;
             _position = position;
-            _scaleMultiplier = scaleMultiplier;
-            mMessageType = MessageType.SHOW_LANDING_DUST;
+            mMessageType = MessageType.SHOW_STEP_DUST;
         }
 
         public override void Register()
@@ -31,11 +29,6 @@ namespace RB
         public override Vector3 GetVector3Message()
         {
             return _position;
-        }
-
-        public override Vector2 GetVector2Message()
-        {
-            return _scaleMultiplier;
         }
     }
 }
