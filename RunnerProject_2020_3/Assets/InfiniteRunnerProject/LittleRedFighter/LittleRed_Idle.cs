@@ -15,6 +15,7 @@ namespace RB
             _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit));
 
             ownerUnit.unitData.airControl.SetMomentum(0f);
+            ownerUnit.unitData.airControl.DashTriggered = false;
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_IDLE);
         }

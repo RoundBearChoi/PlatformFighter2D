@@ -23,6 +23,10 @@ namespace RB
         public float MaxHorizontalAirMomentum = 0f;
 
         [Space(10)]
+        public float DashForce = 0f;
+        public float DashFixedUpdates = 0f;
+
+        [Space(10)]
 
         public float WallJumpForce = 0f;
         public float WallJumpHorizontalMomentum = 0f;

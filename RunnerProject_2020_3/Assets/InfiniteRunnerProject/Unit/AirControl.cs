@@ -10,6 +10,8 @@ namespace RB
         [SerializeField]
         float _horizontalMomentum = 0f;
 
+        public bool DashTriggered = false;
+
         public float HORIZONTAL_MOMENTUM
         {
             get
