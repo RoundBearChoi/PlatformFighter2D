@@ -22,6 +22,9 @@ namespace RB
 
             ownerUnit.unitData.rigidBody2D.mass = 0.001f;
             ownerUnit.unitData.airControl.DashTriggered = true;
+
+            BaseMessage showDashDust = new ShowDashDust_Message(ownerUnit.unitData.facingRight, ownerUnit.transform.position);
+            showDashDust.Register();
         }
 
         public override void OnFixedUpdate()

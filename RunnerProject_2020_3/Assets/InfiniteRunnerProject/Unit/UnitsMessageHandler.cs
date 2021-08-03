@@ -86,6 +86,7 @@ namespace RB
                     BaseInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.DASH_DUST);
                     Unit dashDust = Units.instance.GetUnit<DashDust>();
                     dashDust.transform.position = message.GetVector3Message();
+                    dashDust.unitData.facingRight = message.GetBoolMessage();
                 }
 
                 else if (message.MESSAGE_TYPE == MessageType.SHOW_STEP_DUST)

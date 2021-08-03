@@ -25,6 +25,7 @@ namespace RB
         [Space(10)]
         public float DashForce = 0f;
         public float DashFixedUpdates = 0f;
+        public float TrailFadeSpeed = 0f;
 
         [Space(10)]
 
