@@ -19,6 +19,8 @@ namespace RB
 
         JUMP = 300,
 
+        SHIFT = 400,
+
         F4 = 1000,
         F5 = 1001,
         F6 = 1002,

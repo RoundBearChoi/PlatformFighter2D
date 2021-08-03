@@ -37,6 +37,24 @@ namespace RB
             {
                 ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall(ownerUnit));
             }
+
+            if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.SHIFT) && fixedUpdateCount >= 2)
+            {
+                if (ownerUnit.unitData.facingRight)
+                {
+                    if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT))
+                    {
+                        ownerUnit.unitData.listNextStates.Add(new LittleRed_Dash(ownerUnit));
+                    }
+                }
+                else
+                {
+                    if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT))
+                    {
+                        ownerUnit.unitData.listNextStates.Add(new LittleRed_Dash(ownerUnit));
+                    }
+                }
+            }
         }
     }
 }

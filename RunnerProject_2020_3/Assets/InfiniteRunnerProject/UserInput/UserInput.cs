@@ -49,6 +49,8 @@ namespace RB
 
                     commands.AddCommand(new UserCommand(CommandType.JUMP, keyboard.spaceKey));
 
+                    commands.AddCommand(new UserCommand(CommandType.SHIFT, keyboard.shiftKey));
+
                     commands.AddCommand(new UserCommand(CommandType.F4, keyboard.f4Key));
                     commands.AddCommand(new UserCommand(CommandType.F5, keyboard.f5Key));
                     commands.AddCommand(new UserCommand(CommandType.F6, keyboard.f6Key));
