@@ -22,6 +22,7 @@ namespace RB
         SHAKE_CAMERA_ONPOSITION = 501,
 
         TAKE_DAMAGE = 600,
+        TRIGGER_STOMPEDSTATE = 601,
         ZERO_HEALTH = 610,
 
         SHOW_LANDING_DUST = 700,

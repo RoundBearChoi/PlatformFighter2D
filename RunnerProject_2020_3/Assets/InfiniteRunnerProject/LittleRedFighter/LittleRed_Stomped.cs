@@ -6,6 +6,8 @@ namespace RB
 {
     public class LittleRed_Stomped : UnitState
     {
+        bool isReset = false;
+
         public LittleRed_Stomped(Unit unit)
         {
             ownerUnit = unit;
@@ -15,6 +17,12 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
+            if (!isReset)
+            {
+                isReset = true;
+                ownerUnit.unitData.spriteAnimations.ManualSetSpriteIndex(0);
+            }
+
             FixedUpdateComponents();
 
             if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().IsOnEnd())
