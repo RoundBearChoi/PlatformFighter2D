@@ -1,6 +1,6 @@
 # Sample Platformer
 
-![early screenshot](https://i.imgur.com/eFCaCgh.jpg)
+![August2021_screenshot](https://i.imgur.com/xEwehC8.jpg)
 
 <br>
 
