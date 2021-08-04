@@ -57,6 +57,11 @@ namespace RB
             }
         }
 
+        public void SetSpriteInterval(uint interval)
+        {
+            _spriteInterval = interval;
+        }
+
         public void LoadSprite(UnitCreationSpec creationSpec, SpriteAnimationSpec spriteSpec)
         {
             _animationSpec = spriteSpec;

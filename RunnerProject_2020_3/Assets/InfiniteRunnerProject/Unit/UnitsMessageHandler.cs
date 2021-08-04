@@ -95,6 +95,9 @@ namespace RB
                     Unit stepDust = Units.instance.GetUnit<StepDust>();
                     stepDust.transform.position = message.GetVector3Message();
                     stepDust.unitData.facingRight = message.GetBoolMessage();
+
+                    uint interval = message.GetUnsignedIntMessage();
+                    stepDust.unitData.spriteAnimations.GetLastSpriteAnimation().SetSpriteInterval(interval);
                 }
 
                 else if (message.MESSAGE_TYPE == MessageType.SHOW_SLIDE_DUST)

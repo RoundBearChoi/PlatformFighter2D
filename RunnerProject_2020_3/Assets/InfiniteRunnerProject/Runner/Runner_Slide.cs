@@ -36,7 +36,7 @@ namespace RB
                     offset *= -1f;
                 }
 
-                BaseMessage showSlideDust = new Message_ShowStepDust(true, ownerUnit.transform.position + offset);
+                BaseMessage showSlideDust = new Message_ShowStepDust(true, ownerUnit.transform.position + offset, 4);
                 showSlideDust.Register();
             }
 

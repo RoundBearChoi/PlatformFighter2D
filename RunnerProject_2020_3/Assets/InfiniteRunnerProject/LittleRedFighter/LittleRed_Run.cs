@@ -33,7 +33,7 @@ namespace RB
                 if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 1 ||
                     ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 6)
                 {
-                    BaseMessage showStepDust = new Message_ShowStepDust(false, ownerUnit.transform.position - new Vector3(ownerUnit.transform.right.x * 0.025f, 0f, 0f));
+                    BaseMessage showStepDust = new Message_ShowStepDust(false, ownerUnit.transform.position - new Vector3(ownerUnit.transform.right.x * 0.025f, 0f, 0f), 4);
                     showStepDust.Register();
                 }
             }
