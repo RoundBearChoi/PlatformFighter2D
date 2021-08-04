@@ -43,6 +43,11 @@ namespace RB
             return Vector3.zero;
         }
 
+        public virtual List<Vector3> GetListVector3Message()
+        {
+            return null;
+        }
+
         public virtual Vector2 GetVector2Message()
         {
             return Vector2.zero;

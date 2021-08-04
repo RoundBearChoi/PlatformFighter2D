@@ -96,8 +96,14 @@ namespace RB
                     stepDust.transform.position = message.GetVector3Message();
                     stepDust.unitData.facingRight = message.GetBoolMessage();
 
+                    SpriteAnimation spr = stepDust.unitData.spriteAnimations.GetLastSpriteAnimation();
+
                     uint interval = message.GetUnsignedIntMessage();
-                    stepDust.unitData.spriteAnimations.GetLastSpriteAnimation().SetSpriteInterval(interval);
+                    spr.SetSpriteInterval(interval);
+
+                    Vector2 scaleMultiplier = message.GetVector2Message();
+                    spr.gameObject.transform.localScale = new Vector3(spr.gameObject.transform.localScale.x * scaleMultiplier.x, spr.gameObject.transform.localScale.y * scaleMultiplier.y, 1f);
+                    spr.SetLocalPositionOnOffset();
                 }
 
                 else if (message.MESSAGE_TYPE == MessageType.SHOW_SLIDE_DUST)
