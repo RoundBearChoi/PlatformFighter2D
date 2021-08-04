@@ -15,6 +15,7 @@ namespace RB
 
             _listStateComponents.Add(new TriggerWallSlideDust(ownerUnit));
             _listStateComponents.Add(new TriggerWallJump(ownerUnit));
+            _listStateComponents.Add(new TriggerMarioStomp(ownerUnit));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_WALLSLIDE);
         }
