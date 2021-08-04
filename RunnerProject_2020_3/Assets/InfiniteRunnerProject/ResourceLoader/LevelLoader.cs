@@ -12,6 +12,7 @@ namespace RB
 
             LoadObj<GameObject>(1, "Level_1_Temp");
             LoadObj<GameObject>(2, "Level_2_Temp");
+            LoadObj<GameObject>(3, "Level_3_OldCity");
         }
     }
 }
