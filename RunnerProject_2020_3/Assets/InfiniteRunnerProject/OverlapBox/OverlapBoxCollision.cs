@@ -62,7 +62,9 @@ namespace RB
                                         BaseMessage showParryEffectMessage = new Message_ShowParryEffect(new Vector3(closest.x, closest.y, GameInitializer.current.fighterDataSO.ParryEffects_z));
                                         showParryEffectMessage.Register();
 
-                                        BaseMessage shakeCam = new Message_ShakeCameraOnTarget(_boxCollisionData.cameraShakeFrames, _boxCollisionData.cameraShakeAmount);
+                                        float shake = Random.Range(_boxCollisionData.camerShakeAmount_min, _boxCollisionData.camerShakeAmount_max);
+
+                                        BaseMessage shakeCam = new Message_ShakeCameraOnTarget(_boxCollisionData.cameraShakeFrames, shake);
                                         shakeCam.Register();
 
                                         BaseMessage takeDamage = new Message_TakeDamage(collidingUnit, 1);

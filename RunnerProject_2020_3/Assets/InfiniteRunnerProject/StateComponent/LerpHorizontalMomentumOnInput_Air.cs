@@ -20,16 +20,6 @@ namespace RB
             {
                 float abs = Mathf.Abs(_unit.unitData.airControl.HORIZONTAL_MOMENTUM);
 
-                if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_LEFT))
-                {
-                    _unit.unitData.airControl.AddMomentum(BaseInitializer.current.fighterDataSO.HorizontalAirMomentumIncreaseAmount * -1f);
-                }
-
-                if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_RIGHT))
-                {
-                    _unit.unitData.airControl.AddMomentum(BaseInitializer.current.fighterDataSO.HorizontalAirMomentumIncreaseAmount);
-                }
-
                 if (abs >= _maxMomentum)
                 {
                     if (_unit.unitData.airControl.HORIZONTAL_MOMENTUM < 0)
@@ -40,6 +30,16 @@ namespace RB
                     {
                         _unit.unitData.airControl.SetMomentum(_maxMomentum);
                     }
+                }
+
+                if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_LEFT))
+                {
+                    _unit.unitData.airControl.AddMomentum(BaseInitializer.current.fighterDataSO.HorizontalAirMomentumIncreaseAmount * -1f);
+                }
+
+                if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_RIGHT))
+                {
+                    _unit.unitData.airControl.AddMomentum(BaseInitializer.current.fighterDataSO.HorizontalAirMomentumIncreaseAmount);
                 }
 
                 _unit.unitData.rigidBody2D.velocity = new Vector2(_unit.unitData.airControl.HORIZONTAL_MOMENTUM, _unit.unitData.rigidBody2D.velocity.y);

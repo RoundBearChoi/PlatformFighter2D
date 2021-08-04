@@ -22,6 +22,7 @@ namespace RB
         public float HorizontalAirMomentumIncreaseAmount = 0f;
         public float MaxHorizontalAirMomentum = 0f;
         public float HorizontalMomentumMultiplierOnRunningJump = 0f;
+        public float HorizontalMomentumMultiplierOnFall = 0f;
 
         [Space(10)]
         public float DashForce = 0f;
@@ -42,6 +43,10 @@ namespace RB
         [Space(10)]
 
         public float AttackASlowDownPercentage = 0f;
+
+        [Space(10)]
+
+        public float CameraYOffset = 0f;
 
         [Space(10)]
 

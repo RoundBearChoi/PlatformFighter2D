@@ -16,6 +16,14 @@ namespace RB
             unitUpdater.CustomUpdate();
         }
 
+        public override void OnLateUpdate()
+        {
+            unitUpdater.CustomLateUpdate();
+
+            BaseMessage runnerHPUpdate = new Message_UpdateRunnerHP(unitData.hp, unitData.initialHP);
+            runnerHPUpdate.Register();
+        }
+
         public override void OnFixedUpdate()
         {
             unitUpdater.CustomFixedUpdate();
@@ -25,13 +33,6 @@ namespace RB
             unitData.collisionEnters.ClearList();
         }
 
-        public override void OnLateUpdate()
-        {
-            unitUpdater.CustomLateUpdate();
-
-            BaseMessage runnerHPUpdate = new Message_UpdateRunnerHP(unitData.hp, unitData.initialHP);
-            runnerHPUpdate.Register();
-        }
 
         public void OnCollisionEnter2D(Collision2D collision)
         {

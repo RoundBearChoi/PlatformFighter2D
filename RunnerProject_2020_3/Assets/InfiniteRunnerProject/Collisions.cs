@@ -44,7 +44,9 @@ namespace RB
             {
                 if (data.collisionType == collisionType)
                 {
-                    if (data.collidingObject.GetComponent<Ground>() != null)
+                    Ground ground = data.collidingObject.GetComponent<Ground>();
+
+                    if (ground != null)
                     {
                         return true;
                     }

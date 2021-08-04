@@ -18,9 +18,10 @@ MonoBehaviour:
   IdleSlowDownLerpPercentage: 0.35
   JumpForce: 33
   JumpPullPercentagePerFixedUpdate: 0.5
-  HorizontalAirMomentumIncreaseAmount: 0.85
-  MaxHorizontalAirMomentum: 18
+  HorizontalAirMomentumIncreaseAmount: 1.5
+  MaxHorizontalAirMomentum: 20
   HorizontalMomentumMultiplierOnRunningJump: 0.6
+  HorizontalMomentumMultiplierOnFall: 0.5
   DashForce: 70
   DashFixedUpdates: 3
   TrailFadeSpeed: 15
@@ -28,8 +29,9 @@ MonoBehaviour:
   WallJumpHorizontalMomentum: 10
   WallFallHorizontalMomentum: 0
   MaxWallSlideFallSpeed: -13
-  CumulativeGravityForcePercentage: 1.003
+  CumulativeGravityForcePercentage: 1.002
   AttackASlowDownPercentage: 0.2
+  CameraYOffset: 2.5
   Camera_z: -200
   OldCity_BottomFog_z: -150
   OldCity_TopFog_z: 0

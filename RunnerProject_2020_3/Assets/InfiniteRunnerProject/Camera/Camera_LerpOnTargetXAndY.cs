@@ -6,7 +6,6 @@ namespace RB
 {
     public class Camera_LerpOnTargetXAndY : CameraState
     {
-        float _yOffsetOnPlayer = 2.5f;
         float _xPercentage = 0f;
         float _yPercentage = 0f;
 
@@ -25,7 +24,7 @@ namespace RB
             if (target != null)
             {
                 float x = Mathf.Lerp(_cameraScript.GetCamera().transform.position.x, target.transform.position.x, _xPercentage);
-                float y = Mathf.Lerp(_cameraScript.GetCamera().transform.position.y, target.transform.position.y + _yOffsetOnPlayer, _yPercentage);
+                float y = Mathf.Lerp(_cameraScript.GetCamera().transform.position.y, target.transform.position.y + GameInitializer.current.fighterDataSO.CameraYOffset, _yPercentage);
 
                 if (BaseInitializer.current.GetStage() is FightStage)
                 {

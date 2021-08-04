@@ -19,6 +19,7 @@ namespace RB
 
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, runspeed, BaseInitializer.current.fighterDataSO.RunSpeedLerpPercentage));
             _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit));
+            _listStateComponents.Add(new TriggerFallState(ownerUnit));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_RUN);
         }
@@ -38,7 +39,7 @@ namespace RB
                 }
             }
 
-            //touching ground
+            //when touching ground
             if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM) ||
                 ownerUnit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM))
             {
@@ -47,7 +48,7 @@ namespace RB
                     BaseMessage jumpDustMessage = new Message_ShowJumpDust(true, ownerUnit.transform.position);
                     jumpDustMessage.Register();
 
-                    //multiply/divide runspeed when jumping
+                    //multiply/divide runspeed on jump
                     ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x * GameInitializer.current.fighterDataSO.HorizontalMomentumMultiplierOnRunningJump, ownerUnit.unitData.rigidBody2D.velocity.y);
                     ownerUnit.unitData.airControl.SetMomentum(ownerUnit.unitData.rigidBody2D.velocity.x);
                     ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit, BaseInitializer.current.fighterDataSO.JumpForce, true));
@@ -62,11 +63,6 @@ namespace RB
                 {
                     ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
                 }
-            }
-            //not touching ground
-            else
-            {
-
             }
         }
     }

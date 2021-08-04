@@ -16,6 +16,14 @@ namespace RB
             unitUpdater.CustomUpdate();
         }
 
+        public override void OnLateUpdate()
+        {
+            unitUpdater.CustomLateUpdate();
+
+            //BaseMessage runnerHPUpdate = new UpdateRunnerHP_Message(unitData.hp, unitData.initialHP);
+            //runnerHPUpdate.Register();
+        }
+
         public override void OnFixedUpdate()
         {
             unitUpdater.CustomFixedUpdate();
@@ -23,14 +31,6 @@ namespace RB
             //only clear after updating states
             unitData.collisionStays.ClearList();
             unitData.collisionEnters.ClearList();
-        }
-
-        public override void OnLateUpdate()
-        {
-            unitUpdater.CustomLateUpdate();
-
-            //BaseMessage runnerHPUpdate = new UpdateRunnerHP_Message(unitData.hp, unitData.initialHP);
-            //runnerHPUpdate.Register();
         }
 
         public void OnCollisionEnter2D(Collision2D collision)
@@ -49,6 +49,7 @@ namespace RB
             {
                 CollisionType collisionType = _collisionChecker.GetCollisionType(contactPoint);
                 CollisionData collisionData = new CollisionData(collisionType, collision.gameObject, contactPoint);
+
                 unitData.collisionStays.AddCollisionData(collisionData);
             }
         }

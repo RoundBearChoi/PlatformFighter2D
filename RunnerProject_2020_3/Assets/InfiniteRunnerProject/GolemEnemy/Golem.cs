@@ -16,6 +16,11 @@ namespace RB
             unitUpdater.CustomUpdate();
         }
 
+        public override void OnLateUpdate()
+        {
+
+        }
+
         public override void OnFixedUpdate()
         {
             unitUpdater.CustomFixedUpdate();
@@ -37,6 +42,8 @@ namespace RB
 
         public void OnCollisionStay2D(Collision2D collision)
         {
+            unitData.collisionStays.ClearList();
+
             foreach (ContactPoint2D contactPoint in collision.contacts)
             {
                 CollisionType collisionType = _collisionChecker.GetCollisionType(contactPoint);
