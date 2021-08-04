@@ -61,7 +61,10 @@ namespace RB
 
             if (arrSprite.Length == 0)
             {
-                arrSprite = LoadSpriteByString(spriteSpec.backupSpriteName);
+                if (!string.IsNullOrEmpty(spriteSpec.backupSpriteName))
+                {
+                    arrSprite = LoadSpriteByString(spriteSpec.backupSpriteName);
+                }
             }
 
             if (arrSprite.Length == 0)
