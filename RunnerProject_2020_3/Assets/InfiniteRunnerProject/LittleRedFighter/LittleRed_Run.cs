@@ -38,6 +38,7 @@ namespace RB
                 }
             }
 
+            //touching ground
             if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM) ||
                 ownerUnit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM))
             {
@@ -46,6 +47,9 @@ namespace RB
                     BaseMessage jumpDustMessage = new Message_ShowJumpDust(true, ownerUnit.transform.position);
                     jumpDustMessage.Register();
 
+                    //70% runspeed when jumping
+                    ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x * 0.7f, ownerUnit.unitData.rigidBody2D.velocity.y);
+                    ownerUnit.unitData.airControl.SetMomentum(ownerUnit.unitData.rigidBody2D.velocity.x);
                     ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit, BaseInitializer.current.fighterDataSO.JumpForce, true));
                 }
 
@@ -58,6 +62,11 @@ namespace RB
                 {
                     ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
                 }
+            }
+            //not touching ground
+            else
+            {
+
             }
         }
     }

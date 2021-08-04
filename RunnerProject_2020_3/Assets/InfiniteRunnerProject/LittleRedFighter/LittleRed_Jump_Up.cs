@@ -30,8 +30,8 @@ namespace RB
         public override void OnEnter()
         {
             //not changing velocity atm
-            float x = ownerUnit.unitData.rigidBody2D.velocity.x * 1f;
-            ownerUnit.unitData.rigidBody2D.velocity = new Vector2(x, _jumpForce);
+            //float x = ownerUnit.unitData.rigidBody2D.velocity.x * 1f;
+            ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x, _jumpForce);
         }
 
         public override void OnFixedUpdate()
