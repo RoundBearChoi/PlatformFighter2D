@@ -30,6 +30,10 @@ namespace RB
 
                             BaseMessage triggerStompedState = new Message_TriggerStompedState(collidingUnit);
                             triggerStompedState.Register();
+
+                            BaseMessage showParryEffect = new Message_ShowParryEffect(col.contactPoint.point);
+                            showParryEffect.Register();
+                            break;
                         }
                     }
                 }
