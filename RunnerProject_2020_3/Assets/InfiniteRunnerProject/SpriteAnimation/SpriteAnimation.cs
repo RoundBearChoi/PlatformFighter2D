@@ -8,13 +8,22 @@ namespace RB
     {
         List<Sprite> _listSprites = new List<Sprite>();
         SpriteRenderer _spriteRenderer = null;
+        SpriteAnimationSpec _animationSpec = null;
 
-        public SpriteAnimationSpec animationSpec = null;
         public SpriteType spriteType = SpriteType.NONE;
-
+        
         [Header("Debug")]
         [SerializeField] uint _updateCount = 0;
         [SerializeField] int _spriteIndex = 0;
+        [SerializeField] uint _spriteInterval = 0;
+
+        public SpriteAnimationSpec ANIMATION_SPEC
+        {
+            get
+            {
+                return _animationSpec;
+            }
+        }
 
         public int SPRITE_INDEX
         {
@@ -40,9 +49,18 @@ namespace RB
             }
         }
 
+        public uint SPRITE_INTERVAL
+        {
+            get
+            {
+                return _spriteInterval;
+            }
+        }
+
         public void LoadSprite(UnitCreationSpec creationSpec, SpriteAnimationSpec spriteSpec)
         {
-            animationSpec = spriteSpec;
+            _animationSpec = spriteSpec;
+            _spriteInterval = spriteSpec.spriteInterval;
 
             Sprite[] arrSprites = ResourceLoader.LoadSpriteBySpec(creationSpec, spriteSpec);
 
@@ -67,29 +85,29 @@ namespace RB
             float y = _spriteRenderer.transform.localScale.y;
 
             //other pivots should be defined as well
-            if (animationSpec.offsetType == OffsetType.BOTTOM_CENTER)
+            if (_animationSpec.offsetType == OffsetType.BOTTOM_CENTER)
             {
                 _spriteRenderer.transform.localPosition = new Vector3(0f, _listSprites[0].bounds.size.y * y * 0.5f, 0f);
             }
-            else if (animationSpec.offsetType == OffsetType.BOTTOM_LEFT)
+            else if (_animationSpec.offsetType == OffsetType.BOTTOM_LEFT)
             {
                 _spriteRenderer.transform.localPosition = new Vector3(_listSprites[0].bounds.size.x * x * 0.5f, _listSprites[0].bounds.size.y * y * 0.5f, 0f);
             }
-            else if (animationSpec.offsetType == OffsetType.CENTER_LEFT)
+            else if (_animationSpec.offsetType == OffsetType.CENTER_LEFT)
             {
                 _spriteRenderer.transform.localPosition = new Vector3(_listSprites[0].bounds.size.x * x * 0.5f, 0f, 0f);
             }
-            else if (animationSpec.offsetType == OffsetType.CENTER_RIGHT)
+            else if (_animationSpec.offsetType == OffsetType.CENTER_RIGHT)
             {
                 _spriteRenderer.transform.localPosition = new Vector3(-_listSprites[0].bounds.size.x * x * 0.5f, 0f, 0f);
             }
 
-            _spriteRenderer.transform.localPosition += new Vector3(animationSpec.additionalOffset.x, animationSpec.additionalOffset.y, 0f);
+            _spriteRenderer.transform.localPosition += new Vector3(_animationSpec.additionalOffset.x, _animationSpec.additionalOffset.y, 0f);
         }
         
         public void UpdateSpriteIndex()
         {
-            if (_updateCount != 0 && _updateCount % animationSpec.spriteInterval == 0)
+            if (_updateCount != 0 && _updateCount % _spriteInterval == 0)
             {
                 _spriteIndex++;
 
@@ -109,7 +127,7 @@ namespace RB
 
             if (_spriteIndex >= _listSprites.Count)
             {
-                if (!animationSpec.playOnce)
+                if (!_animationSpec.playOnce)
                 {
                     _spriteIndex = 0;
                 }
@@ -136,7 +154,7 @@ namespace RB
         {
             if (_spriteIndex == _listSprites.Count - 1)
             {
-                if (_updateCount % animationSpec.spriteInterval == 0)
+                if (_updateCount % _spriteInterval == 0)
                 {
                     return true;
                 }

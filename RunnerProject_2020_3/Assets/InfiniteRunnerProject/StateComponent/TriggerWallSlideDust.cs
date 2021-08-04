@@ -15,7 +15,7 @@ namespace RB
         {
             uint fixedUpdateCount = _unit.iStateController.GetCurrentState().fixedUpdateCount;
 
-            if (fixedUpdateCount != 0 && fixedUpdateCount % _unit.unitData.spriteAnimations.GetCurrentAnimation().animationSpec.spriteInterval == 0)
+            if (fixedUpdateCount != 0 && fixedUpdateCount % _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INTERVAL == 0)
             {
                 if (_unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 1 ||
                     _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 2)

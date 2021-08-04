@@ -31,8 +31,14 @@ namespace RB
                             BaseMessage triggerStompedState = new Message_TriggerStompedState(collidingUnit);
                             triggerStompedState.Register();
 
-                            BaseMessage showParryEffect = new Message_ShowParryEffect(col.contactPoint.point);
-                            showParryEffect.Register();
+                            //BaseMessage showParryEffect = new Message_ShowParryEffect(new Vector3(col.contactPoint.point.x, col.contactPoint.point.y, GameInitializer.current.fighterDataSO.ParryEffects_z));
+                            //showParryEffect.Register();
+
+                            BaseMessage stepDustRight = new Message_ShowStepDust(true, new Vector3(col.contactPoint.point.x + 0.25f, col.contactPoint.point.y - 0.37f, GameInitializer.current.fighterDataSO.DustEffects_z));
+                            stepDustRight.Register();
+
+                            BaseMessage stepDustLeft = new Message_ShowStepDust(false, new Vector3(col.contactPoint.point.x - 0.25f, col.contactPoint.point.y - 0.37f, GameInitializer.current.fighterDataSO.DustEffects_z));
+                            stepDustLeft.Register();
                             break;
                         }
                     }
