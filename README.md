@@ -12,6 +12,11 @@
 
 <br>
 
-# YouTube
+# Roundbeargames YouTube
 
 https://youtube.com/roundbeargames
+
+<br>
+
+# Sprites by Thomas Lean
+https://thomas-lean.itch.io/assets2
