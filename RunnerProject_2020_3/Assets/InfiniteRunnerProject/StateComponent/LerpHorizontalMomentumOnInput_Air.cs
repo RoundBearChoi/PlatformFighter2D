@@ -16,7 +16,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (!_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
+            if (!_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM) && !_unit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM))
             {
                 float abs = Mathf.Abs(_unit.unitData.airControl.HORIZONTAL_MOMENTUM);
 
