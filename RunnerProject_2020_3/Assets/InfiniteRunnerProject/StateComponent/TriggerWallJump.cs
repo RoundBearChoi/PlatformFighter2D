@@ -34,7 +34,7 @@ namespace RB
                     if (data.collidingObject.GetComponent<Ground>() != null)
                     {
                         x = data.contactPoint.point.x;
-                        y = _unit.transform.position.y + 0.7f;
+                        y = _unit.transform.position.y + 1f;
 
                         Vector3 dustPosition = new Vector3(x, y, BaseInitializer.current.fighterDataSO.DustEffects_z);
 

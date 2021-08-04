@@ -6,7 +6,7 @@ namespace RB
 {
     public class Camera_LerpOnTargetXAndY : CameraState
     {
-        float _yOffsetOnPlayer = 4f;
+        float _yOffsetOnPlayer = 2.5f;
         float _xPercentage = 0f;
         float _yPercentage = 0f;
 

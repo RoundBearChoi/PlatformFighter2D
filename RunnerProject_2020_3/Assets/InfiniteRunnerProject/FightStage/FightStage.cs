@@ -19,7 +19,7 @@ namespace RB
             FightCamera fightCamera = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.FIGHT_CAMERA)) as FightCamera;
             fightCamera.transform.parent = this.transform;
             Camera cam = fightCamera.GetComponent<Camera>();
-            cam.orthographicSize = 8;
+            cam.orthographicSize = 10f;
             cam.transform.position = new Vector3(8f, 4.5f, BaseInitializer.current.fighterDataSO.Camera_z);
 
             //load level 3 (oldcity)
@@ -111,7 +111,7 @@ namespace RB
 
         public override CameraState GetDefaultCameraState()
         {
-            return new Camera_LerpOnTargetXAndY(0.05f, 0.05f);
+            return new Camera_LerpOnTargetXAndY(0.08f, 0.08f);
         }
     }
 }
