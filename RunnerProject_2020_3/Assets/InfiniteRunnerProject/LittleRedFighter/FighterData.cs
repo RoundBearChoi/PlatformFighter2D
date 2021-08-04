@@ -21,6 +21,7 @@ namespace RB
         public float JumpPullPercentagePerFixedUpdate = 0f;
         public float HorizontalAirMomentumIncreaseAmount = 0f;
         public float MaxHorizontalAirMomentum = 0f;
+        public float HorizontalMomentumMultiplierOnRunningJump = 0f;
 
         [Space(10)]
         public float DashForce = 0f;
