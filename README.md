@@ -1,4 +1,4 @@
-# Sample Platformer
+# 2D Platform Fighter
 
 ![August2021_screenshot](https://i.imgur.com/xEwehC8.jpg)
 
