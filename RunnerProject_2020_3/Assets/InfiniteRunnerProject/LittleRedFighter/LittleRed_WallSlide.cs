@@ -17,6 +17,8 @@ namespace RB
             _listStateComponents.Add(new TriggerWallJump(ownerUnit));
             _listStateComponents.Add(new TriggerMarioStomp(ownerUnit));
 
+            ownerUnit.unitData.airControl.DashTriggered = false;
+
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_WALLSLIDE);
         }
 
