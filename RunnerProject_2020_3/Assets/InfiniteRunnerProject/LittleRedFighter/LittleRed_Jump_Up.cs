@@ -29,7 +29,7 @@ namespace RB
 
         public override void OnEnter()
         {
-            ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x, _jumpForce);
+            ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x * GameInitializer.current.fighterDataSO.HorizontalJumpVelocityMultiplier, _jumpForce);
         }
 
         public override void OnFixedUpdate()

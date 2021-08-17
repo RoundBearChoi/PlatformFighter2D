@@ -17,7 +17,8 @@ namespace RB
 
         [Space(10)]
 
-        public float JumpForce = 0f;
+        public float HorizontalJumpVelocityMultiplier = 0f;
+        public float VerticalJumpForce = 0f;
         public float JumpPullPercentagePerFixedUpdate = 0f;
         public float HorizontalAirMomentumIncreaseAmount = 0f;
         public float MaxHorizontalAirMomentum = 0f;

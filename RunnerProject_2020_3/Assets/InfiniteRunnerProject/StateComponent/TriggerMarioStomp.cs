@@ -26,7 +26,7 @@ namespace RB
                         if (collidingUnit.unitType == UnitType.LITTLE_RED_DARK ||
                             collidingUnit.unitType == UnitType.LITTLE_RED_LIGHT)
                         {
-                            _unit.unitData.listNextStates.Add(new LittleRed_Jump_Up(_unit, GameInitializer.current.fighterDataSO.JumpForce * 0.6f, false));
+                            _unit.unitData.listNextStates.Add(new LittleRed_Jump_Up(_unit, GameInitializer.current.fighterDataSO.VerticalJumpForce * 0.6f, false));
 
                             BaseMessage triggerStompedState = new Message_TriggerStompedState(collidingUnit);
                             triggerStompedState.Register();

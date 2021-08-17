@@ -16,7 +16,8 @@ MonoBehaviour:
   DefaultRunSpeed: 16
   RunSpeedLerpPercentage: 0.15
   IdleSlowDownLerpPercentage: 0.35
-  JumpForce: 33
+  HorizontalJumpVelocityMultiplier: 0.7
+  VerticalJumpForce: 33
   JumpPullPercentagePerFixedUpdate: 0.5
   HorizontalAirMomentumIncreaseAmount: 1.5
   MaxHorizontalAirMomentum: 16
@@ -29,7 +30,7 @@ MonoBehaviour:
   WallJumpHorizontalMomentum: 10
   WallFallHorizontalMomentum: 0
   MaxWallSlideFallSpeed: -13
-  CumulativeGravityForcePercentage: 1.002
+  CumulativeGravityForcePercentage: 1.001
   AttackASlowDownPercentage: 0.2
   CameraYOffset: 2.5
   Camera_z: -200
