@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace RB
 {
-    public class LittleRed_Run : UnitState
+    public class LittleRed_TurboRun : UnitState
     {
-        public LittleRed_Run(Unit unit)
+        public LittleRed_TurboRun(Unit unit)
         {
             ownerUnit = unit;
 
@@ -20,7 +20,6 @@ namespace RB
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, runspeed, BaseInitializer.current.fighterDataSO.RunSpeedLerpPercentage));
             _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit));
             _listStateComponents.Add(new TriggerFallState(ownerUnit));
-            _listStateComponents.Add(new CreateStepDust(ownerUnit));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_RUN);
         }
@@ -29,10 +28,15 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            //speed up
-            if (fixedUpdateCount > 50)
+            //show step dust
+            if (fixedUpdateCount != 0 && fixedUpdateCount % ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INTERVAL == 0)
             {
-                Debugger.Log("start speeding");
+                if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 1 ||
+                    ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 6)
+                {
+                    BaseMessage showStepDust = new Message_ShowStepDust(false, ownerUnit.transform.position - new Vector3(ownerUnit.transform.right.x * 0.025f, 0f, 0f), new Vector2(1f, 1f), 4);
+                    showStepDust.Register();
+                }
             }
 
             //when touching ground
