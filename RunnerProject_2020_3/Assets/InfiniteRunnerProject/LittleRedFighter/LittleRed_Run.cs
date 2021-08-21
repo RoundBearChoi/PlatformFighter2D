@@ -33,7 +33,8 @@ namespace RB
             //speed up
             if (fixedUpdateCount > 50)
             {
-                Debugger.Log("start speeding");
+                Debugger.Log("trigger turbo run");
+                ownerUnit.unitData.listNextStates.Add(new LittleRed_TurboRun(ownerUnit));
             }
         }
     }
