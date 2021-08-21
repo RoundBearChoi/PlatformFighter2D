@@ -12,6 +12,7 @@ namespace RB
 
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, BaseInitializer.current.fighterDataSO.IdleSlowDownLerpPercentage));
             _listStateComponents.Add(new UpdateDirectionOnInput(ownerUnit));
+            _listStateComponents.Add(new TriggerJumpUp(ownerUnit));
             _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit));
             _listStateComponents.Add(new TriggerFallState(ownerUnit));
 
@@ -25,17 +26,16 @@ namespace RB
         {
             FixedUpdateComponents();
 
+            //random blink
+            if (ownerUnit.iStateController.GetCurrentState().fixedUpdateCount % 50 == 0)
+            {
+                Debugger.Log("blink");
+            }
+
+            //jump or move
             if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM) ||
                 ownerUnit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM))
             {
-                if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.JUMP))
-                {
-                    BaseMessage jumpDustMessage = new Message_ShowJumpDust(true, ownerUnit.transform.position);
-                    jumpDustMessage.Register();
-
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Up(ownerUnit, BaseInitializer.current.fighterDataSO.VerticalJumpForce, 0));
-                }
-
                 if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_LEFT))
                 {
                     ownerUnit.unitData.listNextStates.Add(new LittleRed_Run(ownerUnit));

@@ -19,6 +19,7 @@ namespace RB
 
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, runspeed, BaseInitializer.current.fighterDataSO.RunSpeedLerpPercentage));
             _listStateComponents.Add(new TriggerJumpUp(ownerUnit));
+            _listStateComponents.Add(new TriggerIdleOnGround(ownerUnit));
             _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit));
             _listStateComponents.Add(new TriggerFallState(ownerUnit));
             _listStateComponents.Add(new CreateStepDust(ownerUnit));

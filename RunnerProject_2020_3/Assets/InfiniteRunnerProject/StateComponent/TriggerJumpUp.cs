@@ -26,16 +26,6 @@ namespace RB
                     _unit.unitData.airControl.SetMomentum(_unit.unitData.rigidBody2D.velocity.x);
                     _unit.unitData.listNextStates.Add(new LittleRed_Jump_Up(_unit, BaseInitializer.current.fighterDataSO.VerticalJumpForce, 0));
                 }
-
-                if (!_unit.USER_INPUT.commands.ContainsHold(CommandType.MOVE_RIGHT) && _unit.unitData.facingRight)
-                {
-                    _unit.unitData.listNextStates.Add(new LittleRed_Idle(_unit));
-                }
-
-                if (!_unit.USER_INPUT.commands.ContainsHold(CommandType.MOVE_LEFT) && !_unit.unitData.facingRight)
-                {
-                    _unit.unitData.listNextStates.Add(new LittleRed_Idle(_unit));
-                }
             }
         }
     }
