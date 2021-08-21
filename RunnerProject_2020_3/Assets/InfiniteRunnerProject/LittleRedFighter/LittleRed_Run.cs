@@ -22,6 +22,7 @@ namespace RB
             _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit));
             _listStateComponents.Add(new TriggerFallState(ownerUnit));
             _listStateComponents.Add(new CreateStepDust(ownerUnit));
+            _listStateComponents.Add(new SetDefaultAnimationInterval(ownerUnit));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_RUN);
         }
