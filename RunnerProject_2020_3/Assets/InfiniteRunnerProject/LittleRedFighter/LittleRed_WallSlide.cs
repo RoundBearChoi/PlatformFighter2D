@@ -13,6 +13,7 @@ namespace RB
             ownerUnit = unit;
             _maxFallVelocity = BaseInitializer.current.fighterDataSO.MaxWallSlideFallSpeed;
 
+            _listStateComponents.Add(new TriggerDashOnWallSlide(ownerUnit));
             _listStateComponents.Add(new TriggerWallSlideDust(ownerUnit));
             _listStateComponents.Add(new TriggerWallJump(ownerUnit));
             _listStateComponents.Add(new TriggerMarioStomp(ownerUnit));
