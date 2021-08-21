@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace RB
 {
-    public class TriggerLittleRedDash : StateComponent
+    public class TriggerDashInMidAir : StateComponent
     {
-        public TriggerLittleRedDash(Unit unit)
+        public TriggerDashInMidAir(Unit unit)
         {
             _unit = unit;
         }

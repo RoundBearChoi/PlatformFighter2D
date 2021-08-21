@@ -28,25 +28,10 @@ namespace RB
             FixedUpdateComponents();
 
             //random blink
-            if (ownerUnit.iStateController.GetCurrentState().fixedUpdateCount % 50 == 0)
+            if (ownerUnit.iStateController.GetCurrentState().fixedUpdateCount % 120 == 0)
             {
                 Debugger.Log("blink");
             }
-
-            //jump or move
-            //if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM) ||
-            //    ownerUnit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM))
-            //{
-            //    if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_LEFT))
-            //    {
-            //        ownerUnit.unitData.listNextStates.Add(new LittleRed_Run(ownerUnit));
-            //    }
-            //
-            //    if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_RIGHT))
-            //    {
-            //        ownerUnit.unitData.listNextStates.Add(new LittleRed_Run(ownerUnit));
-            //    }
-            //}
         }
     }
 }

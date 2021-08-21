@@ -17,7 +17,7 @@ namespace RB
             _listStateComponents.Add(new LerpHorizontalMomentumOnInput_Air(ownerUnit, BaseInitializer.current.fighterDataSO.MaxHorizontalAirMomentum));
             _listStateComponents.Add(new UpdateDirectionOnVelocity(ownerUnit));
             _listStateComponents.Add(new TriggerWallSlide(ownerUnit));
-            _listStateComponents.Add(new TriggerLittleRedDash(ownerUnit));
+            _listStateComponents.Add(new TriggerDashInMidAir(ownerUnit));
             _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_JUMP_UP);

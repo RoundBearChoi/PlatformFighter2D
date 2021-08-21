@@ -14,7 +14,7 @@ namespace RB
             _listStateComponents.Add(new UpdateDirectionOnVelocity(ownerUnit));
             _listStateComponents.Add(new TriggerWallSlide(ownerUnit));
             _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit));
-            _listStateComponents.Add(new TriggerLittleRedDash(ownerUnit));
+            _listStateComponents.Add(new TriggerDashInMidAir(ownerUnit));
             _listStateComponents.Add(new TriggerMarioStomp(ownerUnit));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_JUMP_FALL);
