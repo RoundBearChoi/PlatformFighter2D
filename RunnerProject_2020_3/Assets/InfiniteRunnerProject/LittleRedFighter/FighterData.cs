@@ -26,6 +26,10 @@ namespace RB
         public float HorizontalMomentumMultiplierOnFall = 0f;
 
         [Space(10)]
+        public float VerticalJumpForceMultiplierOnMarioStomp = 0f;
+        public uint DefaultJumpFramesOnMarioStomp = 0;
+
+        [Space(10)]
         public float DashForce = 0f;
         public float DashFixedUpdates = 0f;
         public float TrailFadeSpeed = 0f;

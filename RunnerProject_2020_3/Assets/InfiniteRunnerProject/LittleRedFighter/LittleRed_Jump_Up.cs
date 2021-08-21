@@ -8,16 +8,12 @@ namespace RB
     {
         private float _jumpForce = 0f;
 
-        public LittleRed_Jump_Up(Unit unit, float jumpForce, bool cancelJumpOnNonPress)
+        public LittleRed_Jump_Up(Unit unit, float jumpForce, uint defaultJumpFrames)
         {
             ownerUnit = unit;
             _jumpForce = jumpForce;
 
-            if (cancelJumpOnNonPress)
-            {
-                _listStateComponents.Add(new CancelJumpForceOnNonPress(ownerUnit));
-            }
-            
+            _listStateComponents.Add(new CancelJumpForceOnNonPress(ownerUnit, defaultJumpFrames));
             _listStateComponents.Add(new LerpHorizontalMomentumOnInput_Air(ownerUnit, BaseInitializer.current.fighterDataSO.MaxHorizontalAirMomentum));
             _listStateComponents.Add(new UpdateDirectionOnVelocity(ownerUnit));
             _listStateComponents.Add(new TriggerWallSlide(ownerUnit));

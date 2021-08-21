@@ -7,10 +7,12 @@ namespace RB
     public class CancelJumpForceOnNonPress : StateComponent
     {
         private bool _startPullDown = false;
+        private uint _minimumJumpUpFrames = 0;
 
-        public CancelJumpForceOnNonPress(Unit unit)
+        public CancelJumpForceOnNonPress(Unit unit, uint defaultJumpFrames)
         {
             _unit = unit;
+            _minimumJumpUpFrames = defaultJumpFrames;
         }
 
         public override void OnFixedUpdate()
@@ -19,9 +21,12 @@ namespace RB
             {
                 if (!_startPullDown)
                 {
-                    if (!_unit.USER_INPUT.commands.ContainsHold(CommandType.JUMP))
+                    if (_unit.iStateController.GetCurrentState().fixedUpdateCount > _minimumJumpUpFrames)
                     {
-                        _startPullDown = true;
+                        if (!_unit.USER_INPUT.commands.ContainsHold(CommandType.JUMP))
+                        {
+                            _startPullDown = true;
+                        }
                     }
                 }
                 else
