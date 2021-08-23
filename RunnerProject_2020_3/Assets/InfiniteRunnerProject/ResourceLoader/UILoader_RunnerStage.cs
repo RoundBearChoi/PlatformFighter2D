@@ -10,8 +10,8 @@ namespace RB
         {
             Debugger.Log("loading ui..");
 
-            LoadObj<GameUI>(UIType.GAME_UI, "GameUI");
-            LoadObj<BasicInfoLayer>(UIType.BASIC_INFO_LAYER, "BasicInfoLayer");
+            LoadObj<RunnerGameUI>(UIType.RUNNER_GAME_UI, "RunnerGameUI");
+            LoadObj<RunnerInfoLayer>(UIType.RUNNER_INFO_LAYER, "RunnerInfoLayer");
 
             LoadObj<UITest.tempUI>(UIType.UI, "tempUI");
             LoadObj<UITest.DefaultUIBlock>(UIType.DEFAULT_UI_BLOCK, "DefaultUIBlock");

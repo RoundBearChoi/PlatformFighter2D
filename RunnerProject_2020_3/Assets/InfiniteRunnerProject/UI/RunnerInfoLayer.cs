@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class BasicInfoLayer : UILayer
+    public class RunnerInfoLayer : UILayer
     {
         public override void InitLayer()
         {
