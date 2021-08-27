@@ -16,6 +16,8 @@ namespace RB
             LoadObj<UITest.tempUI>(UIType.UI, "tempUI");
             LoadObj<UITest.DefaultUIBlock>(UIType.DEFAULT_UI_BLOCK, "DefaultUIBlock");
             LoadObj<UITest.RunnerDeathNotification>(UIType.RUNNER_DEATH_NOTIFICATION, "RunnerDeathNotification");
+
+            LoadObj<FighterIntroUI>(UIType.FIGHTER_INTRO_UI, "FighterIntroUI");
         }
     }
 }

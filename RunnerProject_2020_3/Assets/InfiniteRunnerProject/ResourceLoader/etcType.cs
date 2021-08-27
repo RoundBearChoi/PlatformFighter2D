@@ -8,6 +8,7 @@ namespace RB
     {
         NONE = 0,
 
+        INTRO_CAMERA = 40,
         GAME_CAMERA = 50,
         FIGHT_CAMERA = 51,
 

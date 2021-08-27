@@ -14,11 +14,14 @@ namespace RB
         {
             _keyboard = Keyboard.current;
 
-            GameCamera gameCamera = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.GAME_CAMERA)) as GameCamera;
-            gameCamera.transform.parent = this.transform;
+            IntroCamera introCam = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.INTRO_CAMERA)) as IntroCamera;
+            introCam.transform.parent = this.transform;
 
-            _mainCam = gameCamera.GetComponent<Camera>();
+            _mainCam = introCam.GetComponent<Camera>();
             _mainCam.transform.position = new Vector3(0f, 0f, -5f);
+
+            _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.FIGHTER_INTRO_UI)) as FighterIntroUI;
+            _baseUI.transform.parent = this.transform;
         }
         
         public override void OnUpdate()

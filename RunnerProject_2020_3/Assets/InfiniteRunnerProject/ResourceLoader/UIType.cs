@@ -12,5 +12,7 @@ namespace RB
         UI,
         DEFAULT_UI_BLOCK,
         RUNNER_DEATH_NOTIFICATION,
+
+        FIGHTER_INTRO_UI,
     }
 }
