@@ -6,9 +6,9 @@ namespace RB
 {
     public class RunnerStageTransition : IStageTransition
     {
-        private GameInitializer _gameInitializer = null;
+        private BaseInitializer _gameInitializer = null;
 
-        public RunnerStageTransition(GameInitializer initializer)
+        public RunnerStageTransition(BaseInitializer initializer)
         {
             _gameInitializer = initializer;
         }

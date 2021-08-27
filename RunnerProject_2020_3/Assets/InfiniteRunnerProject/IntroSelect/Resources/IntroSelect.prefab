@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 1856601062769802640}
   - component: {fileID: 5475740620079444044}
   - component: {fileID: 612608300622851517}
-  - component: {fileID: 2023466559}
+  - component: {fileID: 6398892456214967514}
   m_Layer: 5
   m_Name: selectTest
   m_TagString: Untagged
@@ -171,8 +171,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: selectTest
---- !u!114 &2023466559
+  m_Text: press enter
+--- !u!114 &6398892456214967514
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6029631367762147097}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6dbcc675f4331c4d86de47bb44742a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 18c0c0dd29d9aa74c8354ad33c17b690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6653125108909988814
@@ -326,6 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _listOptions: []
+  _currentSelectionIndex: 0
 --- !u!1 &8154706439857458557
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ namespace RB
         public IBackgroundSetup groundSetup = null;
         public BaseNPCSetup npcSetup = null;
 
-        protected GameInitializer _gameIntializer = null;
+        protected BaseInitializer _gameIntializer = null;
 
         [SerializeField]
         protected BaseUI _baseUI = null;
@@ -50,7 +50,7 @@ namespace RB
             return null;
         }
 
-        public virtual void SetInitializer(GameInitializer gameInitializer)
+        public virtual void SetInitializer(BaseInitializer gameInitializer)
         {
             _gameIntializer = gameInitializer;
         }

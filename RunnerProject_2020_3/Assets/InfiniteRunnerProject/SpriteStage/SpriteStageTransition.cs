@@ -6,9 +6,9 @@ namespace RB
 {
     public class SpriteStageTransition : IStageTransition
     {
-        private GameInitializer _gameInitializer = null;
+        private BaseInitializer _gameInitializer = null;
 
-        public SpriteStageTransition(GameInitializer initializer)
+        public SpriteStageTransition(BaseInitializer initializer)
         {
             _gameInitializer = initializer;
         }

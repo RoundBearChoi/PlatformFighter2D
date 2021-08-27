@@ -6,9 +6,9 @@ namespace RB
 {
     public class TestStageTransition : IStageTransition
     {
-        private GameInitializer _gameInitializer = null;
+        private BaseInitializer _gameInitializer = null;
 
-        public TestStageTransition(GameInitializer initializer)
+        public TestStageTransition(BaseInitializer initializer)
         {
             _gameInitializer = initializer;
         }
