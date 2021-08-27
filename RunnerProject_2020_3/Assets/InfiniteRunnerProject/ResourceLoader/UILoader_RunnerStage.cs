@@ -18,6 +18,7 @@ namespace RB
             LoadObj<UITest.RunnerDeathNotification>(UIType.RUNNER_DEATH_NOTIFICATION, "RunnerDeathNotification");
 
             LoadObj<FighterIntroUI>(UIType.FIGHTER_INTRO_UI, "FighterIntroUI");
+            LoadObj<IntroSelectionLayer>(UIType.INTRO_SELECTION_LAYER, "IntroSelectionLayer");
         }
     }
 }

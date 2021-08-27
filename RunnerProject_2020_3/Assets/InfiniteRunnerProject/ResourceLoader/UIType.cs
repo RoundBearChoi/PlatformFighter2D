@@ -14,5 +14,6 @@ namespace RB
         RUNNER_DEATH_NOTIFICATION,
 
         FIGHTER_INTRO_UI,
+        INTRO_SELECTION_LAYER,
     }
 }
