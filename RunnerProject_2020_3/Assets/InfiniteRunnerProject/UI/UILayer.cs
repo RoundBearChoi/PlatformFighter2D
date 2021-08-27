@@ -23,18 +23,31 @@ namespace RB
             {
                 element.OnFixedUpdate();
             }
+
+            if (_uiSelection != null)
+            {
+                _uiSelection.OnFixedUpdate();
+            }
         }
 
         public virtual void OnUpdate()
         {
+            foreach (UIElement element in _uiElements)
+            {
+                element.OnUpdate();
+            }
 
+            if (_uiSelection != null)
+            {
+                _uiSelection.OnUpdate();
+            }
         }
 
         public virtual void OnLateUpdate()
         {
             foreach (UIElement element in _uiElements)
             {
-                element.OnUpdate();
+                element.OnLateUpdate();
 
                 element.messageHandler.HandleMessages();
                 element.messageHandler.ClearMessages();

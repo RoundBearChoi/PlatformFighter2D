@@ -15,8 +15,20 @@ namespace RB
         protected int _currentSelectionIndex = 0;
 
         public abstract void InitSelection();
-        public abstract void OnFixedUpdate();
-        public abstract void OnUpdate();
+        public virtual void OnFixedUpdate()
+        {
+
+        }
+
+        public virtual void OnUpdate()
+        {
+
+        }
+
+        public virtual void OnLateUpdate()
+        {
+
+        }
 
         public virtual void UpSelection()
         {
@@ -30,7 +42,7 @@ namespace RB
 
         public virtual void DownSelection()
         {
-            _currentSelectionIndex++;
+            _currentSelectionIndex--;
 
             if (_currentSelectionIndex < 0)
             {

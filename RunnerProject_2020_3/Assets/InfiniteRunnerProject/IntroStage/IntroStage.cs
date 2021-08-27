@@ -45,6 +45,13 @@ namespace RB
             {
                 _gameIntializer.stageTransitioner.AddTransition(new RunnerStageTransition(_gameIntializer));
             }
+
+            _baseUI.OnUpdate();
+        }
+
+        public override void OnFixedUpdate()
+        {
+            _baseUI.OnFixedUpdate();
         }
     }
 }

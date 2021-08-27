@@ -22,5 +22,10 @@ namespace RB
         {
 
         }
+
+        public virtual void OnLateUpdate()
+        {
+
+        }
     }
 }
