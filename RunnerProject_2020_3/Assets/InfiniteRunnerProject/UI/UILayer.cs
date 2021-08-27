@@ -7,6 +7,9 @@ namespace RB
     public abstract class UILayer : MonoBehaviour
     {
         [SerializeField]
+        protected UISelection _uiSelection;
+
+        [SerializeField]
         protected List<UIElement> _uiElements = new List<UIElement>();
 
         public virtual void InitLayer()
@@ -36,6 +39,11 @@ namespace RB
                 element.messageHandler.HandleMessages();
                 element.messageHandler.ClearMessages();
             }
+        }
+
+        public virtual void AddUISelection(UISelection selection)
+        {
+            _uiSelection = selection;
         }
 
         public virtual void AddUIElement(UIElement element)

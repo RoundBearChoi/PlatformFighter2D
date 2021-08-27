@@ -13,5 +13,7 @@ namespace RB
         FIGHT_CAMERA = 51,
 
         HP_BAR = 100,
+
+        INTRO_SELECT = 1000,
     }
 }

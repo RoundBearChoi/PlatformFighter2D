@@ -14,6 +14,8 @@ namespace RB
             LoadObj<GameCamera>(etcType.GAME_CAMERA, "GameCamera");
             LoadObj<FightCamera>(etcType.FIGHT_CAMERA, "FightCamera");
             LoadObj<EnemyHPBar>(etcType.HP_BAR, "EnemyHPBar");
+
+            LoadObj<IntroSelect>(etcType.INTRO_SELECT, "IntroSelect");
         }
     }
 }

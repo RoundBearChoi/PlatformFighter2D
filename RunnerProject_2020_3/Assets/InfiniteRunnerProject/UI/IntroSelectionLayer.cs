@@ -9,12 +9,13 @@ namespace RB
         public override void InitLayer()
         {
             Debugger.Log("starting introselectionlayer");
-            
-            //UIElement runnerHPBar = Instantiate(ResourceLoader.uiElementLoader.GetObj(UIElementType.RUNNER_HP_BAR)) as RunnerHPBar;
-            //AddUIElement(runnerHPBar);
-            //runnerHPBar.transform.SetParent(this.transform, false);
+
+            UISelection introSelect = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.INTRO_SELECT)) as UISelection;
+            AddUISelection(introSelect);
+            introSelect.transform.SetParent(this.transform, false);
+            introSelect.InitSelection();
+
             //runnerHPBar.messageHandler = new RunnerHPMessageHandler(runnerHPBar as RunnerHPBar);
-            //runnerHPBar.InitElement();
         }
     }
 }
