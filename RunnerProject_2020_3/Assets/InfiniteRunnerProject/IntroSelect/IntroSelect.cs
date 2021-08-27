@@ -23,7 +23,6 @@ namespace RB
             }
 
             _selectionArrow = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.SELECTION_ARROW)) as SelectionArrow;
-            //UpdateSelectionArrowPosition();
         }
 
         public override void OnFixedUpdate()
@@ -41,6 +40,11 @@ namespace RB
             if (_keyboard.downArrowKey.wasPressedThisFrame)
             {
                 DownSelection();
+            }
+
+            if (_keyboard.enterKey.wasPressedThisFrame)
+            {
+                _listOptions[_currentSelectionIndex].OnEnterKey();
             }
         }
 
