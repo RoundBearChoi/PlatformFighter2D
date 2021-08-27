@@ -49,6 +49,11 @@ namespace RB
             _baseUI.OnUpdate();
         }
 
+        public override void OnLateUpdate()
+        {
+            _baseUI.OnLateUpdate();
+        }
+
         public override void OnFixedUpdate()
         {
             _baseUI.OnFixedUpdate();

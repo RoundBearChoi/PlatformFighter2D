@@ -52,6 +52,11 @@ namespace RB
                 element.messageHandler.HandleMessages();
                 element.messageHandler.ClearMessages();
             }
+
+            if (_uiSelection != null)
+            {
+                _uiSelection.OnLateUpdate();
+            }
         }
 
         public virtual void AddUISelection(UISelection selection)

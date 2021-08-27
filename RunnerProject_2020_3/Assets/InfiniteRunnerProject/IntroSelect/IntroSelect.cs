@@ -21,6 +21,9 @@ namespace RB
             {
                 _listOptions.Add(option);
             }
+
+            _selectionArrow = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.SELECTION_ARROW)) as SelectionArrow;
+            //UpdateSelectionArrowPosition();
         }
 
         public override void OnFixedUpdate()
@@ -39,6 +42,11 @@ namespace RB
             {
                 DownSelection();
             }
+        }
+
+        public override void OnLateUpdate()
+        {
+            UpdateSelectionArrowPosition();
         }
     }
 }

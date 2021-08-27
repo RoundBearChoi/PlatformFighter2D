@@ -14,7 +14,10 @@ namespace RB
         [SerializeField]
         protected int _currentSelectionIndex = 0;
 
+        protected SelectionArrow _selectionArrow = null;
+
         public abstract void InitSelection();
+
         public virtual void OnFixedUpdate()
         {
 
@@ -32,6 +35,16 @@ namespace RB
 
         public virtual void UpSelection()
         {
+            _currentSelectionIndex--;
+
+            if (_currentSelectionIndex < 0)
+            {
+                _currentSelectionIndex = _listOptions.Count - 1;
+            }
+        }
+
+        public virtual void DownSelection()
+        {
             _currentSelectionIndex++;
 
             if (_currentSelectionIndex >= _listOptions.Count)
@@ -40,14 +53,9 @@ namespace RB
             }
         }
 
-        public virtual void DownSelection()
+        public virtual void UpdateSelectionArrowPosition()
         {
-            _currentSelectionIndex--;
-
-            if (_currentSelectionIndex < 0)
-            {
-                _currentSelectionIndex = _listOptions.Count - 1;
-            }
+            _selectionArrow.transform.SetParent(_listOptions[_currentSelectionIndex].transform, false);
         }
     }
 }

@@ -15,5 +15,7 @@ namespace RB
         HP_BAR = 100,
 
         INTRO_SELECT = 1000,
+
+        SELECTION_ARROW = 2000,
     }
 }

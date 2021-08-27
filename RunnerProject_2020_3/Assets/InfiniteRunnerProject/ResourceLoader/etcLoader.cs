@@ -16,6 +16,7 @@ namespace RB
             LoadObj<EnemyHPBar>(etcType.HP_BAR, "EnemyHPBar");
 
             LoadObj<IntroSelect>(etcType.INTRO_SELECT, "IntroSelect");
+            LoadObj<SelectionArrow>(etcType.SELECTION_ARROW, "SelectionArrow");
         }
     }
 }
