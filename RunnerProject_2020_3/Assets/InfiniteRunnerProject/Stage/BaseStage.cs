@@ -16,10 +16,14 @@ namespace RB
         protected GameInitializer _gameIntializer = null;
 
         [SerializeField]
+        protected BaseUI _baseUI = null;
+
+        [SerializeField]
         protected InputController _inputController = null;
 
         [SerializeField]
-        protected BaseUI _baseUI = null;
+        protected InputType _currentInputSelection = InputType.PLAYER_ONE;
+        protected InputType _prevInputSelection = InputType.NONE;
 
         public virtual void Init()
         {
@@ -94,6 +98,18 @@ namespace RB
         public virtual float GetCumulativeGravityForcePercentage()
         {
             return 0f;
+        }
+
+        public virtual void ClearInput()
+        {
+            _inputController.GetUserInput(_currentInputSelection).commands.ClearKeyPressDictionary();
+            _inputController.GetUserInput(_currentInputSelection).commands.ClearButtonPressDictionary();
+
+            if (_currentInputSelection != _prevInputSelection)
+            {
+                _inputController.ClearAllKeysAndButtons();
+                _prevInputSelection = _currentInputSelection;
+            }
         }
     }
 }

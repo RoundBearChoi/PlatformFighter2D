@@ -6,10 +6,6 @@ namespace RB
 {
     public class FightStage : BaseStage
     {
-        [SerializeField]
-        private InputType _currentInputSelection = InputType.PLAYER_ONE;
-        private InputType _prevInputSelection = InputType.NONE;
-
         public override void Init()
         {
             units = new Units(this);
@@ -88,14 +84,7 @@ namespace RB
             cameraScript.OnFixedUpdate();
             units.OnFixedUpdate();
 
-            _inputController.GetUserInput(_currentInputSelection).commands.ClearKeyPressDictionary();
-            _inputController.GetUserInput(_currentInputSelection).commands.ClearButtonPressDictionary();
-
-            if (_currentInputSelection != _prevInputSelection)
-            {
-                _inputController.ClearAllKeysAndButtons();
-                _prevInputSelection = _currentInputSelection;
-            }
+            ClearInput();
         }
 
         public override void OnLateUpdate()
