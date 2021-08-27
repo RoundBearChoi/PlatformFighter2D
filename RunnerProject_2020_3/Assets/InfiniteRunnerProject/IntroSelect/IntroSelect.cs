@@ -6,6 +6,16 @@ namespace RB
 {
     public class IntroSelect : UISelection
     {
+        public override void InitSelection()
+        {
+            _listOptions.Clear();
 
+            UIOption[] arr = this.gameObject.GetComponentsInChildren<UIOption>();
+
+            foreach(UIOption option in arr)
+            {
+                _listOptions.Add(option);
+            }
+        }
     }
 }
