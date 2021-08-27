@@ -17,5 +17,15 @@ namespace RB
                 _listOptions.Add(option);
             }
         }
+
+        public override void OnFixedUpdate()
+        {
+
+        }
+
+        public override void OnUpdate()
+        {
+
+        }
     }
 }

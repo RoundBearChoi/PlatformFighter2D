@@ -7,22 +7,35 @@ namespace RB
     public abstract class UISelection : MonoBehaviour
     {
         //public BaseMessageHandler messageHandler = null;
+
         [SerializeField]
         protected List<UIOption> _listOptions = new List<UIOption>();
 
-        public virtual void InitSelection()
-        {
+        [SerializeField]
+        protected int _currentSelectionIndex = 0;
 
+        public abstract void InitSelection();
+        public abstract void OnFixedUpdate();
+        public abstract void OnUpdate();
+
+        public virtual void UpSelection()
+        {
+            _currentSelectionIndex++;
+
+            if (_currentSelectionIndex >= _listOptions.Count)
+            {
+                _currentSelectionIndex = 0;
+            }
         }
 
-        public virtual void OnFixedUpdate()
+        public virtual void DownSelection()
         {
+            _currentSelectionIndex++;
 
-        }
-
-        public virtual void OnUpdate()
-        {
-
+            if (_currentSelectionIndex < 0)
+            {
+                _currentSelectionIndex = _listOptions.Count - 1;
+            }
         }
     }
 }
