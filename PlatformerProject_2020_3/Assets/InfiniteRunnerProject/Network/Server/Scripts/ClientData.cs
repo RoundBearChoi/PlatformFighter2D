@@ -92,7 +92,7 @@ namespace RB.Server
                     int _byteLength = stream.EndRead(_result);
                     if (_byteLength <= 0)
                     {
-                        NetworkManager.instance.server.connectedClients[_id].Disconnect();
+                        NetworkManager.instance.server.clients[_id].Disconnect();
                         return;
                     }
 
@@ -105,7 +105,7 @@ namespace RB.Server
                 catch (Exception _ex)
                 {
                     Debug.Log($"Error receiving TCP data: {_ex}");
-                    NetworkManager.instance.server.connectedClients[_id].Disconnect();
+                    NetworkManager.instance.server.clients[_id].Disconnect();
                 }
             }
 

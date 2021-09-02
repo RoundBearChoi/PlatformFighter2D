@@ -11,7 +11,7 @@ namespace RB.Server
     [Serializable]
     public class Server
     {
-        public ClientData[] connectedClients = null;
+        public ClientData[] clients = null;
 
         public int Port { get; private set; }
 
@@ -46,11 +46,11 @@ namespace RB.Server
             tcpListener.BeginAcceptTcpClient(TCPConnectCallback, null);
             Debug.Log($"Incoming connection from {_client.Client.RemoteEndPoint}...");
 
-            for (int i = 0; i < connectedClients.Length; i++)
+            for (int i = 0; i < clients.Length; i++)
             {
-                if (connectedClients[i].tcp.socket == null)
+                if (clients[i].tcp.socket == null)
                 {
-                    connectedClients[i].tcp.Connect(_client);
+                    clients[i].tcp.Connect(_client);
                     return;
                 }
             }
@@ -76,17 +76,17 @@ namespace RB.Server
                 {
                     int _clientId = _packet.ReadInt();
 
-                    if (connectedClients[_clientId].udp.endPoint == null)
+                    if (clients[_clientId].udp.endPoint == null)
                     {
                         // If this is a new connection
-                        connectedClients[_clientId].udp.Connect(_clientEndPoint);
+                        clients[_clientId].udp.Connect(_clientEndPoint);
                         return;
                     }
 
-                    if (connectedClients[_clientId].udp.endPoint.ToString() == _clientEndPoint.ToString())
+                    if (clients[_clientId].udp.endPoint.ToString() == _clientEndPoint.ToString())
                     {
                         // Ensures that the client is not being impersonated by another by sending a false clientID
-                        connectedClients[_clientId].udp.HandleData(_packet);
+                        clients[_clientId].udp.HandleData(_packet);
                     }
                 }
             }
@@ -117,15 +117,15 @@ namespace RB.Server
         /// <summary>Initializes all necessary server data.</summary>
         private void InitClientData()
         {
-            if (connectedClients == null)
+            if (clients == null)
             {
-                connectedClients = new ClientData[3];
+                clients = new ClientData[3];
             }
 
-            for (int i = 0; i < connectedClients.Length; i++)
+            for (int i = 0; i < clients.Length; i++)
             {
-                connectedClients[i] = new ClientData(i);
-                connectedClients[i].SetUserName("not connected yet");
+                clients[i] = new ClientData(i);
+                clients[i].SetUserName("not connected yet");
             }
 
             packetHandlers = new Dictionary<int, PacketHandler>()
