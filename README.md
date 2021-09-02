@@ -1,4 +1,4 @@
-# 2D Platform Fighter
+# Platform Fighter 2D
 
 ![August2021_screenshot](https://i.imgur.com/xEwehC8.jpg)
 
