@@ -119,7 +119,7 @@ namespace RB.Server
         {
             if (connectedClients == null)
             {
-                connectedClients = new ClientData[4];
+                connectedClients = new ClientData[3];
             }
 
             for (int i = 0; i < connectedClients.Length; i++)
