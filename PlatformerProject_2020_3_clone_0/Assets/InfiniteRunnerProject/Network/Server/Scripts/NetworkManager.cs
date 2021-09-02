@@ -11,10 +11,6 @@ namespace RB.Server
         public Server server = null;
         public ServerSend serverSend = null;
 
-        [Space(10)]
-
-        public GameObject playerPrefab;
-
         private void Awake()
         {
             if (instance == null)
@@ -34,7 +30,7 @@ namespace RB.Server
             Application.targetFrameRate = 30;
 
             server = new Server();
-            server.Start(26950);
+            server.OpenServer(26950);
 
             serverSend = new ServerSend();
         }

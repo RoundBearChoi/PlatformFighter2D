@@ -258,6 +258,9 @@ namespace RB.Server
             {
                 //UnityEngine.Object.Destroy(playerData.gameObject);
                 //playerData = null;
+
+                _name = "disconnected";
+                _inputs = null;
             });
 
             tcp.Disconnect();

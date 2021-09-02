@@ -11,7 +11,7 @@ namespace RB.Server
     [Serializable]
     public class Server
     {
-        public ClientData[] connectedClients = new ClientData[4];
+        public ClientData[] connectedClients = null;
 
         public int Port { get; private set; }
 
@@ -24,12 +24,10 @@ namespace RB.Server
         /// <summary>Starts the server.</summary>
         /// <param name="_maxPlayers">The maximum players that can be connected simultaneously.</param>
         /// <param name="_port">The port to start the server on.</param>
-        public void Start(int _port)
+        public void OpenServer(int _port)
         {
             Port = _port;
-
-            Debug.Log("Starting server...");
-            InitializeServerData();
+            InitClientData();
 
             tcpListener = new TcpListener(IPAddress.Any, Port);
             tcpListener.Start();
@@ -117,11 +115,17 @@ namespace RB.Server
         }
 
         /// <summary>Initializes all necessary server data.</summary>
-        private void InitializeServerData()
+        private void InitClientData()
         {
-            for (int i = 0; i < 4; i++)
+            if (connectedClients == null)
+            {
+                connectedClients = new ClientData[4];
+            }
+
+            for (int i = 0; i < connectedClients.Length; i++)
             {
                 connectedClients[i] = new ClientData(i);
+                connectedClients[i].SetUserName("not connected yet");
             }
 
             packetHandlers = new Dictionary<int, PacketHandler>()
