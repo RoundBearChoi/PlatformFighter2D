@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aefdc852686675a45a4e84c8bb79cff2, type: 3}
+  m_Name: Runner_Attack_B_OverlapBoxCollisionData
+  m_EditorClassIdentifier: 
+  overlapBoxDataType: 2
+  listSpecs:
+  - mTargetSpriteIndex: 1
+    mMaxHits: 1
+    mStopFrames: 6
+    mContactFilter2D:
+      useTriggers: 0
+      useLayerMask: 0
+      useDepth: 0
+      useOutsideDepth: 0
+      useNormalAngle: 0
+      useOutsideNormalAngle: 0
+      layerMask:
+        serializedVersion: 2
+        m_Bits: 0
+      minDepth: 0
+      maxDepth: 0
+      minNormalAngle: 0
+      maxNormalAngle: 0
+    mlistBounds:
+    - mRelativePoint: {x: 0.96, y: 2.31}
+      mSize: {x: 2.96, y: 0.49}
+      mAngle: 0
+    - mRelativePoint: {x: 0.51, y: 1.33}
+      mSize: {x: 4.21, y: 1.37}
+      mAngle: 0
+  pushForce: {x: 3, y: 7.5}
+  cameraShakeFrames: 7
+  cameraShakeAmount: 0.65
