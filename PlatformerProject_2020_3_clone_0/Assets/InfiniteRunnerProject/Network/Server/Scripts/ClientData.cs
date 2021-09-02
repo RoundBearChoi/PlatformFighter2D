@@ -14,36 +14,37 @@ namespace RB.Server
         public static int dataBufferSize = 4096;
 
         [SerializeField]
-        int _id;
-
-        [SerializeField]
         string _name;
-
-        [SerializeField]
-        bool[] _inputs;
 
         public TCP tcp;
         public UDP udp;
 
+        [SerializeField]
+        bool[] _inputs;
+
         public ClientData(int _clientId)
         {
-            _id = _clientId;
-            tcp = new TCP(_id);
-            udp = new UDP(_id);
+            tcp = new TCP(_clientId);
+            udp = new UDP(_clientId);
         }
 
+        [System.Serializable]
         public class TCP
         {
-            public TcpClient socket;
+            [SerializeField]
+            private int _id;
 
-            private readonly int id;
+            [SerializeField]
+            private bool _connected = false;
+
+            public TcpClient socket;
             private NetworkStream stream;
             private Packet receivedData;
             private byte[] receiveBuffer;
 
-            public TCP(int _id)
+            public TCP(int id)
             {
-                id = _id;
+                _id = id;
             }
 
             /// <summary>Initializes the newly connected client's TCP-related info.</summary>
@@ -61,7 +62,9 @@ namespace RB.Server
 
                 stream.BeginRead(receiveBuffer, 0, dataBufferSize, ReceiveCallback, null);
 
-                NetworkManager.instance.serverSend.Welcome(id, "Welcome to the server!");
+                NetworkManager.instance.serverSend.Welcome(_id, "Welcome to the server!");
+
+                _connected = true;
             }
 
             /// <summary>Sends data to the client via TCP.</summary>
@@ -77,7 +80,7 @@ namespace RB.Server
                 }
                 catch (Exception _ex)
                 {
-                    Debug.Log($"Error sending data to player {id} via TCP: {_ex}");
+                    Debug.Log($"Error sending data to player {_id} via TCP: {_ex}");
                 }
             }
 
@@ -89,7 +92,7 @@ namespace RB.Server
                     int _byteLength = stream.EndRead(_result);
                     if (_byteLength <= 0)
                     {
-                        NetworkManager.instance.server.connectedClients[id].Disconnect();
+                        NetworkManager.instance.server.connectedClients[_id].Disconnect();
                         return;
                     }
 
@@ -102,7 +105,7 @@ namespace RB.Server
                 catch (Exception _ex)
                 {
                     Debug.Log($"Error receiving TCP data: {_ex}");
-                    NetworkManager.instance.server.connectedClients[id].Disconnect();
+                    NetworkManager.instance.server.connectedClients[_id].Disconnect();
                 }
             }
 
@@ -134,7 +137,7 @@ namespace RB.Server
                         using (Packet _packet = new Packet(_packetBytes))
                         {
                             int _packetId = _packet.ReadInt();
-                            NetworkManager.instance.server.packetHandlers[_packetId](id, _packet); // Call appropriate method to handle the packet
+                            NetworkManager.instance.server.packetHandlers[_packetId](_id, _packet); // Call appropriate method to handle the packet
                         }
                     });
 
@@ -167,6 +170,7 @@ namespace RB.Server
                 receivedData = null;
                 receiveBuffer = null;
                 socket = null;
+                _connected = false;
             }
         }
 
