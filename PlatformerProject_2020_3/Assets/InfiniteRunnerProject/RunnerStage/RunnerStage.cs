@@ -31,6 +31,7 @@ namespace RB
 
             _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.RUNNER_GAME_UI)) as RunnerGameUI;
             _baseUI.transform.parent = this.transform;
+            _baseUI.Init();
 
             backgroundSetup = new SwampSetup();
             backgroundSetup.InstantiateBaseLayer();

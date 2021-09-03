@@ -16,14 +16,13 @@ namespace RB
         {
             get
             {
+                if (_canvas == null)
+                {
+                    _canvas = this.gameObject.GetComponentInChildren<Canvas>();
+                }
+
                 return _canvas;
             }
-        }
-
-        private void Start()
-        {
-            _canvas = this.gameObject.GetComponentInChildren<Canvas>();
-            Init();
         }
 
         public virtual void Init()

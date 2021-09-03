@@ -15,5 +15,7 @@ namespace RB
 
         FIGHTER_INTRO_UI,
         INTRO_SELECTION_LAYER,
+
+        HOST_GAME_UI,
     }
 }

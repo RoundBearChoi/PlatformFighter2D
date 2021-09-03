@@ -22,6 +22,8 @@ namespace RB
 
             _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.FIGHTER_INTRO_UI)) as FighterIntroUI;
             _baseUI.transform.parent = this.transform;
+
+            _baseUI.Init();
         }
         
         public override void OnUpdate()

@@ -19,6 +19,8 @@ namespace RB
 
             LoadObj<FighterIntroUI>(UIType.FIGHTER_INTRO_UI, "FighterIntroUI");
             LoadObj<IntroSelectionLayer>(UIType.INTRO_SELECTION_LAYER, "IntroSelectionLayer");
+
+            LoadObj<HostGameUI>(UIType.HOST_GAME_UI, "HostGameUI");
         }
     }
 }
