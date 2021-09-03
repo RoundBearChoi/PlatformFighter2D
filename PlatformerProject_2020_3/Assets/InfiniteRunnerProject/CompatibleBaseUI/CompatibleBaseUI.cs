@@ -10,26 +10,26 @@ namespace RB
         {
             if (baseUIType == BaseUIType.RUNNER_GAME_UI)
             {
-                RunnerInfoLayer basicInfoLayer = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.RUNNER_INFO_LAYER)) as RunnerInfoLayer;
-                AddUILayer(basicInfoLayer);
-                basicInfoLayer.transform.SetParent(CANVAS.transform, false);
-                basicInfoLayer.InitLayer();
+                CompatibleUILayer layer = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_UI_LAYER)) as CompatibleUILayer;
+                AddUILayer(layer);
+                layer.transform.SetParent(CANVAS.transform, false);
+                layer.InitLayer(UILayerType.RUNNER_INFO);
             }
 
             else if (baseUIType == BaseUIType.FIGHTER_INTRO_UI)
             {
-                IntroSelectionLayer introSelectionLayer = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.INTRO_SELECTION_LAYER)) as IntroSelectionLayer;
-                AddUILayer(introSelectionLayer);
-                introSelectionLayer.transform.SetParent(CANVAS.transform, false);
-                introSelectionLayer.InitLayer();
+                CompatibleUILayer layer = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_UI_LAYER)) as CompatibleUILayer;
+                AddUILayer(layer);
+                layer.transform.SetParent(CANVAS.transform, false);
+                layer.InitLayer(UILayerType.INTRO_SELECTION);
             }
 
             else if (baseUIType == BaseUIType.HOST_GAME_UI)
             {
-                HostGameLayer hostGameLayer = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.HOST_GAME_LAYER)) as HostGameLayer;
-                AddUILayer(hostGameLayer);
-                hostGameLayer.transform.SetParent(CANVAS.transform, false);
-                hostGameLayer.InitLayer();
+                CompatibleUILayer layer = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_UI_LAYER)) as CompatibleUILayer;
+                AddUILayer(layer);
+                layer.transform.SetParent(CANVAS.transform, false);
+                layer.InitLayer(UILayerType.HOST_GAME);
             }
         }
     }

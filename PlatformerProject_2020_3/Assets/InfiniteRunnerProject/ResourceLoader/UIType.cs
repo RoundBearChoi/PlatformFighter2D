@@ -7,10 +7,7 @@ namespace RB
     public enum UIType
     {
         COMPATIBLE_BASE_UI,
-
-        RUNNER_INFO_LAYER,
-        INTRO_SELECTION_LAYER,
-        HOST_GAME_LAYER,
+        COMPATIBLE_UI_LAYER,
         
         //temp
         UI,

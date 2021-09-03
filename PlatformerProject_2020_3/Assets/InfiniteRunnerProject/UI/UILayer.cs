@@ -12,7 +12,7 @@ namespace RB
         [SerializeField]
         protected List<UIElement> _uiElements = new List<UIElement>();
 
-        public virtual void InitLayer()
+        public virtual void InitLayer(UILayerType uiLayerType)
         {
 
         }
