@@ -260,9 +260,6 @@ namespace RB.Server
 
             ThreadManager.ExecuteOnMainThread(() =>
             {
-                //UnityEngine.Object.Destroy(playerData.gameObject);
-                //playerData = null;
-
                 _name = "disconnected";
                 _inputs = null;
             });

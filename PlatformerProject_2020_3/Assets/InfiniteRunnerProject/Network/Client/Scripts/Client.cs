@@ -19,7 +19,6 @@ namespace RB.Client
         public TCP tcp;
         public UDP udp;
 
-        private bool isConnected = false;
         private delegate void PacketHandler(Packet _packet);
         private static Dictionary<int, PacketHandler> packetHandlers;
 
@@ -38,6 +37,11 @@ namespace RB.Client
 
         private void Start()
         {
+            SetupTCPUDP();
+        }
+
+        public void SetupTCPUDP()
+        {
             tcp = new TCP();
             udp = new UDP();
         }
@@ -50,9 +54,9 @@ namespace RB.Client
         /// <summary>Attempts to connect to the server.</summary>
         public void ConnectToServer()
         {
-            InitializeClientData();
+            InitClientData();
 
-            isConnected = true;
+            Debug.Log("attempting to connect");
             tcp.Connect(); // Connect tcp, udp gets connected once tcp is done
         }
 
@@ -80,18 +84,30 @@ namespace RB.Client
             /// <summary>Initializes the newly connected client's TCP-related info.</summary>
             private void ConnectCallback(IAsyncResult _result)
             {
-                socket.EndConnect(_result);
-
-                if (!socket.Connected)
+                try
                 {
-                    return;
+                    socket.EndConnect(_result);
+
+                    if (!socket.Connected)
+                    {
+                        return;
+                    }
+
+                    stream = socket.GetStream();
+
+                    receivedData = new Packet();
+
+                    stream.BeginRead(receiveBuffer, 0, dataBufferSize, ReceiveCallback, null);
                 }
+                catch(Exception e)
+                {
+                    Debug.Log("attempt failed: " + e);
 
-                stream = socket.GetStream();
-
-                receivedData = new Packet();
-
-                stream.BeginRead(receiveBuffer, 0, dataBufferSize, ReceiveCallback, null);
+                    ThreadManager.ExecuteOnMainThread(() =>
+                    {
+                        UIManager.instance.ShowMenu();
+                    });
+                }
             }
 
             /// <summary>Sends data to the client via TCP.</summary>
@@ -296,7 +312,7 @@ namespace RB.Client
         }
 
         /// <summary>Initializes all necessary client data.</summary>
-        private void InitializeClientData()
+        private void InitClientData()
         {
             packetHandlers = new Dictionary<int, PacketHandler>()
         {
@@ -305,20 +321,29 @@ namespace RB.Client
             { (int)ServerPackets.playerPosition, ClientHandle.PlayerPosition },
             //{ (int)ServerPackets.playerRotation, ClientHandle.PlayerRotation },
         };
-            Debug.Log("Initialized packets.");
+
+            Debug.Log("initialized clientdata");
         }
 
         /// <summary>Disconnects from the server and stops all network traffic.</summary>
         private void Disconnect()
         {
-            if (isConnected)
+            if (tcp.socket != null)
             {
-                isConnected = false;
-                tcp.socket.Close();
-                udp.socket.Close();
-
-                Debug.Log("Disconnected from server.");
+                if (tcp.socket.Connected)
+                {
+                    tcp.socket.Close();
+                    udp.socket.Close();
+                }
             }
+
+            Debug.Log("Disconnected from server.");
+
+            ThreadManager.ExecuteOnMainThread(() =>
+            {
+                SetupTCPUDP();
+                UIManager.instance.ShowMenu();
+            });
         }
     }
 }

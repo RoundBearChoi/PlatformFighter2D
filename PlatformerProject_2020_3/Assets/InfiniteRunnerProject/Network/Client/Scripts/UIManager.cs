@@ -28,9 +28,20 @@ namespace RB.Client
         /// <summary>Attempts to connect to the server.</summary>
         public void ConnectToServer()
         {
+            HideMenu();
+            Client.instance.ConnectToServer();
+        }
+
+        public void HideMenu()
+        {
             startMenu.SetActive(false);
             usernameField.interactable = false;
-            Client.instance.ConnectToServer();
+        }
+
+        public void ShowMenu()
+        {
+            startMenu.SetActive(true);
+            usernameField.interactable = true;
         }
     }
 }
