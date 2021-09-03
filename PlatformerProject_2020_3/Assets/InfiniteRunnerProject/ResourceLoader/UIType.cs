@@ -12,7 +12,6 @@ namespace RB
         INTRO_SELECT,
         HOST_GAME_SELECT,
 
-        HP_BAR,
         SELECTION_ARROW,
 
         //temp

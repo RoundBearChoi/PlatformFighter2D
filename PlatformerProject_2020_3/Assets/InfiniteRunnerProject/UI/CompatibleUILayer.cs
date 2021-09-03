@@ -35,6 +35,12 @@ namespace RB
                 AddUISelection(hostGameSelect);
                 hostGameSelect.transform.SetParent(this.transform, false);
                 hostGameSelect.InitSelection();
+
+                UIElement waiting = Instantiate(ResourceLoader.uiElementLoader.GetObj(UIElementType.WAITING_FOR_PLAYERS)) as WaitingForPlayers;
+                
+                AddUIElement(waiting);
+                waiting.transform.SetParent(this.transform, false);
+                waiting.InitElement();
             }
         }
     }

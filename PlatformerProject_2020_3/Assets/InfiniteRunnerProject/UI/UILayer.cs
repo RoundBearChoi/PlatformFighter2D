@@ -49,8 +49,11 @@ namespace RB
             {
                 element.OnLateUpdate();
 
-                element.messageHandler.HandleMessages();
-                element.messageHandler.ClearMessages();
+                if (element.messageHandler != null)
+                {
+                    element.messageHandler.HandleMessages();
+                    element.messageHandler.ClearMessages();
+                }
             }
 
             if (_uiSelection != null)

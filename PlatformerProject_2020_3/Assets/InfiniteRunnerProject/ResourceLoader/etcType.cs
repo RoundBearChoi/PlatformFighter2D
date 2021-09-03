@@ -8,8 +8,10 @@ namespace RB
     {
         NONE = 0,
 
-        INTRO_CAMERA = 40,
-        GAME_CAMERA = 50,
-        FIGHT_CAMERA = 51,
+        INTRO_CAMERA,
+        GAME_CAMERA,
+        FIGHT_CAMERA,
+
+        HP_BAR,
     }
 }

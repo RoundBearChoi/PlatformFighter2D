@@ -22,7 +22,6 @@ namespace RB
             LoadObj<HostGameSelect>(UIType.HOST_GAME_SELECT, "HostGameSelect");
 
             //ui elements
-            LoadObj<EnemyHPBar>(UIType.HP_BAR, "EnemyHPBar");
             LoadObj<SelectionArrow>(UIType.SELECTION_ARROW, "SelectionArrow");
         }
     }

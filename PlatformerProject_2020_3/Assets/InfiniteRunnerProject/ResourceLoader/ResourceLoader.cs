@@ -11,7 +11,7 @@ namespace RB
         public static etcLoader etcLoader = null;
         public static UnitLoader unitLoader = null;
         public static UILoader uiLoader = null;
-        public static UIElementLoader_RunnerStage uiElementLoader = null;
+        public static UIElementLoader uiElementLoader = null;
 
         static Dictionary<string, Sprite[]> _dicSpriteSets = new Dictionary<string, Sprite[]>();
 
@@ -22,7 +22,7 @@ namespace RB
             etcLoader = new etcLoader();
             unitLoader = new UnitLoader();
             uiLoader = new UILoader();
-            uiElementLoader = new UIElementLoader_RunnerStage();
+            uiElementLoader = new UIElementLoader();
 
             _dicSpriteSets.Clear();
         }
