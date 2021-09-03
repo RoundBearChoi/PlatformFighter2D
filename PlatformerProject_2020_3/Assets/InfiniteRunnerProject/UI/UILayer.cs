@@ -64,11 +64,21 @@ namespace RB
 
         public virtual void AddUISelection(UISelection selection)
         {
+            //clear anchor (left, right, top, bottom)
+            RectTransform rect = selection.GetComponent<RectTransform>();
+            rect.offsetMax = Vector2.zero;
+            rect.offsetMin = Vector2.zero;
+
             _uiSelection = selection;
         }
 
         public virtual void AddUIElement(UIElement element)
         {
+            //clear anchor (left, right, top, bottom)
+            RectTransform rect = element.GetComponent<RectTransform>();
+            rect.offsetMax = Vector2.zero;
+            rect.offsetMin = Vector2.zero;
+
             _uiElements.Add(element);
         }
     }

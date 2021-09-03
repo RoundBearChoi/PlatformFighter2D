@@ -31,7 +31,7 @@ namespace RB
             else if (uiLayerType == UILayerType.HOST_GAME)
             {
                 HostGameSelect hostGameSelect = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.HOST_GAME_SELECT)) as HostGameSelect;
-
+                
                 AddUISelection(hostGameSelect);
                 hostGameSelect.transform.SetParent(this.transform, false);
                 hostGameSelect.InitSelection();
