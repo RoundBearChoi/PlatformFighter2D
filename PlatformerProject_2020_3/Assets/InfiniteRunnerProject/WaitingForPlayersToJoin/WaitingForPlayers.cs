@@ -6,6 +6,9 @@ namespace RB
 {
     public class WaitingForPlayers : UIElement
     {
-
+        public override void OnFixedUpdate()
+        {
+            UpdateSpriteAnimation();
+        }
     }
 }

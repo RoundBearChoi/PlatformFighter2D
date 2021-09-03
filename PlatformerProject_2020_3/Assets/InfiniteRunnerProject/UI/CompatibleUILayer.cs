@@ -37,7 +37,8 @@ namespace RB
                 hostGameSelect.InitSelection();
 
                 UIElement waiting = Instantiate(ResourceLoader.uiElementLoader.GetObj(UIElementType.WAITING_FOR_PLAYERS)) as WaitingForPlayers;
-                
+                waiting.FindChildAnimations();
+
                 AddUIElement(waiting);
                 waiting.transform.SetParent(this.transform, false);
                 waiting.InitElement();
