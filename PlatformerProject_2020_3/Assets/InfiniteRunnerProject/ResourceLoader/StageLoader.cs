@@ -15,6 +15,8 @@ namespace RB
             LoadObj<RunnerStage>(StageType.RUNNER_STAGE, "RunnerStage");
             LoadObj<FightStage>(StageType.FIGHT_STAGE, "FightStage");
             LoadObj<SpriteStage>(StageType.SPRITE_STAGE, "SpriteStage");
+
+            LoadObj<HostGameStage>(StageType.HOST_GAME_STAGE, "HostGameStage");
         }
     }
 }

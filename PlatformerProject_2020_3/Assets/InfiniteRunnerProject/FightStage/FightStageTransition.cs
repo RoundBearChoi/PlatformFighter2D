@@ -18,6 +18,7 @@ namespace RB
             ResourceLoader.LoadFightStage();
 
             BaseStage runnerStage = GameObject.Instantiate(ResourceLoader.stageLoader.GetObj(StageType.FIGHT_STAGE)) as BaseStage;
+
             runnerStage.SetInitializer(_gameInitializer);
             runnerStage.transform.parent = _gameInitializer.transform;
             runnerStage.transform.localPosition = new Vector3(0f, 0f, 0f);

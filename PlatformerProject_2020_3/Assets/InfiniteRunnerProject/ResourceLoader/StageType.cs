@@ -12,5 +12,7 @@ namespace RB
         SPRITE_STAGE = 3,
 
         FIGHT_STAGE = 100,
+
+        HOST_GAME_STAGE = 500,
     }
 }

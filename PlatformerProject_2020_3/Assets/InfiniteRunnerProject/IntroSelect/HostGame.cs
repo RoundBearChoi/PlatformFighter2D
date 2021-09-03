@@ -8,7 +8,7 @@ namespace RB
     {
         public override void OnEnterKey()
         {
-            Debugger.Log("starting host setup");
+            GameInitializer.current.stageTransitioner.AddTransition(new HostGameTransition(GameInitializer.current));
         }
     }
 }

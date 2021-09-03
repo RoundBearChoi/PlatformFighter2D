@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class TestGamingScene : UIOption
+    public class StartTestGamingStage : UIOption
     {
         public override void OnEnterKey()
         {

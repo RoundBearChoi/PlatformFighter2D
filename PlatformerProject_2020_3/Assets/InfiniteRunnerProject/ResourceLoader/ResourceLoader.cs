@@ -41,6 +41,11 @@ namespace RB
             unitLoader.LoadHitEffects();
         }
 
+        public static void LoadHostGameStage()
+        {
+
+        }
+
         public static Sprite[] LoadSpriteBySpec(UnitCreationSpec creationSpec, SpriteAnimationSpec spriteSpec)
         {
             int index = 0;
