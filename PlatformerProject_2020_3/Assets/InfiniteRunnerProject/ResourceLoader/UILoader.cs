@@ -18,6 +18,7 @@ namespace RB
 
             LoadObj<RunnerInfoLayer>(UIType.RUNNER_INFO_LAYER, "RunnerInfoLayer");
             LoadObj<IntroSelectionLayer>(UIType.INTRO_SELECTION_LAYER, "IntroSelectionLayer");
+            LoadObj<HostGameLayer>(UIType.HOST_GAME_LAYER, "HostGameLayer");
         }
     }
 }

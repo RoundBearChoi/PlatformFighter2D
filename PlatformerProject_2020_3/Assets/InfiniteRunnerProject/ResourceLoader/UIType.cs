@@ -10,6 +10,7 @@ namespace RB
 
         RUNNER_INFO_LAYER,
         INTRO_SELECTION_LAYER,
+        HOST_GAME_LAYER,
         
         //temp
         UI,
