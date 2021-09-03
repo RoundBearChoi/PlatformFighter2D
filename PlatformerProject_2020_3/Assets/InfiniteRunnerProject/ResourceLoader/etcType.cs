@@ -15,6 +15,7 @@ namespace RB
         HP_BAR = 100,
 
         INTRO_SELECT = 1000,
+        HOST_GAME_SELECT = 1001,
 
         SELECTION_ARROW = 2000,
     }

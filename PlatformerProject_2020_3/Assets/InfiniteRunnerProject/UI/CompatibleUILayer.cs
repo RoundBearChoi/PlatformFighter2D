@@ -18,6 +18,7 @@ namespace RB
 
                 runnerHPBar.messageHandler = new RunnerHPMessageHandler(runnerHPBar as RunnerHPBar);
             }
+
             else if (uiLayerType == UILayerType.INTRO_SELECTION)
             {
                 UISelection introSelect = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.INTRO_SELECT)) as UISelection;
@@ -25,6 +26,15 @@ namespace RB
                 AddUISelection(introSelect);
                 introSelect.transform.SetParent(this.transform, false);
                 introSelect.InitSelection();
+            }
+
+            else if (uiLayerType == UILayerType.HOST_GAME)
+            {
+                HostGameSelect hostGameSelect = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.HOST_GAME_SELECT)) as HostGameSelect;
+
+                AddUISelection(hostGameSelect);
+                hostGameSelect.transform.SetParent(this.transform, false);
+                hostGameSelect.InitSelection();
             }
         }
     }
