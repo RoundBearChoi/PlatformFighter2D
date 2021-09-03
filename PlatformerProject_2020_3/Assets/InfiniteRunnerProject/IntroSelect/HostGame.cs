@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace RB
 {
-    public class EnterFightStageOption : UIOption
+    public class HostGame : UIOption
     {
         public override void OnEnterKey()
         {
-            GameInitializer.current.stageTransitioner.AddTransition(new FightStageTransition(GameInitializer.current));
+            Debugger.Log("starting host setup");
         }
     }
 }

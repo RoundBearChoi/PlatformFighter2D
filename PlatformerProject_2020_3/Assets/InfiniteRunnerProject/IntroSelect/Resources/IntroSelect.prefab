@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 6746154570620236510}
   - component: {fileID: 3857694410813974698}
   - component: {fileID: 1969817117}
+  - component: {fileID: 1140875909}
   m_Layer: 5
-  m_Name: selectTest (1)
+  m_Name: host game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +80,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: selectTest
+  m_Text: host game
 --- !u!114 &1969817117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,6 +91,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6dbcc675f4331c4d86de47bb44742a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1140875909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4183054727374939096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ff0c118f5457a48bc2150976c7cefd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6029631367762147097
@@ -105,7 +118,7 @@ GameObject:
   - component: {fileID: 612608300622851517}
   - component: {fileID: 6398892456214967514}
   m_Layer: 5
-  m_Name: selectTest
+  m_Name: test gaming scene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,7 +184,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: press enter
+  m_Text: test gaming scene
 --- !u!114 &6398892456214967514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +210,7 @@ GameObject:
   - component: {fileID: 7486118290846127169}
   - component: {fileID: 1738393053}
   m_Layer: 5
-  m_Name: selectTest (2)
+  m_Name: join game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -263,7 +276,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: selectTest
+  m_Text: join game
 --- !u!114 &1738393053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,7 +353,7 @@ GameObject:
   - component: {fileID: 7347624886074589582}
   - component: {fileID: 1003644481}
   m_Layer: 5
-  m_Name: selectTest (3)
+  m_Name: settings?
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -406,7 +419,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: selectTest
+  m_Text: settings?
 --- !u!114 &1003644481
 MonoBehaviour:
   m_ObjectHideFlags: 0
