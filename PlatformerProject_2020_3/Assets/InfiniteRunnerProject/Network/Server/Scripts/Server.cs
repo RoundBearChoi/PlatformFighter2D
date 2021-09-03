@@ -44,12 +44,14 @@ namespace RB.Server
         {
             TcpClient _client = tcpListener.EndAcceptTcpClient(_result);
             tcpListener.BeginAcceptTcpClient(TCPConnectCallback, null);
-            Debug.Log($"Incoming connection from {_client.Client.RemoteEndPoint}...");
+
+            Debug.Log("incoming connection from: " + (_client.Client.RemoteEndPoint));
 
             for (int i = 0; i < clients.Length; i++)
             {
                 if (clients[i].tcp.socket == null)
                 {
+                    Debug.Log("connection granted");
                     clients[i].tcp.Connect(_client);
                     return;
                 }
