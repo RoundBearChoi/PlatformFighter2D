@@ -21,7 +21,7 @@ namespace RB
 
             else if (uiLayerType == UILayerType.INTRO_SELECTION)
             {
-                UISelection introSelect = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.INTRO_SELECT)) as UISelection;
+                UISelection introSelect = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.INTRO_SELECT)) as UISelection;
 
                 AddUISelection(introSelect);
                 introSelect.transform.SetParent(this.transform, false);
@@ -30,7 +30,7 @@ namespace RB
 
             else if (uiLayerType == UILayerType.HOST_GAME)
             {
-                HostGameSelect hostGameSelect = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.HOST_GAME_SELECT)) as HostGameSelect;
+                HostGameSelect hostGameSelect = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.HOST_GAME_SELECT)) as HostGameSelect;
 
                 AddUISelection(hostGameSelect);
                 hostGameSelect.transform.SetParent(this.transform, false);

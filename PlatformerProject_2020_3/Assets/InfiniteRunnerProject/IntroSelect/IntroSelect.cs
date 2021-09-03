@@ -22,7 +22,7 @@ namespace RB
                 _listOptions.Add(option);
             }
 
-            _selectionArrow = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.SELECTION_ARROW)) as SelectionArrow;
+            _selectionArrow = GameObject.Instantiate(ResourceLoader.uiLoader.GetObj(UIType.SELECTION_ARROW)) as SelectionArrow;
         }
 
         public override void OnFixedUpdate()

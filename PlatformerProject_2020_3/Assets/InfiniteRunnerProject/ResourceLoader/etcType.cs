@@ -11,12 +11,5 @@ namespace RB
         INTRO_CAMERA = 40,
         GAME_CAMERA = 50,
         FIGHT_CAMERA = 51,
-
-        HP_BAR = 100,
-
-        INTRO_SELECT = 1000,
-        HOST_GAME_SELECT = 1001,
-
-        SELECTION_ARROW = 2000,
     }
 }

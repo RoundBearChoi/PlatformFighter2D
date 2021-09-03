@@ -16,6 +16,14 @@ namespace RB
 
             LoadObj<CompatibleBaseUI>(UIType.COMPATIBLE_BASE_UI, "CompatibleBaseUI");
             LoadObj<CompatibleUILayer>(UIType.COMPATIBLE_UI_LAYER, "CompatibleUILayer");
+
+            //ui layers
+            LoadObj<IntroSelect>(UIType.INTRO_SELECT, "IntroSelect");
+            LoadObj<HostGameSelect>(UIType.HOST_GAME_SELECT, "HostGameSelect");
+
+            //ui elements
+            LoadObj<EnemyHPBar>(UIType.HP_BAR, "EnemyHPBar");
+            LoadObj<SelectionArrow>(UIType.SELECTION_ARROW, "SelectionArrow");
         }
     }
 }

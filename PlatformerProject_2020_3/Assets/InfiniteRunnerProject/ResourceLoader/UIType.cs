@@ -8,7 +8,13 @@ namespace RB
     {
         COMPATIBLE_BASE_UI,
         COMPATIBLE_UI_LAYER,
-        
+
+        INTRO_SELECT,
+        HOST_GAME_SELECT,
+
+        HP_BAR,
+        SELECTION_ARROW,
+
         //temp
         UI,
         DEFAULT_UI_BLOCK,
