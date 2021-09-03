@@ -6,16 +6,21 @@ namespace RB
 {
     public enum UIType
     {
-        RUNNER_GAME_UI,
-        RUNNER_INFO_LAYER,
+        //RUNNER_GAME_UI,
+        
 
         UI,
         DEFAULT_UI_BLOCK,
         RUNNER_DEATH_NOTIFICATION,
 
-        FIGHTER_INTRO_UI,
-        INTRO_SELECTION_LAYER,
+        COMPATIBLE_BASE_UI,
 
-        HOST_GAME_UI,
+        //FIGHTER_INTRO_UI,
+
+        INTRO_SELECTION_LAYER,
+        RUNNER_INFO_LAYER,
+        //HOST_GAME_UI,
+
+        
     }
 }

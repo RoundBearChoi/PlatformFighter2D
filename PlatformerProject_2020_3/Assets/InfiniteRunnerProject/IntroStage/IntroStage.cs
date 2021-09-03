@@ -20,10 +20,10 @@ namespace RB
             _mainCam = introCam.GetComponent<Camera>();
             _mainCam.transform.position = new Vector3(0f, 0f, -5f);
 
-            _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.FIGHTER_INTRO_UI)) as FighterIntroUI;
+            _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
             _baseUI.transform.parent = this.transform;
 
-            _baseUI.Init();
+            _baseUI.Init(BaseUIType.FIGHTER_INTRO_UI);
         }
         
         public override void OnUpdate()

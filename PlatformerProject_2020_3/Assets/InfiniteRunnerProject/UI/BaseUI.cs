@@ -25,7 +25,7 @@ namespace RB
             }
         }
 
-        public virtual void Init()
+        public virtual void Init(BaseUIType baseUIType)
         {
 
         }

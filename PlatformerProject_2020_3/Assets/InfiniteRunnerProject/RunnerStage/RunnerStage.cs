@@ -29,9 +29,9 @@ namespace RB
             cameraScript.SetCameraState(new Camera_LerpOnTargetY());
             cameraScript.SetFollowTarget(units.GetUnit<Runner>().gameObject);
 
-            _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.RUNNER_GAME_UI)) as RunnerGameUI;
+            _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
             _baseUI.transform.parent = this.transform;
-            _baseUI.Init();
+            _baseUI.Init(BaseUIType.RUNNER_GAME_UI);
 
             backgroundSetup = new SwampSetup();
             backgroundSetup.InstantiateBaseLayer();

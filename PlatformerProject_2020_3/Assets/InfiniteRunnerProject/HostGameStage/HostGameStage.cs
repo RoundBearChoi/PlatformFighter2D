@@ -20,7 +20,7 @@ namespace RB
             _mainCam = introCam.GetComponent<Camera>();
             _mainCam.transform.position = new Vector3(0f, 0f, -5f);
             
-            _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.HOST_GAME_UI)) as HostGameUI;
+            _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
             _baseUI.transform.parent = this.transform;
         }
 
