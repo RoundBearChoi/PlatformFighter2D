@@ -14,5 +14,6 @@ namespace RB
         FIGHT_STAGE = 100,
 
         HOST_GAME_STAGE = 500,
+        ENTER_IP_STAGE = 501,
     }
 }

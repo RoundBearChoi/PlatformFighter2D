@@ -17,6 +17,7 @@ namespace RB
             LoadObj<SpriteStage>(StageType.SPRITE_STAGE, "SpriteStage");
 
             LoadObj<HostGameStage>(StageType.HOST_GAME_STAGE, "HostGameStage");
+            LoadObj<EnterIPStage>(StageType.ENTER_IP_STAGE, "EnterIPStage");
         }
     }
 }
