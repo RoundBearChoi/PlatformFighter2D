@@ -10,8 +10,6 @@ namespace RB
         Keyboard _keyboard = null;
         Camera _mainCam = null;
 
-        private static RB.Server.NetworkControl _networkControl = null;
-
         public override void Init()
         {
             _keyboard = Keyboard.current;
@@ -27,9 +25,9 @@ namespace RB
 
             _baseUI.Init(BaseUIType.HOST_GAME_UI);
 
-            if (_networkControl == null)
+            if (RB.Server.NetworkControl.CURRENT == null)
             {
-                _networkControl = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.NETWORK_CONTROL)) as RB.Server.NetworkControl;
+                RB.Server.NetworkControl networkControl = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.NETWORK_CONTROL)) as RB.Server.NetworkControl;
             }
         }
 
