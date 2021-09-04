@@ -12,6 +12,9 @@ namespace RB
         [SerializeField]
         protected List<UILayer> _uiLayers = new List<UILayer>();
 
+        [SerializeField]
+        protected UnityEngine.EventSystems.EventSystem _eventSystem = null;
+
         public Canvas CANVAS
         {
             get

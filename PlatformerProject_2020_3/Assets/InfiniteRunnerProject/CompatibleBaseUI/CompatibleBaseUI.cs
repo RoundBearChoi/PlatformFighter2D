@@ -6,8 +6,18 @@ namespace RB
 {
     public class CompatibleBaseUI : BaseUI
     {
+        IEnumerator _startEventSystem()
+        {
+            _eventSystem = this.gameObject.GetComponentInChildren<UnityEngine.EventSystems.EventSystem>();
+            _eventSystem.gameObject.SetActive(false);
+            yield return new WaitForEndOfFrame();
+            _eventSystem.gameObject.SetActive(true);
+        }
+
         public override void Init(BaseUIType baseUIType)
         {
+            StartCoroutine(_startEventSystem());
+
             if (baseUIType == BaseUIType.RUNNER_GAME_UI)
             {
                 CompatibleUILayer layer = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_UI_LAYER)) as CompatibleUILayer;
