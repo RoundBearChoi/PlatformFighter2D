@@ -4,10 +4,8 @@ using UnityEngine;
 
 namespace RB
 {
-    public enum UIElementType
+    public class EnterHostIP : UIElement
     {
-        RUNNER_HP_BAR,
-        WAITING_FOR_PLAYERS,
-        ENTER_HOST_IP,
+
     }
 }

@@ -43,6 +43,15 @@ namespace RB
                 waiting.transform.SetParent(this.transform, false);
                 waiting.InitElement();
             }
+
+            else if (uiLayerType == UILayerType.ENTER_IP)
+            {
+                UIElement enter = Instantiate(ResourceLoader.uiElementLoader.GetObj(UIElementType.ENTER_HOST_IP)) as EnterHostIP;
+
+                AddUIElement(enter);
+                enter.transform.SetParent(this.transform, false);
+                enter.InitElement();
+            }
         }
     }
 }

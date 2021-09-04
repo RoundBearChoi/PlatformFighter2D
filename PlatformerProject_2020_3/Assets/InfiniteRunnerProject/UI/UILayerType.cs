@@ -9,5 +9,6 @@ namespace RB
         RUNNER_INFO,
         INTRO_SELECTION,
         HOST_GAME,
+        ENTER_IP,
     }
 }

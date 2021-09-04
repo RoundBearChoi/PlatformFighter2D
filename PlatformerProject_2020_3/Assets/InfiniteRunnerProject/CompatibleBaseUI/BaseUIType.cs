@@ -9,5 +9,6 @@ namespace RB
         FIGHTER_INTRO_UI,
         RUNNER_GAME_UI,
         HOST_GAME_UI,
+        ENTER_IP_UI,
     }
 }
