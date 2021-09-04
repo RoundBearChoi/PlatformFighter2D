@@ -18,8 +18,8 @@ namespace RB.Server
         public delegate void PacketHandler(int _fromClient, Packet _packet);
         public Dictionary<int, PacketHandler> packetHandlers;
 
-        TcpListener tcpListener;
-        UdpClient udpListener;
+        TcpListener tcpListener = null;
+        UdpClient udpListener = null;
 
         /// <summary>Starts the server.</summary>
         /// <param name="_maxPlayers">The maximum players that can be connected simultaneously.</param>
