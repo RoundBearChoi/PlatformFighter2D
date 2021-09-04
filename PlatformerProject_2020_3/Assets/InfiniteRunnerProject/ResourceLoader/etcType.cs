@@ -13,5 +13,7 @@ namespace RB
         FIGHT_CAMERA,
 
         HP_BAR,
+
+        NETWORK_CONTROL,
     }
 }

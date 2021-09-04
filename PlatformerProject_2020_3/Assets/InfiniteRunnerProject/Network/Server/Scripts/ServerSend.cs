@@ -13,7 +13,7 @@ namespace RB.Server
         private void SendTCPData(int _toClient, Packet _packet)
         {
             _packet.WriteLength();
-            NetworkManager.instance.server.clients[_toClient].tcp.SendData(_packet);
+            BaseNetwork.CURRENT.server.clients[_toClient].tcp.SendData(_packet);
         }
 
         /// <summary>Sends a packet to all clients via UDP.</summary>
@@ -22,9 +22,9 @@ namespace RB.Server
         {
             _packet.WriteLength();
 
-            for (int i = 0; i < NetworkManager.instance.server.clients.Length; i++)
+            for (int i = 0; i < BaseNetwork.CURRENT.server.clients.Length; i++)
             {
-                NetworkManager.instance.server.clients[i].udp.SendData(_packet);
+                BaseNetwork.CURRENT.server.clients[i].udp.SendData(_packet);
             }
         }
 
@@ -35,11 +35,11 @@ namespace RB.Server
         {
             _packet.WriteLength();
 
-            for (int i = 0; i < NetworkManager.instance.server.clients.Length; i++)
+            for (int i = 0; i < BaseNetwork.CURRENT.server.clients.Length; i++)
             {
                 if (i != _exceptClient)
                 {
-                    NetworkManager.instance.server.clients[i].udp.SendData(_packet);
+                    BaseNetwork.CURRENT.server.clients[i].udp.SendData(_packet);
                 }
             }
         }

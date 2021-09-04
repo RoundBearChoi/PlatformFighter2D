@@ -24,6 +24,8 @@ namespace RB
             _baseUI.transform.parent = this.transform;
 
             _baseUI.Init(BaseUIType.HOST_GAME_UI);
+
+            RB.Server.NetworkControl networkControl = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.NETWORK_CONTROL)) as RB.Server.NetworkControl;
         }
 
         public override void OnUpdate()

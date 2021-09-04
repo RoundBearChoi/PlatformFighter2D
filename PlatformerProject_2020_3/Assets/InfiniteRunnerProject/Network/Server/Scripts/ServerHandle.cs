@@ -12,14 +12,14 @@ namespace RB.Server
             int _clientIdCheck = _packet.ReadInt();
             string _username = _packet.ReadString();
 
-            Debug.Log($"{NetworkManager.instance.server.clients[_fromClient].tcp.socket.Client.RemoteEndPoint} connected successfully and is now player {_fromClient}.");
+            Debug.Log($"{BaseNetwork.CURRENT.server.clients[_fromClient].tcp.socket.Client.RemoteEndPoint} connected successfully and is now player {_fromClient}.");
             
             if (_fromClient != _clientIdCheck)
             {
                 Debug.Log($"Player \"{_username}\" (ID: {_fromClient}) has assumed the wrong client ID ({_clientIdCheck})!");
             }
 
-            NetworkManager.instance.server.clients[_fromClient].SetUserName(_username);
+            BaseNetwork.CURRENT.server.clients[_fromClient].SetUserName(_username);
         }
 
         public static void PlayerMovement(int fromClient, Packet packet)
@@ -31,7 +31,7 @@ namespace RB.Server
                 inputs[i] = packet.ReadBool();
             }
 
-            NetworkManager.instance.server.clients[fromClient].SetInput(inputs);
+            BaseNetwork.CURRENT.server.clients[fromClient].SetInput(inputs);
         }
     }
 }

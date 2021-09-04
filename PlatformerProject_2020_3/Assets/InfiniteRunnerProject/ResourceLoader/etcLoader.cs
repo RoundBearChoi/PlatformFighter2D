@@ -15,6 +15,8 @@ namespace RB
             LoadObj<FightCamera>(etcType.FIGHT_CAMERA, "FightCamera");
 
             LoadObj<EnemyHPBar>(etcType.HP_BAR, "EnemyHPBar");
+
+            LoadObj<RB.Server.NetworkControl>(etcType.NETWORK_CONTROL, "NetworkControl");
         }
     }
 }
