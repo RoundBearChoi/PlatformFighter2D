@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB.Server
 {
-    public class NetworkControl : BaseNetwork
+    public class NetworkControl : BaseNetworkControl
     {
         private void Start()
         {

@@ -17,6 +17,7 @@ namespace RB
             LoadObj<EnemyHPBar>(etcType.HP_BAR, "EnemyHPBar");
 
             LoadObj<RB.Server.NetworkControl>(etcType.NETWORK_CONTROL, "NetworkControl");
+            LoadObj<RB.Client.ClientControl>(etcType.CLIENT_CONTROL, "ClientControl");
         }
     }
 }

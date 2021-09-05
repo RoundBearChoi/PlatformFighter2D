@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using RB.Client;
 
 namespace RB
 {
@@ -13,6 +14,14 @@ namespace RB
         public override void InitElement()
         {
             StartCoroutine(_setDefaultText());
+        }
+
+        public override void OnFixedUpdate()
+        {
+            //if (!_inputField.isFocused)
+            //{
+            //    BaseClientControl.CURRENT.SetHostIP(_inputField.text);
+            //}
         }
 
         IEnumerator _setDefaultText()

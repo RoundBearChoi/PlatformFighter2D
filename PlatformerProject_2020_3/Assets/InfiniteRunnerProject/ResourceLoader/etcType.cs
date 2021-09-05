@@ -15,5 +15,6 @@ namespace RB
         HP_BAR,
 
         NETWORK_CONTROL,
+        CLIENT_CONTROL,
     }
 }

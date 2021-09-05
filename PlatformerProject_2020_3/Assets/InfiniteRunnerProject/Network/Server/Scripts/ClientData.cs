@@ -62,7 +62,7 @@ namespace RB.Server
 
                 stream.BeginRead(receiveBuffer, 0, dataBufferSize, ReceiveCallback, null);
 
-                BaseNetwork.CURRENT.serverSend.Welcome(_id, "Welcome to the server!");
+                BaseNetworkControl.CURRENT.serverSend.Welcome(_id, "Welcome to the server!");
 
                 _connected = true;
             }
@@ -92,7 +92,7 @@ namespace RB.Server
                     int _byteLength = stream.EndRead(_result);
                     if (_byteLength <= 0)
                     {
-                        BaseNetwork.CURRENT.server.clients[_id].Disconnect();
+                        BaseNetworkControl.CURRENT.server.clients[_id].Disconnect();
                         return;
                     }
 
@@ -105,7 +105,7 @@ namespace RB.Server
                 catch (Exception _ex)
                 {
                     Debug.Log($"Error receiving TCP data: {_ex}");
-                    BaseNetwork.CURRENT.server.clients[_id].Disconnect();
+                    BaseNetworkControl.CURRENT.server.clients[_id].Disconnect();
                 }
             }
 
@@ -137,7 +137,7 @@ namespace RB.Server
                         using (Packet _packet = new Packet(_packetBytes))
                         {
                             int _packetId = _packet.ReadInt();
-                            BaseNetwork.CURRENT.server.packetHandlers[_packetId](_id, _packet); // Call appropriate method to handle the packet
+                            BaseNetworkControl.CURRENT.server.packetHandlers[_packetId](_id, _packet); // Call appropriate method to handle the packet
                         }
                     });
 
@@ -196,7 +196,7 @@ namespace RB.Server
             /// <param name="_packet">The packet to send.</param>
             public void SendData(Packet _packet)
             {
-                BaseNetwork.CURRENT.server.SendUDPData(endPoint, _packet);
+                BaseNetworkControl.CURRENT.server.SendUDPData(endPoint, _packet);
             }
 
             /// <summary>Prepares received data to be used by the appropriate packet handler methods.</summary>
@@ -211,7 +211,7 @@ namespace RB.Server
                     using (Packet _packet = new Packet(_packetBytes))
                     {
                         int _packetId = _packet.ReadInt();
-                        BaseNetwork.CURRENT.server.packetHandlers[_packetId](id, _packet); // Call appropriate method to handle the packet
+                        BaseNetworkControl.CURRENT.server.packetHandlers[_packetId](id, _packet); // Call appropriate method to handle the packet
                     }
                 });
             }

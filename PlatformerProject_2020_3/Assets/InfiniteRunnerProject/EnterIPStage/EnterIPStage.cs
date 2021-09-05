@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using RB.Client;
 
 namespace RB
 {
@@ -11,6 +11,12 @@ namespace RB
 
         public override void Init()
         {
+            if (ClientControl.CURRENT == null)
+            {
+                BaseClientControl control = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_CONTROL)) as ClientControl;
+                ClientControl.SetClientControl(control);
+            }
+
             IntroCamera introCam = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.INTRO_CAMERA)) as IntroCamera;
             introCam.transform.parent = this.transform;
 
@@ -40,7 +46,9 @@ namespace RB
 
             if (latestInput.commands.ContainsPress(CommandType.ENTER, true))
             {
-                Debugger.Log("ip entered");
+                Debugger.Log("enter pressed");
+
+                //send message to EnterHostIP?
             }
         }
 
