@@ -1,30 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace RB
 {
     public class HostGameSelect : UISelection
     {
-        Keyboard _keyboard = null;
-
-        public override void InitSelection()
-        {
-            _keyboard = Keyboard.current;
-
-            _listOptions.Clear();
-
-            UIOption[] arr = this.gameObject.GetComponentsInChildren<UIOption>();
-
-            foreach (UIOption option in arr)
-            {
-                _listOptions.Add(option);
-            }
-
-            _selectionArrow = GameObject.Instantiate(ResourceLoader.uiLoader.GetObj(UIType.SELECTION_ARROW)) as SelectionArrow;
-        }
-
         public override void OnFixedUpdate()
         {
 
@@ -32,20 +13,7 @@ namespace RB
 
         public override void OnUpdate()
         {
-            if (_keyboard.upArrowKey.wasPressedThisFrame)
-            {
-                UpSelection();
-            }
-
-            if (_keyboard.downArrowKey.wasPressedThisFrame)
-            {
-                DownSelection();
-            }
-
-            if (_keyboard.enterKey.wasPressedThisFrame)
-            {
-                _listOptions[_currentSelectionIndex].OnEnterKey();
-            }
+            UpdateSelection();
         }
 
         public override void OnLateUpdate()
