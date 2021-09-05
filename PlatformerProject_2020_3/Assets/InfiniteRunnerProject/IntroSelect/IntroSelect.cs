@@ -44,15 +44,10 @@ namespace RB
                 DownSelection();
             }
 
-            //if (_keyboard.upArrowKey.wasPressedThisFrame)
-            //{
-            //    UpSelection();
-            //}
-            //
-            //if (_keyboard.downArrowKey.wasPressedThisFrame)
-            //{
-            //    DownSelection();
-            //}
+            if (_inputController.GetLatestUserInput().commands.ContainsPress(CommandType.ATTACK_A, true))
+            {
+                _listOptions[_currentSelectionIndex].OnEnterKey();
+            }
 
             if (_keyboard.enterKey.wasPressedThisFrame)
             {
