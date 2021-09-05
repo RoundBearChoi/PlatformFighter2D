@@ -7,13 +7,10 @@ namespace RB
 {
     public class IntroStage : BaseStage
     {
-        Keyboard _keyboard = null;
         Camera _mainCam = null;
 
         public override void Init()
         {
-            _keyboard = Keyboard.current;
-
             IntroCamera introCam = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.INTRO_CAMERA)) as IntroCamera;
             introCam.transform.parent = this.transform;
 
@@ -34,18 +31,17 @@ namespace RB
         {
             _inputController.GetUserInput(_currentInputSelection).OnUpdate();
 
-            //temp
-            if (_keyboard.f4Key.wasPressedThisFrame)
+            if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F4, true))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new SpriteStageTransition(_gameIntializer));
             }
 
-            if (_keyboard.f5Key.wasPressedThisFrame)
+            if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F5, true))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new TestStageTransition(_gameIntializer));
             }
 
-            if (_keyboard.f6Key.wasPressedThisFrame)
+            if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F6, true))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new RunnerStageTransition(_gameIntializer));
             }

@@ -7,13 +7,10 @@ namespace RB
 {
     public class HostGameStage : BaseStage
     {
-        Keyboard _keyboard = null;
         Camera _mainCam = null;
 
         public override void Init()
         {
-            _keyboard = Keyboard.current;
-
             IntroCamera introCam = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.INTRO_CAMERA)) as IntroCamera;
             introCam.transform.parent = this.transform;
             

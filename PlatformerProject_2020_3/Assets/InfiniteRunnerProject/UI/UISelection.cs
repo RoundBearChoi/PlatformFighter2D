@@ -7,8 +7,6 @@ namespace RB
 {
     public abstract class UISelection : MonoBehaviour
     {
-        protected Keyboard _keyboard = null;
-
         [SerializeField]
         protected List<UIOption> _listOptions = new List<UIOption>();
 
@@ -28,7 +26,6 @@ namespace RB
                 _listOptions.Add(option);
             }
 
-            _keyboard = Keyboard.current;
             _inputController = GameInitializer.current.GetStage().GetInputController();
             _selectionArrow = GameObject.Instantiate(ResourceLoader.uiLoader.GetObj(UIType.SELECTION_ARROW)) as SelectionArrow;
         }
@@ -98,7 +95,7 @@ namespace RB
                 return;
             }
 
-            if (_keyboard.enterKey.wasPressedThisFrame)
+            if (_inputController.GetLatestUserInput().commands.ContainsPress(CommandType.ENTER, true))
             {
                 _listOptions[_currentSelectionIndex].OnEnterKey();
                 return;
