@@ -30,7 +30,15 @@ namespace RB.Client
             using (Packet _packet = new Packet((int)ClientPackets.welcomeReceived))
             {
                 _packet.Write(Client.instance.myId);
-                _packet.Write(UIManager.instance.usernameField.text);
+
+                string name = UIManager.instance.usernameField.text;
+
+                if (string.IsNullOrEmpty(name))
+                {
+                    name = "client";
+                }
+
+                _packet.Write(name);
 
                 SendTCPData(_packet);
             }
