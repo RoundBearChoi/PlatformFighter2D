@@ -74,12 +74,23 @@ namespace RB
         {
             UserInput latestInput = _inputController.GetLatestUserInput();
 
+            //game keys
             if (latestInput.commands.ContainsPress(CommandType.MOVE_UP, true))
             {
                 UpSelection();
             }
 
             if (latestInput.commands.ContainsPress(CommandType.MOVE_DOWN, true))
+            {
+                DownSelection();
+            }
+
+            //non game keys
+            if (latestInput.commands.ContainsPress(CommandType.ARROW_UP, true))
+            {
+                UpSelection();
+            }
+            if (latestInput.commands.ContainsPress(CommandType.ARROW_DOWN, true))
             {
                 DownSelection();
             }
