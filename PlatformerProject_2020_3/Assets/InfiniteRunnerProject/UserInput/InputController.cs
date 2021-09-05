@@ -22,6 +22,16 @@ namespace RB
             return null;
         }
 
+        public UserInput GetLatestUserInput()
+        {
+            if (_listUserInputs.Count > 0)
+            {
+                return _listUserInputs[_listUserInputs.Count - 1];
+            }
+
+            return null;
+        }
+
         public UserInput GetUserInput(InputType inputType)
         {
             foreach(UserInput input in _listUserInputs)

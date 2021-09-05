@@ -23,7 +23,7 @@ namespace RB
 
             if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 2)
             {
-                if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A))
+                if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, false))
                 {
                     if (ownerUnit.unitData.comboHitCount.GetCount() >= 2)
                     {
@@ -36,7 +36,7 @@ namespace RB
                     }
                 }
 
-                if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_B))
+                if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_B, false))
                 {
                     if (ownerUnit.unitData.comboHitCount.GetCount() >= 2)
                     {

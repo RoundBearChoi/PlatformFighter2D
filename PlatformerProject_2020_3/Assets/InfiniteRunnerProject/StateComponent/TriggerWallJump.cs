@@ -14,7 +14,7 @@ namespace RB
         public override void OnFixedUpdate()
         {
             //wall jump
-            if (_unit.USER_INPUT.commands.ContainsPress(CommandType.JUMP))
+            if (_unit.USER_INPUT.commands.ContainsPress(CommandType.JUMP, false))
             {
                 float initialMomentum = BaseInitializer.current.fighterDataSO.WallJumpHorizontalMomentum;
 

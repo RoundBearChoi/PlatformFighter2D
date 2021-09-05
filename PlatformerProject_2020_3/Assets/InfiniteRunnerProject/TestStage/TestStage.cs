@@ -53,12 +53,12 @@ namespace RB
             ui.OnUpdate();
             cameraScript.OnUpdate();
 
-            if (_inputController.GetUserInput(InputType.PLAYER_ONE).commands.ContainsPress(CommandType.F5))
+            if (_inputController.GetUserInput(InputType.PLAYER_ONE).commands.ContainsPress(CommandType.F5, false))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new TestStageTransition(_gameIntializer));
             }
 
-            if (_inputController.GetUserInput(InputType.PLAYER_ONE).commands.ContainsPress(CommandType.F6))
+            if (_inputController.GetUserInput(InputType.PLAYER_ONE).commands.ContainsPress(CommandType.F6, false))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new IntroStageTransition(_gameIntializer));
             }

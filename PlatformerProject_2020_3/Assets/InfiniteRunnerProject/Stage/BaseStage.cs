@@ -100,6 +100,11 @@ namespace RB
             return 0f;
         }
 
+        public InputController GetInputController()
+        {
+            return _inputController;
+        }
+
         public virtual void ClearInput()
         {
             _inputController.GetUserInput(_currentInputSelection).commands.ClearKeyPressDictionary();

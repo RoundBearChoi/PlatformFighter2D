@@ -14,6 +14,8 @@ namespace RB
         [SerializeField]
         protected int _currentSelectionIndex = 0;
 
+        protected InputController _inputController = null;
+
         protected SelectionArrow _selectionArrow = null;
 
         public abstract void InitSelection();

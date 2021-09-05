@@ -33,7 +33,7 @@ namespace RB
 
             if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 1)
             {
-                if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_B))
+                if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_B, false))
                 {
                     ownerUnit.unitData.listNextStates.Add(new Runner_Attack_B(ownerUnit));
                 }

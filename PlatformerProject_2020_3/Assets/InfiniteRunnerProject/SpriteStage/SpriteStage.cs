@@ -63,7 +63,7 @@ namespace RB
                 Init();
             }
 
-            if (_inputController.GetUserInput(InputType.PLAYER_ONE).commands.ContainsPress(CommandType.F6))
+            if (_inputController.GetUserInput(InputType.PLAYER_ONE).commands.ContainsPress(CommandType.F6, false))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new IntroStageTransition(_gameIntializer));
             }
@@ -71,7 +71,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (_inputController.GetUserInput(InputType.PLAYER_ONE).commands.ContainsPress(CommandType.JUMP))
+            if (_inputController.GetUserInput(InputType.PLAYER_ONE).commands.ContainsPress(CommandType.JUMP, false))
             {
                 _dummyAnimation.ManualSetSpriteIndex(_dummyAnimation.GetCurrentAnimation().SPRITE_INDEX + 1);
 

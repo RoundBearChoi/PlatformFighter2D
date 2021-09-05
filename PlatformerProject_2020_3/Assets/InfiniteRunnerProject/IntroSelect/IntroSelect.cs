@@ -23,6 +23,8 @@ namespace RB
             }
 
             _selectionArrow = GameObject.Instantiate(ResourceLoader.uiLoader.GetObj(UIType.SELECTION_ARROW)) as SelectionArrow;
+
+            _inputController = GameInitializer.current.GetStage().GetInputController();
         }
 
         public override void OnFixedUpdate()
@@ -32,15 +34,25 @@ namespace RB
 
         public override void OnUpdate()
         {
-            if (_keyboard.upArrowKey.wasPressedThisFrame)
+            if (_inputController.GetLatestUserInput().commands.ContainsPress(CommandType.MOVE_UP, true))
             {
                 UpSelection();
             }
 
-            if (_keyboard.downArrowKey.wasPressedThisFrame)
+            if (_inputController.GetLatestUserInput().commands.ContainsPress(CommandType.MOVE_DOWN, true))
             {
                 DownSelection();
             }
+
+            //if (_keyboard.upArrowKey.wasPressedThisFrame)
+            //{
+            //    UpSelection();
+            //}
+            //
+            //if (_keyboard.downArrowKey.wasPressedThisFrame)
+            //{
+            //    DownSelection();
+            //}
 
             if (_keyboard.enterKey.wasPressedThisFrame)
             {

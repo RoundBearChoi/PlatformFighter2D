@@ -58,17 +58,17 @@ namespace RB
             trailEffects.OnUpdate();
             units.OnUpdate();
             
-            if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F5))
+            if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F5, false))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new FightStageTransition(_gameIntializer));
             }
 
-            if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F6))
+            if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F6, false))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new IntroStageTransition(_gameIntializer));
             }
 
-            if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F7))
+            if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F7, false))
             {
                 _currentInputSelection++;
 
