@@ -59,6 +59,12 @@ namespace RB
                     commands.AddCommand(new UserCommand(CommandType.F9, keyboard.f9Key));
                     commands.AddCommand(new UserCommand(CommandType.F10, keyboard.f10Key));
                     commands.AddCommand(new UserCommand(CommandType.F11, keyboard.f11Key));
+
+                    commands.AddCommand(new UserCommand(CommandType.ENTER, keyboard.enterKey));
+                    commands.AddCommand(new UserCommand(CommandType.ARROW_UP, keyboard.upArrowKey));
+                    commands.AddCommand(new UserCommand(CommandType.ARROW_DOWN, keyboard.downArrowKey));
+                    commands.AddCommand(new UserCommand(CommandType.ARROW_LEFT, keyboard.leftArrowKey));
+                    commands.AddCommand(new UserCommand(CommandType.ARROW_RIGHT, keyboard.rightArrowKey));
                 }
             }
             catch (System.Exception e)

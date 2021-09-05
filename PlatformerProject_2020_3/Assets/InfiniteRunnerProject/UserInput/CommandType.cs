@@ -21,6 +21,8 @@ namespace RB
 
         SHIFT = 400,
 
+        //non game keys
+
         F4 = 1000,
         F5 = 1001,
         F6 = 1002,
@@ -29,5 +31,11 @@ namespace RB
         F9 = 1005,
         F10 = 1006,
         F11 = 1007,
+
+        ENTER = 10000,
+        ARROW_UP = 11000,
+        ARROW_DOWN = 11001,
+        ARROW_LEFT = 11002,
+        ARROW_RIGHT = 11003,
     }
 }

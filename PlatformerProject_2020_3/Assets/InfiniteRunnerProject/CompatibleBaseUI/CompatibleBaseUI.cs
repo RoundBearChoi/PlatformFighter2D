@@ -10,8 +10,12 @@ namespace RB
         {
             _eventSystem = this.gameObject.GetComponentInChildren<UnityEngine.EventSystems.EventSystem>();
             _eventSystem.gameObject.SetActive(false);
+            CANVAS.enabled = false;
+
             yield return new WaitForEndOfFrame();
+            
             _eventSystem.gameObject.SetActive(true);
+            CANVAS.enabled = true;
         }
 
         public override void Init(BaseUIType baseUIType)

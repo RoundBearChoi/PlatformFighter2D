@@ -20,6 +20,10 @@ namespace RB
             _mainCam = introCam.GetComponent<Camera>();
             _mainCam.transform.position = new Vector3(0f, 0f, -5f);
 
+            UserInput input = _inputController.AddInput();
+            _currentInputSelection = input.INPUT_TYPE;
+            _prevInputSelection = input.INPUT_TYPE;
+
             _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
             _baseUI.transform.parent = this.transform;
             
@@ -28,9 +32,18 @@ namespace RB
 
         public override void OnUpdate()
         {
+            _inputController.GetUserInput(_currentInputSelection).OnUpdate();
+
             if (_baseUI != null)
             {
                 _baseUI.OnUpdate();
+            }
+
+            UserInput latestInput = _inputController.GetLatestUserInput();
+
+            if (latestInput.commands.ContainsPress(CommandType.ENTER, true))
+            {
+                Debugger.Log("ip entered");
             }
         }
 
@@ -48,6 +61,8 @@ namespace RB
             {
                 _baseUI.OnFixedUpdate();
             }
+
+            ClearInput();
         }
     }
 }
