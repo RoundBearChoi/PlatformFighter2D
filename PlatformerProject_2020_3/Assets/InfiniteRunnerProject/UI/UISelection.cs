@@ -7,8 +7,6 @@ namespace RB
 {
     public abstract class UISelection : MonoBehaviour
     {
-        //public BaseMessageHandler messageHandler = null;
-
         protected Keyboard _keyboard = null;
 
         [SerializeField]
