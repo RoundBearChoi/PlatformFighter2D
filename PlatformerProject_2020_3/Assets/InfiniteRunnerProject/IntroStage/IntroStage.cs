@@ -34,11 +34,7 @@ namespace RB
         {
             _inputController.GetUserInput(_currentInputSelection).OnUpdate();
 
-            //if (_keyboard.enterKey.wasPressedThisFrame)
-            //{
-            //    _gameIntializer.stageTransitioner.AddTransition(new FightStageTransition(_gameIntializer));
-            //}
-
+            //temp
             if (_keyboard.f4Key.wasPressedThisFrame)
             {
                 _gameIntializer.stageTransitioner.AddTransition(new SpriteStageTransition(_gameIntializer));

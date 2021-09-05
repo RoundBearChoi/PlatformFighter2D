@@ -39,21 +39,6 @@ namespace RB
         {
             _inputController.GetUserInput(_currentInputSelection).OnUpdate();
 
-            //if (_keyboard.f4Key.wasPressedThisFrame)
-            //{
-            //    _gameIntializer.stageTransitioner.AddTransition(new SpriteStageTransition(_gameIntializer));
-            //}
-            //
-            //if (_keyboard.f5Key.wasPressedThisFrame)
-            //{
-            //    _gameIntializer.stageTransitioner.AddTransition(new TestStageTransition(_gameIntializer));
-            //}
-            //
-            //if (_keyboard.f6Key.wasPressedThisFrame)
-            //{
-            //    _gameIntializer.stageTransitioner.AddTransition(new RunnerStageTransition(_gameIntializer));
-            //}
-
             if (_baseUI != null)
             {
                 _baseUI.OnUpdate();
