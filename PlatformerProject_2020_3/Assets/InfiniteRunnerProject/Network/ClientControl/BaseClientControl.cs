@@ -33,5 +33,10 @@ namespace RB.Client
         {
             return _hostIP;
         }
+
+        public virtual void ConnectToServer()
+        {
+
+        }
     }
 }

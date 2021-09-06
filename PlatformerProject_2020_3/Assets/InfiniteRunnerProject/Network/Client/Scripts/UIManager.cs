@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace RB.Client
 {
-    public class UIManager : MonoBehaviour
+    public class UIManager : BaseClientControl
     {
         public static UIManager instance;
 
@@ -26,7 +26,7 @@ namespace RB.Client
         }
 
         /// <summary>Attempts to connect to the server.</summary>
-        public void ConnectToServer()
+        public override void ConnectToServer()
         {
             HideMenu();
             Client.instance.ConnectToServer();
