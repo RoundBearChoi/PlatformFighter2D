@@ -24,6 +24,7 @@ namespace RB
         [SerializeField]
         protected InputType _currentInputSelection = InputType.PLAYER_ONE;
         protected InputType _prevInputSelection = InputType.NONE;
+        protected BaseFighterClient _baseFighterClient = null;
 
         public virtual void Init()
         {

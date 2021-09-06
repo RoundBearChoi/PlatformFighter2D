@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class FighterClient : MonoBehaviour
+    public class FighterClient : BaseFighterClient
     {
 
     }
