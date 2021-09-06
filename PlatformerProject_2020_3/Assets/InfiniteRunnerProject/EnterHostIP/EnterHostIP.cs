@@ -11,8 +11,20 @@ namespace RB
         [SerializeField]
         InputField _inputField = null;
 
+        [SerializeField]
+        GameObject _connectionFailedMessage = null;
+
         public override void InitElement()
         {
+            if (ClientControl.CURRENT.CONNECTION_FAILED)
+            {
+                _connectionFailedMessage.SetActive(true);
+            }
+            else
+            {
+                _connectionFailedMessage.SetActive(false);
+            }
+
             StartCoroutine(_setDefaultText());
         }
 
@@ -24,7 +36,8 @@ namespace RB
 
             yield return new WaitForEndOfFrame();
 
-            _inputField.text = "127.0.0.1";
+            string ip = BaseClientControl.CURRENT.GetHostIP();
+            _inputField.text = ip;
             _inputField.ActivateInputField();
 
             yield return new WaitForEndOfFrame();

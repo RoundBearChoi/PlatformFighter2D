@@ -21,6 +21,8 @@ namespace RB
                 }
             }
 
+            //also gotta check if you're already connected to a server
+
             GameInitializer.current.stageTransitioner.AddTransition(new EnterIPStageTransition(GameInitializer.current));
         }
     }
