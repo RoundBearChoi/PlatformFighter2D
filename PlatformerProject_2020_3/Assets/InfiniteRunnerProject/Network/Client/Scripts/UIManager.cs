@@ -7,22 +7,12 @@ namespace RB.Client
 {
     public class UIManager : BaseClientControl
     {
-        public static UIManager instance;
-
         public GameObject startMenu;
         public InputField usernameField;
 
         private void Awake()
         {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else if (instance != this)
-            {
-                Debug.Log("Instance already exists, destroying object!");
-                Destroy(this);
-            }
+            SetClientControl(this);
         }
 
         /// <summary>Attempts to connect to the server.</summary>
@@ -32,16 +22,21 @@ namespace RB.Client
             Client.instance.ConnectToServer();
         }
 
-        public void HideMenu()
+        public override string GetUserName()
         {
-            startMenu.SetActive(false);
-            usernameField.interactable = false;
+            return usernameField.text;
         }
 
-        public void ShowMenu()
+        public override void ShowMenu()
         {
             startMenu.SetActive(true);
             usernameField.interactable = true;
+        }
+
+        public override void HideMenu()
+        {
+            startMenu.SetActive(false);
+            usernameField.interactable = false;
         }
     }
 }

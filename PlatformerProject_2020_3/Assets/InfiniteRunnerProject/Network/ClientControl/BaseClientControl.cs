@@ -38,5 +38,20 @@ namespace RB.Client
         {
 
         }
+
+        public virtual string GetUserName()
+        {
+            return string.Empty;
+        }
+
+        public virtual void ShowMenu()
+        {
+
+        }
+
+        public virtual void HideMenu()
+        {
+
+        }
     }
 }

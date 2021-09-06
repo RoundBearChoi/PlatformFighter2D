@@ -31,7 +31,7 @@ namespace RB.Client
             {
                 _packet.Write(Client.instance.myId);
 
-                string name = UIManager.instance.usernameField.text;
+                string name = BaseClientControl.CURRENT.GetUserName();
 
                 if (string.IsNullOrEmpty(name))
                 {

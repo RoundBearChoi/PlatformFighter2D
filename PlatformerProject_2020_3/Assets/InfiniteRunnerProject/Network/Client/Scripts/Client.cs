@@ -105,7 +105,7 @@ namespace RB.Client
 
                     ThreadManager.ExecuteOnMainThread(() =>
                     {
-                        UIManager.instance.ShowMenu();
+                        BaseClientControl.CURRENT.ShowMenu();
                     });
                 }
             }
@@ -342,7 +342,7 @@ namespace RB.Client
             ThreadManager.ExecuteOnMainThread(() =>
             {
                 SetupTCPUDP();
-                UIManager.instance.ShowMenu();
+                BaseClientControl.CURRENT.ShowMenu();
             });
         }
     }
