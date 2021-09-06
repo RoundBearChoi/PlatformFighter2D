@@ -21,7 +21,7 @@ namespace RB
         [SerializeField]
         protected InputController _inputController = null;
 
-        protected BaseFighterClient _baseFighterClient = null;
+        protected RB.Client.BaseFighterClient _baseFighterClient = null;
 
         public virtual void Init()
         {

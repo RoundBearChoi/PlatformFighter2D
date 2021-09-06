@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RB
+namespace RB.Client
 {
     public class FighterClient : BaseFighterClient
     {
