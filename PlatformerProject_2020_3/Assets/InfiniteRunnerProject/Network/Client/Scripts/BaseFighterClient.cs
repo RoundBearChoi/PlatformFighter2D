@@ -18,19 +18,7 @@ namespace RB
 
         public virtual void SendInputToServer()
         {
-            if (_inputs == null || _inputs.Length == 0)
-            {
-                _inputs = new bool[5];
-            }
 
-            UserInput latestInput = _inputController.GetLatestUserInput();
-
-            if (latestInput.commands.ContainsPress(CommandType.MOVE_UP, true))
-            {
-                _inputs[0] = true;
-            }
-
-            RB.Client.ClientSend.PlayerMovement(_inputs);
         }
     }
 }

@@ -54,7 +54,7 @@ namespace RB
             _dicButtonPresses.Clear();
         }
 
-        public bool ContainsPress(CommandType commandType, bool semiAuto)
+        public bool ContainsPress(CommandType commandType, bool clearPress)
         {
             if (_dicAllCommands.ContainsKey(commandType))
             {
@@ -65,7 +65,7 @@ namespace RB
                 {
                     if (_dicKeyPresses.ContainsKey(key))
                     {
-                        if (semiAuto)
+                        if (clearPress)
                         {
                             _dicKeyPresses.Remove(key);
                         }
@@ -77,7 +77,7 @@ namespace RB
                 {
                     if (_dicButtonPresses.ContainsKey(button))
                     {
-                        if (semiAuto)
+                        if (clearPress)
                         {
                             _dicButtonPresses.Remove(button);
                         }

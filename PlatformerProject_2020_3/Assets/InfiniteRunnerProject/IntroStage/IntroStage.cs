@@ -17,9 +17,7 @@ namespace RB
             _mainCam = introCam.GetComponent<Camera>();
             _mainCam.transform.position = new Vector3(0f, 0f, -5f);
 
-            UserInput input = _inputController.AddInput();
-            _currentInputSelection = input.INPUT_TYPE;
-            _prevInputSelection = input.INPUT_TYPE;
+            _inputController.AddInput();
 
             _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
             _baseUI.transform.parent = this.transform;
@@ -29,19 +27,19 @@ namespace RB
         
         public override void OnUpdate()
         {
-            _inputController.GetUserInput(_currentInputSelection).OnUpdate();
+            _inputController.GetLatestUserInput().OnUpdate();
 
-            if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F4, true))
+            if (_inputController.GetLatestUserInput().commands.ContainsPress(CommandType.F4, true))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new SpriteStageTransition(_gameIntializer));
             }
 
-            if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F5, true))
+            if (_inputController.GetLatestUserInput().commands.ContainsPress(CommandType.F5, true))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new TestStageTransition(_gameIntializer));
             }
 
-            if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F6, true))
+            if (_inputController.GetLatestUserInput().commands.ContainsPress(CommandType.F6, true))
             {
                 _gameIntializer.stageTransitioner.AddTransition(new RunnerStageTransition(_gameIntializer));
             }

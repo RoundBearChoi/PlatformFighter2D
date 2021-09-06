@@ -21,9 +21,6 @@ namespace RB
         [SerializeField]
         protected InputController _inputController = null;
 
-        [SerializeField]
-        protected InputType _currentInputSelection = InputType.PLAYER_ONE;
-        protected InputType _prevInputSelection = InputType.NONE;
         protected BaseFighterClient _baseFighterClient = null;
 
         public virtual void Init()
@@ -108,14 +105,7 @@ namespace RB
 
         public virtual void ClearInput()
         {
-            _inputController.GetUserInput(_currentInputSelection).commands.ClearKeyPressDictionary();
-            _inputController.GetUserInput(_currentInputSelection).commands.ClearButtonPressDictionary();
-
-            if (_currentInputSelection != _prevInputSelection)
-            {
-                _inputController.ClearAllKeysAndButtons();
-                _prevInputSelection = _currentInputSelection;
-            }
+            _inputController.ClearAllKeysAndButtons();
         }
     }
 }

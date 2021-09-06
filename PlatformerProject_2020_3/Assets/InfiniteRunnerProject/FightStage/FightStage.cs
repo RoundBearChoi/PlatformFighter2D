@@ -6,6 +6,10 @@ namespace RB
 {
     public class FightStage : BaseStage
     {
+        [SerializeField]
+        protected InputType _currentInputSelection = InputType.PLAYER_ONE;
+        protected InputType _prevInputSelection = InputType.NONE;
+
         public override void Init()
         {
             units = new Units(this);
