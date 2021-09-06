@@ -102,6 +102,7 @@ namespace RB.Client
                     ThreadManager.ExecuteOnMainThread(() =>
                     {
                         BaseClientControl.CURRENT.ShowMenu();
+                        BaseClientControl.CURRENT.QueueConnectionFailedMessage();
                     });
                 }
             }

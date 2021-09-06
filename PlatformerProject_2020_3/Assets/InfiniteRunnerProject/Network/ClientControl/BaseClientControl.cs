@@ -11,11 +11,21 @@ namespace RB.Client
         [SerializeField]
         protected string _hostIP = string.Empty;
 
+        protected bool _connectionFailed = false;
+
         public static BaseClientControl CURRENT
         {
             get
             {
                 return _current;
+            }
+        }
+
+        public bool CONNECTION_FAILED
+        {
+            get
+            {
+                return _connectionFailed;
             }
         }
 
@@ -50,6 +60,11 @@ namespace RB.Client
         }
 
         public virtual void ShowMenu()
+        {
+
+        }
+
+        public virtual void QueueConnectionFailedMessage()
         {
 
         }

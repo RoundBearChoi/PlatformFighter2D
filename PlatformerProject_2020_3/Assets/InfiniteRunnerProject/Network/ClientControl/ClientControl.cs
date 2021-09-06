@@ -10,6 +10,8 @@ namespace RB.Client
 
         public override void ConnectToServer()
         {
+            _connectionFailed = false;
+
             if (fighterClient == null)
             {
                 fighterClient = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.FIGHTER_CLIENT)) as FighterClient;
@@ -18,6 +20,16 @@ namespace RB.Client
 
             string hostIP = GetHostIP();
             Client.instance.ConnectToServer(hostIP);
+        }
+
+        public override void ShowMenu()
+        {
+            GameInitializer.current.stageTransitioner.AddTransition(new EnterIPStageTransition(GameInitializer.current));
+        }
+
+        public override void QueueConnectionFailedMessage()
+        {
+            _connectionFailed = true;
         }
     }
 }
