@@ -8,6 +8,7 @@ namespace RB
     public class ConnectingStage : BaseStage
     {
         Camera _mainCam = null;
+        uint _updateCount = 0;
 
         public override void Init()
         {
@@ -51,6 +52,21 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
+            //when timed out
+            _updateCount++;
+
+            if (_updateCount > uint.MaxValue || _updateCount > 50 * 3)
+            {
+                RB.Network.ThreadManager.ExecuteOnMainThread(() =>
+                {
+                    BaseClientControl.CURRENT.ShowMenu();
+                    BaseClientControl.CURRENT.QueueConnectionFailedMessage();
+                });
+
+                return;
+            }
+
+            //normal operations
             if (_baseUI != null)
             {
                 _baseUI.OnFixedUpdate();
