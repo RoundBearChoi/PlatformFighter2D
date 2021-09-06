@@ -15,5 +15,6 @@ namespace RB
 
         HOST_GAME_STAGE = 500,
         ENTER_IP_STAGE = 501,
+        CONNECTING_STAGE = 502,
     }
 }

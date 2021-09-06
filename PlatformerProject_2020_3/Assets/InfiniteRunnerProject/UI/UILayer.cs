@@ -72,6 +72,15 @@ namespace RB
             _uiSelection = selection;
         }
 
+        public virtual void AddUISelection(UIType uiType)
+        {
+            UISelection uiSelection = Instantiate(ResourceLoader.uiLoader.GetObj(uiType)) as UISelection;
+
+            AddUISelection(uiSelection);
+            uiSelection.transform.SetParent(this.transform, false);
+            uiSelection.InitSelection();
+        }
+
         public virtual void AddUIElement(UIElement element)
         {
             //clear anchor (left, right, top, bottom)
@@ -80,6 +89,18 @@ namespace RB
             rect.offsetMin = Vector2.zero;
 
             _uiElements.Add(element);
+        }
+
+        public virtual UIElement AddUIElement(UIElementType elementType)
+        {
+            UIElement element = Instantiate(ResourceLoader.uiElementLoader.GetObj(elementType)) as UIElement;
+
+            AddUIElement(element);
+            element.transform.SetParent(this.transform, false);
+            element.InitElement();
+            element.FindChildAnimations();
+
+            return element;
         }
     }
 }

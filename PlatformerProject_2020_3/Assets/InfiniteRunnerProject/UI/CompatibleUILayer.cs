@@ -10,49 +10,31 @@ namespace RB
         {
             if (uiLayerType == UILayerType.RUNNER_INFO)
             {
-                UIElement runnerHPBar = Instantiate(ResourceLoader.uiElementLoader.GetObj(UIElementType.RUNNER_HP_BAR)) as RunnerHPBar;
-
-                AddUIElement(runnerHPBar);
-                runnerHPBar.transform.SetParent(this.transform, false);
-                runnerHPBar.InitElement();
-
+                UIElement runnerHPBar = AddUIElement(UIElementType.RUNNER_HP_BAR);
                 runnerHPBar.messageHandler = new RunnerHPMessageHandler(runnerHPBar as RunnerHPBar);
             }
 
             else if (uiLayerType == UILayerType.INTRO_SELECTION)
             {
-                UISelection introSelect = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.INTRO_SELECT)) as UISelection;
-
-                AddUISelection(introSelect);
-                introSelect.transform.SetParent(this.transform, false);
-                introSelect.InitSelection();
+                AddUISelection(UIType.INTRO_SELECT);
             }
 
             else if (uiLayerType == UILayerType.HOST_GAME)
             {
-                HostGameSelect hostGameSelect = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.HOST_GAME_SELECT)) as HostGameSelect;
-                
-                AddUISelection(hostGameSelect);
-                hostGameSelect.transform.SetParent(this.transform, false);
-                hostGameSelect.InitSelection();
+                AddUISelection(UIType.HOST_GAME_SELECT);
 
-                UIElement waiting = Instantiate(ResourceLoader.uiElementLoader.GetObj(UIElementType.WAITING_FOR_PLAYERS)) as WaitingForPlayers;
-                waiting.FindChildAnimations();
-
-                AddUIElement(waiting);
-                waiting.transform.SetParent(this.transform, false);
-                waiting.InitElement();
+                AddUIElement(UIElementType.WAITING_FOR_PLAYERS);
             }
 
             else if (uiLayerType == UILayerType.ENTER_IP)
             {
-                UIElement enter = Instantiate(ResourceLoader.uiElementLoader.GetObj(UIElementType.ENTER_HOST_IP)) as EnterHostIP;
-
-                AddUIElement(enter);
-                enter.transform.SetParent(this.transform, false);
-                enter.InitElement();
-
+                UIElement enter = AddUIElement(UIElementType.ENTER_HOST_IP);
                 enter.messageHandler = new EnterHostIPMessageHandler();
+            }
+
+            else if (uiLayerType == UILayerType.CONNECTING_TO_HOST)
+            {
+
             }
         }
     }

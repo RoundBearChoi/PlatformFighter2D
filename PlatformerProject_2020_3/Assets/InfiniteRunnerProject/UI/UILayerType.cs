@@ -10,5 +10,6 @@ namespace RB
         INTRO_SELECTION,
         HOST_GAME,
         ENTER_IP,
+        CONNECTING_TO_HOST,
     }
 }

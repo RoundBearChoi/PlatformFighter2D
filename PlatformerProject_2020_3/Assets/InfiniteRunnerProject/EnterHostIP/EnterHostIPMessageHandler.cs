@@ -19,7 +19,7 @@ namespace RB
                 {
                     Debugger.Log("host ip entered: " + message.GetStringMessage());
 
-
+                    GameInitializer.current.stageTransitioner.AddTransition(new ConnectingStageTransition(GameInitializer.current));
                 }
             }
         }

@@ -62,5 +62,13 @@ namespace RB
         {
             _uiLayers.Add(layer);
         }
+
+        public virtual void AddCompatibleUILayer(UILayerType layerType)
+        {
+            CompatibleUILayer layer = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_UI_LAYER)) as CompatibleUILayer;
+            AddUILayer(layer);
+            layer.transform.SetParent(CANVAS.transform, false);
+            layer.InitLayer(layerType);
+        }
     }
 }

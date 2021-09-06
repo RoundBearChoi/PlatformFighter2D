@@ -24,34 +24,47 @@ namespace RB
 
             if (baseUIType == BaseUIType.RUNNER_GAME_UI)
             {
-                CompatibleUILayer layer = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_UI_LAYER)) as CompatibleUILayer;
-                AddUILayer(layer);
-                layer.transform.SetParent(CANVAS.transform, false);
-                layer.InitLayer(UILayerType.RUNNER_INFO);
+                AddCompatibleUILayer(UILayerType.RUNNER_INFO);
+                //CompatibleUILayer layer = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_UI_LAYER)) as CompatibleUILayer;
+                //AddUILayer(layer);
+                //layer.transform.SetParent(CANVAS.transform, false);
+                //layer.InitLayer(UILayerType.RUNNER_INFO);
             }
 
             else if (baseUIType == BaseUIType.FIGHTER_INTRO_UI)
             {
-                CompatibleUILayer layer = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_UI_LAYER)) as CompatibleUILayer;
-                AddUILayer(layer);
-                layer.transform.SetParent(CANVAS.transform, false);
-                layer.InitLayer(UILayerType.INTRO_SELECTION);
+                AddCompatibleUILayer(UILayerType.INTRO_SELECTION);
+                //CompatibleUILayer layer = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_UI_LAYER)) as CompatibleUILayer;
+                //AddUILayer(layer);
+                //layer.transform.SetParent(CANVAS.transform, false);
+                //layer.InitLayer(UILayerType.INTRO_SELECTION);
             }
 
             else if (baseUIType == BaseUIType.HOST_GAME_UI)
             {
-                CompatibleUILayer layer = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_UI_LAYER)) as CompatibleUILayer;
-                AddUILayer(layer);
-                layer.transform.SetParent(CANVAS.transform, false);
-                layer.InitLayer(UILayerType.HOST_GAME);
+                AddCompatibleUILayer(UILayerType.HOST_GAME);
+                //CompatibleUILayer layer = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_UI_LAYER)) as CompatibleUILayer;
+                //AddUILayer(layer);
+                //layer.transform.SetParent(CANVAS.transform, false);
+                //layer.InitLayer(UILayerType.HOST_GAME);
             }
 
             else if (baseUIType == BaseUIType.ENTER_IP_UI)
             {
-                CompatibleUILayer layer = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_UI_LAYER)) as CompatibleUILayer;
-                AddUILayer(layer);
-                layer.transform.SetParent(CANVAS.transform, false);
-                layer.InitLayer(UILayerType.ENTER_IP);
+                AddCompatibleUILayer(UILayerType.ENTER_IP);
+                //CompatibleUILayer layer = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_UI_LAYER)) as CompatibleUILayer;
+                //AddUILayer(layer);
+                //layer.transform.SetParent(CANVAS.transform, false);
+                //layer.InitLayer(UILayerType.ENTER_IP);
+            }
+
+            else if (baseUIType == BaseUIType.CONNECTING_UI)
+            {
+                AddCompatibleUILayer(UILayerType.CONNECTING_TO_HOST);
+                //CompatibleUILayer layer = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_UI_LAYER)) as CompatibleUILayer;
+                //AddUILayer(layer);
+                //layer.transform.SetParent(CANVAS.transform, false);
+                //layer.InitLayer(UILayerType.CONNECTING_TO_HOST);
             }
         }
     }
