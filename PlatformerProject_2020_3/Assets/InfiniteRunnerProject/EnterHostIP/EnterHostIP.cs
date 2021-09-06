@@ -31,13 +31,5 @@ namespace RB
 
             _inputField.MoveTextEnd(false);
         }
-
-        public override void OnFixedUpdate()
-        {
-            //if (!_inputField.isFocused)
-            //{
-            //    BaseClientControl.CURRENT.SetHostIP(_inputField.text);
-            //}
-        }
     }
 }

@@ -5,7 +5,7 @@ using RB.Client;
 
 namespace RB
 {
-    public class EnterIPStage : BaseStage
+    public class EnterHostIPStage : BaseStage
     {
         Camera _mainCam = null;
 

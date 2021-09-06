@@ -18,6 +18,8 @@ namespace RB
                 if (message.MESSAGE_TYPE == MessageType.HOST_IP_ENTERED)
                 {
                     Debugger.Log("host ip entered: " + message.GetStringMessage());
+
+
                 }
             }
         }
