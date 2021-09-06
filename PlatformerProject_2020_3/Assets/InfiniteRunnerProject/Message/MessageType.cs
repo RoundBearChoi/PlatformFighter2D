@@ -33,5 +33,7 @@ namespace RB
         SHOW_SMASH_DUST = 705,
         SHOW_WALLSLIDE_DUST = 706,
         SHOW_WALLJUMP_DUST = 708,
+
+        HOST_IP_ENTERED = 5000,
     }
 }

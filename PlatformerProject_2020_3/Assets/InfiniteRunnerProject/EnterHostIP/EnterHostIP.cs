@@ -16,16 +16,10 @@ namespace RB
             StartCoroutine(_setDefaultText());
         }
 
-        public override void OnFixedUpdate()
-        {
-            //if (!_inputField.isFocused)
-            //{
-            //    BaseClientControl.CURRENT.SetHostIP(_inputField.text);
-            //}
-        }
-
         IEnumerator _setDefaultText()
         {
+            Message_HostIPEntered.uiElement = this;
+
             _inputField = this.gameObject.GetComponentInChildren<InputField>();
 
             yield return new WaitForEndOfFrame();
@@ -36,6 +30,14 @@ namespace RB
             yield return new WaitForEndOfFrame();
 
             _inputField.MoveTextEnd(false);
+        }
+
+        public override void OnFixedUpdate()
+        {
+            //if (!_inputField.isFocused)
+            //{
+            //    BaseClientControl.CURRENT.SetHostIP(_inputField.text);
+            //}
         }
     }
 }

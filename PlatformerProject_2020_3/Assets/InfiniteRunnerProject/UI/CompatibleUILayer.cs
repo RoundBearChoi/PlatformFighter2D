@@ -51,6 +51,8 @@ namespace RB
                 AddUIElement(enter);
                 enter.transform.SetParent(this.transform, false);
                 enter.InitElement();
+
+                enter.messageHandler = new EnterHostIPMessageHandler();
             }
         }
     }

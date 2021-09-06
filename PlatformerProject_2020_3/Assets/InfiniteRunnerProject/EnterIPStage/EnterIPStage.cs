@@ -48,7 +48,8 @@ namespace RB
             {
                 Debugger.Log("enter pressed");
 
-                //send message to EnterHostIP?
+                BaseMessage enteredMessage = new Message_HostIPEntered();
+                enteredMessage.Register();
             }
         }
 

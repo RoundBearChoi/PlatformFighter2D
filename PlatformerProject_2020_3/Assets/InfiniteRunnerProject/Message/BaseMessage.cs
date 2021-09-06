@@ -62,5 +62,10 @@ namespace RB
         {
             return null;
         }
+
+        public virtual string GetStringMessage()
+        {
+            return string.Empty;
+        }
     }
 }
