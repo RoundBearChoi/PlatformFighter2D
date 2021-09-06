@@ -10,16 +10,20 @@ namespace RB.Client
         public GameObject startMenu;
         public InputField usernameField;
 
+        [SerializeField]
+        Client clientPrefab = null;
+
         private void Awake()
         {
             SetClientControl(this);
+            Instantiate(clientPrefab);
         }
 
         /// <summary>Attempts to connect to the server.</summary>
         public override void ConnectToServer()
         {
             HideMenu();
-            Client.instance.ConnectToServer();
+            Client.instance.ConnectToServer(BaseClientControl.CURRENT.GetHostIP());
         }
 
         public override string GetUserName()

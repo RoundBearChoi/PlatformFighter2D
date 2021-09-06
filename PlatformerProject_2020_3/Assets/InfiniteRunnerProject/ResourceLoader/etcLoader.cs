@@ -18,6 +18,7 @@ namespace RB
 
             LoadObj<RB.Server.NetworkControl>(etcType.NETWORK_CONTROL, "NetworkControl");
             LoadObj<RB.Client.ClientControl>(etcType.CLIENT_CONTROL, "ClientControl");
+            LoadObj<FighterClient>(etcType.FIGHTER_CLIENT, "FighterClient");
         }
     }
 }

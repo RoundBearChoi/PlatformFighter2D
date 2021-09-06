@@ -27,6 +27,7 @@ namespace RB
             _baseUI.Init(BaseUIType.CONNECTING_UI);
 
             //attempt connection
+            BaseClientControl.CURRENT.ConnectToServer();
         }
 
         public override void OnUpdate()

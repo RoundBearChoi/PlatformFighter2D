@@ -9,7 +9,7 @@ namespace RB.Client
         static BaseClientControl _current = null;
 
         [SerializeField]
-        string _hostIP = string.Empty;
+        protected string _hostIP = string.Empty;
 
         public static BaseClientControl CURRENT
         {
@@ -31,6 +31,11 @@ namespace RB.Client
 
         public virtual string GetHostIP()
         {
+            if (string.IsNullOrEmpty(_hostIP))
+            {
+                _hostIP = "127.0.0.1";
+            }
+
             return _hostIP;
         }
 

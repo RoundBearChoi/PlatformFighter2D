@@ -17,7 +17,9 @@ namespace RB
             {
                 if (message.MESSAGE_TYPE == MessageType.HOST_IP_ENTERED)
                 {
-                    Debugger.Log("host ip entered: " + message.GetStringMessage());
+                    string ip = message.GetStringMessage();
+                    Debugger.Log("host ip entered: " + ip);
+                    RB.Client.BaseClientControl.CURRENT.SetHostIP(ip);
 
                     GameInitializer.current.stageTransitioner.AddTransition(new ConnectingStageTransition(GameInitializer.current));
                 }

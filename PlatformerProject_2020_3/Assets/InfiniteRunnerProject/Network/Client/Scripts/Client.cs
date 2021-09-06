@@ -13,7 +13,6 @@ namespace RB.Client
         public static Client instance;
         public static int dataBufferSize = 4096;
 
-        public string ip = "127.0.0.1";
         public int port = 26950;
         public int myId = 0;
         public TCP tcp;
@@ -33,17 +32,14 @@ namespace RB.Client
                 Debug.Log("Instance already exists, destroying object!");
                 Destroy(this);
             }
-        }
 
-        private void Start()
-        {
             SetupTCPUDP();
         }
 
         public void SetupTCPUDP()
         {
             tcp = new TCP();
-            udp = new UDP();
+            udp = new UDP(BaseClientControl.CURRENT.GetHostIP());
         }
 
         private void OnApplicationQuit()
@@ -52,12 +48,12 @@ namespace RB.Client
         }
 
         /// <summary>Attempts to connect to the server.</summary>
-        public void ConnectToServer()
+        public void ConnectToServer(string ip)
         {
             InitClientData();
 
-            Debug.Log("attempting to connect");
-            tcp.Connect(); // Connect tcp, udp gets connected once tcp is done
+            Debug.Log("attempting to connect at: " + ip);
+            tcp.Connect(ip); // Connect tcp, udp gets connected once tcp is done
         }
 
         public class TCP
@@ -69,7 +65,7 @@ namespace RB.Client
             private byte[] receiveBuffer;
 
             /// <summary>Attempts to connect to the server via TCP.</summary>
-            public void Connect()
+            public void Connect(string ip)
             {
                 socket = new TcpClient
                 {
@@ -78,7 +74,7 @@ namespace RB.Client
                 };
 
                 receiveBuffer = new byte[dataBufferSize];
-                socket.BeginConnect(instance.ip, instance.port, ConnectCallback, socket);
+                socket.BeginConnect(ip, instance.port, ConnectCallback, socket);
             }
 
             /// <summary>Initializes the newly connected client's TCP-related info.</summary>
@@ -221,9 +217,9 @@ namespace RB.Client
             public UdpClient socket;
             public IPEndPoint endPoint;
 
-            public UDP()
+            public UDP(string ip)
             {
-                endPoint = new IPEndPoint(IPAddress.Parse(instance.ip), instance.port);
+                endPoint = new IPEndPoint(IPAddress.Parse(ip), instance.port);
             }
 
             /// <summary>Attempts to connect to the server via UDP.</summary>

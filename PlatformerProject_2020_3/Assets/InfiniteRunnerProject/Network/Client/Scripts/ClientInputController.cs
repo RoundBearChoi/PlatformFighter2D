@@ -31,11 +31,11 @@ namespace RB.Client
                 _inputs = new bool[5];
             }
 
-            _inputs[0] = keyboard.wKey.IsPressed(); // Input.GetKey(KeyCode.W);
-            _inputs[1] = keyboard.sKey.IsPressed(); //Input.GetKey(KeyCode.S);
-            _inputs[2] = keyboard.aKey.IsPressed(); //Input.GetKey(KeyCode.A);
-            _inputs[3] = keyboard.dKey.IsPressed(); //Input.GetKey(KeyCode.D);
-            _inputs[4] = keyboard.spaceKey.IsPressed(); //Input.GetKey(KeyCode.Space);
+            _inputs[0] = keyboard.wKey.IsPressed();
+            _inputs[1] = keyboard.sKey.IsPressed();
+            _inputs[2] = keyboard.aKey.IsPressed(); 
+            _inputs[3] = keyboard.dKey.IsPressed();
+            _inputs[4] = keyboard.spaceKey.IsPressed();
 
             ClientSend.PlayerMovement(_inputs);
         }
