@@ -9,5 +9,6 @@ namespace RB
         RUNNER_HP_BAR,
         WAITING_FOR_PLAYERS,
         ENTER_HOST_IP,
+        CONNECTING_TO_HOST,
     }
 }

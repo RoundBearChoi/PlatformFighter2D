@@ -13,6 +13,7 @@ namespace RB
             LoadObj<UIElement>(UIElementType.RUNNER_HP_BAR, "RunnerHPBar");
             LoadObj<WaitingForPlayers>(UIElementType.WAITING_FOR_PLAYERS, "WaitingForPlayers");
             LoadObj<EnterHostIP>(UIElementType.ENTER_HOST_IP, "EnterHostIP");
+            LoadObj<ConnectingToHost>(UIElementType.CONNECTING_TO_HOST, "ConnectingToHost");
         }
     }
 }

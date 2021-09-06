@@ -34,7 +34,7 @@ namespace RB
 
             else if (uiLayerType == UILayerType.CONNECTING_TO_HOST)
             {
-
+                UIElement connecting = AddUIElement(UIElementType.CONNECTING_TO_HOST);
             }
         }
     }

@@ -25,6 +25,8 @@ namespace RB
             _baseUI.transform.parent = this.transform;
             
             _baseUI.Init(BaseUIType.CONNECTING_UI);
+
+            //attempt connection
         }
 
         public override void OnUpdate()
