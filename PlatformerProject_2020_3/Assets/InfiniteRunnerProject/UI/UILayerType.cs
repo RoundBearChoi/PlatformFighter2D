@@ -11,5 +11,6 @@ namespace RB
         HOST_GAME,
         ENTER_IP,
         CONNECTING_TO_HOST,
+        CONNECTED_UI,
     }
 }

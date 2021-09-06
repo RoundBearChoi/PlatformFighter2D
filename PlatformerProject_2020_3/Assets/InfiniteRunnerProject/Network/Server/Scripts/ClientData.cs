@@ -34,9 +34,6 @@ namespace RB.Server
             [SerializeField]
             private int _id;
 
-            [SerializeField]
-            private bool _connected = false;
-
             public TcpClient socket;
             private NetworkStream stream;
             private Packet receivedData;
@@ -63,8 +60,7 @@ namespace RB.Server
                 stream.BeginRead(receiveBuffer, 0, dataBufferSize, ReceiveCallback, null);
 
                 BaseNetworkControl.CURRENT.serverSend.Welcome(_id, "Welcome to the server!");
-
-                _connected = true;
+                BaseNetworkControl.CURRENT.serverSend.ClientsConnectionStatus(_id);
             }
 
             /// <summary>Sends data to the client via TCP.</summary>
@@ -170,7 +166,6 @@ namespace RB.Server
                 receivedData = null;
                 receiveBuffer = null;
                 socket = null;
-                _connected = false;
             }
         }
 

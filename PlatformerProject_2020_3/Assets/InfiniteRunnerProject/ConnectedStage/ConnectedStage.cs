@@ -22,7 +22,7 @@ namespace RB
             _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
             _baseUI.transform.parent = this.transform;
 
-            //_baseUI.Init(BaseUIType.CONNECTING_UI);
+            _baseUI.Init(BaseUIType.CONNECTED_UI);
 
             _baseFighterClient = FindObjectOfType<FighterClient>();
             _baseFighterClient.Init();

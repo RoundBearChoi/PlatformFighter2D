@@ -10,36 +10,47 @@ namespace RB.Server
         /// <summary>Sends a packet to a client via TCP.</summary>
         /// <param name="_toClient">The client to send the packet the packet to.</param>
         /// <param name="_packet">The packet to send to the client.</param>
-        private void SendTCPData(int _toClient, Packet _packet)
+        private void SendTCPData(int toClient, Packet packet)
         {
-            _packet.WriteLength();
-            BaseNetworkControl.CURRENT.server.clients[_toClient].tcp.SendData(_packet);
+            packet.WriteLength();
+
+            BaseNetworkControl.CURRENT.server.clients[toClient].tcp.SendData(packet);
+        }
+
+        private void SendTCPDataToAll(Packet packet)
+        {
+            packet.WriteLength();
+
+            for (int i = 0; i < BaseNetworkControl.CURRENT.server.clients.Length; i++)
+            {
+                BaseNetworkControl.CURRENT.server.clients[i].tcp.SendData(packet);
+            }
         }
 
         /// <summary>Sends a packet to all clients via UDP.</summary>
         /// <param name="_packet">The packet to send.</param>
-        private void SendUDPDataToAll(Packet _packet)
+        private void SendUDPDataToAll(Packet packet)
         {
-            _packet.WriteLength();
+            packet.WriteLength();
 
             for (int i = 0; i < BaseNetworkControl.CURRENT.server.clients.Length; i++)
             {
-                BaseNetworkControl.CURRENT.server.clients[i].udp.SendData(_packet);
+                BaseNetworkControl.CURRENT.server.clients[i].udp.SendData(packet);
             }
         }
 
         /// <summary>Sends a packet to all clients except one via UDP.</summary>
         /// <param name="_exceptClient">The client to NOT send the data to.</param>
         /// <param name="_packet">The packet to send.</param>
-        private void SendUDPDataToAll(int _exceptClient, Packet _packet)
+        private void SendUDPDataToAll(int exceptClient, Packet packet)
         {
-            _packet.WriteLength();
+            packet.WriteLength();
 
             for (int i = 0; i < BaseNetworkControl.CURRENT.server.clients.Length; i++)
             {
-                if (i != _exceptClient)
+                if (i != exceptClient)
                 {
-                    BaseNetworkControl.CURRENT.server.clients[i].udp.SendData(_packet);
+                    BaseNetworkControl.CURRENT.server.clients[i].udp.SendData(packet);
                 }
             }
         }
@@ -47,14 +58,43 @@ namespace RB.Server
         /// <summary>Sends a welcome message to the given client.</summary>
         /// <param name="_toClient">The client to send the packet to.</param>
         /// <param name="_msg">The message to send.</param>
-        public void Welcome(int _toClient, string _msg)
+        public void Welcome(int toClient, string msg)
         {
-            using (Packet _packet = new Packet((int)ServerPackets.welcome))
+            using (Packet packet = new Packet((int)ServerPackets.welcome))
             {
-                _packet.Write(_msg);
-                _packet.Write(_toClient);
+                packet.Write(msg);
+                packet.Write(toClient);
 
-                SendTCPData(_toClient, _packet);
+                SendTCPData(toClient, packet);
+            }
+        }
+
+        public void ClientsConnectionStatus(int connectedPlayerIndex)
+        {
+            using (Packet _packet = new Packet((int)ServerPackets.clients_connection_status))
+            {
+                bool[] clients = new bool[3];
+
+                for (int i = 0; i < BaseNetworkControl.CURRENT.server.clients.Length; i++)
+                {
+                    if (BaseNetworkControl.CURRENT.server.clients[i].tcp.socket != null)
+                    {
+                        Debugger.Log("player " + i + " is connected");
+                        clients[i] = true;
+                    }
+                    else
+                    {
+                        Debugger.Log("player " + i + " is NOT connected");
+                        clients[i] = false;
+                    }
+                }
+
+                for (int i = 0; i < clients.Length; i++)
+                {
+                    _packet.Write(clients[i]);
+                }
+
+                SendTCPDataToAll(_packet);
             }
         }
 

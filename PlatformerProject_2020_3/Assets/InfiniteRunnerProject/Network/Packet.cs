@@ -14,6 +14,8 @@ namespace RB.Network
         spawnPlayer,
         playerPosition,
         //playerRotation
+
+        clients_connection_status,
     }
 
     /// <summary>Sent from client to server.</summary>

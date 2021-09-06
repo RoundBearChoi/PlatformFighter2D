@@ -8,13 +8,13 @@ namespace RB.Client
 {
     public class ClientHandle : MonoBehaviour
     {
-        public static void Welcome(Packet _packet)
+        public static void Welcome(Packet packet)
         {
-            string _msg = _packet.ReadString();
-            int _myId = _packet.ReadInt();
+            string msg = packet.ReadString();
+            int myId = packet.ReadInt();
 
-            Debug.Log($"Message from server: {_msg}");
-            Client.instance.myId = _myId;
+            Debug.Log($"Message from server: {msg}");
+            Client.instance.myId = myId;
             ClientSend.WelcomeReceived();
 
             // Now that we have the client's id, connect UDP
@@ -25,24 +25,23 @@ namespace RB.Client
             connectedMessage.Register();
         }
 
-        public static void SpawnPlayer(Packet _packet)
+        public static void SpawnPlayer(Packet packet)
         {
-            int _id = _packet.ReadInt();
-            string _username = _packet.ReadString();
-            Vector3 _position = _packet.ReadVector3();
-            Quaternion _rotation = _packet.ReadQuaternion();
+            int id = packet.ReadInt();
+            string username = packet.ReadString();
+            Vector3 position = packet.ReadVector3();
+            Quaternion rotation = packet.ReadQuaternion();
 
-            GameManager.instance.SpawnPlayer(_id, _username, _position, _rotation);
+            GameManager.instance.SpawnPlayer(id, username, position, rotation);
         }
 
-        public static void PlayerPosition(Packet _packet)
+        public static void PlayerPosition(Packet packet)
         {
-            int id = _packet.ReadInt();
+            int id = packet.ReadInt();
             
-
             if (GameManager.players.ContainsKey(id))
             {
-                Vector3 position = _packet.ReadVector3();
+                Vector3 position = packet.ReadVector3();
                 GameManager.players[id].transform.position = position;
             }
         }
@@ -54,5 +53,16 @@ namespace RB.Client
         //
         //    GameManager.players[_id].transform.rotation = _rotation;
         //}
+
+        public static void ClientsConnectionStatus(Packet packet)
+        {
+            bool[] connectedClients = new bool[3];
+
+            for (int i = 0; i < connectedClients.Length; i++)
+            {
+                connectedClients[i] = packet.ReadBool();
+                Debugger.Log("player " + i + " connection: " + connectedClients[i]);
+            }
+        }
     }
 }

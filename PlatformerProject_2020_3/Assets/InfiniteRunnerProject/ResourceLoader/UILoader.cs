@@ -21,7 +21,7 @@ namespace RB
             LoadObj<IntroSelect>(UIType.INTRO_SELECT, "IntroSelect");
             LoadObj<HostGameSelect>(UIType.HOST_GAME_SELECT, "HostGameSelect");
 
-            //ui elements
+            //other ui stuff
             LoadObj<SelectionArrow>(UIType.SELECTION_ARROW, "SelectionArrow");
         }
     }

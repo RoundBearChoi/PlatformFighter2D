@@ -13,6 +13,7 @@ namespace RB
         HOST_GAME_SELECT,
 
         SELECTION_ARROW,
+        CONNECTED_UI,
 
         //temp
         UI,

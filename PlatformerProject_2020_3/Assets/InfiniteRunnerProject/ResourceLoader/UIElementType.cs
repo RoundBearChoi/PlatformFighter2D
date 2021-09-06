@@ -10,5 +10,6 @@ namespace RB
         WAITING_FOR_PLAYERS,
         ENTER_HOST_IP,
         CONNECTING_TO_HOST,
+        CONNECTED_UI,
     }
 }

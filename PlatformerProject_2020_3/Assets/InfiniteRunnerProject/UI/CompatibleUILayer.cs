@@ -36,6 +36,11 @@ namespace RB
             {
                 UIElement connecting = AddUIElement(UIElementType.CONNECTING_TO_HOST);
             }
+
+            else if (uiLayerType == UILayerType.CONNECTED_UI)
+            {
+                UIElement connected = AddUIElement(UIElementType.CONNECTED_UI);
+            }
         }
     }
 }

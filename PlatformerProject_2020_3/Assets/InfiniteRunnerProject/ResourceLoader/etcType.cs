@@ -17,5 +17,7 @@ namespace RB
         NETWORK_CONTROL,
         CLIENT_CONTROL,
         FIGHTER_CLIENT,
+
+        CONNECTED_PLAYER_INFO
     }
 }
