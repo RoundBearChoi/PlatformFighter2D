@@ -35,5 +35,6 @@ namespace RB
         SHOW_WALLJUMP_DUST = 708,
 
         HOST_IP_ENTERED = 5000,
+        TRANSITION_TO_CONNECTED_STAGE = 5001,
     }
 }

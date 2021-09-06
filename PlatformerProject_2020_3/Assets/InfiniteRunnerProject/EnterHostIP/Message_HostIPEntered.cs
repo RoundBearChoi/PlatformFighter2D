@@ -11,7 +11,6 @@ namespace RB
         string _hostIP = string.Empty;
         InputField _inputField = null;
         
-
         public Message_HostIPEntered()
         {
             mMessageType = MessageType.HOST_IP_ENTERED;

@@ -7,6 +7,13 @@ namespace RB
     public class StageTransitioner
     {
         private List<IStageTransition> _listStageTransitions = new List<IStageTransition>();
+        private BaseMessageHandler _messageHandler = null;
+
+        public StageTransitioner()
+        {
+            _messageHandler = new StageTransitionerMessageHandler();
+            Message_ConnectedToServer.stageTransitionerMessageHandler = _messageHandler;
+        }
 
         public void AddTransition(IStageTransition transition)
         {
@@ -25,6 +32,9 @@ namespace RB
             }
 
             _listStageTransitions.Clear();
+
+            _messageHandler.HandleMessages();
+            _messageHandler.ClearMessages();
         }
     }
 }

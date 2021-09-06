@@ -5,10 +5,9 @@ using RB.Client;
 
 namespace RB
 {
-    public class ConnectingStage : BaseStage
+    public class ConnectedStage : BaseStage
     {
         Camera _mainCam = null;
-        uint _updateCount = 0;
 
         public override void Init()
         {
@@ -19,14 +18,11 @@ namespace RB
             _mainCam.transform.position = new Vector3(0f, 0f, -5f);
 
             _inputController.AddInput();
-            
+
             _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
             _baseUI.transform.parent = this.transform;
-            
-            _baseUI.Init(BaseUIType.CONNECTING_UI);
 
-            //attempt connection
-            BaseClientControl.CURRENT.ConnectToServer();
+            //_baseUI.Init(BaseUIType.CONNECTING_UI);
 
             _baseFighterClient = FindObjectOfType<FighterClient>();
             _baseFighterClient.Init();
@@ -35,7 +31,7 @@ namespace RB
         public override void OnUpdate()
         {
             _inputController.GetLatestUserInput().OnUpdate();
-            
+
             if (_baseUI != null)
             {
                 _baseUI.OnUpdate();
@@ -52,21 +48,6 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            //when timed out
-            _updateCount++;
-
-            if (_updateCount > uint.MaxValue || _updateCount > 50 * 3)
-            {
-                RB.Network.ThreadManager.ExecuteOnMainThread(() =>
-                {
-                    BaseClientControl.CURRENT.ShowMenu();
-                    BaseClientControl.CURRENT.QueueConnectionFailedMessage();
-                });
-            
-                return;
-            }
-
-            //normal operations
             if (_baseUI != null)
             {
                 _baseUI.OnFixedUpdate();

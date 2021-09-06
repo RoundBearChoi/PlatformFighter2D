@@ -19,6 +19,10 @@ namespace RB.Client
 
             // Now that we have the client's id, connect UDP
             Client.instance.udp.Connect(((IPEndPoint)Client.instance.tcp.socket.Client.LocalEndPoint).Port);
+
+            //message to game
+            BaseMessage connectedMessage = new Message_ConnectedToServer();
+            connectedMessage.Register();
         }
 
         public static void SpawnPlayer(Packet _packet)
