@@ -13,8 +13,10 @@ namespace RB
             LoadObj<IntroStage>(StageType.INTRO_STAGE, "IntroStage");
             LoadObj<TestStage>(StageType.TEST_STAGE, "TestStage");
             LoadObj<RunnerStage>(StageType.RUNNER_STAGE, "RunnerStage");
-            LoadObj<FightStage>(StageType.FIGHT_STAGE, "FightStage");
             LoadObj<SpriteStage>(StageType.SPRITE_STAGE, "SpriteStage");
+
+            LoadObj<FightStage>(StageType.FIGHT_STAGE, "FightStage");
+            LoadObj<MultiplayerServerStage>(StageType.MULTIPLAYER_SERVER_STAGE, "MultiplayerServerStage");
 
             LoadObj<HostGameStage>(StageType.HOST_GAME_STAGE, "HostGameStage");
             LoadObj<EnterHostIPStage>(StageType.ENTER_IP_STAGE, "EnterHostIPStage");
