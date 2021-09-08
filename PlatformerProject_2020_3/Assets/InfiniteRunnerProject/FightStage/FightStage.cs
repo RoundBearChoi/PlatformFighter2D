@@ -64,12 +64,12 @@ namespace RB
             
             if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F5, false))
             {
-                _gameIntializer.stageTransitioner.AddTransition(new FightStageTransition(_gameIntializer));
+                _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.FIGHT_STAGE, _gameIntializer));
             }
 
             if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F6, false))
             {
-                _gameIntializer.stageTransitioner.AddTransition(new IntroStageTransition(_gameIntializer));
+                _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE, _gameIntializer));
             }
 
             if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F7, false))

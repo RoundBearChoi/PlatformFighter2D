@@ -79,12 +79,12 @@ namespace RB.Server
                 {
                     if (BaseNetworkControl.CURRENT.server.clients[i].tcp.socket != null)
                     {
-                        Debugger.Log("player " + i + " is connected");
+                        Debugger.Log("player " + i + " connection: TRUE");
                         clients[i] = true;
                     }
                     else
                     {
-                        Debugger.Log("player " + i + " is NOT connected");
+                        Debugger.Log("player " + i + " connection: FALSE");
                         clients[i] = false;
                     }
                 }

@@ -8,7 +8,7 @@ namespace RB
     {
         public override void OnEnterKey()
         {
-            GameInitializer.current.stageTransitioner.AddTransition(new MultiplayerServerStageTransition(GameInitializer.current));
+            GameInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.MULTIPLAYER_SERVER_STAGE, GameInitializer.current));
         }
     }
 }

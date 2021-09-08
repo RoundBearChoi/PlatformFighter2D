@@ -6,7 +6,7 @@ namespace RB
 {
     public class StageTransitioner
     {
-        private List<IStageTransition> _listStageTransitions = new List<IStageTransition>();
+        private List<BaseStage> _listNextStages = new List<BaseStage>();
         private BaseMessageHandler _messageHandler = null;
 
         public StageTransitioner()
@@ -15,23 +15,29 @@ namespace RB
             Message_ConnectedToServer.stageTransitionerMessageHandler = _messageHandler;
         }
 
-        public void AddTransition(IStageTransition transition)
+        public void AddNextStage(BaseStage stage)
         {
-            _listStageTransitions.Add(transition);
+            _listNextStages.Add(stage);
         }
 
         public void Update()
         {
-            foreach (IStageTransition transition in _listStageTransitions)
+            if (_listNextStages.Count > 0)
             {
-                GameObject.Destroy(BaseInitializer.current.GetStage().gameObject);
+                BaseStage currentStage = BaseInitializer.current.GetStage();
 
-                BaseStage newStage = transition.MakeTransition();
+                if (currentStage != null)
+                {
+                    GameObject.Destroy(currentStage.gameObject);
+                }
+
+                BaseStage newStage = _listNextStages[0];
+
                 BaseInitializer.current.SetStage(newStage);
                 newStage.Init();
             }
 
-            _listStageTransitions.Clear();
+            _listNextStages.Clear();
 
             _messageHandler.HandleMessages();
             _messageHandler.ClearMessages();

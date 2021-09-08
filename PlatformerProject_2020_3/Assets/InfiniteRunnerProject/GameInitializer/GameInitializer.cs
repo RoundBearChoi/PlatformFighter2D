@@ -15,13 +15,13 @@ namespace RB
 
             ResourceLoader.Init();
 
-            //first stage
-            IStageTransition intro = new IntroStageTransition(this);
-            _stage = intro.MakeTransition();
-            _stage.Init();
-            
             specsGetter = new SpecsGetter(listCreationSpecsSO);
             stageTransitioner = new StageTransitioner();
+
+            //first stage
+            stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE, this));
+            //_stage = BaseStage.InstantiateNewStage(StageType.INTRO_STAGE, this);
+            //_stage.Init();
         }
 
         private void Update()
@@ -29,17 +29,27 @@ namespace RB
             Debugger.useLog = _useDebugLog;
 
             stageTransitioner.Update();
-            _stage.OnUpdate();
+
+            if (_stage != null)
+            {
+                _stage.OnUpdate();
+            }
         }
 
         private void FixedUpdate()
         {
-            _stage.OnFixedUpdate();
+            if (_stage != null)
+            {
+                _stage.OnFixedUpdate();
+            }
         }
 
         private void LateUpdate()
         {
-            _stage.OnLateUpdate();
+            if (_stage != null)
+            {
+                _stage.OnLateUpdate();
+            }
         }
 
         public void FindAllDefaultCreationSpecs()

@@ -56,12 +56,12 @@ namespace RB
 
             if (_inputController.GetUserInput(InputType.PLAYER_ONE).commands.ContainsPress(CommandType.F5, false))
             {
-                _gameIntializer.stageTransitioner.AddTransition(new RunnerStageTransition(_gameIntializer));
+                _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.RUNNER_STAGE, _gameIntializer));
             }
 
             if (_inputController.GetUserInput(InputType.PLAYER_ONE).commands.ContainsPress(CommandType.F6, false))
             {
-                _gameIntializer.stageTransitioner.AddTransition(new IntroStageTransition(_gameIntializer));
+                _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE, _gameIntializer));
             }
         }
 

@@ -21,7 +21,7 @@ namespace RB
                     Debugger.Log("host ip entered: " + ip);
                     RB.Client.BaseClientControl.CURRENT.SetHostIP(ip);
 
-                    GameInitializer.current.stageTransitioner.AddTransition(new ConnectingStageTransition(GameInitializer.current));
+                    GameInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.CONNECTING_STAGE, GameInitializer.current));
                 }
             }
         }

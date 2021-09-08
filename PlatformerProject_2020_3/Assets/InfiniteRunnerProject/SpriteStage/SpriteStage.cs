@@ -65,7 +65,7 @@ namespace RB
 
             if (_inputController.GetUserInput(InputType.PLAYER_ONE).commands.ContainsPress(CommandType.F6, false))
             {
-                _gameIntializer.stageTransitioner.AddTransition(new IntroStageTransition(_gameIntializer));
+                _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE, _gameIntializer));
             }
         }
 
