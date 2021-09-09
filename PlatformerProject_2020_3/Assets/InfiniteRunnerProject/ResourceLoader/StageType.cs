@@ -13,6 +13,7 @@ namespace RB
 
         FIGHT_STAGE = 100,
         MULTIPLAYER_SERVER_STAGE = 101,
+        MULTIPLAYER_CLIENT_STAGE = 102,
 
         HOST_GAME_STAGE = 500,
         ENTER_IP_STAGE = 501,
