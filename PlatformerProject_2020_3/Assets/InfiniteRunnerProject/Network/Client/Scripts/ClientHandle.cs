@@ -72,22 +72,24 @@ namespace RB.Client
             BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.MULTIPLAYER_CLIENT_STAGE));
         }
 
-        public static void PlayerData(Packet packet)
+        public static void UpdateOnPlayerData(Packet packet)
         {
-            Debugger.Log("---player data received---");
+            RB.Server.PlayerDataset dataset = new Server.PlayerDataset();
 
-            int playerCount = packet.ReadInt();
-
-            Debugger.Log("player count: " + playerCount);
-
-            for (int i = 0; i < playerCount; i++)
+            dataset.playerCount = packet.ReadInt();
+            dataset.listIndexes = new List<int>();
+            dataset.listPositions = new List<Vector3>();
+            
+            for (int i = 0; i < dataset.playerCount; i++)
             {
                 int playerIndex = packet.ReadInt();
-                Debugger.Log("player index: " + playerIndex);
-
                 Vector3 pos = packet.ReadVector3();
-                Debugger.Log("player pos: " + pos);
+
+                dataset.listIndexes.Add(playerIndex);
+                dataset.listPositions.Add(pos);
             }
+
+            GameInitializer.current.GetStage().UpdateClientPositions(dataset);
         }
     }
 }

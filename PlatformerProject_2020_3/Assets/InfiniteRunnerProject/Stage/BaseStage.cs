@@ -72,6 +72,11 @@ namespace RB
 
         }
 
+        public virtual void UpdateClientPositions(RB.Server.PlayerDataset playerData)
+        {
+            Debugger.Log("undefined");
+        }
+
         public virtual CameraState GetDefaultCameraState()
         {
             return null;

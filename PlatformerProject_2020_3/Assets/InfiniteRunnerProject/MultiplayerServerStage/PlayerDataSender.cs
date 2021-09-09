@@ -27,19 +27,19 @@ namespace RB.Server
                 player.OnFixedUpdate();
             }
 
-            PlayerData playerData = new PlayerData();
-            playerData.playerCount = _playersOnServer.Count;
+            PlayerDataset dataset = new PlayerDataset();
+            dataset.playerCount = _playersOnServer.Count;
 
-            playerData.listIndexes = new List<int>();
-            playerData.listPositions = new List<Vector3>();
+            dataset.listIndexes = new List<int>();
+            dataset.listPositions = new List<Vector3>();
 
             for (int i = 0; i < _playersOnServer.Count; i++)
             {
-                playerData.listIndexes.Add(_playersOnServer[i].GetIndex());
-                playerData.listPositions.Add(_playersOnServer[i].GetPosition());
+                dataset.listIndexes.Add(_playersOnServer[i].GetIndex());
+                dataset.listPositions.Add(_playersOnServer[i].GetPosition());
             }
 
-            RB.Server.BaseNetworkControl.CURRENT.serverSend.SendPlayerData(playerData);
+            RB.Server.BaseNetworkControl.CURRENT.serverSend.SendPlayerData(dataset);
         }
     }
 }

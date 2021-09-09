@@ -21,6 +21,8 @@ namespace RB
             LoadObj<RB.Client.FighterClient>(etcType.FIGHTER_CLIENT, "FighterClient");
 
             LoadObj<ConnectedPlayerInfo>(etcType.CONNECTED_PLAYER_INFO, "ConnectedPlayerInfo");
+
+            LoadObj<RB.Client.ClientPosition>(etcType.CLIENT_POSITION, "ClientPosition");
         }
     }
 }

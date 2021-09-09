@@ -327,7 +327,7 @@ namespace RB.Client
                 
                 {(int)ServerPackets.clients_connection_status, ClientHandle.ClientsConnectionStatus },
                 {(int)ServerPackets.enter_multiplayer_stage, ClientHandle.EnterMultiplayerStage },
-                {(int)ServerPackets.player_data, ClientHandle.PlayerData }
+                {(int)ServerPackets.player_data, ClientHandle.UpdateOnPlayerData }
             };
 
             Debug.Log("initialized clientdata");

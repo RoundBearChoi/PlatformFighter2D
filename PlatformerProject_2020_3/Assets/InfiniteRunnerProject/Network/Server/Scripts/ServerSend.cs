@@ -97,7 +97,7 @@ namespace RB.Server
             }
         }
 
-        public void SendPlayerData(PlayerData playerData)
+        public void SendPlayerData(PlayerDataset playerData)
         {
             using (Packet packet = new Packet((int)ServerPackets.player_data))
             {

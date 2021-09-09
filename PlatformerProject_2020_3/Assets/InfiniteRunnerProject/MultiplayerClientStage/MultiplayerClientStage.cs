@@ -8,6 +8,7 @@ namespace RB
     public class MultiplayerClientStage : BaseStage
     {
         Camera _mainCam = null;
+        ClientPositions _clientPositions = null;
 
         public override void Init()
         {
@@ -26,6 +27,25 @@ namespace RB
 
             _baseFighterClient = FindObjectOfType<FighterClient>();
             _baseFighterClient.Init();
+
+            _clientPositions = new ClientPositions();
+        }
+
+        public override void UpdateClientPositions(RB.Server.PlayerDataset playerData)
+        {
+            if (playerData.listIndexes.Count > 0)
+            {
+                if (playerData.listIndexes.Count == playerData.listPositions.Count)
+                {
+                    Debugger.Log("---updating on playerdataset---");
+
+                    for (int i = 0; i < playerData.listIndexes.Count; i++)
+                    {
+                        Debugger.Log("player ID: " + playerData.listIndexes[i]);
+                        Debugger.Log("player position: " + playerData.listPositions[i]);
+                    }
+                }
+            }
         }
 
         public override void OnUpdate()

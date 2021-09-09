@@ -18,6 +18,8 @@ namespace RB
         CLIENT_CONTROL,
         FIGHTER_CLIENT,
 
-        CONNECTED_PLAYER_INFO
+        CONNECTED_PLAYER_INFO,
+
+        CLIENT_POSITION,
     }
 }

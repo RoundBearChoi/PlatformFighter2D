@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB.Server
 {
-    public struct PlayerData
+    public struct PlayerDataset
     {
         public int playerCount;
         public List<int> listIndexes;
