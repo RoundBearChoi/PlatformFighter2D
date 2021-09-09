@@ -98,6 +98,14 @@ namespace RB.Server
             }
         }
 
+        public void EnterMultiplayerStage()
+        {
+            using (Packet _packet = new Packet((int)ServerPackets.enter_multiplayer_stage))
+            {
+                SendTCPDataToAll(_packet);
+            }
+        }
+
         /// <summary>Tells a client to spawn a player.</summary>
         /// <param name="_toClient">The client that should spawn the player.</param>
         /// <param name="_player">The player to spawn.</param>

@@ -312,14 +312,14 @@ namespace RB.Client
         private void InitClientData()
         {
             packetHandlers = new Dictionary<int, PacketHandler>()
-        {
-            { (int)ServerPackets.welcome, ClientHandle.Welcome },
-            { (int)ServerPackets.spawnPlayer, ClientHandle.SpawnPlayer },
-            { (int)ServerPackets.playerPosition, ClientHandle.PlayerPosition },
-                //{ (int)ServerPackets.playerRotation, ClientHandle.PlayerRotation },
-
-            {(int)ServerPackets.clients_connection_status, ClientHandle.ClientsConnectionStatus },
-        };
+            {
+                { (int)ServerPackets.welcome, ClientHandle.Welcome },
+                { (int)ServerPackets.spawnPlayer, ClientHandle.SpawnPlayer },
+                { (int)ServerPackets.playerPosition, ClientHandle.PlayerPosition },
+                
+                {(int)ServerPackets.clients_connection_status, ClientHandle.ClientsConnectionStatus },
+                {(int)ServerPackets.enter_multiplayer_stage, ClientHandle.EnterMultiplayerStage },
+            };
 
             Debug.Log("initialized clientdata");
         }

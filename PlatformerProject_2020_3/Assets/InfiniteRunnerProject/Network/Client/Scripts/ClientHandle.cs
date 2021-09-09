@@ -64,5 +64,10 @@ namespace RB.Client
                 Debugger.Log("player " + i + " connection: " + connectedClients[i]);
             }
         }
+
+        public static void EnterMultiplayerStage(Packet packet)
+        {
+            Debugger.Log("packet received to enter multiplayer stage");
+        }
     }
 }
