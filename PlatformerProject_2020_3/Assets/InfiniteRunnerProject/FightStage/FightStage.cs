@@ -7,8 +7,7 @@ namespace RB
     public class FightStage : BaseStage
     {
         [SerializeField]
-        protected InputType _currentInputSelection = InputType.PLAYER_ONE;
-        protected InputType _prevInputSelection = InputType.NONE;
+        InputType _inputSelection = InputType.PLAYER_ONE;
 
         public override void Init()
         {
@@ -33,8 +32,7 @@ namespace RB
             Unit player1 = units.GetUnit<LittleRed>();
 
             UserInput input = _inputController.AddInput();
-            _currentInputSelection = input.INPUT_TYPE;
-            _prevInputSelection = input.INPUT_TYPE;
+            _inputSelection = input.INPUT_TYPE;
             player1.SetUserInput(input);
 
             cameraScript = new CameraScript();
@@ -57,28 +55,28 @@ namespace RB
 
         public override void OnUpdate()
         {
-            _inputController.GetUserInput(_currentInputSelection).OnUpdate();
+            _inputController.GetUserInput(_inputSelection).OnUpdate();
             cameraScript.OnUpdate();
             trailEffects.OnUpdate();
             units.OnUpdate();
             
-            if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F5, false))
+            if (_inputController.GetUserInput(_inputSelection).commands.ContainsPress(CommandType.F5, false))
             {
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.FIGHT_STAGE));
             }
 
-            if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F6, false))
+            if (_inputController.GetUserInput(_inputSelection).commands.ContainsPress(CommandType.F6, false))
             {
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
             }
 
-            if (_inputController.GetUserInput(_currentInputSelection).commands.ContainsPress(CommandType.F7, false))
+            if (_inputController.GetUserInput(_inputSelection).commands.ContainsPress(CommandType.F7, false))
             {
-                _currentInputSelection++;
+                _inputSelection++;
 
-                if ((int)_currentInputSelection > _inputController.GetCount())
+                if ((int)_inputSelection > _inputController.GetCount())
                 {
-                    _currentInputSelection = InputType.PLAYER_ONE;
+                    _inputSelection = InputType.PLAYER_ONE;
                 }
             }
         }
