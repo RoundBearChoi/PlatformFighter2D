@@ -5,14 +5,19 @@ using UnityEngine;
 namespace RB.Server
 {
     [System.Serializable]
-    public class PlayerPositionSender
+    public class PlayerDataSender
     {
         public ServerPlayer[] _activePlayers = null;
 
-        public PlayerPositionSender()
+        public PlayerDataSender()
         {
             _activePlayers = new ServerPlayer[4];
 
+
+        }
+
+        public void OnFixedUpdate()
+        {
 
         }
     }

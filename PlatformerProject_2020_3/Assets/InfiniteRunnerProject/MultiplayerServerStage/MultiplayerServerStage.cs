@@ -11,7 +11,7 @@ namespace RB
         InputType _inputSelection = InputType.PLAYER_ONE;
 
         [SerializeField]
-        RB.Server.PlayerPositionSender _positionSender = null;
+        RB.Server.PlayerDataSender _playerDataSender = null;
 
         public override void Init()
         {
@@ -56,7 +56,7 @@ namespace RB
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, BaseInitializer.current.fighterDataSO.Players_z);
             }
 
-            _positionSender = new RB.Server.PlayerPositionSender();
+            _playerDataSender = new RB.Server.PlayerDataSender();
         }
 
         public override void OnUpdate()
@@ -93,6 +93,7 @@ namespace RB
         {
             cameraScript.OnFixedUpdate();
             units.OnFixedUpdate();
+            _playerDataSender.OnFixedUpdate();
 
             ClearInput();
         }
