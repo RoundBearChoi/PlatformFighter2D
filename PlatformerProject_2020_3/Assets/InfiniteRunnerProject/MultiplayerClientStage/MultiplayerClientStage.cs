@@ -8,6 +8,8 @@ namespace RB
     public class MultiplayerClientStage : BaseStage
     {
         Camera _mainCam = null;
+
+        [SerializeField]
         ClientPositions _clientPositions = null;
 
         public override void Init()
@@ -33,16 +35,25 @@ namespace RB
 
         public override void UpdateClientPositions(RB.Server.PlayerDataset playerData)
         {
-            if (playerData.listIndexes.Count > 0)
+            if (playerData.listIDs.Count > 0)
             {
-                if (playerData.listIndexes.Count == playerData.listPositions.Count)
+                if (playerData.listIDs.Count == playerData.listPositions.Count)
                 {
-                    Debugger.Log("---updating on playerdataset---");
+                    //Debugger.Log("---updating on playerdataset---");
 
-                    for (int i = 0; i < playerData.listIndexes.Count; i++)
+                    for (int i = 0; i < playerData.listIDs.Count; i++)
                     {
-                        Debugger.Log("player ID: " + playerData.listIndexes[i]);
-                        Debugger.Log("player position: " + playerData.listPositions[i]);
+                        ClientPosition cp = _clientPositions.GetClientPosition(playerData.listIDs[i]);
+
+                        if (cp == null)
+                        {
+                            cp = _clientPositions.AddClientPosition(playerData.listIDs[i]);
+                        }
+
+                        cp.SetPosition(playerData.listPositions[i]);
+
+                        //Debugger.Log("player ID: " + playerData.listIndexes[i]);
+                        //Debugger.Log("player position: " + playerData.listPositions[i]);
                     }
                 }
             }

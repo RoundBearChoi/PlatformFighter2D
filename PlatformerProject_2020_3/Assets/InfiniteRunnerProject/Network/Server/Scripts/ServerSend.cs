@@ -106,7 +106,7 @@ namespace RB.Server
 
                 for (int i = 0; i < playerData.listPositions.Count; i++)
                 {
-                    packet.Write(playerData.listIndexes[i]);
+                    packet.Write(playerData.listIDs[i]);
                     packet.Write(playerData.listPositions[i]);
                 }
 

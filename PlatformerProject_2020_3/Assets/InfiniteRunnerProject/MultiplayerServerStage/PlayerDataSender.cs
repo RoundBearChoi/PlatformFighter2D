@@ -30,12 +30,12 @@ namespace RB.Server
             PlayerDataset dataset = new PlayerDataset();
             dataset.playerCount = _playersOnServer.Count;
 
-            dataset.listIndexes = new List<int>();
+            dataset.listIDs = new List<int>();
             dataset.listPositions = new List<Vector3>();
 
             for (int i = 0; i < _playersOnServer.Count; i++)
             {
-                dataset.listIndexes.Add(_playersOnServer[i].GetIndex());
+                dataset.listIDs.Add(_playersOnServer[i].GetIndex());
                 dataset.listPositions.Add(_playersOnServer[i].GetPosition());
             }
 

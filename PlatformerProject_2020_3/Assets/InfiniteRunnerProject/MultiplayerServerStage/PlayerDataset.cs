@@ -7,7 +7,7 @@ namespace RB.Server
     public struct PlayerDataset
     {
         public int playerCount;
-        public List<int> listIndexes;
+        public List<int> listIDs;
         public List<Vector3> listPositions;
     }
 }

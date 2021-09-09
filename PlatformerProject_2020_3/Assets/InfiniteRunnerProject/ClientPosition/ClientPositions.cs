@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace RB.Client
 {
+    [System.Serializable]
     public class ClientPositions
     {
         [SerializeField]
@@ -14,11 +15,13 @@ namespace RB.Client
             _listPositions = new List<ClientPosition>();
         }
 
-        public void AddClientPosition(int clientID)
+        public ClientPosition AddClientPosition(int clientID)
         {
             ClientPosition clientPosition = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_POSITION) as ClientPosition);
             clientPosition.SetID(clientID);
             _listPositions.Add(clientPosition);
+
+            return clientPosition;
         }
 
         public ClientPosition GetClientPosition(int clientID)

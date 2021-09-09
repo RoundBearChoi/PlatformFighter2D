@@ -77,7 +77,7 @@ namespace RB.Client
             RB.Server.PlayerDataset dataset = new Server.PlayerDataset();
 
             dataset.playerCount = packet.ReadInt();
-            dataset.listIndexes = new List<int>();
+            dataset.listIDs = new List<int>();
             dataset.listPositions = new List<Vector3>();
             
             for (int i = 0; i < dataset.playerCount; i++)
@@ -85,7 +85,7 @@ namespace RB.Client
                 int playerIndex = packet.ReadInt();
                 Vector3 pos = packet.ReadVector3();
 
-                dataset.listIndexes.Add(playerIndex);
+                dataset.listIDs.Add(playerIndex);
                 dataset.listPositions.Add(pos);
             }
 
