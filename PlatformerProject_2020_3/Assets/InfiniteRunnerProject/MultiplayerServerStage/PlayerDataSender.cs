@@ -7,18 +7,25 @@ namespace RB.Server
     [System.Serializable]
     public class PlayerDataSender
     {
-        public ServerPlayer[] _activePlayers = null;
+        [SerializeField]
+        List<ServerPlayer> _playersOnServer = null;
 
         public PlayerDataSender()
         {
-            _activePlayers = new ServerPlayer[4];
+            _playersOnServer = new List<ServerPlayer>();
+        }
 
-
+        public void AddUnit(Unit unit, int index)
+        {
+            _playersOnServer.Add(new ServerPlayer(unit, index));
         }
 
         public void OnFixedUpdate()
         {
-
+            foreach(ServerPlayer player in _playersOnServer)
+            {
+                player.OnFixedUpdate();
+            }
         }
     }
 }

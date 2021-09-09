@@ -33,11 +33,11 @@ namespace RB
             BaseInitializer.current.GetStage().InstantiateUnits_ByUnitType(UnitType.OLD_CITY);
 
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_LIGHT);
-            Unit player1 = units.GetUnit<LittleRed>();
+            Unit serverPlayer = units.GetUnit<LittleRed>();
 
             UserInput input = _inputController.AddInput();
             _inputSelection = input.INPUT_TYPE;
-            player1.SetUserInput(input);
+            serverPlayer.SetUserInput(input);
 
             cameraScript = new CameraScript();
             cameraScript.SetCamera(cam);
@@ -45,8 +45,8 @@ namespace RB
             cameraScript.SetFollowTarget(units.GetUnit<LittleRed>().gameObject);
 
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_DARK);
-            Unit player2 = units.GetUnit<LittleRed>();
-            player2.SetUserInput(_inputController.AddInput());
+            Unit client0 = units.GetUnit<LittleRed>();
+            client0.SetUserInput(_inputController.AddInput());
 
             //set z for all players
             List<Unit> allPlayers = units.GetUnits<LittleRed>();
@@ -57,6 +57,8 @@ namespace RB
             }
 
             _playerDataSender = new RB.Server.PlayerDataSender();
+            _playerDataSender.AddUnit(serverPlayer, 100);
+            _playerDataSender.AddUnit(client0, 0);
         }
 
         public override void OnUpdate()

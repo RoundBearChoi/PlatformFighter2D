@@ -12,5 +12,19 @@ namespace RB.Server
 
         [SerializeField]
         int _playerIndex = 0;
+
+        [SerializeField]
+        Vector3 _position = new Vector3();
+
+        public ServerPlayer(Unit unit, int index)
+        {
+            _unit = unit;
+            _playerIndex = index;
+        }
+
+        public void OnFixedUpdate()
+        {
+            _position = _unit.transform.position;
+        }
     }
 }
