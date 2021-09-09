@@ -39,8 +39,6 @@ namespace RB
             {
                 if (playerData.listIDs.Count == playerData.listPositions.Count)
                 {
-                    //Debugger.Log("---updating on playerdataset---");
-
                     for (int i = 0; i < playerData.listIDs.Count; i++)
                     {
                         ClientPosition cp = _clientPositions.GetClientPosition(playerData.listIDs[i]);
@@ -51,9 +49,7 @@ namespace RB
                         }
 
                         cp.SetPosition(playerData.listPositions[i]);
-
-                        //Debugger.Log("player ID: " + playerData.listIndexes[i]);
-                        //Debugger.Log("player position: " + playerData.listPositions[i]);
+                        cp.UpdatePosition();
                     }
                 }
             }

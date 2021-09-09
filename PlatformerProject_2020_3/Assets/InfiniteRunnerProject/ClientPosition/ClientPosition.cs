@@ -13,6 +13,9 @@ namespace RB.Client
         [SerializeField]
         Vector3 _pos = new Vector3();
 
+        [SerializeField]
+        GameObject _playerPositionSphere = null;
+
         public int ID
         {
             get
@@ -37,6 +40,11 @@ namespace RB.Client
         public void SetPosition(Vector3 pos)
         {
             _pos = pos;
+        }
+
+        public void UpdatePosition()
+        {
+            _playerPositionSphere.transform.position = _pos;
         }
     }
 }
