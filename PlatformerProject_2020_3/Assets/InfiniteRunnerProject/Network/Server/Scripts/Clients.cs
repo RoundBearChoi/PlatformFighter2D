@@ -52,6 +52,14 @@ namespace RB.Server
             return false;
         }
 
+        public void RemoveClient(ClientData data)
+        {
+            if (_listClientData.Contains(data))
+            {
+                _listClientData.Remove(data);
+            }
+        }
+
         public ClientData GetClientData(int clientID)
         {
             foreach(ClientData data in _listClientData)

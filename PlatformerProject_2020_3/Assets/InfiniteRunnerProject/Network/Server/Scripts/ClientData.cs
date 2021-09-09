@@ -14,13 +14,13 @@ namespace RB.Server
         public static int dataBufferSize = 4096;
 
         [SerializeField]
-        string _name;
+        string _name = string.Empty;
 
         public TCP tcp;
         public UDP udp;
 
         [SerializeField]
-        bool[] _inputs;
+        bool[] _inputs = null;
 
         public ClientData(int clientId)
         {
@@ -266,8 +266,7 @@ namespace RB.Server
 
             ThreadManager.ExecuteOnMainThread(() =>
             {
-                _name = "disconnected";
-                _inputs = null;
+                BaseNetworkControl.CURRENT.server.connectedClients.RemoveClient(this);
             });
 
             tcp.Disconnect();
