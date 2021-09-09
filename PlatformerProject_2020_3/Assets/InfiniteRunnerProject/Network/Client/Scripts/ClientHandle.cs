@@ -71,5 +71,23 @@ namespace RB.Client
 
             BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.MULTIPLAYER_CLIENT_STAGE));
         }
+
+        public static void PlayerData(Packet packet)
+        {
+            Debugger.Log("---player data received---");
+
+            int playerCount = packet.ReadInt();
+
+            Debugger.Log("player count: " + playerCount);
+
+            for (int i = 0; i < playerCount; i++)
+            {
+                int playerIndex = packet.ReadInt();
+                Debugger.Log("player index: " + playerIndex);
+
+                Vector3 pos = packet.ReadVector3();
+                Debugger.Log("player pos: " + pos);
+            }
+        }
     }
 }

@@ -17,6 +17,7 @@ namespace RB.Network
 
         clients_connection_status,
         enter_multiplayer_stage,
+        player_data,
     }
 
     /// <summary>Sent from client to server.</summary>

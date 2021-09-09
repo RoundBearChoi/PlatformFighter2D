@@ -106,6 +106,23 @@ namespace RB.Server
             }
         }
 
+        public void SendPlayerData(PlayerData playerData)
+        {
+            using (Packet _packet = new Packet((int)ServerPackets.player_data))
+            {
+                int playerCount = playerData.playerCount;
+                _packet.Write(playerCount);
+
+                for (int i = 0; i < playerData.listPositions.Count; i++)
+                {
+                    _packet.Write(playerData.listIndexes[i]);
+                    _packet.Write(playerData.listPositions[i]);
+                }
+
+                SendUDPDataToAll(_packet);
+            }
+        }
+
         /// <summary>Tells a client to spawn a player.</summary>
         /// <param name="_toClient">The client that should spawn the player.</param>
         /// <param name="_player">The player to spawn.</param>

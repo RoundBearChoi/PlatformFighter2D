@@ -26,5 +26,15 @@ namespace RB.Server
         {
             _position = _unit.transform.position;
         }
+
+        public int GetIndex()
+        {
+            return _playerIndex;
+        }
+
+        public Vector3 GetPosition()
+        {
+            return _position;
+        }
     }
 }
