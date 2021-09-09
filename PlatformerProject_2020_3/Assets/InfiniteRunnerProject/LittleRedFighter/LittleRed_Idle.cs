@@ -30,7 +30,7 @@ namespace RB
             //random blink
             if (ownerUnit.iStateController.GetCurrentState().fixedUpdateCount % 120 == 0)
             {
-                Debugger.Log("blink");
+                //Debugger.Log("blink");
             }
         }
     }

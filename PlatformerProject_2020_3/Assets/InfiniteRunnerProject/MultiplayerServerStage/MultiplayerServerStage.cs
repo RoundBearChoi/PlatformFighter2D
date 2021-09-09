@@ -10,6 +10,9 @@ namespace RB
         [SerializeField]
         InputType _inputSelection = InputType.PLAYER_ONE;
 
+        [SerializeField]
+        RB.Server.PlayerPositionSender _positionSender = null;
+
         public override void Init()
         {
             units = new Units(this);
@@ -52,6 +55,8 @@ namespace RB
             {
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, BaseInitializer.current.fighterDataSO.Players_z);
             }
+
+            _positionSender = new RB.Server.PlayerPositionSender();
         }
 
         public override void OnUpdate()
