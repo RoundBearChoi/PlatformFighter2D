@@ -21,6 +21,8 @@ namespace RB.Client
             clientPosition.SetID(clientID);
             _listPositions.Add(clientPosition);
 
+            clientPosition.transform.SetParent(GameInitializer.current.GetStage().transform, true);
+
             return clientPosition;
         }
 
