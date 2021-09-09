@@ -23,7 +23,7 @@ namespace RB
 
             //also gotta check if you're already connected to a server
 
-            GameInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.ENTER_IP_STAGE, GameInitializer.current));
+            GameInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.ENTER_IP_STAGE));
         }
     }
 }

@@ -8,7 +8,7 @@ namespace RB
     {
         public override void OnEnterKey()
         {
-            GameInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.HOST_GAME_STAGE, GameInitializer.current));
+            GameInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.HOST_GAME_STAGE));
         }
     }
 }

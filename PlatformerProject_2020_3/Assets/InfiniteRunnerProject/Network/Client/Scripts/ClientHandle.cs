@@ -69,7 +69,7 @@ namespace RB.Client
         {
             Debugger.Log("packet received to enter multiplayer stage");
 
-            BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.MULTIPLAYER_CLIENT_STAGE, BaseInitializer.current));
+            BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.MULTIPLAYER_CLIENT_STAGE));
         }
     }
 }

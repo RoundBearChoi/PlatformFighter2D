@@ -23,14 +23,14 @@ namespace RB
 
         protected RB.Client.BaseFighterClient _baseFighterClient = null;
 
-        public static BaseStage InstantiateNewStage(StageType stageType, BaseInitializer gameInitializer)
+        public static BaseStage InstantiateNewStage(StageType stageType)
         {
             LoadStageObjs(stageType);
 
             BaseStage newStage = GameObject.Instantiate(ResourceLoader.stageLoader.GetObj(stageType)) as BaseStage;
 
-            newStage.SetInitializer(gameInitializer);
-            newStage.transform.parent = gameInitializer.transform;
+            newStage.SetInitializer(GameInitializer.current);
+            newStage.transform.parent = GameInitializer.current.transform;
             newStage.transform.localPosition = new Vector3(0f, 0f, 0f);
             newStage.transform.localRotation = Quaternion.identity;
 

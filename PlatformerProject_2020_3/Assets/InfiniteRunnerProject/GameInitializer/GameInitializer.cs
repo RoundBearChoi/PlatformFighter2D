@@ -19,9 +19,7 @@ namespace RB
             stageTransitioner = new StageTransitioner();
 
             //first stage
-            stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE, this));
-            //_stage = BaseStage.InstantiateNewStage(StageType.INTRO_STAGE, this);
-            //_stage.Init();
+            stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
         }
 
         private void Update()

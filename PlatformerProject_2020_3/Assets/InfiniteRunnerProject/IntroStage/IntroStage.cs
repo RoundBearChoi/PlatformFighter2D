@@ -31,17 +31,17 @@ namespace RB
 
             if (_inputController.GetLatestUserInput().commands.ContainsPress(CommandType.F4, true))
             {
-                _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.SPRITE_STAGE, _gameIntializer));
+                _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.SPRITE_STAGE));
             }
 
             if (_inputController.GetLatestUserInput().commands.ContainsPress(CommandType.F5, true))
             {
-                _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.TEST_STAGE, _gameIntializer));
+                _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.TEST_STAGE));
             }
 
             if (_inputController.GetLatestUserInput().commands.ContainsPress(CommandType.F6, true))
             {
-                _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.RUNNER_STAGE, _gameIntializer));
+                _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.RUNNER_STAGE));
             }
 
             _baseUI.OnUpdate();
