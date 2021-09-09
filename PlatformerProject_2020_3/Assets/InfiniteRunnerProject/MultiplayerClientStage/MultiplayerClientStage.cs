@@ -23,6 +23,9 @@ namespace RB
             _baseUI.transform.parent = this.transform;
 
             //_baseUI.Init(BaseUIType.CONNECTING_UI);
+
+            _baseFighterClient = FindObjectOfType<FighterClient>();
+            _baseFighterClient.Init();
         }
 
         public override void OnUpdate()
@@ -48,6 +51,11 @@ namespace RB
             if (_baseUI != null)
             {
                 _baseUI.OnFixedUpdate();
+            }
+
+            if (_baseFighterClient != null)
+            {
+                _baseFighterClient.SendInputToServer();
             }
 
             ClearInput();
