@@ -14,16 +14,19 @@ namespace RB.Server
         {
             packet.WriteLength();
 
-            BaseNetworkControl.CURRENT.server.clients[toClient].tcp.SendData(packet);
+            ClientData clientData = BaseNetworkControl.CURRENT.server.connectedClients.GetClientData(toClient);
+            clientData.tcp.SendData(packet);
         }
 
         private void SendTCPDataToAll(Packet packet)
         {
             packet.WriteLength();
 
-            for (int i = 0; i < BaseNetworkControl.CURRENT.server.clients.Length; i++)
+            ClientData[] arr = BaseNetworkControl.CURRENT.server.connectedClients.GetAllClients();
+
+            foreach(ClientData data in arr)
             {
-                BaseNetworkControl.CURRENT.server.clients[i].tcp.SendData(packet);
+                data.tcp.SendData(packet);
             }
         }
 
@@ -33,27 +36,29 @@ namespace RB.Server
         {
             packet.WriteLength();
 
-            for (int i = 0; i < BaseNetworkControl.CURRENT.server.clients.Length; i++)
+            ClientData[] arr = BaseNetworkControl.CURRENT.server.connectedClients.GetAllClients();
+
+            foreach (ClientData data in arr)
             {
-                BaseNetworkControl.CURRENT.server.clients[i].udp.SendData(packet);
+                data.udp.SendData(packet);
             }
         }
 
         /// <summary>Sends a packet to all clients except one via UDP.</summary>
         /// <param name="_exceptClient">The client to NOT send the data to.</param>
         /// <param name="_packet">The packet to send.</param>
-        private void SendUDPDataToAll(int exceptClient, Packet packet)
-        {
-            packet.WriteLength();
-
-            for (int i = 0; i < BaseNetworkControl.CURRENT.server.clients.Length; i++)
-            {
-                if (i != exceptClient)
-                {
-                    BaseNetworkControl.CURRENT.server.clients[i].udp.SendData(packet);
-                }
-            }
-        }
+        //private void SendUDPDataToAll(int exceptClient, Packet packet)
+        //{
+        //    packet.WriteLength();
+        //
+        //    for (int i = 0; i < BaseNetworkControl.CURRENT.server.clients.Length; i++)
+        //    {
+        //        if (i != exceptClient)
+        //        {
+        //            BaseNetworkControl.CURRENT.server.clients[i].udp.SendData(packet);
+        //        }
+        //    }
+        //}
 
         /// <summary>Sends a welcome message to the given client.</summary>
         /// <param name="_toClient">The client to send the packet to.</param>
@@ -71,55 +76,41 @@ namespace RB.Server
 
         public void ClientsConnectionStatus(int connectedPlayerIndex)
         {
-            using (Packet _packet = new Packet((int)ServerPackets.clients_connection_status))
-            {
-                bool[] clients = new bool[3];
-
-                for (int i = 0; i < BaseNetworkControl.CURRENT.server.clients.Length; i++)
-                {
-                    if (BaseNetworkControl.CURRENT.server.clients[i].tcp.socket != null)
-                    {
-                        Debugger.Log("player " + i + " connection: TRUE");
-                        clients[i] = true;
-                    }
-                    else
-                    {
-                        Debugger.Log("player " + i + " connection: FALSE");
-                        clients[i] = false;
-                    }
-                }
-
-                for (int i = 0; i < clients.Length; i++)
-                {
-                    _packet.Write(clients[i]);
-                }
-
-                SendTCPDataToAll(_packet);
-            }
+            //using (Packet _packet = new Packet((int)ServerPackets.clients_connection_status))
+            //{
+            //    ClientData[] clients = BaseNetworkControl.CURRENT.server.connectedClients.GetAllClients();
+            //    
+            //    for (int i = 0; i < clients.Length; i++)
+            //    {
+            //        _packet.Write(clients[i]);
+            //    }
+            //    
+            //    SendTCPDataToAll(_packet);
+            //}
         }
 
         public void EnterMultiplayerStage()
         {
-            using (Packet _packet = new Packet((int)ServerPackets.enter_multiplayer_stage))
+            using (Packet packet = new Packet((int)ServerPackets.enter_multiplayer_stage))
             {
-                SendTCPDataToAll(_packet);
+                SendTCPDataToAll(packet);
             }
         }
 
         public void SendPlayerData(PlayerData playerData)
         {
-            using (Packet _packet = new Packet((int)ServerPackets.player_data))
+            using (Packet packet = new Packet((int)ServerPackets.player_data))
             {
                 int playerCount = playerData.playerCount;
-                _packet.Write(playerCount);
+                packet.Write(playerCount);
 
                 for (int i = 0; i < playerData.listPositions.Count; i++)
                 {
-                    _packet.Write(playerData.listIndexes[i]);
-                    _packet.Write(playerData.listPositions[i]);
+                    packet.Write(playerData.listIndexes[i]);
+                    packet.Write(playerData.listPositions[i]);
                 }
 
-                SendUDPDataToAll(_packet);
+                SendUDPDataToAll(packet);
             }
         }
 

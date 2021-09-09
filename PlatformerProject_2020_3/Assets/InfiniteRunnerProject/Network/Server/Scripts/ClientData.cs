@@ -22,10 +22,10 @@ namespace RB.Server
         [SerializeField]
         bool[] _inputs;
 
-        public ClientData(int _clientId)
+        public ClientData(int clientId)
         {
-            tcp = new TCP(_clientId);
-            udp = new UDP(_clientId);
+            tcp = new TCP(clientId);
+            udp = new UDP(clientId);
         }
 
         [System.Serializable]
@@ -44,11 +44,19 @@ namespace RB.Server
                 _id = id;
             }
 
+            public int ID
+            {
+                get
+                {
+                    return _id;
+                }
+            }
+
             /// <summary>Initializes the newly connected client's TCP-related info.</summary>
             /// <param name="_socket">The TcpClient instance of the newly connected client.</param>
-            public void Connect(TcpClient _socket)
+            public void Connect(TcpClient incomingSocket)
             {
-                socket = _socket;
+                socket = incomingSocket;
                 socket.ReceiveBufferSize = dataBufferSize;
                 socket.SendBufferSize = dataBufferSize;
 
@@ -88,7 +96,8 @@ namespace RB.Server
                     int _byteLength = stream.EndRead(_result);
                     if (_byteLength <= 0)
                     {
-                        BaseNetworkControl.CURRENT.server.clients[_id].Disconnect();
+                        ClientData data = BaseNetworkControl.CURRENT.server.connectedClients.GetClientData(_id);
+                        data.Disconnect();
                         return;
                     }
 
@@ -101,7 +110,9 @@ namespace RB.Server
                 catch (Exception _ex)
                 {
                     Debug.Log($"Error receiving TCP data: {_ex}");
-                    BaseNetworkControl.CURRENT.server.clients[_id].Disconnect();
+
+                    ClientData data = BaseNetworkControl.CURRENT.server.connectedClients.GetClientData(_id);
+                    data.Disconnect();
                 }
             }
 

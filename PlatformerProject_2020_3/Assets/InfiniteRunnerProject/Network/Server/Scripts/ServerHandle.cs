@@ -7,19 +7,20 @@ namespace RB.Server
 {
     public class ServerHandle
     {
-        public static void WelcomeReceived(int _fromClient, Packet _packet)
+        public static void WelcomeReceived(int IDReceivedFromClient, Packet _packet)
         {
             int _clientIdCheck = _packet.ReadInt();
             string _username = _packet.ReadString();
 
-            Debug.Log($"{BaseNetworkControl.CURRENT.server.clients[_fromClient].tcp.socket.Client.RemoteEndPoint} connected successfully and is now player {_fromClient}.");
+            ClientData data = BaseNetworkControl.CURRENT.server.connectedClients.GetClientData(IDReceivedFromClient);
+            Debug.Log($"{data.tcp.socket.Client.RemoteEndPoint} connected successfully and is now player {IDReceivedFromClient}.");
             
-            if (_fromClient != _clientIdCheck)
+            if (IDReceivedFromClient != _clientIdCheck)
             {
-                Debug.Log($"Player \"{_username}\" (ID: {_fromClient}) has assumed the wrong client ID ({_clientIdCheck})!");
+                Debug.Log($"Player \"{_username}\" (ID: {IDReceivedFromClient}) has assumed the wrong client ID ({_clientIdCheck})!");
             }
 
-            BaseNetworkControl.CURRENT.server.clients[_fromClient].SetUserName(_username);
+            data.SetUserName(_username);
         }
 
         public static void PlayerMovement(int fromClient, Packet packet)
@@ -31,7 +32,10 @@ namespace RB.Server
                 inputs[i] = packet.ReadBool();
             }
 
-            BaseNetworkControl.CURRENT.server.clients[fromClient].SetInput(inputs);
+            ClientData data = BaseNetworkControl.CURRENT.server.connectedClients.GetClientData(fromClient);
+            data.SetInput(inputs);
+
+            //BaseNetworkControl.CURRENT.server.clients[fromClient].SetInput(inputs);
         }
     }
 }

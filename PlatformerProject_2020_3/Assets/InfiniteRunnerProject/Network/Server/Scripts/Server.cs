@@ -11,7 +11,8 @@ namespace RB.Server
     [Serializable]
     public class Server
     {
-        public ClientData[] clients = null;
+        //public ClientData[] clients = null;
+        public Clients connectedClients = null;
 
         public int Port { get; private set; }
 
@@ -27,7 +28,7 @@ namespace RB.Server
         public void OpenServer(int _port)
         {
             Port = _port;
-            InitClientData();
+            InitServer();
 
             tcpListener = new TcpListener(IPAddress.Any, Port);
             tcpListener.Start();
@@ -40,24 +41,19 @@ namespace RB.Server
         }
 
         /// <summary>Handles new TCP connections.</summary>
-        private void TCPConnectCallback(IAsyncResult _result)
+        private void TCPConnectCallback(IAsyncResult result)
         {
-            TcpClient _client = tcpListener.EndAcceptTcpClient(_result);
+            TcpClient tcpClient = tcpListener.EndAcceptTcpClient(result);
             tcpListener.BeginAcceptTcpClient(TCPConnectCallback, null);
 
-            Debug.Log("incoming connection from: " + (_client.Client.RemoteEndPoint));
+            Debug.Log("incoming connection from: " + (tcpClient.Client.RemoteEndPoint));
 
-            for (int i = 0; i < clients.Length; i++)
+            bool connected = connectedClients.AddClient(tcpClient);
+
+            if (!connected)
             {
-                if (clients[i].tcp.socket == null)
-                {
-                    Debug.Log("connection granted");
-                    clients[i].tcp.Connect(_client);
-                    return;
-                }
+                Debug.Log($"{tcpClient.Client.RemoteEndPoint} failed to connect");
             }
-
-            Debug.Log($"{_client.Client.RemoteEndPoint} failed to connect: Server full!");
         }
 
         /// <summary>Receives incoming UDP data.</summary>
@@ -76,19 +72,21 @@ namespace RB.Server
 
                 using (Packet _packet = new Packet(_data))
                 {
-                    int _clientId = _packet.ReadInt();
+                    int clientId = _packet.ReadInt();
 
-                    if (clients[_clientId].udp.endPoint == null)
+                    ClientData data = connectedClients.GetClientData(clientId);
+
+                    if (data.udp.endPoint == null)
                     {
                         // If this is a new connection
-                        clients[_clientId].udp.Connect(_clientEndPoint);
+                        data.udp.Connect(_clientEndPoint);
                         return;
                     }
 
-                    if (clients[_clientId].udp.endPoint.ToString() == _clientEndPoint.ToString())
+                    if (data.udp.endPoint.ToString() == _clientEndPoint.ToString())
                     {
                         // Ensures that the client is not being impersonated by another by sending a false clientID
-                        clients[_clientId].udp.HandleData(_packet);
+                        data.udp.HandleData(_packet);
                     }
                 }
             }
@@ -117,18 +115,18 @@ namespace RB.Server
         }
 
         /// <summary>Initializes all necessary server data.</summary>
-        private void InitClientData()
+        private void InitServer()
         {
-            if (clients == null)
+            if (connectedClients == null)
             {
-                clients = new ClientData[3];
+                connectedClients = new Clients();
             }
 
-            for (int i = 0; i < clients.Length; i++)
-            {
-                clients[i] = new ClientData(i);
-                clients[i].SetUserName("not connected yet");
-            }
+            //for (int i = 0; i < clients.Length; i++)
+            //{
+            //    clients[i] = new ClientData(i);
+            //    clients[i].SetUserName("not connected yet");
+            //}
 
             packetHandlers = new Dictionary<int, PacketHandler>()
         {

@@ -280,20 +280,28 @@ namespace RB.Client
 
             /// <summary>Prepares received data to be used by the appropriate packet handler methods.</summary>
             /// <param name="_data">The recieved data.</param>
-            private void HandleData(byte[] _data)
+            private void HandleData(byte[] data)
             {
-                using (Packet _packet = new Packet(_data))
+                using (Packet packet = new Packet(data))
                 {
-                    int _packetLength = _packet.ReadInt();
-                    _data = _packet.ReadBytes(_packetLength);
+                    int packetLength = packet.ReadInt();
+                    data = packet.ReadBytes(packetLength);
                 }
 
                 ThreadManager.ExecuteOnMainThread(() =>
                 {
-                    using (Packet _packet = new Packet(_data))
+                    using (Packet packet = new Packet(data))
                     {
-                        int _packetId = _packet.ReadInt();
-                        packetHandlers[_packetId](_packet); // Call appropriate method to handle the packet
+                        int packetID = packet.ReadInt();
+
+                        if (packetHandlers.ContainsKey(packetID))
+                        {
+                            packetHandlers[packetID](packet); // Call appropriate method to handle the packet
+                        }
+                        else
+                        {
+                            Debugger.Log("packet id not found: " + packetID);
+                        }
                     }
                 });
             }

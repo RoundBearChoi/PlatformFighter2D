@@ -42,22 +42,22 @@ namespace RB.Network
 
         /// <summary>Creates a new packet with a given ID. Used for sending.</summary>
         /// <param name="_id">The packet ID.</param>
-        public Packet(int _id)
+        public Packet(int id)
         {
             buffer = new List<byte>(); // Initialize buffer
             readPos = 0; // Set readPos to 0
 
-            Write(_id); // Write packet id to the buffer
+            Write(id); // Write packet id to the buffer
         }
 
         /// <summary>Creates a packet from which data can be read. Used for receiving.</summary>
         /// <param name="_data">The bytes to add to the packet.</param>
-        public Packet(byte[] _data)
+        public Packet(byte[] data)
         {
             buffer = new List<byte>(); // Initialize buffer
             readPos = 0; // Set readPos to 0
 
-            SetBytes(_data);
+            SetBytes(data);
         }
 
         #region Functions

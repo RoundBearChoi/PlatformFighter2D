@@ -11,13 +11,10 @@ namespace RB
         {
             if (NetworkControl.CURRENT != null)
             {
-                foreach(ClientData data in NetworkControl.CURRENT.server.clients)
+                if (NetworkControl.CURRENT.server.connectedClients.CLIENTS_COUNT > 0)
                 {
-                    if (data.tcp != null)
-                    {
-                        Debugger.Log("can't join while running a server");
-                        return;
-                    }
+                    Debugger.Log("can't join while running a server");
+                    return;
                 }
             }
 
