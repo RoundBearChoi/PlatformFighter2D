@@ -40,11 +40,13 @@ namespace RB
         public static void LoadStageObjs(StageType stageType)
         {
             if (stageType == StageType.RUNNER_STAGE ||
-                stageType == StageType.TEST_STAGE)
+                stageType == StageType.TEST_STAGE
+                )
             {
                 ResourceLoader.LoadRunnerStage();
             }
-            else if (stageType == StageType.FIGHT_STAGE)
+            else if (stageType == StageType.FIGHT_STAGE ||
+                stageType == StageType.MULTIPLAYER_SERVER_STAGE)
             {
                 ResourceLoader.LoadFightStage();
             }

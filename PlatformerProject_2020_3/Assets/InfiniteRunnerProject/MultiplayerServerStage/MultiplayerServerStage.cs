@@ -7,50 +7,105 @@ namespace RB
 {
     public class MultiplayerServerStage : BaseStage
     {
-        Camera _mainCam = null;
+        [SerializeField]
+        InputType _inputSelection = InputType.PLAYER_ONE;
 
         public override void Init()
         {
-            IntroCamera introCam = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.INTRO_CAMERA)) as IntroCamera;
-            introCam.transform.parent = this.transform;
+            units = new Units(this);
 
-            _mainCam = introCam.GetComponent<Camera>();
-            _mainCam.transform.position = new Vector3(0f, 0f, -5f);
+            Physics2D.gravity = new Vector2(0f, BaseInitializer.current.fighterDataSO.Gravity);
 
-            _inputController.AddInput();
+            FightCamera fightCamera = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.FIGHT_CAMERA)) as FightCamera;
+            fightCamera.transform.parent = this.transform;
+            Camera cam = fightCamera.GetComponent<Camera>();
+            cam.orthographicSize = 10f;
+            cam.transform.position = new Vector3(8f, 4.5f, BaseInitializer.current.fighterDataSO.Camera_z);
 
-            _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
-            _baseUI.transform.parent = this.transform;
+            //load level 3 (oldcity)
+            GameObject levelObj = Instantiate(ResourceLoader.levelLoader.GetObj(3)) as GameObject;
+            levelObj.transform.parent = this.transform;
+            levelObj.transform.position = new Vector3(levelObj.transform.position.x, levelObj.transform.position.y, BaseInitializer.current.fighterDataSO.tempPlatforms_z);
 
-            //_baseUI.Init(BaseUIType.CONNECTING_UI);
+            BaseInitializer.current.GetStage().InstantiateUnits_ByUnitType(UnitType.OLD_CITY);
+
+            InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_LIGHT);
+            Unit player1 = units.GetUnit<LittleRed>();
+
+            UserInput input = _inputController.AddInput();
+            _inputSelection = input.INPUT_TYPE;
+            player1.SetUserInput(input);
+
+            cameraScript = new CameraScript();
+            cameraScript.SetCamera(cam);
+            cameraScript.SetCameraState(GetDefaultCameraState());
+            cameraScript.SetFollowTarget(units.GetUnit<LittleRed>().gameObject);
+
+            InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_DARK);
+            Unit player2 = units.GetUnit<LittleRed>();
+            player2.SetUserInput(_inputController.AddInput());
+
+            //set z for all players
+            List<Unit> allPlayers = units.GetUnits<LittleRed>();
+
+            foreach (Unit player in allPlayers)
+            {
+                player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, BaseInitializer.current.fighterDataSO.Players_z);
+            }
         }
 
         public override void OnUpdate()
         {
-            _inputController.GetLatestUserInput().OnUpdate();
+            _inputController.GetUserInput(_inputSelection).OnUpdate();
+            cameraScript.OnUpdate();
+            trailEffects.OnUpdate();
+            units.OnUpdate();
 
-            if (_baseUI != null)
+            //temp
+
+            if (_inputController.GetUserInput(_inputSelection).commands.ContainsPress(CommandType.F5, false))
             {
-                _baseUI.OnUpdate();
+                _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.FIGHT_STAGE));
             }
-        }
 
-        public override void OnLateUpdate()
-        {
-            if (_baseUI != null)
+            if (_inputController.GetUserInput(_inputSelection).commands.ContainsPress(CommandType.F6, false))
             {
-                _baseUI.OnLateUpdate();
+                _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
+            }
+
+            if (_inputController.GetUserInput(_inputSelection).commands.ContainsPress(CommandType.F7, false))
+            {
+                _inputSelection++;
+
+                if ((int)_inputSelection > _inputController.GetCount())
+                {
+                    _inputSelection = InputType.PLAYER_ONE;
+                }
             }
         }
 
         public override void OnFixedUpdate()
         {
-            if (_baseUI != null)
-            {
-                _baseUI.OnFixedUpdate();
-            }
+            cameraScript.OnFixedUpdate();
+            units.OnFixedUpdate();
 
             ClearInput();
+        }
+
+        public override void OnLateUpdate()
+        {
+            cameraScript.OnLateUpdate();
+            units.OnLateUpdate();
+        }
+
+        public override float GetCumulativeGravityForcePercentage()
+        {
+            return BaseInitializer.current.fighterDataSO.CumulativeGravityForcePercentage;
+        }
+
+        public override CameraState GetDefaultCameraState()
+        {
+            return new Camera_LerpOnTargetXAndY(0.08f, 0.08f);
         }
     }
 }
