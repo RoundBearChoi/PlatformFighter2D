@@ -56,6 +56,7 @@ namespace RB
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, BaseInitializer.current.fighterDataSO.Players_z);
             }
 
+            //data to send to clients
             _playerDataSender = new RB.Server.PlayerDataSender();
             _playerDataSender.AddUnit(serverPlayer, 100);
             _playerDataSender.AddUnit(client0, 0);
