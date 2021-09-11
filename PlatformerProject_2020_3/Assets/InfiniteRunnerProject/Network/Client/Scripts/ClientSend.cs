@@ -23,7 +23,6 @@ namespace RB.Client
             Client.instance.udp.SendData(_packet);
         }
 
-        #region Packets
         /// <summary>Lets the server know that the welcome message was received.</summary>
         public static void WelcomeReceived()
         {
@@ -46,22 +45,19 @@ namespace RB.Client
 
         /// <summary>Sends player input to the server.</summary>
         /// <param name="_inputs"></param>
-        public static void PlayerMovement(bool[] _inputs)
+        public static void PlayerMovement(bool[] inputs)
         {
-            using (Packet _packet = new Packet((int)ClientPackets.playerMovement))
+            using (Packet packet = new Packet((int)ClientPackets.playerMovement))
             {
-                _packet.Write(_inputs.Length);
+                packet.Write(inputs.Length);
                 
-                foreach (bool _input in _inputs)
+                for (int i = 0; i < inputs.Length; i++)
                 {
-                    _packet.Write(_input);
+                    packet.Write(inputs[i]);
                 }
 
-                //_packet.Write(GameManager.players[Client.instance.myId].transform.rotation);
-
-                SendUDPData(_packet);
+                SendUDPData(packet);
             }
         }
-        #endregion
     }
 }

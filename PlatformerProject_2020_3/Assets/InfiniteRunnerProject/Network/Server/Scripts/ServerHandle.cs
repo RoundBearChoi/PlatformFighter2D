@@ -23,9 +23,10 @@ namespace RB.Server
             data.SetUserName(_username);
         }
 
-        public static void PlayerMovement(int fromClient, Packet packet)
+        public static void HandleClientInput(int fromClient, Packet packet)
         {
-            bool[] inputs = new bool[packet.ReadInt()];
+            int length = packet.ReadInt();
+            bool[] inputs = new bool[length];
 
             for (int i = 0; i < inputs.Length; i++)
             {
@@ -34,8 +35,6 @@ namespace RB.Server
 
             ClientData data = BaseNetworkControl.CURRENT.server.connectedClients.GetClientData(fromClient);
             data.SetInput(inputs);
-
-            //BaseNetworkControl.CURRENT.server.clients[fromClient].SetInput(inputs);
         }
     }
 }

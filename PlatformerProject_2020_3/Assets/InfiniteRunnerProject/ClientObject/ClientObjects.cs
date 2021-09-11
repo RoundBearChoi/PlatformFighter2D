@@ -19,8 +19,13 @@ namespace RB.Client
         {
             foreach(ClientObject obj in _listClientObjects)
             {
-                obj.GetCurrentAnimation().UpdateSpriteIndex();
-                obj.GetCurrentAnimation().UpdateSpriteOnIndex();
+                SpriteAnimation ani = obj.GetCurrentAnimation();
+
+                if (ani != null)
+                {
+                    ani.UpdateSpriteIndex();
+                    ani.UpdateSpriteOnIndex();
+                }
             }
         }
 
