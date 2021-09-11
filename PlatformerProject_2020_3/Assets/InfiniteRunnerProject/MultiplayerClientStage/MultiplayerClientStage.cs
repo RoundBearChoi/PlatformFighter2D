@@ -8,18 +8,13 @@ namespace RB
 {
     public class MultiplayerClientStage : BaseStage
     {
-        Camera _mainCam = null;
-
         [SerializeField]
         ClientObjects _clientObjects = null;
 
         public override void Init()
         {
-            IntroCamera introCam = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.INTRO_CAMERA)) as IntroCamera;
-            introCam.transform.parent = this.transform;
-
-            _mainCam = introCam.GetComponent<Camera>();
-            _mainCam.transform.position = new Vector3(0f, 0f, -5f);
+            //IntroCamera introCam = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.INTRO_CAMERA)) as IntroCamera;
+            //introCam.transform.parent = this.transform;
 
             _inputController.AddInput();
 
@@ -32,6 +27,20 @@ namespace RB
             _baseFighterClient.Init();
 
             _clientObjects = new ClientObjects();
+
+            //set camera
+            FightCamera fightCamera = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.FIGHT_CAMERA)) as FightCamera;
+            fightCamera.transform.parent = this.transform;
+            Camera cam = fightCamera.GetComponent<Camera>();
+            cam.orthographicSize = 10f;
+            cam.transform.position = new Vector3(8f, 4.5f, BaseInitializer.current.fighterDataSO.Camera_z);
+
+            cameraScript = new CameraScript();
+            cameraScript.SetCamera(cam);
+            cameraScript.SetCameraState(GetStageDefaultCameraState());
+
+            //set camera target after clientobj is instantiated
+            //cameraScript.SetFollowTarget(null);
         }
 
         public override void UpdateClientUnitTypes(PlayerDataset<UnitType> playerData)
@@ -77,6 +86,7 @@ namespace RB
         public override void OnUpdate()
         {
             _inputController.GetLatestUserInput().OnUpdate();
+            cameraScript.OnUpdate();
 
             if (_baseUI != null)
             {
@@ -86,6 +96,8 @@ namespace RB
 
         public override void OnLateUpdate()
         {
+            cameraScript.OnLateUpdate();
+
             if (_baseUI != null)
             {
                 _baseUI.OnLateUpdate();
@@ -94,6 +106,9 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
+            _clientObjects.OnFixedUpdate();
+            cameraScript.OnFixedUpdate();
+
             if (_baseUI != null)
             {
                 _baseUI.OnFixedUpdate();
@@ -104,9 +119,22 @@ namespace RB
                 _baseFighterClient.SendInputToServer();
             }
 
-            _clientObjects.OnFixedUpdate();
+            if (cameraScript.GetTarget() == null)
+            {
+                ClientObject myObj = _clientObjects.GetClientObj(RB.Client.Client.instance.myId);
+
+                if (myObj != null)
+                {
+                    cameraScript.SetFollowTarget(myObj.GetPlayerSphere());
+                }
+            }
 
             ClearInput();
+        }
+
+        public override CameraState GetStageDefaultCameraState()
+        {
+            return new Camera_LerpOnTargetXAndY(0.08f, 0.08f);
         }
     }
 }

@@ -31,5 +31,10 @@ namespace RB.Client
         {
             _connectionFailed = true;
         }
+
+        public override int GetClientIndex()
+        {
+            return Client.instance.myId;
+        }
     }
 }

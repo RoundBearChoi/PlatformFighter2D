@@ -87,7 +87,7 @@ namespace RB
             return BaseInitializer.current.runnerDataSO.CumulativeGravityForcePercentage;
         }
 
-        public override CameraState GetDefaultCameraState()
+        public override CameraState GetStageDefaultCameraState()
         {
             return new Camera_LerpOnTargetY();
         }

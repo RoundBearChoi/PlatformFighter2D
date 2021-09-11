@@ -59,6 +59,11 @@ namespace RB.Client
             return string.Empty;
         }
 
+        public virtual int GetClientIndex()
+        {
+            return 0;
+        }
+
         public virtual void ShowMenu()
         {
 

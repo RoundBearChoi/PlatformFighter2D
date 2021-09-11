@@ -26,11 +26,13 @@ namespace RB
                 float x = Mathf.Lerp(_cameraScript.GetCamera().transform.position.x, target.transform.position.x, _xPercentage);
                 float y = Mathf.Lerp(_cameraScript.GetCamera().transform.position.y, target.transform.position.y + GameInitializer.current.fighterDataSO.CameraYOffset, _yPercentage);
 
-                if (BaseInitializer.current.GetStage() is FightStage ||
-                    BaseInitializer.current.GetStage() is MultiplayerServerStage)
-                {
-                    _targetPosition = new Vector3(x, y, BaseInitializer.current.fighterDataSO.Camera_z);
-                }
+                _targetPosition = new Vector3(x, y, BaseInitializer.current.fighterDataSO.Camera_z);
+
+                //if (BaseInitializer.current.GetStage() is FightStage ||
+                //    BaseInitializer.current.GetStage() is MultiplayerServerStage)
+                //{
+                //    _targetPosition = new Vector3(x, y, BaseInitializer.current.fighterDataSO.Camera_z);
+                //}
             }
 
             _cameraScript.UpdateCameraPositionOnTarget(_targetPosition);

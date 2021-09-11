@@ -55,6 +55,11 @@ namespace RB.Client
             _playerPositionSphere.transform.position = _pos;
         }
 
+        public GameObject GetPlayerSphere()
+        {
+            return _playerPositionSphere;
+        }
+
         public void UpdateDirection(bool facingRight)
         {
             if (facingRight)

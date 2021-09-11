@@ -15,12 +15,6 @@ namespace RB
 
             Physics2D.gravity = new Vector2(0f, BaseInitializer.current.fighterDataSO.Gravity);
 
-            FightCamera fightCamera = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.FIGHT_CAMERA)) as FightCamera;
-            fightCamera.transform.parent = this.transform;
-            Camera cam = fightCamera.GetComponent<Camera>();
-            cam.orthographicSize = 10f;
-            cam.transform.position = new Vector3(8f, 4.5f, BaseInitializer.current.fighterDataSO.Camera_z);
-
             //load level 3 (oldcity)
             GameObject levelObj = Instantiate(ResourceLoader.levelLoader.GetObj(3)) as GameObject;
             levelObj.transform.parent = this.transform;
@@ -35,11 +29,6 @@ namespace RB
             _inputSelection = input.INPUT_TYPE;
             player1.SetUserInput(input);
 
-            cameraScript = new CameraScript();
-            cameraScript.SetCamera(cam);
-            cameraScript.SetCameraState(GetDefaultCameraState());
-            cameraScript.SetFollowTarget(units.GetUnit<LittleRed>().gameObject);
-
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_DARK);
             Unit player2 = units.GetUnit<LittleRed>();
             player2.SetUserInput(_inputController.AddInput());
@@ -51,6 +40,18 @@ namespace RB
             {
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, BaseInitializer.current.fighterDataSO.Players_z);
             }
+
+            //set camera
+            FightCamera fightCamera = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.FIGHT_CAMERA)) as FightCamera;
+            fightCamera.transform.parent = this.transform;
+            Camera cam = fightCamera.GetComponent<Camera>();
+            cam.orthographicSize = 10f;
+            cam.transform.position = new Vector3(8f, 4.5f, BaseInitializer.current.fighterDataSO.Camera_z);
+
+            cameraScript = new CameraScript();
+            cameraScript.SetCamera(cam);
+            cameraScript.SetCameraState(GetStageDefaultCameraState());
+            cameraScript.SetFollowTarget(player1.gameObject);
         }
 
         public override void OnUpdate()
@@ -102,7 +103,7 @@ namespace RB
             return BaseInitializer.current.fighterDataSO.CumulativeGravityForcePercentage;
         }
 
-        public override CameraState GetDefaultCameraState()
+        public override CameraState GetStageDefaultCameraState()
         {
             return new Camera_LerpOnTargetXAndY(0.08f, 0.08f);
         }

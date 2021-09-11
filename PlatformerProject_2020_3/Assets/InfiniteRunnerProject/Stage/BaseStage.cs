@@ -87,7 +87,7 @@ namespace RB
 
         }
 
-        public virtual CameraState GetDefaultCameraState()
+        public virtual CameraState GetStageDefaultCameraState()
         {
             return null;
         }

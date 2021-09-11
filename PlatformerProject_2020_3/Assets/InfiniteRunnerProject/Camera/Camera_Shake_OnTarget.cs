@@ -22,9 +22,7 @@ namespace RB
         {
             if (_totalShakeFrames <= 0)
             {
-                //_cameraScript.UpdateCameraPositionOnTarget(_initialPos);
-
-                CameraState defaultCameraState = BaseInitializer.current.GetStage().GetDefaultCameraState();
+                CameraState defaultCameraState = BaseInitializer.current.GetStage().GetStageDefaultCameraState();
                 _cameraScript.SetCameraState(defaultCameraState);
             }
         }
