@@ -11,7 +11,7 @@ namespace RB
         Camera _mainCam = null;
 
         [SerializeField]
-        ClientPositions _clientPositions = null;
+        ClientObjects _clientPositions = null;
 
         public override void Init()
         {
@@ -31,7 +31,7 @@ namespace RB
             _baseFighterClient = FindObjectOfType<FighterClient>();
             _baseFighterClient.Init();
 
-            _clientPositions = new ClientPositions();
+            _clientPositions = new ClientObjects();
         }
 
         public override void UpdateClientUnitTypes(PlayerDataset<UnitType> playerData)
@@ -41,6 +41,13 @@ namespace RB
                 for (int i = 0; i < playerData.listIDs.Count; i++)
                 {
                     Debugger.Log("--- received unit type: " + ((UnitType)playerData.listData[i]).ToString() + " ---");
+
+                    ClientObject clientObj = _clientPositions.GetClientObj(playerData.listIDs[i]);
+
+                    if (clientObj == null)
+                    {
+                        clientObj = _clientPositions.AddClientObj(playerData.listIDs[i]);
+                    }
 
                     UnitCreationSpec creation = BaseInitializer.current.specsGetter.GetSpec_ByUnitType(playerData.listData[i]);
 
@@ -61,15 +68,16 @@ namespace RB
             {
                 for (int i = 0; i < playerData.listIDs.Count; i++)
                 {
-                    ClientPosition cp = _clientPositions.GetClientPosition(playerData.listIDs[i]);
+                    //ClientObject cp = _clientPositions.GetClientPosition(playerData.listIDs[i]);
+                    //
+                    //if (cp == null)
+                    //{
+                    //    cp = _clientPositions.AddClientObj(playerData.listIDs[i]);
+                    //}
 
-                    if (cp == null)
-                    {
-                        cp = _clientPositions.AddClientPosition(playerData.listIDs[i]);
-                    }
-
-                    cp.SetPosition(playerData.listData[i]);
-                    cp.UpdatePosition();
+                    ClientObject clientObj = _clientPositions.GetClientObj(playerData.listIDs[i]);
+                    clientObj.SetPosition(playerData.listData[i]);
+                    clientObj.UpdatePosition();
                 }
             }
         }

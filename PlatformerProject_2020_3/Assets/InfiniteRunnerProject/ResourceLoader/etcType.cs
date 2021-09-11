@@ -20,6 +20,6 @@ namespace RB
 
         CONNECTED_PLAYER_INFO,
 
-        CLIENT_POSITION,
+        CLIENT_OBJECT,
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace RB.Client
 {
     [System.Serializable]
-    public class ClientPosition : MonoBehaviour
+    public class ClientObject : MonoBehaviour
     {
         [SerializeField]
         int _id = 0;

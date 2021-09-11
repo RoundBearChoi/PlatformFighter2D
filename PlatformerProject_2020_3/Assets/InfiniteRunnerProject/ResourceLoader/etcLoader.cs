@@ -22,7 +22,7 @@ namespace RB
 
             LoadObj<ConnectedPlayerInfo>(etcType.CONNECTED_PLAYER_INFO, "ConnectedPlayerInfo");
 
-            LoadObj<RB.Client.ClientPosition>(etcType.CLIENT_POSITION, "ClientPosition");
+            LoadObj<RB.Client.ClientObject>(etcType.CLIENT_OBJECT, "ClientObject");
         }
     }
 }
