@@ -72,9 +72,14 @@ namespace RB
 
         }
 
+        public virtual void UpdateClientUnitTypes(RB.Server.PlayerDataset<UnitType> playerData)
+        {
+
+        }
+
         public virtual void UpdateClientPositions(RB.Server.PlayerDataset<Vector3> playerData)
         {
-            Debugger.Log("undefined");
+
         }
 
         public virtual CameraState GetDefaultCameraState()

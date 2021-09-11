@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RB.Client;
+using RB.Server;
 
 namespace RB
 {
@@ -33,24 +34,42 @@ namespace RB
             _clientPositions = new ClientPositions();
         }
 
+        public override void UpdateClientUnitTypes(PlayerDataset<UnitType> playerData)
+        {
+            if (playerData.IDAndDataCountMatch())
+            {
+                for (int i = 0; i < playerData.listIDs.Count; i++)
+                {
+                    Debugger.Log("--- received unit type: " + ((UnitType)playerData.listData[i]).ToString() + " ---");
+
+                    UnitCreationSpec creation = BaseInitializer.current.specsGetter.GetSpec_ByUnitType(playerData.listData[i]);
+
+                    foreach(SpriteAnimationSpec ani in creation.listSpriteAnimationSpecs)
+                    {
+                        foreach(string spr in ani.listSpriteNames)
+                        {
+                            Debugger.Log(spr);
+                        }
+                    }
+                }
+            }
+        }
+
         public override void UpdateClientPositions(RB.Server.PlayerDataset<Vector3> playerData)
         {
-            if (playerData.listIDs.Count > 0)
+            if (playerData.IDAndDataCountMatch())
             {
-                if (playerData.listIDs.Count == playerData.listData.Count)
+                for (int i = 0; i < playerData.listIDs.Count; i++)
                 {
-                    for (int i = 0; i < playerData.listIDs.Count; i++)
+                    ClientPosition cp = _clientPositions.GetClientPosition(playerData.listIDs[i]);
+
+                    if (cp == null)
                     {
-                        ClientPosition cp = _clientPositions.GetClientPosition(playerData.listIDs[i]);
-
-                        if (cp == null)
-                        {
-                            cp = _clientPositions.AddClientPosition(playerData.listIDs[i]);
-                        }
-
-                        cp.SetPosition(playerData.listData[i]);
-                        cp.UpdatePosition();
+                        cp = _clientPositions.AddClientPosition(playerData.listIDs[i]);
                     }
+
+                    cp.SetPosition(playerData.listData[i]);
+                    cp.UpdatePosition();
                 }
             }
         }

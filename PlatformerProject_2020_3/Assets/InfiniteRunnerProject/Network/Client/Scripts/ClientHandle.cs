@@ -90,6 +90,8 @@ namespace RB.Client
                 dataset.listIDs.Add(playerIndex);
                 dataset.listData.Add((UnitType)unitType);
             }
+
+            GameInitializer.current.GetStage().UpdateClientUnitTypes(dataset);
         }
 
         public static void UpdateOnPlayerPositions(Packet packet)

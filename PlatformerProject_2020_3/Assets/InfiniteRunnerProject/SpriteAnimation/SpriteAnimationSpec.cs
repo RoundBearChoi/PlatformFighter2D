@@ -8,7 +8,6 @@ namespace RB
     [CreateAssetMenu(fileName = "SpriteAnimationSpec", menuName = "InfiniteRunner/SpriteAnimationSpec/SpriteAnimationSpec")]
     public class SpriteAnimationSpec : ScriptableObject
     {
-        
         public List<string> listSpriteNames = new List<string>();
 
         [Space(5)]
