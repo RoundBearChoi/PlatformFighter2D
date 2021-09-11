@@ -111,7 +111,7 @@ namespace RB.Server
                     packet.Write(playerData.listData[i].mFacingRight);
                 }
 
-                SendUDPDataToAll(packet);
+                SendTCPDataToAll(packet);
             }
         }
 
@@ -128,7 +128,7 @@ namespace RB.Server
                     packet.Write((int)playerData.listData[i]);
                 }
 
-                SendUDPDataToAll(packet);
+                SendTCPDataToAll(packet);
             }
         }
 
