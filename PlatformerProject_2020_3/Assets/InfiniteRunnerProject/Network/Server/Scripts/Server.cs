@@ -131,7 +131,7 @@ namespace RB.Server
             packetHandlers = new Dictionary<int, PacketHandler>()
         {
             { (int)ClientPackets.welcomeReceived, ServerHandle.WelcomeReceived },
-            { (int)ClientPackets.playerMovement, ServerHandle.HandleClientInput },
+            { (int)ClientPackets.client_input, ServerHandle.HandleClientInput },
         };
             Debug.Log("Initialized packets.");
         }

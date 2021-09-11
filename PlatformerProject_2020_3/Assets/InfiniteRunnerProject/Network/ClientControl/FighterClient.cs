@@ -20,7 +20,7 @@ namespace RB.Client
             _inputs[4] = ContainsHold(CommandType.JUMP);
             _inputs[5] = ContainsHold(CommandType.ATTACK_A);
 
-            RB.Client.ClientSend.PlayerMovement(_inputs);
+            RB.Client.ClientSend.SendClientInput(_inputs);
         }
 
         bool ContainsHold(CommandType commandType)

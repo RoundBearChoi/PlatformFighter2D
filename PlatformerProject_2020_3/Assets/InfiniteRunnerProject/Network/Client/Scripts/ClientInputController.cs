@@ -37,7 +37,7 @@ namespace RB.Client
             _inputs[3] = keyboard.dKey.IsPressed();
             _inputs[4] = keyboard.spaceKey.IsPressed();
 
-            ClientSend.PlayerMovement(_inputs);
+            ClientSend.SendClientInput(_inputs);
         }
     }
 }

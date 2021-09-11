@@ -26,7 +26,7 @@ namespace RB.Network
     public enum ClientPackets
     {
         welcomeReceived = 1,
-        playerMovement
+        client_input
     }
 
     public class Packet : IDisposable

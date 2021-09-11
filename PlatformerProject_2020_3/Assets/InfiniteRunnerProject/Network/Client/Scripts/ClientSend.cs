@@ -45,9 +45,9 @@ namespace RB.Client
 
         /// <summary>Sends player input to the server.</summary>
         /// <param name="_inputs"></param>
-        public static void PlayerMovement(bool[] inputs)
+        public static void SendClientInput(bool[] inputs)
         {
-            using (Packet packet = new Packet((int)ClientPackets.playerMovement))
+            using (Packet packet = new Packet((int)ClientPackets.client_input))
             {
                 packet.Write(inputs.Length);
                 
