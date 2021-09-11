@@ -55,6 +55,24 @@ namespace RB.Client
             _playerPositionSphere.transform.position = _pos;
         }
 
+        public void UpdateDirection(bool facingRight)
+        {
+            if (facingRight)
+            {
+                if (_playerPositionSphere.transform.rotation.y != 0f)
+                {
+                    _playerPositionSphere.transform.rotation = Quaternion.Euler(_playerPositionSphere.transform.rotation.x, 0f, _playerPositionSphere.transform.rotation.z);
+                }
+            }
+            else
+            {
+                if (_playerPositionSphere.transform.rotation.y != 180f)
+                {
+                    _playerPositionSphere.transform.rotation = Quaternion.Euler(_playerPositionSphere.transform.rotation.x, 180f, _playerPositionSphere.transform.rotation.z);
+                }
+            }
+        }
+
         public void AddSpriteAnimations(UnitCreationSpec creationSpec)
         {
             if (!_initialized)

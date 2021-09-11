@@ -64,8 +64,7 @@ namespace RB
                     ClientObject clientObj = _clientObjects.GetClientObj(playerData.listIDs[i]);
                     clientObj.SetPosition(playerData.listData[i].mPosition);
                     clientObj.UpdatePosition();
-
-
+                    clientObj.UpdateDirection(playerData.listData[i].mFacingRight);
                 }
             }
         }
