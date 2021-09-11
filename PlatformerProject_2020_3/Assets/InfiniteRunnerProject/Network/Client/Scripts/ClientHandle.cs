@@ -96,19 +96,22 @@ namespace RB.Client
 
         public static void UpdateOnPlayerPositions(Packet packet)
         {
-            RB.Server.PlayerDataset<Vector3> dataset = new Server.PlayerDataset<Vector3>();
+            RB.Server.PlayerDataset<RB.Server.PositionAndDirection> dataset = new Server.PlayerDataset<RB.Server.PositionAndDirection>();
 
             dataset.playerCount = packet.ReadInt();
             dataset.listIDs = new List<int>();
-            dataset.listData = new List<Vector3>();
+            dataset.listData = new List<RB.Server.PositionAndDirection>();
             
             for (int i = 0; i < dataset.playerCount; i++)
             {
                 int playerIndex = packet.ReadInt();
                 Vector3 pos = packet.ReadVector3();
+                bool facingRight = packet.ReadBool();
 
                 dataset.listIDs.Add(playerIndex);
-                dataset.listData.Add(pos);
+
+                RB.Server.PositionAndDirection positionAndDirection = new RB.Server.PositionAndDirection(pos, facingRight);
+                dataset.listData.Add(positionAndDirection);
             }
 
             GameInitializer.current.GetStage().UpdateClientPositions(dataset);

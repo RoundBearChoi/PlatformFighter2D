@@ -55,15 +55,17 @@ namespace RB
             }
         }
 
-        public override void UpdateClientPositions(RB.Server.PlayerDataset<Vector3> playerData)
+        public override void UpdateClientPositions(PlayerDataset<PositionAndDirection> playerData)
         {
             if (playerData.IDAndDataCountMatch())
             {
                 for (int i = 0; i < playerData.listIDs.Count; i++)
                 {
                     ClientObject clientObj = _clientObjects.GetClientObj(playerData.listIDs[i]);
-                    clientObj.SetPosition(playerData.listData[i]);
+                    clientObj.SetPosition(playerData.listData[i].mPosition);
                     clientObj.UpdatePosition();
+
+
                 }
             }
         }

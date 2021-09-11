@@ -97,7 +97,7 @@ namespace RB.Server
             }
         }
 
-        public void SendPlayerPositions(PlayerDataset<Vector3> playerData)
+        public void SendPlayerPositions(PlayerDataset<PositionAndDirection> playerData)
         {
             using (Packet packet = new Packet((int)ServerPackets.player_data_positions))
             {
@@ -107,7 +107,8 @@ namespace RB.Server
                 for (int i = 0; i < playerData.listData.Count; i++)
                 {
                     packet.Write(playerData.listIDs[i]);
-                    packet.Write(playerData.listData[i]);
+                    packet.Write(playerData.listData[i].mPosition);
+                    packet.Write(playerData.listData[i].mFacingRight);
                 }
 
                 SendUDPDataToAll(packet);

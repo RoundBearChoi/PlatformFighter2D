@@ -77,7 +77,7 @@ namespace RB
 
         }
 
-        public virtual void UpdateClientPositions(RB.Server.PlayerDataset<Vector3> playerData)
+        public virtual void UpdateClientPositions(RB.Server.PlayerDataset<RB.Server.PositionAndDirection> playerData)
         {
 
         }

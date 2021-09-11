@@ -45,16 +45,19 @@ namespace RB.Server
                 player.OnFixedUpdate();
             }
 
-            PlayerDataset<Vector3> dataset = new PlayerDataset<Vector3>();
+            PlayerDataset<PositionAndDirection> dataset = new PlayerDataset<PositionAndDirection>();
             dataset.playerCount = _playersOnServer.Count;
 
             dataset.listIDs = new List<int>();
-            dataset.listData = new List<Vector3>();
+            dataset.listData = new List<PositionAndDirection>();
 
             for (int i = 0; i < _playersOnServer.Count; i++)
             {
                 dataset.listIDs.Add(_playersOnServer[i].GetIndex());
-                dataset.listData.Add(_playersOnServer[i].GetPosition());
+
+                PositionAndDirection positionAndDirection = new PositionAndDirection(_playersOnServer[i].GetPosition(), _playersOnServer[i].IsFacingRight());
+
+                dataset.listData.Add(positionAndDirection);
             }
 
             RB.Server.BaseNetworkControl.CURRENT.serverSend.SendPlayerPositions(dataset);

@@ -16,6 +16,9 @@ namespace RB.Server
         [SerializeField]
         Vector3 _position = new Vector3();
 
+        [SerializeField]
+        bool _facingRight = true;
+
         public ServerPlayer(Unit unit, int index)
         {
             _unit = unit;
@@ -25,6 +28,7 @@ namespace RB.Server
         public void OnFixedUpdate()
         {
             _position = _unit.transform.position;
+            _facingRight = _unit.unitData.facingRight;
         }
 
         public int GetIndex()
@@ -35,6 +39,11 @@ namespace RB.Server
         public Vector3 GetPosition()
         {
             return _position;
+        }
+
+        public bool IsFacingRight()
+        {
+            return _facingRight;
         }
 
         public Unit GetUnit()
