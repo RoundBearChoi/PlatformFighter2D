@@ -68,6 +68,11 @@ namespace RB
             }
         }
 
+        public override void UpdateClientSprite(int index, SpriteType spriteType)
+        {
+            _clientPositions.SetSpriteAnimation(index, spriteType);
+        }
+
         public override void OnUpdate()
         {
             _inputController.GetLatestUserInput().OnUpdate();

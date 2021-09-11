@@ -38,5 +38,16 @@ namespace RB.Client
 
             return null;
         }
+
+        public void SetSpriteAnimation(int index, SpriteType spriteType)
+        {
+            foreach (ClientObject p in _listClientObjects)
+            {
+                if (p.ID == index)
+                {
+                    p.SetAnimation(spriteType);
+                }
+            }
+        }
     }
 }

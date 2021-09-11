@@ -65,7 +65,10 @@ namespace RB
                         if (_unit.unitType == UnitType.LITTLE_RED_LIGHT ||
                             _unit.unitType == UnitType.LITTLE_RED_DARK)
                         {
-                            RB.Server.NetworkControl.CURRENT.serverSend.SendPlayerSpriteType(_unit.clientIndex, _currentAnimation.spriteType);
+                            if (RB.Server.NetworkControl.CURRENT != null)
+                            {
+                                RB.Server.NetworkControl.CURRENT.serverSend.SendPlayerSpriteType(_unit.clientIndex, _currentAnimation.spriteType);
+                            }
                         }
                     }
                 }

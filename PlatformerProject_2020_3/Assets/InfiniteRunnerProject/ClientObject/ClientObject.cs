@@ -71,6 +71,7 @@ namespace RB.Client
             foreach(string str in spec.listSpriteNames)
             {
                 GameObject obj = new GameObject(str);
+
                 obj.transform.parent = _playerPositionSphere.transform;
                 obj.transform.localPosition = Vector3.zero;
                 obj.transform.localRotation = Quaternion.identity;
@@ -85,6 +86,22 @@ namespace RB.Client
                         _listSpriteAnimations[_listSpriteAnimations.Count - 1].SetSpriteAnimationSpec(spec);
                         _listSpriteAnimations[_listSpriteAnimations.Count - 1].AddSpriteArray(arr);
                     }
+                }
+            }
+        }
+
+        public void SetAnimation(SpriteType spriteType)
+        {
+            foreach(SpriteAnimation ani in _listSpriteAnimations)
+            {
+                if (ani.ANIMATION_SPEC.spriteType == spriteType)
+                {
+                    ani.gameObject.SetActive(true);
+                    ani.UpdateSpriteOnIndex();
+                }
+                else
+                {
+                    ani.gameObject.SetActive(false);
                 }
             }
         }

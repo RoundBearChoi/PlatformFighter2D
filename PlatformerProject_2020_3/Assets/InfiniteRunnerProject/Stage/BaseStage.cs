@@ -82,6 +82,11 @@ namespace RB
 
         }
 
+        public virtual void UpdateClientSprite(int index, SpriteType spriteType)
+        {
+
+        }
+
         public virtual CameraState GetDefaultCameraState()
         {
             return null;

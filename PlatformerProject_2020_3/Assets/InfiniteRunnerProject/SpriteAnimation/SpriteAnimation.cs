@@ -8,9 +8,12 @@ namespace RB
     {
         [SerializeField]
         List<Sprite> _listSprites = new List<Sprite>();
-        SpriteRenderer _spriteRenderer = null;
+
+        [SerializeField]
         SpriteAnimationSpec _animationSpec = null;
 
+        SpriteRenderer _spriteRenderer = null;
+        
         public SpriteType spriteType = SpriteType.NONE;
         
         [Header("Debug")]

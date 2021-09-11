@@ -121,6 +121,8 @@ namespace RB.Client
             SpriteType st = (SpriteType)spriteType;
 
             Debugger.Log("player " + index + " sprite type received: " + " " + st.ToString());
+
+            GameInitializer.current.GetStage().UpdateClientSprite(index, st);
         }
     }
 }
