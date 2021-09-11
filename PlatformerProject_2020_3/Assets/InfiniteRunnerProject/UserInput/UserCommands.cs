@@ -157,15 +157,24 @@ namespace RB
 
         public void UpdateOnClientInput(bool[] inputArray)
         {
-            UpdateCommandOnClientInputData(CommandType.MOVE_UP, inputArray[0]);
-            UpdateCommandOnClientInputData(CommandType.MOVE_DOWN, inputArray[1]);
-            UpdateCommandOnClientInputData(CommandType.MOVE_LEFT, inputArray[2]);
-            UpdateCommandOnClientInputData(CommandType.MOVE_RIGHT, inputArray[3]);
-            UpdateCommandOnClientInputData(CommandType.JUMP, inputArray[4]);
-            UpdateCommandOnClientInputData(CommandType.ATTACK_A, inputArray[5]);
+            UpdatePressOnClientInput(CommandType.MOVE_UP, inputArray[0]);
+            UpdatePressOnClientInput(CommandType.MOVE_DOWN, inputArray[1]);
+            UpdatePressOnClientInput(CommandType.MOVE_LEFT, inputArray[2]);
+            UpdatePressOnClientInput(CommandType.MOVE_RIGHT, inputArray[3]);
+            UpdatePressOnClientInput(CommandType.JUMP, inputArray[4]);
+            UpdatePressOnClientInput(CommandType.ATTACK_A, inputArray[5]);
+            UpdatePressOnClientInput(CommandType.SHIFT, inputArray[6]);
+
+            UpdateHoldOnClientInput(CommandType.MOVE_UP, inputArray[7]);
+            UpdateHoldOnClientInput(CommandType.MOVE_DOWN, inputArray[8]);
+            UpdateHoldOnClientInput(CommandType.MOVE_LEFT, inputArray[9]);
+            UpdateHoldOnClientInput(CommandType.MOVE_RIGHT, inputArray[10]);
+            UpdateHoldOnClientInput(CommandType.JUMP, inputArray[11]);
+            UpdateHoldOnClientInput(CommandType.ATTACK_A, inputArray[12]);
+            UpdateHoldOnClientInput(CommandType.SHIFT, inputArray[13]);
         }
 
-        void UpdateCommandOnClientInputData(CommandType commandType, bool isHeld)
+        void UpdatePressOnClientInput(CommandType commandType, bool isHeld)
         {
             if (_dicAllCommands.ContainsKey(commandType))
             {
@@ -173,15 +182,35 @@ namespace RB
 
                 if (isHeld)
                 {
-                    if (!_dicButtonPresses.ContainsKey(buttonControl))
+                    if (buttonControl != null)
                     {
-                        _dicButtonPresses.Add(buttonControl, 0);
+                        if (!_dicButtonPresses.ContainsKey(buttonControl))
+                        {
+                            _dicButtonPresses.Add(buttonControl, 0);
+                        }
                     }
-                    else
+                }
+                else
+                {
+                    if (buttonControl != null)
                     {
-                        _dicButtonPresses[buttonControl]++;
+                        if (_dicButtonPresses.ContainsKey(buttonControl))
+                        {
+                            _listButtonHolds.Remove(buttonControl);
+                        }
                     }
+                }
+            }
+        }
 
+        void UpdateHoldOnClientInput(CommandType commandType, bool isHeld)
+        {
+            if (_dicAllCommands.ContainsKey(commandType))
+            {
+                ButtonControl buttonControl = _dicAllCommands[commandType].BUTTON;
+
+                if (isHeld)
+                {
                     if (buttonControl != null)
                     {
                         if (!_listButtonHolds.Contains(buttonControl))
@@ -192,11 +221,6 @@ namespace RB
                 }
                 else
                 {
-                    if (_dicButtonPresses.ContainsKey(buttonControl))
-                    {
-                        _dicButtonPresses.Remove(buttonControl);
-                    }
-
                     if (buttonControl != null)
                     {
                         if (_listButtonHolds.Contains(buttonControl))
