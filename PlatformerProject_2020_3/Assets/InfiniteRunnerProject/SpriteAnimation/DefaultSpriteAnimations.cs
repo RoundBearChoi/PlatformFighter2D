@@ -90,7 +90,8 @@ namespace RB
             _listSpriteAnimations.Add(obj.AddComponent<SpriteAnimation>());
 
             _listSpriteAnimations[_listSpriteAnimations.Count - 1].spriteType = spriteSpec.spriteType;
-            _listSpriteAnimations[_listSpriteAnimations.Count - 1].LoadSprite(creationSpec, spriteSpec);
+            _listSpriteAnimations[_listSpriteAnimations.Count - 1].SetSpriteAnimationSpec(spriteSpec);
+            _listSpriteAnimations[_listSpriteAnimations.Count - 1].LoadSprite(creationSpec);
         }
 
         public SpriteAnimation GetLastSpriteAnimation()

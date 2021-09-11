@@ -49,15 +49,8 @@ namespace RB
                         clientObj = _clientPositions.AddClientObj(playerData.listIDs[i]);
                     }
 
-                    UnitCreationSpec creation = BaseInitializer.current.specsGetter.GetSpec_ByUnitType(playerData.listData[i]);
-
-                    foreach(SpriteAnimationSpec ani in creation.listSpriteAnimationSpecs)
-                    {
-                        foreach(string spr in ani.listSpriteNames)
-                        {
-                            clientObj.AddSpriteAnimation(spr);
-                        }
-                    }
+                    UnitCreationSpec creationSpec = BaseInitializer.current.specsGetter.GetSpec_ByUnitType(playerData.listData[i]);
+                    clientObj.AddSpriteAnimations(creationSpec);
                 }
             }
         }

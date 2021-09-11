@@ -52,7 +52,7 @@ namespace RB.Client
             _playerPositionSphere.transform.position = _pos;
         }
 
-        public void AddSpriteAnimation(string spriteName)
+        public void AddSpriteAnimations(UnitCreationSpec creationSpec)
         {
             if (!_initialized)
             {
@@ -60,19 +60,31 @@ namespace RB.Client
                 _listSpriteAnimations = new List<SpriteAnimation>();
             }
 
-            GameObject obj = new GameObject(spriteName);
-            obj.transform.parent = _playerPositionSphere.transform;
-            obj.transform.localPosition = Vector3.zero;
-            obj.transform.localRotation = Quaternion.identity;
-            _listSpriteAnimations.Add(obj.AddComponent<SpriteAnimation>());
-
-            Sprite[] arr = ResourceLoader.LoadSpriteByString(spriteName);
-
-            if (arr != null)
+            foreach (SpriteAnimationSpec aniSpec in creationSpec.listSpriteAnimationSpecs)
             {
-                if (arr.Length > 0)
+                AddSpriteAnimation(aniSpec);
+            }
+        }
+
+        void AddSpriteAnimation(SpriteAnimationSpec spec)
+        {
+            foreach(string str in spec.listSpriteNames)
+            {
+                GameObject obj = new GameObject(str);
+                obj.transform.parent = _playerPositionSphere.transform;
+                obj.transform.localPosition = Vector3.zero;
+                obj.transform.localRotation = Quaternion.identity;
+                _listSpriteAnimations.Add(obj.AddComponent<SpriteAnimation>());
+
+                Sprite[] arr = ResourceLoader.LoadSpriteByString(str);
+
+                if (arr != null)
                 {
-                    //_listSpriteAnimations[_listSpriteAnimations.Count - 1].AddSpriteArray(arr);
+                    if (arr.Length > 0)
+                    {
+                        _listSpriteAnimations[_listSpriteAnimations.Count - 1].SetSpriteAnimationSpec(spec);
+                        _listSpriteAnimations[_listSpriteAnimations.Count - 1].AddSpriteArray(arr);
+                    }
                 }
             }
         }
