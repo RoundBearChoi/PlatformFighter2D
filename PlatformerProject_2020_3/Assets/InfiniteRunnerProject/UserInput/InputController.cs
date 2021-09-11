@@ -60,7 +60,6 @@ namespace RB
             foreach(UserInput input in _listUserInputs)
             {
                 input.commands.ClearKeyPressDictionary();
-                input.commands.ClearButtonPressDictionary();
             }
         }
 

@@ -9,9 +9,7 @@ namespace RB
     {
         private Dictionary<CommandType, UserCommand> _dicAllCommands = new Dictionary<CommandType, UserCommand>();
 
-        private Dictionary<KeyControl, int> _dicKeyPresses = new Dictionary<KeyControl, int>();
         private Dictionary<ButtonControl, int> _dicButtonPresses = new Dictionary<ButtonControl, int>();
-        private List<KeyControl> _listKeyHolds = new List<KeyControl>();
         private List<ButtonControl> _listButtonHolds = new List<ButtonControl>();
 
         public void AddCommand(UserCommand command)
@@ -30,26 +28,16 @@ namespace RB
         {
             foreach(KeyValuePair<CommandType, UserCommand> data in _dicAllCommands)
             {
-                KeyControl key = data.Value.KEY;
                 ButtonControl button = data.Value.BUTTON;
 
-                if (key != null)
+                if (button != null)
                 {
-                    UpdateKeyPress(key);
-                }
-                else if (button != null)
-                {
-                    UpdateButtonPress(button);
+                    UpdateKeyPress(button);
                 }
             }
         }
 
         public void ClearKeyPressDictionary()
-        {
-            _dicKeyPresses.Clear();
-        }
-
-        public void ClearButtonPressDictionary()
         {
             _dicButtonPresses.Clear();
         }
@@ -58,22 +46,9 @@ namespace RB
         {
             if (_dicAllCommands.ContainsKey(commandType))
             {
-                KeyControl key = _dicAllCommands[commandType].KEY;
                 ButtonControl button = _dicAllCommands[commandType].BUTTON;
 
-                if (key != null)
-                {
-                    if (_dicKeyPresses.ContainsKey(key))
-                    {
-                        if (clearPress)
-                        {
-                            _dicKeyPresses.Remove(key);
-                        }
-
-                        return true;
-                    }
-                }
-                else if (button != null)
+                if (button != null)
                 {
                     if (_dicButtonPresses.ContainsKey(button))
                     {
@@ -94,21 +69,9 @@ namespace RB
         {
             if (_dicAllCommands.ContainsKey(commandType))
             {
-                KeyControl key = _dicAllCommands[commandType].KEY;
                 ButtonControl button = _dicAllCommands[commandType].BUTTON;
 
-                if (key != null)
-                {
-                    if (_listKeyHolds.Contains(key))
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                else if (button != null)
+                if (button != null)
                 {
                     if (_listButtonHolds.Contains(button))
                     {
@@ -139,35 +102,7 @@ namespace RB
             return false;
         }
 
-        void UpdateKeyPress(KeyControl keyControl)
-        {
-            if (keyControl.wasPressedThisFrame)
-            {
-                if (_dicKeyPresses.ContainsKey(keyControl))
-                {
-                    _dicKeyPresses[keyControl]++;
-                }
-                else
-                {
-                    _dicKeyPresses.Add(keyControl, 1);
-                }
-
-                if (!ContainsKeyHold(keyControl))
-                {
-                    _listKeyHolds.Add(keyControl);
-                }
-            }
-
-            if (!keyControl.isPressed || keyControl.wasReleasedThisFrame)
-            {
-                if (ContainsKeyHold(keyControl))
-                {
-                    RemoveKeyHold(keyControl);
-                }
-            }
-        }
-
-        void UpdateButtonPress(ButtonControl buttonControl)
+        void UpdateKeyPress(ButtonControl buttonControl)
         {
             if (buttonControl.wasPressedThisFrame)
             {
@@ -180,7 +115,7 @@ namespace RB
                     _dicButtonPresses.Add(buttonControl, 1);
                 }
 
-                if (!ContainsButtonHold(buttonControl))
+                if (!ContainsKeyHold(buttonControl))
                 {
                     _listButtonHolds.Add(buttonControl);
                 }
@@ -188,18 +123,18 @@ namespace RB
 
             if (!buttonControl.isPressed || buttonControl.wasReleasedThisFrame)
             {
-                if (ContainsButtonHold(buttonControl))
+                if (ContainsKeyHold(buttonControl))
                 {
-                    RemoveButtonHold(buttonControl);
+                    RemoveKeyHold(buttonControl);
                 }
             }
         }
 
-        bool ContainsKeyHold(KeyControl keyControl)
+        bool ContainsKeyHold(ButtonControl buttonControl)
         {
-            foreach (KeyControl key in _listKeyHolds)
+            foreach (ButtonControl b in _listButtonHolds)
             {
-                if (keyControl == key)
+                if (buttonControl == b)
                 {
                     return true;
                 }
@@ -208,32 +143,7 @@ namespace RB
             return false;
         }
 
-        bool ContainsButtonHold(ButtonControl buttonControl)
-        {
-            foreach (ButtonControl key in _listButtonHolds)
-            {
-                if (buttonControl == key)
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        void RemoveKeyHold(KeyControl keyControl)
-        {
-            for (int i = _listKeyHolds.Count - 1; i >= 0; i--)
-            {
-                if (_listKeyHolds[i] == keyControl)
-                {
-                    _listKeyHolds.RemoveAt(i);
-                    return;
-                }
-            }
-        }
-
-        void RemoveButtonHold(ButtonControl buttonControl)
+        void RemoveKeyHold(ButtonControl buttonControl)
         {
             for (int i = _listButtonHolds.Count - 1; i >= 0; i--)
             {
@@ -259,19 +169,11 @@ namespace RB
         {
             if (_dicAllCommands.ContainsKey(commandType))
             {
-                KeyControl keyControl = _dicAllCommands[commandType].KEY;
                 ButtonControl buttonControl = _dicAllCommands[commandType].BUTTON;
 
                 if (isHeld)
                 {
-                    if (keyControl != null)
-                    {
-                        if (!_listKeyHolds.Contains(keyControl))
-                        {
-                            _listKeyHolds.Add(keyControl);
-                        }
-                    }
-                    else if (buttonControl != null)
+                    if (buttonControl != null)
                     {
                         if (!_listButtonHolds.Contains(buttonControl))
                         {
@@ -281,14 +183,7 @@ namespace RB
                 }
                 else
                 {
-                    if (keyControl != null)
-                    {
-                        if (_listKeyHolds.Contains(keyControl))
-                        {
-                            _listKeyHolds.Remove(keyControl);
-                        }
-                    }
-                    else if (buttonControl != null)
+                    if (buttonControl != null)
                     {
                         if (_listButtonHolds.Contains(buttonControl))
                         {

@@ -9,7 +9,6 @@ namespace RB
     {
         private CommandType _commandType = CommandType.NONE;
         private ButtonControl _buttonControl = null;
-        private KeyControl _keyControl = null;
 
         public CommandType COMMAND_TYPE
         {
@@ -23,14 +22,6 @@ namespace RB
         {
             _commandType = commandType;
             _buttonControl = button;
-            _keyControl = null;
-        }
-
-        public UserCommand(CommandType commandType, KeyControl key)
-        {
-            _commandType = commandType;
-            _keyControl = key;
-            _buttonControl = null;
         }
 
         public ButtonControl BUTTON
@@ -38,14 +29,6 @@ namespace RB
             get
             {
                 return _buttonControl;
-            }
-        }
-
-        public KeyControl KEY
-        {
-            get
-            {
-                return _keyControl;
             }
         }
     }

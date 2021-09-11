@@ -71,7 +71,6 @@ namespace RB
             ui.OnFixedUpdate();
 
             _inputController.GetUserInput(InputType.PLAYER_ONE).commands.ClearKeyPressDictionary();
-            _inputController.GetUserInput(InputType.PLAYER_ONE).commands.ClearButtonPressDictionary();
 
             cameraScript.OnFixedUpdate();
         }
