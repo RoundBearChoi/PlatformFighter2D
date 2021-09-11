@@ -45,6 +45,16 @@ namespace RB
             return null;
         }
 
+        public UserInput GetUserInput(int index)
+        {
+            if (_listUserInputs.Count > index)
+            {
+                return _listUserInputs[index];
+            }
+
+            return null;
+        }
+
         public void ClearAllKeysAndButtons()
         {
             foreach(UserInput input in _listUserInputs)

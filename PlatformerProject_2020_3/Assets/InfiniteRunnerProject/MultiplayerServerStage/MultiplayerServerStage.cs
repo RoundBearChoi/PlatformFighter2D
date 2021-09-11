@@ -119,5 +119,15 @@ namespace RB
         {
             return new Camera_LerpOnTargetXAndY(0.08f, 0.08f);
         }
+
+        public override void UpdateOnClientInput(int index, bool[] inputs)
+        {
+            UserInput input = _inputController.GetUserInput(1);
+
+            if (input != null)
+            {
+                input.commands.UpdateOnClientInput(inputs);
+            }
+        }
     }
 }

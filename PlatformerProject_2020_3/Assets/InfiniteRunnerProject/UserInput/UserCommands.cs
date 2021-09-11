@@ -244,5 +244,59 @@ namespace RB
                 }
             }
         }
+
+        public void UpdateOnClientInput(bool[] inputArray)
+        {
+            UpdateCommandOnClientInputData(CommandType.MOVE_UP, inputArray[0]);
+            UpdateCommandOnClientInputData(CommandType.MOVE_DOWN, inputArray[1]);
+            UpdateCommandOnClientInputData(CommandType.MOVE_LEFT, inputArray[2]);
+            UpdateCommandOnClientInputData(CommandType.MOVE_RIGHT, inputArray[3]);
+            UpdateCommandOnClientInputData(CommandType.JUMP, inputArray[4]);
+            UpdateCommandOnClientInputData(CommandType.ATTACK_A, inputArray[5]);
+        }
+
+        void UpdateCommandOnClientInputData(CommandType commandType, bool isHeld)
+        {
+            if (_dicAllCommands.ContainsKey(commandType))
+            {
+                KeyControl keyControl = _dicAllCommands[commandType].KEY;
+                ButtonControl buttonControl = _dicAllCommands[commandType].BUTTON;
+
+                if (isHeld)
+                {
+                    if (keyControl != null)
+                    {
+                        if (!_listKeyHolds.Contains(keyControl))
+                        {
+                            _listKeyHolds.Add(keyControl);
+                        }
+                    }
+                    else if (buttonControl != null)
+                    {
+                        if (!_listButtonHolds.Contains(buttonControl))
+                        {
+                            _listButtonHolds.Add(buttonControl);
+                        }
+                    }
+                }
+                else
+                {
+                    if (keyControl != null)
+                    {
+                        if (_listKeyHolds.Contains(keyControl))
+                        {
+                            _listKeyHolds.Remove(keyControl);
+                        }
+                    }
+                    else if (buttonControl != null)
+                    {
+                        if (_listButtonHolds.Contains(buttonControl))
+                        {
+                            _listButtonHolds.Remove(buttonControl);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

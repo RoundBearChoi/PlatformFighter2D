@@ -35,6 +35,8 @@ namespace RB.Server
 
             ClientData data = BaseNetworkControl.CURRENT.server.connectedClients.GetClientData(fromClient);
             data.SetInput(inputs);
+
+            GameInitializer.current.GetStage().UpdateOnClientInput(fromClient, inputs);
         }
     }
 }

@@ -87,6 +87,11 @@ namespace RB
 
         }
 
+        public virtual void UpdateOnClientInput(int index, bool[] inputs)
+        {
+
+        }
+
         public virtual CameraState GetStageDefaultCameraState()
         {
             return null;
