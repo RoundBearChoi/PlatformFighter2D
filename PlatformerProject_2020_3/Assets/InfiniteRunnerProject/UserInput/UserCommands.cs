@@ -173,6 +173,15 @@ namespace RB
 
                 if (isHeld)
                 {
+                    if (!_dicButtonPresses.ContainsKey(buttonControl))
+                    {
+                        _dicButtonPresses.Add(buttonControl, 0);
+                    }
+                    else
+                    {
+                        _dicButtonPresses[buttonControl]++;
+                    }
+
                     if (buttonControl != null)
                     {
                         if (!_listButtonHolds.Contains(buttonControl))
@@ -183,6 +192,11 @@ namespace RB
                 }
                 else
                 {
+                    if (_dicButtonPresses.ContainsKey(buttonControl))
+                    {
+                        _dicButtonPresses.Remove(buttonControl);
+                    }
+
                     if (buttonControl != null)
                     {
                         if (_listButtonHolds.Contains(buttonControl))
