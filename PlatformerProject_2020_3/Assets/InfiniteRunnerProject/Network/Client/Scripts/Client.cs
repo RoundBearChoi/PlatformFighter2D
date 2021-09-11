@@ -329,6 +329,7 @@ namespace RB.Client
                 {(int)ServerPackets.enter_multiplayer_stage, ClientHandle.EnterMultiplayerStage },
                 {(int)ServerPackets.player_data_unit_types, ClientHandle.InitOnPlayerUnitTypes },
                 {(int)ServerPackets.player_data_positions, ClientHandle.UpdateOnPlayerPositions },
+                {(int)ServerPackets.player_data_sprite_type, ClientHandle.UpdateOnPlayerSpriteType},
             };
 
             Debug.Log("initialized clientdata");

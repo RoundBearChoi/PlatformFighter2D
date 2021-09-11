@@ -43,7 +43,7 @@ namespace RB
 
             gameCamera.GetComponent<Camera>().orthographicSize = 6.5f;
 
-            _dummyAnimation = new DefaultSpriteAnimations(null);
+            _dummyAnimation = new DefaultSpriteAnimations(null, null);
             _dummyAnimation.AddSpriteAnimation(null, animationSpec, _dummyObj.transform);
             _dummyAnimation.SetCurrentAnimation(_dummyAnimation.GetLastSpriteAnimation());
             _dummyAnimation.ManualSetSpriteIndex(0);

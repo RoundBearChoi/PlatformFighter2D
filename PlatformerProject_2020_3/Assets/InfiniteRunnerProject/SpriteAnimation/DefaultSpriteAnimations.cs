@@ -6,13 +6,15 @@ namespace RB
 {
     public class DefaultSpriteAnimations : ISpriteAnimations
     {
+        private Unit _unit = null;
         private List<SpriteAnimation> _listSpriteAnimations = null;
         private IStateController<UnitState> _IStateController = null;
 
         private SpriteAnimation _currentAnimation = null;
 
-        public DefaultSpriteAnimations(IStateController<UnitState> stateController)
+        public DefaultSpriteAnimations(IStateController<UnitState> stateController, Unit unit)
         {
+            _unit = unit;
             _listSpriteAnimations = new List<SpriteAnimation>();
             _IStateController = stateController;
         }
@@ -58,6 +60,13 @@ namespace RB
 
                         //updating on new state & reset
                         _currentAnimation.UpdateSpriteOnIndex();
+
+                        //sync with clients
+                        if (_unit.unitType == UnitType.LITTLE_RED_LIGHT ||
+                            _unit.unitType == UnitType.LITTLE_RED_DARK)
+                        {
+                            RB.Server.NetworkControl.CURRENT.serverSend.SendPlayerSpriteType(_unit.clientIndex, _currentAnimation.spriteType);
+                        }
                     }
                 }
                 else

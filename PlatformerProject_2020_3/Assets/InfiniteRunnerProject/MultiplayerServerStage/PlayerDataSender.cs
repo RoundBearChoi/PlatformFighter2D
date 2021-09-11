@@ -17,6 +17,7 @@ namespace RB.Server
 
         public void AddUnit(Unit unit, int index)
         {
+            unit.clientIndex = index;
             _playersOnServer.Add(new ServerPlayer(unit, index));
         }
 

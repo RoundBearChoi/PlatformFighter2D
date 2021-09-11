@@ -19,6 +19,7 @@ namespace RB.Network
         enter_multiplayer_stage,
         player_data_positions,
         player_data_unit_types,
+        player_data_sprite_type,
     }
 
     /// <summary>Sent from client to server.</summary>

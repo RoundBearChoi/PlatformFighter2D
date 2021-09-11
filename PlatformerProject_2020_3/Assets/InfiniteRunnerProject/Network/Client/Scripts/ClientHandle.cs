@@ -113,5 +113,14 @@ namespace RB.Client
 
             GameInitializer.current.GetStage().UpdateClientPositions(dataset);
         }
+
+        public static void UpdateOnPlayerSpriteType(Packet packet)
+        {
+            int index = packet.ReadInt();
+            int spriteType = packet.ReadInt();
+            SpriteType st = (SpriteType)spriteType;
+
+            Debugger.Log("player " + index + " sprite type received: " + " " + st.ToString());
+        }
     }
 }

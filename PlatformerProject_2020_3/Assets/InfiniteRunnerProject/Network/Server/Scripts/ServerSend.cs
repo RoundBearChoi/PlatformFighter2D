@@ -131,6 +131,17 @@ namespace RB.Server
             }
         }
 
+        public void SendPlayerSpriteType(int index, SpriteType spriteType)
+        {
+            using (Packet packet = new Packet((int)ServerPackets.player_data_sprite_type))
+            {
+                packet.Write(index);
+                packet.Write((int)spriteType);
+
+                SendTCPDataToAll(packet);
+            }
+        }
+
         /// <summary>Tells a client to spawn a player.</summary>
         /// <param name="_toClient">The client that should spawn the player.</param>
         /// <param name="_player">The player to spawn.</param>

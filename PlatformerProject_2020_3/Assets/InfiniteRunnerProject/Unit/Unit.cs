@@ -14,6 +14,7 @@ namespace RB
         public bool destroy = false;
         public BaseMessageHandler messageHandler = null;
         public EnemyHPBar hpBar = null;
+        public int clientIndex = 0;
 
         protected ICollisionSideChecker _collisionChecker = null;
 
