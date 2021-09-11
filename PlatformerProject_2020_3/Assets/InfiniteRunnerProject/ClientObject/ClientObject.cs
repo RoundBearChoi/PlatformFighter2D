@@ -16,6 +16,11 @@ namespace RB.Client
         [SerializeField]
         GameObject _playerPositionSphere = null;
 
+        [SerializeField]
+        private List<SpriteAnimation> _listSpriteAnimations = new List<SpriteAnimation>();
+
+        private bool _initialized = false;
+
         public int ID
         {
             get
@@ -45,6 +50,31 @@ namespace RB.Client
         public void UpdatePosition()
         {
             _playerPositionSphere.transform.position = _pos;
+        }
+
+        public void AddSpriteAnimation(string spriteName)
+        {
+            if (!_initialized)
+            {
+                _initialized = true;
+                _listSpriteAnimations = new List<SpriteAnimation>();
+            }
+
+            GameObject obj = new GameObject(spriteName);
+            obj.transform.parent = _playerPositionSphere.transform;
+            obj.transform.localPosition = Vector3.zero;
+            obj.transform.localRotation = Quaternion.identity;
+            _listSpriteAnimations.Add(obj.AddComponent<SpriteAnimation>());
+
+            Sprite[] arr = ResourceLoader.LoadSpriteByString(spriteName);
+
+            if (arr != null)
+            {
+                if (arr.Length > 0)
+                {
+                    //_listSpriteAnimations[_listSpriteAnimations.Count - 1].AddSpriteArray(arr);
+                }
+            }
         }
     }
 }

@@ -55,7 +55,7 @@ namespace RB
                     {
                         foreach(string spr in ani.listSpriteNames)
                         {
-                            Debugger.Log(spr);
+                            clientObj.AddSpriteAnimation(spr);
                         }
                     }
                 }
@@ -68,13 +68,6 @@ namespace RB
             {
                 for (int i = 0; i < playerData.listIDs.Count; i++)
                 {
-                    //ClientObject cp = _clientPositions.GetClientPosition(playerData.listIDs[i]);
-                    //
-                    //if (cp == null)
-                    //{
-                    //    cp = _clientPositions.AddClientObj(playerData.listIDs[i]);
-                    //}
-
                     ClientObject clientObj = _clientPositions.GetClientObj(playerData.listIDs[i]);
                     clientObj.SetPosition(playerData.listData[i]);
                     clientObj.UpdatePosition();

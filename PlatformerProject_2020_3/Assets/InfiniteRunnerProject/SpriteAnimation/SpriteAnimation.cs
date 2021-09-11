@@ -67,8 +67,27 @@ namespace RB
             _animationSpec = spriteSpec;
             _spriteInterval = spriteSpec.spriteInterval;
 
-            Sprite[] arrSprites = ResourceLoader.LoadSpriteBySpec(creationSpec, spriteSpec);
+            Sprite[] arr = ResourceLoader.LoadSpriteBySpec(creationSpec, spriteSpec);
 
+            AddSpriteArray(arr, spriteSpec.spriteSize.x, spriteSpec.spriteSize.y);
+
+            //foreach (Sprite spr in arr)
+            //{
+            //    _listSprites.Add(spr);
+            //}
+            //
+            //_spriteRenderer = this.gameObject.AddComponent<SpriteRenderer>();
+            //
+            //float xScale = spriteSpec.spriteSize.x / _listSprites[0].bounds.size.x;
+            //float yScale = spriteSpec.spriteSize.y / _listSprites[0].bounds.size.y;
+            //
+            //_spriteRenderer.transform.localScale = new Vector2(xScale, yScale);
+            //
+            //SetLocalPositionOnOffset();
+        }
+
+        public void AddSpriteArray(Sprite[] arrSprites, float sizeX, float sizeY)
+        {
             foreach (Sprite spr in arrSprites)
             {
                 _listSprites.Add(spr);
@@ -76,8 +95,8 @@ namespace RB
 
             _spriteRenderer = this.gameObject.AddComponent<SpriteRenderer>();
 
-            float xScale = spriteSpec.spriteSize.x / _listSprites[0].bounds.size.x;
-            float yScale = spriteSpec.spriteSize.y / _listSprites[0].bounds.size.y;
+            float xScale = sizeX/*spriteSpec.spriteSize.x*/ / _listSprites[0].bounds.size.x;
+            float yScale = sizeY/*spriteSpec.spriteSize.y*/ / _listSprites[0].bounds.size.y;
 
             _spriteRenderer.transform.localScale = new Vector2(xScale, yScale);
 
