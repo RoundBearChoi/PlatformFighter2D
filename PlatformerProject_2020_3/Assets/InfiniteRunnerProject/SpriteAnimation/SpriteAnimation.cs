@@ -65,6 +65,7 @@ namespace RB
 
         public void SetSpriteAnimationSpec(SpriteAnimationSpec spec)
         {
+            _spriteInterval = spec.spriteInterval;
             _animationSpec = spec;
         }
 
@@ -127,7 +128,7 @@ namespace RB
         
         public void UpdateSpriteIndex()
         {
-            if (_updateCount != 0 && _updateCount % _animationSpec.spriteInterval == 0)
+            if (_updateCount != 0 && _updateCount % _spriteInterval == 0)
             {
                 _spriteIndex++;
 

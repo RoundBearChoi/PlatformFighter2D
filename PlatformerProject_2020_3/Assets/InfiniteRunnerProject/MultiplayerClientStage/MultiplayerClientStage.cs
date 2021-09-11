@@ -11,7 +11,7 @@ namespace RB
         Camera _mainCam = null;
 
         [SerializeField]
-        ClientObjects _clientPositions = null;
+        ClientObjects _clientObjects = null;
 
         public override void Init()
         {
@@ -31,7 +31,7 @@ namespace RB
             _baseFighterClient = FindObjectOfType<FighterClient>();
             _baseFighterClient.Init();
 
-            _clientPositions = new ClientObjects();
+            _clientObjects = new ClientObjects();
         }
 
         public override void UpdateClientUnitTypes(PlayerDataset<UnitType> playerData)
@@ -42,11 +42,11 @@ namespace RB
                 {
                     Debugger.Log("--- received unit type: " + ((UnitType)playerData.listData[i]).ToString() + " ---");
 
-                    ClientObject clientObj = _clientPositions.GetClientObj(playerData.listIDs[i]);
+                    ClientObject clientObj = _clientObjects.GetClientObj(playerData.listIDs[i]);
 
                     if (clientObj == null)
                     {
-                        clientObj = _clientPositions.AddClientObj(playerData.listIDs[i]);
+                        clientObj = _clientObjects.AddClientObj(playerData.listIDs[i]);
                     }
 
                     UnitCreationSpec creationSpec = BaseInitializer.current.specsGetter.GetSpec_ByUnitType(playerData.listData[i]);
@@ -61,7 +61,7 @@ namespace RB
             {
                 for (int i = 0; i < playerData.listIDs.Count; i++)
                 {
-                    ClientObject clientObj = _clientPositions.GetClientObj(playerData.listIDs[i]);
+                    ClientObject clientObj = _clientObjects.GetClientObj(playerData.listIDs[i]);
                     clientObj.SetPosition(playerData.listData[i]);
                     clientObj.UpdatePosition();
                 }
@@ -70,7 +70,7 @@ namespace RB
 
         public override void UpdateClientSprite(int index, SpriteType spriteType)
         {
-            _clientPositions.SetSpriteAnimation(index, spriteType);
+            _clientObjects.SetSpriteAnimation(index, spriteType);
         }
 
         public override void OnUpdate()
@@ -102,6 +102,8 @@ namespace RB
             {
                 _baseFighterClient.SendInputToServer();
             }
+
+            _clientObjects.OnFixedUpdate();
 
             ClearInput();
         }

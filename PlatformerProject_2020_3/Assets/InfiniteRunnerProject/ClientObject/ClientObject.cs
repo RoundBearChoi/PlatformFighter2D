@@ -19,6 +19,9 @@ namespace RB.Client
         [SerializeField]
         private List<SpriteAnimation> _listSpriteAnimations = new List<SpriteAnimation>();
 
+        [SerializeField]
+        SpriteAnimation _currentAnimation = null;
+
         private bool _initialized = false;
 
         public int ID
@@ -97,13 +100,22 @@ namespace RB.Client
                 if (ani.ANIMATION_SPEC.spriteType == spriteType)
                 {
                     ani.gameObject.SetActive(true);
+                    
+                    ani.ResetSpriteIndex();
                     ani.UpdateSpriteOnIndex();
+
+                    _currentAnimation = ani;
                 }
                 else
                 {
                     ani.gameObject.SetActive(false);
                 }
             }
+        }
+
+        public SpriteAnimation GetCurrentAnimation()
+        {
+            return _currentAnimation;
         }
     }
 }

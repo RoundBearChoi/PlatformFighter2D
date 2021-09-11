@@ -15,6 +15,15 @@ namespace RB.Client
             _listClientObjects = new List<ClientObject>();
         }
 
+        public void OnFixedUpdate()
+        {
+            foreach(ClientObject obj in _listClientObjects)
+            {
+                obj.GetCurrentAnimation().UpdateSpriteIndex();
+                obj.GetCurrentAnimation().UpdateSpriteOnIndex();
+            }
+        }
+
         public ClientObject AddClientObj(int clientID)
         {
             ClientObject clientObject = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_OBJECT) as ClientObject);
