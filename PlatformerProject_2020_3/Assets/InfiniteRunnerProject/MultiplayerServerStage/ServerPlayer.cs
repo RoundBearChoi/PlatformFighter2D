@@ -36,5 +36,10 @@ namespace RB.Server
         {
             return _position;
         }
+
+        public Unit GetUnit()
+        {
+            return _unit;
+        }
     }
 }

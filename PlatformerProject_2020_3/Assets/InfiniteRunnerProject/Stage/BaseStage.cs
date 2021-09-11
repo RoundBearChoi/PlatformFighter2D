@@ -72,7 +72,7 @@ namespace RB
 
         }
 
-        public virtual void UpdateClientPositions(RB.Server.PlayerDataset playerData)
+        public virtual void UpdateClientPositions(RB.Server.PlayerDataset<Vector3> playerData)
         {
             Debugger.Log("undefined");
         }

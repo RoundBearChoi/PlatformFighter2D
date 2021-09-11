@@ -60,6 +60,8 @@ namespace RB
             _playerDataSender = new RB.Server.PlayerDataSender();
             _playerDataSender.AddUnit(serverPlayer, 100);
             _playerDataSender.AddUnit(client0, 0);
+
+            _playerDataSender.SendPlayerUnitTypesToAllClients();
         }
 
         public override void OnUpdate()

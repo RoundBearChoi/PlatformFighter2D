@@ -97,17 +97,34 @@ namespace RB.Server
             }
         }
 
-        public void SendPlayerData(PlayerDataset playerData)
+        public void SendPlayerPositions(PlayerDataset<Vector3> playerData)
         {
-            using (Packet packet = new Packet((int)ServerPackets.player_data))
+            using (Packet packet = new Packet((int)ServerPackets.player_data_positions))
             {
                 int playerCount = playerData.playerCount;
                 packet.Write(playerCount);
 
-                for (int i = 0; i < playerData.listPositions.Count; i++)
+                for (int i = 0; i < playerData.listData.Count; i++)
                 {
                     packet.Write(playerData.listIDs[i]);
-                    packet.Write(playerData.listPositions[i]);
+                    packet.Write(playerData.listData[i]);
+                }
+
+                SendUDPDataToAll(packet);
+            }
+        }
+
+        public void SendPlayerUnitTypes(PlayerDataset<UnitType> playerData)
+        {
+            using (Packet packet = new Packet((int)ServerPackets.player_data_unit_types))
+            {
+                int playerCount = playerData.playerCount;
+                packet.Write(playerCount);
+
+                for (int i = 0; i < playerData.listData.Count; i++)
+                {
+                    packet.Write(playerData.listIDs[i]);
+                    packet.Write((int)playerData.listData[i]);
                 }
 
                 SendUDPDataToAll(packet);

@@ -33,11 +33,11 @@ namespace RB
             _clientPositions = new ClientPositions();
         }
 
-        public override void UpdateClientPositions(RB.Server.PlayerDataset playerData)
+        public override void UpdateClientPositions(RB.Server.PlayerDataset<Vector3> playerData)
         {
             if (playerData.listIDs.Count > 0)
             {
-                if (playerData.listIDs.Count == playerData.listPositions.Count)
+                if (playerData.listIDs.Count == playerData.listData.Count)
                 {
                     for (int i = 0; i < playerData.listIDs.Count; i++)
                     {
@@ -48,7 +48,7 @@ namespace RB
                             cp = _clientPositions.AddClientPosition(playerData.listIDs[i]);
                         }
 
-                        cp.SetPosition(playerData.listPositions[i]);
+                        cp.SetPosition(playerData.listData[i]);
                         cp.UpdatePosition();
                     }
                 }

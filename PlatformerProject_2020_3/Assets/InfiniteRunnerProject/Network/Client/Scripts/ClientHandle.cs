@@ -72,13 +72,33 @@ namespace RB.Client
             BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.MULTIPLAYER_CLIENT_STAGE));
         }
 
-        public static void UpdateOnPlayerData(Packet packet)
+        public static void InitOnPlayerUnitTypes(Packet packet)
         {
-            RB.Server.PlayerDataset dataset = new Server.PlayerDataset();
+            Debugger.Log("player unit types received");
+
+            RB.Server.PlayerDataset<UnitType> dataset = new Server.PlayerDataset<UnitType>();
 
             dataset.playerCount = packet.ReadInt();
             dataset.listIDs = new List<int>();
-            dataset.listPositions = new List<Vector3>();
+            dataset.listData = new List<UnitType>();
+
+            for (int i = 0; i < dataset.playerCount; i++)
+            {
+                int playerIndex = packet.ReadInt();
+                int unitType = packet.ReadInt();
+
+                dataset.listIDs.Add(playerIndex);
+                dataset.listData.Add((UnitType)unitType);
+            }
+        }
+
+        public static void UpdateOnPlayerPositions(Packet packet)
+        {
+            RB.Server.PlayerDataset<Vector3> dataset = new Server.PlayerDataset<Vector3>();
+
+            dataset.playerCount = packet.ReadInt();
+            dataset.listIDs = new List<int>();
+            dataset.listData = new List<Vector3>();
             
             for (int i = 0; i < dataset.playerCount; i++)
             {
@@ -86,7 +106,7 @@ namespace RB.Client
                 Vector3 pos = packet.ReadVector3();
 
                 dataset.listIDs.Add(playerIndex);
-                dataset.listPositions.Add(pos);
+                dataset.listData.Add(pos);
             }
 
             GameInitializer.current.GetStage().UpdateClientPositions(dataset);

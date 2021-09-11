@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace RB.Server
 {
-    public struct PlayerDataset
+    public struct PlayerDataset<T>
     {
         public int playerCount;
         public List<int> listIDs;
-        public List<Vector3> listPositions;
+        public List<T> listData;
     }
 }
