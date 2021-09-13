@@ -36,16 +36,7 @@ namespace RB
         void OnClientLobby()
         {
             RB.Client.ClientConnection[] connections = RB.Client.BaseClientControl.CURRENT.GetClientConnectionStatus();
-            UpdateOnConnections(connections);
-        }
 
-        void OnServerLobby()
-        {
-
-        }
-
-        void UpdateOnConnections(RB.Client.ClientConnection[] connections)
-        {
             int totalConnected = 0;
 
             foreach (RB.Client.ClientConnection c in connections)
@@ -58,23 +49,38 @@ namespace RB
 
             if (_connectedPlayers.Count - 1 != totalConnected)
             {
-                //destroy all
-                foreach (ConnectedPlayerInfo connected in _connectedPlayers)
+                UpdateOnConnections(connections);
+            }
+        }
+
+        void OnServerLobby()
+        {
+            if (RB.Server.BaseNetworkControl.CURRENT.server.connectedClients.CLIENTS_COUNT != _connectedPlayers.Count - 1)
+            {
+                RB.Server.ClientData[] clients = RB.Server.BaseNetworkControl.CURRENT.server.connectedClients.GetAllClients();
+                RB.Client.ClientConnection[] connections = RB.Client.ClientConnection.GetData(clients);
+                UpdateOnConnections(connections);
+            }
+        }
+
+        void UpdateOnConnections(RB.Client.ClientConnection[] connections)
+        {
+            //destroy all
+            foreach (ConnectedPlayerInfo connected in _connectedPlayers)
+            {
+                Destroy(connected.gameObject);
+            }
+
+            _connectedPlayers.Clear();
+
+            //re-add
+            AddConnectedPlayerInfo("PLAYER", true);
+
+            for (int i = 0; i < connections.Length; i++)
+            {
+                if (connections[i].mConnected)
                 {
-                    Destroy(connected.gameObject);
-                }
-
-                _connectedPlayers.Clear();
-
-                //re-add
-                AddConnectedPlayerInfo("PLAYER", true);
-
-                for (int i = 0; i < connections.Length; i++)
-                {
-                    if (connections[i].mConnected)
-                    {
-                        AddConnectedPlayerInfo("PLAYER " + connections[i].mIndex.ToString(), false);
-                    }
+                    AddConnectedPlayerInfo("PLAYER " + connections[i].mIndex.ToString(), false);
                 }
             }
         }
