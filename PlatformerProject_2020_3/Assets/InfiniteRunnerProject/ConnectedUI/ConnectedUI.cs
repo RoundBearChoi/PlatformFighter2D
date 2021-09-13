@@ -22,11 +22,33 @@ namespace RB
 
         public override void OnLateUpdate()
         {
-            RB.Client.ClientConnection[] connections = RB.Client.BaseClientControl.CURRENT.GetClientConnectionStatus();
+            if (RB.Client.BaseClientControl.CURRENT != null)
+            {
+                OnClientLobby();
+            }
 
+            if (RB.Server.BaseNetworkControl.CURRENT != null)
+            {
+                OnServerLobby();
+            }
+        }
+
+        void OnClientLobby()
+        {
+            RB.Client.ClientConnection[] connections = RB.Client.BaseClientControl.CURRENT.GetClientConnectionStatus();
+            UpdateOnConnections(connections);
+        }
+
+        void OnServerLobby()
+        {
+
+        }
+
+        void UpdateOnConnections(RB.Client.ClientConnection[] connections)
+        {
             int totalConnected = 0;
 
-            foreach(RB.Client.ClientConnection c in connections)
+            foreach (RB.Client.ClientConnection c in connections)
             {
                 if (c.mConnected)
                 {
@@ -37,7 +59,7 @@ namespace RB
             if (_connectedPlayers.Count - 1 != totalConnected)
             {
                 //destroy all
-                foreach(ConnectedPlayerInfo connected in _connectedPlayers)
+                foreach (ConnectedPlayerInfo connected in _connectedPlayers)
                 {
                     Destroy(connected.gameObject);
                 }

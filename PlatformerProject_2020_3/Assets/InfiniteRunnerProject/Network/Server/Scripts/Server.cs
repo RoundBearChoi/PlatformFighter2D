@@ -11,7 +11,6 @@ namespace RB.Server
     [Serializable]
     public class Server
     {
-        //public ClientData[] clients = null;
         public Clients connectedClients = null;
 
         public int Port { get; private set; }
@@ -22,9 +21,6 @@ namespace RB.Server
         TcpListener tcpListener = null;
         UdpClient udpListener = null;
 
-        /// <summary>Starts the server.</summary>
-        /// <param name="_maxPlayers">The maximum players that can be connected simultaneously.</param>
-        /// <param name="_port">The port to start the server on.</param>
         public void OpenServer(int _port)
         {
             Port = _port;
@@ -40,7 +36,6 @@ namespace RB.Server
             Debug.Log($"Server started on port {Port}.");
         }
 
-        /// <summary>Handles new TCP connections.</summary>
         private void TCPConnectCallback(IAsyncResult result)
         {
             TcpClient tcpClient = tcpListener.EndAcceptTcpClient(result);
@@ -56,7 +51,6 @@ namespace RB.Server
             }
         }
 
-        /// <summary>Receives incoming UDP data.</summary>
         private void UDPReceiveCallback(IAsyncResult _result)
         {
             try
@@ -96,9 +90,6 @@ namespace RB.Server
             }
         }
 
-        /// <summary>Sends a packet to the specified endpoint via UDP.</summary>
-        /// <param name="_clientEndPoint">The endpoint to send the packet to.</param>
-        /// <param name="_packet">The packet to send.</param>
         public void SendUDPData(IPEndPoint _clientEndPoint, Packet _packet)
         {
             try
@@ -114,19 +105,12 @@ namespace RB.Server
             }
         }
 
-        /// <summary>Initializes all necessary server data.</summary>
         private void InitServer()
         {
             if (connectedClients == null)
             {
                 connectedClients = new Clients();
             }
-
-            //for (int i = 0; i < clients.Length; i++)
-            //{
-            //    clients[i] = new ClientData(i);
-            //    clients[i].SetUserName("not connected yet");
-            //}
 
             packetHandlers = new Dictionary<int, PacketHandler>()
         {

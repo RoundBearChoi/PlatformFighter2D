@@ -69,24 +69,19 @@ namespace RB.Server
             {
                 Debugger.Log("--- clients status ---");
                 ClientData[] clients = BaseNetworkControl.CURRENT.server.connectedClients.GetAllClients();
+                RB.Client.ClientConnection[] connections = RB.Client.ClientConnection.GetData(clients);
 
-                for (int i = 0; i < 3; i++)
+                if (connections.Length == 3)
                 {
-                    if (clients.Length > i)
+                    for (int i = 0; i < 3; i++)
                     {
-                        Debugger.Log("client " + i + " : TRUE " + "(id: " + clients[i].tcp.ID + ")");
-                        _packet.Write(true);
-                        _packet.Write(clients[i].tcp.ID);
+                        Debugger.Log("client " + connections[i].mIndex + ": " + connections[i].mConnected);
+                        _packet.Write(connections[i].mConnected);
+                        _packet.Write(connections[i].mIndex);
                     }
-                    else
-                    {
-                        Debugger.Log("client " + i + " : FALSE");
-                        _packet.Write(false);
-                        _packet.Write(999);
-                    }
+
+                    SendTCPDataToAll(_packet);
                 }
-                
-                SendTCPDataToAll(_packet);
             }
         }
 

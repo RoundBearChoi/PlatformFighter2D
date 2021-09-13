@@ -15,5 +15,27 @@ namespace RB.Client
 
         public int mIndex;
         public bool mConnected;
+
+        public static ClientConnection[] GetData(RB.Server.ClientData[] clients)
+        {
+            ClientConnection[] connections = new[] {
+                new ClientConnection (999, false),
+                new ClientConnection (999, false),
+                new ClientConnection (999, false),};
+
+            for (int i = 0; i < 3; i++)
+            {
+                if (clients.Length > i)
+                {
+                    connections[i] = new ClientConnection(clients[i].tcp.ID, true);
+                }
+                else
+                {
+                    connections[i] = new ClientConnection(999, false);
+                }
+            }
+
+            return connections;
+        }
     }
 }
