@@ -40,6 +40,7 @@ namespace RB
             else if (uiLayerType == UILayerType.CONNECTED_UI)
             {
                 UIElement connected = AddUIElement(UIElementType.CONNECTED_UI);
+                connected.messageHandler = new ConnectedUIMessageHandler();
             }
         }
     }

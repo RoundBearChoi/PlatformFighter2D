@@ -68,7 +68,7 @@ namespace RB.Server
                 stream.BeginRead(receiveBuffer, 0, dataBufferSize, ReceiveCallback, null);
 
                 BaseNetworkControl.CURRENT.serverSend.Welcome(_id, "Welcome to the server!");
-                BaseNetworkControl.CURRENT.serverSend.ClientsConnectionStatus(_id);
+                BaseNetworkControl.CURRENT.serverSend.ClientsConnectionStatus();
             }
 
             /// <summary>Sends data to the client via TCP.</summary>
@@ -264,13 +264,14 @@ namespace RB.Server
         {
             Debug.Log($"{tcp.socket.Client.RemoteEndPoint} has disconnected.");
 
+            tcp.Disconnect();
+            udp.Disconnect();
+
             ThreadManager.ExecuteOnMainThread(() =>
             {
                 BaseNetworkControl.CURRENT.server.connectedClients.RemoveClient(this);
+                BaseNetworkControl.CURRENT.serverSend.ClientsConnectionStatus();
             });
-
-            tcp.Disconnect();
-            udp.Disconnect();
         }
 
         public void SetInput(bool[] inputs)

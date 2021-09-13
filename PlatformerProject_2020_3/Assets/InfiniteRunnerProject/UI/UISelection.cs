@@ -100,11 +100,12 @@ namespace RB
 
         public virtual void OnSelect()
         {
-            if (_inputController.GetLatestUserInput().commands.ContainsPress(CommandType.ATTACK_A, true))
-            {
-                _listOptions[_currentSelectionIndex].OnEnterKey();
-                return;
-            }
+            //only use mouse when hovering
+            //if (_inputController.GetLatestUserInput().commands.ContainsPress(CommandType.ATTACK_A, true))
+            //{
+            //    _listOptions[_currentSelectionIndex].OnEnterKey();
+            //    return;
+            //}
 
             if (_inputController.GetLatestUserInput().commands.ContainsPress(CommandType.ENTER, true))
             {

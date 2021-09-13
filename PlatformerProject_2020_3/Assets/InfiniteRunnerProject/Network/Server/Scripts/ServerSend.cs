@@ -7,9 +7,6 @@ namespace RB.Server
 {
     public class ServerSend
     {
-        /// <summary>Sends a packet to a client via TCP.</summary>
-        /// <param name="_toClient">The client to send the packet the packet to.</param>
-        /// <param name="_packet">The packet to send to the client.</param>
         private void SendTCPData(int toClient, Packet packet)
         {
             packet.WriteLength();
@@ -30,8 +27,6 @@ namespace RB.Server
             }
         }
 
-        /// <summary>Sends a packet to all clients via UDP.</summary>
-        /// <param name="_packet">The packet to send.</param>
         private void SendUDPDataToAll(Packet packet)
         {
             packet.WriteLength();
@@ -44,9 +39,6 @@ namespace RB.Server
             }
         }
 
-        /// <summary>Sends a packet to all clients except one via UDP.</summary>
-        /// <param name="_exceptClient">The client to NOT send the data to.</param>
-        /// <param name="_packet">The packet to send.</param>
         //private void SendUDPDataToAll(int exceptClient, Packet packet)
         //{
         //    packet.WriteLength();
@@ -60,9 +52,6 @@ namespace RB.Server
         //    }
         //}
 
-        /// <summary>Sends a welcome message to the given client.</summary>
-        /// <param name="_toClient">The client to send the packet to.</param>
-        /// <param name="_msg">The message to send.</param>
         public void Welcome(int toClient, string msg)
         {
             using (Packet packet = new Packet((int)ServerPackets.welcome))
@@ -74,19 +63,31 @@ namespace RB.Server
             }
         }
 
-        public void ClientsConnectionStatus(int connectedPlayerIndex)
+        public void ClientsConnectionStatus()
         {
-            //using (Packet _packet = new Packet((int)ServerPackets.clients_connection_status))
-            //{
-            //    ClientData[] clients = BaseNetworkControl.CURRENT.server.connectedClients.GetAllClients();
-            //    
-            //    for (int i = 0; i < clients.Length; i++)
-            //    {
-            //        _packet.Write(clients[i]);
-            //    }
-            //    
-            //    SendTCPDataToAll(_packet);
-            //}
+            using (Packet _packet = new Packet((int)ServerPackets.clients_connection_status))
+            {
+                Debugger.Log("--- clients status ---");
+                ClientData[] clients = BaseNetworkControl.CURRENT.server.connectedClients.GetAllClients();
+
+                for (int i = 0; i < 3; i++)
+                {
+                    if (clients.Length > i)
+                    {
+                        Debugger.Log("client " + i + " : TRUE " + "(id: " + clients[i].tcp.ID + ")");
+                        _packet.Write(true);
+                        _packet.Write(clients[i].tcp.ID);
+                    }
+                    else
+                    {
+                        Debugger.Log("client " + i + " : FALSE");
+                        _packet.Write(false);
+                        _packet.Write(999);
+                    }
+                }
+                
+                SendTCPDataToAll(_packet);
+            }
         }
 
         public void EnterMultiplayerStage()

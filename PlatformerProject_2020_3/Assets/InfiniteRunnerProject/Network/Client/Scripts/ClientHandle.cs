@@ -56,12 +56,16 @@ namespace RB.Client
 
         public static void ClientsConnectionStatus(Packet packet)
         {
+            Debugger.Log("--- clients connection status ---");
+
             bool[] connectedClients = new bool[3];
 
             for (int i = 0; i < connectedClients.Length; i++)
             {
                 connectedClients[i] = packet.ReadBool();
-                Debugger.Log("player " + i + " connection: " + connectedClients[i]);
+                int id = packet.ReadInt();
+
+                Debugger.Log("player " + i + " connection: " + connectedClients[i] + "(ID: " + id + ")");
             }
         }
 
