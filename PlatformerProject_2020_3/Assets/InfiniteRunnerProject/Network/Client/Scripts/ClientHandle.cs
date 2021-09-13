@@ -60,13 +60,23 @@ namespace RB.Client
 
             bool[] connectedClients = new bool[3];
 
+            ClientConnection[] connections = new[] {
+                new ClientConnection (999, false),
+                new ClientConnection (999, false),
+                new ClientConnection (999, false),};
+
             for (int i = 0; i < connectedClients.Length; i++)
             {
                 connectedClients[i] = packet.ReadBool();
                 int id = packet.ReadInt();
 
                 Debugger.Log("player " + i + " connection: " + connectedClients[i] + "(ID: " + id + ")");
+
+                connections[i].mConnected = connectedClients[i];
+                connections[i].mIndex = id;
             }
+
+            BaseClientControl.CURRENT.UpdateClientConnectionStatus(connections);
         }
 
         public static void EnterMultiplayerStage(Packet packet)

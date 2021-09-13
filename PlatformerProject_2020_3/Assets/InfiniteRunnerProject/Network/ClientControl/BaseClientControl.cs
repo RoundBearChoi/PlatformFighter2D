@@ -78,5 +78,10 @@ namespace RB.Client
         {
 
         }
+
+        public virtual void UpdateClientConnectionStatus(ClientConnection[] arr)
+        {
+
+        }
     }
 }

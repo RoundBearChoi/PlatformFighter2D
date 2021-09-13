@@ -8,9 +8,16 @@ namespace RB.Client
     {
         public static FighterClient fighterClient = null;
 
+        [SerializeField]
+        ClientConnection[] _clientConnections = null;
+
         public override void ConnectToServer()
         {
             _connectionFailed = false;
+            _clientConnections = new[] {
+                new ClientConnection (999, false),
+                new ClientConnection (999, false),
+                new ClientConnection (999, false),};
 
             if (fighterClient == null)
             {
@@ -35,6 +42,11 @@ namespace RB.Client
         public override int GetClientIndex()
         {
             return Client.instance.myId;
+        }
+
+        public override void UpdateClientConnectionStatus(ClientConnection[] arr)
+        {
+            _clientConnections = arr;
         }
     }
 }
