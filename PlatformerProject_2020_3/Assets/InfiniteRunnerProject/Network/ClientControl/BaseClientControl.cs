@@ -83,5 +83,10 @@ namespace RB.Client
         {
 
         }
+
+        public virtual ClientConnection[] GetClientConnectionStatus()
+        {
+            return null;
+        }
     }
 }

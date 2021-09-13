@@ -13,9 +13,26 @@ namespace RB
         [SerializeField]
         Text _serverIndicator = null;
         
-        public void SetPlayerNumber(string playerNumber)
+        public void SetPlayerName(string playerName)
         {
-            _playerNumber.text = playerNumber;
+            _playerNumber.text = playerName;
+        }
+
+        public void ToggleServerIndicator(bool toggle)
+        {
+            _serverIndicator.gameObject.SetActive(toggle);
+        }
+
+        public bool IsServer()
+        {
+            if (_serverIndicator.gameObject.activeInHierarchy)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

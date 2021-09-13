@@ -48,5 +48,10 @@ namespace RB.Client
         {
             _clientConnections = arr;
         }
+
+        public override ClientConnection[] GetClientConnectionStatus()
+        {
+            return _clientConnections;
+        }
     }
 }
