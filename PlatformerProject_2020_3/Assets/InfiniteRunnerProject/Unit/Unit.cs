@@ -21,7 +21,6 @@ namespace RB
         [Header("Debug")]
         [SerializeField] protected UserInput _userInput = null;
         
-
         public UserInput USER_INPUT
         {
             get

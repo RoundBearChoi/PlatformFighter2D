@@ -13,9 +13,12 @@ namespace RB
         [SerializeField]
         RB.Server.PlayerDataSender _playerDataSender = null;
 
+        List<Unit> playerUnits = null;
+
         public override void Init()
         {
             units = new Units(this);
+            playerUnits = new List<Unit>();
 
             Physics2D.gravity = new Vector2(0f, BaseInitializer.current.fighterDataSO.Gravity);
 
@@ -32,10 +35,12 @@ namespace RB
             UserInput input = _inputController.AddInput();
             _inputSelection = input.INPUT_TYPE;
             serverPlayer.SetUserInput(input);
+            playerUnits.Add(serverPlayer);
 
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_DARK);
             Unit client0 = units.GetUnit<LittleRed>();
             client0.SetUserInput(_inputController.AddInput());
+            playerUnits.Add(client0);
 
             //set z for all players
             List<Unit> allPlayers = units.GetUnits<LittleRed>();
@@ -120,14 +125,27 @@ namespace RB
             return new Camera_LerpOnTargetXAndY(0.08f, 0.08f);
         }
 
-        public override void UpdateOnClientInput(int index, bool[] inputs)
+        public override void UpdateOnClientInput(int clientIndex, bool[] inputs)
         {
-            UserInput input = _inputController.GetUserInput(1);
+            UserInput input = GetUserInput(clientIndex);
 
             if (input != null)
             {
                 input.commands.UpdatePressAndHold(inputs);
             }
+        }
+
+        UserInput GetUserInput(int clientIndex)
+        {
+            foreach(Unit unit in playerUnits)
+            {
+                if (unit.clientIndex == clientIndex)
+                {
+                    return unit.USER_INPUT;
+                }
+            }
+
+            return null;
         }
     }
 }
