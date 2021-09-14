@@ -29,7 +29,7 @@ namespace RB.Client
             Client.instance.ConnectToServer(hostIP);
         }
 
-        public override void ShowMenu()
+        public override void ShowEnterIPUI()
         {
             BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.ENTER_IP_STAGE));
         }

@@ -23,16 +23,7 @@ namespace RB.Client
 
         private void Awake()
         {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else if (instance != this)
-            {
-                Debug.Log("Instance already exists, destroying object!");
-                Destroy(this);
-            }
-
+            instance = this;
             SetupTCPUDP();
         }
 
@@ -44,16 +35,16 @@ namespace RB.Client
 
         private void OnApplicationQuit()
         {
-            Disconnect(); // Disconnect when the game is closed
+            Disconnect();
         }
 
-        /// <summary>Attempts to connect to the server.</summary>
+
         public void ConnectToServer(string ip)
         {
             InitClientData();
 
             Debug.Log("attempting to connect at: " + ip);
-            tcp.Connect(ip); // Connect tcp, udp gets connected once tcp is done
+            tcp.Connect(ip);
         }
 
         public class TCP
@@ -101,7 +92,7 @@ namespace RB.Client
 
                     ThreadManager.ExecuteOnMainThread(() =>
                     {
-                        BaseClientControl.CURRENT.ShowMenu();
+                        BaseClientControl.CURRENT.ShowEnterIPUI();
                         BaseClientControl.CURRENT.QueueConnectionFailedMessage();
                     });
                 }
@@ -352,7 +343,7 @@ namespace RB.Client
             ThreadManager.ExecuteOnMainThread(() =>
             {
                 SetupTCPUDP();
-                BaseClientControl.CURRENT.ShowMenu();
+                BaseClientControl.CURRENT.ShowEnterIPUI();
             });
         }
     }

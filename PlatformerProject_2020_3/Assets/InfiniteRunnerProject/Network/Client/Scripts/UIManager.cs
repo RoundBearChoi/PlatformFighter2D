@@ -31,7 +31,7 @@ namespace RB.Client
             return usernameField.text;
         }
 
-        public override void ShowMenu()
+        public override void ShowEnterIPUI()
         {
             startMenu.SetActive(true);
             usernameField.interactable = true;

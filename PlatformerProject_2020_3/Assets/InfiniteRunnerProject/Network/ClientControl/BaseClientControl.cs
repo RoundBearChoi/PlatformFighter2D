@@ -64,7 +64,7 @@ namespace RB.Client
             return 0;
         }
 
-        public virtual void ShowMenu()
+        public virtual void ShowEnterIPUI()
         {
 
         }

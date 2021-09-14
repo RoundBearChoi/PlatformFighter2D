@@ -155,7 +155,7 @@ namespace RB
             }
         }
 
-        public void UpdateOnClientInput(bool[] inputArray)
+        public void UpdatePressAndHold(bool[] inputArray)
         {
             UpdatePressOnClientInput(CommandType.MOVE_UP, inputArray[0]);
             UpdatePressOnClientInput(CommandType.MOVE_DOWN, inputArray[1]);

@@ -126,7 +126,7 @@ namespace RB
 
             if (input != null)
             {
-                input.commands.UpdateOnClientInput(inputs);
+                input.commands.UpdatePressAndHold(inputs);
             }
         }
     }

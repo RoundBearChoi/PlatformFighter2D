@@ -59,7 +59,7 @@ namespace RB
             {
                 RB.Network.ThreadManager.ExecuteOnMainThread(() =>
                 {
-                    BaseClientControl.CURRENT.ShowMenu();
+                    BaseClientControl.CURRENT.ShowEnterIPUI();
                     BaseClientControl.CURRENT.QueueConnectionFailedMessage();
                 });
             
