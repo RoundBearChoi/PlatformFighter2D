@@ -73,15 +73,14 @@ namespace RB
             }
         }
 
-        public override void UpdateClientPositions(PlayerDataset<PositionAndDirection> playerData)
+        public override void SetTargetClientPosition(PlayerDataset<PositionAndDirection> playerData)
         {
             if (playerData.IDAndDataCountMatch())
             {
                 for (int i = 0; i < playerData.listIDs.Count; i++)
                 {
                     ClientObject clientObj = _clientObjects.GetClientObj(playerData.listIDs[i]);
-                    clientObj.SetPosition(playerData.listData[i].mPosition);
-                    clientObj.UpdatePosition();
+                    clientObj.SetTargetPosition(playerData.listData[i].mPosition);
                     clientObj.UpdateDirection(playerData.listData[i].mFacingRight);
                 }
             }
@@ -97,6 +96,8 @@ namespace RB
             units.OnUpdate();
             _inputController.GetLatestUserInput().OnUpdate();
             cameraScript.OnUpdate();
+
+            _clientObjects.OnUpdate();
 
             if (_baseUI != null)
             {

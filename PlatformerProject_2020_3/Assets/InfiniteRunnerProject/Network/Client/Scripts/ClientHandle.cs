@@ -128,7 +128,7 @@ namespace RB.Client
                 dataset.listData.Add(positionAndDirection);
             }
 
-            BaseInitializer.current.GetStage().UpdateClientPositions(dataset);
+            BaseInitializer.current.GetStage().SetTargetClientPosition(dataset);
         }
 
         public static void UpdateOnPlayerSpriteType(Packet packet)
