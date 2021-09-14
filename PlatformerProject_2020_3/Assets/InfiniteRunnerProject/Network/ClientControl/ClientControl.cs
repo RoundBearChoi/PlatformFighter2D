@@ -31,7 +31,7 @@ namespace RB.Client
 
         public override void ShowMenu()
         {
-            GameInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.ENTER_IP_STAGE));
+            BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.ENTER_IP_STAGE));
         }
 
         public override void QueueConnectionFailedMessage()

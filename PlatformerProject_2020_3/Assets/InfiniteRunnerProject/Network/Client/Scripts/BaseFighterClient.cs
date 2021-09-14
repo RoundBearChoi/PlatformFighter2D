@@ -12,7 +12,7 @@ namespace RB.Client
 
         public virtual void Init()
         {
-            _inputController = GameInitializer.current.GetStage().GetInputController();
+            _inputController = BaseInitializer.current.GetStage().GetInputController();
         }
 
         public virtual void SendInputToServer()

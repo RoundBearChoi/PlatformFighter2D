@@ -29,8 +29,8 @@ namespace RB
 
             BaseStage newStage = GameObject.Instantiate(ResourceLoader.stageLoader.GetObj(stageType)) as BaseStage;
 
-            newStage.SetInitializer(GameInitializer.current);
-            newStage.transform.parent = GameInitializer.current.transform;
+            newStage.SetInitializer(BaseInitializer.current);
+            newStage.transform.parent = BaseInitializer.current.transform;
             newStage.transform.localPosition = new Vector3(0f, 0f, 0f);
             newStage.transform.localRotation = Quaternion.identity;
 

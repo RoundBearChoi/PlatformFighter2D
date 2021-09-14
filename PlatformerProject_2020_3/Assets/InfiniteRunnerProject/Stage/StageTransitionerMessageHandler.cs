@@ -17,7 +17,7 @@ namespace RB
             {
                 if (message.MESSAGE_TYPE == MessageType.TRANSITION_TO_CONNECTED_STAGE)
                 {
-                    GameInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.CONNECTED_STAGE));
+                    BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.CONNECTED_STAGE));
                 }
             }
         }

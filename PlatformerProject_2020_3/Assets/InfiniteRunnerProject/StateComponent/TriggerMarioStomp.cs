@@ -27,8 +27,8 @@ namespace RB
                             collidingUnit.unitType == UnitType.LITTLE_RED_LIGHT)
                         {
                             _unit.unitData.listNextStates.Add(new LittleRed_Jump_Up(_unit,
-                                GameInitializer.current.fighterDataSO.VerticalJumpForce * GameInitializer.current.fighterDataSO.VerticalJumpForceMultiplierOnMarioStomp,
-                                GameInitializer.current.fighterDataSO.DefaultJumpFramesOnMarioStomp));
+                                BaseInitializer.current.fighterDataSO.VerticalJumpForce * BaseInitializer.current.fighterDataSO.VerticalJumpForceMultiplierOnMarioStomp,
+                                BaseInitializer.current.fighterDataSO.DefaultJumpFramesOnMarioStomp));
 
                             BaseMessage triggerStompedState = new Message_TriggerStompedState(collidingUnit);
                             triggerStompedState.Register();
@@ -39,13 +39,13 @@ namespace RB
                             Vector2 scaleMultiplier = new Vector2(1.35f, 1.35f);
 
                             BaseMessage stepDustRight = new Message_ShowStepDust(true,
-                                new Vector3(col.contactPoint.point.x + 0.15f, col.contactPoint.point.y - 0.3f, GameInitializer.current.fighterDataSO.DustEffects_z),
+                                new Vector3(col.contactPoint.point.x + 0.15f, col.contactPoint.point.y - 0.3f, BaseInitializer.current.fighterDataSO.DustEffects_z),
                                 scaleMultiplier,
                                 3);
                             stepDustRight.Register();
 
                             BaseMessage stepDustLeft = new Message_ShowStepDust(false,
-                                new Vector3(col.contactPoint.point.x - 0.15f, col.contactPoint.point.y - 0.3f, GameInitializer.current.fighterDataSO.DustEffects_z),
+                                new Vector3(col.contactPoint.point.x - 0.15f, col.contactPoint.point.y - 0.3f, BaseInitializer.current.fighterDataSO.DustEffects_z),
                                 scaleMultiplier,
                                 3);
                             stepDustLeft.Register();

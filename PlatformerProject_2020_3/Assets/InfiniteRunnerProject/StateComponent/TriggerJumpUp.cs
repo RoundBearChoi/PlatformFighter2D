@@ -22,7 +22,7 @@ namespace RB
                     jumpDustMessage.Register();
 
                     //multiply/divide runspeed on jump
-                    _unit.unitData.rigidBody2D.velocity = new Vector2(_unit.unitData.rigidBody2D.velocity.x * GameInitializer.current.fighterDataSO.HorizontalMomentumMultiplierOnRunningJump, _unit.unitData.rigidBody2D.velocity.y);
+                    _unit.unitData.rigidBody2D.velocity = new Vector2(_unit.unitData.rigidBody2D.velocity.x * BaseInitializer.current.fighterDataSO.HorizontalMomentumMultiplierOnRunningJump, _unit.unitData.rigidBody2D.velocity.y);
                     _unit.unitData.airControl.SetMomentum(_unit.unitData.rigidBody2D.velocity.x);
                     _unit.unitData.listNextStates.Add(new LittleRed_Jump_Up(_unit, BaseInitializer.current.fighterDataSO.VerticalJumpForce, 0));
                 }

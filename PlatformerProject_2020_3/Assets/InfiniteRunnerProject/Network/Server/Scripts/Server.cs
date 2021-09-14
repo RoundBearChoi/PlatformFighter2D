@@ -38,16 +38,26 @@ namespace RB.Server
 
         private void TCPConnectCallback(IAsyncResult result)
         {
-            TcpClient tcpClient = tcpListener.EndAcceptTcpClient(result);
-            tcpListener.BeginAcceptTcpClient(TCPConnectCallback, null);
-
-            Debug.Log("incoming connection from: " + (tcpClient.Client.RemoteEndPoint));
-
-            bool connected = connectedClients.AddClient(tcpClient);
-
-            if (!connected)
+            if (BaseInitializer.current != null)
             {
-                Debug.Log($"{tcpClient.Client.RemoteEndPoint} failed to connect");
+                if (BaseInitializer.current.GetStage() is HostGameStage)
+                {
+                    TcpClient tcpClient = tcpListener.EndAcceptTcpClient(result);
+                    tcpListener.BeginAcceptTcpClient(TCPConnectCallback, null);
+
+                    Debugger.Log("incoming connection from: " + (tcpClient.Client.RemoteEndPoint));
+
+                    bool connected = connectedClients.AddClient(tcpClient);
+
+                    if (!connected)
+                    {
+                        Debugger.Log($"{tcpClient.Client.RemoteEndPoint} failed to connect");
+                    }
+                }
+                else
+                {
+                    Debugger.Log("no server lobby");
+                }
             }
         }
 

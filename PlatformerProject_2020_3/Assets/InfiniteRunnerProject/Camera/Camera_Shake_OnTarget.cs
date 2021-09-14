@@ -52,7 +52,7 @@ namespace RB
 
                 if (target != null)
                 {
-                    _targetPosition = new Vector3(target.transform.position.x, target.transform.position.y + GameInitializer.current.fighterDataSO.CameraYOffset, GameInitializer.current.fighterDataSO.Camera_z);
+                    _targetPosition = new Vector3(target.transform.position.x, target.transform.position.y + BaseInitializer.current.fighterDataSO.CameraYOffset, BaseInitializer.current.fighterDataSO.Camera_z);
                 }
 
                 _targetPosition += shakeOffset;
