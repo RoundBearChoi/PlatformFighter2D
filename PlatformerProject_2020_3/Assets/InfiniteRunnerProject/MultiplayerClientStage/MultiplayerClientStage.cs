@@ -13,6 +13,8 @@ namespace RB
 
         public override void Init()
         {
+            units = new Units(this);
+
             //IntroCamera introCam = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.INTRO_CAMERA)) as IntroCamera;
             //introCam.transform.parent = this.transform;
 
@@ -27,6 +29,8 @@ namespace RB
             _baseFighterClient.Init();
 
             _clientObjects = new ClientObjects();
+
+            BaseInitializer.current.GetStage().InstantiateUnits_ByUnitType(UnitType.OLD_CITY);
 
             //set camera
             FightCamera fightCamera = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.FIGHT_CAMERA)) as FightCamera;
@@ -85,6 +89,7 @@ namespace RB
 
         public override void OnUpdate()
         {
+            units.OnUpdate();
             _inputController.GetLatestUserInput().OnUpdate();
             cameraScript.OnUpdate();
 
@@ -96,6 +101,7 @@ namespace RB
 
         public override void OnLateUpdate()
         {
+            units.OnLateUpdate();
             cameraScript.OnLateUpdate();
 
             if (_baseUI != null)
@@ -106,6 +112,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
+            units.OnFixedUpdate();
             _clientObjects.OnFixedUpdate();
             cameraScript.OnFixedUpdate();
 

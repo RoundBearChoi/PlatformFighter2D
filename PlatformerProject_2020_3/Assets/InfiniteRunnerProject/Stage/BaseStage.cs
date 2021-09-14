@@ -45,8 +45,10 @@ namespace RB
             {
                 ResourceLoader.LoadRunnerStage();
             }
-            else if (stageType == StageType.FIGHT_STAGE ||
-                stageType == StageType.MULTIPLAYER_SERVER_STAGE)
+            else if (
+                stageType == StageType.FIGHT_STAGE ||
+                stageType == StageType.MULTIPLAYER_SERVER_STAGE ||
+                stageType == StageType.MULTIPLAYER_CLIENT_STAGE)
             {
                 ResourceLoader.LoadFightStage();
             }
