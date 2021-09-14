@@ -30,6 +30,11 @@ namespace RB
 
             _clientObjects = new ClientObjects();
 
+            //load level 3 (oldcity)
+            GameObject levelObj = Instantiate(ResourceLoader.levelLoader.GetObj(3)) as GameObject;
+            levelObj.transform.parent = this.transform;
+            levelObj.transform.position = new Vector3(levelObj.transform.position.x, levelObj.transform.position.y, BaseInitializer.current.fighterDataSO.tempPlatforms_z);
+
             BaseInitializer.current.GetStage().InstantiateUnits_ByUnitType(UnitType.OLD_CITY);
 
             //set camera
