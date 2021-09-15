@@ -38,5 +38,10 @@ namespace RB.Server
 
             BaseInitializer.current.GetStage().UpdateOnClientInput(fromClient, inputs);
         }
+
+        public static void HandleUDPCheck(int fromClient, Packet packet)
+        {
+
+        }
     }
 }

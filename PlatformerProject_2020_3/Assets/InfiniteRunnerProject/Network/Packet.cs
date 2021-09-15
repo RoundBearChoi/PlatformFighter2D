@@ -26,7 +26,8 @@ namespace RB.Network
     public enum ClientPackets
     {
         welcomeReceived = 1,
-        client_input
+        client_input,
+        udp_check,
     }
 
     public class Packet : IDisposable

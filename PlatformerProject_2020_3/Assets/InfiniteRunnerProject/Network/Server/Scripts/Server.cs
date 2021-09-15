@@ -154,10 +154,11 @@ namespace RB.Server
             }
 
             packetHandlers = new Dictionary<int, PacketHandler>()
-        {
-            { (int)ClientPackets.welcomeReceived, ServerHandle.WelcomeReceived },
-            { (int)ClientPackets.client_input, ServerHandle.HandleClientInput },
-        };
+            {
+                { (int)ClientPackets.welcomeReceived, ServerHandle.WelcomeReceived },
+                { (int)ClientPackets.client_input, ServerHandle.HandleClientInput },
+                { (int)ClientPackets.udp_check, ServerHandle.HandleUDPCheck },
+            };
             Debug.Log("Initialized packets.");
         }
 

@@ -62,7 +62,7 @@ namespace RB
             }
         }
 
-        public virtual void AddUISelection(UISelection selection)
+        public virtual void AttachUISelectionToLayer(UISelection selection)
         {
             //clear anchor (left, right, top, bottom)
             RectTransform rect = selection.GetComponent<RectTransform>();
@@ -76,7 +76,7 @@ namespace RB
         {
             UISelection uiSelection = Instantiate(ResourceLoader.uiLoader.GetObj(uiType)) as UISelection;
 
-            AddUISelection(uiSelection);
+            AttachUISelectionToLayer(uiSelection);
             uiSelection.transform.SetParent(this.transform, false);
             uiSelection.InitSelection();
         }
