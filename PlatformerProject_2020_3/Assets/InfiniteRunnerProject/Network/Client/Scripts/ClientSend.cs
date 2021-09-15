@@ -56,7 +56,7 @@ namespace RB.Client
                     packet.Write(inputs[i]);
                 }
 
-                SendUDPData(packet);
+                SendTCPData(packet);
             }
         }
     }
