@@ -81,7 +81,7 @@ namespace RB
             uiSelection.InitSelection();
         }
 
-        public virtual void AddUIElement(UIElement element)
+        public virtual void AttachElementToLayer(UIElement element)
         {
             //clear anchor (left, right, top, bottom)
             RectTransform rect = element.GetComponent<RectTransform>();
@@ -95,7 +95,7 @@ namespace RB
         {
             UIElement element = Instantiate(ResourceLoader.uiElementLoader.GetObj(elementType)) as UIElement;
 
-            AddUIElement(element);
+            AttachElementToLayer(element);
             element.transform.SetParent(this.transform, false);
             element.InitElement();
             element.FindChildAnimations();

@@ -14,5 +14,6 @@ namespace RB
         CONNECTED_UI,
 
         ON_ESC,
+        QUIT_GAME_ASK,
     }
 }

@@ -37,5 +37,6 @@ namespace RB
         ARROW_DOWN = 11001,
         ARROW_LEFT = 11002,
         ARROW_RIGHT = 11003,
+        ESCAPE = 12004,
     }
 }

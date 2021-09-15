@@ -65,6 +65,7 @@ namespace RB
                     commands.AddCommand(new UserCommand(CommandType.ARROW_DOWN, keyboard.downArrowKey));
                     commands.AddCommand(new UserCommand(CommandType.ARROW_LEFT, keyboard.leftArrowKey));
                     commands.AddCommand(new UserCommand(CommandType.ARROW_RIGHT, keyboard.rightArrowKey));
+                    commands.AddCommand(new UserCommand(CommandType.ESCAPE, keyboard.escapeKey));
                 }
             }
             catch (System.Exception e)

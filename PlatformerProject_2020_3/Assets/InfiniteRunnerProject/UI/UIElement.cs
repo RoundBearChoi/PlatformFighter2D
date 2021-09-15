@@ -9,7 +9,10 @@ namespace RB
         public BaseMessageHandler messageHandler = null;
 
         [SerializeField]
-        List<UIAnimation> _listUIAnimations = new List<UIAnimation>();
+        protected List<UIAnimation> _listUIAnimations = new List<UIAnimation>();
+
+        [SerializeField]
+        protected List<UIElement> _listChildElements = new List<UIElement>();
 
         public virtual void InitElement()
         {
@@ -48,6 +51,39 @@ namespace RB
             foreach(UIAnimation ani in _listUIAnimations)
             {
                 ani.UpdateSpriteIndex();
+            }
+        }
+
+        public virtual UIElement AddChildElement(UIElementType elementType)
+        {
+            UIElement element = Instantiate(ResourceLoader.uiElementLoader.GetObj(elementType)) as UIElement;
+
+            RectTransform rect = element.GetComponent<RectTransform>();
+            rect.offsetMax = Vector2.zero;
+            rect.offsetMin = Vector2.zero;
+
+            _listChildElements.Add(element);
+
+            element.transform.SetParent(this.transform, false);
+            element.InitElement();
+            element.FindChildAnimations();
+
+            return element;
+        }
+
+        public virtual void OnUpdateChildElements()
+        {
+            foreach(UIElement element in _listChildElements)
+            {
+                element.OnUpdate();
+            }
+        }
+
+        public virtual void OnFixedUpdateChildElements()
+        {
+            foreach (UIElement element in _listChildElements)
+            {
+                element.OnFixedUpdate();
             }
         }
     }
