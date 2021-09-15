@@ -12,5 +12,7 @@ namespace RB
         ENTER_IP,
         CONNECTING_TO_HOST,
         CONNECTED_UI,
+
+        FIGHT_STAGE_LAYER,
     }
 }

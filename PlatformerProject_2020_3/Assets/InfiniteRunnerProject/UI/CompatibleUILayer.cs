@@ -46,6 +46,12 @@ namespace RB
             {
                 UIElement connected = AddUIElement(UIElementType.CONNECTED_UI);
             }
+
+            else if (uiLayerType == UILayerType.FIGHT_STAGE_LAYER)
+            {
+                UIElement onESC = AddUIElement(UIElementType.ON_ESC);
+                onESC.InitElement();
+            }
         }
     }
 }

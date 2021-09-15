@@ -18,6 +18,8 @@ namespace RB
             LoadObj<EnterHostIP>(UIElementType.ENTER_HOST_IP, "EnterHostIP");
             LoadObj<ConnectingToHost>(UIElementType.CONNECTING_TO_HOST, "ConnectingToHost");
             LoadObj<ConnectedUI>(UIElementType.CONNECTED_UI, "ConnectedUI");
+
+            LoadObj<OnESC>(UIElementType.ON_ESC, "OnESC");
         }
     }
 }

@@ -12,5 +12,7 @@ namespace RB
         ENTER_IP_UI,
         CONNECTING_UI,
         CONNECTED_UI,
+
+        FIGHT_STAGE_UI,
     }
 }

@@ -68,15 +68,21 @@ namespace RB
             _playerDataSender.AddUnit(client0, 0);
 
             _playerDataSender.SendPlayerUnitTypesToAllClients();
+
+            //ui
+            _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
+            _baseUI.transform.parent = this.transform;
+            _baseUI.Init(BaseUIType.FIGHT_STAGE_UI);
         }
 
         public override void OnUpdate()
         {
             _inputController.GetUserInput(_inputSelection).OnUpdate();
+            _baseUI.OnUpdate();
             cameraScript.OnUpdate();
             trailEffects.OnUpdate();
             units.OnUpdate();
-
+            
             //temp
 
             if (_inputController.GetUserInput(_inputSelection).commands.ContainsPress(CommandType.F5, false))
@@ -105,6 +111,7 @@ namespace RB
             cameraScript.OnFixedUpdate();
             units.OnFixedUpdate();
             _playerDataSender.OnFixedUpdate();
+            _baseUI.OnFixedUpdate();
 
             ClearInput();
         }
@@ -113,6 +120,7 @@ namespace RB
         {
             cameraScript.OnLateUpdate();
             units.OnLateUpdate();
+            _baseUI.OnLateUpdate();
         }
 
         public override float GetCumulativeGravityForcePercentage()
