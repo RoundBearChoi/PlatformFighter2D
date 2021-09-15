@@ -44,7 +44,7 @@ namespace RB.Client
         {
             InitClientData();
 
-            Debug.Log("attempting to connect at: " + ip);
+            Debug.Log("attempting to connect at: " + ip + "  port: " + _port);
             tcp.Connect(ip);
         }
 
