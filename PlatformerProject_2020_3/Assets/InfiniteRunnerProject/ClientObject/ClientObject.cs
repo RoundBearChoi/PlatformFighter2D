@@ -52,7 +52,7 @@ namespace RB.Client
 
         public void UpdatePosition()
         {
-            _playerPositionSphere.transform.position = Vector3.Lerp(_playerPositionSphere.transform.position, _targetPosition, Time.deltaTime * 30f);
+            _playerPositionSphere.transform.position = Vector3.Lerp(_playerPositionSphere.transform.position, _targetPosition, Time.deltaTime * 25f);
         }
 
         public GameObject GetPlayerSphere()
