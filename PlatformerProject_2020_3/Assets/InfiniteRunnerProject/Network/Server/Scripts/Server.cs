@@ -38,8 +38,6 @@ namespace RB.Server
 
             GetLocalIP();
             GetPublicIP();
-
-            
         }
 
         public void GetLocalIP()
@@ -52,6 +50,9 @@ namespace RB.Server
                 {
                     _localIP = ip.ToString();
                     Debugger.Log("local ip: " + _localIP);
+
+                    BaseMessage message = new ShowPrivateIP(_localIP);
+                    message.Register();
                     return;
                 }
             }
@@ -61,7 +62,10 @@ namespace RB.Server
         {
             System.Net.Http.HttpClient httpClient = new System.Net.Http.HttpClient();
             _publicIP = await httpClient.GetStringAsync("https://api.ipify.org");
+
             Debugger.Log("public ip: " + _publicIP);
+            BaseMessage message = new ShowPublicIP(_publicIP);
+            message.Register();
         }
 
         private void TCPConnectCallback(IAsyncResult result)

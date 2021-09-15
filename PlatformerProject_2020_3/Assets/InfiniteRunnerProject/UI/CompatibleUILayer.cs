@@ -24,8 +24,11 @@ namespace RB
                 AddUISelection(UIType.HOST_GAME_SELECT);
 
                 AddUIElement(UIElementType.WAITING_FOR_PLAYERS);
-                AddUIElement(UIElementType.SERVER_IP);
                 AddUIElement(UIElementType.CONNECTED_UI);
+
+                UIElement serverIP = AddUIElement(UIElementType.SERVER_IP);
+                serverIP.InitElement();
+                serverIP.messageHandler = new ServerIPMessageHandler();
             }
 
             else if (uiLayerType == UILayerType.ENTER_IP)

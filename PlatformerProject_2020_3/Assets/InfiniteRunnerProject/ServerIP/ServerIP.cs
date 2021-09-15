@@ -12,5 +12,21 @@ namespace RB.Server
 
         [SerializeField]
         Text _publicIP = null;
+
+        public override void InitElement()
+        {
+            _localIP.text = string.Empty;
+            _publicIP.text = string.Empty;
+        }
+
+        public void SetLocalIP(string ip)
+        {
+            _localIP.text = ip;
+        }
+
+        public void SetPublicIP(string ip)
+        {
+            _publicIP.text = ip;
+        }
     }
 }

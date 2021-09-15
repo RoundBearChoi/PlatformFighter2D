@@ -36,5 +36,7 @@ namespace RB
 
         HOST_IP_ENTERED = 5000,
         TRANSITION_TO_CONNECTED_STAGE = 5001,
+        SHOW_PRIVATE_IP = 5002,
+        SHOW_PUBLIC_IP = 5003,
     }
 }
