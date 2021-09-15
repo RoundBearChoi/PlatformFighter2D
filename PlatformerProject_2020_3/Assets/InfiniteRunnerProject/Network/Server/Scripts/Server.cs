@@ -20,6 +20,9 @@ namespace RB.Server
         TcpListener tcpListener = null;
         UdpClient udpListener = null;
 
+        string _localIP = string.Empty;
+        string _publicIP = string.Empty;
+
         public void OpenServer()
         {
             InitServer();
@@ -31,7 +34,34 @@ namespace RB.Server
             udpListener = new UdpClient(_port);
             udpListener.BeginReceive(UDPReceiveCallback, null);
 
-            Debug.Log($"Server started on port {_port}.");
+            Debugger.Log($"Server started on port {_port}.");
+
+            GetLocalIP();
+            GetPublicIP();
+
+            
+        }
+
+        public void GetLocalIP()
+        {
+            IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
+
+            foreach (IPAddress ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    _localIP = ip.ToString();
+                    Debugger.Log("local ip: " + _localIP);
+                    return;
+                }
+            }
+        }
+
+        public async void GetPublicIP()
+        {
+            System.Net.Http.HttpClient httpClient = new System.Net.Http.HttpClient();
+            _publicIP = await httpClient.GetStringAsync("https://api.ipify.org");
+            Debugger.Log("public ip: " + _publicIP);
         }
 
         private void TCPConnectCallback(IAsyncResult result)

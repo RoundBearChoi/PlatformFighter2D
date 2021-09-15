@@ -24,6 +24,7 @@ namespace RB
                 AddUISelection(UIType.HOST_GAME_SELECT);
 
                 AddUIElement(UIElementType.WAITING_FOR_PLAYERS);
+                AddUIElement(UIElementType.SERVER_IP);
                 AddUIElement(UIElementType.CONNECTED_UI);
             }
 

@@ -8,6 +8,7 @@ namespace RB
     {
         RUNNER_HP_BAR,
         WAITING_FOR_PLAYERS,
+        SERVER_IP,
         ENTER_HOST_IP,
         CONNECTING_TO_HOST,
         CONNECTED_UI,
