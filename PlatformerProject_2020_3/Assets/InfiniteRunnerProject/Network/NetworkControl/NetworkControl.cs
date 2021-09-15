@@ -11,7 +11,7 @@ namespace RB.Server
             SetCurrent(this);
 
             server = new Server();
-            server.OpenServer(26950);
+            server.OpenServer();
 
             serverSend = new ServerSend();
         }

@@ -10,10 +10,11 @@ namespace RB.Client
 {
     public class Client : MonoBehaviour
     {
+        readonly int _port = 26950;
+
         public static Client instance;
         public static int dataBufferSize = 4096;
 
-        public int port = 26950;
         public int myId = 0;
         public TCP tcp;
         public UDP udp;
@@ -65,7 +66,7 @@ namespace RB.Client
                 };
 
                 receiveBuffer = new byte[dataBufferSize];
-                socket.BeginConnect(ip, instance.port, ConnectCallback, socket);
+                socket.BeginConnect(ip, instance._port, ConnectCallback, socket);
             }
 
             /// <summary>Initializes the newly connected client's TCP-related info.</summary>
@@ -211,7 +212,7 @@ namespace RB.Client
 
             public UDP(string ip)
             {
-                endPoint = new IPEndPoint(IPAddress.Parse(ip), instance.port);
+                endPoint = new IPEndPoint(IPAddress.Parse(ip), instance._port);
             }
 
             /// <summary>Attempts to connect to the server via UDP.</summary>
@@ -235,7 +236,7 @@ namespace RB.Client
             {
                 try
                 {
-                    _packet.InsertInt(instance.myId); // Insert the client's ID at the start of the packet
+                    _packet.InsertInt(instance.myId);
                     if (socket != null)
                     {
                         socket.BeginSend(_packet.ToArray(), _packet.Length(), null, null);

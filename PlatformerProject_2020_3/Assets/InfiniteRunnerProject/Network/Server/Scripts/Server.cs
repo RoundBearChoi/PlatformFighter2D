@@ -11,29 +11,27 @@ namespace RB.Server
     [Serializable]
     public class Server
     {
+        readonly int _port = 26950;
+
         public Clients connectedClients = null;
-
-        public int Port { get; private set; }
-
         public delegate void PacketHandler(int _fromClient, Packet _packet);
         public Dictionary<int, PacketHandler> packetHandlers;
 
         TcpListener tcpListener = null;
         UdpClient udpListener = null;
 
-        public void OpenServer(int _port)
+        public void OpenServer()
         {
-            Port = _port;
             InitServer();
 
-            tcpListener = new TcpListener(IPAddress.Any, Port);
+            tcpListener = new TcpListener(IPAddress.Any, _port);
             tcpListener.Start();
             tcpListener.BeginAcceptTcpClient(TCPConnectCallback, null);
 
-            udpListener = new UdpClient(Port);
+            udpListener = new UdpClient(_port);
             udpListener.BeginReceive(UDPReceiveCallback, null);
 
-            Debug.Log($"Server started on port {Port}.");
+            Debug.Log($"Server started on port {_port}.");
         }
 
         private void TCPConnectCallback(IAsyncResult result)

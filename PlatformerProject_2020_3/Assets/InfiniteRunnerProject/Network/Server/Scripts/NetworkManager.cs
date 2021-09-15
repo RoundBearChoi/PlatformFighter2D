@@ -14,7 +14,7 @@ namespace RB.Server
             Application.targetFrameRate = 30;
 
             server = new Server();
-            server.OpenServer(26950);
+            server.OpenServer();
 
             serverSend = new ServerSend();
         }
@@ -23,10 +23,5 @@ namespace RB.Server
         {
             server.Stop();
         }
-
-        //public PlayerData InstantiatePlayer()
-        //{
-        //    return Instantiate(playerPrefab, new Vector3(0f, 0.5f, 0f), Quaternion.identity).GetComponent<PlayerData>();
-        //}
     }
 }
