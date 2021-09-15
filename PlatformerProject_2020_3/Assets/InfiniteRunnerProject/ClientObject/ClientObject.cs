@@ -120,18 +120,21 @@ namespace RB.Client
         {
             foreach(SpriteAnimation ani in _listSpriteAnimations)
             {
-                if (ani.ANIMATION_SPEC.spriteType == spriteType)
+                if (ani.ANIMATION_SPEC != null)
                 {
-                    ani.gameObject.SetActive(true);
-                    
-                    ani.ResetSpriteIndex();
-                    ani.UpdateSpriteOnIndex();
+                    if (ani.ANIMATION_SPEC.spriteType == spriteType)
+                    {
+                        ani.gameObject.SetActive(true);
 
-                    _currentAnimation = ani;
-                }
-                else
-                {
-                    ani.gameObject.SetActive(false);
+                        ani.ResetSpriteIndex();
+                        ani.UpdateSpriteOnIndex();
+
+                        _currentAnimation = ani;
+                    }
+                    else
+                    {
+                        ani.gameObject.SetActive(false);
+                    }
                 }
             }
         }
