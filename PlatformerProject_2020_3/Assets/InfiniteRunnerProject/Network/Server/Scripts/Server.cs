@@ -49,13 +49,12 @@ namespace RB.Server
                 if (ip.AddressFamily == AddressFamily.InterNetwork)
                 {
                     _localIP = ip.ToString();
-                    Debugger.Log("local ip: " + _localIP);
-
-                    BaseMessage message = new ShowPrivateIP(_localIP);
-                    message.Register();
-                    return;
                 }
             }
+
+            Debugger.Log("local ip: " + _localIP);
+            BaseMessage message = new ShowPrivateIP(_localIP);
+            message.Register();
         }
 
         public async void GetPublicIP()
