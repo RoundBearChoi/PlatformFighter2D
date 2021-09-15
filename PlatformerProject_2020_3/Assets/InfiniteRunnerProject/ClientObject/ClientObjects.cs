@@ -17,15 +17,16 @@ namespace RB.Client
 
         public void OnUpdate()
         {
-
+            foreach (ClientObject obj in _listClientObjects)
+            {
+                obj.UpdatePosition();
+            }
         }
 
         public void OnFixedUpdate()
         {
             foreach(ClientObject obj in _listClientObjects)
             {
-                obj.UpdatePosition();
-
                 SpriteAnimation ani = obj.GetCurrentAnimation();
 
                 if (ani != null)
