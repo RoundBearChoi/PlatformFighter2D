@@ -11,12 +11,6 @@ namespace RB
 
         public override void Init()
         {
-            if (ClientManager.CURRENT == null)
-            {
-                ClientManager control = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_MANAGER)) as ClientManager;
-                ClientManager.CURRENT = control;
-            }
-
             IntroCamera introCam = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.INTRO_CAMERA)) as IntroCamera;
             introCam.transform.parent = this.transform;
 

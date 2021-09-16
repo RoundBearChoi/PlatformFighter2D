@@ -6,7 +6,6 @@ namespace RB.Client
 {
     public class ClientManager : MonoBehaviour
     {
-        public static ClientManager CURRENT = null;
         public ClientController clientController = null;
         
         [SerializeField]
@@ -15,8 +14,22 @@ namespace RB.Client
         [SerializeField]
         TargetIP _targetIP = null;
 
+        static ClientManager _current = null;
         ClientInput clientInput = null;
         bool _connectionFailed = false;
+
+        public static ClientManager CURRENT
+        {
+            get
+            {
+                if (_current == null)
+                {
+                    _current = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_MANAGER)) as ClientManager;
+                }
+
+                return _current;
+            }
+        }
 
         public bool CONNECTION_FAILED
         {
@@ -44,6 +57,7 @@ namespace RB.Client
         public void ConnectToServer()
         {
             _connectionFailed = false;
+
             _clientConnections = new[] {
                 new ClientConnection (999, false),
                 new ClientConnection (999, false),
