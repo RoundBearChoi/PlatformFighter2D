@@ -17,10 +17,10 @@ namespace RB
                 Destroy(RB.Server.ServerControl.CURRENT.gameObject);
             }
 
-            if (RB.Client.ClientControl.CURRENT != null)
+            if (RB.Client.ClientManager.CURRENT != null)
             {
-                RB.Client.ClientControl.CURRENT.client.DisconnectClient();
-                Destroy(RB.Client.ClientControl.CURRENT.gameObject);
+                RB.Client.ClientManager.CURRENT.client.DisconnectClient();
+                Destroy(RB.Client.ClientManager.CURRENT.gameObject);
             }
         }
     }

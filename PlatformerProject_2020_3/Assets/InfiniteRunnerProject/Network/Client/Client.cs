@@ -28,7 +28,7 @@ namespace RB.Client
         public void SetupTCPUDP()
         {
             clientTCP = new ClientTCP();
-            clientUDP = new ClientUDP(ClientControl.CURRENT.GetHostIP(), _port);
+            clientUDP = new ClientUDP(ClientManager.CURRENT.GetHostIP(), _port);
         }
 
         public void ConnectToServer(string ip)
@@ -71,7 +71,7 @@ namespace RB.Client
             ThreadManager.ExecuteOnMainThread(() =>
             {
                 SetupTCPUDP();
-                ClientControl.CURRENT.ShowEnterIPUI();
+                ClientManager.CURRENT.ShowEnterIPUI();
             });
         }
 

@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace RB.Client
 {
-    public class ClientControl : MonoBehaviour
+    public class ClientManager : MonoBehaviour
     {
-        public static ClientControl CURRENT = null;
+        public static ClientManager CURRENT = null;
 
         public Client client = null;
         private ClientInput clientInput = null;

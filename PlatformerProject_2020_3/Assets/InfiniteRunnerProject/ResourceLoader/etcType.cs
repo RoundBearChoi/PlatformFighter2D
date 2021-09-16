@@ -15,7 +15,7 @@ namespace RB
         HP_BAR,
 
         SERVER_CONTROL,
-        CLIENT_CONTROL,
+        CLIENT_MANAGER,
 
         CLIENT,
         CLIENT_INPUT,

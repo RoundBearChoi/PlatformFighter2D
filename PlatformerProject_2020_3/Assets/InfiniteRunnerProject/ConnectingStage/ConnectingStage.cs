@@ -25,7 +25,7 @@ namespace RB
             _baseUI.Init(BaseUIType.CONNECTING_UI);
 
             //attempt connection
-            ClientControl.CURRENT.ConnectToServer();
+            ClientManager.CURRENT.ConnectToServer();
 
             _baseFighterClient = FindObjectOfType<ClientInput>();
             _baseFighterClient.Init();
@@ -58,8 +58,8 @@ namespace RB
             {
                 RB.Network.ThreadManager.ExecuteOnMainThread(() =>
                 {
-                    ClientControl.CURRENT.ShowEnterIPUI();
-                    ClientControl.CURRENT.QueueConnectionFailedMessage();
+                    ClientManager.CURRENT.ShowEnterIPUI();
+                    ClientManager.CURRENT.QueueConnectionFailedMessage();
                 });
             
                 return;

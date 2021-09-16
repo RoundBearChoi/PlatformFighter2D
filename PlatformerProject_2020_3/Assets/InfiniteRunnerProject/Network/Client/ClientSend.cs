@@ -25,7 +25,7 @@ namespace RB.Client
             {
                 _packet.Write(Client.instance.myId);
 
-                string name = ClientControl.CURRENT.GetUserName();
+                string name = ClientManager.CURRENT.GetUserName();
 
                 if (string.IsNullOrEmpty(name))
                 {

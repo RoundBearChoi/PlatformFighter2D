@@ -19,7 +19,7 @@ namespace RB
                 {
                     string ip = message.GetStringMessage();
                     Debugger.Log("host ip entered: " + ip);
-                    RB.Client.ClientControl.CURRENT.SetHostIP(ip);
+                    RB.Client.ClientManager.CURRENT.SetHostIP(ip);
 
                     BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.CONNECTING_STAGE));
                 }

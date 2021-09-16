@@ -22,7 +22,7 @@ namespace RB
 
         public override void OnLateUpdate()
         {
-            if (RB.Client.ClientControl.CURRENT != null)
+            if (RB.Client.ClientManager.CURRENT != null)
             {
                 OnClientLobby();
             }
@@ -35,7 +35,7 @@ namespace RB
 
         void OnClientLobby()
         {
-            RB.Client.ClientConnection[] connections = RB.Client.ClientControl.CURRENT.GetClientConnectionStatus();
+            RB.Client.ClientConnection[] connections = RB.Client.ClientManager.CURRENT.GetClientConnectionStatus();
 
             int totalConnected = 0;
 
