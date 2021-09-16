@@ -18,7 +18,7 @@ namespace RB
 
             LoadObj<RB.Server.BaseServerControl>(etcType.SERVER_CONTROL, "ServerControl");
             LoadObj<RB.Client.ClientControl>(etcType.CLIENT_CONTROL, "ClientControl");
-            LoadObj<RB.Client.FighterClient>(etcType.FIGHTER_CLIENT, "FighterClient");
+            LoadObj<RB.Client.BaseFighterClient>(etcType.FIGHTER_CLIENT, "FighterClient");
 
             LoadObj<ConnectedPlayerInfo>(etcType.CONNECTED_PLAYER_INFO, "ConnectedPlayerInfo");
 
