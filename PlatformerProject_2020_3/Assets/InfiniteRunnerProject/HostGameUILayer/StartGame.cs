@@ -10,7 +10,7 @@ namespace RB
         {
             Debugger.Log("starting multiplayer game");
 
-            RB.Server.BaseNetworkControl.CURRENT.serverSend.EnterMultiplayerStage();
+            RB.Server.BaseServerControl.CURRENT.serverSend.EnterMultiplayerStage();
 
             BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.MULTIPLAYER_SERVER_STAGE));
         }

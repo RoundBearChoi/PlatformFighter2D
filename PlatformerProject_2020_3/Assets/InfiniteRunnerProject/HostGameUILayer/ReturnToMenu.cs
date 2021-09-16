@@ -11,10 +11,10 @@ namespace RB
             Debugger.Log("returning to menu");
             BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
             
-            if (RB.Server.NetworkControl.CURRENT != null)
+            if (RB.Server.ServerControl.CURRENT != null)
             {
-                RB.Server.NetworkControl.CURRENT.server.Stop();
-                Destroy(RB.Server.NetworkControl.CURRENT.gameObject);
+                RB.Server.ServerControl.CURRENT.server.Stop();
+                Destroy(RB.Server.ServerControl.CURRENT.gameObject);
             }
         }
     }

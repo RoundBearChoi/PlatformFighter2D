@@ -14,7 +14,7 @@ namespace RB
 
         HP_BAR,
 
-        NETWORK_CONTROL,
+        SERVER_CONTROL,
         CLIENT_CONTROL,
         FIGHTER_CLIENT,
 

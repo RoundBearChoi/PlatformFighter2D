@@ -11,7 +11,7 @@ namespace RB.Server
         {
             packet.WriteLength();
 
-            ClientData clientData = BaseNetworkControl.CURRENT.server.connectedClients.GetClientData(toClient);
+            ClientData clientData = BaseServerControl.CURRENT.server.connectedClients.GetClientData(toClient);
             clientData.tcp.SendData(packet);
         }
 
@@ -19,7 +19,7 @@ namespace RB.Server
         {
             packet.WriteLength();
 
-            ClientData[] arr = BaseNetworkControl.CURRENT.server.connectedClients.GetAllClients();
+            ClientData[] arr = BaseServerControl.CURRENT.server.connectedClients.GetAllClients();
 
             foreach(ClientData data in arr)
             {
@@ -31,7 +31,7 @@ namespace RB.Server
         {
             packet.WriteLength();
 
-            ClientData[] arr = BaseNetworkControl.CURRENT.server.connectedClients.GetAllClients();
+            ClientData[] arr = BaseServerControl.CURRENT.server.connectedClients.GetAllClients();
 
             foreach (ClientData data in arr)
             {
@@ -68,7 +68,7 @@ namespace RB.Server
             using (Packet _packet = new Packet((int)ServerPackets.clients_connection_status))
             {
                 Debugger.Log("--- clients status ---");
-                ClientData[] clients = BaseNetworkControl.CURRENT.server.connectedClients.GetAllClients();
+                ClientData[] clients = BaseServerControl.CURRENT.server.connectedClients.GetAllClients();
                 RB.Client.ClientConnection[] connections = RB.Client.ClientConnection.GetData(clients);
 
                 if (connections.Length == 3)

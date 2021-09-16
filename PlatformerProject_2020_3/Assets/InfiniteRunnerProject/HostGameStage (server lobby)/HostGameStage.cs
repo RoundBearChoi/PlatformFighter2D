@@ -24,9 +24,9 @@ namespace RB
 
             _baseUI.Init(BaseUIType.HOST_GAME_UI);
 
-            if (RB.Server.NetworkControl.CURRENT == null)
+            if (RB.Server.ServerControl.CURRENT == null)
             {
-                RB.Server.NetworkControl networkControl = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.NETWORK_CONTROL)) as RB.Server.NetworkControl;
+                RB.Server.ServerControl networkControl = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.SERVER_CONTROL)) as RB.Server.ServerControl;
             }
         }
 

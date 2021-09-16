@@ -35,7 +35,7 @@ namespace RB.Server
                 dataset.listData.Add(_playersOnServer[i].GetUnit().unitType);
             }
 
-            RB.Server.BaseNetworkControl.CURRENT.serverSend.SendPlayerUnitTypes(dataset);
+            RB.Server.BaseServerControl.CURRENT.serverSend.SendPlayerUnitTypes(dataset);
         }
 
         public void OnFixedUpdate()
@@ -60,7 +60,7 @@ namespace RB.Server
                 dataset.listData.Add(positionAndDirection);
             }
 
-            RB.Server.BaseNetworkControl.CURRENT.serverSend.SendPlayerPositions(dataset);
+            RB.Server.BaseServerControl.CURRENT.serverSend.SendPlayerPositions(dataset);
         }
     }
 }

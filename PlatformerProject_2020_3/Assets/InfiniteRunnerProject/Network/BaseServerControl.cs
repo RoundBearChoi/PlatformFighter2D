@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace RB.Server
 {
-    public class BaseNetworkControl : MonoBehaviour
+    public class BaseServerControl : MonoBehaviour
     {
         public Server server = null;
         public ServerSend serverSend = null;
 
-        private static BaseNetworkControl _current = null;
+        private static BaseServerControl _current = null;
 
-        public static BaseNetworkControl CURRENT
+        public static BaseServerControl CURRENT
         {
             get
             {
@@ -19,7 +19,7 @@ namespace RB.Server
             }
         }
 
-        public static void SetCurrent(BaseNetworkControl baseNetwork)
+        public static void SetCurrent(BaseServerControl baseNetwork)
         {
             _current = baseNetwork;
         }
