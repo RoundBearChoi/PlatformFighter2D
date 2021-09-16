@@ -7,16 +7,16 @@ namespace RB.Client
     public class ClientManager : MonoBehaviour
     {
         public static ClientManager CURRENT = null;
-
         public ClientController clientController = null;
-        private ClientInput clientInput = null;
-
+        
         [SerializeField]
         ClientConnection[] _clientConnections = null;
 
         [SerializeField]
-        protected TargetIP _targetIP = null;
-        protected bool _connectionFailed = false;
+        TargetIP _targetIP = null;
+
+        ClientInput clientInput = null;
+        bool _connectionFailed = false;
 
         public bool CONNECTION_FAILED
         {
@@ -26,12 +26,12 @@ namespace RB.Client
             }
         }
 
-        public virtual void SetHostIP(string ip)
+        public void SetHostIP(string ip)
         {
             _targetIP.hostIP = ip;
         }
 
-        public virtual string GetHostIP()
+        public string GetHostIP()
         {
             if (string.IsNullOrEmpty(_targetIP.hostIP))
             {
@@ -41,7 +41,7 @@ namespace RB.Client
             return _targetIP.hostIP;
         }
 
-        public virtual void ConnectToServer()
+        public void ConnectToServer()
         {
             _connectionFailed = false;
             _clientConnections = new[] {
@@ -62,27 +62,27 @@ namespace RB.Client
             clientController.ConnectToServer(hostIP);
         }
 
-        public virtual string GetUserName()
+        public string GetUserName()
         {
             return string.Empty;
         }
 
-        public virtual void ShowEnterIPUI()
+        public void ShowEnterIPUI()
         {
             BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.ENTER_IP_STAGE));
         }
 
-        public virtual void QueueConnectionFailedMessage()
+        public void QueueConnectionFailedMessage()
         {
             _connectionFailed = true;
         }
 
-        public virtual void UpdateClientConnectionStatus(ClientConnection[] arr)
+        public void UpdateClientConnectionStatus(ClientConnection[] arr)
         {
             _clientConnections = arr;
         }
 
-        public virtual ClientConnection[] GetClientConnectionStatus()
+        public ClientConnection[] GetClientConnectionStatus()
         {
             return _clientConnections;
         }
