@@ -65,9 +65,9 @@ namespace RB
                         if (_unit.unitType == UnitType.LITTLE_RED_LIGHT ||
                             _unit.unitType == UnitType.LITTLE_RED_DARK)
                         {
-                            if (RB.Server.ServerControl.CURRENT != null)
+                            if (RB.Server.BaseServerControl.CURRENT != null)
                             {
-                                RB.Server.ServerControl.CURRENT.serverSend.SendPlayerSpriteType(_unit.clientIndex, _currentAnimation.spriteType);
+                                RB.Server.BaseServerControl.CURRENT.serverSend.SendPlayerSpriteType(_unit.clientIndex, _currentAnimation.spriteType);
                             }
                         }
                     }

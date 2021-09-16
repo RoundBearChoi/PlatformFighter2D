@@ -16,7 +16,7 @@ namespace RB
 
             LoadObj<EnemyHPBar>(etcType.HP_BAR, "EnemyHPBar");
 
-            LoadObj<RB.Server.ServerControl>(etcType.SERVER_CONTROL, "ServerControl");
+            LoadObj<RB.Server.BaseServerControl>(etcType.SERVER_CONTROL, "ServerControl");
             LoadObj<RB.Client.ClientControl>(etcType.CLIENT_CONTROL, "ClientControl");
             LoadObj<RB.Client.FighterClient>(etcType.FIGHTER_CLIENT, "FighterClient");
 

@@ -11,6 +11,16 @@ namespace RB.Server
 
         private static BaseServerControl _current = null;
 
+        private void Start()
+        {
+            SetCurrent(this);
+
+            server = new Server();
+            server.OpenServer();
+
+            serverSend = new ServerSend();
+        }
+
         public static BaseServerControl CURRENT
         {
             get
@@ -22,6 +32,11 @@ namespace RB.Server
         public static void SetCurrent(BaseServerControl baseNetwork)
         {
             _current = baseNetwork;
+        }
+
+        private void OnApplicationQuit()
+        {
+            server.Stop();
         }
     }
 }
