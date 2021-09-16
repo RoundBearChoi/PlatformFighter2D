@@ -17,9 +17,6 @@ namespace RB
 
             _inputController.AddInput();
 
-            _baseFighterClient = FindObjectOfType<ClientInput>();
-            _baseFighterClient.Init();
-
             _clientObjects = new ClientObjects();
 
             //load level 3 (oldcity)
@@ -87,11 +84,10 @@ namespace RB
 
         public override void OnUpdate()
         {
-            units.OnUpdate();
             _inputController.GetLatestUserInput().OnUpdate();
-            cameraScript.OnUpdate();
-
             _clientObjects.OnUpdate();
+            units.OnUpdate();
+            cameraScript.OnUpdate();
 
             if (_baseUI != null)
             {
@@ -112,18 +108,18 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            units.OnFixedUpdate();
             _clientObjects.OnFixedUpdate();
+            units.OnFixedUpdate();
             cameraScript.OnFixedUpdate();
+
+            if (ClientManager.CURRENT.clientInputSender != null)
+            {
+                ClientManager.CURRENT.clientInputSender.SendInputToServer();
+            }
 
             if (_baseUI != null)
             {
                 _baseUI.OnFixedUpdate();
-            }
-
-            if (_baseFighterClient != null)
-            {
-                _baseFighterClient.SendInputToServer();
             }
 
             if (cameraScript.GetTarget() == null)
@@ -136,7 +132,7 @@ namespace RB
                 }
             }
 
-            ClearInput();
+            _inputController.ClearAllKeysAndButtons();
         }
 
         public override CameraState GetStageDefaultCameraState()

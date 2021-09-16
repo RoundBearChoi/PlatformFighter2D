@@ -24,11 +24,7 @@ namespace RB
             _baseUI.transform.parent = this.transform;
             _baseUI.Init(BaseUIType.CONNECTING_UI);
 
-            //attempt connection
             ClientManager.CURRENT.ConnectToServer();
-
-            _baseFighterClient = FindObjectOfType<ClientInput>();
-            _baseFighterClient.Init();
         }
 
         public override void OnUpdate()
@@ -71,12 +67,12 @@ namespace RB
                 _baseUI.OnFixedUpdate();
             }
 
-            if (_baseFighterClient != null)
+            if (ClientManager.CURRENT.clientInputSender != null)
             {
-                _baseFighterClient.SendInputToServer();
+                ClientManager.CURRENT.clientInputSender.SendInputToServer();
             }
 
-            ClearInput();
+            _inputController.ClearAllKeysAndButtons();
         }
     }
 }

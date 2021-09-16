@@ -4,19 +4,21 @@ using UnityEngine;
 
 namespace RB.Server
 {
-    public class ServerControl : MonoBehaviour
+    public class ServerManager : MonoBehaviour
     {
         public Server server = null;
         public ServerSend serverSend = null;
 
-        private static ServerControl _current = null;
+        private static ServerManager _current = null;
 
         public static void Init()
         {
-            if (_current == null)
+            if (_current != null)
             {
-                _current = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.SERVER_CONTROL)) as RB.Server.ServerControl;
+                Destroy(_current.gameObject);
             }
+
+            _current = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.SERVER_MANAGER)) as RB.Server.ServerManager;
 
             _current.server = new Server();
             _current.server.OpenServer();
@@ -24,7 +26,7 @@ namespace RB.Server
             _current.serverSend = new ServerSend();
         }
 
-        public static ServerControl CURRENT
+        public static ServerManager CURRENT
         {
             get
             {

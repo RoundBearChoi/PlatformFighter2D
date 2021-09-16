@@ -6,16 +6,17 @@ namespace RB.Client
 {
     public class ClientManager : MonoBehaviour
     {
+        static ClientManager _current = null;
+
         public ClientController clientController = null;
-        
+        public ClientInputSender clientInputSender = null;
+
         [SerializeField]
         ClientConnection[] _clientConnections = null;
 
         [SerializeField]
         TargetIP _targetIP = null;
 
-        static ClientManager _current = null;
-        ClientInput clientInput = null;
         bool _connectionFailed = false;
 
         public static ClientManager CURRENT
@@ -36,10 +37,18 @@ namespace RB.Client
 
         public static void Init()
         {
-            if (_current == null)
+            if (_current != null)
             {
-                _current = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_MANAGER)) as ClientManager;
+                Destroy(_current.gameObject);
             }
+
+            _current = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_MANAGER)) as ClientManager;
+
+            _current.clientController = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_CONTROLLER)) as ClientController;
+            _current.clientController.transform.SetParent(_current.transform, false);
+
+            _current.clientInputSender = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_INPUT_SENDER)) as ClientInputSender;
+            _current.clientInputSender.transform.SetParent(_current.transform, true);
         }
 
         public void SetHostIP(string ip)
@@ -65,15 +74,6 @@ namespace RB.Client
                 new ClientConnection (999, false),
                 new ClientConnection (999, false),
                 new ClientConnection (999, false),};
-
-            if (clientController == null)
-            {
-                clientController = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_CONTROLLER)) as ClientController;
-                clientController.transform.SetParent(this.transform, false);
-
-                clientInput = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_INPUT)) as ClientInput;
-                clientInput.transform.SetParent(this.transform, true);
-            }
 
             string hostIP = GetHostIP();
             clientController.ConnectToServer(hostIP);
@@ -119,10 +119,10 @@ namespace RB.Client
 
             RB.Network.ThreadManager.ExecuteOnMainThread(() =>
             {
-                if (CURRENT != null)
-                {
-                    Destroy(CURRENT.gameObject);
-                }
+                //if (CURRENT != null)
+                //{
+                //    Destroy(CURRENT.gameObject);
+                //}
             });
         }
     }

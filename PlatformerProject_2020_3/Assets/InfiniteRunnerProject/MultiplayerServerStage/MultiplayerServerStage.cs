@@ -113,7 +113,7 @@ namespace RB
             _playerDataSender.OnFixedUpdate();
             _baseUI.OnFixedUpdate();
 
-            ClearInput();
+            _inputController.ClearAllKeysAndButtons();
         }
 
         public override void OnLateUpdate()

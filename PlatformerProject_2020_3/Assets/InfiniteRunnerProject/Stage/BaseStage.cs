@@ -21,8 +21,6 @@ namespace RB
         [SerializeField]
         protected InputController _inputController = null;
 
-        protected RB.Client.ClientInput _baseFighterClient = null;
-
         public static BaseStage InstantiateNewStage(StageType stageType)
         {
             LoadStageObjs(stageType);
@@ -152,11 +150,6 @@ namespace RB
         public InputController GetInputController()
         {
             return _inputController;
-        }
-
-        public virtual void ClearInput()
-        {
-            _inputController.ClearAllKeysAndButtons();
         }
     }
 }

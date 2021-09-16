@@ -14,11 +14,11 @@ namespace RB
 
         HP_BAR,
 
-        SERVER_CONTROL,
+        SERVER_MANAGER,
         CLIENT_MANAGER,
 
         CLIENT_CONTROLLER,
-        CLIENT_INPUT,
+        CLIENT_INPUT_SENDER,
 
         CONNECTED_PLAYER_INFO,
 

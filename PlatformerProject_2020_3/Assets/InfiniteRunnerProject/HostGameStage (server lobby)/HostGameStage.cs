@@ -25,7 +25,7 @@ namespace RB
             _baseUI.Init(BaseUIType.HOST_GAME_UI);
 
             //open server
-            RB.Server.ServerControl.Init();
+            RB.Server.ServerManager.Init();
         }
 
         public override void OnUpdate()
@@ -53,7 +53,7 @@ namespace RB
                 _baseUI.OnFixedUpdate();
             }
 
-            ClearInput();
+            _inputController.ClearAllKeysAndButtons();
         }
     }
 }

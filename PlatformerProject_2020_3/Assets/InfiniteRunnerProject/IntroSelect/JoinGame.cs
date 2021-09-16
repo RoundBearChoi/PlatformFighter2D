@@ -9,9 +9,9 @@ namespace RB
     {
         public override void OnEnterKey()
         {
-            if (ServerControl.CURRENT != null)
+            if (ServerManager.CURRENT != null)
             {
-                if (ServerControl.CURRENT.server.connectedClients.CLIENTS_COUNT > 0)
+                if (ServerManager.CURRENT.server.connectedClients.CLIENTS_COUNT > 0)
                 {
                     Debugger.Log("can't join while running a server");
                     return;

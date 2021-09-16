@@ -4,16 +4,10 @@ using UnityEngine;
 
 namespace RB.Client
 {
-    public class ClientInput : MonoBehaviour
+    public class ClientInputSender : MonoBehaviour
     {
         [SerializeField]
         protected bool[] _inputs = null;
-        protected InputController _inputController = null;
-
-        public virtual void Init()
-        {
-            _inputController = BaseInitializer.current.GetStage().GetInputController();
-        }
 
         public virtual void SendInputToServer()
         {
@@ -43,7 +37,8 @@ namespace RB.Client
 
         bool ContainsPress(CommandType commandType)
         {
-            UserInput latestInput = _inputController.GetLatestUserInput();
+            InputController inputController = GameInitializer.current.GetStage().GetInputController();
+            UserInput latestInput = inputController.GetLatestUserInput();
 
             if (latestInput.commands.ContainsPress(commandType, false))
             {
@@ -57,7 +52,8 @@ namespace RB.Client
 
         bool ContainsHold(CommandType commandType)
         {
-            UserInput latestInput = _inputController.GetLatestUserInput();
+            InputController inputController = GameInitializer.current.GetStage().GetInputController();
+            UserInput latestInput = inputController.GetLatestUserInput();
 
             if (latestInput.commands.ContainsHold(commandType))
             {

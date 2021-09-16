@@ -12,10 +12,10 @@ namespace RB
 
             LoadObj<EnemyHPBar>(etcType.HP_BAR, "EnemyHPBar");
 
-            LoadObj<RB.Server.ServerControl>(etcType.SERVER_CONTROL, "ServerControl");
+            LoadObj<RB.Server.ServerManager>(etcType.SERVER_MANAGER, "ServerManager");
             LoadObj<RB.Client.ClientManager>(etcType.CLIENT_MANAGER, "ClientManager");
             LoadObj<RB.Client.ClientController>(etcType.CLIENT_CONTROLLER, "ClientController");
-            LoadObj<RB.Client.ClientInput>(etcType.CLIENT_INPUT, "ClientInput");
+            LoadObj<RB.Client.ClientInputSender>(etcType.CLIENT_INPUT_SENDER, "ClientInputSender");
 
             LoadObj<ConnectedPlayerInfo>(etcType.CONNECTED_PLAYER_INFO, "ConnectedPlayerInfo");
 
