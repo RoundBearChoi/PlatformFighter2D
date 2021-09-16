@@ -61,27 +61,5 @@ namespace RB
                 _uiSelection.OnLateUpdate();
             }
         }
-
-        public virtual void AttachElementToLayer(UIElement element)
-        {
-            //clear anchor (left, right, top, bottom)
-            RectTransform rect = element.GetComponent<RectTransform>();
-            rect.offsetMax = Vector2.zero;
-            rect.offsetMin = Vector2.zero;
-
-            _uiElements.Add(element);
-        }
-
-        public virtual UIElement AddUIElement(UIElementType elementType)
-        {
-            UIElement element = Instantiate(ResourceLoader.uiElementLoader.GetObj(elementType)) as UIElement;
-
-            AttachElementToLayer(element);
-            element.transform.SetParent(this.transform, false);
-            element.InitElement();
-            element.FindChildAnimations();
-
-            return element;
-        }
     }
 }

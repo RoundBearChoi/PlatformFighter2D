@@ -20,7 +20,8 @@ namespace RB
             {
                 if (_listChildElements.Count == 0)
                 {
-                    UIElement uiElement = AddChildElement(UIElementType.QUIT_GAME_ASK);
+                    UIElement uiElement = UIElement.AddUIElement(UIElementType.QUIT_GAME_ASK, this.transform);
+                    _listChildElements.Add(uiElement);
                 }
                 else
                 {

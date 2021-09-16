@@ -37,6 +37,21 @@ namespace RB
 
         }
 
+        public static UIElement AddUIElement(UIElementType uiElementType, Transform parent)
+        {
+            UIElement element = Instantiate(ResourceLoader.uiElementLoader.GetObj(uiElementType)) as UIElement;
+
+            RectTransform rect = element.GetComponent<RectTransform>();
+            rect.offsetMax = Vector2.zero;
+            rect.offsetMin = Vector2.zero;
+
+            element.transform.SetParent(parent, false);
+            element.InitElement();
+            element.FindChildAnimations();
+
+            return element;
+        }
+
         public virtual void FindChildAnimations()
         {
             _listUIAnimations.Clear();
@@ -55,23 +70,6 @@ namespace RB
             {
                 ani.UpdateSpriteIndex();
             }
-        }
-
-        public virtual UIElement AddChildElement(UIElementType elementType)
-        {
-            UIElement element = Instantiate(ResourceLoader.uiElementLoader.GetObj(elementType)) as UIElement;
-
-            RectTransform rect = element.GetComponent<RectTransform>();
-            rect.offsetMax = Vector2.zero;
-            rect.offsetMin = Vector2.zero;
-
-            _listChildElements.Add(element);
-
-            element.transform.SetParent(this.transform, false);
-            element.InitElement();
-            element.FindChildAnimations();
-
-            return element;
         }
 
         public virtual void OnUpdateChildElements()

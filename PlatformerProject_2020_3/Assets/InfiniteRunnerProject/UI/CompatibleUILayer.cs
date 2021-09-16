@@ -10,7 +10,9 @@ namespace RB
         {
             if (uiLayerType == UILayerType.RUNNER_INFO)
             {
-                UIElement runnerHPBar = AddUIElement(UIElementType.RUNNER_HP_BAR);
+                UIElement runnerHPBar = UIElement.AddUIElement(UIElementType.RUNNER_HP_BAR, this.transform);
+                _uiElements.Add(runnerHPBar);
+
                 runnerHPBar.messageHandler = new RunnerHPMessageHandler(runnerHPBar as RunnerHPBar);
             }
 
@@ -25,33 +27,42 @@ namespace RB
                 UISelection hostGameSelect = UISelection.AddUISelection(UIType.HOST_GAME_SELECT, this.transform);
                 _uiSelection = hostGameSelect;
 
-                AddUIElement(UIElementType.WAITING_FOR_PLAYERS);
-                AddUIElement(UIElementType.CONNECTED_UI);
+                UIElement waiting = UIElement.AddUIElement(UIElementType.WAITING_FOR_PLAYERS, this.transform);
+                _uiElements.Add(waiting);
 
-                UIElement serverIP = AddUIElement(UIElementType.SERVER_IP);
+                UIElement connected = UIElement.AddUIElement(UIElementType.CONNECTED_UI, this.transform);
+                _uiElements.Add(connected);
+
+                UIElement serverIP = UIElement.AddUIElement(UIElementType.SERVER_IP, this.transform);
+                _uiElements.Add(serverIP);
                 serverIP.InitElement();
                 serverIP.messageHandler = new ServerIPMessageHandler();
             }
 
             else if (uiLayerType == UILayerType.ENTER_IP)
             {
-                UIElement enter = AddUIElement(UIElementType.ENTER_HOST_IP);
+                UIElement enter = UIElement.AddUIElement(UIElementType.ENTER_HOST_IP, this.transform);
+                _uiElements.Add(enter);
+
                 enter.messageHandler = new EnterHostIPMessageHandler();
             }
 
             else if (uiLayerType == UILayerType.CONNECTING_TO_HOST)
             {
-                UIElement connecting = AddUIElement(UIElementType.CONNECTING_TO_HOST);
+                UIElement connecting = UIElement.AddUIElement(UIElementType.CONNECTING_TO_HOST, this.transform);
+                _uiElements.Add(connecting);
             }
 
             else if (uiLayerType == UILayerType.CONNECTED_UI)
             {
-                UIElement connected = AddUIElement(UIElementType.CONNECTED_UI);
+                UIElement connected = UIElement.AddUIElement(UIElementType.CONNECTED_UI, this.transform);
+                _uiElements.Add(connected);
             }
 
             else if (uiLayerType == UILayerType.FIGHT_STAGE_LAYER)
             {
-                UIElement onESC = AddUIElement(UIElementType.ON_ESC);
+                UIElement onESC = UIElement.AddUIElement(UIElementType.ON_ESC, this.transform);
+                _uiElements.Add(onESC);
                 onESC.InitElement();
             }
         }
