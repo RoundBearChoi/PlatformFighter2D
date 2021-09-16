@@ -14,7 +14,7 @@ namespace RB
             if (BaseClientControl.CURRENT == null)
             {
                 BaseClientControl control = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_CONTROL)) as BaseClientControl;
-                BaseClientControl.SetClientControl(control);
+                BaseClientControl.CURRENT = control;
             }
 
             IntroCamera introCam = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.INTRO_CAMERA)) as IntroCamera;

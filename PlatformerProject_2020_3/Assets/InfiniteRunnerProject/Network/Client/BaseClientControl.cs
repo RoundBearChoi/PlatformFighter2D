@@ -6,7 +6,7 @@ namespace RB.Client
 {
     public class BaseClientControl : MonoBehaviour
     {
-        static BaseClientControl _current = null;
+        public static BaseClientControl CURRENT = null;
         public static FighterClient fighterClient = null;
 
         [SerializeField]
@@ -14,16 +14,7 @@ namespace RB.Client
 
         [SerializeField]
         protected TargetIP _targetIP = null;
-
         protected bool _connectionFailed = false;
-
-        public static BaseClientControl CURRENT
-        {
-            get
-            {
-                return _current;
-            }
-        }
 
         public bool CONNECTION_FAILED
         {
@@ -31,11 +22,6 @@ namespace RB.Client
             {
                 return _connectionFailed;
             }
-        }
-
-        public static void SetClientControl(BaseClientControl control)
-        {
-            _current = control;
         }
 
         public virtual void SetHostIP(string ip)
