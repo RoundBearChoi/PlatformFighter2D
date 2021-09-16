@@ -55,29 +55,32 @@ namespace RB.Client
             Debug.Log("initialized clientdata");
         }
 
-        public void DisconnectClient()
-        {
-            if (clientTCP.socket != null)
-            {
-                if (clientTCP.socket.Connected)
-                {
-                    clientTCP.socket.Close();
-                    clientUDP.socket.Close();
-                }
-            }
-
-            Debug.Log("Disconnected from server.");
-
-            ThreadManager.ExecuteOnMainThread(() =>
-            {
-                SetupTCPUDP();
-                ClientManager.CURRENT.ShowEnterIPUI();
-            });
-        }
+        //public void DisconnectClient()
+        //{
+        //    if (clientTCP.socket != null)
+        //    {
+        //        if (clientTCP.socket.Connected)
+        //        {
+        //            clientTCP.socket.Close();
+        //            clientUDP.socket.Close();
+        //        }
+        //    }
+        //
+        //    Debug.Log("Disconnected from server.");
+        //
+        //    ThreadManager.ExecuteOnMainThread(() =>
+        //    {
+        //        SetupTCPUDP();
+        //        ClientManager.CURRENT.ShowEnterIPUI();
+        //    });
+        //}
 
         private void OnApplicationQuit()
         {
-            DisconnectClient();
+            if (ClientManager.CURRENT != null)
+            {
+                ClientManager.CURRENT.DisconnectClient();
+            }
         }
     }
 }

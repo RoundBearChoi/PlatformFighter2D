@@ -8,7 +8,7 @@ namespace RB.Client
     {
         public static ClientManager CURRENT = null;
 
-        public ClientController client = null;
+        public ClientController clientController = null;
         private ClientInput clientInput = null;
 
         [SerializeField]
@@ -49,10 +49,10 @@ namespace RB.Client
                 new ClientConnection (999, false),
                 new ClientConnection (999, false),};
 
-            if (client == null)
+            if (clientController == null)
             {
-                client = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_CONTROLLER)) as ClientController;
-                client.transform.SetParent(this.transform, false);
+                clientController = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_CONTROLLER)) as ClientController;
+                clientController.transform.SetParent(this.transform, false);
 
                 clientInput = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_INPUT)) as ClientInput;
                 clientInput.transform.SetParent(this.transform, true);
@@ -90,6 +90,27 @@ namespace RB.Client
         public virtual ClientConnection[] GetClientConnectionStatus()
         {
             return _clientConnections;
+        }
+
+        public void DisconnectClient()
+        {
+            if (clientController.clientTCP.socket != null)
+            {
+                if (clientController.clientTCP.socket.Connected)
+                {
+                    clientController.clientTCP.socket.Close();
+                    clientController.clientUDP.socket.Close();
+                }
+            }
+
+            Debug.Log("Disconnected from server.");
+
+            RB.Network.ThreadManager.ExecuteOnMainThread(() =>
+            {
+                Destroy(this.gameObject);
+                //clientController.SetupTCPUDP();
+                //ClientManager.CURRENT.ShowEnterIPUI();
+            });
         }
     }
 }

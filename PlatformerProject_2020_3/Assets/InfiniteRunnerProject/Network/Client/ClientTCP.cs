@@ -81,7 +81,7 @@ namespace RB.Client
                 int _byteLength = _stream.EndRead(_result);
                 if (_byteLength <= 0)
                 {
-                    ClientController.instance.DisconnectClient();
+                    ClientManager.CURRENT.DisconnectClient();
                     return;
                 }
 
@@ -93,7 +93,8 @@ namespace RB.Client
             }
             catch
             {
-                ClearTCP();
+                ClientManager.CURRENT.DisconnectClient();
+                //ClearTCP();
             }
         }
 
@@ -146,16 +147,6 @@ namespace RB.Client
             }
 
             return false;
-        }
-
-        public void ClearTCP()
-        {
-            ClientController.instance.DisconnectClient();
-
-            _stream = null;
-            _receivedData = null;
-            _receivedBuffer = null;
-            socket = null;
         }
     }
 }

@@ -52,7 +52,7 @@ namespace RB.Client
 
                 if (_data.Length < 4)
                 {
-                    ClientController.instance.DisconnectClient();
+                    ClientManager.CURRENT.DisconnectClient();
                     return;
                 }
 
@@ -92,7 +92,7 @@ namespace RB.Client
 
         private void Disconnect()
         {
-            ClientController.instance.DisconnectClient();
+            ClientManager.CURRENT.DisconnectClient();
 
             endPoint = null;
             socket = null;

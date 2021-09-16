@@ -19,7 +19,7 @@ namespace RB
 
             if (RB.Client.ClientManager.CURRENT != null)
             {
-                RB.Client.ClientManager.CURRENT.client.DisconnectClient();
+                RB.Client.ClientManager.CURRENT.DisconnectClient();
                 Destroy(RB.Client.ClientManager.CURRENT.gameObject);
             }
         }
