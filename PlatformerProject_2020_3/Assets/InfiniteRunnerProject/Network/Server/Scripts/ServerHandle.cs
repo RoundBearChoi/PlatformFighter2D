@@ -34,9 +34,12 @@ namespace RB.Server
             }
 
             ClientData data = BaseNetworkControl.CURRENT.server.connectedClients.GetClientData(fromClient);
-            data.SetInput(inputs);
 
-            BaseInitializer.current.GetStage().UpdateOnClientInput(fromClient, inputs);
+            if (data != null)
+            {
+                data.SetInput(inputs);
+                BaseInitializer.current.GetStage().UpdateOnClientInput(fromClient, inputs);
+            }
         }
 
         public static void HandleUDPCheck(int fromClient, Packet packet)

@@ -12,7 +12,7 @@ namespace RB
         //should have separate ui selection types
         INTRO_SELECT,
         HOST_GAME_SELECT,
-        ON_ESC_SELECT,
+        QUIT_GAME_ASK_SELECT,
 
         SELECTION_ARROW,
         CONNECTED_UI,

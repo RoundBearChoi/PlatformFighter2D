@@ -13,7 +13,7 @@ namespace RB
 
         public override void OnUpdate()
         {
-            UpdateSelection();
+            UpdateSelection(InputType.PLAYER_ONE);
         }
 
         public override void OnLateUpdate()

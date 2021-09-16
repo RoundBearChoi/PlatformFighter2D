@@ -41,5 +41,10 @@ namespace RB
         {
             OnFixedUpdateChildElements();
         }
+
+        public override void OnLateUpdate()
+        {
+            OnLateUpdateChildElements();
+        }
     }
 }

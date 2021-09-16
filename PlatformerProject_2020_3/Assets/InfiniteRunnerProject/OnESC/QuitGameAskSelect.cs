@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class IntroSelect : UISelection
+    public class QuitGameAskSelect : UISelection
     {
         public override void OnFixedUpdate()
         {

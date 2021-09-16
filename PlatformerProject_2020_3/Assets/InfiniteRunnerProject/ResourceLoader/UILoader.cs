@@ -17,9 +17,10 @@ namespace RB
             LoadObj<CompatibleBaseUI>(UIType.COMPATIBLE_BASE_UI, "CompatibleBaseUI");
             LoadObj<CompatibleUILayer>(UIType.COMPATIBLE_UI_LAYER, "CompatibleUILayer");
 
-            //ui layers
+            //selection
             LoadObj<IntroSelect>(UIType.INTRO_SELECT, "IntroSelect");
             LoadObj<HostGameSelect>(UIType.HOST_GAME_SELECT, "HostGameSelect");
+            LoadObj<QuitGameAskSelect>(UIType.QUIT_GAME_ASK_SELECT, "QuitGameAskSelect");
 
             //other ui stuff
             LoadObj<SelectionArrow>(UIType.SELECTION_ARROW, "SelectionArrow");

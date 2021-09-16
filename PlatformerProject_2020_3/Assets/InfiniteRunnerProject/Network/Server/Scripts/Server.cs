@@ -148,6 +148,8 @@ namespace RB.Server
 
         private void InitServer()
         {
+            Clients.ResetConnectCount();
+
             if (connectedClients == null)
             {
                 connectedClients = new Clients();

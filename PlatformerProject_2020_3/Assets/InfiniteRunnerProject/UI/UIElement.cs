@@ -88,6 +88,14 @@ namespace RB
             }
         }
 
+        public virtual void OnLateUpdateChildElements()
+        {
+            foreach (UIElement element in _listChildElements)
+            {
+                element.OnLateUpdate();
+            }
+        }
+
         public virtual void OnUpdateUISelection()
         {
             if (_uiSelection != null)
@@ -101,6 +109,14 @@ namespace RB
             if (_uiSelection != null)
             {
                 _uiSelection.OnFixedUpdate();
+            }
+        }
+
+        public virtual void OnLateUpdateUISelection()
+        {
+            if (_uiSelection != null)
+            {
+                _uiSelection.OnLateUpdate();
             }
         }
     }

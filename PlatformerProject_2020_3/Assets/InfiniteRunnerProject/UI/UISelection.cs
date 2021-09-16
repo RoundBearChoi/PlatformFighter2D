@@ -85,9 +85,9 @@ namespace RB
             _selectionArrow.transform.SetParent(_listOptions[_currentSelectionIndex].transform, false);
         }
 
-        public virtual void UpdateSelection()
+        public virtual void UpdateSelection(InputType inputType)
         {
-            UserInput latestInput = _inputController.GetLatestUserInput();
+            UserInput latestInput = _inputController.GetUserInput(inputType); //_inputController.GetLatestUserInput();
 
             //game keys
             if (latestInput.commands.ContainsPress(CommandType.MOVE_UP, true))
@@ -110,19 +110,14 @@ namespace RB
                 DownSelection();
             }
 
-            OnSelect();
+            OnSelect(inputType);
         }
 
-        public virtual void OnSelect()
+        public virtual void OnSelect(InputType inputType)
         {
-            //only use mouse when hovering
-            //if (_inputController.GetLatestUserInput().commands.ContainsPress(CommandType.ATTACK_A, true))
-            //{
-            //    _listOptions[_currentSelectionIndex].OnEnterKey();
-            //    return;
-            //}
+            UserInput input = _inputController.GetUserInput(inputType);
 
-            if (_inputController.GetLatestUserInput().commands.ContainsPress(CommandType.ENTER, true))
+            if (input.commands.ContainsPress(CommandType.ENTER, true))
             {
                 _listOptions[_currentSelectionIndex].OnEnterKey();
                 return;

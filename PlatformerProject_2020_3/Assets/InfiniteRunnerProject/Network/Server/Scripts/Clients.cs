@@ -27,6 +27,11 @@ namespace RB.Server
             }
         }
 
+        public static void ResetConnectCount()
+        {
+            _connectCount = 0;
+        }
+
         public bool AddClient(System.Net.Sockets.TcpClient tcpClient)
         {
             try
