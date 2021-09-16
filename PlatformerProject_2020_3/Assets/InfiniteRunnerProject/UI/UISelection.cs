@@ -45,6 +45,21 @@ namespace RB
 
         }
 
+        public static UISelection AddUISelection(UIType uiType, Transform parent)
+        {
+            UISelection uiSelection = Instantiate(ResourceLoader.uiLoader.GetObj(uiType)) as UISelection;
+
+            //clear anchor (left, right, top, bottom)
+            RectTransform rect = uiSelection.GetComponent<RectTransform>();
+            rect.offsetMax = Vector2.zero;
+            rect.offsetMin = Vector2.zero;
+
+            uiSelection.transform.SetParent(parent, false);
+            uiSelection.InitSelection();
+
+            return uiSelection;
+        }
+
         public virtual void UpSelection()
         {
             _currentSelectionIndex--;

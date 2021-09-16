@@ -16,12 +16,14 @@ namespace RB
 
             else if (uiLayerType == UILayerType.INTRO_SELECTION)
             {
-                AddUISelection(UIType.INTRO_SELECT);
+                UISelection introSelect = UISelection.AddUISelection(UIType.INTRO_SELECT, this.transform);
+                _uiSelection = introSelect;
             }
 
             else if (uiLayerType == UILayerType.HOST_GAME)
             {
-                AddUISelection(UIType.HOST_GAME_SELECT);
+                UISelection hostGameSelect = UISelection.AddUISelection(UIType.HOST_GAME_SELECT, this.transform);
+                _uiSelection = hostGameSelect;
 
                 AddUIElement(UIElementType.WAITING_FOR_PLAYERS);
                 AddUIElement(UIElementType.CONNECTED_UI);

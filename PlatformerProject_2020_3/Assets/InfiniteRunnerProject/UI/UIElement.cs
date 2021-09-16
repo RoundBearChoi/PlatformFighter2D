@@ -14,6 +14,9 @@ namespace RB
         [SerializeField]
         protected List<UIElement> _listChildElements = new List<UIElement>();
 
+        [SerializeField]
+        protected UISelection _uiSelection = null;
+
         public virtual void InitElement()
         {
 
@@ -84,6 +87,22 @@ namespace RB
             foreach (UIElement element in _listChildElements)
             {
                 element.OnFixedUpdate();
+            }
+        }
+
+        public virtual void OnUpdateUISelection()
+        {
+            if (_uiSelection != null)
+            {
+                _uiSelection.OnUpdate();
+            }
+        }
+
+        public virtual void OnFixedUpdateUISelection()
+        {
+            if (_uiSelection != null)
+            {
+                _uiSelection.OnFixedUpdate();
             }
         }
     }

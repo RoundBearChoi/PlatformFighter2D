@@ -62,25 +62,6 @@ namespace RB
             }
         }
 
-        public virtual void AttachUISelectionToLayer(UISelection selection)
-        {
-            //clear anchor (left, right, top, bottom)
-            RectTransform rect = selection.GetComponent<RectTransform>();
-            rect.offsetMax = Vector2.zero;
-            rect.offsetMin = Vector2.zero;
-
-            _uiSelection = selection;
-        }
-
-        public virtual void AddUISelection(UIType uiType)
-        {
-            UISelection uiSelection = Instantiate(ResourceLoader.uiLoader.GetObj(uiType)) as UISelection;
-
-            AttachUISelectionToLayer(uiSelection);
-            uiSelection.transform.SetParent(this.transform, false);
-            uiSelection.InitSelection();
-        }
-
         public virtual void AttachElementToLayer(UIElement element)
         {
             //clear anchor (left, right, top, bottom)

@@ -9,8 +9,10 @@ namespace RB
         COMPATIBLE_BASE_UI,
         COMPATIBLE_UI_LAYER,
 
+        //should have separate ui selection types
         INTRO_SELECT,
         HOST_GAME_SELECT,
+        ON_ESC_SELECT,
 
         SELECTION_ARROW,
         CONNECTED_UI,
