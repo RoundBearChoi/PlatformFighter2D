@@ -6,7 +6,7 @@ namespace RB.Client
 {
     public class ClientControl : BaseClientControl
     {
-        public static BaseFighterClient fighterClient = null;
+        public static FighterClient fighterClient = null;
 
         [SerializeField]
         ClientConnection[] _clientConnections = null;
@@ -21,7 +21,7 @@ namespace RB.Client
 
             if (fighterClient == null)
             {
-                fighterClient = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.FIGHTER_CLIENT)) as BaseFighterClient;
+                fighterClient = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.FIGHTER_CLIENT)) as FighterClient;
                 fighterClient.transform.SetParent(this.transform, true);
             }
 

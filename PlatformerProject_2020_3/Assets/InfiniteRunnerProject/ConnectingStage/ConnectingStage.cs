@@ -27,7 +27,7 @@ namespace RB
             //attempt connection
             BaseClientControl.CURRENT.ConnectToServer();
 
-            _baseFighterClient = FindObjectOfType<BaseFighterClient>();
+            _baseFighterClient = FindObjectOfType<FighterClient>();
             _baseFighterClient.Init();
         }
 

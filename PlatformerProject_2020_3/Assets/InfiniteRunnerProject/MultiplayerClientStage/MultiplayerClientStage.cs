@@ -25,7 +25,7 @@ namespace RB
 
             //_baseUI.Init(BaseUIType.CONNECTING_UI);
 
-            _baseFighterClient = FindObjectOfType<BaseFighterClient>();
+            _baseFighterClient = FindObjectOfType<FighterClient>();
             _baseFighterClient.Init();
 
             _clientObjects = new ClientObjects();
