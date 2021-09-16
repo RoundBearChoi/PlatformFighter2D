@@ -47,7 +47,7 @@ namespace RB.Client
                 connections[i].mIndex = id;
             }
 
-            BaseClientControl.CURRENT.UpdateClientConnectionStatus(connections);
+            ClientControl.CURRENT.UpdateClientConnectionStatus(connections);
         }
 
         public static void EnterMultiplayerStage(Packet packet)

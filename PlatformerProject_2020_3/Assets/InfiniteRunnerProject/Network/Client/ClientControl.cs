@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace RB.Client
 {
-    public class BaseClientControl : MonoBehaviour
+    public class ClientControl : MonoBehaviour
     {
-        public static BaseClientControl CURRENT = null;
+        public static ClientControl CURRENT = null;
         public static FighterClient fighterClient = null;
 
         [SerializeField]

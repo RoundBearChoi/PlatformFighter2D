@@ -31,7 +31,7 @@ namespace RB.Client
         public void SetupTCPUDP()
         {
             tcp = new TCP();
-            udp = new UDP(BaseClientControl.CURRENT.GetHostIP());
+            udp = new UDP(ClientControl.CURRENT.GetHostIP());
         }
 
         private void OnApplicationQuit()
@@ -93,8 +93,8 @@ namespace RB.Client
 
                     ThreadManager.ExecuteOnMainThread(() =>
                     {
-                        BaseClientControl.CURRENT.ShowEnterIPUI();
-                        BaseClientControl.CURRENT.QueueConnectionFailedMessage();
+                        ClientControl.CURRENT.ShowEnterIPUI();
+                        ClientControl.CURRENT.QueueConnectionFailedMessage();
                     });
                 }
             }
@@ -342,7 +342,7 @@ namespace RB.Client
             ThreadManager.ExecuteOnMainThread(() =>
             {
                 SetupTCPUDP();
-                BaseClientControl.CURRENT.ShowEnterIPUI();
+                ClientControl.CURRENT.ShowEnterIPUI();
             });
         }
     }

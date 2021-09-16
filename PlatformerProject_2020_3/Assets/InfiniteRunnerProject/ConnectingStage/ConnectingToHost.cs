@@ -12,7 +12,7 @@ namespace RB
 
         public override void InitElement()
         {
-            _ip.text = RB.Client.BaseClientControl.CURRENT.GetHostIP();
+            _ip.text = RB.Client.ClientControl.CURRENT.GetHostIP();
         }
 
         public override void OnFixedUpdate()

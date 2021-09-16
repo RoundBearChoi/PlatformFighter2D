@@ -16,7 +16,7 @@ namespace RB
 
         public override void InitElement()
         {
-            if (BaseClientControl.CURRENT.CONNECTION_FAILED)
+            if (ClientControl.CURRENT.CONNECTION_FAILED)
             {
                 _connectionFailedMessage.SetActive(true);
             }
@@ -36,7 +36,7 @@ namespace RB
 
             yield return new WaitForEndOfFrame();
 
-            string ip = BaseClientControl.CURRENT.GetHostIP();
+            string ip = ClientControl.CURRENT.GetHostIP();
             _inputField.text = ip;
             _inputField.ActivateInputField();
 
