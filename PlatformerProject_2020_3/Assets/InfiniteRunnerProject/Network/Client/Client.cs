@@ -39,7 +39,6 @@ namespace RB.Client
             Disconnect();
         }
 
-
         public void ConnectToServer(string ip)
         {
             InitClientData();
@@ -56,7 +55,6 @@ namespace RB.Client
             private Packet receivedData;
             private byte[] receiveBuffer;
 
-            /// <summary>Attempts to connect to the server via TCP.</summary>
             public void Connect(string ip)
             {
                 socket = new TcpClient
@@ -69,7 +67,6 @@ namespace RB.Client
                 socket.BeginConnect(ip, instance._port, ConnectCallback, socket);
             }
 
-            /// <summary>Initializes the newly connected client's TCP-related info.</summary>
             private void ConnectCallback(IAsyncResult _result)
             {
                 try
@@ -99,8 +96,6 @@ namespace RB.Client
                 }
             }
 
-            /// <summary>Sends data to the client via TCP.</summary>
-            /// <param name="_packet">The packet to send.</param>
             public void SendData(Packet _packet)
             {
                 try
@@ -116,7 +111,6 @@ namespace RB.Client
                 }
             }
 
-            /// <summary>Reads incoming data from the stream.</summary>
             private void ReceiveCallback(IAsyncResult _result)
             {
                 try
@@ -140,8 +134,6 @@ namespace RB.Client
                 }
             }
 
-            /// <summary>Prepares received data to be used by the appropriate packet handler methods.</summary>
-            /// <param name="_data">The recieved data.</param>
             private bool HandleData(byte[] _data)
             {
                 int _packetLength = 0;
@@ -193,7 +185,6 @@ namespace RB.Client
                 return false;
             }
 
-            /// <summary>Disconnects from the server and cleans up the TCP connection.</summary>
             private void Disconnect()
             {
                 instance.Disconnect();
@@ -215,8 +206,6 @@ namespace RB.Client
                 endPoint = new IPEndPoint(IPAddress.Parse(ip), instance._port);
             }
 
-            /// <summary>Attempts to connect to the server via UDP.</summary>
-            /// <param name="_localPort">The port number to bind the UDP socket to.</param>
             public void Connect(int _localPort)
             {
                 socket = new UdpClient(_localPort);
@@ -230,8 +219,6 @@ namespace RB.Client
                 }
             }
 
-            /// <summary>Sends data to the client via UDP.</summary>
-            /// <param name="_packet">The packet to send.</param>
             public void SendData(Packet _packet)
             {
                 try
@@ -248,7 +235,6 @@ namespace RB.Client
                 }
             }
 
-            /// <summary>Receives incoming UDP data.</summary>
             private void ReceiveCallback(IAsyncResult _result)
             {
                 try
@@ -270,8 +256,6 @@ namespace RB.Client
                 }
             }
 
-            /// <summary>Prepares received data to be used by the appropriate packet handler methods.</summary>
-            /// <param name="_data">The recieved data.</param>
             private void HandleData(byte[] data)
             {
                 using (Packet packet = new Packet(data))
@@ -298,7 +282,6 @@ namespace RB.Client
                 });
             }
 
-            /// <summary>Disconnects from the server and cleans up the UDP connection.</summary>
             private void Disconnect()
             {
                 instance.Disconnect();
@@ -308,7 +291,6 @@ namespace RB.Client
             }
         }
 
-        /// <summary>Initializes all necessary client data.</summary>
         private void InitClientData()
         {
             packetHandlers = new Dictionary<int, PacketHandler>()
@@ -325,7 +307,6 @@ namespace RB.Client
             Debug.Log("initialized clientdata");
         }
 
-        /// <summary>Disconnects from the server and stops all network traffic.</summary>
         private void Disconnect()
         {
             if (tcp.socket != null)

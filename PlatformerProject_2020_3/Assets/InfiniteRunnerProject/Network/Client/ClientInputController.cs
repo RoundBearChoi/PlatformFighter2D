@@ -23,7 +23,6 @@ namespace RB.Client
             SendInputToServer();
         }
 
-        /// <summary>Sends player input to the server.</summary>
         private void SendInputToServer()
         {
             if (_inputs == null || _inputs.Length == 0)

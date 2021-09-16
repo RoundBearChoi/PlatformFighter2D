@@ -17,10 +17,8 @@ namespace RB.Client
             Client.instance.myId = myId;
             ClientSend.WelcomeReceived();
 
-            // Now that we have the client's id, connect UDP
             Client.instance.udp.Connect(((IPEndPoint)Client.instance.tcp.socket.Client.LocalEndPoint).Port);
 
-            //message to game
             BaseMessage connectedMessage = new Message_ConnectedToServer();
             connectedMessage.Register();
         }

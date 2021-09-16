@@ -15,8 +15,6 @@ namespace RB.Server
         public Clients()
         {
             _listClientData = new List<ClientData>();
-
-
         }
 
         public int CLIENTS_COUNT
