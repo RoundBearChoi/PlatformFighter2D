@@ -59,17 +59,12 @@ namespace RB.Client
             }
 
             string hostIP = GetHostIP();
-            ClientController.instance.ConnectToServer(hostIP);
+            clientController.ConnectToServer(hostIP);
         }
 
         public virtual string GetUserName()
         {
             return string.Empty;
-        }
-
-        public virtual int GetClientIndex()
-        {
-            return ClientController.instance.myId;
         }
 
         public virtual void ShowEnterIPUI()

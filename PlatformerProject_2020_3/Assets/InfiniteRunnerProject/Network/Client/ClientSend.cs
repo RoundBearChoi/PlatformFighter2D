@@ -10,20 +10,20 @@ namespace RB.Client
         private static void SendTCPData(Packet _packet)
         {
             _packet.WriteLength();
-            ClientController.instance.clientTCP.SendData(_packet);
+            ClientManager.CURRENT.clientController.clientTCP.SendData(_packet);
         }
 
         private static void SendUDPData(Packet _packet)
         {
             _packet.WriteLength();
-            ClientController.instance.clientUDP.SendData(_packet);
+            ClientManager.CURRENT.clientController.clientUDP.SendData(_packet);
         }
 
         public static void WelcomeReceived()
         {
             using (Packet _packet = new Packet((int)ClientPackets.welcomeReceived))
             {
-                _packet.Write(ClientController.instance.myId);
+                _packet.Write(ClientManager.CURRENT.clientController.myId);
 
                 string name = ClientManager.CURRENT.GetUserName();
 

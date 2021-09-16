@@ -128,7 +128,7 @@ namespace RB
 
             if (cameraScript.GetTarget() == null)
             {
-                ClientObject myObj = _clientObjects.GetClientObj(RB.Client.ClientController.instance.myId);
+                ClientObject myObj = _clientObjects.GetClientObj(ClientManager.CURRENT.clientController.myId);
 
                 if (myObj != null)
                 {

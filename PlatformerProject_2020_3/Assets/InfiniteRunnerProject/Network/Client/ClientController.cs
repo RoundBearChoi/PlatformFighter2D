@@ -9,7 +9,6 @@ namespace RB.Client
     {
         readonly int _port = 26950;
 
-        public static ClientController instance;
         public static int dataBufferSize = 4096;
 
         public int myId = 0;
@@ -21,7 +20,6 @@ namespace RB.Client
 
         private void Awake()
         {
-            instance = this;
             SetupTCPUDP();
         }
 

@@ -31,7 +31,7 @@ namespace RB.Client
         {
             try
             {
-                packet.InsertInt(ClientController.instance.myId);
+                packet.InsertInt(ClientManager.CURRENT.clientController.myId);
                 if (socket != null)
                 {
                     socket.BeginSend(packet.ToArray(), packet.Length(), null, null);

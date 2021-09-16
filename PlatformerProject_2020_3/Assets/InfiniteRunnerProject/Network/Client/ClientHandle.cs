@@ -14,10 +14,11 @@ namespace RB.Client
             int myId = packet.ReadInt();
 
             Debug.Log($"Message from server: {msg}");
-            ClientController.instance.myId = myId;
+            ClientManager.CURRENT.clientController.myId = myId;
             ClientSend.WelcomeReceived();
 
-            ClientController.instance.clientUDP.Connect(((IPEndPoint)ClientController.instance.clientTCP.socket.Client.LocalEndPoint).Port);
+            int port = ((IPEndPoint)ClientManager.CURRENT.clientController.clientTCP.socket.Client.LocalEndPoint).Port;
+            ClientManager.CURRENT.clientController.clientUDP.Connect(port);
 
             BaseMessage connectedMessage = new Message_ConnectedToServer();
             connectedMessage.Register();
