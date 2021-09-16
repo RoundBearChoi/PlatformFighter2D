@@ -9,7 +9,7 @@ namespace RB.Client
         static ClientManager _current = null;
 
         public ClientController clientController = null;
-        public ClientInputSender clientInputSender = null;
+        public ClientInputSender clientInput = null;
 
         [SerializeField]
         ClientConnection[] _clientConnections = null;
@@ -47,8 +47,8 @@ namespace RB.Client
             _current.clientController = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_CONTROLLER)) as ClientController;
             _current.clientController.transform.SetParent(_current.transform, false);
 
-            _current.clientInputSender = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_INPUT_SENDER)) as ClientInputSender;
-            _current.clientInputSender.transform.SetParent(_current.transform, true);
+            _current.clientInput = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_INPUT)) as ClientInputSender;
+            _current.clientInput.transform.SetParent(_current.transform, true);
         }
 
         public void SetHostIP(string ip)
@@ -119,10 +119,10 @@ namespace RB.Client
 
             RB.Network.ThreadManager.ExecuteOnMainThread(() =>
             {
-                //if (CURRENT != null)
-                //{
-                //    Destroy(CURRENT.gameObject);
-                //}
+                Debugger.Log("returning to menu");
+                BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
+
+                Destroy(this.gameObject);
             });
         }
     }

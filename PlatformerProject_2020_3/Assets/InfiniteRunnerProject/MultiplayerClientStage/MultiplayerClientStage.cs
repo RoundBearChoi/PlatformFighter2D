@@ -112,9 +112,9 @@ namespace RB
             units.OnFixedUpdate();
             cameraScript.OnFixedUpdate();
 
-            if (ClientManager.CURRENT.clientInputSender != null)
+            if (ClientManager.CURRENT.clientInput != null)
             {
-                ClientManager.CURRENT.clientInputSender.SendInputToServer();
+                ClientManager.CURRENT.clientInput.SendInputToServer();
             }
 
             if (_baseUI != null)
