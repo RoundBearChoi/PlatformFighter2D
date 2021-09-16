@@ -24,7 +24,7 @@ namespace RB
 
             _baseUI.Init(BaseUIType.CONNECTED_UI);
 
-            _baseFighterClient = FindObjectOfType<FighterClient>();
+            _baseFighterClient = FindObjectOfType<ClientInput>();
             _baseFighterClient.Init();
         }
 

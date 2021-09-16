@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace RB
 {
     public class etcLoader : GameResources<etcType>
@@ -18,7 +14,7 @@ namespace RB
 
             LoadObj<RB.Server.ServerControl>(etcType.SERVER_CONTROL, "ServerControl");
             LoadObj<RB.Client.ClientControl>(etcType.CLIENT_CONTROL, "ClientControl");
-            LoadObj<RB.Client.FighterClient>(etcType.FIGHTER_CLIENT, "FighterClient");
+            LoadObj<RB.Client.ClientInput>(etcType.CLIENT_INPUT, "ClientInput");
 
             LoadObj<ConnectedPlayerInfo>(etcType.CONNECTED_PLAYER_INFO, "ConnectedPlayerInfo");
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB.Client
 {
-    public class FighterClient : MonoBehaviour
+    public class ClientInput : MonoBehaviour
     {
         [SerializeField]
         protected bool[] _inputs = null;

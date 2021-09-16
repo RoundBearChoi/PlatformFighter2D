@@ -21,7 +21,7 @@ namespace RB
         [SerializeField]
         protected InputController _inputController = null;
 
-        protected RB.Client.FighterClient _baseFighterClient = null;
+        protected RB.Client.ClientInput _baseFighterClient = null;
 
         public static BaseStage InstantiateNewStage(StageType stageType)
         {
