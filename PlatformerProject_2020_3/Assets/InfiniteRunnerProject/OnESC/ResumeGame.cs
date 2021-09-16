@@ -8,7 +8,8 @@ namespace RB
     {
         public override void OnEnterKey()
         {
-            //BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.FIGHT_STAGE));
+            BaseMessage clearOnEscapeElements = new Message_ClearOnEscapeChildElements();
+            clearOnEscapeElements.Register();
         }
     }
 }

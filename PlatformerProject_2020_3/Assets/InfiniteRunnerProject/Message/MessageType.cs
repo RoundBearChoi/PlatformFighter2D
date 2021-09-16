@@ -38,5 +38,7 @@ namespace RB
         TRANSITION_TO_CONNECTED_STAGE = 5001,
         SHOW_PRIVATE_IP = 5002,
         SHOW_PUBLIC_IP = 5003,
+
+        CLEAR_ONESCAPE_CHILD_ELEMENTS = 6000,
     }
 }

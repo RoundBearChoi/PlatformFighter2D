@@ -25,12 +25,7 @@ namespace RB
                 }
                 else
                 {
-                    foreach(UIElement element in _listChildElements)
-                    {
-                        Destroy(element.gameObject);
-                    }
-
-                    _listChildElements.Clear();
+                    ClearChildElements();
                 }
             }
 
@@ -45,6 +40,16 @@ namespace RB
         public override void OnLateUpdate()
         {
             OnLateUpdateChildElements();
+        }
+
+        public void ClearChildElements()
+        {
+            foreach (UIElement element in _listChildElements)
+            {
+                Destroy(element.gameObject);
+            }
+
+            _listChildElements.Clear();
         }
     }
 }

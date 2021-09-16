@@ -35,7 +35,6 @@ namespace RB
 
                 UIElement serverIP = UIElement.AddUIElement(UIElementType.SERVER_IP, this.transform);
                 _uiElements.Add(serverIP);
-                serverIP.InitElement();
                 serverIP.messageHandler = new ServerIPMessageHandler();
             }
 
@@ -63,7 +62,9 @@ namespace RB
             {
                 UIElement onESC = UIElement.AddUIElement(UIElementType.ON_ESC, this.transform);
                 _uiElements.Add(onESC);
-                onESC.InitElement();
+
+                onESC.messageHandler = new OnEscapeMessageHandler();
+                Message_ClearOnEscapeChildElements.onESCMessageHandler = onESC.messageHandler;
             }
         }
     }
