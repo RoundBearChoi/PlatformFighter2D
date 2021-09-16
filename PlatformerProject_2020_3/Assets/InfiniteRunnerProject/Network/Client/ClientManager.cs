@@ -22,11 +22,6 @@ namespace RB.Client
         {
             get
             {
-                if (_current == null)
-                {
-                    _current = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_MANAGER)) as ClientManager;
-                }
-
                 return _current;
             }
         }
@@ -36,6 +31,14 @@ namespace RB.Client
             get
             {
                 return _connectionFailed;
+            }
+        }
+
+        public static void Init()
+        {
+            if (_current == null)
+            {
+                _current = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_MANAGER)) as ClientManager;
             }
         }
 
@@ -116,7 +119,10 @@ namespace RB.Client
 
             RB.Network.ThreadManager.ExecuteOnMainThread(() =>
             {
-                Destroy(this.gameObject);
+                if (CURRENT != null)
+                {
+                    Destroy(CURRENT.gameObject);
+                }
             });
         }
     }

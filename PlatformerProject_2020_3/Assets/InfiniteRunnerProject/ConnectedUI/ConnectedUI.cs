@@ -65,6 +65,8 @@ namespace RB
 
         void UpdateOnConnections(RB.Client.ClientConnection[] connections)
         {
+            Debugger.Log("updating connected clients ui");
+
             //destroy all
             foreach (ConnectedPlayerInfo connected in _connectedPlayers)
             {
@@ -74,7 +76,7 @@ namespace RB
             _connectedPlayers.Clear();
 
             //re-add
-            AddConnectedPlayerInfo("PLAYER", true);
+            AddConnectedPlayerInfo("SERVER", true);
 
             for (int i = 0; i < connections.Length; i++)
             {

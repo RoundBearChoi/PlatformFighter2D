@@ -24,10 +24,8 @@ namespace RB
 
             _baseUI.Init(BaseUIType.HOST_GAME_UI);
 
-            if (RB.Server.ServerControl.CURRENT == null)
-            {
-                RB.Server.ServerControl serverControl = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.SERVER_CONTROL)) as RB.Server.ServerControl;
-            }
+            //open server
+            RB.Server.ServerControl.Init();
         }
 
         public override void OnUpdate()

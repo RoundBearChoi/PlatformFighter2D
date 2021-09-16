@@ -11,14 +11,17 @@ namespace RB.Server
 
         private static ServerControl _current = null;
 
-        private void Start()
+        public static void Init()
         {
-            SetCurrent(this);
+            if (_current == null)
+            {
+                _current = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.SERVER_CONTROL)) as RB.Server.ServerControl;
+            }
 
-            server = new Server();
-            server.OpenServer();
+            _current.server = new Server();
+            _current.server.OpenServer();
 
-            serverSend = new ServerSend();
+            _current.serverSend = new ServerSend();
         }
 
         public static ServerControl CURRENT
@@ -27,11 +30,6 @@ namespace RB.Server
             {
                 return _current;
             }
-        }
-
-        public static void SetCurrent(ServerControl baseNetwork)
-        {
-            _current = baseNetwork;
         }
 
         private void OnApplicationQuit()

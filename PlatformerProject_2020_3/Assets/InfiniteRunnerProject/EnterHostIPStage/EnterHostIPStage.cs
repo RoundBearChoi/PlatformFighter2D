@@ -11,6 +11,8 @@ namespace RB
 
         public override void Init()
         {
+            ClientManager.Init();
+
             IntroCamera introCam = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.INTRO_CAMERA)) as IntroCamera;
             introCam.transform.parent = this.transform;
 

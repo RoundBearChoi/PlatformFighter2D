@@ -35,6 +35,7 @@ namespace RB.Server
             try
             {
                 ClientData data = new ClientData(_connectCount);
+
                 _connectCount++;
 
                 if (_connectCount >= int.MaxValue)
