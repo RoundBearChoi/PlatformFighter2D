@@ -9,18 +9,18 @@ namespace RB.Server
     {
         public static void WelcomeReceived(int IDReceivedFromClient, Packet _packet)
         {
-            int _clientIdCheck = _packet.ReadInt();
-            string _username = _packet.ReadString();
+            int clientIdCheck = _packet.ReadInt();
+            string username = _packet.ReadString();
 
             ClientData data = ServerManager.CURRENT.server.connectedClients.GetClientData(IDReceivedFromClient);
             Debug.Log($"{data.serverTCP.socket.Client.RemoteEndPoint} connected successfully and is now player {IDReceivedFromClient}.");
             
-            if (IDReceivedFromClient != _clientIdCheck)
+            if (IDReceivedFromClient != clientIdCheck)
             {
-                Debug.Log($"Player \"{_username}\" (ID: {IDReceivedFromClient}) has assumed the wrong client ID ({_clientIdCheck})!");
+                Debug.Log($"Player \"{username}\" (ID: {IDReceivedFromClient}) has assumed the wrong client ID ({clientIdCheck})!");
             }
 
-            data.SetUserName(_username);
+            data.SetUserName(username);
         }
 
         public static void HandleClientInput(int fromClient, Packet packet)
