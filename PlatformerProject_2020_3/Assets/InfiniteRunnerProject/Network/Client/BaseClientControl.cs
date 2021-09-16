@@ -7,6 +7,10 @@ namespace RB.Client
     public class BaseClientControl : MonoBehaviour
     {
         static BaseClientControl _current = null;
+        public static FighterClient fighterClient = null;
+
+        [SerializeField]
+        ClientConnection[] _clientConnections = null;
 
         [SerializeField]
         protected TargetIP _targetIP = null;
@@ -51,7 +55,20 @@ namespace RB.Client
 
         public virtual void ConnectToServer()
         {
+            _connectionFailed = false;
+            _clientConnections = new[] {
+                new ClientConnection (999, false),
+                new ClientConnection (999, false),
+                new ClientConnection (999, false),};
 
+            if (fighterClient == null)
+            {
+                fighterClient = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.FIGHTER_CLIENT)) as FighterClient;
+                fighterClient.transform.SetParent(this.transform, true);
+            }
+
+            string hostIP = GetHostIP();
+            Client.instance.ConnectToServer(hostIP);
         }
 
         public virtual string GetUserName()
@@ -61,32 +78,27 @@ namespace RB.Client
 
         public virtual int GetClientIndex()
         {
-            return 0;
+            return Client.instance.myId;
         }
 
         public virtual void ShowEnterIPUI()
         {
-
+            BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.ENTER_IP_STAGE));
         }
 
         public virtual void QueueConnectionFailedMessage()
         {
-
-        }
-
-        public virtual void HideMenu()
-        {
-
+            _connectionFailed = true;
         }
 
         public virtual void UpdateClientConnectionStatus(ClientConnection[] arr)
         {
-
+            _clientConnections = arr;
         }
 
         public virtual ClientConnection[] GetClientConnectionStatus()
         {
-            return null;
+            return _clientConnections;
         }
     }
 }

@@ -11,10 +11,10 @@ namespace RB
 
         public override void Init()
         {
-            if (ClientControl.CURRENT == null)
+            if (BaseClientControl.CURRENT == null)
             {
-                BaseClientControl control = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_CONTROL)) as ClientControl;
-                ClientControl.SetClientControl(control);
+                BaseClientControl control = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_CONTROL)) as BaseClientControl;
+                BaseClientControl.SetClientControl(control);
             }
 
             IntroCamera introCam = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.INTRO_CAMERA)) as IntroCamera;
@@ -30,9 +30,9 @@ namespace RB
             
             _baseUI.Init(BaseUIType.ENTER_IP_UI);
 
-            if (ClientControl.CURRENT.CONNECTION_FAILED)
+            if (BaseClientControl.CURRENT.CONNECTION_FAILED)
             {
-                Debugger.Log("prev connection attempt failed: " + ClientControl.CURRENT.GetHostIP());
+                Debugger.Log("prev connection attempt failed: " + BaseClientControl.CURRENT.GetHostIP());
             }
         }
 

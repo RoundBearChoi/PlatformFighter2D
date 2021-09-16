@@ -16,7 +16,7 @@ namespace RB
 
         public override void InitElement()
         {
-            if (ClientControl.CURRENT.CONNECTION_FAILED)
+            if (BaseClientControl.CURRENT.CONNECTION_FAILED)
             {
                 _connectionFailedMessage.SetActive(true);
             }
