@@ -28,12 +28,7 @@ namespace RB.Client
         public void SetupTCPUDP()
         {
             clientTCP = new ClientTCP();
-            clientUDP = new ClientUDP(ClientControl.CURRENT.GetHostIP());
-        }
-
-        private void OnApplicationQuit()
-        {
-            DisconnectClient();
+            clientUDP = new ClientUDP(ClientControl.CURRENT.GetHostIP(), _port);
         }
 
         public void ConnectToServer(string ip)
@@ -42,101 +37,6 @@ namespace RB.Client
 
             Debug.Log("attempting to connect at: " + ip + "  port: " + _port);
             clientTCP.Connect(ip, dataBufferSize, _port);
-        }
-
-        public class ClientUDP
-        {
-            public System.Net.Sockets.UdpClient socket;
-            public System.Net.IPEndPoint endPoint;
-
-            public ClientUDP(string ip)
-            {
-                endPoint = new System.Net.IPEndPoint(System.Net.IPAddress.Parse(ip), instance._port);
-            }
-
-            public void Connect(int _localPort)
-            {
-                socket = new System.Net.Sockets.UdpClient(_localPort);
-
-                socket.Connect(endPoint);
-                socket.BeginReceive(ReceiveCallback, null);
-
-                using (Packet _packet = new Packet())
-                {
-                    SendData(_packet);
-                }
-            }
-
-            public void SendData(Packet _packet)
-            {
-                try
-                {
-                    _packet.InsertInt(instance.myId);
-                    if (socket != null)
-                    {
-                        socket.BeginSend(_packet.ToArray(), _packet.Length(), null, null);
-                    }
-                }
-                catch (System.Exception e)
-                {
-                    Debug.Log($"Error sending data to server via UDP: {e}");
-                }
-            }
-
-            private void ReceiveCallback(System.IAsyncResult _result)
-            {
-                try
-                {
-                    byte[] _data = socket.EndReceive(_result, ref endPoint);
-                    socket.BeginReceive(ReceiveCallback, null);
-
-                    if (_data.Length < 4)
-                    {
-                        instance.DisconnectClient();
-                        return;
-                    }
-
-                    HandleData(_data);
-                }
-                catch
-                {
-                    Disconnect();
-                }
-            }
-
-            private void HandleData(byte[] data)
-            {
-                using (Packet packet = new Packet(data))
-                {
-                    int packetLength = packet.ReadInt();
-                    data = packet.ReadBytes(packetLength);
-                }
-
-                ThreadManager.ExecuteOnMainThread(() =>
-                {
-                    using (Packet packet = new Packet(data))
-                    {
-                        int packetID = packet.ReadInt();
-
-                        if (packetHandlers.ContainsKey(packetID))
-                        {
-                            packetHandlers[packetID](packet); // Call appropriate method to handle the packet
-                        }
-                        else
-                        {
-                            Debugger.Log("packet id not found: " + packetID);
-                        }
-                    }
-                });
-            }
-
-            private void Disconnect()
-            {
-                instance.DisconnectClient();
-
-                endPoint = null;
-                socket = null;
-            }
         }
 
         private void InitClientData()
@@ -173,6 +73,11 @@ namespace RB.Client
                 SetupTCPUDP();
                 ClientControl.CURRENT.ShowEnterIPUI();
             });
+        }
+
+        private void OnApplicationQuit()
+        {
+            DisconnectClient();
         }
     }
 }
