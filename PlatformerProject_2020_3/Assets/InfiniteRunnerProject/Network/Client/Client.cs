@@ -36,7 +36,7 @@ namespace RB.Client
 
         private void OnApplicationQuit()
         {
-            Disconnect();
+            DisconnectClient();
         }
 
         public void ConnectToServer(string ip)
@@ -118,7 +118,7 @@ namespace RB.Client
                     int _byteLength = stream.EndRead(_result);
                     if (_byteLength <= 0)
                     {
-                        instance.Disconnect();
+                        instance.DisconnectClient();
                         return;
                     }
 
@@ -130,7 +130,7 @@ namespace RB.Client
                 }
                 catch
                 {
-                    Disconnect();
+                    ClearTCP();
                 }
             }
 
@@ -185,9 +185,9 @@ namespace RB.Client
                 return false;
             }
 
-            private void Disconnect()
+            public void ClearTCP()
             {
-                instance.Disconnect();
+                instance.DisconnectClient();
 
                 stream = null;
                 receivedData = null;
@@ -244,7 +244,7 @@ namespace RB.Client
 
                     if (_data.Length < 4)
                     {
-                        instance.Disconnect();
+                        instance.DisconnectClient();
                         return;
                     }
 
@@ -284,7 +284,7 @@ namespace RB.Client
 
             private void Disconnect()
             {
-                instance.Disconnect();
+                instance.DisconnectClient();
 
                 endPoint = null;
                 socket = null;
@@ -307,7 +307,7 @@ namespace RB.Client
             Debug.Log("initialized clientdata");
         }
 
-        private void Disconnect()
+        public void DisconnectClient()
         {
             if (tcp.socket != null)
             {

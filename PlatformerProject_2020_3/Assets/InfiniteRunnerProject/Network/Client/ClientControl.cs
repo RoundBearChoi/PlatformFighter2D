@@ -7,7 +7,9 @@ namespace RB.Client
     public class ClientControl : MonoBehaviour
     {
         public static ClientControl CURRENT = null;
-        public static ClientInput fighterClient = null;
+
+        public Client client = null;
+        private ClientInput clientInput = null;
 
         [SerializeField]
         ClientConnection[] _clientConnections = null;
@@ -47,10 +49,13 @@ namespace RB.Client
                 new ClientConnection (999, false),
                 new ClientConnection (999, false),};
 
-            if (fighterClient == null)
+            if (client == null)
             {
-                fighterClient = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_INPUT)) as ClientInput;
-                fighterClient.transform.SetParent(this.transform, true);
+                client = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT)) as Client;
+                client.transform.SetParent(this.transform, false);
+
+                clientInput = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_INPUT)) as ClientInput;
+                clientInput.transform.SetParent(this.transform, true);
             }
 
             string hostIP = GetHostIP();

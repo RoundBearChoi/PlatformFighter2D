@@ -15,15 +15,7 @@ namespace RB
         {
             units = new Units(this);
 
-            //IntroCamera introCam = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.INTRO_CAMERA)) as IntroCamera;
-            //introCam.transform.parent = this.transform;
-
             _inputController.AddInput();
-
-            _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
-            _baseUI.transform.parent = this.transform;
-
-            //_baseUI.Init(BaseUIType.CONNECTING_UI);
 
             _baseFighterClient = FindObjectOfType<ClientInput>();
             _baseFighterClient.Init();
@@ -48,8 +40,10 @@ namespace RB
             cameraScript.SetCamera(cam);
             cameraScript.SetCameraState(GetStageDefaultCameraState());
 
-            //set camera target after clientobj is instantiated
-            //cameraScript.SetFollowTarget(null);
+            //ui
+            _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
+            _baseUI.transform.parent = this.transform;
+            _baseUI.Init(BaseUIType.FIGHT_STAGE_UI);
         }
 
         public override void UpdateClientUnitTypes(PlayerDataset<UnitType> playerData)

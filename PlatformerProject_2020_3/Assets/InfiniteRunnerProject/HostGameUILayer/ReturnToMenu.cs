@@ -16,6 +16,12 @@ namespace RB
                 RB.Server.ServerControl.CURRENT.server.Stop();
                 Destroy(RB.Server.ServerControl.CURRENT.gameObject);
             }
+
+            if (RB.Client.ClientControl.CURRENT != null)
+            {
+                RB.Client.ClientControl.CURRENT.client.DisconnectClient();
+                Destroy(RB.Client.ClientControl.CURRENT.gameObject);
+            }
         }
     }
 }
