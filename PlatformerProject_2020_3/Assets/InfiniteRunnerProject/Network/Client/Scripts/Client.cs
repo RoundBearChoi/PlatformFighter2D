@@ -314,8 +314,6 @@ namespace RB.Client
             packetHandlers = new Dictionary<int, PacketHandler>()
             {
                 { (int)ServerPackets.welcome, ClientHandle.Welcome },
-                { (int)ServerPackets.spawnPlayer, ClientHandle.SpawnPlayer },
-                { (int)ServerPackets.playerPosition, ClientHandle.PlayerPosition },
                 
                 {(int)ServerPackets.clients_connection_status, ClientHandle.ClientsConnectionStatus },
                 {(int)ServerPackets.enter_multiplayer_stage, ClientHandle.EnterMultiplayerStage },

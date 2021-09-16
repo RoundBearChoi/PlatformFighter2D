@@ -25,35 +25,6 @@ namespace RB.Client
             connectedMessage.Register();
         }
 
-        public static void SpawnPlayer(Packet packet)
-        {
-            int id = packet.ReadInt();
-            string username = packet.ReadString();
-            Vector3 position = packet.ReadVector3();
-            Quaternion rotation = packet.ReadQuaternion();
-
-            GameManager.instance.SpawnPlayer(id, username, position, rotation);
-        }
-
-        public static void PlayerPosition(Packet packet)
-        {
-            int id = packet.ReadInt();
-            
-            if (GameManager.players.ContainsKey(id))
-            {
-                Vector3 position = packet.ReadVector3();
-                GameManager.players[id].transform.position = position;
-            }
-        }
-
-        //public static void PlayerRotation(Packet _packet)
-        //{
-        //    int _id = _packet.ReadInt();
-        //    Quaternion _rotation = _packet.ReadQuaternion();
-        //
-        //    GameManager.players[_id].transform.rotation = _rotation;
-        //}
-
         public static void ClientsConnectionStatus(Packet packet)
         {
             Debugger.Log("--- clients connection status ---");
