@@ -6,20 +6,28 @@ namespace RB.Client
 {
     public class ClientUDP
     {
-        public System.Net.Sockets.UdpClient socket;
-        public System.Net.IPEndPoint endPoint;
+        System.Net.Sockets.UdpClient _socket;
+        System.Net.IPEndPoint _endPoint;
 
+        public System.Net.Sockets.UdpClient SOCKET
+        {
+            get
+            {
+                return _socket;
+            }
+        }
+        
         public ClientUDP(string ip, int port)
         {
-            endPoint = new System.Net.IPEndPoint(System.Net.IPAddress.Parse(ip), port);
+            _endPoint = new System.Net.IPEndPoint(System.Net.IPAddress.Parse(ip), port);
         }
 
         public void Connect(int _localPort)
         {
-            socket = new System.Net.Sockets.UdpClient(_localPort);
+            _socket = new System.Net.Sockets.UdpClient(_localPort);
 
-            socket.Connect(endPoint);
-            socket.BeginReceive(ReceiveCallback, null);
+            _socket.Connect(_endPoint);
+            _socket.BeginReceive(ReceiveCallback, null);
 
             using (RB.Network.Packet packet = new RB.Network.Packet())
             {
@@ -32,9 +40,9 @@ namespace RB.Client
             try
             {
                 packet.InsertInt(ClientManager.CURRENT.clientController.myId);
-                if (socket != null)
+                if (_socket != null)
                 {
-                    socket.BeginSend(packet.ToArray(), packet.Length(), null, null);
+                    _socket.BeginSend(packet.ToArray(), packet.Length(), null, null);
                 }
             }
             catch (System.Exception e)
@@ -47,8 +55,8 @@ namespace RB.Client
         {
             try
             {
-                byte[] _data = socket.EndReceive(_result, ref endPoint);
-                socket.BeginReceive(ReceiveCallback, null);
+                byte[] _data = _socket.EndReceive(_result, ref _endPoint);
+                _socket.BeginReceive(ReceiveCallback, null);
 
                 if (_data.Length < 4)
                 {
@@ -94,8 +102,8 @@ namespace RB.Client
         {
             ClientManager.CURRENT.DisconnectClient();
 
-            endPoint = null;
-            socket = null;
+            _endPoint = null;
+            _socket = null;
         }
     }
 }

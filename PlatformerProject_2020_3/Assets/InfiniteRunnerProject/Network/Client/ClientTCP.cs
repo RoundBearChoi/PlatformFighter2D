@@ -6,8 +6,7 @@ namespace RB.Client
 {
     public class ClientTCP
     {
-        public System.Net.Sockets.TcpClient socket;
-        
+        System.Net.Sockets.TcpClient _socket;
         System.Net.Sockets.NetworkStream _stream;
         RB.Network.Packet _receivedData;
         byte[] _receivedBuffer;
@@ -15,33 +14,41 @@ namespace RB.Client
         int _dataBufferSize = 0;
         int _port = 0;
 
+        public System.Net.Sockets.TcpClient SOCKET
+        {
+            get
+            {
+                return _socket;
+            }
+        }
+
         public void Connect(string ip, int dataBufferSize, int port)
         {
             _dataBufferSize = dataBufferSize;
             _port = port;
 
-            socket = new System.Net.Sockets.TcpClient
+            _socket = new System.Net.Sockets.TcpClient
             {
                 ReceiveBufferSize = _dataBufferSize,
                 SendBufferSize = _dataBufferSize
             };
 
             _receivedBuffer = new byte[_dataBufferSize];
-            socket.BeginConnect(ip, _port, ConnectCallback, socket);
+            _socket.BeginConnect(ip, _port, ConnectCallback, _socket);
         }
 
         private void ConnectCallback(System.IAsyncResult _result)
         {
             try
             {
-                socket.EndConnect(_result);
+                _socket.EndConnect(_result);
 
-                if (!socket.Connected)
+                if (!_socket.Connected)
                 {
                     return;
                 }
 
-                _stream = socket.GetStream();
+                _stream = _socket.GetStream();
 
                 _receivedData = new RB.Network.Packet();
 
@@ -63,7 +70,7 @@ namespace RB.Client
         {
             try
             {
-                if (socket != null)
+                if (_socket != null)
                 {
                     _stream.BeginWrite(packet.ToArray(), 0, packet.Length(), null, null);
                 }

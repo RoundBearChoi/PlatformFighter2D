@@ -89,12 +89,12 @@ namespace RB.Client
 
         public void DisconnectClient()
         {
-            if (clientController.clientTCP.socket != null)
+            if (clientController.clientTCP.SOCKET != null)
             {
-                if (clientController.clientTCP.socket.Connected)
+                if (clientController.clientTCP.SOCKET.Connected)
                 {
-                    clientController.clientTCP.socket.Close();
-                    clientController.clientUDP.socket.Close();
+                    clientController.clientTCP.SOCKET.Close();
+                    clientController.clientUDP.SOCKET.Close();
                 }
             }
 
@@ -103,8 +103,6 @@ namespace RB.Client
             RB.Network.ThreadManager.ExecuteOnMainThread(() =>
             {
                 Destroy(this.gameObject);
-                //clientController.SetupTCPUDP();
-                //ClientManager.CURRENT.ShowEnterIPUI();
             });
         }
     }
