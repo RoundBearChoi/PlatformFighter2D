@@ -43,7 +43,7 @@ namespace RB.Server
                 }
 
                 _listClientData.Add(data);
-                data.tcp.Connect(tcpClient);
+                data.serverTCP.Connect(tcpClient);
                 
                 return true;
             }
@@ -67,7 +67,7 @@ namespace RB.Server
         {
             foreach(ClientData data in _listClientData)
             {
-                if (data.tcp.ID == clientID)
+                if (data.serverTCP.ID == clientID)
                 {
                     return data;
                 }

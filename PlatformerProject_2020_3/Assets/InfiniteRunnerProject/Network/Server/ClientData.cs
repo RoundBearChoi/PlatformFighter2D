@@ -16,20 +16,20 @@ namespace RB.Server
         [SerializeField]
         string _name = string.Empty;
 
-        public TCP tcp;
-        public UDP udp;
+        public ServerTCP serverTCP;
+        public ServerUDP serverUDP;
 
         [SerializeField]
         bool[] _inputs = null;
 
         public ClientData(int clientId)
         {
-            tcp = new TCP(clientId);
-            udp = new UDP(clientId);
+            serverTCP = new ServerTCP(clientId);
+            serverUDP = new ServerUDP(clientId);
         }
 
         [System.Serializable]
-        public class TCP
+        public class ServerTCP
         {
             [SerializeField]
             private int _id;
@@ -39,7 +39,7 @@ namespace RB.Server
             private Packet receivedData;
             private byte[] receiveBuffer;
 
-            public TCP(int id)
+            public ServerTCP(int id)
             {
                 _id = id;
             }
@@ -52,8 +52,6 @@ namespace RB.Server
                 }
             }
 
-            /// <summary>Initializes the newly connected client's TCP-related info.</summary>
-            /// <param name="_socket">The TcpClient instance of the newly connected client.</param>
             public void Connect(TcpClient incomingSocket)
             {
                 socket = incomingSocket;
@@ -71,8 +69,6 @@ namespace RB.Server
                 ServerControl.CURRENT.serverSend.ClientsConnectionStatus();
             }
 
-            /// <summary>Sends data to the client via TCP.</summary>
-            /// <param name="_packet">The packet to send.</param>
             public void SendData(Packet _packet)
             {
                 try
@@ -88,7 +84,6 @@ namespace RB.Server
                 }
             }
 
-            /// <summary>Reads incoming data from the stream.</summary>
             private void ReceiveCallback(IAsyncResult _result)
             {
                 try
@@ -116,8 +111,6 @@ namespace RB.Server
                 }
             }
 
-            /// <summary>Prepares received data to be used by the appropriate packet handler methods.</summary>
-            /// <param name="_data">The recieved data.</param>
             private bool HandleData(byte[] _data)
             {
                 int _packetLength = 0;
@@ -180,13 +173,13 @@ namespace RB.Server
             }
         }
 
-        public class UDP
+        public class ServerUDP
         {
             public IPEndPoint endPoint;
 
             private int id;
 
-            public UDP(int _id)
+            public ServerUDP(int _id)
             {
                 id = _id;
             }
@@ -262,10 +255,10 @@ namespace RB.Server
         /// <summary>Disconnects the client and stops all network traffic.</summary>
         private void Disconnect()
         {
-            Debug.Log($"{tcp.socket.Client.RemoteEndPoint} has disconnected.");
+            Debug.Log($"{serverTCP.socket.Client.RemoteEndPoint} has disconnected.");
 
-            tcp.Disconnect();
-            udp.Disconnect();
+            serverTCP.Disconnect();
+            serverUDP.Disconnect();
 
             ThreadManager.ExecuteOnMainThread(() =>
             {

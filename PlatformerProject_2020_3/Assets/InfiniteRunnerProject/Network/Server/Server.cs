@@ -111,17 +111,17 @@ namespace RB.Server
 
                     ClientData data = connectedClients.GetClientData(clientId);
 
-                    if (data.udp.endPoint == null)
+                    if (data.serverUDP.endPoint == null)
                     {
                         // If this is a new connection
-                        data.udp.Connect(_clientEndPoint);
+                        data.serverUDP.Connect(_clientEndPoint);
                         return;
                     }
 
-                    if (data.udp.endPoint.ToString() == _clientEndPoint.ToString())
+                    if (data.serverUDP.endPoint.ToString() == _clientEndPoint.ToString())
                     {
                         // Ensures that the client is not being impersonated by another by sending a false clientID
-                        data.udp.HandleData(_packet);
+                        data.serverUDP.HandleData(_packet);
                     }
                 }
             }

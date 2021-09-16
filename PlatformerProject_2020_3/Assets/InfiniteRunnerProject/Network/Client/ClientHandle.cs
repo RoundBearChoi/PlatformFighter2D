@@ -17,7 +17,7 @@ namespace RB.Client
             Client.instance.myId = myId;
             ClientSend.WelcomeReceived();
 
-            Client.instance.udp.Connect(((IPEndPoint)Client.instance.tcp.socket.Client.LocalEndPoint).Port);
+            Client.instance.clientUDP.Connect(((IPEndPoint)Client.instance.clientTCP.socket.Client.LocalEndPoint).Port);
 
             BaseMessage connectedMessage = new Message_ConnectedToServer();
             connectedMessage.Register();

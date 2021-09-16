@@ -10,13 +10,13 @@ namespace RB.Client
         private static void SendTCPData(Packet _packet)
         {
             _packet.WriteLength();
-            Client.instance.tcp.SendData(_packet);
+            Client.instance.clientTCP.SendData(_packet);
         }
 
         private static void SendUDPData(Packet _packet)
         {
             _packet.WriteLength();
-            Client.instance.udp.SendData(_packet);
+            Client.instance.clientUDP.SendData(_packet);
         }
 
         public static void WelcomeReceived()

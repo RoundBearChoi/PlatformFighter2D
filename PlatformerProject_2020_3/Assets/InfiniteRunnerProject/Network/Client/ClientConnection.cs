@@ -27,7 +27,7 @@ namespace RB.Client
             {
                 if (clients.Length > i)
                 {
-                    connections[i] = new ClientConnection(clients[i].tcp.ID, true);
+                    connections[i] = new ClientConnection(clients[i].serverTCP.ID, true);
                 }
                 else
                 {

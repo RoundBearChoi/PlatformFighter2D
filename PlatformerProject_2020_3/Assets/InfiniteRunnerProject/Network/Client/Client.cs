@@ -1,9 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Net;
-using System.Net.Sockets;
-using System;
 using RB.Network;
 
 namespace RB.Client
@@ -16,8 +13,8 @@ namespace RB.Client
         public static int dataBufferSize = 4096;
 
         public int myId = 0;
-        public TCP tcp;
-        public UDP udp;
+        public ClientTCP clientTCP;
+        public ClientUDP clientUDP;
 
         private delegate void PacketHandler(Packet _packet);
         private static Dictionary<int, PacketHandler> packetHandlers;
@@ -30,8 +27,8 @@ namespace RB.Client
 
         public void SetupTCPUDP()
         {
-            tcp = new TCP();
-            udp = new UDP(ClientControl.CURRENT.GetHostIP());
+            clientTCP = new ClientTCP();
+            clientUDP = new ClientUDP(ClientControl.CURRENT.GetHostIP());
         }
 
         private void OnApplicationQuit()
@@ -44,20 +41,19 @@ namespace RB.Client
             InitClientData();
 
             Debug.Log("attempting to connect at: " + ip + "  port: " + _port);
-            tcp.Connect(ip);
+            clientTCP.Connect(ip);
         }
 
-        public class TCP
+        public class ClientTCP
         {
-            public TcpClient socket;
-
-            private NetworkStream stream;
+            public System.Net.Sockets.TcpClient socket;
+            private System.Net.Sockets.NetworkStream stream;
             private Packet receivedData;
             private byte[] receiveBuffer;
 
             public void Connect(string ip)
             {
-                socket = new TcpClient
+                socket = new System.Net.Sockets.TcpClient
                 {
                     ReceiveBufferSize = dataBufferSize,
                     SendBufferSize = dataBufferSize
@@ -67,7 +63,7 @@ namespace RB.Client
                 socket.BeginConnect(ip, instance._port, ConnectCallback, socket);
             }
 
-            private void ConnectCallback(IAsyncResult _result)
+            private void ConnectCallback(System.IAsyncResult _result)
             {
                 try
                 {
@@ -84,7 +80,7 @@ namespace RB.Client
 
                     stream.BeginRead(receiveBuffer, 0, dataBufferSize, ReceiveCallback, null);
                 }
-                catch(Exception e)
+                catch(System.Exception e)
                 {
                     Debug.Log("attempt failed: " + e);
 
@@ -105,13 +101,13 @@ namespace RB.Client
                         stream.BeginWrite(_packet.ToArray(), 0, _packet.Length(), null, null); // Send data to server
                     }
                 }
-                catch (Exception _ex)
+                catch (System.Exception e)
                 {
-                    Debug.Log($"Error sending data to server via TCP: {_ex}");
+                    Debug.Log($"Error sending data to server via TCP: {e}");
                 }
             }
 
-            private void ReceiveCallback(IAsyncResult _result)
+            private void ReceiveCallback(System.IAsyncResult _result)
             {
                 try
                 {
@@ -123,7 +119,7 @@ namespace RB.Client
                     }
 
                     byte[] _data = new byte[_byteLength];
-                    Array.Copy(receiveBuffer, _data, _byteLength);
+                    System.Array.Copy(receiveBuffer, _data, _byteLength);
 
                     receivedData.Reset(HandleData(_data)); // Reset receivedData if all data was handled
                     stream.BeginRead(receiveBuffer, 0, dataBufferSize, ReceiveCallback, null);
@@ -196,19 +192,19 @@ namespace RB.Client
             }
         }
 
-        public class UDP
+        public class ClientUDP
         {
-            public UdpClient socket;
-            public IPEndPoint endPoint;
+            public System.Net.Sockets.UdpClient socket;
+            public System.Net.IPEndPoint endPoint;
 
-            public UDP(string ip)
+            public ClientUDP(string ip)
             {
-                endPoint = new IPEndPoint(IPAddress.Parse(ip), instance._port);
+                endPoint = new System.Net.IPEndPoint(System.Net.IPAddress.Parse(ip), instance._port);
             }
 
             public void Connect(int _localPort)
             {
-                socket = new UdpClient(_localPort);
+                socket = new System.Net.Sockets.UdpClient(_localPort);
 
                 socket.Connect(endPoint);
                 socket.BeginReceive(ReceiveCallback, null);
@@ -229,13 +225,13 @@ namespace RB.Client
                         socket.BeginSend(_packet.ToArray(), _packet.Length(), null, null);
                     }
                 }
-                catch (Exception _ex)
+                catch (System.Exception e)
                 {
-                    Debug.Log($"Error sending data to server via UDP: {_ex}");
+                    Debug.Log($"Error sending data to server via UDP: {e}");
                 }
             }
 
-            private void ReceiveCallback(IAsyncResult _result)
+            private void ReceiveCallback(System.IAsyncResult _result)
             {
                 try
                 {
@@ -309,12 +305,12 @@ namespace RB.Client
 
         public void DisconnectClient()
         {
-            if (tcp.socket != null)
+            if (clientTCP.socket != null)
             {
-                if (tcp.socket.Connected)
+                if (clientTCP.socket.Connected)
                 {
-                    tcp.socket.Close();
-                    udp.socket.Close();
+                    clientTCP.socket.Close();
+                    clientUDP.socket.Close();
                 }
             }
 

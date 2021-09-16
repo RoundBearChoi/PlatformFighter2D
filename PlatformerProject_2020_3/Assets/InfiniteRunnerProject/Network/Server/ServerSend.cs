@@ -12,7 +12,7 @@ namespace RB.Server
             packet.WriteLength();
 
             ClientData clientData = ServerControl.CURRENT.server.connectedClients.GetClientData(toClient);
-            clientData.tcp.SendData(packet);
+            clientData.serverTCP.SendData(packet);
         }
 
         private void SendTCPDataToAll(Packet packet)
@@ -23,7 +23,7 @@ namespace RB.Server
 
             foreach(ClientData data in arr)
             {
-                data.tcp.SendData(packet);
+                data.serverTCP.SendData(packet);
             }
         }
 
@@ -35,7 +35,7 @@ namespace RB.Server
 
             foreach (ClientData data in arr)
             {
-                data.udp.SendData(packet);
+                data.serverUDP.SendData(packet);
             }
         }
 
