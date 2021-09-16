@@ -67,8 +67,8 @@ namespace RB.Server
 
                 stream.BeginRead(receiveBuffer, 0, dataBufferSize, ReceiveCallback, null);
 
-                BaseServerControl.CURRENT.serverSend.Welcome(_id, "Welcome to the server!");
-                BaseServerControl.CURRENT.serverSend.ClientsConnectionStatus();
+                ServerControl.CURRENT.serverSend.Welcome(_id, "Welcome to the server!");
+                ServerControl.CURRENT.serverSend.ClientsConnectionStatus();
             }
 
             /// <summary>Sends data to the client via TCP.</summary>
@@ -96,7 +96,7 @@ namespace RB.Server
                     int _byteLength = stream.EndRead(_result);
                     if (_byteLength <= 0)
                     {
-                        ClientData data = BaseServerControl.CURRENT.server.connectedClients.GetClientData(_id);
+                        ClientData data = ServerControl.CURRENT.server.connectedClients.GetClientData(_id);
                         data.Disconnect();
                         return;
                     }
@@ -111,7 +111,7 @@ namespace RB.Server
                 {
                     Debug.Log($"Error receiving TCP data: {_ex}");
 
-                    ClientData data = BaseServerControl.CURRENT.server.connectedClients.GetClientData(_id);
+                    ClientData data = ServerControl.CURRENT.server.connectedClients.GetClientData(_id);
                     data.Disconnect();
                 }
             }
@@ -144,7 +144,7 @@ namespace RB.Server
                         using (Packet _packet = new Packet(_packetBytes))
                         {
                             int _packetId = _packet.ReadInt();
-                            BaseServerControl.CURRENT.server.packetHandlers[_packetId](_id, _packet); // Call appropriate method to handle the packet
+                            ServerControl.CURRENT.server.packetHandlers[_packetId](_id, _packet); // Call appropriate method to handle the packet
                         }
                     });
 
@@ -202,7 +202,7 @@ namespace RB.Server
             /// <param name="_packet">The packet to send.</param>
             public void SendData(Packet _packet)
             {
-                BaseServerControl.CURRENT.server.SendUDPData(endPoint, _packet);
+                ServerControl.CURRENT.server.SendUDPData(endPoint, _packet);
             }
 
             /// <summary>Prepares received data to be used by the appropriate packet handler methods.</summary>
@@ -217,7 +217,7 @@ namespace RB.Server
                     using (Packet _packet = new Packet(_packetBytes))
                     {
                         int _packetId = _packet.ReadInt();
-                        BaseServerControl.CURRENT.server.packetHandlers[_packetId](id, _packet); // Call appropriate method to handle the packet
+                        ServerControl.CURRENT.server.packetHandlers[_packetId](id, _packet); // Call appropriate method to handle the packet
                     }
                 });
             }
@@ -269,8 +269,8 @@ namespace RB.Server
 
             ThreadManager.ExecuteOnMainThread(() =>
             {
-                BaseServerControl.CURRENT.server.connectedClients.RemoveClient(this);
-                BaseServerControl.CURRENT.serverSend.ClientsConnectionStatus();
+                ServerControl.CURRENT.server.connectedClients.RemoveClient(this);
+                ServerControl.CURRENT.serverSend.ClientsConnectionStatus();
             });
         }
 

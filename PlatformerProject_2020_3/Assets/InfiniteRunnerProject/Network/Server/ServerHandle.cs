@@ -12,7 +12,7 @@ namespace RB.Server
             int _clientIdCheck = _packet.ReadInt();
             string _username = _packet.ReadString();
 
-            ClientData data = BaseServerControl.CURRENT.server.connectedClients.GetClientData(IDReceivedFromClient);
+            ClientData data = ServerControl.CURRENT.server.connectedClients.GetClientData(IDReceivedFromClient);
             Debug.Log($"{data.tcp.socket.Client.RemoteEndPoint} connected successfully and is now player {IDReceivedFromClient}.");
             
             if (IDReceivedFromClient != _clientIdCheck)
@@ -33,7 +33,7 @@ namespace RB.Server
                 inputs[i] = packet.ReadBool();
             }
 
-            ClientData data = BaseServerControl.CURRENT.server.connectedClients.GetClientData(fromClient);
+            ClientData data = ServerControl.CURRENT.server.connectedClients.GetClientData(fromClient);
 
             if (data != null)
             {
