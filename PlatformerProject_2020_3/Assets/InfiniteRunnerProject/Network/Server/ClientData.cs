@@ -162,7 +162,6 @@ namespace RB.Server
                 return false;
             }
 
-            /// <summary>Closes and cleans up the TCP connection.</summary>
             public void Disconnect()
             {
                 socket.Close();
@@ -184,22 +183,16 @@ namespace RB.Server
                 id = _id;
             }
 
-            /// <summary>Initializes the newly connected client's UDP-related info.</summary>
-            /// <param name="_endPoint">The IPEndPoint instance of the newly connected client.</param>
             public void Connect(IPEndPoint _endPoint)
             {
                 endPoint = _endPoint;
             }
 
-            /// <summary>Sends data to the client via UDP.</summary>
-            /// <param name="_packet">The packet to send.</param>
             public void SendData(Packet _packet)
             {
                 ServerManager.CURRENT.server.SendUDPData(endPoint, _packet);
             }
 
-            /// <summary>Prepares received data to be used by the appropriate packet handler methods.</summary>
-            /// <param name="_packetData">The packet containing the recieved data.</param>
             public void HandleData(Packet _packetData)
             {
                 int _packetLength = _packetData.ReadInt();
@@ -215,44 +208,12 @@ namespace RB.Server
                 });
             }
 
-            /// <summary>Cleans up the UDP connection.</summary>
             public void Disconnect()
             {
                 endPoint = null;
             }
         }
 
-        /// <summary>Sends the client into the game and informs other clients of the new player.</summary>
-        /// <param name="_playerName">The username of the new player.</param>
-        //public void SendIntoGame(string _playerName)
-        //{
-        //    playerData = NetworkManager.instance.InstantiatePlayer();
-        //    
-        //    playerData.Initialize(_id, _playerName);
-        //
-        //    // Send all players to the new player
-        //    for (int i = 0; i < NetworkManager.instance.server.connectedClients.Length; i++)
-        //    {
-        //        if (NetworkManager.instance.server.connectedClients[i].playerData != null)
-        //        {
-        //            if (NetworkManager.instance.server.connectedClients[i]._id != _id)
-        //            {
-        //                NetworkManager.instance.serverSend.SpawnPlayer(_id, NetworkManager.instance.server.connectedClients[i].playerData);
-        //            }
-        //        }
-        //    }
-        //    
-        //    // Send the new player to all players (including himself)
-        //    for (int i = 0; i < NetworkManager.instance.server.connectedClients.Length; i++)
-        //    {
-        //        if (NetworkManager.instance.server.connectedClients[i].playerData != null)
-        //        {
-        //            NetworkManager.instance.serverSend.SpawnPlayer(NetworkManager.instance.server.connectedClients[i]._id, playerData);
-        //        }
-        //    }
-        //}
-
-        /// <summary>Disconnects the client and stops all network traffic.</summary>
         private void Disconnect()
         {
             Debug.Log($"{serverTCP.socket.Client.RemoteEndPoint} has disconnected.");

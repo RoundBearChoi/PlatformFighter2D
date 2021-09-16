@@ -81,7 +81,7 @@ namespace RB.Client
 
         public string GetUserName()
         {
-            return string.Empty;
+            return "no name";
         }
 
         public void ShowEnterIPUI()
