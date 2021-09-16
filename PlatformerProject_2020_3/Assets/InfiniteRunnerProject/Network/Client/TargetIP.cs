@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RB
+namespace RB.Client
 {
     [CreateAssetMenu(fileName = "TargetIP", menuName = "InfiniteRunner/TargetIP/TargetIP")]
     public class TargetIP : ScriptableObject
