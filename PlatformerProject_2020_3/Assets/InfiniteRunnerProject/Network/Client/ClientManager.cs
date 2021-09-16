@@ -8,7 +8,7 @@ namespace RB.Client
     {
         public static ClientManager CURRENT = null;
 
-        public Client client = null;
+        public ClientController client = null;
         private ClientInput clientInput = null;
 
         [SerializeField]
@@ -51,7 +51,7 @@ namespace RB.Client
 
             if (client == null)
             {
-                client = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT)) as Client;
+                client = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_CONTROLLER)) as ClientController;
                 client.transform.SetParent(this.transform, false);
 
                 clientInput = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_INPUT)) as ClientInput;
@@ -59,7 +59,7 @@ namespace RB.Client
             }
 
             string hostIP = GetHostIP();
-            Client.instance.ConnectToServer(hostIP);
+            ClientController.instance.ConnectToServer(hostIP);
         }
 
         public virtual string GetUserName()
@@ -69,7 +69,7 @@ namespace RB.Client
 
         public virtual int GetClientIndex()
         {
-            return Client.instance.myId;
+            return ClientController.instance.myId;
         }
 
         public virtual void ShowEnterIPUI()

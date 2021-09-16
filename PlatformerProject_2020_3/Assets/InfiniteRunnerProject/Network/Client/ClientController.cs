@@ -5,11 +5,11 @@ using RB.Network;
 
 namespace RB.Client
 {
-    public class Client : MonoBehaviour
+    public class ClientController : MonoBehaviour
     {
         readonly int _port = 26950;
 
-        public static Client instance;
+        public static ClientController instance;
         public static int dataBufferSize = 4096;
 
         public int myId = 0;

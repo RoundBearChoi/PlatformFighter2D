@@ -14,7 +14,7 @@ namespace RB
 
             LoadObj<RB.Server.ServerControl>(etcType.SERVER_CONTROL, "ServerControl");
             LoadObj<RB.Client.ClientManager>(etcType.CLIENT_MANAGER, "ClientManager");
-            LoadObj<RB.Client.Client>(etcType.CLIENT, "Client");
+            LoadObj<RB.Client.ClientController>(etcType.CLIENT_CONTROLLER, "ClientController");
             LoadObj<RB.Client.ClientInput>(etcType.CLIENT_INPUT, "ClientInput");
 
             LoadObj<ConnectedPlayerInfo>(etcType.CONNECTED_PLAYER_INFO, "ConnectedPlayerInfo");

@@ -81,7 +81,7 @@ namespace RB.Client
                 int _byteLength = _stream.EndRead(_result);
                 if (_byteLength <= 0)
                 {
-                    Client.instance.DisconnectClient();
+                    ClientController.instance.DisconnectClient();
                     return;
                 }
 
@@ -123,7 +123,7 @@ namespace RB.Client
                     using (RB.Network.Packet _packet = new RB.Network.Packet(_packetBytes))
                     {
                         int _packetId = _packet.ReadInt();
-                        Client.packetHandlers[_packetId](_packet); // Call appropriate method to handle the packet
+                        ClientController.packetHandlers[_packetId](_packet); // Call appropriate method to handle the packet
                     }
                 });
 
@@ -150,7 +150,7 @@ namespace RB.Client
 
         public void ClearTCP()
         {
-            Client.instance.DisconnectClient();
+            ClientController.instance.DisconnectClient();
 
             _stream = null;
             _receivedData = null;

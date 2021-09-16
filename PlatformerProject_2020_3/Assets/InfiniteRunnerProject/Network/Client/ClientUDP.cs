@@ -31,7 +31,7 @@ namespace RB.Client
         {
             try
             {
-                packet.InsertInt(Client.instance.myId);
+                packet.InsertInt(ClientController.instance.myId);
                 if (socket != null)
                 {
                     socket.BeginSend(packet.ToArray(), packet.Length(), null, null);
@@ -52,7 +52,7 @@ namespace RB.Client
 
                 if (_data.Length < 4)
                 {
-                    Client.instance.DisconnectClient();
+                    ClientController.instance.DisconnectClient();
                     return;
                 }
 
@@ -78,9 +78,9 @@ namespace RB.Client
                 {
                     int packetID = packet.ReadInt();
 
-                    if (Client.packetHandlers.ContainsKey(packetID))
+                    if (ClientController.packetHandlers.ContainsKey(packetID))
                     {
-                        Client.packetHandlers[packetID](packet); // Call appropriate method to handle the packet
+                        ClientController.packetHandlers[packetID](packet); // Call appropriate method to handle the packet
                     }
                     else
                     {
@@ -92,7 +92,7 @@ namespace RB.Client
 
         private void Disconnect()
         {
-            Client.instance.DisconnectClient();
+            ClientController.instance.DisconnectClient();
 
             endPoint = null;
             socket = null;

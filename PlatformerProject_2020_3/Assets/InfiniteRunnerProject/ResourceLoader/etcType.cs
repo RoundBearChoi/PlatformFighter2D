@@ -17,7 +17,7 @@ namespace RB
         SERVER_CONTROL,
         CLIENT_MANAGER,
 
-        CLIENT,
+        CLIENT_CONTROLLER,
         CLIENT_INPUT,
 
         CONNECTED_PLAYER_INFO,
