@@ -9,7 +9,7 @@ namespace RB.Client
         static BaseClientControl _current = null;
 
         [SerializeField]
-        protected string _hostIP = string.Empty;
+        protected TargetIP _targetIP = null;
 
         protected bool _connectionFailed = false;
 
@@ -36,17 +36,17 @@ namespace RB.Client
 
         public virtual void SetHostIP(string ip)
         {
-            _hostIP = ip;
+            _targetIP.hostIP = ip;
         }
 
         public virtual string GetHostIP()
         {
-            if (string.IsNullOrEmpty(_hostIP))
+            if (string.IsNullOrEmpty(_targetIP.hostIP))
             {
-                _hostIP = "127.0.0.1";
+                _targetIP.hostIP = "127.0.0.1";
             }
 
-            return _hostIP;
+            return _targetIP.hostIP;
         }
 
         public virtual void ConnectToServer()
