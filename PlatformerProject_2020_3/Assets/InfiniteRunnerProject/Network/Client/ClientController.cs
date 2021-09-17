@@ -7,8 +7,6 @@ namespace RB.Client
 {
     public class ClientController : MonoBehaviour
     {
-        readonly int _port = 26950;
-
         public static int dataBufferSize = 4096;
 
         public int myId = 0;
@@ -26,15 +24,15 @@ namespace RB.Client
         public void SetupTCPUDP()
         {
             clientTCP = new ClientTCP();
-            clientUDP = new ClientUDP(ClientManager.CURRENT.GetHostIP(), _port);
+            clientUDP = new ClientUDP(ClientManager.CURRENT.GetHostIP());
         }
 
         public void ConnectToServer(string ip)
         {
             InitClientData();
 
-            Debug.Log("attempting to connect at: " + ip + "  port: " + _port);
-            clientTCP.Connect(ip, dataBufferSize, _port);
+            Debug.Log("attempting to connect at: " + ip + "  port: " + RB.Server.Server.PORT);
+            clientTCP.Connect(ip, dataBufferSize);
         }
 
         private void InitClientData()

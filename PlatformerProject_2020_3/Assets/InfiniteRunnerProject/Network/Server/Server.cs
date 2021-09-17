@@ -11,8 +11,6 @@ namespace RB.Server
     [Serializable]
     public class Server
     {
-        readonly int _port = 26950;
-
         public Clients connectedClients = null;
         public delegate void PacketHandler(int _fromClient, Packet _packet);
         public Dictionary<int, PacketHandler> packetHandlers;
@@ -23,18 +21,26 @@ namespace RB.Server
         string _localIP = string.Empty;
         string _publicIP = string.Empty;
 
+        public static int PORT
+        {
+            get
+            {
+                return 26950;
+            }
+        }
+
         public void OpenServer()
         {
             InitServer();
 
-            tcpListener = new TcpListener(IPAddress.Any, _port);
+            tcpListener = new TcpListener(IPAddress.Any, PORT);
             tcpListener.Start();
             tcpListener.BeginAcceptTcpClient(TCPConnectCallback, null);
 
-            udpListener = new UdpClient(_port);
+            udpListener = new UdpClient(PORT);
             udpListener.BeginReceive(UDPReceiveCallback, null);
 
-            Debugger.Log($"Server started on port {_port}.");
+            Debugger.Log($"Server started on port {PORT}.");
 
             GetLocalIP();
             GetPublicIP();

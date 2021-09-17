@@ -12,7 +12,6 @@ namespace RB.Client
         byte[] _receivedBuffer;
 
         int _dataBufferSize = 0;
-        int _port = 0;
 
         public System.Net.Sockets.TcpClient SOCKET
         {
@@ -22,10 +21,9 @@ namespace RB.Client
             }
         }
 
-        public void Connect(string ip, int dataBufferSize, int port)
+        public void Connect(string ip, int dataBufferSize)
         {
             _dataBufferSize = dataBufferSize;
-            _port = port;
 
             _socket = new System.Net.Sockets.TcpClient
             {
@@ -34,7 +32,7 @@ namespace RB.Client
             };
 
             _receivedBuffer = new byte[_dataBufferSize];
-            _socket.BeginConnect(ip, _port, ConnectCallback, _socket);
+            _socket.BeginConnect(ip, RB.Server.Server.PORT, ConnectCallback, _socket);
         }
 
         private void ConnectCallback(System.IAsyncResult _result)
