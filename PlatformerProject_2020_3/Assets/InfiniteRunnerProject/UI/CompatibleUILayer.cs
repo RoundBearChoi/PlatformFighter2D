@@ -27,8 +27,8 @@ namespace RB
                 UISelection hostGameSelect = UISelection.AddUISelection(UIType.HOST_GAME_SELECT, this.transform);
                 _uiSelection = hostGameSelect;
 
-                UIElement waiting = UIElement.AddUIElement(UIElementType.WAITING_FOR_PLAYERS, this.transform);
-                _uiElements.Add(waiting);
+                //UIElement waiting = UIElement.AddUIElement(UIElementType.WAITING_FOR_PLAYERS, this.transform);
+                //_uiElements.Add(waiting);
 
                 UIElement connected = UIElement.AddUIElement(UIElementType.CONNECTED_UI, this.transform);
                 _uiElements.Add(connected);

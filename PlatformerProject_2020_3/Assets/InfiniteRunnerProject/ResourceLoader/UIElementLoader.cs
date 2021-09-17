@@ -12,7 +12,7 @@ namespace RB
 
             LoadObj<UIElement>(UIElementType.RUNNER_HP_BAR, "RunnerHPBar");
 
-            LoadObj<RB.Server.WaitingForPlayers>(UIElementType.WAITING_FOR_PLAYERS, "WaitingForPlayers");
+            //LoadObj<RB.Server.WaitingForPlayers>(UIElementType.WAITING_FOR_PLAYERS, "WaitingForPlayers");
             LoadObj<RB.Server.ServerIP>(UIElementType.SERVER_IP, "ServerIP");
 
             LoadObj<EnterHostIP>(UIElementType.ENTER_HOST_IP, "EnterHostIP");
