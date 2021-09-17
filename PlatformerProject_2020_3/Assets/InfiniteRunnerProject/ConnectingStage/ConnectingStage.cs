@@ -66,11 +66,6 @@ namespace RB
                 _baseUI.OnFixedUpdate();
             }
 
-            if (ClientManager.CURRENT.clientInput != null)
-            {
-                ClientManager.CURRENT.clientInput.SendInputToServer();
-            }
-
             _inputController.ClearAllKeysAndButtons();
         }
     }
