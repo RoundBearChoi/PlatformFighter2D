@@ -77,8 +77,10 @@ namespace RB
 
         public override void OnUpdate()
         {
+            _playerDataSender.Send();
             _inputController.GetUserInput(_inputSelection).OnUpdate();
             _baseUI.OnUpdate();
+
             cameraScript.OnUpdate();
             trailEffects.OnUpdate();
             units.OnUpdate();
@@ -108,10 +110,11 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
+            _playerDataSender.Send();
+            _baseUI.OnFixedUpdate();
+
             cameraScript.OnFixedUpdate();
             units.OnFixedUpdate();
-            _playerDataSender.OnFixedUpdate();
-            _baseUI.OnFixedUpdate();
 
             _inputController.ClearAllKeysAndButtons();
         }

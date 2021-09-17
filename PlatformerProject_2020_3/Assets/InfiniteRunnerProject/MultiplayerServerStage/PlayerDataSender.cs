@@ -38,7 +38,7 @@ namespace RB.Server
             RB.Server.ServerManager.CURRENT.serverSend.SendPlayerUnitTypes(dataset);
         }
 
-        public void OnFixedUpdate()
+        public void Send()
         {
             foreach(ServerPlayer player in _playersOnServer)
             {

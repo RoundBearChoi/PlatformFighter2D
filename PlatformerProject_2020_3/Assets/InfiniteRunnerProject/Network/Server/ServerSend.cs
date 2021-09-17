@@ -94,7 +94,7 @@ namespace RB.Server
                     packet.Write(playerData.listData[i].mFacingRight);
                 }
 
-                SendTCPDataToAll(packet);
+                SendUDPDataToAll(packet);
             }
         }
 
