@@ -25,6 +25,8 @@ namespace RB.Client
         [SerializeField]
         SpriteAnimation _currentAnimation = null;
 
+        Unit _offlineDummy = null;
+
         private bool _initialized = false;
 
         public int ID
@@ -48,6 +50,11 @@ namespace RB.Client
             _id = id;
         }
 
+        public void SetDummyUnit(Unit dummy)
+        {
+            _offlineDummy = dummy;
+        }
+
         public void SetTargetPosition(Vector3 pos)
         {
             _targetPosition = pos;
@@ -56,7 +63,14 @@ namespace RB.Client
 
         public void UpdatePosition()
         {
-            _playerPositionSphere.transform.position = Vector3.Lerp(_playerPositionSphere.transform.position, _targetPosition, 0.4f);
+            if (_offlineDummy != null)
+            {
+                _playerPositionSphere.transform.position = Vector3.Lerp(_targetPosition, _offlineDummy.transform.position, 0.6667f);
+            }
+            else
+            {
+                _playerPositionSphere.transform.position = Vector3.Lerp(_playerPositionSphere.transform.position, _targetPosition, 0.5f);
+            }
         }
 
         public GameObject GetPlayerSphere()

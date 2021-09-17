@@ -73,6 +73,11 @@ namespace RB
 
                     UnitCreationSpec creationSpec = BaseInitializer.current.specsGetter.GetSpec_ByUnitType(playerData.listData[i]);
                     clientObj.AddSpriteAnimations(creationSpec);
+
+                    if (playerData.listIDs[i] == RB.Client.ClientManager.CURRENT.clientController.myId)
+                    {
+                        clientObj.SetDummyUnit(_dummyOfflinePlayer);
+                    }
                 }
             }
         }
