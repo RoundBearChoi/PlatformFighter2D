@@ -22,7 +22,7 @@ namespace RB.Server
 
         public void SendData(RB.Network.Packet packet)
         {
-            ServerManager.CURRENT.server.SendUDPData(ipEndPoint, packet);
+            ServerManager.CURRENT.serverController.SendUDPData(ipEndPoint, packet);
         }
 
         public void HandleData(RB.Network.Packet packetData)
@@ -35,7 +35,7 @@ namespace RB.Server
                 using (RB.Network.Packet packet = new RB.Network.Packet(packetBytes))
                 {
                     int packetId = packet.ReadInt();
-                    ServerManager.CURRENT.server.packetHandlers[packetId](_clientID, packet);
+                    ServerManager.CURRENT.serverController.packetHandlers[packetId](_clientID, packet);
                 }
             });
         }

@@ -13,6 +13,8 @@ namespace RB
             LoadObj<EnemyHPBar>(etcType.HP_BAR, "EnemyHPBar");
 
             LoadObj<RB.Server.ServerManager>(etcType.SERVER_MANAGER, "ServerManager");
+            LoadObj<RB.Server.ServerController>(etcType.SERVER_CONTROLLER, "ServerController");
+
             LoadObj<RB.Client.ClientManager>(etcType.CLIENT_MANAGER, "ClientManager");
             LoadObj<RB.Client.ClientController>(etcType.CLIENT_CONTROLLER, "ClientController");
             LoadObj<RB.Client.ClientInputSender>(etcType.CLIENT_INPUT, "ClientInputSender");

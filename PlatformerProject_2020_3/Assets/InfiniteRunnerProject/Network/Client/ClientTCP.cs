@@ -32,7 +32,7 @@ namespace RB.Client
             };
 
             _receivedBuffer = new byte[_dataBufferSize];
-            _socket.BeginConnect(ip, RB.Server.Server.PORT, ConnectCallback, _socket);
+            _socket.BeginConnect(ip, RB.Server.ServerController.PORT, ConnectCallback, _socket);
         }
 
         private void ConnectCallback(System.IAsyncResult _result)

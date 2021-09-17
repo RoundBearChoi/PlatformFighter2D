@@ -1,22 +1,19 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Net;
-using System.Net.Sockets;
 using UnityEngine;
 using RB.Network;
 
 namespace RB.Server
 {
-    [Serializable]
-    public class Server
+    public class ServerController : MonoBehaviour
     {
         public Clients connectedClients = null;
         public delegate void PacketHandler(int _fromClient, Packet _packet);
         public Dictionary<int, PacketHandler> packetHandlers;
 
-        TcpListener tcpListener = null;
-        UdpClient udpListener = null;
+        System.Net.Sockets.TcpListener tcpListener = null;
+        System.Net.Sockets.UdpClient udpListener = null;
 
         string _localIP = string.Empty;
         string _publicIP = string.Empty;
@@ -33,11 +30,11 @@ namespace RB.Server
         {
             InitServer();
 
-            tcpListener = new TcpListener(IPAddress.Any, PORT);
+            tcpListener = new System.Net.Sockets.TcpListener(System.Net.IPAddress.Any, PORT);
             tcpListener.Start();
             tcpListener.BeginAcceptTcpClient(TCPConnectCallback, null);
 
-            udpListener = new UdpClient(PORT);
+            udpListener = new System.Net.Sockets.UdpClient(PORT);
             udpListener.BeginReceive(UDPReceiveCallback, null);
 
             Debugger.Log($"Server started on port {PORT}.");
@@ -48,11 +45,11 @@ namespace RB.Server
 
         public void GetLocalIP()
         {
-            IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
+            System.Net.IPHostEntry host = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName());
 
-            foreach (IPAddress ip in host.AddressList)
+            foreach (System.Net.IPAddress ip in host.AddressList)
             {
-                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
                 {
                     _localIP = ip.ToString();
                 }
@@ -79,7 +76,7 @@ namespace RB.Server
             {
                 if (BaseInitializer.current.GetStage() is HostGameStage)
                 {
-                    TcpClient tcpClient = tcpListener.EndAcceptTcpClient(result);
+                    System.Net.Sockets.TcpClient tcpClient = tcpListener.EndAcceptTcpClient(result);
                     tcpListener.BeginAcceptTcpClient(TCPConnectCallback, null);
 
                     Debugger.Log("incoming connection from: " + (tcpClient.Client.RemoteEndPoint));
@@ -98,36 +95,36 @@ namespace RB.Server
             }
         }
 
-        private void UDPReceiveCallback(IAsyncResult _result)
+        private void UDPReceiveCallback(IAsyncResult result)
         {
             try
             {
-                IPEndPoint _clientEndPoint = new IPEndPoint(IPAddress.Any, 0);
-                byte[] _data = udpListener.EndReceive(_result, ref _clientEndPoint);
+                System.Net.IPEndPoint clientEndPoint = new System.Net.IPEndPoint(System.Net.IPAddress.Any, 0);
+                byte[] received = udpListener.EndReceive(result, ref clientEndPoint);
                 udpListener.BeginReceive(UDPReceiveCallback, null);
 
-                if (_data.Length < 4)
+                if (received.Length < 4)
                 {
                     return;
                 }
 
-                using (Packet _packet = new Packet(_data))
+                using (Packet packet = new Packet(received))
                 {
-                    int clientId = _packet.ReadInt();
+                    int clientId = packet.ReadInt();
 
-                    ClientData data = connectedClients.GetClientData(clientId);
+                    ClientData clientData = connectedClients.GetClientData(clientId);
 
-                    if (data.serverUDP.ipEndPoint == null)
+                    if (clientData.serverUDP.ipEndPoint == null)
                     {
                         // If this is a new connection
-                        data.serverUDP.Connect(_clientEndPoint);
+                        clientData.serverUDP.Connect(clientEndPoint);
                         return;
                     }
 
-                    if (data.serverUDP.ipEndPoint.ToString() == _clientEndPoint.ToString())
+                    if (clientData.serverUDP.ipEndPoint.ToString() == clientEndPoint.ToString())
                     {
                         // Ensures that the client is not being impersonated by another by sending a false clientID
-                        data.serverUDP.HandleData(_packet);
+                        clientData.serverUDP.HandleData(packet);
                     }
                 }
             }
@@ -137,18 +134,18 @@ namespace RB.Server
             }
         }
 
-        public void SendUDPData(IPEndPoint _clientEndPoint, Packet _packet)
+        public void SendUDPData(System.Net.IPEndPoint clientEndPoint, Packet packet)
         {
             try
             {
-                if (_clientEndPoint != null)
+                if (clientEndPoint != null)
                 {
-                    udpListener.BeginSend(_packet.ToArray(), _packet.Length(), _clientEndPoint, null, null);
+                    udpListener.BeginSend(packet.ToArray(), packet.Length(), clientEndPoint, null, null);
                 }
             }
             catch (Exception _ex)
             {
-                Debug.Log($"Error sending data to {_clientEndPoint} via UDP: {_ex}");
+                Debug.Log($"Error sending data to {clientEndPoint} via UDP: {_ex}");
             }
         }
 

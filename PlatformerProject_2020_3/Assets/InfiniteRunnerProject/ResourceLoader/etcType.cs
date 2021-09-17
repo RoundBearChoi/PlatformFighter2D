@@ -18,6 +18,8 @@ namespace RB
         CLIENT_MANAGER,
 
         CLIENT_CONTROLLER,
+        SERVER_CONTROLLER,
+
         CLIENT_INPUT,
 
         CONNECTED_PLAYER_INFO,

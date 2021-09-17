@@ -19,7 +19,7 @@ namespace RB.Client
         
         public ClientUDP(string ip)
         {
-            _endPoint = new System.Net.IPEndPoint(System.Net.IPAddress.Parse(ip), RB.Server.Server.PORT);
+            _endPoint = new System.Net.IPEndPoint(System.Net.IPAddress.Parse(ip), RB.Server.ServerController.PORT);
         }
 
         public void Connect(int _localPort)

@@ -38,7 +38,7 @@ namespace RB.Server
 
             ThreadManager.ExecuteOnMainThread(() =>
             {
-                ServerManager.CURRENT.server.connectedClients.RemoveClient(this);
+                ServerManager.CURRENT.serverController.connectedClients.RemoveClient(this);
                 ServerManager.CURRENT.serverSend.ClientsConnectionStatus();
             });
         }

@@ -31,7 +31,7 @@ namespace RB.Client
         {
             InitClientData();
 
-            Debug.Log("attempting to connect at: " + ip + "  port: " + RB.Server.Server.PORT);
+            Debug.Log("attempting to connect at: " + ip + "  port: " + RB.Server.ServerController.PORT);
             clientTCP.Connect(ip, dataBufferSize);
         }
 

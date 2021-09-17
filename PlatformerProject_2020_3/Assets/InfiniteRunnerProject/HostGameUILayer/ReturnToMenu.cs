@@ -13,7 +13,7 @@ namespace RB
             
             if (RB.Server.ServerManager.CURRENT != null)
             {
-                RB.Server.ServerManager.CURRENT.server.Stop();
+                RB.Server.ServerManager.CURRENT.serverController.Stop();
                 Destroy(RB.Server.ServerManager.CURRENT.gameObject);
             }
 

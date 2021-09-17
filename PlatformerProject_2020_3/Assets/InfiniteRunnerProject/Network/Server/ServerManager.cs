@@ -6,7 +6,7 @@ namespace RB.Server
 {
     public class ServerManager : MonoBehaviour
     {
-        public Server server = null;
+        public ServerController serverController = null;
         public ServerSend serverSend = null;
 
         private static ServerManager _current = null;
@@ -27,8 +27,10 @@ namespace RB.Server
 
             _current = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.SERVER_MANAGER)) as RB.Server.ServerManager;
 
-            _current.server = new Server();
-            _current.server.OpenServer();
+            _current.serverController = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.SERVER_CONTROLLER)) as ServerController;
+            _current.serverController.transform.SetParent(_current.transform, true);
+
+            _current.serverController.OpenServer();
 
             _current.serverSend = new ServerSend();
         }
@@ -43,7 +45,7 @@ namespace RB.Server
 
         private void OnApplicationQuit()
         {
-            server.Stop();
+            serverController.Stop();
         }
     }
 }

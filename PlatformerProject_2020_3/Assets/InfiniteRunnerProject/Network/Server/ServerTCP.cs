@@ -71,7 +71,7 @@ namespace RB.Server
                 int byteLength = stream.EndRead(result);
                 if (byteLength <= 0)
                 {
-                    ClientData clientData = ServerManager.CURRENT.server.connectedClients.GetClientData(_id);
+                    ClientData clientData = ServerManager.CURRENT.serverController.connectedClients.GetClientData(_id);
                     clientData.Disconnect();
                     return;
                 }
@@ -86,7 +86,7 @@ namespace RB.Server
             {
                 Debug.Log($"Error receiving TCP data: {e}");
 
-                ClientData clientData = ServerManager.CURRENT.server.connectedClients.GetClientData(_id);
+                ClientData clientData = ServerManager.CURRENT.serverController.connectedClients.GetClientData(_id);
                 clientData.Disconnect();
             }
         }
@@ -117,7 +117,7 @@ namespace RB.Server
                     using (RB.Network.Packet _packet = new RB.Network.Packet(_packetBytes))
                     {
                         int _packetId = _packet.ReadInt();
-                        ServerManager.CURRENT.server.packetHandlers[_packetId](_id, _packet); // Call appropriate method to handle the packet
+                        ServerManager.CURRENT.serverController.packetHandlers[_packetId](_id, _packet); // Call appropriate method to handle the packet
                     }
                 });
 
