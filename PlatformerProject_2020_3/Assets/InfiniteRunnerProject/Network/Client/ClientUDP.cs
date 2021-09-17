@@ -47,28 +47,29 @@ namespace RB.Client
             }
             catch (System.Exception e)
             {
-                Debug.Log($"Error sending data to server via UDP: {e}");
+                Debug.Log("system error sending UDP to server: " + e);
             }
         }
 
-        private void ReceiveCallback(System.IAsyncResult _result)
+        private void ReceiveCallback(System.IAsyncResult result)
         {
             try
             {
-                byte[] _data = _socket.EndReceive(_result, ref _endPoint);
+                byte[] arr = _socket.EndReceive(result, ref _endPoint);
                 _socket.BeginReceive(ReceiveCallback, null);
 
-                if (_data.Length < 4)
+                if (arr.Length < 4)
                 {
                     ClientManager.CURRENT.DisconnectClient();
                     return;
                 }
 
-                HandleData(_data);
+                HandleData(arr);
             }
-            catch
+            catch (System.Exception e)
             {
-                Disconnect();
+                Debugger.Log("system error sending UDP to server: " + e);
+                ClientManager.CURRENT.DisconnectClient();
             }
         }
 
@@ -96,14 +97,6 @@ namespace RB.Client
                     }
                 }
             });
-        }
-
-        private void Disconnect()
-        {
-            ClientManager.CURRENT.DisconnectClient();
-
-            _endPoint = null;
-            _socket = null;
         }
     }
 }

@@ -69,11 +69,11 @@ namespace RB.Client
             }
             catch (System.Exception e)
             {
-                Debugger.Log("System error sending data to server via TCP: " + e);
+                Debugger.Log("System error sending TCP to server: " + e);
+                ClientManager.CURRENT.DisconnectClient();
 
                 RB.Network.ThreadControl.ExecuteOnMainThread(() =>
                 {
-                    ClientManager.CURRENT.DisconnectClient();
                     BaseInitializer.current.stageTransitioner.AddNextStage(GameObject.Instantiate(ResourceLoader.stageLoader.GetObj(StageType.INTRO_STAGE)) as BaseStage);
                 });
             }

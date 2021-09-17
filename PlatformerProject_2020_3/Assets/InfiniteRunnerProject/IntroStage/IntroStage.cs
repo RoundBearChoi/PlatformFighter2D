@@ -11,17 +11,6 @@ namespace RB
 
         public override void Init()
         {
-            //start clean
-            if (RB.Client.ClientManager.CURRENT != null)
-            {
-                Destroy(RB.Client.ClientManager.CURRENT.gameObject);
-            }
-
-            if (RB.Server.ServerManager.CURRENT != null)
-            {
-                Destroy(RB.Server.ServerManager.CURRENT.gameObject);
-            }
-
             IntroCamera introCam = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.INTRO_CAMERA)) as IntroCamera;
             introCam.transform.parent = this.transform;
 

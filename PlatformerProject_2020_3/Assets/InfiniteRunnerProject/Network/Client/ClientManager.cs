@@ -27,18 +27,6 @@ namespace RB.Client
 
         public static void Init()
         {
-            //destroy existing
-            if (_current != null)
-            {
-                Destroy(_current.gameObject);
-            }
-
-            //can either be server or client
-            if (RB.Server.ServerManager.CURRENT != null)
-            {
-                Destroy(RB.Server.ServerManager.CURRENT.gameObject);
-            }
-
             _current = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_MANAGER)) as ClientManager;
 
             _current.clientController = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_CONTROLLER)) as ClientController;
@@ -105,16 +93,8 @@ namespace RB.Client
                 }
             }
 
-            Debug.Log("Disconnected from server.");
-
-            RB.Network.ThreadControl.ExecuteOnMainThread(() =>
-            {
-                Debugger.Log("returning to menu");
-
-                //do this separately
-                //show notification instead, and then switch to intro stage
-                //BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
-            });
+            Debug.Log("disconnected from server.. destroying ClientManager");
+            Destroy(_current.gameObject);
         }
     }
 }

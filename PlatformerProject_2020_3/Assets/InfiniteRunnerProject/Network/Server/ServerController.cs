@@ -171,6 +171,8 @@ namespace RB.Server
         {
             tcpListener.Stop();
             udpListener.Close();
+
+            Destroy(ServerManager.CURRENT.gameObject);
         }
     }
 }
