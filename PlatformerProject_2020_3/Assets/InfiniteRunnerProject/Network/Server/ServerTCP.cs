@@ -13,9 +13,8 @@ namespace RB.Server
         public System.Net.Sockets.TcpClient socket;
 
         int _dataBufferSize = 0;
-        System.Net.Sockets.NetworkStream stream;
-        //RB.Network.Packet _receivedData;
-        byte[] receiveBuffer;
+        System.Net.Sockets.NetworkStream _stream;
+        byte[] _receivedBuffer;
 
         public ServerTCP(int id)
         {
@@ -36,14 +35,13 @@ namespace RB.Server
             socket.ReceiveBufferSize = dataBufferSize;
             socket.SendBufferSize = dataBufferSize;
 
-            stream = socket.GetStream();
+            _stream = socket.GetStream();
 
             _dataBufferSize = dataBufferSize;
 
-            //_receivedData = new RB.Network.Packet();
-            receiveBuffer = new byte[_dataBufferSize];
+            _receivedBuffer = new byte[_dataBufferSize];
 
-            stream.BeginRead(receiveBuffer, 0, _dataBufferSize, ReceiveCallback, null);
+            _stream.BeginRead(_receivedBuffer, 0, _dataBufferSize, ReceiveCallback, null);
 
             ServerManager.CURRENT.serverSend.Welcome(_id, "Welcome to the server!");
             ServerManager.CURRENT.serverSend.ClientsConnectionStatus();
@@ -55,7 +53,7 @@ namespace RB.Server
             {
                 if (socket != null)
                 {
-                    stream.BeginWrite(_packet.ToArray(), 0, _packet.Length(), null, null);
+                    _stream.BeginWrite(_packet.ToArray(), 0, _packet.Length(), null, null);
                 }
             }
             catch (System.Exception e)
@@ -68,7 +66,7 @@ namespace RB.Server
         {
             try
             {
-                int byteLength = stream.EndRead(result);
+                int byteLength = _stream.EndRead(result);
 
                 if (byteLength <= 0)
                 {
@@ -80,14 +78,13 @@ namespace RB.Server
                     return;
                 }
 
-                byte[] data = new byte[byteLength];
-                System.Array.Copy(receiveBuffer, data, byteLength);
+                byte[] arr = new byte[byteLength];
+                System.Array.Copy(_receivedBuffer, arr, byteLength);
 
-                RB.Network.Packet packet = HandleData(data);
+                RB.Network.Packet packet = HandleData(arr);
                 packet.Dispose();
-                //_receivedData.Reset(HandleData(data));
 
-                stream.BeginRead(receiveBuffer, 0, _dataBufferSize, ReceiveCallback, null);
+                _stream.BeginRead(_receivedBuffer, 0, _dataBufferSize, ReceiveCallback, null);
             }
             catch (System.Exception e)
             {
@@ -155,9 +152,9 @@ namespace RB.Server
         {
             socket.Close();
 
-            stream = null;
+            _stream = null;
             //_receivedData = null;
-            receiveBuffer = null;
+            _receivedBuffer = null;
             socket = null;
         }
     }

@@ -9,7 +9,6 @@ namespace RB.Client
         System.Net.Sockets.TcpClient _socket;
         System.Net.Sockets.NetworkStream _stream;
         byte[] _receivedBuffer;
-
         int _dataBufferSize = 0;
 
         public System.Net.Sockets.TcpClient SOCKET
@@ -80,21 +79,23 @@ namespace RB.Client
             }
         }
 
-        private void ReceiveCallback(System.IAsyncResult _result)
+        private void ReceiveCallback(System.IAsyncResult result)
         {
             try
             {
-                int _byteLength = _stream.EndRead(_result);
-                if (_byteLength <= 0)
+                int byteLength = _stream.EndRead(result);
+
+                if (byteLength <= 0)
                 {
                     ClientManager.CURRENT.DisconnectClient();
                     return;
                 }
 
-                byte[] _data = new byte[_byteLength];
-                System.Array.Copy(_receivedBuffer, _data, _byteLength);
+                byte[] arr = new byte[byteLength];
+                System.Array.Copy(_receivedBuffer, arr, byteLength);
 
-                RB.Network.Packet packet = HandleData(_data);
+                RB.Network.Packet packet = HandleData(arr);
+
                 packet.Dispose();
 
                 _stream.BeginRead(_receivedBuffer, 0, _dataBufferSize, ReceiveCallback, null);
