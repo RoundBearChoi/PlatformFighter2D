@@ -9,15 +9,28 @@ namespace RB
     public class MultiplayerClientStage : BaseStage
     {
         [SerializeField]
+        InputType _inputSelection = InputType.PLAYER_ONE;
+
+        [SerializeField]
         ClientObjects _clientObjects = null;
+
+        Unit _dummyOfflinePlayer = null;
 
         public override void Init()
         {
             units = new Units(this);
 
-            _inputController.AddInput();
-
             _clientObjects = new ClientObjects();
+
+            Physics2D.gravity = new Vector2(0f, BaseInitializer.current.fighterDataSO.Gravity);
+
+            //dummy player
+            InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_DARK);
+            _dummyOfflinePlayer = units.GetUnit<LittleRed>();
+
+            UserInput input = _inputController.AddInput();
+            _inputSelection = input.INPUT_TYPE;
+            _dummyOfflinePlayer.SetUserInput(input);
 
             //load level 3 (oldcity)
             GameObject levelObj = Instantiate(ResourceLoader.levelLoader.GetObj(3)) as GameObject;
@@ -73,6 +86,11 @@ namespace RB
                     ClientObject clientObj = _clientObjects.GetClientObj(playerData.listIDs[i]);
                     clientObj.SetTargetPosition(playerData.listData[i].mPosition);
                     clientObj.UpdateDirection(playerData.listData[i].mFacingRight);
+
+                    if (RB.Client.ClientManager.CURRENT.clientController.myId == playerData.listIDs[i])
+                    {
+                        _dummyOfflinePlayer.transform.position = playerData.listData[i].mPosition;
+                    }
                 }
             }
         }
@@ -87,6 +105,7 @@ namespace RB
             _inputController.GetLatestUserInput().OnUpdate();
             _clientObjects.OnUpdate();
             units.OnUpdate();
+            trailEffects.OnUpdate();
             cameraScript.OnUpdate();
 
             if (_baseUI != null)
@@ -128,6 +147,11 @@ namespace RB
             }
 
             _inputController.ClearAllKeysAndButtons();
+        }
+
+        public override float GetCumulativeGravityForcePercentage()
+        {
+            return BaseInitializer.current.fighterDataSO.CumulativeGravityForcePercentage;
         }
 
         public override CameraState GetStageDefaultCameraState()
