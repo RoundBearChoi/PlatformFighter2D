@@ -34,7 +34,7 @@ namespace RB.Server
         {
             try
             {
-                ClientData data = new ClientData(_connectCount);
+                ClientData clientData = new ClientData(_connectCount);
 
                 _connectCount++;
 
@@ -43,8 +43,8 @@ namespace RB.Server
                     _connectCount = 0;
                 }
 
-                _listClientData.Add(data);
-                data.serverTCP.Connect(tcpClient);
+                _listClientData.Add(clientData);
+                clientData.serverTCP.Connect(tcpClient, ClientData.dataBufferSize);
                 
                 return true;
             }
