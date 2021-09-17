@@ -61,6 +61,7 @@ MonoBehaviour:
   deathAnimationTriggered: 0
   destroy: 0
   hpBar: {fileID: 0}
+  clientIndex: 0
   _userInput:
     _inputType: 0
 --- !u!1 &9046079645687038782
@@ -110,7 +111,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9046079645687038782}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -122,7 +123,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c3c679d1a9ef4374eb9249129809c1af, type: 2}
+  - {fileID: 2100000, guid: d57e364e947a23841b28cb56b28b7150, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

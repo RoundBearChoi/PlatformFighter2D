@@ -14,6 +14,9 @@ namespace RB.Client
         Vector3 _targetPosition = new Vector3();
 
         [SerializeField]
+        GameObject _targetPositionSphere = null;
+
+        [SerializeField]
         GameObject _playerPositionSphere = null;
 
         [SerializeField]
@@ -48,11 +51,12 @@ namespace RB.Client
         public void SetTargetPosition(Vector3 pos)
         {
             _targetPosition = pos;
+            _targetPositionSphere.transform.position = pos;
         }
 
         public void UpdatePosition()
         {
-            _playerPositionSphere.transform.position = Vector3.Lerp(_playerPositionSphere.transform.position, _targetPosition, 0.333f);
+            _playerPositionSphere.transform.position = Vector3.Lerp(_playerPositionSphere.transform.position, _targetPosition, 0.4f);
         }
 
         public GameObject GetPlayerSphere()
