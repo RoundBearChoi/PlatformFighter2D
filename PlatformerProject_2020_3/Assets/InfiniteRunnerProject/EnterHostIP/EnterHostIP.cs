@@ -11,20 +11,8 @@ namespace RB
         [SerializeField]
         InputField _inputField = null;
 
-        [SerializeField]
-        GameObject _connectionFailedMessage = null;
-
         public override void InitElement()
         {
-            if (ClientManager.CURRENT.CONNECTION_FAILED)
-            {
-                _connectionFailedMessage.SetActive(true);
-            }
-            else
-            {
-                _connectionFailedMessage.SetActive(false);
-            }
-
             StartCoroutine(_setDefaultText());
         }
 

@@ -59,7 +59,6 @@ namespace RB.Client
                 RB.Network.ThreadManager.ExecuteOnMainThread(() =>
                 {
                     ClientManager.CURRENT.ShowEnterIPUI();
-                    ClientManager.CURRENT.QueueConnectionFailedMessage();
                 });
             }
         }

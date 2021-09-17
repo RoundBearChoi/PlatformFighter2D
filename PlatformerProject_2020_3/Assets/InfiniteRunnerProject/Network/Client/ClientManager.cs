@@ -17,21 +17,11 @@ namespace RB.Client
         [SerializeField]
         TargetIP _targetIP = null;
 
-        bool _connectionFailed = false;
-
         public static ClientManager CURRENT
         {
             get
             {
                 return _current;
-            }
-        }
-
-        public bool CONNECTION_FAILED
-        {
-            get
-            {
-                return _connectionFailed;
             }
         }
 
@@ -75,8 +65,6 @@ namespace RB.Client
 
         public void ConnectToServer()
         {
-            _connectionFailed = false;
-
             _clientConnections = new[] {
                 new ClientConnection (999, false),
                 new ClientConnection (999, false),
@@ -94,11 +82,6 @@ namespace RB.Client
         public void ShowEnterIPUI()
         {
             BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.ENTER_IP_STAGE));
-        }
-
-        public void QueueConnectionFailedMessage()
-        {
-            _connectionFailed = true;
         }
 
         public void UpdateClientConnectionStatus(ClientConnection[] arr)

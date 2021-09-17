@@ -25,11 +25,6 @@ namespace RB
             _baseUI.transform.parent = this.transform;
             
             _baseUI.Init(BaseUIType.ENTER_IP_UI);
-
-            if (ClientManager.CURRENT.CONNECTION_FAILED)
-            {
-                Debugger.Log("prev connection attempt failed: " + ClientManager.CURRENT.GetHostIP());
-            }
         }
 
         public override void OnUpdate()
