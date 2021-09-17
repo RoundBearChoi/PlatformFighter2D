@@ -196,7 +196,7 @@ namespace RB
             {
                 if (_listUnits[i].destroy == true)
                 {
-                    //Debugger.Log("destroying: " + _listUnits[i].gameObject.name);
+                    //Debugger.Log("destroying unit: " + _listUnits[i].gameObject.name);
                     GameObject.Destroy(_listUnits[i].gameObject);
                     _listUnits.RemoveAt(i);
                 }

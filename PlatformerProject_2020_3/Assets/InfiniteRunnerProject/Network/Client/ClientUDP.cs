@@ -60,6 +60,7 @@ namespace RB.Client
 
                 if (arr.Length < 4)
                 {
+                    Debugger.Log("received less than 4 bytes");
                     ClientManager.CURRENT.DisconnectClient();
                     return;
                 }
