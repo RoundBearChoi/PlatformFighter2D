@@ -35,21 +35,20 @@ namespace RB.Client
             _socket.BeginConnect(ip, RB.Server.ServerController.PORT, ConnectCallback, _socket);
         }
 
-        private void ConnectCallback(System.IAsyncResult _result)
+        private void ConnectCallback(System.IAsyncResult result)
         {
             try
             {
-                _socket.EndConnect(_result);
+                _socket.EndConnect(result);
 
                 if (!_socket.Connected)
                 {
                     return;
                 }
 
-                _stream = _socket.GetStream();
-
                 _receivedData = new RB.Network.Packet();
 
+                _stream = _socket.GetStream();
                 _stream.BeginRead(_receivedBuffer, 0, _dataBufferSize, ReceiveCallback, null);
             }
             catch (System.Exception e)
@@ -104,7 +103,6 @@ namespace RB.Client
             catch
             {
                 ClientManager.CURRENT.DisconnectClient();
-                //ClearTCP();
             }
         }
 

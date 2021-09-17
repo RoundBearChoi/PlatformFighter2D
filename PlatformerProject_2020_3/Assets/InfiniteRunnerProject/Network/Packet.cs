@@ -91,13 +91,13 @@ namespace RB.Network
         {
             if (_shouldReset)
             {
-                buffer.Clear(); // Clear buffer
+                buffer.Clear();
                 readableBuffer = null;
-                readPos = 0; // Reset readPos
+                readPos = 0;
             }
             else
             {
-                readPos -= 4; // "Unread" the last read int
+                readPos -= 4;
             }
         }
 

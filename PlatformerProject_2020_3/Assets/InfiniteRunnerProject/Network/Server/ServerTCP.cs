@@ -84,7 +84,7 @@ namespace RB.Server
             }
             catch (System.Exception e)
             {
-                Debug.Log($"Error receiving TCP data: {e}");
+                Debug.Log("system error receiving TCP data: " + e);
 
                 ClientData clientData = ServerManager.CURRENT.serverController.connectedClients.GetClientData(_id);
                 clientData.Disconnect();

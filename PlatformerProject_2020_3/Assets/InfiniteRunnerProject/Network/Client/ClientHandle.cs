@@ -13,7 +13,7 @@ namespace RB.Client
             string msg = packet.ReadString();
             int myId = packet.ReadInt();
 
-            Debug.Log($"Message from server: {msg}");
+            Debugger.Log("message from server: " + msg);
             ClientManager.CURRENT.clientController.myId = myId;
             ClientSend.WelcomeReceived();
 
