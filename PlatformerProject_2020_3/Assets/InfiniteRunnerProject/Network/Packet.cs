@@ -87,9 +87,9 @@ namespace RB.Network
             return Length() - readPos; // Return the remaining length (unread)
         }
 
-        public void Reset(bool _shouldReset = true)
+        public void Reset(bool shouldReset = true)
         {
-            if (_shouldReset)
+            if (shouldReset)
             {
                 buffer.Clear();
                 readableBuffer = null;

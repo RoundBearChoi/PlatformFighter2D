@@ -14,7 +14,7 @@ namespace RB.Server
 
         int _dataBufferSize = 0;
         System.Net.Sockets.NetworkStream stream;
-        RB.Network.Packet receivedData;
+        RB.Network.Packet _receivedData;
         byte[] receiveBuffer;
 
         public ServerTCP(int id)
@@ -40,7 +40,7 @@ namespace RB.Server
 
             _dataBufferSize = dataBufferSize;
 
-            receivedData = new RB.Network.Packet();
+            _receivedData = new RB.Network.Packet();
             receiveBuffer = new byte[_dataBufferSize];
 
             stream.BeginRead(receiveBuffer, 0, _dataBufferSize, ReceiveCallback, null);
@@ -69,17 +69,22 @@ namespace RB.Server
             try
             {
                 int byteLength = stream.EndRead(result);
+
                 if (byteLength <= 0)
                 {
                     ClientData clientData = ServerManager.CURRENT.serverController.connectedClients.GetClientData(_id);
                     clientData.Disconnect();
+
+                    Debugger.Log("received 0 bytes from client: " + _id);
+
                     return;
                 }
 
                 byte[] data = new byte[byteLength];
                 System.Array.Copy(receiveBuffer, data, byteLength);
 
-                receivedData.Reset(HandleData(data)); // Reset receivedData if all data was handled
+                _receivedData.Reset(HandleData(data));
+
                 stream.BeginRead(receiveBuffer, 0, _dataBufferSize, ReceiveCallback, null);
             }
             catch (System.Exception e)
@@ -95,12 +100,12 @@ namespace RB.Server
         {
             int packetLength = 0;
 
-            receivedData.SetBytes(data);
+            _receivedData.SetBytes(data);
 
-            if (receivedData.UnreadLength() >= 4)
+            if (_receivedData.UnreadLength() >= 4)
             {
                 // If client's received data contains a packet
-                packetLength = receivedData.ReadInt();
+                packetLength = _receivedData.ReadInt();
                 if (packetLength <= 0)
                 {
                     // If packet contains no data
@@ -108,10 +113,10 @@ namespace RB.Server
                 }
             }
 
-            while (packetLength > 0 && packetLength <= receivedData.UnreadLength())
+            while (packetLength > 0 && packetLength <= _receivedData.UnreadLength())
             {
                 // While packet contains data AND packet data length doesn't exceed the length of the packet we're reading
-                byte[] _packetBytes = receivedData.ReadBytes(packetLength);
+                byte[] _packetBytes = _receivedData.ReadBytes(packetLength);
                 RB.Network.ThreadControl.ExecuteOnMainThread(() =>
                 {
                     using (RB.Network.Packet _packet = new RB.Network.Packet(_packetBytes))
@@ -122,10 +127,10 @@ namespace RB.Server
                 });
 
                 packetLength = 0; // Reset packet length
-                if (receivedData.UnreadLength() >= 4)
+                if (_receivedData.UnreadLength() >= 4)
                 {
                     // If client's received data contains another packet
-                    packetLength = receivedData.ReadInt();
+                    packetLength = _receivedData.ReadInt();
                     if (packetLength <= 0)
                     {
                         // If packet contains no data
@@ -147,7 +152,7 @@ namespace RB.Server
             socket.Close();
 
             stream = null;
-            receivedData = null;
+            _receivedData = null;
             receiveBuffer = null;
             socket = null;
         }
