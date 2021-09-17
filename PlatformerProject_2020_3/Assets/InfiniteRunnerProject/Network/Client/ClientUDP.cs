@@ -80,7 +80,7 @@ namespace RB.Client
                 data = packet.ReadBytes(packetLength);
             }
 
-            RB.Network.ThreadManager.ExecuteOnMainThread(() =>
+            RB.Network.ThreadControl.ExecuteOnMainThread(() =>
             {
                 using (RB.Network.Packet packet = new RB.Network.Packet(data))
                 {

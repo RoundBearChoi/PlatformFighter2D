@@ -30,7 +30,7 @@ namespace RB.Server
             int packetLength = packetData.ReadInt();
             byte[] packetBytes = packetData.ReadBytes(packetLength);
 
-            RB.Network.ThreadManager.ExecuteOnMainThread(() =>
+            RB.Network.ThreadControl.ExecuteOnMainThread(() =>
             {
                 using (RB.Network.Packet packet = new RB.Network.Packet(packetBytes))
                 {

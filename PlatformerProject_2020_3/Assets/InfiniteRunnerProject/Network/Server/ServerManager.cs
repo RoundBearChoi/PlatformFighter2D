@@ -45,7 +45,7 @@ namespace RB.Server
 
         private void OnApplicationQuit()
         {
-            serverController.Stop();
+            serverController.EndServer();
         }
     }
 }

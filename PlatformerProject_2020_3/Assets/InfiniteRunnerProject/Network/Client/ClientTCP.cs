@@ -54,9 +54,9 @@ namespace RB.Client
             }
             catch (System.Exception e)
             {
-                Debug.Log("attempt failed: " + e);
+                Debugger.Log("System error attempting to connect: " + e);
 
-                RB.Network.ThreadManager.ExecuteOnMainThread(() =>
+                RB.Network.ThreadControl.ExecuteOnMainThread(() =>
                 {
                     ClientManager.CURRENT.ShowEnterIPUI();
                 });
@@ -74,7 +74,13 @@ namespace RB.Client
             }
             catch (System.Exception e)
             {
-                Debug.Log($"Error sending data to server via TCP: {e}");
+                Debugger.Log("System error sending data to server via TCP: " + e);
+
+                RB.Network.ThreadControl.ExecuteOnMainThread(() =>
+                {
+                    ClientManager.CURRENT.DisconnectClient();
+                    BaseInitializer.current.stageTransitioner.AddNextStage(GameObject.Instantiate(ResourceLoader.stageLoader.GetObj(StageType.INTRO_STAGE)) as BaseStage);
+                });
             }
         }
 
@@ -123,7 +129,7 @@ namespace RB.Client
             {
                 // While packet contains data AND packet data length doesn't exceed the length of the packet we're reading
                 byte[] _packetBytes = _receivedData.ReadBytes(_packetLength);
-                RB.Network.ThreadManager.ExecuteOnMainThread(() =>
+                RB.Network.ThreadControl.ExecuteOnMainThread(() =>
                 {
                     using (RB.Network.Packet _packet = new RB.Network.Packet(_packetBytes))
                     {

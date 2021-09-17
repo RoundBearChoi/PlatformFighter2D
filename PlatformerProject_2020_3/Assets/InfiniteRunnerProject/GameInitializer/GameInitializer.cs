@@ -41,6 +41,8 @@ namespace RB
             {
                 _stage.OnFixedUpdate();
             }
+
+            RB.Network.ThreadControl.OnFixedUpdate();
         }
 
         private void LateUpdate()

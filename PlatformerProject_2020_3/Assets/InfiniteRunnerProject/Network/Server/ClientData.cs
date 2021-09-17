@@ -36,7 +36,7 @@ namespace RB.Server
             serverTCP.Disconnect();
             serverUDP.ipEndPoint = null;
 
-            ThreadManager.ExecuteOnMainThread(() =>
+            ThreadControl.ExecuteOnMainThread(() =>
             {
                 ServerManager.CURRENT.serverController.connectedClients.RemoveClient(this);
                 ServerManager.CURRENT.serverSend.ClientsConnectionStatus();

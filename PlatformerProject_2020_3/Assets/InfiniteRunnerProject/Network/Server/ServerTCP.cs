@@ -112,7 +112,7 @@ namespace RB.Server
             {
                 // While packet contains data AND packet data length doesn't exceed the length of the packet we're reading
                 byte[] _packetBytes = receivedData.ReadBytes(packetLength);
-                RB.Network.ThreadManager.ExecuteOnMainThread(() =>
+                RB.Network.ThreadControl.ExecuteOnMainThread(() =>
                 {
                     using (RB.Network.Packet _packet = new RB.Network.Packet(_packetBytes))
                     {

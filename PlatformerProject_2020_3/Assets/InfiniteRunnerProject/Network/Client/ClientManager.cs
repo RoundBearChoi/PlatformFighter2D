@@ -107,7 +107,7 @@ namespace RB.Client
 
             Debug.Log("Disconnected from server.");
 
-            RB.Network.ThreadManager.ExecuteOnMainThread(() =>
+            RB.Network.ThreadControl.ExecuteOnMainThread(() =>
             {
                 Debugger.Log("returning to menu");
 

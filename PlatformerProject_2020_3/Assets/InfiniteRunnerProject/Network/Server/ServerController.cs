@@ -167,7 +167,7 @@ namespace RB.Server
             Debug.Log("Initialized packets.");
         }
 
-        public void Stop()
+        public void EndServer()
         {
             tcpListener.Stop();
             udpListener.Close();

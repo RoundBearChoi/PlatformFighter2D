@@ -13,14 +13,12 @@ namespace RB
             
             if (RB.Server.ServerManager.CURRENT != null)
             {
-                RB.Server.ServerManager.CURRENT.serverController.Stop();
-                Destroy(RB.Server.ServerManager.CURRENT.gameObject);
+                RB.Server.ServerManager.CURRENT.serverController.EndServer();
             }
 
             if (RB.Client.ClientManager.CURRENT != null)
             {
                 RB.Client.ClientManager.CURRENT.DisconnectClient();
-                Destroy(RB.Client.ClientManager.CURRENT.gameObject);
             }
         }
     }

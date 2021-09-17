@@ -52,7 +52,7 @@ namespace RB
 
             if (_updateCount > uint.MaxValue || _updateCount > 50 * 3)
             {
-                RB.Network.ThreadManager.ExecuteOnMainThread(() =>
+                RB.Network.ThreadControl.ExecuteOnMainThread(() =>
                 {
                     ClientManager.CURRENT.ShowEnterIPUI();
                 });

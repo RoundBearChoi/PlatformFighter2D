@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace RB.Network
 {
-    public class ThreadManager : MonoBehaviour
+    public class ThreadControl
     {
         private static readonly List<Action> executeOnMainThread = new List<Action>();
         private static readonly List<Action> executeCopiedOnMainThread = new List<Action>();
         private static bool actionToExecuteOnMainThread = false;
 
-        private void FixedUpdate()
+        public static void OnFixedUpdate()
         {
             UpdateMain();
         }
