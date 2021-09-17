@@ -16,12 +16,11 @@ namespace RB.Server
         [SerializeField]
         string _name = string.Empty;
 
-        public ServerTCP serverTCP;
-        public ServerUDP serverUDP;
-
-        [Header("Debug")]
         [SerializeField]
         bool[] _inputs = null;
+
+        public ServerTCP serverTCP;
+        public ServerUDP serverUDP;
 
         public ClientData(int clientId)
         {
@@ -44,9 +43,16 @@ namespace RB.Server
             });
         }
 
-        public void SetInput(bool[] inputs)
+        public void UpdateOnClientInput(int clientIndex, bool[] arrInputs)
         {
-            _inputs = inputs;
+            _inputs = arrInputs;
+
+            UserInput input = BaseInitializer.current.GetStage().GetUserInput(clientIndex);
+
+            if (input != null)
+            {
+                input.commands.UpdatePressAndHold(_inputs);
+            }
         }
 
         public void SetUserName(string name)

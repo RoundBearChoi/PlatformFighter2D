@@ -33,12 +33,11 @@ namespace RB.Server
                 inputs[i] = packet.ReadBool();
             }
 
-            ClientData data = ServerManager.CURRENT.server.connectedClients.GetClientData(fromClient);
+            ClientData clientData = ServerManager.CURRENT.server.connectedClients.GetClientData(fromClient);
 
-            if (data != null)
+            if (clientData != null)
             {
-                data.SetInput(inputs);
-                BaseInitializer.current.GetStage().UpdateOnClientInput(fromClient, inputs);
+                clientData.UpdateOnClientInput(fromClient, inputs);
             }
         }
 

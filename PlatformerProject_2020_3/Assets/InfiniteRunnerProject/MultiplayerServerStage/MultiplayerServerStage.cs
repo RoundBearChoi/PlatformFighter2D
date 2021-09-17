@@ -133,17 +133,7 @@ namespace RB
             return new Camera_LerpOnTargetXAndY(0.08f, 0.08f);
         }
 
-        public override void UpdateOnClientInput(int clientIndex, bool[] inputs)
-        {
-            UserInput input = GetUserInput(clientIndex);
-
-            if (input != null)
-            {
-                input.commands.UpdatePressAndHold(inputs);
-            }
-        }
-
-        UserInput GetUserInput(int clientIndex)
+        public override UserInput GetUserInput(int clientIndex)
         {
             foreach(Unit unit in playerUnits)
             {

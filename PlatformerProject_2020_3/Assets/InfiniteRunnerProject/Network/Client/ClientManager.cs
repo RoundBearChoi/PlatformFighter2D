@@ -37,9 +37,16 @@ namespace RB.Client
 
         public static void Init()
         {
+            //destroy existing
             if (_current != null)
             {
                 Destroy(_current.gameObject);
+            }
+
+            //can either be server or client
+            if (RB.Server.ServerManager.CURRENT != null)
+            {
+                Destroy(RB.Server.ServerManager.CURRENT.gameObject);
             }
 
             _current = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_MANAGER)) as ClientManager;
@@ -120,9 +127,10 @@ namespace RB.Client
             RB.Network.ThreadManager.ExecuteOnMainThread(() =>
             {
                 Debugger.Log("returning to menu");
-                BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
 
-                Destroy(this.gameObject);
+                //do this separately
+                //show notification instead, and then switch to intro stage
+                //BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
             });
         }
     }
