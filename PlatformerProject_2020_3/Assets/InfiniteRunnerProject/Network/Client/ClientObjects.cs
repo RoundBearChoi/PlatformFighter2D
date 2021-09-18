@@ -17,10 +17,7 @@ namespace RB.Client
 
         public void OnUpdate()
         {
-            //foreach (ClientObject obj in _listClientObjects)
-            //{
-            //    obj.UpdatePosition();
-            //}
+
         }
 
         public void OnFixedUpdate()
@@ -35,6 +32,8 @@ namespace RB.Client
                 {
                     ani.UpdateSpriteIndex();
                     ani.UpdateSpriteOnIndex();
+
+                    //ani.ToggleSpriteRenderer(false);
                 }
             }
         }

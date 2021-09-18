@@ -127,8 +127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _id: 0
+  _networkPosition: {x: 0, y: 0, z: 0}
   _targetPosition: {x: 0, y: 0, z: 0}
-  _targetPositionSphere: {fileID: 3114104876256305771}
+  _networkPositionSphere: {fileID: 3114104876256305771}
   _playerPositionSphere: {fileID: 7594706993221828088}
   _listSpriteAnimations: []
   _currentAnimation: {fileID: 0}
@@ -142,7 +143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4453160600024082904}
   m_Layer: 0
-  m_Name: TargetPosition
+  m_Name: NetworkPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -11,10 +11,13 @@ namespace RB.Client
         int _id = 0;
 
         [SerializeField]
+        Vector3 _networkPosition = new Vector3();
+
+        [SerializeField]
         Vector3 _targetPosition = new Vector3();
 
         [SerializeField]
-        GameObject _targetPositionSphere = null;
+        GameObject _networkPositionSphere = null;
 
         [SerializeField]
         GameObject _playerPositionSphere = null;
@@ -37,14 +40,6 @@ namespace RB.Client
             }
         }
 
-        public Vector3 POSITION
-        {
-            get
-            {
-                return _targetPosition;
-            }
-        }
-
         public void SetID(int id)
         {
             _id = id;
@@ -55,22 +50,24 @@ namespace RB.Client
             _offlineDummy = dummy;
         }
 
-        public void SetTargetPosition(Vector3 pos)
+        public void SetNetworkPosition(Vector3 pos)
         {
-            _targetPosition = pos;
-            _targetPositionSphere.transform.position = pos;
+            _networkPosition = pos;
+            _networkPositionSphere.transform.position = pos;
         }
 
         public void UpdatePosition()
         {
             if (_offlineDummy != null)
             {
-                _playerPositionSphere.transform.position = Vector3.Lerp(_targetPosition, _offlineDummy.transform.position, 0.6667f);
+                _targetPosition = Vector3.Lerp(_networkPosition, _offlineDummy.transform.position, 0.5f);
             }
             else
             {
-                _playerPositionSphere.transform.position = Vector3.Lerp(_playerPositionSphere.transform.position, _targetPosition, 0.5f);
+                _targetPosition = _networkPosition;
             }
+
+            _playerPositionSphere.transform.position = Vector3.Lerp(_playerPositionSphere.transform.position, _targetPosition, 0.5f);
         }
 
         public GameObject GetPlayerSphere()

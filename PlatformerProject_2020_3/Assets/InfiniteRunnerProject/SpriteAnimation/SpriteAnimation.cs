@@ -164,6 +164,11 @@ namespace RB
             _spriteRenderer.sprite = _listSprites[_spriteIndex];
         }
 
+        public void ToggleSpriteRenderer(bool toggle)
+        {
+            _spriteRenderer.enabled = toggle;
+        }
+
         public void ResetSpriteIndex()
         {
             _updateCount = 0;

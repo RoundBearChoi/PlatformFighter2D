@@ -37,7 +37,7 @@ namespace RB.Server
             udpListener = new System.Net.Sockets.UdpClient(PORT);
             udpListener.BeginReceive(UDPReceiveCallback, null);
 
-            Debugger.Log($"Server started on port {PORT}.");
+            Debugger.Log("server started on port: " + PORT);
 
             GetLocalIP();
             GetPublicIP();
@@ -164,7 +164,6 @@ namespace RB.Server
                 { (int)ClientPackets.client_input, ServerHandle.HandleClientInput },
                 { (int)ClientPackets.udp_check, ServerHandle.HandleUDPCheck },
             };
-            Debug.Log("Initialized packets.");
         }
 
         public void EndServer()

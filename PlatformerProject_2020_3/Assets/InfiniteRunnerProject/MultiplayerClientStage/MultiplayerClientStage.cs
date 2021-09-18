@@ -89,7 +89,7 @@ namespace RB
                 for (int i = 0; i < playerData.listIDs.Count; i++)
                 {
                     ClientObject clientObj = _clientObjects.GetClientObj(playerData.listIDs[i]);
-                    clientObj.SetTargetPosition(playerData.listData[i].mPosition);
+                    clientObj.SetNetworkPosition(playerData.listData[i].mPosition);
                     clientObj.UpdateDirection(playerData.listData[i].mFacingRight);
 
                     if (RB.Client.ClientManager.CURRENT.clientController.myId == playerData.listIDs[i])
