@@ -56,6 +56,9 @@ namespace RB
             {
                 UIElement connected = UIElement.AddUIElement(UIElementType.CONNECTED_UI, this.transform);
                 _uiElements.Add(connected);
+
+                UIElement onESC = UIElement.AddUIElement(UIElementType.ON_ESC, this.transform);
+                _uiElements.Add(onESC);
             }
 
             else if (uiLayerType == UILayerType.FIGHT_STAGE_LAYER)
