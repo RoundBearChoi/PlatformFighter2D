@@ -23,7 +23,7 @@ namespace RB.Server
             data.SetUserName(username);
         }
 
-        public static void HandleClientInput(int fromClient, Packet packet)
+        public static void HandleClientInput(int clientID, Packet packet)
         {
             int length = packet.ReadInt();
             bool[] inputs = new bool[length];
@@ -33,15 +33,15 @@ namespace RB.Server
                 inputs[i] = packet.ReadBool();
             }
 
-            ClientData clientData = ServerManager.CURRENT.serverController.connectedClients.GetClientData(fromClient);
+            ClientData clientData = ServerManager.CURRENT.serverController.connectedClients.GetClientData(clientID);
 
             if (clientData != null)
             {
-                clientData.UpdateOnClientInput(fromClient, inputs);
+                clientData.UpdateOnClientInput(clientID, inputs);
             }
         }
 
-        public static void HandleUDPCheck(int fromClient, Packet packet)
+        public static void HandleUDPCheck(int clientID, Packet packet)
         {
 
         }

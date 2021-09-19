@@ -5,7 +5,7 @@ using UnityEngine;
 namespace RB.Server
 {
     [System.Serializable]
-    public class ServerPlayer
+    public class PlayerInServer
     {
         [SerializeField]
         Unit _unit = null;
@@ -19,7 +19,7 @@ namespace RB.Server
         [SerializeField]
         bool _facingRight = true;
 
-        public ServerPlayer(Unit unit, int index)
+        public PlayerInServer(Unit unit, int index)
         {
             _unit = unit;
             _playerIndex = index;

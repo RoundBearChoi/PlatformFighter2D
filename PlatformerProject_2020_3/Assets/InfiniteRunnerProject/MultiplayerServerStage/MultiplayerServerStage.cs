@@ -65,7 +65,14 @@ namespace RB
             //data to send to clients
             _playerDataSender = new RB.Server.PlayerDataSender();
             _playerDataSender.AddUnit(serverPlayer, 100);
-            _playerDataSender.AddUnit(client0, 0);
+
+            RB.Server.ClientData[] allClients = RB.Server.ServerManager.CURRENT.serverController.connectedClients.GetAllClients();
+
+            for (int i = 0; i < allClients.Length; i++)
+            {
+                _playerDataSender.AddUnit(client0, allClients[i].serverTCP.ID);
+                break;
+            }
 
             _playerDataSender.SendPlayerUnitTypesToAllClients();
 

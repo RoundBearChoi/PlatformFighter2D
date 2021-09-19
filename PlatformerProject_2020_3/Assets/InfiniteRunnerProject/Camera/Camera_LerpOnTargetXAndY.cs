@@ -27,12 +27,6 @@ namespace RB
                 float y = Mathf.Lerp(_cameraScript.GetCamera().transform.position.y, target.transform.position.y + BaseInitializer.current.fighterDataSO.CameraYOffset, _yPercentage);
 
                 _targetPosition = new Vector3(x, y, BaseInitializer.current.fighterDataSO.Camera_z);
-
-                //if (BaseInitializer.current.GetStage() is FightStage ||
-                //    BaseInitializer.current.GetStage() is MultiplayerServerStage)
-                //{
-                //    _targetPosition = new Vector3(x, y, BaseInitializer.current.fighterDataSO.Camera_z);
-                //}
             }
 
             _cameraScript.UpdateCameraPositionOnTarget(_targetPosition);

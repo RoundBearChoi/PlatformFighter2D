@@ -8,31 +8,31 @@ namespace RB.Server
     public class PlayerDataSender
     {
         [SerializeField]
-        List<ServerPlayer> _playersOnServer = null;
+        List<PlayerInServer> _playersInServer = null;
 
         public PlayerDataSender()
         {
-            _playersOnServer = new List<ServerPlayer>();
+            _playersInServer = new List<PlayerInServer>();
         }
 
         public void AddUnit(Unit unit, int index)
         {
             unit.clientIndex = index;
-            _playersOnServer.Add(new ServerPlayer(unit, index));
+            _playersInServer.Add(new PlayerInServer(unit, index));
         }
 
         public void SendPlayerUnitTypesToAllClients()
         {
             PlayerDataset<UnitType> dataset = new PlayerDataset<UnitType>();
-            dataset.playerCount = _playersOnServer.Count;
+            dataset.playerCount = _playersInServer.Count;
 
             dataset.listIDs = new List<int>();
             dataset.listData = new List<UnitType>();
 
-            for (int i = 0; i < _playersOnServer.Count; i++)
+            for (int i = 0; i < _playersInServer.Count; i++)
             {
-                dataset.listIDs.Add(_playersOnServer[i].GetIndex());
-                dataset.listData.Add(_playersOnServer[i].GetUnit().unitType);
+                dataset.listIDs.Add(_playersInServer[i].GetIndex());
+                dataset.listData.Add(_playersInServer[i].GetUnit().unitType);
             }
 
             RB.Server.ServerManager.CURRENT.serverSend.SendPlayerUnitTypes(dataset);
@@ -40,22 +40,22 @@ namespace RB.Server
 
         public void Send()
         {
-            foreach(ServerPlayer player in _playersOnServer)
+            foreach(PlayerInServer player in _playersInServer)
             {
                 player.OnFixedUpdate();
             }
 
             PlayerDataset<PositionAndDirection> dataset = new PlayerDataset<PositionAndDirection>();
-            dataset.playerCount = _playersOnServer.Count;
+            dataset.playerCount = _playersInServer.Count;
 
             dataset.listIDs = new List<int>();
             dataset.listData = new List<PositionAndDirection>();
 
-            for (int i = 0; i < _playersOnServer.Count; i++)
+            for (int i = 0; i < _playersInServer.Count; i++)
             {
-                dataset.listIDs.Add(_playersOnServer[i].GetIndex());
+                dataset.listIDs.Add(_playersInServer[i].GetIndex());
 
-                PositionAndDirection positionAndDirection = new PositionAndDirection(_playersOnServer[i].GetPosition(), _playersOnServer[i].IsFacingRight());
+                PositionAndDirection positionAndDirection = new PositionAndDirection(_playersInServer[i].GetPosition(), _playersInServer[i].IsFacingRight());
 
                 dataset.listData.Add(positionAndDirection);
             }
