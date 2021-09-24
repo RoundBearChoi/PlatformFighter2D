@@ -27,17 +27,17 @@ namespace RB.Server
             }
         }
 
-        //private void SendUDPDataToAll(Packet packet)
-        //{
-        //    packet.WriteLength();
-        //
-        //    ClientData[] arr = ServerManager.CURRENT.serverController.clients.GetAllClients();
-        //
-        //    foreach (ClientData data in arr)
-        //    {
-        //        data.serverUDP.SendData(packet);
-        //    }
-        //}
+        private void SendUDPDataToAll(Packet packet)
+        {
+            packet.WriteLength();
+        
+            ClientData[] arr = ServerManager.CURRENT.serverController.clients.GetAllClients();
+        
+            foreach (ClientData data in arr)
+            {
+                data.serverUDP.SendUDP(packet);
+            }
+        }
 
         public void Welcome(int toClient, string msg)
         {
@@ -94,8 +94,8 @@ namespace RB.Server
                     packet.Write(playerData.listData[i].mFacingRight);
                 }
 
-                SendTCPDataToAll(packet);
-                //SendUDPDataToAll(packet);
+                //SendTCPDataToAll(packet);
+                SendUDPDataToAll(packet);
             }
         }
 

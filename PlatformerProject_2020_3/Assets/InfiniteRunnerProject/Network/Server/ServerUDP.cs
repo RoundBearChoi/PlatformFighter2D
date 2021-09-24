@@ -20,7 +20,7 @@ namespace RB.Server
             ipEndPoint = ep;
         }
 
-        public void SendData(RB.Network.Packet packet)
+        public void SendUDP(RB.Network.Packet packet)
         {
             ServerManager.CURRENT.serverController.BeginServerUDPSend(ipEndPoint, packet);
         }
