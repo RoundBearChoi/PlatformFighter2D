@@ -54,7 +54,7 @@ namespace RB
             {
                 RB.Network.ThreadControl.ExecuteOnMainThread(() =>
                 {
-                    ClientManager.CURRENT.ShowEnterIPUI();
+                    BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.ENTER_IP_STAGE));
                 });
             
                 return;

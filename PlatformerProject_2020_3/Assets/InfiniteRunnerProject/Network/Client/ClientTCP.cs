@@ -53,7 +53,10 @@ namespace RB.Client
 
                 RB.Network.ThreadControl.ExecuteOnMainThread(() =>
                 {
-                    ClientManager.CURRENT.ShowEnterIPUI();
+                    if (BaseInitializer.current.GetStage() is ConnectingStage)
+                    {
+                        BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.ENTER_IP_STAGE));
+                    }
                 });
             }
         }

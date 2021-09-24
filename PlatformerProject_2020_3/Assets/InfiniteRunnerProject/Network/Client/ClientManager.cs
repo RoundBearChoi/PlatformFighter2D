@@ -67,11 +67,6 @@ namespace RB.Client
             return "no name";
         }
 
-        public void ShowEnterIPUI()
-        {
-            BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.ENTER_IP_STAGE));
-        }
-
         public void UpdateClientConnectionStatus(ClientConnection[] arr)
         {
             _clientConnections = arr;
