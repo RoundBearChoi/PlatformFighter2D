@@ -79,13 +79,14 @@ namespace RB.Client
 
         public void DisconnectClient()
         {
-            if (clientController.clientTCP.SOCKET != null)
+            try
             {
-                //if (clientController.clientTCP.SOCKET.Connected)
-                {
-                    clientController.clientTCP.SOCKET.Close();
-                    clientController.clientUDP.SOCKET.Close();
-                }
+                clientController.clientTCP.SOCKET.Close();
+                clientController.clientUDP.SOCKET.Close();
+            }
+            catch (System.Exception e)
+            {
+                Debugger.Log("system error attempting to close socket: " + e);
             }
 
             Debug.Log("disconnected from server.. destroying ClientManager");
