@@ -133,7 +133,7 @@ namespace RB.Server
             }
         }
 
-        public void SendUDPData(System.Net.IPEndPoint clientEndPoint, Packet packet)
+        public void BeginServerUDPSend(System.Net.IPEndPoint clientEndPoint, Packet packet)
         {
             try
             {

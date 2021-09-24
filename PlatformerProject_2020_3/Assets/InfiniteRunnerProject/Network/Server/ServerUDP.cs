@@ -22,7 +22,7 @@ namespace RB.Server
 
         public void SendData(RB.Network.Packet packet)
         {
-            ServerManager.CURRENT.serverController.SendUDPData(ipEndPoint, packet);
+            ServerManager.CURRENT.serverController.BeginServerUDPSend(ipEndPoint, packet);
         }
 
         public void HandleData(RB.Network.Packet packetData)

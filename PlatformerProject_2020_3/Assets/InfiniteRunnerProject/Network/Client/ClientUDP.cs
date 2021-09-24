@@ -31,11 +31,11 @@ namespace RB.Client
 
             using (RB.Network.Packet packet = new RB.Network.Packet())
             {
-                SendData(packet);
+                BeginClientUDPSend(packet);
             }
         }
 
-        public void SendData(RB.Network.Packet packet)
+        public void BeginClientUDPSend(RB.Network.Packet packet)
         {
             try
             {

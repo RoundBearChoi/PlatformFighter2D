@@ -13,12 +13,12 @@ namespace RB.Client
             ClientManager.CURRENT.clientController.clientTCP.SendData(_packet);
         }
 
-        private static void SendUDPData(Packet _packet)
-        {
-            _packet.WriteLength();
-
-            ClientManager.CURRENT.clientController.clientUDP.SendData(_packet);
-        }
+        //private static void SendUDPData(Packet _packet)
+        //{
+        //    _packet.WriteLength();
+        //
+        //    ClientManager.CURRENT.clientController.clientUDP.SendData(_packet);
+        //}
 
         public static void WelcomeReceived()
         {
