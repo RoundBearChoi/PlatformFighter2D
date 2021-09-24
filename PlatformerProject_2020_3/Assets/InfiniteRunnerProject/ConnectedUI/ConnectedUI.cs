@@ -55,9 +55,9 @@ namespace RB
 
         void OnServerLobby()
         {
-            if (RB.Server.ServerManager.CURRENT.serverController.connectedClients.CLIENTS_COUNT != _connectedPlayers.Count - 1)
+            if (RB.Server.ServerManager.CURRENT.serverController.clients.CLIENTS_COUNT != _connectedPlayers.Count - 1)
             {
-                RB.Server.ClientData[] clients = RB.Server.ServerManager.CURRENT.serverController.connectedClients.GetAllClients();
+                RB.Server.ClientData[] clients = RB.Server.ServerManager.CURRENT.serverController.clients.GetAllClients();
                 RB.Client.ClientConnection[] connections = RB.Client.ClientConnection.GetData(clients);
                 UpdateOnConnections(connections);
             }

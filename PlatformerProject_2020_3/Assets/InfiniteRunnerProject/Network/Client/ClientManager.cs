@@ -77,7 +77,7 @@ namespace RB.Client
             return _clientConnections;
         }
 
-        public void DisconnectClient()
+        public void EndClient()
         {
             try
             {
@@ -89,7 +89,7 @@ namespace RB.Client
                 Debugger.Log("system error attempting to close socket: " + e);
             }
 
-            Debug.Log("disconnected from server.. destroying ClientManager");
+            Debug.Log("client ended.. destroying ClientManager");
             Destroy(_current.gameObject);
         }
     }

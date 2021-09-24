@@ -66,7 +66,7 @@ namespace RB
             _playerDataSender = new RB.Server.PlayerDataSender();
             _playerDataSender.AddUnit(serverPlayer, 100);
 
-            RB.Server.ClientData[] allClients = RB.Server.ServerManager.CURRENT.serverController.connectedClients.GetAllClients();
+            RB.Server.ClientData[] allClients = RB.Server.ServerManager.CURRENT.serverController.clients.GetAllClients();
 
             for (int i = 0; i < allClients.Length; i++)
             {

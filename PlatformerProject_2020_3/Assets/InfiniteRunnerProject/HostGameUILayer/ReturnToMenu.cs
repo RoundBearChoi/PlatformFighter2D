@@ -18,7 +18,7 @@ namespace RB
 
             if (RB.Client.ClientManager.CURRENT != null)
             {
-                RB.Client.ClientManager.CURRENT.DisconnectClient();
+                RB.Client.ClientManager.CURRENT.EndClient();
             }
         }
     }

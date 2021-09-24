@@ -74,7 +74,7 @@ namespace RB.Client
             {
                 Debugger.Log("system error sending TCP to server: " + e);
 
-                ClientManager.CURRENT.DisconnectClient();
+                ClientManager.CURRENT.EndClient();
 
                 RB.Network.ThreadControl.ExecuteOnMainThread(() =>
                 {
@@ -93,7 +93,7 @@ namespace RB.Client
                 {
                     Debugger.Log("received 0 bytes from server");
 
-                    ClientManager.CURRENT.DisconnectClient();
+                    ClientManager.CURRENT.EndClient();
                     return;
                 }
 
@@ -110,7 +110,7 @@ namespace RB.Client
             {
                 Debugger.Log("system error receiving call back: " + e);
 
-                ClientManager.CURRENT.DisconnectClient();
+                ClientManager.CURRENT.EndClient();
             }
         }
 

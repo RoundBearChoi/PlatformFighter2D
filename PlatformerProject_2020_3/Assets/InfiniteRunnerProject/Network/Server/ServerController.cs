@@ -7,7 +7,7 @@ namespace RB.Server
 {
     public class ServerController : MonoBehaviour
     {
-        public Clients connectedClients = null;
+        public Clients clients = null;
         public delegate void PacketHandler(int _fromClient, Packet _packet);
         public Dictionary<int, PacketHandler> packetHandlers;
 
@@ -80,7 +80,7 @@ namespace RB.Server
 
                     Debugger.Log("incoming connection from: " + (tcpClient.Client.RemoteEndPoint));
 
-                    bool connected = connectedClients.AddClient(tcpClient);
+                    bool connected = clients.AddClient(tcpClient);
 
                     if (!connected)
                     {
@@ -111,7 +111,7 @@ namespace RB.Server
                 {
                     int clientId = packet.ReadInt();
 
-                    ClientData clientData = connectedClients.GetClientData(clientId);
+                    ClientData clientData = clients.GetClientData(clientId);
 
                     if (clientData.serverUDP.ipEndPoint == null)
                     {
@@ -152,9 +152,9 @@ namespace RB.Server
         {
             Clients.ResetConnectCount();
 
-            if (connectedClients == null)
+            if (clients == null)
             {
-                connectedClients = new Clients();
+                clients = new Clients();
             }
 
             packetHandlers = new Dictionary<int, PacketHandler>()
@@ -167,10 +167,13 @@ namespace RB.Server
 
         public void EndServer()
         {
+            clients.DisconnectClients();
+
             _tcpListener.Stop();
             _udpClient.Close();
 
             Debugger.Log("server ended.. destroying ServerManager");
+
             Destroy(ServerManager.CURRENT.gameObject);
         }
     }

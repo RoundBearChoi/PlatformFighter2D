@@ -30,15 +30,14 @@ namespace RB.Server
 
         public void Disconnect()
         {
-            Debug.Log($"{serverTCP.socket.Client.RemoteEndPoint} has disconnected.");
+            Debugger.Log(serverTCP.socket.Client.RemoteEndPoint + " has disconnected");
 
-            //disconnect TCP & UDP endpoint
             serverTCP.Disconnect();
             serverUDP.ipEndPoint = null;
 
             ThreadControl.ExecuteOnMainThread(() =>
             {
-                ServerManager.CURRENT.serverController.connectedClients.RemoveClient(this);
+                ServerManager.CURRENT.serverController.clients.RemoveClient(this);
                 ServerManager.CURRENT.serverSend.ClientsConnectionStatus();
             });
         }

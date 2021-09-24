@@ -11,7 +11,7 @@ namespace RB
         {
             if (ServerManager.CURRENT != null)
             {
-                if (ServerManager.CURRENT.serverController.connectedClients.CLIENTS_COUNT > 0)
+                if (ServerManager.CURRENT.serverController.clients.CLIENTS_COUNT > 0)
                 {
                     Debugger.Log("can't join while running a server");
                     return;

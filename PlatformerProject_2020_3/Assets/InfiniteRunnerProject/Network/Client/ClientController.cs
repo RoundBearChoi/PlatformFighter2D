@@ -55,7 +55,7 @@ namespace RB.Client
         {
             if (ClientManager.CURRENT != null)
             {
-                ClientManager.CURRENT.DisconnectClient();
+                ClientManager.CURRENT.EndClient();
             }
         }
     }

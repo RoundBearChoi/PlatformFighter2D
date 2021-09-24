@@ -64,7 +64,7 @@ namespace RB.Client
                 {
                     Debugger.Log("received less than 4 bytes");
 
-                    ClientManager.CURRENT.DisconnectClient();
+                    ClientManager.CURRENT.EndClient();
 
                     return;
                 }
@@ -75,7 +75,7 @@ namespace RB.Client
             {
                 Debugger.Log("system error on udpsend: " + e);
 
-                ClientManager.CURRENT.DisconnectClient();
+                ClientManager.CURRENT.EndClient();
             }
         }
 

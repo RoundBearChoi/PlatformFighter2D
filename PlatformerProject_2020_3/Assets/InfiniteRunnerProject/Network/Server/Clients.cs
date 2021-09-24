@@ -88,5 +88,13 @@ namespace RB.Server
 
             return arr;
         }
+
+        public void DisconnectClients()
+        {
+            foreach(ClientData c in _listClientData)
+            {
+                c.Disconnect();
+            }
+        }
     }
 }

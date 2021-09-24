@@ -70,7 +70,7 @@ namespace RB.Server
 
                 if (byteLength <= 0)
                 {
-                    ClientData clientData = ServerManager.CURRENT.serverController.connectedClients.GetClientData(_id);
+                    ClientData clientData = ServerManager.CURRENT.serverController.clients.GetClientData(_id);
                     clientData.Disconnect();
 
                     Debugger.Log("received 0 bytes from client: " + _id);
@@ -90,7 +90,7 @@ namespace RB.Server
             {
                 Debug.Log("system error receiving TCP data: " + e);
 
-                ClientData clientData = ServerManager.CURRENT.serverController.connectedClients.GetClientData(_id);
+                ClientData clientData = ServerManager.CURRENT.serverController.clients.GetClientData(_id);
                 clientData.Disconnect();
             }
         }
@@ -153,7 +153,6 @@ namespace RB.Server
             socket.Close();
 
             _stream = null;
-            //_receivedData = null;
             _receivedBuffer = null;
             socket = null;
         }
