@@ -27,7 +27,7 @@ namespace RB.Client
             _udpClient = new System.Net.Sockets.UdpClient(_localPort);
 
             _udpClient.Connect(_endPoint);
-            _udpClient.BeginReceive(ReceiveCallback, null);
+            _udpClient.BeginReceive(ClientCallBackUDP, null);
 
             using (RB.Network.Packet packet = new RB.Network.Packet())
             {
@@ -52,13 +52,13 @@ namespace RB.Client
             }
         }
 
-        private void ReceiveCallback(System.IAsyncResult result)
+        private void ClientCallBackUDP(System.IAsyncResult result)
         {
             try
             {
                 byte[] arr = _udpClient.EndReceive(result, ref _endPoint);
 
-                _udpClient.BeginReceive(ReceiveCallback, null);
+                _udpClient.BeginReceive(ClientCallBackUDP, null);
 
                 if (arr.Length < 4)
                 {
@@ -68,8 +68,6 @@ namespace RB.Client
 
                     return;
                 }
-
-                //Debugger.Log("receiving udp");
 
                 HandleData(arr);
             }

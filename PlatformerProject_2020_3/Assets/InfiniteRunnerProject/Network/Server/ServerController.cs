@@ -34,7 +34,7 @@ namespace RB.Server
             _tcpListener.BeginAcceptTcpClient(TCPConnectCallback, null);
 
             _udpClient = new System.Net.Sockets.UdpClient(PORT);
-            _udpClient.BeginReceive(UDPReceiveCallback, null);
+            _udpClient.BeginReceive(ServerCallBackUDP, null);
 
             Debugger.Log("server started on port: " + PORT);
 
@@ -84,7 +84,7 @@ namespace RB.Server
 
                     if (!connected)
                     {
-                        Debugger.Log($"{tcpClient.Client.RemoteEndPoint} failed to connect");
+                        Debugger.Log(tcpClient.Client.RemoteEndPoint + "failed to connect");
                     }
                 }
                 else
@@ -94,13 +94,13 @@ namespace RB.Server
             }
         }
 
-        private void UDPReceiveCallback(System.IAsyncResult result)
+        private void ServerCallBackUDP(System.IAsyncResult result)
         {
             try
             {
                 System.Net.IPEndPoint clientEndPoint = new System.Net.IPEndPoint(System.Net.IPAddress.Any, 0);
                 byte[] received = _udpClient.EndReceive(result, ref clientEndPoint);
-                _udpClient.BeginReceive(UDPReceiveCallback, null);
+                _udpClient.BeginReceive(ServerCallBackUDP, null);
 
                 if (received.Length < 4)
                 {

@@ -41,7 +41,7 @@ namespace RB.Server
 
             _receivedBuffer = new byte[_dataBufferSize];
 
-            _stream.BeginRead(_receivedBuffer, 0, _dataBufferSize, ReceiveCallback, null);
+            _stream.BeginRead(_receivedBuffer, 0, _dataBufferSize, ServerCallBackTCP, null);
 
             ServerManager.CURRENT.serverSend.Welcome(_id, "Welcome to the server!");
             ServerManager.CURRENT.serverSend.ClientsConnectionStatus();
@@ -62,7 +62,7 @@ namespace RB.Server
             }
         }
 
-        private void ReceiveCallback(System.IAsyncResult result)
+        private void ServerCallBackTCP(System.IAsyncResult result)
         {
             try
             {
@@ -84,7 +84,7 @@ namespace RB.Server
                 RB.Network.Packet packet = HandleData(arr);
                 packet.Dispose();
 
-                _stream.BeginRead(_receivedBuffer, 0, _dataBufferSize, ReceiveCallback, null);
+                _stream.BeginRead(_receivedBuffer, 0, _dataBufferSize, ServerCallBackTCP, null);
             }
             catch (System.Exception e)
             {

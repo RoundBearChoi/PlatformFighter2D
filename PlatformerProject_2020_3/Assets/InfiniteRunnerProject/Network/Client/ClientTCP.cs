@@ -45,7 +45,7 @@ namespace RB.Client
                 }
 
                 _stream = _tcpClient.GetStream();
-                _stream.BeginRead(_receivedBuffer, 0, _dataBufferSize, ReceiveCallback, null);
+                _stream.BeginRead(_receivedBuffer, 0, _dataBufferSize, ClientCallBackTCP, null);
             }
             catch (System.Exception e)
             {
@@ -83,7 +83,7 @@ namespace RB.Client
             }
         }
 
-        private void ReceiveCallback(System.IAsyncResult result)
+        private void ClientCallBackTCP(System.IAsyncResult result)
         {
             try
             {
@@ -104,7 +104,7 @@ namespace RB.Client
 
                 packet.Dispose();
 
-                _stream.BeginRead(_receivedBuffer, 0, _dataBufferSize, ReceiveCallback, null);
+                _stream.BeginRead(_receivedBuffer, 0, _dataBufferSize, ClientCallBackTCP, null);
             }
             catch (System.Exception e)
             {
