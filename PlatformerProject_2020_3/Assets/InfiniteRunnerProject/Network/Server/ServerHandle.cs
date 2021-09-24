@@ -40,10 +40,5 @@ namespace RB.Server
                 clientData.UpdateOnClientInput(clientID, inputs);
             }
         }
-
-        public static void HandleUDPCheck(int clientID, Packet packet)
-        {
-
-        }
     }
 }

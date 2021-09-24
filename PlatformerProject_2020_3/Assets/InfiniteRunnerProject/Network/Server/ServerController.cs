@@ -161,7 +161,6 @@ namespace RB.Server
             {
                 { (int)ClientPackets.welcomeReceived, ServerHandle.WelcomeReceived },
                 { (int)ClientPackets.client_input, ServerHandle.HandleClientInput },
-                { (int)ClientPackets.udp_check, ServerHandle.HandleUDPCheck },
             };
         }
 

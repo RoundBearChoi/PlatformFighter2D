@@ -52,11 +52,6 @@ namespace RB.Client
 
                 SendTCPData(packet);
             }
-
-            using(Packet packet = new Packet((int)ClientPackets.udp_check))
-            {
-                SendUDPData(packet);
-            }
         }
     }
 }

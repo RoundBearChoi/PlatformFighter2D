@@ -24,7 +24,6 @@ namespace RB.Network
     {
         welcomeReceived = 1,
         client_input,
-        udp_check,
     }
 
     public class Packet : IDisposable
