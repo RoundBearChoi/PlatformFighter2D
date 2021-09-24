@@ -88,7 +88,6 @@ namespace RB.Client
             {
                 if (clientController.clientTCP.SOCKET.Connected)
                 {
-                    System.AsyncCallback callBack = new System.AsyncCallback(clientController.clientTCP.SOCKET.EndConnect);
                     clientController.clientTCP.SOCKET.Close();
                     clientController.clientUDP.SOCKET.Close();
                 }

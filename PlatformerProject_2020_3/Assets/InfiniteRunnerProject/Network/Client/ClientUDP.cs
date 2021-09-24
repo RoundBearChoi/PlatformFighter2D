@@ -61,7 +61,10 @@ namespace RB.Client
                 if (arr.Length < 4)
                 {
                     Debugger.Log("received less than 4 bytes");
+
+                    ClientManager.CURRENT.clientController.clientTCP.SOCKET.EndConnect(result);
                     ClientManager.CURRENT.DisconnectClient();
+
                     return;
                 }
 
@@ -70,6 +73,8 @@ namespace RB.Client
             catch (System.Exception e)
             {
                 Debugger.Log("system error sending UDP to server: " + e);
+
+                ClientManager.CURRENT.clientController.clientTCP.SOCKET.EndConnect(result);
                 ClientManager.CURRENT.DisconnectClient();
             }
         }
