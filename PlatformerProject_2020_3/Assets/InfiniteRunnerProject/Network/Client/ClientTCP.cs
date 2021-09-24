@@ -85,7 +85,7 @@ namespace RB.Client
 
         void ClientCallBackTCPSend(System.IAsyncResult result)
         {
-            Debugger.Log("tcp send result: " + result.IsCompleted);
+
         }
 
         void ClientCallBackTCPConnect(System.IAsyncResult result)
@@ -102,43 +102,46 @@ namespace RB.Client
                     return;
                 }
 
-                byte[] arr = new byte[byteLength];
-                System.Array.Copy(_receivedBuffer, arr, byteLength);
-
-                RB.Network.Packet packet = HandleData(arr);
-
-                packet.Dispose();
+                HandleData(byteLength);
 
                 _stream.BeginRead(_receivedBuffer, 0, _dataBufferSize, ClientCallBackTCPConnect, null);
             }
             catch (System.Exception e)
             {
-                Debugger.Log("system error on tcp send: " + e);
+                Debugger.Log("system error on tcp connection: " + e);
 
                 ClientManager.CURRENT.EndClient();
             }
         }
 
-        private RB.Network.Packet HandleData(byte[] _data)
+        void HandleData(int byteLength)
         {
-            int _packetLength = 0;
+            byte[] arr = new byte[byteLength];
+            System.Array.Copy(_receivedBuffer, arr, byteLength);
+            RB.Network.Packet packet = ReadPacket(arr);
+            packet.Dispose();
+        }
+
+        RB.Network.Packet ReadPacket(byte[] data)
+        {
+            int packetLength = 0;
 
             RB.Network.Packet receivedData = new RB.Network.Packet();
-            receivedData.SetBytes(_data);
+            receivedData.SetBytes(data);
 
             if (receivedData.UnreadLength() >= 4)
             {
-                _packetLength = receivedData.ReadInt();
+                packetLength = receivedData.ReadInt();
 
-                if (_packetLength <= 0)
+                if (packetLength <= 0)
                 {
                     return receivedData;
                 }
             }
 
-            while (_packetLength > 0 && _packetLength <= receivedData.UnreadLength())
+            while (packetLength > 0 && packetLength <= receivedData.UnreadLength())
             {
-                byte[] _packetBytes = receivedData.ReadBytes(_packetLength);
+                byte[] _packetBytes = receivedData.ReadBytes(packetLength);
 
                 RB.Network.ThreadControl.ExecuteOnMainThread(() =>
                 {
@@ -149,20 +152,20 @@ namespace RB.Client
                     }
                 });
 
-                _packetLength = 0;
+                packetLength = 0;
 
                 if (receivedData.UnreadLength() >= 4)
                 {
-                    _packetLength = receivedData.ReadInt();
+                    packetLength = receivedData.ReadInt();
 
-                    if (_packetLength <= 0)
+                    if (packetLength <= 0)
                     {
                         return receivedData;
                     }
                 }
             }
 
-            if (_packetLength <= 1)
+            if (packetLength <= 1)
             {
                 return receivedData;
             }

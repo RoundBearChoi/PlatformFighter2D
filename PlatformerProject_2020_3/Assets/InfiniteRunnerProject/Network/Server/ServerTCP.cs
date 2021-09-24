@@ -78,11 +78,7 @@ namespace RB.Server
                     return;
                 }
 
-                byte[] arr = new byte[byteLength];
-                System.Array.Copy(_receivedBuffer, arr, byteLength);
-
-                RB.Network.Packet packet = HandleData(arr);
-                packet.Dispose();
+                HandleData(byteLength);
 
                 _stream.BeginRead(_receivedBuffer, 0, _dataBufferSize, ServerCallBackTCP, null);
             }
@@ -95,7 +91,15 @@ namespace RB.Server
             }
         }
 
-        private RB.Network.Packet HandleData(byte[] data)
+        void HandleData(int byteLength)
+        {
+            byte[] arr = new byte[byteLength];
+            System.Array.Copy(_receivedBuffer, arr, byteLength);
+            RB.Network.Packet packet = ReadPacket(arr);
+            packet.Dispose();
+        }
+
+        RB.Network.Packet ReadPacket(byte[] data)
         {
             int packetLength = 0;
 

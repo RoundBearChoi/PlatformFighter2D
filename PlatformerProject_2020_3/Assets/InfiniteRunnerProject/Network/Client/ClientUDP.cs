@@ -62,7 +62,7 @@ namespace RB.Client
 
                 if (arr.Length < 4)
                 {
-                    Debugger.Log("received less than 4 bytes");
+                    Debugger.Log("received less than 4 bytes from server");
 
                     ClientManager.CURRENT.EndClient();
 
@@ -73,7 +73,7 @@ namespace RB.Client
             }
             catch (System.Exception e)
             {
-                Debugger.Log("system error on udp send: " + e);
+                Debugger.Log("system error on udp connection: " + e);
 
                 ClientManager.CURRENT.EndClient();
             }
