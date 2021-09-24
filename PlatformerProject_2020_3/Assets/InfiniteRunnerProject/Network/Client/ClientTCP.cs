@@ -92,7 +92,6 @@ namespace RB.Client
                 {
                     Debugger.Log("received 0 bytes from server");
 
-                    ClientManager.CURRENT.clientController.clientTCP.SOCKET.EndConnect(result);
                     ClientManager.CURRENT.DisconnectClient();
                     return;
                 }
@@ -110,7 +109,6 @@ namespace RB.Client
             {
                 Debugger.Log("system error receiving call back: " + e);
 
-                ClientManager.CURRENT.clientController.clientTCP.SOCKET.EndConnect(result);
                 ClientManager.CURRENT.DisconnectClient();
             }
         }

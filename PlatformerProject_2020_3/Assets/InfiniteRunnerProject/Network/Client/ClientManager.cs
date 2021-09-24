@@ -81,7 +81,7 @@ namespace RB.Client
         {
             if (clientController.clientTCP.SOCKET != null)
             {
-                if (clientController.clientTCP.SOCKET.Connected)
+                //if (clientController.clientTCP.SOCKET.Connected)
                 {
                     clientController.clientTCP.SOCKET.Close();
                     clientController.clientUDP.SOCKET.Close();
