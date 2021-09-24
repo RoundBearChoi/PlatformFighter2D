@@ -40,6 +40,7 @@ namespace RB.Client
             try
             {
                 packet.InsertInt(ClientManager.CURRENT.clientController.myId);
+
                 if (_udpClient != null)
                 {
                     _udpClient.BeginSend(packet.ToArray(), packet.Length(), null, null);
@@ -56,6 +57,7 @@ namespace RB.Client
             try
             {
                 byte[] arr = _udpClient.EndReceive(result, ref _endPoint);
+
                 _udpClient.BeginReceive(ReceiveCallback, null);
 
                 if (arr.Length < 4)
@@ -67,11 +69,13 @@ namespace RB.Client
                     return;
                 }
 
+                Debugger.Log("receiving udp");
+
                 HandleData(arr);
             }
             catch (System.Exception e)
             {
-                Debugger.Log("system error receiving from server: " + e);
+                Debugger.Log("system error on udpsend: " + e);
 
                 ClientManager.CURRENT.DisconnectClient();
             }
@@ -93,7 +97,7 @@ namespace RB.Client
 
                     if (ClientController.packetHandlers.ContainsKey(packetID))
                     {
-                        ClientController.packetHandlers[packetID](packet); // Call appropriate method to handle the packet
+                        ClientController.packetHandlers[packetID](packet);
                     }
                     else
                     {

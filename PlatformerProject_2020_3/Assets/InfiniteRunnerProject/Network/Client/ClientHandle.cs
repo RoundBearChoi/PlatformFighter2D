@@ -15,6 +15,7 @@ namespace RB.Client
 
             Debugger.Log("message from server: " + msg);
             ClientManager.CURRENT.clientController.myId = myId;
+
             ClientSend.WelcomeReceived();
 
             int port = ((IPEndPoint)ClientManager.CURRENT.clientController.clientTCP.SOCKET.Client.LocalEndPoint).Port;
