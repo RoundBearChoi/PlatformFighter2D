@@ -6,14 +6,14 @@ namespace RB.Client
 {
     public class ClientUDP
     {
-        System.Net.Sockets.UdpClient _socket;
+        System.Net.Sockets.UdpClient _udpClient;
         System.Net.IPEndPoint _endPoint;
 
         public System.Net.Sockets.UdpClient SOCKET
         {
             get
             {
-                return _socket;
+                return _udpClient;
             }
         }
         
@@ -24,10 +24,10 @@ namespace RB.Client
 
         public void Connect(int _localPort)
         {
-            _socket = new System.Net.Sockets.UdpClient(_localPort);
+            _udpClient = new System.Net.Sockets.UdpClient(_localPort);
 
-            _socket.Connect(_endPoint);
-            _socket.BeginReceive(ReceiveCallback, null);
+            _udpClient.Connect(_endPoint);
+            _udpClient.BeginReceive(ReceiveCallback, null);
 
             using (RB.Network.Packet packet = new RB.Network.Packet())
             {
@@ -40,9 +40,9 @@ namespace RB.Client
             try
             {
                 packet.InsertInt(ClientManager.CURRENT.clientController.myId);
-                if (_socket != null)
+                if (_udpClient != null)
                 {
-                    _socket.BeginSend(packet.ToArray(), packet.Length(), null, null);
+                    _udpClient.BeginSend(packet.ToArray(), packet.Length(), null, null);
                 }
             }
             catch (System.Exception e)
@@ -55,8 +55,8 @@ namespace RB.Client
         {
             try
             {
-                byte[] arr = _socket.EndReceive(result, ref _endPoint);
-                _socket.BeginReceive(ReceiveCallback, null);
+                byte[] arr = _udpClient.EndReceive(result, ref _endPoint);
+                _udpClient.BeginReceive(ReceiveCallback, null);
 
                 if (arr.Length < 4)
                 {
@@ -71,7 +71,7 @@ namespace RB.Client
             }
             catch (System.Exception e)
             {
-                Debugger.Log("system error sending UDP to server: " + e);
+                Debugger.Log("system error receiving from server: " + e);
 
                 ClientManager.CURRENT.DisconnectClient();
             }

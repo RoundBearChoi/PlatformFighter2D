@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RB.Network;
@@ -12,8 +11,8 @@ namespace RB.Server
         public delegate void PacketHandler(int _fromClient, Packet _packet);
         public Dictionary<int, PacketHandler> packetHandlers;
 
-        System.Net.Sockets.TcpListener tcpListener = null;
-        System.Net.Sockets.UdpClient udpListener = null;
+        System.Net.Sockets.TcpListener _tcpListener = null;
+        System.Net.Sockets.UdpClient _udpClient = null;
 
         string _localIP = string.Empty;
         string _publicIP = string.Empty;
@@ -30,12 +29,12 @@ namespace RB.Server
         {
             InitServer();
 
-            tcpListener = new System.Net.Sockets.TcpListener(System.Net.IPAddress.Any, PORT);
-            tcpListener.Start();
-            tcpListener.BeginAcceptTcpClient(TCPConnectCallback, null);
+            _tcpListener = new System.Net.Sockets.TcpListener(System.Net.IPAddress.Any, PORT);
+            _tcpListener.Start();
+            _tcpListener.BeginAcceptTcpClient(TCPConnectCallback, null);
 
-            udpListener = new System.Net.Sockets.UdpClient(PORT);
-            udpListener.BeginReceive(UDPReceiveCallback, null);
+            _udpClient = new System.Net.Sockets.UdpClient(PORT);
+            _udpClient.BeginReceive(UDPReceiveCallback, null);
 
             Debugger.Log("server started on port: " + PORT);
 
@@ -70,14 +69,14 @@ namespace RB.Server
             message.Register();
         }
 
-        private void TCPConnectCallback(IAsyncResult result)
+        private void TCPConnectCallback(System.IAsyncResult result)
         {
             if (BaseInitializer.current != null)
             {
                 if (BaseInitializer.current.GetStage() is HostGameStage)
                 {
-                    System.Net.Sockets.TcpClient tcpClient = tcpListener.EndAcceptTcpClient(result);
-                    tcpListener.BeginAcceptTcpClient(TCPConnectCallback, null);
+                    System.Net.Sockets.TcpClient tcpClient = _tcpListener.EndAcceptTcpClient(result);
+                    _tcpListener.BeginAcceptTcpClient(TCPConnectCallback, null);
 
                     Debugger.Log("incoming connection from: " + (tcpClient.Client.RemoteEndPoint));
 
@@ -95,13 +94,13 @@ namespace RB.Server
             }
         }
 
-        private void UDPReceiveCallback(IAsyncResult result)
+        private void UDPReceiveCallback(System.IAsyncResult result)
         {
             try
             {
                 System.Net.IPEndPoint clientEndPoint = new System.Net.IPEndPoint(System.Net.IPAddress.Any, 0);
-                byte[] received = udpListener.EndReceive(result, ref clientEndPoint);
-                udpListener.BeginReceive(UDPReceiveCallback, null);
+                byte[] received = _udpClient.EndReceive(result, ref clientEndPoint);
+                _udpClient.BeginReceive(UDPReceiveCallback, null);
 
                 if (received.Length < 4)
                 {
@@ -128,9 +127,9 @@ namespace RB.Server
                     }
                 }
             }
-            catch (Exception _ex)
+            catch (System.Exception e)
             {
-                Debug.Log($"Error receiving UDP data: {_ex}");
+                Debug.Log("system error receiving udp data: " + e);
             }
         }
 
@@ -140,12 +139,12 @@ namespace RB.Server
             {
                 if (clientEndPoint != null)
                 {
-                    udpListener.BeginSend(packet.ToArray(), packet.Length(), clientEndPoint, null, null);
+                    _udpClient.BeginSend(packet.ToArray(), packet.Length(), clientEndPoint, null, null);
                 }
             }
-            catch (Exception _ex)
+            catch (System.Exception e)
             {
-                Debug.Log($"Error sending data to {clientEndPoint} via UDP: {_ex}");
+                Debug.Log("system error error sending data to " + clientEndPoint + " via UDP: " + e);
             }
         }
 
@@ -168,8 +167,8 @@ namespace RB.Server
 
         public void EndServer()
         {
-            tcpListener.Stop();
-            udpListener.Close();
+            _tcpListener.Stop();
+            _udpClient.Close();
 
             Debugger.Log("server ended.. destroying ServerManager");
             Destroy(ServerManager.CURRENT.gameObject);
