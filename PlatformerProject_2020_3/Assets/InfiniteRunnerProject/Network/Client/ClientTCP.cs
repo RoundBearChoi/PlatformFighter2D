@@ -6,16 +6,16 @@ namespace RB.Client
 {
     public class ClientTCP
     {
-        System.Net.Sockets.TcpClient _socket;
+        System.Net.Sockets.TcpClient _tcpClient;
         System.Net.Sockets.NetworkStream _stream;
         byte[] _receivedBuffer;
         int _dataBufferSize = 0;
 
-        public System.Net.Sockets.TcpClient SOCKET
+        public System.Net.Sockets.TcpClient TCP_CLIENT
         {
             get
             {
-                return _socket;
+                return _tcpClient;
             }
         }
 
@@ -23,28 +23,28 @@ namespace RB.Client
         {
             _dataBufferSize = dataBufferSize;
 
-            _socket = new System.Net.Sockets.TcpClient
+            _tcpClient = new System.Net.Sockets.TcpClient
             {
                 ReceiveBufferSize = _dataBufferSize,
                 SendBufferSize = _dataBufferSize
             };
 
             _receivedBuffer = new byte[_dataBufferSize];
-            _socket.BeginConnect(ip, RB.Server.ServerController.PORT, ConnectCallback, _socket);
+            _tcpClient.BeginConnect(ip, RB.Server.ServerController.PORT, ConnectCallback, _tcpClient);
         }
 
         private void ConnectCallback(System.IAsyncResult result)
         {
             try
             {
-                _socket.EndConnect(result);
+                _tcpClient.EndConnect(result);
 
-                if (!_socket.Connected)
+                if (!_tcpClient.Connected)
                 {
                     return;
                 }
 
-                _stream = _socket.GetStream();
+                _stream = _tcpClient.GetStream();
                 _stream.BeginRead(_receivedBuffer, 0, _dataBufferSize, ReceiveCallback, null);
             }
             catch (System.Exception e)
@@ -65,7 +65,7 @@ namespace RB.Client
         {
             try
             {
-                if (_socket != null)
+                if (_tcpClient != null)
                 {
                     _stream.BeginWrite(packet.ToArray(), 0, packet.Length(), null, null);
                 }

@@ -81,8 +81,8 @@ namespace RB.Client
         {
             try
             {
-                clientController.clientTCP.SOCKET.Close();
-                clientController.clientUDP.SOCKET.Close();
+                clientController.clientTCP.TCP_CLIENT.Close();
+                clientController.clientUDP.UDP_CLIENT.Close();
             }
             catch (System.Exception e)
             {

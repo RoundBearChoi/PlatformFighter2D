@@ -9,7 +9,7 @@ namespace RB.Client
         System.Net.Sockets.UdpClient _udpClient;
         System.Net.IPEndPoint _endPoint;
 
-        public System.Net.Sockets.UdpClient SOCKET
+        public System.Net.Sockets.UdpClient UDP_CLIENT
         {
             get
             {

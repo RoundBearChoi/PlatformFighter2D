@@ -18,7 +18,7 @@ namespace RB.Client
 
             ClientSend.WelcomeReceived();
 
-            int port = ((IPEndPoint)ClientManager.CURRENT.clientController.clientTCP.SOCKET.Client.LocalEndPoint).Port;
+            int port = ((IPEndPoint)ClientManager.CURRENT.clientController.clientTCP.TCP_CLIENT.Client.LocalEndPoint).Port;
             ClientManager.CURRENT.clientController.clientUDP.Connect(port);
 
             BaseMessage connectedMessage = new Message_ConnectedToServer();
