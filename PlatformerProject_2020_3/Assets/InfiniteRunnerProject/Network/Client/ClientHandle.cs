@@ -10,19 +10,31 @@ namespace RB.Client
     {
         public static void Welcome(Packet packet)
         {
-            string msg = packet.ReadString();
-            int myId = packet.ReadInt();
+            try
+            {
+                string msg = packet.ReadString();
+                int myId = packet.ReadInt();
 
-            Debugger.Log("message from server: " + msg);
-            ClientManager.CURRENT.clientController.myId = myId;
+                Debugger.Log("message from server: " + msg);
+                ClientManager.CURRENT.clientController.myId = myId;
 
-            ClientSend.WelcomeReceived();
+                ClientSend.WelcomeReceived();
 
-            int port = ((IPEndPoint)ClientManager.CURRENT.clientController.clientTCP.TCP_CLIENT.Client.LocalEndPoint).Port;
-            ClientManager.CURRENT.clientController.clientUDP.Connect(port);
+                int port = ((IPEndPoint)ClientManager.CURRENT.clientController.clientTCP.TCP_CLIENT.Client.LocalEndPoint).Port;
+                ClientManager.CURRENT.clientController.clientUDP.Connect(port);
 
-            BaseMessage connectedMessage = new Message_ConnectedToServer();
-            connectedMessage.Register();
+                BaseMessage connectedMessage = new Message_ConnectedToServer();
+                connectedMessage.Register();
+            }
+            catch(System.Exception e)
+            {
+                Debugger.Log("system error on welcome message: " + e);
+
+                RB.Network.ThreadControl.ExecuteOnMainThread(() =>
+                {
+                    ClientManager.CURRENT.EndClient();
+                });
+            }
         }
 
         public static void ClientsConnectionStatus(Packet packet)
