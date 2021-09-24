@@ -9,8 +9,14 @@ namespace RB
         public override void OnEnterKey()
         {
             Debugger.Log("returning to menu");
+
+            Return();
+        }
+
+        public static void Return()
+        {
             BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
-            
+
             if (RB.Server.ServerManager.CURRENT != null)
             {
                 RB.Server.ServerManager.CURRENT.serverController.EndServer();

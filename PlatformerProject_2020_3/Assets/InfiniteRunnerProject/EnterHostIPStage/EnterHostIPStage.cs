@@ -45,6 +45,11 @@ namespace RB
                 BaseMessage enteredMessage = new Message_HostIPEntered();
                 enteredMessage.Register();
             }
+
+            if (latestInput.commands.ContainsPress(CommandType.ESCAPE, true))
+            {
+                ReturnToMenu.Return();
+            }
         }
 
         public override void OnLateUpdate()

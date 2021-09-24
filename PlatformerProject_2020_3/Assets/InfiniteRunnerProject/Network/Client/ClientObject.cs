@@ -57,11 +57,11 @@ namespace RB.Client
         {
             if (_offlineDummy != null)
             {
-                _playerPositionSphere.transform.position = Vector3.Lerp(_playerPositionSphere.transform.position, _offlineDummy.transform.position, 0.75f);
+                _playerPositionSphere.transform.position = Vector3.Lerp(_playerPositionSphere.transform.position, _offlineDummy.transform.position, 0.7f);
             }
             else
             {
-                _playerPositionSphere.transform.position = Vector3.Lerp(_playerPositionSphere.transform.position, _networkPosition, 0.75f);
+                _playerPositionSphere.transform.position = Vector3.Lerp(_playerPositionSphere.transform.position, _networkPosition, 0.7f);
             }
         }
 
@@ -69,11 +69,11 @@ namespace RB.Client
         {
             if (_offlineDummy != null)
             {
-                _playerPositionSphere.transform.position = Vector3.Lerp(_playerPositionSphere.transform.position, _offlineDummy.transform.position, Time.deltaTime * 15f);
+                _playerPositionSphere.transform.position = Vector3.Lerp(_playerPositionSphere.transform.position, _offlineDummy.transform.position, Time.deltaTime * 10f);
             }
             else
             {
-                _playerPositionSphere.transform.position = Vector3.Lerp(_playerPositionSphere.transform.position, _networkPosition, Time.deltaTime * 15f);
+                _playerPositionSphere.transform.position = Vector3.Lerp(_playerPositionSphere.transform.position, _networkPosition, Time.deltaTime * 10f);
             }
         }
 
