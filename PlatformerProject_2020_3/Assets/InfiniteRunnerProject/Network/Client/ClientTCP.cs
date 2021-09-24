@@ -45,7 +45,7 @@ namespace RB.Client
                 }
 
                 _stream = _tcpClient.GetStream();
-                _stream.BeginRead(_receivedBuffer, 0, _dataBufferSize, ClientCallBackTCP, null);
+                _stream.BeginRead(_receivedBuffer, 0, _dataBufferSize, ClientCallBackTCPConnect, null);
             }
             catch (System.Exception e)
             {
@@ -67,7 +67,7 @@ namespace RB.Client
             {
                 if (_tcpClient != null)
                 {
-                    _stream.BeginWrite(packet.ToArray(), 0, packet.Length(), null, null);
+                    _stream.BeginWrite(packet.ToArray(), 0, packet.Length(), ClientCallBackTCPSend, null);
                 }
             }
             catch (System.Exception e)
@@ -83,7 +83,12 @@ namespace RB.Client
             }
         }
 
-        private void ClientCallBackTCP(System.IAsyncResult result)
+        void ClientCallBackTCPSend(System.IAsyncResult result)
+        {
+            Debugger.Log("tcp send result: " + result.IsCompleted);
+        }
+
+        void ClientCallBackTCPConnect(System.IAsyncResult result)
         {
             try
             {
@@ -104,11 +109,11 @@ namespace RB.Client
 
                 packet.Dispose();
 
-                _stream.BeginRead(_receivedBuffer, 0, _dataBufferSize, ClientCallBackTCP, null);
+                _stream.BeginRead(_receivedBuffer, 0, _dataBufferSize, ClientCallBackTCPConnect, null);
             }
             catch (System.Exception e)
             {
-                Debugger.Log("system error receiving call back: " + e);
+                Debugger.Log("system error on tcp send: " + e);
 
                 ClientManager.CURRENT.EndClient();
             }

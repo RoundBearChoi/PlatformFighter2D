@@ -27,7 +27,7 @@ namespace RB.Client
             _udpClient = new System.Net.Sockets.UdpClient(_localPort);
 
             _udpClient.Connect(_endPoint);
-            _udpClient.BeginReceive(ClientCallBackUDP, null);
+            _udpClient.BeginReceive(ClientCallBackUDPConnect, null);
 
             using (RB.Network.Packet packet = new RB.Network.Packet())
             {
@@ -52,13 +52,13 @@ namespace RB.Client
             }
         }
 
-        private void ClientCallBackUDP(System.IAsyncResult result)
+        private void ClientCallBackUDPConnect(System.IAsyncResult result)
         {
             try
             {
                 byte[] arr = _udpClient.EndReceive(result, ref _endPoint);
 
-                _udpClient.BeginReceive(ClientCallBackUDP, null);
+                _udpClient.BeginReceive(ClientCallBackUDPConnect, null);
 
                 if (arr.Length < 4)
                 {
@@ -73,7 +73,7 @@ namespace RB.Client
             }
             catch (System.Exception e)
             {
-                Debugger.Log("system error on udpsend: " + e);
+                Debugger.Log("system error on udp send: " + e);
 
                 ClientManager.CURRENT.EndClient();
             }
