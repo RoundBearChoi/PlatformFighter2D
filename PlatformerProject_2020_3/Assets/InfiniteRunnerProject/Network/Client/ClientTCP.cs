@@ -72,7 +72,8 @@ namespace RB.Client
             }
             catch (System.Exception e)
             {
-                Debugger.Log("System error sending TCP to server: " + e);
+                Debugger.Log("system error sending TCP to server: " + e);
+
                 ClientManager.CURRENT.DisconnectClient();
 
                 RB.Network.ThreadControl.ExecuteOnMainThread(() =>

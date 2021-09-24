@@ -16,6 +16,7 @@ namespace RB.Client
         private static void SendUDPData(Packet _packet)
         {
             _packet.WriteLength();
+
             ClientManager.CURRENT.clientController.clientUDP.SendData(_packet);
         }
 

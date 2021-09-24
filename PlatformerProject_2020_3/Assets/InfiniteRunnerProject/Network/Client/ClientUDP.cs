@@ -69,7 +69,7 @@ namespace RB.Client
                     return;
                 }
 
-                Debugger.Log("receiving udp");
+                //Debugger.Log("receiving udp");
 
                 HandleData(arr);
             }
