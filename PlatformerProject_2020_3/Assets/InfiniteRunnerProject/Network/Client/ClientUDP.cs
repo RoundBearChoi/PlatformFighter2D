@@ -64,18 +64,24 @@ namespace RB.Client
                 {
                     Debugger.Log("received less than 4 bytes from server");
 
-                    ClientManager.CURRENT.EndClient();
-
-                    return;
+                    RB.Network.ThreadControl.ExecuteOnMainThread(() =>
+                    {
+                        ClientManager.CURRENT.EndClient();
+                    });
                 }
-
-                HandleData(arr);
+                else
+                {
+                    HandleData(arr);
+                }
             }
             catch (System.Exception e)
             {
                 Debugger.Log("system error on udp connection: " + e);
 
-                ClientManager.CURRENT.EndClient();
+                RB.Network.ThreadControl.ExecuteOnMainThread(() =>
+                {
+                    ClientManager.CURRENT.EndClient();
+                });
             }
         }
 

@@ -74,10 +74,9 @@ namespace RB.Client
             {
                 Debugger.Log("system error sending TCP to server: " + e);
 
-                ClientManager.CURRENT.EndClient();
-
                 RB.Network.ThreadControl.ExecuteOnMainThread(() =>
                 {
+                    ClientManager.CURRENT.EndClient();
                     BaseInitializer.current.stageTransitioner.AddNextStage(GameObject.Instantiate(ResourceLoader.stageLoader.GetObj(StageType.INTRO_STAGE)) as BaseStage);
                 });
             }
@@ -98,19 +97,25 @@ namespace RB.Client
                 {
                     Debugger.Log("received 0 bytes from server");
 
-                    ClientManager.CURRENT.EndClient();
-                    return;
+                    RB.Network.ThreadControl.ExecuteOnMainThread(() =>
+                    {
+                        ClientManager.CURRENT.EndClient();
+                    });
                 }
-
-                HandleData(byteLength);
-
-                _stream.BeginRead(_receivedBuffer, 0, _dataBufferSize, ClientCallBackTCPConnect, null);
+                else
+                {
+                    HandleData(byteLength);
+                    _stream.BeginRead(_receivedBuffer, 0, _dataBufferSize, ClientCallBackTCPConnect, null);
+                }
             }
             catch (System.Exception e)
             {
                 Debugger.Log("system error on tcp connection: " + e);
 
-                ClientManager.CURRENT.EndClient();
+                RB.Network.ThreadControl.ExecuteOnMainThread(() =>
+                {
+                    ClientManager.CURRENT.EndClient();
+                });
             }
         }
 

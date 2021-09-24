@@ -52,21 +52,19 @@ namespace RB
 
             if (_updateCount > uint.MaxValue || _updateCount > 50 * 3)
             {
-                RB.Network.ThreadControl.ExecuteOnMainThread(() =>
-                {
-                    BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.ENTER_IP_STAGE));
-                });
-            
-                return;
+                BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.ENTER_IP_STAGE));
             }
 
             //normal operations
-            if (_baseUI != null)
+            else
             {
-                _baseUI.OnFixedUpdate();
-            }
+                if (_baseUI != null)
+                {
+                    _baseUI.OnFixedUpdate();
+                }
 
-            _inputController.ClearAllKeysAndButtons();
+                _inputController.ClearAllKeysAndButtons();
+            }
         }
     }
 }

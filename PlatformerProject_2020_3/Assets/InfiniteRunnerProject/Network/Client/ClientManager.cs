@@ -90,7 +90,15 @@ namespace RB.Client
             }
 
             Debug.Log("client ended.. destroying ClientManager");
-            Destroy(_current.gameObject);
+
+            try
+            {
+                Destroy(_current.gameObject);
+            }
+            catch (System.Exception e)
+            {
+                Debugger.Log("system error on destroying ClientManager: " + e);
+            }
         }
     }
 }
