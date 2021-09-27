@@ -6,6 +6,8 @@ namespace RB
 {
     public class LittleRed_Death : UnitState
     {
+        Unit _deathFX = null;
+
         public LittleRed_Death(Unit unit)
         {
             ownerUnit = unit;
@@ -16,7 +18,12 @@ namespace RB
 
             if (ownerUnit.unitType == UnitType.LITTLE_RED_LIGHT)
             {
+                BaseInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.DeathFX_Light);
+                Unit fxLight = Units.instance.GetUnit<DeathFX_Light>();
+                fxLight.transform.position = ownerUnit.transform.position;
+                fxLight.unitData.facingRight = ownerUnit.unitData.facingRight;
 
+                _deathFX = fxLight;
             }
             else if (ownerUnit.unitType == UnitType.LITTLE_RED_DARK)
             {
@@ -24,12 +31,19 @@ namespace RB
                 Unit fxDark = Units.instance.GetUnit<DeathFX_Dark>();
                 fxDark.transform.position = ownerUnit.transform.position;
                 fxDark.unitData.facingRight = ownerUnit.unitData.facingRight;
+
+                _deathFX = fxDark;
             }
         }
 
         public override void OnFixedUpdate()
         {
             FixedUpdateComponents();
+
+            if (_deathFX != null)
+            {
+                _deathFX.transform.position = ownerUnit.transform.position;
+            }
         }
     }
 }
