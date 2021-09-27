@@ -35,6 +35,7 @@ namespace RB
         LITTLE_RED_WALLSLIDE = 302,
         LITTLE_RED_DASH = 303,
         LITTLE_RED_STOMPED = 304,
+        LITTLE_RED_DEATH = 305,
 
         LITTLE_RED_ATTACK_A = 350,
         LITTLE_RED_ATTACK_B = 351,

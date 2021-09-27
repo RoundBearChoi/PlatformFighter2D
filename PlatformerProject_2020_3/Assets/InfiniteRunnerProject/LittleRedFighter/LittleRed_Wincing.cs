@@ -22,15 +22,21 @@ namespace RB
         {
             FixedUpdateComponents();
 
+
+            if (ownerUnit.unitData.hp <= 0)
+            {
+                if (ownerUnit.unitData.collisionStays.IsOnFlatGround())
+                {
+                    ownerUnit.gameObject.layer = (int)LayerType.GHOSTING_UNIT;
+                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Death(ownerUnit));
+                }
+            }
+
             if (fixedUpdateCount >= 20)
             {
                 if (ownerUnit.unitData.hp > 0)
                 {
                     ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
-                }
-                else
-                {
-
                 }
             }
         }
