@@ -19,30 +19,30 @@ namespace RB
             if (ownerUnit.unitType == UnitType.LITTLE_RED_LIGHT)
             {
                 BaseInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.DeathFX_Light);
-                Unit fxLight = Units.instance.GetUnit<DeathFX_Light>();
-                fxLight.transform.position = ownerUnit.transform.position;
-                fxLight.unitData.facingRight = ownerUnit.unitData.facingRight;
-
-                _deathFX = fxLight;
+                _deathFX = Units.instance.GetUnit<DeathFX_Light>();
             }
             else if (ownerUnit.unitType == UnitType.LITTLE_RED_DARK)
             {
                 BaseInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.DeathFX_Dark);
-                Unit fxDark = Units.instance.GetUnit<DeathFX_Dark>();
-                fxDark.transform.position = ownerUnit.transform.position;
-                fxDark.unitData.facingRight = ownerUnit.unitData.facingRight;
-
-                _deathFX = fxDark;
+                 _deathFX = Units.instance.GetUnit<DeathFX_Dark>();
             }
+
+            UpdateDeathFXPosition();
         }
 
         public override void OnFixedUpdate()
         {
             FixedUpdateComponents();
 
+            UpdateDeathFXPosition();
+        }
+
+        void UpdateDeathFXPosition()
+        {
             if (_deathFX != null)
             {
-                _deathFX.transform.position = ownerUnit.transform.position;
+                _deathFX.unitData.facingRight = ownerUnit.unitData.facingRight;
+                _deathFX.transform.position = new Vector3(ownerUnit.transform.position.x, ownerUnit.transform.position.y, BaseInitializer.current.fighterDataSO.Player_DeathParticles_z);
             }
         }
     }
