@@ -145,10 +145,21 @@ namespace RB
                                 shakeCamOnPosition.Register();
                             }
                         }
+                        else if (
+                            _listUnits[i].unitType == UnitType.LITTLE_RED_LIGHT ||
+                            _listUnits[i].unitType == UnitType.LITTLE_RED_DARK)
+                        {
+                            if ((_listUnits[i].iStateController.GetCurrentState() is LittleRed_Death) == false)
+                            {
+                                _listUnits[i].unitData.listNextStates.Add(new LittleRed_Death(_listUnits[i]));
+                            }
+                        }
 
                         _listUnits[i].unitData.rigidBody2D.gravityScale = 0f;
                         _listUnits[i].unitData.rigidBody2D.velocity = Vector2.zero;
                         _listUnits[i].unitData.hp = 0;
+
+                        _listUnits[i].unitData.airControl.SetMomentum(0f);
                     }
                 }
             }

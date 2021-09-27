@@ -28,6 +28,8 @@ namespace RB
             }
 
             UpdateDeathFXPosition();
+
+            ownerUnit.transform.position = new Vector3(ownerUnit.transform.position.x, ownerUnit.transform.position.y, BaseInitializer.current.fighterDataSO.DeadPlayers_z);
         }
 
         public override void OnFixedUpdate()
