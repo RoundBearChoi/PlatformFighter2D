@@ -25,6 +25,7 @@ namespace RB
                 else if (message.MESSAGE_TYPE == MessageType.TAKE_DAMAGE)
                 {
                     uint damage = message.GetUnsignedIntMessage();
+
                     Debugger.Log(_unit.gameObject.name + " takes damage: " + damage);
                     Debugger.Log(_unit.gameObject.name + " current hp: " + _unit.unitData.hp);
 

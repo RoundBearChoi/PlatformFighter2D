@@ -24,7 +24,14 @@ namespace RB
 
             if (fixedUpdateCount >= 20)
             {
-                ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
+                if (ownerUnit.unitData.hp > 0)
+                {
+                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
+                }
+                else
+                {
+
+                }
             }
         }
     }
