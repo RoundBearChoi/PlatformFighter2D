@@ -107,6 +107,11 @@ namespace RB
             unit.iStateController.SetNewState(new Blood_5_DefaultState(unit));
         }
 
+        public void New_DeathFX_DARK(Unit unit)
+        {
+            unit.iStateController.SetNewState(new DeathFX_Dark_DefaultState(unit));
+        }
+
         public void New_ParryEffect(Unit unit)
         {
             unit.iStateController.SetNewState(new ParryEffect_DefaultState(unit));

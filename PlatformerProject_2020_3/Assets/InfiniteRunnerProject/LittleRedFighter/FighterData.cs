@@ -62,6 +62,7 @@ namespace RB
         public float BloodEffects_z = 0f;
         public float DustEffects_z = 0f;
         public float Players_z = 0f;
+        public float Player_DeathParticles_z = 0f;
         public float tempPlatforms_z = 0f;
         public float OldCity_Platforms_z = 0f;
         public float OldCity_Arches_z = 0f;

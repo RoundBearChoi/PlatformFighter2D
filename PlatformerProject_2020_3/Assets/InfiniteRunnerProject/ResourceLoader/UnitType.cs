@@ -26,6 +26,8 @@ namespace RB
         OLD_CITY = 401,
 
         BLOOD_5 = 500,
+        DeathFX_Light = 510,
+        DeathFX_Dark = 511,
 
         PARRY_EFFECT = 600,
 

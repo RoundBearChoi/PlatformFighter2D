@@ -14,6 +14,9 @@ namespace RB
         BLOOD_4 = 4,
         BLOOD_5 = 5,
 
+        DEATHFX_LIGHT = 50,
+        DEATHFX_DARK = 51,
+
         DUST_DASH = 100,
         DUST_JUMP = 101,
         DUST_LAND = 102,
