@@ -24,7 +24,11 @@ namespace RB
                 }
                 else if (message.MESSAGE_TYPE == MessageType.TAKE_DAMAGE)
                 {
-                    //_unit.unitData.hp -= message.GetUnsignedIntMessage();
+                    uint damage = message.GetUnsignedIntMessage();
+                    Debugger.Log(_unit.gameObject.name + " takes damage: " + damage);
+                    Debugger.Log(_unit.gameObject.name + " current hp: " + _unit.unitData.hp);
+
+                    _unit.unitData.hp -= message.GetUnsignedIntMessage();
                 }
                 else if (message.MESSAGE_TYPE == MessageType.TRIGGER_STOMPEDSTATE)
                 {
