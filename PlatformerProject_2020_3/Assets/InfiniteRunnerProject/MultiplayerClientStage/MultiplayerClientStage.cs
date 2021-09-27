@@ -163,7 +163,7 @@ namespace RB
 
         public override CameraState GetStageDefaultCameraState()
         {
-            return new Camera_LerpOnTargetXAndY(0.08f, 0.08f);
+            return new Camera_LerpOnFighterXAndY(0.08f, 0.08f);
         }
     }
 }
