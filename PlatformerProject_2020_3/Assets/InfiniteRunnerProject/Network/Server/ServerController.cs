@@ -171,9 +171,7 @@ namespace RB.Server
             _tcpListener.Stop();
             _udpClient.Close();
 
-            Debugger.Log("server ended.. destroying ServerManager");
-
-            Destroy(ServerManager.CURRENT.gameObject);
+            Debugger.Log("server ended");
         }
     }
 }

@@ -11,6 +11,11 @@ namespace RB
 
         public override void Init()
         {
+            if (RB.Server.ServerManager.CURRENT != null)
+            {
+                Destroy(RB.Server.ServerManager.CURRENT.gameObject);
+            }
+
             ClientManager.Init();
 
             IntroCamera introCam = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.INTRO_CAMERA)) as IntroCamera;

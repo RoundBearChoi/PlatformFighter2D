@@ -24,6 +24,11 @@ namespace RB
 
             _baseUI.Init(BaseUIType.HOST_GAME_UI);
 
+            if (RB.Client.ClientManager.CURRENT != null)
+            {
+                Destroy(RB.Client.ClientManager.CURRENT.gameObject);
+            }
+
             //open server
             RB.Server.ServerManager.Init();
         }

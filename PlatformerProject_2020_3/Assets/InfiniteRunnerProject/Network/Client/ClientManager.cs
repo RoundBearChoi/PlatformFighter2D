@@ -27,6 +27,11 @@ namespace RB.Client
 
         public static void Init()
         {
+            if (_current != null)
+            {
+                Destroy(_current.gameObject);
+            }
+
             _current = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_MANAGER)) as ClientManager;
 
             _current.clientController = Instantiate(ResourceLoader.etcLoader.GetObj(etcType.CLIENT_CONTROLLER)) as ClientController;
@@ -89,16 +94,7 @@ namespace RB.Client
                 Debugger.Log("system error attempting to close socket: " + e);
             }
 
-            Debug.Log("client ended.. destroying ClientManager");
-
-            try
-            {
-                Destroy(_current.gameObject);
-            }
-            catch (System.Exception e)
-            {
-                Debugger.Log("system error on destroying ClientManager: " + e);
-            }
+            Debug.Log("client ended");
         }
     }
 }

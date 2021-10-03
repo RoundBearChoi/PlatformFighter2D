@@ -39,11 +39,6 @@ namespace RB
         {
             RB.Network.ThreadControl.OnFixedUpdate();
 
-            if (RB.Client.ClientManager.CURRENT != null)
-            {
-                RB.Client.ClientManager.CURRENT.clientInput.SendInputToServer();
-            }
-
             if (_stage != null)
             {
                 _stage.OnFixedUpdate();

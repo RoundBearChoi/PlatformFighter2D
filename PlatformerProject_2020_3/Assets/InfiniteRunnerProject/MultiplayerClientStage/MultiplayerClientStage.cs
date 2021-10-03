@@ -134,6 +134,8 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
+            RB.Client.ClientManager.CURRENT.clientInput.SendInputToServer();
+
             _clientObjects.OnFixedUpdate();
             units.OnFixedUpdate();
             cameraScript.OnFixedUpdate();
