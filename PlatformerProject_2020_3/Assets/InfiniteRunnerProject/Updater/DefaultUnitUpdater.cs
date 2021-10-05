@@ -49,7 +49,10 @@ namespace RB
                 {
                     if (_unit.unitData.rigidBody2D != null)
                     {
-                        _unit.unitData.rigidBody2D.Sleep();
+                        if (!_unit.unitData.rigidBody2D.IsSleeping())
+                        {
+                            _unit.unitData.rigidBody2D.Sleep();
+                        }
                     }
 
                     _totalHitStopFrames--;
