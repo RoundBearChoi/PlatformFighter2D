@@ -23,8 +23,7 @@ namespace RB
                     {
                         if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, false))
                         {
-                            Debugger.Log("trigger attack B!");
-                            //_unit.unitData.listNextStates.Add(new LittleRed_Attack_B(_unit));
+                            _unit.unitData.listNextStates.Add(new LittleRed_Attack_B(_unit));
                         }
                     }
                 }
