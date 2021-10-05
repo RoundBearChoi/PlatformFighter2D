@@ -51,7 +51,7 @@ namespace RB
         {
             if (spriteSpec != null)
             {
-                for (int i = 0; i < spriteSpec.tiling + 1; i++)
+                for (int i = 0; i < spriteSpec.additionalTiles + 1; i++)
                 {
                     GameObject sprObj = unit.unitData.spriteAnimations.AddSpriteAnimation(creationSpec, spriteSpec, unit.transform);
 
