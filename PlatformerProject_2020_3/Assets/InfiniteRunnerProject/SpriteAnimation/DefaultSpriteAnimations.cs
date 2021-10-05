@@ -9,7 +9,6 @@ namespace RB
         private Unit _unit = null;
         private List<SpriteAnimation> _listSpriteAnimations = null;
         private IStateController<UnitState> _IStateController = null;
-
         private SpriteAnimation _currentAnimation = null;
 
         public DefaultSpriteAnimations(IStateController<UnitState> stateController, Unit unit)
@@ -79,7 +78,7 @@ namespace RB
             }
         }
 
-        public void AddSpriteAnimation(UnitCreationSpec creationSpec, SpriteAnimationSpec spriteSpec, Transform parent)
+        public GameObject AddSpriteAnimation(UnitCreationSpec creationSpec, SpriteAnimationSpec spriteSpec, Transform parent)
         {
             int index = 0;
 
@@ -104,6 +103,8 @@ namespace RB
             _listSpriteAnimations[_listSpriteAnimations.Count - 1].spriteType = spriteSpec.spriteType;
             _listSpriteAnimations[_listSpriteAnimations.Count - 1].SetSpriteAnimationSpec(spriteSpec);
             _listSpriteAnimations[_listSpriteAnimations.Count - 1].LoadSprite(creationSpec);
+
+            return obj;
         }
 
         public SpriteAnimation GetLastSpriteAnimation()

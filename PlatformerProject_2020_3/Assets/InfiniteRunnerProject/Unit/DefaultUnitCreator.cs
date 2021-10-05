@@ -51,7 +51,19 @@ namespace RB
         {
             if (spriteSpec != null)
             {
-                unit.unitData.spriteAnimations.AddSpriteAnimation(creationSpec, spriteSpec, unit.transform);
+                for (int i = 0; i < spriteSpec.tiling + 1; i++)
+                {
+                    GameObject sprObj = unit.unitData.spriteAnimations.AddSpriteAnimation(creationSpec, spriteSpec, unit.transform);
+
+                    float xTiling = 0f;
+
+                    if (spriteSpec.offsetType == OffsetType.BOTTOM_LEFT)
+                    {
+                        xTiling = sprObj.transform.localPosition.x * 2 * i;
+                    }
+
+                    sprObj.transform.localPosition = new Vector3(sprObj.transform.localPosition.x + xTiling, sprObj.transform.localPosition.y, sprObj.transform.localPosition.z);
+                }
             }
         }
     }

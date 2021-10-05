@@ -12,6 +12,7 @@ namespace RB
         [SerializeField]
         SpriteAnimationSpec _animationSpec = null;
 
+        [SerializeField]
         SpriteRenderer _spriteRenderer = null;
         
         public SpriteType spriteType = SpriteType.NONE;
@@ -105,7 +106,6 @@ namespace RB
             float x = _spriteRenderer.transform.localScale.x;
             float y = _spriteRenderer.transform.localScale.y;
 
-            //other pivots should be defined as well
             if (_animationSpec.offsetType == OffsetType.BOTTOM_CENTER)
             {
                 _spriteRenderer.transform.localPosition = new Vector3(0f, _listSprites[0].bounds.size.y * y * 0.5f, 0f);

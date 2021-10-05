@@ -31,9 +31,9 @@ namespace RB
 
         }
 
-        public void AddSpriteAnimation(UnitCreationSpec creationSpec, SpriteAnimationSpec spriteSpec, Transform parent)
+        public GameObject AddSpriteAnimation(UnitCreationSpec creationSpec, SpriteAnimationSpec spriteSpec, Transform parent)
         {
-
+            return null;
         }
 
         public SpriteAnimation GetLastSpriteAnimation()

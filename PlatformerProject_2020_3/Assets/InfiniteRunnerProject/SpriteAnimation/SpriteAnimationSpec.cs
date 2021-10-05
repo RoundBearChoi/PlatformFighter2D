@@ -24,5 +24,8 @@ namespace RB
 
         [Space(10)]
         public SpriteType spriteType;
+
+        [Space(10)]
+        public uint tiling;
     }
 }
