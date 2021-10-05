@@ -23,7 +23,7 @@ namespace RB
             if (_parallaxAnchor != null)
             {
                 Vector3 pos = _parallaxAnchor.transform.position * _percentage;
-                _unit.transform.position = new Vector3(_basePos.x + pos.x, _basePos.y, _unit.transform.position.z);
+                _unit.transform.position = new Vector3(_basePos.x + pos.x, _unit.transform.position.y, _unit.transform.position.z);
             }
             else
             {
