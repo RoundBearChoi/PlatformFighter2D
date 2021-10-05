@@ -14,6 +14,6 @@ namespace RB
         GOLEM_ATTACK_A = 100,
 
         LITTLE_RED_ATTACK_A = 200,
-
+        LITTLE_RED_ATTACK_B = 201,
     }
 }
