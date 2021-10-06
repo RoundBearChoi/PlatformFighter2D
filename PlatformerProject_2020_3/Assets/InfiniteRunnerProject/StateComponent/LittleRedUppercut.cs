@@ -21,6 +21,7 @@ namespace RB
             //_listStateComponents.Add(new TriggerLittleRedAttackB(ownerUnit));
 
             _listStateComponents.Add(new DelayedJump(ownerUnit, BaseInitializer.current.fighterDataSO.VerticalJumpForce * 0.8f, 3));
+            _listStateComponents.Add(new UpdateAirMovementOnMomentum(ownerUnit));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_UPPERCUT);
         }
@@ -29,15 +30,58 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().IsOnEnd())
+            SpriteAnimation ani = ownerUnit.unitData.spriteAnimations.GetCurrentAnimation();
+
+            if (ani != null)
             {
-                if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
+                float forwardVelocity = 0f;
+
+                if (ani.SPRITE_INDEX >= 4)
                 {
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
+                    if (ownerUnit.unitData.facingRight)
+                    {
+                        forwardVelocity = 2.5f;
+                    }
+                    else
+                    {
+                        forwardVelocity = -2.5f;
+                    }
                 }
-                else
+                else if (ani.SPRITE_INDEX >= 8)
                 {
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall(ownerUnit));
+                    if (ownerUnit.unitData.facingRight)
+                    {
+                        forwardVelocity = 1f;
+                    }
+                    else
+                    {
+                        forwardVelocity = -1f;
+                    }
+                }
+                else if (ani.SPRITE_INDEX >= 12)
+                {
+                    if (ownerUnit.unitData.facingRight)
+                    {
+                        forwardVelocity = 0.25f;
+                    }
+                    else
+                    {
+                        forwardVelocity = -0.25f;
+                    }
+                }
+
+                ownerUnit.unitData.airControl.SetMomentum(forwardVelocity);
+
+                if (ani.IsOnEnd())
+                {
+                    if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
+                    {
+                        ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
+                    }
+                    else
+                    {
+                        ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall(ownerUnit));
+                    }
                 }
             }
         }
