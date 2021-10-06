@@ -13,13 +13,7 @@ namespace RB
             ownerUnit = unit;
             initialFaceRight = unit.unitData.facingRight;
 
-            //_listStateComponents.Add(new CancelJumpForceOnNonPress(ownerUnit, 0));
-            //_listStateComponents.Add(new LerpHorizontalMomentumOnInput_Air(ownerUnit, BaseInitializer.current.fighterDataSO.MaxHorizontalAirMomentum));
-            //_listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, BaseInitializer.current.fighterDataSO.AttackASlowDownPercentage));
-            //_listStateComponents.Add(new OverlapBoxCollision(ownerUnit, BaseInitializer.current.GetOverlapBoxCollisionData(OverlapBoxDataType.LITTLE_RED_ATTACK_A)));
-            //_listStateComponents.Add(new TriggerMarioStomp(ownerUnit));
-            //_listStateComponents.Add(new TriggerLittleRedAttackB(ownerUnit));
-
+            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, BaseInitializer.current.fighterDataSO.AttackASlowDownPercentage));
             _listStateComponents.Add(new DelayedJump(ownerUnit, BaseInitializer.current.fighterDataSO.VerticalJumpForce * 0.8f, 3));
             _listStateComponents.Add(new UpdateAirMovementOnMomentum(ownerUnit));
 
