@@ -31,6 +31,7 @@ namespace RB
 
         PARRY_EFFECT = 600,
         UPPERCUT_EFFECT_LIGHT = 601,
+        UPPERCUT_EFFECT_DARK = 602,
 
         LITTLE_RED_LIGHT = 700,
         LITTLE_RED_DARK = 701,
