@@ -54,7 +54,7 @@ namespace RB
             {
                 currentUnitState.OnExit();
 
-                SetNewState(_unit.unitData.listNextStates[_unit.unitData.listNextStates.Count - 1]);
+                SetNewState(_unit.unitData.listNextStates[0]);
                 _unit.unitData.listNextStates.Clear();
             }
         }

@@ -43,6 +43,7 @@ namespace RB
         LITTLE_RED_ATTACK_A = 350,
         LITTLE_RED_ATTACK_B = 351,
         LITTLE_RED_ATTACK_C = 352,
+        LITTLE_RED_UPPERCUT = 353,
 
         LITTLE_RED_JUMP_FALL = 360,
         LITTLE_RED_JUMP_UP = 361,

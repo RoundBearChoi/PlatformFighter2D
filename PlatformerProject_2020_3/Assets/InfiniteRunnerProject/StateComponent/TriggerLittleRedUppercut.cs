@@ -18,7 +18,7 @@ namespace RB
                 if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, false))
                 {
                     Debugger.Log("uppercut!");
-                    //_unit.unitData.listNextStates.Add(new LittleRed_Attack_A(_unit));
+                    _unit.unitData.listNextStates.Add(new LittleRedUppercut(_unit));
                 }
             }
         }
