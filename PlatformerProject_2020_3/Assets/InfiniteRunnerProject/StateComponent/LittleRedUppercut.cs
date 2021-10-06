@@ -20,6 +20,8 @@ namespace RB
             //_listStateComponents.Add(new TriggerMarioStomp(ownerUnit));
             //_listStateComponents.Add(new TriggerLittleRedAttackB(ownerUnit));
 
+            _listStateComponents.Add(new DelayedJump(ownerUnit, BaseInitializer.current.fighterDataSO.VerticalJumpForce * 0.8f, 3));
+
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_UPPERCUT);
         }
 
@@ -29,15 +31,6 @@ namespace RB
 
             if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().IsOnEnd())
             {
-                if (initialFaceRight)
-                {
-                    ownerUnit.unitData.facingRight = false;
-                }
-                else
-                {
-                    ownerUnit.unitData.facingRight = true;
-                }
-
                 if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
                 {
                     ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
@@ -46,6 +39,20 @@ namespace RB
                 {
                     ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall(ownerUnit));
                 }
+            }
+        }
+
+        public override void OnExit()
+        {
+            if (initialFaceRight)
+            {
+                ownerUnit.unitData.airControl.SetMomentum(-0.01f);
+                ownerUnit.unitData.facingRight = false;
+            }
+            else
+            {
+                ownerUnit.unitData.airControl.SetMomentum(0.01f);
+                ownerUnit.unitData.facingRight = true;
             }
         }
     }
