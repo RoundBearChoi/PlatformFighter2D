@@ -7,6 +7,7 @@ namespace RB
     public class LittleRedUppercut : UnitState
     {
         private bool initialFaceRight = true;
+        private bool _uppercutEffectShown = false;
 
         public LittleRedUppercut(Unit unit)
         {
@@ -32,6 +33,18 @@ namespace RB
 
                 if (ani.SPRITE_INDEX >= 4)
                 {
+                    if (!_uppercutEffectShown)
+                    {
+                        _uppercutEffectShown = true;
+
+                        BaseInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.UPPERCUT_EFFECT_LIGHT);
+                        Unit uppercutEffect = Units.instance.GetUnit<UppercutEffect_Light>();
+                        uppercutEffect.transform.parent = ownerUnit.transform;
+                        uppercutEffect.transform.position = ownerUnit.transform.position;
+
+                        uppercutEffect.unitData.facingRight = ownerUnit.unitData.facingRight;
+                    }
+
                     if (ownerUnit.unitData.facingRight)
                     {
                         forwardVelocity = 2.5f;

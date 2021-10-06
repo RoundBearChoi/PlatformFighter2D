@@ -14,6 +14,9 @@ namespace RB
         BLOOD_4 = 4,
         BLOOD_5 = 5,
 
+        UPPERCUT_EFFECT_LIGHT = 10,
+        UPPERCUT_EFFECT_DARK = 11,
+
         DEATHFX_LIGHT = 50,
         DEATHFX_DARK = 51,
 

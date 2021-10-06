@@ -45,6 +45,8 @@ namespace RB
             LoadObj<Blood_5>(UnitType.BLOOD_5, "Blood_5");
             LoadObj<ParryEffect>(UnitType.PARRY_EFFECT, "ParryEffect");
 
+            LoadObj<UppercutEffect_Light>(UnitType.UPPERCUT_EFFECT_LIGHT, "UppercutEffect_Light");
+
             LoadObj<DeathFX_Light>(UnitType.DeathFX_Light, "DeathFX_Light");
             LoadObj<DeathFX_Dark>(UnitType.DeathFX_Dark, "DeathFX_Dark");
         }

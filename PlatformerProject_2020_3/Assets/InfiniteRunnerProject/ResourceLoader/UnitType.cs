@@ -30,6 +30,7 @@ namespace RB
         DeathFX_Dark = 511,
 
         PARRY_EFFECT = 600,
+        UPPERCUT_EFFECT_LIGHT = 601,
 
         LITTLE_RED_LIGHT = 700,
         LITTLE_RED_DARK = 701,

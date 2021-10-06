@@ -107,6 +107,11 @@ namespace RB
             unit.iStateController.SetNewState(new Blood_5_DefaultState(unit));
         }
 
+        public void New_Uppercut_Effect_Light(Unit unit)
+        {
+            unit.iStateController.SetNewState(new UppercutEffect_Light_DefaultState(unit));
+        }
+
         public void New_DeathFX_Light(Unit unit)
         {
             unit.iStateController.SetNewState(new DeathFX_Light_DefaultState(unit));
