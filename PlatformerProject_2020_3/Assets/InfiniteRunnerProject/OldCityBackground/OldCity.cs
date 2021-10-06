@@ -4,16 +4,16 @@ using UnityEngine;
 
 namespace RB
 {
-    public class OldCity : Unit
+    public class OldCity : MonoBehaviour
     {
-        public override void OnUpdate()
-        {
-            unitUpdater.CustomUpdate();
-        }
+        [SerializeField]
+        GameObject FencesAndIron = null;
 
-        public override void OnFixedUpdate()
+        private void Start()
         {
-            unitUpdater.CustomFixedUpdate();
+            Vector3 pos = new Vector3(FencesAndIron.transform.position.x, FencesAndIron.transform.position.y, BaseInitializer.current.fighterDataSO.OldCity_Fences_z);
+
+            FencesAndIron.transform.position = pos;
         }
     }
 }
