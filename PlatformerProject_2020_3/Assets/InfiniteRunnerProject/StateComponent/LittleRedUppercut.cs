@@ -17,6 +17,7 @@ namespace RB
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, BaseInitializer.current.fighterDataSO.AttackASlowDownPercentage));
             _listStateComponents.Add(new DelayedJump(ownerUnit, BaseInitializer.current.fighterDataSO.VerticalJumpForce * 0.8f, 3));
             _listStateComponents.Add(new UpdateAirMovementOnMomentum(ownerUnit));
+            _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, BaseInitializer.current.GetOverlapBoxCollisionData(OverlapBoxDataType.LITTLE_RED_UPPERCUT)));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_UPPERCUT);
         }

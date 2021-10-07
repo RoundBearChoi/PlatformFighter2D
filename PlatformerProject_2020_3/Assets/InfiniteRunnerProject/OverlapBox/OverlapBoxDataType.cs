@@ -15,5 +15,7 @@ namespace RB
 
         LITTLE_RED_ATTACK_A = 200,
         LITTLE_RED_ATTACK_B = 201,
+        LITTLE_RED_ATTACK_C = 202,
+        LITTLE_RED_UPPERCUT = 203,
     }
 }
