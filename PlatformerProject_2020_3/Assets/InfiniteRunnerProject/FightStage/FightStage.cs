@@ -22,13 +22,14 @@ namespace RB
 
             BaseInitializer.current.GetStage().InstantiateUnits_ByUnitType(UnitType.OLD_CITY);
 
+            //player 0 & input
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_LIGHT);
             Unit player1 = units.GetUnit<LittleRed>();
-
             UserInput input = _inputController.AddInput();
             _inputSelection = input.INPUT_TYPE;
             player1.SetUserInput(input);
 
+            //player 1
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_DARK);
             Unit player2 = units.GetUnit<LittleRed>();
             player2.SetUserInput(_inputController.AddInput());
@@ -57,6 +58,20 @@ namespace RB
             _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
             _baseUI.transform.parent = this.transform;
             _baseUI.Init(BaseUIType.FIGHT_STAGE_UI);
+
+            //gamepads
+            Debugger.Log("gamepads detected: " + UnityEngine.InputSystem.Gamepad.all.Count);
+
+            for (int i = 0; i < UnityEngine.InputSystem.Gamepad.all.Count; i++)
+            {
+                UserInput userInput = _inputController.GetUserInput(i);
+
+                if (userInput != null)
+                {
+                    userInput.gamepad = UnityEngine.InputSystem.Gamepad.all[i];
+                    userInput.InitGamepadInput();
+                }
+            }
         }
 
         public override void OnUpdate()

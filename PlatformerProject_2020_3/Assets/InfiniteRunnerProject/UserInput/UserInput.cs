@@ -15,6 +15,8 @@ namespace RB
         public static Keyboard keyboard = null;
         public static Mouse mouse = null;
 
+        public Gamepad gamepad = null;
+
         public UserCommands commands = new UserCommands();
 
         public InputType INPUT_TYPE
@@ -72,6 +74,25 @@ namespace RB
             {
                 Debugger.Log(e);
             }
+        }
+
+        public void InitGamepadInput()
+        {
+            commands.AddCommand(new UserCommand(CommandType.ATTACK_A, gamepad.buttonEast));
+
+            commands.AddCommand(new UserCommand(CommandType.MOVE_UP, gamepad.leftStick.up));
+            commands.AddCommand(new UserCommand(CommandType.MOVE_DOWN, gamepad.leftStick.down));
+            commands.AddCommand(new UserCommand(CommandType.MOVE_LEFT, gamepad.leftStick.left));
+            commands.AddCommand(new UserCommand(CommandType.MOVE_RIGHT, gamepad.leftStick.right));
+
+            //commands.AddCommand(new UserCommand(CommandType.MOVE_UP, gamepad.dpad.up));
+            //commands.AddCommand(new UserCommand(CommandType.MOVE_DOWN, gamepad.dpad.down));
+            //commands.AddCommand(new UserCommand(CommandType.MOVE_LEFT, gamepad.dpad.left));
+            //commands.AddCommand(new UserCommand(CommandType.MOVE_RIGHT, gamepad.dpad.right));
+
+            commands.AddCommand(new UserCommand(CommandType.JUMP, gamepad.buttonSouth));
+
+            commands.AddCommand(new UserCommand(CommandType.SHIFT, gamepad.buttonWest));
         }
 
         public void OnUpdate()
