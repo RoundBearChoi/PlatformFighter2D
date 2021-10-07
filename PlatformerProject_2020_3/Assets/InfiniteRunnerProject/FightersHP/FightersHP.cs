@@ -6,6 +6,12 @@ namespace RB
 {
     public class FightersHP : UIElement
     {
+        [SerializeField]
+        List<Unit> _listFighters = new List<Unit>();
+
+        [SerializeField]
+        List<FighterHPInfo> _listFighterHPInfo = new List<FighterHPInfo>();
+
         public override void InitElement()
         {
 
