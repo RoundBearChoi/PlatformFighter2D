@@ -13,7 +13,7 @@ namespace RB
         }
 
         public uint hp = 1;
-        public uint initialHP;
+        public uint initialHP = 1;
         public bool facingRight = true;
         public Rigidbody2D rigidBody2D = null;
         public BoxCollider2D boxCollider2D = null;

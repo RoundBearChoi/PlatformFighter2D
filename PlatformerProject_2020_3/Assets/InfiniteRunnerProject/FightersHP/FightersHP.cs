@@ -7,9 +7,6 @@ namespace RB
     public class FightersHP : UIElement
     {
         [SerializeField]
-        List<Unit> _listFighters = new List<Unit>();
-
-        [SerializeField]
         List<FighterHPInfo> _listFighterHPInfo = new List<FighterHPInfo>();
 
         public override void InitElement()
@@ -18,54 +15,52 @@ namespace RB
 
             FighterHPInfo[] arr = this.gameObject.GetComponentsInChildren<FighterHPInfo>();
 
-            foreach(FighterHPInfo f in arr)
+            foreach(FighterHPInfo h in arr)
             {
-                _listFighterHPInfo.Add(f);
+                _listFighterHPInfo.Add(h);
             }
 
-            //Debugger.Log("--- initializing fighter hp bars ---");
-
             List<Unit> fighters = BaseInitializer.current.GetStage().units.GetUnits<LittleRed>();
+            List<Unit> fightersOrdered = new List<Unit>();
 
-            for (int i = 0; i < fighters.Count; i++)
+            for (int i = fighters.Count - 1; i >= 0; i--)
+            {
+                fightersOrdered.Add(fighters[i]);
+            }
+
+            for (int i = 0; i < fightersOrdered.Count; i++)
             {
                 if (_listFighterHPInfo.Count > i)
                 {
-                    _listFighterHPInfo[i].unit = fighters[i];
+                    _listFighterHPInfo[i].unit = fightersOrdered[i];
+                }
+            }
+
+            foreach(FighterHPInfo h in _listFighterHPInfo)
+            {
+                if (h.unit == null)
+                {
+                    h.gameObject.SetActive(false);
                 }
             }
         }
 
         public override void OnUpdate()
         {
-            //InputController inputController = BaseInitializer.current.GetStage().GetInputController();
-            //UserInput userInput = inputController.GetUserInput(InputType.PLAYER_ONE);
-            //
-            //if (userInput.commands.ContainsPress(CommandType.ESCAPE, true))
-            //{
-            //    if (_listChildElements.Count == 0)
-            //    {
-            //        UIElement uiElement = UIElement.AddUIElement(UIElementType.QUIT_GAME_ASK, this.transform);
-            //        _listChildElements.Add(uiElement);
-            //    }
-            //    else
-            //    {
-            //        ClearChildElements();
-            //    }
-            //}
-            //
 
-            OnUpdateChildElements();
         }
 
         public override void OnFixedUpdate()
         {
-            OnFixedUpdateChildElements();
+            foreach (FighterHPInfo h in _listFighterHPInfo)
+            {
+                h.OnFixedUpdate();
+            }
         }
 
         public override void OnLateUpdate()
         {
-            OnLateUpdateChildElements();
+
         }
     }
 }
