@@ -14,7 +14,26 @@ namespace RB
 
         public override void InitElement()
         {
+            _listFighterHPInfo.Clear();
 
+            FighterHPInfo[] arr = this.gameObject.GetComponentsInChildren<FighterHPInfo>();
+
+            foreach(FighterHPInfo f in arr)
+            {
+                _listFighterHPInfo.Add(f);
+            }
+
+            //Debugger.Log("--- initializing fighter hp bars ---");
+
+            List<Unit> fighters = BaseInitializer.current.GetStage().units.GetUnits<LittleRed>();
+
+            for (int i = 0; i < fighters.Count; i++)
+            {
+                if (_listFighterHPInfo.Count > i)
+                {
+                    _listFighterHPInfo[i].unit = fighters[i];
+                }
+            }
         }
 
         public override void OnUpdate()

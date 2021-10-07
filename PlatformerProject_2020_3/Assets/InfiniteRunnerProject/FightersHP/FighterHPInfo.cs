@@ -16,6 +16,6 @@ namespace RB
         [SerializeField]
         float _zeroHP_padding = 0f;
 
-
+        public Unit unit = null;
     }
 }
