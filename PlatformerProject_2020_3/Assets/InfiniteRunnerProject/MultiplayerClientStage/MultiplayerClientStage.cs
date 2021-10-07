@@ -51,9 +51,9 @@ namespace RB
             cameraScript.SetCameraState(GetStageDefaultCameraState());
 
             //ui
-            _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
-            _baseUI.transform.parent = this.transform;
-            _baseUI.Init(BaseUIType.FIGHT_STAGE_UI);
+            //_baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
+            //_baseUI.transform.parent = this.transform;
+            //_baseUI.Init(BaseUIType.FIGHT_STAGE_UI);
         }
 
         public override void UpdateClientUnitTypes(PlayerDataset<UnitType> playerData)
