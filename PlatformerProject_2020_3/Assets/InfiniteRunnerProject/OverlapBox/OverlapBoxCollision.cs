@@ -67,7 +67,7 @@ namespace RB
                                         BaseMessage shakeCam = new Message_ShakeCameraOnTarget(_boxCollisionData.cameraShakeFrames, shake);
                                         shakeCam.Register();
 
-                                        BaseMessage takeDamage = new Message_TakeDamage(collidingUnit, 1);
+                                        BaseMessage takeDamage = new Message_TakeDamage(collidingUnit, 10);
                                         takeDamage.Register();
 
                                         _unit.unitData.comboHitCount.AddCount();

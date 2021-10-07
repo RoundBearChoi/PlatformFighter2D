@@ -38,6 +38,8 @@ namespace RB
 
             foreach(FighterHPInfo h in _listFighterHPInfo)
             {
+                h.Init();
+
                 if (h.unit == null)
                 {
                     h.gameObject.SetActive(false);
@@ -47,7 +49,10 @@ namespace RB
 
         public override void OnUpdate()
         {
-
+            foreach (FighterHPInfo h in _listFighterHPInfo)
+            {
+                h.OnUpdate();
+            }
         }
 
         public override void OnFixedUpdate()
