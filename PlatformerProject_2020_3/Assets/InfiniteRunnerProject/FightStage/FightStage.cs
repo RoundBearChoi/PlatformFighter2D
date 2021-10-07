@@ -68,6 +68,8 @@ namespace RB
 
                 if (userInput != null)
                 {
+                    Debugger.Log("initiating: " + UnityEngine.InputSystem.Gamepad.all[i].name);
+
                     userInput.gamepad = UnityEngine.InputSystem.Gamepad.all[i];
                     userInput.InitGamepadInput();
                 }
