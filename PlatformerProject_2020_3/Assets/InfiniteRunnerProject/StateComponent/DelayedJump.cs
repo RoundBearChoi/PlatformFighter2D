@@ -19,19 +19,16 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
-            {
-                SpriteAnimation ani = _unit.unitData.spriteAnimations.GetCurrentAnimation();
+            SpriteAnimation ani = _unit.unitData.spriteAnimations.GetCurrentAnimation();
 
-                if (ani != null)
+            if (ani != null)
+            {
+                if (!_jumped)
                 {
-                    if (!_jumped)
+                    if (ani.SPRITE_INDEX >= _jumpFrame)
                     {
-                        if (ani.SPRITE_INDEX >= _jumpFrame)
-                        {
-                            _jumped = true;
-                            _unit.unitData.rigidBody2D.velocity = new Vector2(_unit.unitData.rigidBody2D.velocity.x * BaseInitializer.current.fighterDataSO.HorizontalJumpVelocityMultiplier, _jumpForce);
-                        }
+                        _jumped = true;
+                        _unit.unitData.rigidBody2D.velocity = new Vector2(_unit.unitData.rigidBody2D.velocity.x * BaseInitializer.current.fighterDataSO.HorizontalJumpVelocityMultiplier, _jumpForce);
                     }
                 }
             }
