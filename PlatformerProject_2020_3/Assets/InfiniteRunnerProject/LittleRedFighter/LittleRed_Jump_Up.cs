@@ -20,7 +20,7 @@ namespace RB
 
             _listStateComponents.Add(new UpdateDirectionOnVelocity(ownerUnit));
 
-            _listStateComponents.Add(new TriggerLittleRedUppercut(ownerUnit));
+            _listStateComponents.Add(new TriggerLittleRedUppercut(ownerUnit, 0));
             _listStateComponents.Add(new TriggerWallSlide(ownerUnit));
             _listStateComponents.Add(new TriggerDashInMidAir(ownerUnit));
             _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit));

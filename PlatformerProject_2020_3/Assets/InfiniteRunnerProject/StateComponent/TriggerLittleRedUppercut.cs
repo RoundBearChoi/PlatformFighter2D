@@ -6,19 +6,30 @@ namespace RB
 {
     public class TriggerLittleRedUppercut : StateComponent
     {
-        public TriggerLittleRedUppercut(Unit unit)
+        uint _requiredIndexCount = 0;
+
+        public TriggerLittleRedUppercut(Unit unit, uint requriedIndexCount)
         {
             _unit = unit;
+            _requiredIndexCount = requriedIndexCount;
         }
 
         public override void OnFixedUpdate()
         {
-            if (_unit.USER_INPUT.commands.ContainsHold(CommandType.MOVE_UP))
+            SpriteAnimation ani = _unit.unitData.spriteAnimations.GetCurrentAnimation();
+
+            if (ani != null)
             {
-                if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, false))
+                if (ani.SPRITE_INDEX >= _requiredIndexCount)
                 {
-                    Debugger.Log("uppercut!");
-                    _unit.unitData.listNextStates.Add(new LittleRedUppercut(_unit));
+                    if (_unit.USER_INPUT.commands.ContainsHold(CommandType.MOVE_UP))
+                    {
+                        if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, false))
+                        {
+                            Debugger.Log("uppercut!");
+                            _unit.unitData.listNextStates.Add(new LittleRedUppercut(_unit));
+                        }
+                    }
                 }
             }
         }

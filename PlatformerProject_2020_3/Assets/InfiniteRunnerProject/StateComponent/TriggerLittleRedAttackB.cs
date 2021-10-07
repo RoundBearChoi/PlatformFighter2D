@@ -6,25 +6,25 @@ namespace RB
 {
     public class TriggerLittleRedAttackB : StateComponent
     {
-        public TriggerLittleRedAttackB(Unit unit)
+        private uint _requiredIndexCount = 0;
+
+        public TriggerLittleRedAttackB(Unit unit, uint requiredIndexCount)
         {
             _unit = unit;
+            _requiredIndexCount = requiredIndexCount;
         }
 
         public override void OnFixedUpdate()
         {
-            if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, false))
-            {
-                SpriteAnimation ani = _unit.unitData.spriteAnimations.GetCurrentAnimation();
+            SpriteAnimation ani = _unit.unitData.spriteAnimations.GetCurrentAnimation();
 
-                if (ani != null)
+            if (ani != null)
+            {
+                if (ani.SPRITE_INDEX >= _requiredIndexCount)
                 {
-                    if (ani.SPRITE_INDEX >= 2)
+                    if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, false))
                     {
-                        if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, false))
-                        {
-                            _unit.unitData.listNextStates.Add(new LittleRed_Attack_B(_unit));
-                        }
+                        _unit.unitData.listNextStates.Add(new LittleRed_Attack_B(_unit));
                     }
                 }
             }

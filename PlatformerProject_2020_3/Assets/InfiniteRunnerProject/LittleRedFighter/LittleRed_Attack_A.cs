@@ -18,7 +18,7 @@ namespace RB
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, BaseInitializer.current.fighterDataSO.AttackASlowDownPercentage));
             _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, BaseInitializer.current.GetOverlapBoxCollisionData(OverlapBoxDataType.LITTLE_RED_ATTACK_A)));
             _listStateComponents.Add(new TriggerMarioStomp(ownerUnit));
-            _listStateComponents.Add(new TriggerLittleRedAttackB(ownerUnit));
+            _listStateComponents.Add(new TriggerLittleRedAttackB(ownerUnit, 2));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_ATTACK_A);
         }
