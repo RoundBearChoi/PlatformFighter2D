@@ -7,7 +7,7 @@ namespace RB
 {
     public class FighterHPInfo : MonoBehaviour
     {
-        public static float zeroHP_Padding = 169.6f;
+        public static float zeroHP_Padding = 213.5f;
 
         bool _initialized = false;
 
@@ -26,12 +26,16 @@ namespace RB
         [SerializeField]
         RectMask2D _rectMask2D_red = null;
 
+        [SerializeField]
+        Text _percentageText = null;
+
         public Unit unit = null;
 
         public void Init()
         {
             _orangePercentage = 1f;
             _hpPercentage = 1f;
+            _percentageText = this.gameObject.GetComponentInChildren<Text>();
         }
 
         public void OnFixedUpdate()
@@ -41,8 +45,10 @@ namespace RB
                 _hpPercentage = (float)unit.unitData.hp / (float)unit.unitData.initialHP;
             }
 
-            _orangePercentage = Mathf.Lerp(_orangePercentage, _hpPercentage, 0.03f);
+            _orangePercentage = Mathf.Lerp(_orangePercentage, _hpPercentage, 0.02f);
+            
             _redPercentage = _hpPercentage;
+            _percentageText.text = (_hpPercentage * 100f).ToString("f0") + "%";
         }
 
         public void OnUpdate()
