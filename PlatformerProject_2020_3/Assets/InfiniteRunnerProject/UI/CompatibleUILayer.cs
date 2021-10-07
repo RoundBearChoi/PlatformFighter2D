@@ -63,11 +63,11 @@ namespace RB
 
             else if (uiLayerType == UILayerType.FIGHT_STAGE_LAYER)
             {
-                UIElement onESC = UIElement.AddUIElement(UIElementType.ON_ESC, this.transform);
-                _uiElements.Add(onESC);
-
                 UIElement fightersHP = UIElement.AddUIElement(UIElementType.FIGHTERS_HP, this.transform);
                 _uiElements.Add(fightersHP);
+
+                UIElement onESC = UIElement.AddUIElement(UIElementType.ON_ESC, this.transform);
+                _uiElements.Add(onESC);
 
                 onESC.messageHandler = new OnEscapeMessageHandler();
                 Message_ClearOnEscapeChildElements.onESCMessageHandler = onESC.messageHandler;
