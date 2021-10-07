@@ -20,6 +20,7 @@ namespace RB
             LoadObj<ConnectedUI>(UIElementType.CONNECTED_UI, "ConnectedUI");
 
             LoadObj<OnESC>(UIElementType.ON_ESC, "OnESC");
+            LoadObj<FightersHP>(UIElementType.FIGHTERS_HP, "FightersHP");
             LoadObj<QuitGameAsk>(UIElementType.QUIT_GAME_ASK, "QuitGameAsk");
         }
     }

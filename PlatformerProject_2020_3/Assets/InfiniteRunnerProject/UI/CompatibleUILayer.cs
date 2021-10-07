@@ -66,6 +66,9 @@ namespace RB
                 UIElement onESC = UIElement.AddUIElement(UIElementType.ON_ESC, this.transform);
                 _uiElements.Add(onESC);
 
+                UIElement fightersHP = UIElement.AddUIElement(UIElementType.FIGHTERS_HP, this.transform);
+                _uiElements.Add(fightersHP);
+
                 onESC.messageHandler = new OnEscapeMessageHandler();
                 Message_ClearOnEscapeChildElements.onESCMessageHandler = onESC.messageHandler;
             }

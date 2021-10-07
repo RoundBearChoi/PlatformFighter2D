@@ -14,6 +14,7 @@ namespace RB
         CONNECTED_UI,
 
         ON_ESC,
+        FIGHTERS_HP,
         QUIT_GAME_ASK,
     }
 }
