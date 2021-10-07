@@ -15,7 +15,7 @@ namespace RB
 
         public override void OnUpdate()
         {
-            if (UserInput.keyboard.anyKey.wasReleasedThisFrame)
+            if (UnityEngine.InputSystem.Keyboard.current.anyKey.wasReleasedThisFrame)
             {
                 BaseInitializer.current.RunCoroutine(TriggerRun());
             }

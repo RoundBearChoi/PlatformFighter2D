@@ -12,9 +12,6 @@ namespace RB
         [SerializeField]
         InputType _inputType = InputType.NONE;
 
-        public static Keyboard keyboard = null;
-        public static Mouse mouse = null;
-
         public Gamepad gamepad = null;
 
         public UserCommands commands = new UserCommands();
@@ -31,43 +28,43 @@ namespace RB
         {
             _inputType = inputType;
 
-            keyboard = Keyboard.current;
-            mouse = Mouse.current;
+            //keyboard = Keyboard.current;
+            //mouse = Mouse.current;
 
             try
             {
-                if (mouse != null)
+                if (Mouse.current != null)
                 {
-                    commands.AddCommand(new UserCommand(CommandType.ATTACK_A, mouse.leftButton));
-                    commands.AddCommand(new UserCommand(CommandType.ATTACK_B, mouse.rightButton));
+                    commands.AddCommand(new UserCommand(CommandType.ATTACK_A, Mouse.current.leftButton));
+                    commands.AddCommand(new UserCommand(CommandType.ATTACK_B, Mouse.current.rightButton));
                 }
 
-                if (keyboard != null)
+                if (Keyboard.current != null)
                 {
-                    commands.AddCommand(new UserCommand(CommandType.MOVE_UP, keyboard.wKey));
-                    commands.AddCommand(new UserCommand(CommandType.MOVE_DOWN, keyboard.sKey));
-                    commands.AddCommand(new UserCommand(CommandType.MOVE_LEFT, keyboard.aKey));
-                    commands.AddCommand(new UserCommand(CommandType.MOVE_RIGHT, keyboard.dKey));
+                    commands.AddCommand(new UserCommand(CommandType.MOVE_UP, Keyboard.current.wKey));
+                    commands.AddCommand(new UserCommand(CommandType.MOVE_DOWN, Keyboard.current.sKey));
+                    commands.AddCommand(new UserCommand(CommandType.MOVE_LEFT, Keyboard.current.aKey));
+                    commands.AddCommand(new UserCommand(CommandType.MOVE_RIGHT, Keyboard.current.dKey));
 
-                    commands.AddCommand(new UserCommand(CommandType.JUMP, keyboard.spaceKey));
+                    commands.AddCommand(new UserCommand(CommandType.JUMP, Keyboard.current.spaceKey));
 
-                    commands.AddCommand(new UserCommand(CommandType.SHIFT, keyboard.shiftKey));
+                    commands.AddCommand(new UserCommand(CommandType.SHIFT, Keyboard.current.shiftKey));
 
-                    commands.AddCommand(new UserCommand(CommandType.F4, keyboard.f4Key));
-                    commands.AddCommand(new UserCommand(CommandType.F5, keyboard.f5Key));
-                    commands.AddCommand(new UserCommand(CommandType.F6, keyboard.f6Key));
-                    commands.AddCommand(new UserCommand(CommandType.F7, keyboard.f7Key));
-                    commands.AddCommand(new UserCommand(CommandType.F8, keyboard.f8Key));
-                    commands.AddCommand(new UserCommand(CommandType.F9, keyboard.f9Key));
-                    commands.AddCommand(new UserCommand(CommandType.F10, keyboard.f10Key));
-                    commands.AddCommand(new UserCommand(CommandType.F11, keyboard.f11Key));
+                    commands.AddCommand(new UserCommand(CommandType.F4, Keyboard.current.f4Key));
+                    commands.AddCommand(new UserCommand(CommandType.F5, Keyboard.current.f5Key));
+                    commands.AddCommand(new UserCommand(CommandType.F6, Keyboard.current.f6Key));
+                    commands.AddCommand(new UserCommand(CommandType.F7, Keyboard.current.f7Key));
+                    commands.AddCommand(new UserCommand(CommandType.F8, Keyboard.current.f8Key));
+                    commands.AddCommand(new UserCommand(CommandType.F9, Keyboard.current.f9Key));
+                    commands.AddCommand(new UserCommand(CommandType.F10, Keyboard.current.f10Key));
+                    commands.AddCommand(new UserCommand(CommandType.F11, Keyboard.current.f11Key));
 
-                    commands.AddCommand(new UserCommand(CommandType.ENTER, keyboard.enterKey));
-                    commands.AddCommand(new UserCommand(CommandType.ARROW_UP, keyboard.upArrowKey));
-                    commands.AddCommand(new UserCommand(CommandType.ARROW_DOWN, keyboard.downArrowKey));
-                    commands.AddCommand(new UserCommand(CommandType.ARROW_LEFT, keyboard.leftArrowKey));
-                    commands.AddCommand(new UserCommand(CommandType.ARROW_RIGHT, keyboard.rightArrowKey));
-                    commands.AddCommand(new UserCommand(CommandType.ESCAPE, keyboard.escapeKey));
+                    commands.AddCommand(new UserCommand(CommandType.ENTER, Keyboard.current.enterKey));
+                    commands.AddCommand(new UserCommand(CommandType.ARROW_UP, Keyboard.current.upArrowKey));
+                    commands.AddCommand(new UserCommand(CommandType.ARROW_DOWN, Keyboard.current.downArrowKey));
+                    commands.AddCommand(new UserCommand(CommandType.ARROW_LEFT, Keyboard.current.leftArrowKey));
+                    commands.AddCommand(new UserCommand(CommandType.ARROW_RIGHT, Keyboard.current.rightArrowKey));
+                    commands.AddCommand(new UserCommand(CommandType.ESCAPE, Keyboard.current.escapeKey));
                 }
             }
             catch (System.Exception e)
