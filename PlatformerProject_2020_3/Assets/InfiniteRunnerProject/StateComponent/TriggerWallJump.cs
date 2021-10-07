@@ -38,8 +38,11 @@ namespace RB
 
                         Vector3 dustPosition = new Vector3(x, y, BaseInitializer.current.fighterDataSO.DustEffects_z);
 
-                        BaseMessage showWallJumpDust = new Message_ShowWallJumpDust(_unit.unitData.facingRight, dustPosition, new Vector2(1f, 1f));
-                        showWallJumpDust.Register();
+                        if (!_unit.isDummy)
+                        {
+                            BaseMessage showWallJumpDust = new Message_ShowWallJumpDust(_unit.unitData.facingRight, dustPosition, new Vector2(1f, 1f));
+                            showWallJumpDust.Register();
+                        }
 
                         _unit.unitData.airControl.SetMomentum(initialMomentum);
                         _unit.unitData.listNextStates.Add(new LittleRed_Jump_Up(_unit, BaseInitializer.current.fighterDataSO.WallJumpForce, 0));

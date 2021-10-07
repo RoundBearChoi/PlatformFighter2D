@@ -18,8 +18,11 @@ namespace RB
             {
                 if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.JUMP))
                 {
-                    BaseMessage jumpDustMessage = new Message_ShowJumpDust(true, _unit.transform.position);
-                    jumpDustMessage.Register();
+                    if (!_unit.isDummy)
+                    {
+                        BaseMessage jumpDustMessage = new Message_ShowJumpDust(true, _unit.transform.position);
+                        jumpDustMessage.Register();
+                    }
 
                     //multiply/divide runspeed on jump
                     _unit.unitData.rigidBody2D.velocity = new Vector2(_unit.unitData.rigidBody2D.velocity.x * BaseInitializer.current.fighterDataSO.HorizontalMomentumMultiplierOnRunningJump, _unit.unitData.rigidBody2D.velocity.y);

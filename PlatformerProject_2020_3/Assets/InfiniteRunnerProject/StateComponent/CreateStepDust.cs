@@ -20,8 +20,11 @@ namespace RB
                 if (_unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 1 ||
                     _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 6)
                 {
-                    BaseMessage showStepDust = new Message_ShowStepDust(false, _unit.transform.position - new Vector3(_unit.transform.right.x * 0.025f, 0f, 0f), new Vector2(1f, 1f), 4);
-                    showStepDust.Register();
+                    if (!_unit.isDummy)
+                    {
+                        BaseMessage showStepDust = new Message_ShowStepDust(false, _unit.transform.position - new Vector3(_unit.transform.right.x * 0.025f, 0f, 0f), new Vector2(1f, 1f), 4);
+                        showStepDust.Register();
+                    }
                 }
             }
         }

@@ -27,6 +27,7 @@ namespace RB
             //dummy player
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_DARK);
             _dummyOfflinePlayer = units.GetUnit<LittleRed>();
+            _dummyOfflinePlayer.isDummy = true;
 
             UserInput input = _inputController.AddInput();
             _inputSelection = input.INPUT_TYPE;

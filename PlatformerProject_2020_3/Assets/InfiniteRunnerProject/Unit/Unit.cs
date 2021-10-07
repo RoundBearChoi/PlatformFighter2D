@@ -15,6 +15,7 @@ namespace RB
         public BaseMessageHandler messageHandler = null;
         public EnemyHPBar hpBar = null;
         public int clientIndex = 0;
+        public bool isDummy = false;
 
         protected ICollisionSideChecker _collisionChecker = null;
 

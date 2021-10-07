@@ -10,7 +10,10 @@ namespace RB
         {
             ownerUnit = unit;
 
-            _listStateComponents.Add(new CreateRenderTrail(unit, 1, unit.unitData.facingRight));
+            if (!ownerUnit.isDummy)
+            {
+                _listStateComponents.Add(new CreateRenderTrail(unit, 1, unit.unitData.facingRight));
+            }
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_DASH);
         }
@@ -23,8 +26,11 @@ namespace RB
             ownerUnit.unitData.rigidBody2D.mass = 0.001f;
             ownerUnit.unitData.airControl.DashTriggered = true;
 
-            BaseMessage showDashDust = new Message_ShowDashDust(ownerUnit.unitData.facingRight, ownerUnit.transform.position);
-            showDashDust.Register();
+            if (!ownerUnit.isDummy)
+            {
+                BaseMessage showDashDust = new Message_ShowDashDust(ownerUnit.unitData.facingRight, ownerUnit.transform.position);
+                showDashDust.Register();
+            }
         }
 
         public override void OnFixedUpdate()

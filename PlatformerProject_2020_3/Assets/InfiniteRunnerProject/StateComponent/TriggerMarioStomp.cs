@@ -38,17 +38,23 @@ namespace RB
 
                             Vector2 scaleMultiplier = new Vector2(1.35f, 1.35f);
 
-                            BaseMessage stepDustRight = new Message_ShowStepDust(true,
-                                new Vector3(col.contactPoint.point.x + 0.15f, col.contactPoint.point.y - 0.3f, BaseInitializer.current.fighterDataSO.DustEffects_z),
-                                scaleMultiplier,
-                                3);
-                            stepDustRight.Register();
+                            if (!_unit.isDummy)
+                            {
+                                BaseMessage stepDustRight = new Message_ShowStepDust(
+                                    true,
+                                    new Vector3(col.contactPoint.point.x + 0.15f, col.contactPoint.point.y - 0.3f, BaseInitializer.current.fighterDataSO.DustEffects_z),
+                                    scaleMultiplier,
+                                    3);
+                                stepDustRight.Register();
 
-                            BaseMessage stepDustLeft = new Message_ShowStepDust(false,
-                                new Vector3(col.contactPoint.point.x - 0.15f, col.contactPoint.point.y - 0.3f, BaseInitializer.current.fighterDataSO.DustEffects_z),
-                                scaleMultiplier,
-                                3);
-                            stepDustLeft.Register();
+                                BaseMessage stepDustLeft = new Message_ShowStepDust(
+                                    false,
+                                    new Vector3(col.contactPoint.point.x - 0.15f, col.contactPoint.point.y - 0.3f, BaseInitializer.current.fighterDataSO.DustEffects_z),
+                                    scaleMultiplier,
+                                    3);
+                                stepDustLeft.Register();
+                            }
+
                             break;
                         }
                     }
