@@ -16,7 +16,11 @@ namespace RB
         [SerializeField]
         Image _psImage = null;
 
-        private void Start()
+        UnityEngine.InputSystem.Keyboard _keyboard = null;
+        UnityEngine.InputSystem.Mouse _mouse = null;
+        UnityEngine.InputSystem.Gamepad _gamepad = null;
+
+        public void ShowDeviceIcon()
         {
             _pcImage.enabled = false;
             _psImage.enabled = false;
@@ -30,6 +34,51 @@ namespace RB
             {
                 _psImage.enabled = true;
             }
+        }
+
+        public UnityEngine.InputSystem.Keyboard KEYBOARD
+        {
+            get
+            {
+                return _keyboard;
+            }
+        }
+
+        public UnityEngine.InputSystem.Mouse MOUSE
+        {
+            get
+            {
+                return _mouse;
+            }
+        }
+
+        public UnityEngine.InputSystem.Gamepad GAMEPAD
+        {
+            get
+            {
+                return _gamepad;
+            }
+        }
+
+        public void SetInputDevice(UnityEngine.InputSystem.Keyboard keyboard)
+        {
+            _keyboard = keyboard;
+        }
+
+        public void SetInputDevice(UnityEngine.InputSystem.Mouse mouse)
+        {
+            _mouse = mouse;
+        }
+
+        public void SetInputDevice(UnityEngine.InputSystem.Gamepad gamepad)
+        {
+            _gamepad = gamepad;
+        }
+
+        public void NoDeviceDetected()
+        {
+            _pcImage.enabled = false;
+            _psImage.enabled = false;
         }
     }
 }
