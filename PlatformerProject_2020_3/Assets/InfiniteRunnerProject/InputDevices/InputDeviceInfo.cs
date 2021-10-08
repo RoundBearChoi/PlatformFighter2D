@@ -19,6 +19,8 @@ namespace RB
         [SerializeField]
         Image _psImage = null;
 
+        Image _deviceImage = null;
+
         [SerializeField]
         Image _downArrowImage = null;
 
@@ -44,11 +46,21 @@ namespace RB
             if (_inputDeviceType == InputDeviceType.PC)
             {
                 _pcImage.enabled = true;
+                _deviceImage = _pcImage;
             }
 
             else if (_inputDeviceType == InputDeviceType.PS4)
             {
                 _psImage.enabled = true;
+                _deviceImage = _psImage;
+            }
+        }
+
+        public Image DEVICE_IMAGE
+        {
+            get
+            {
+                return _deviceImage;
             }
         }
 

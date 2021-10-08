@@ -9,6 +9,17 @@ namespace RB
         [SerializeField]
         InputDeviceInfo _selectedInputDevice = null;
 
+        [SerializeField]
+        Transform _deviceIconSpot = null;
+
+        public Transform DEVICE_ICON_SPOT
+        {
+            get
+            {
+                return _deviceIconSpot;
+            }
+        }
+
         public void Init()
         {
 

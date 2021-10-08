@@ -25,7 +25,17 @@ namespace RB
 
         public override void OnUpdate()
         {
-
+            for (int i = 0; i < _listFighterSpotInfo.Count; i++)
+            {
+                if (i < BaseInitializer.current.arrInputDeviceInfo.Length)
+                {
+                    if (BaseInitializer.current.arrInputDeviceInfo[i] != null)
+                    {
+                        Vector3 pos = Vector3.Lerp(BaseInitializer.current.arrInputDeviceInfo[i].DEVICE_IMAGE.transform.position, _listFighterSpotInfo[i].DEVICE_ICON_SPOT.position, Time.deltaTime * 4f);
+                        BaseInitializer.current.arrInputDeviceInfo[i].DEVICE_IMAGE.transform.position = pos;
+                    }
+                }
+            }
         }
 
         public override void OnFixedUpdate()
