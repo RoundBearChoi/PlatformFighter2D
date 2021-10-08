@@ -13,8 +13,15 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            List<CollisionData> collisions = _unit.unitData.collisionEnters.GetCollisionData(CollisionType.BOTTOM);
+            List<CollisionData> enters = _unit.unitData.collisionEnters.GetCollisionData(CollisionType.BOTTOM);
+            List<CollisionData> stays = _unit.unitData.collisionStays.GetCollisionData(CollisionType.BOTTOM);
 
+            DoStomp(enters);
+            DoStomp(stays);
+        }
+
+        void DoStomp(List<CollisionData> collisions)
+        {
             foreach (CollisionData col in collisions)
             {
                 Unit collidingUnit = col.collidingObject.GetComponent<Unit>();
