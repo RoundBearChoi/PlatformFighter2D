@@ -7,6 +7,7 @@ namespace RB
     public class DefaultUnitUpdater : BaseUpdater
     {
         private Unit _unit = null;
+        private Vector2 _previousVelocity = new Vector2();
 
         public DefaultUnitUpdater(Unit ownerUnit)
         {
@@ -29,9 +30,14 @@ namespace RB
             {
                 if (_unit.unitData.rigidBody2D != null)
                 {
-                    if (_unit.unitData.rigidBody2D.IsSleeping())
+                    if (_unit.unitData.rigidBody2D.isKinematic)
                     {
-                        _unit.unitData.rigidBody2D.WakeUp();
+                        _unit.unitData.rigidBody2D.velocity = _previousVelocity;
+
+                        Debugger.Log("momentum on wakeup: " + _unit.unitData.airControl.HORIZONTAL_MOMENTUM);
+                        Debugger.Log("velocity on wakeup: " + _unit.unitData.rigidBody2D.velocity);
+
+                        _unit.unitData.rigidBody2D.isKinematic = false;
                     }
                 }
 
@@ -49,9 +55,14 @@ namespace RB
                 {
                     if (_unit.unitData.rigidBody2D != null)
                     {
-                        if (!_unit.unitData.rigidBody2D.IsSleeping())
+                        if (!_unit.unitData.rigidBody2D.isKinematic)
                         {
-                            _unit.unitData.rigidBody2D.Sleep();
+                            Debugger.Log("momentum on sleep: " + _unit.unitData.airControl.HORIZONTAL_MOMENTUM);
+                            Debugger.Log("velocity on sleep: " + _unit.unitData.rigidBody2D.velocity);
+
+                            _previousVelocity = _unit.unitData.rigidBody2D.velocity;
+                            _unit.unitData.rigidBody2D.velocity = Vector2.zero;
+                            _unit.unitData.rigidBody2D.isKinematic = true;
                         }
                     }
 

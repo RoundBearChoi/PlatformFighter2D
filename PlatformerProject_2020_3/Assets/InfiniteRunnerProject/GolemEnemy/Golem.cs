@@ -36,6 +36,7 @@ namespace RB
             {
                 CollisionType collisionType = _collisionChecker.GetCollisionType(contactPoint);
                 CollisionData collisionData = new CollisionData(collisionType, collision.gameObject, contactPoint);
+
                 unitData.collisionEnters.AddCollisionData(collisionData);
             }
         }

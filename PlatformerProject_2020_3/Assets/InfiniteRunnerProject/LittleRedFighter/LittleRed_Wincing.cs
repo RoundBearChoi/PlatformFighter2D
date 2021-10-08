@@ -22,7 +22,6 @@ namespace RB
         {
             FixedUpdateComponents();
 
-
             if (ownerUnit.unitData.hp <= 0)
             {
                 if (ownerUnit.unitData.collisionStays.IsOnFlatGround())

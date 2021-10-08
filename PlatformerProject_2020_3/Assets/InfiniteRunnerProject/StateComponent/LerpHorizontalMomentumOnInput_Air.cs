@@ -41,8 +41,6 @@ namespace RB
                 {
                     _unit.unitData.airControl.AddMomentum(BaseInitializer.current.fighterDataSO.HorizontalAirMomentumIncreaseAmount);
                 }
-
-                //_unit.unitData.rigidBody2D.velocity = new Vector2(_unit.unitData.airControl.HORIZONTAL_MOMENTUM, _unit.unitData.rigidBody2D.velocity.y);
             }
 
             //reset momentum when on ground

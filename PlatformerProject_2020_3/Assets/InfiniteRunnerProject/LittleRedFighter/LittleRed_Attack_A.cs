@@ -11,7 +11,6 @@ namespace RB
             ownerUnit = unit;
 
             _listStateComponents.Add(new CancelJumpForceOnNonPress(ownerUnit, 0));
-            
             _listStateComponents.Add(new LerpHorizontalMomentumOnInput_Air(ownerUnit, BaseInitializer.current.fighterDataSO.MaxHorizontalAirMomentum));
             _listStateComponents.Add(new UpdateAirMovementOnMomentum(ownerUnit));
 
