@@ -31,7 +31,7 @@ namespace RB
                 {
                     if (BaseInitializer.current.arrInputDeviceInfo[i] != null)
                     {
-                        Vector3 pos = Vector3.Lerp(BaseInitializer.current.arrInputDeviceInfo[i].DEVICE_IMAGE.transform.position, _listFighterSpotInfo[i].DEVICE_ICON_SPOT.position, Time.deltaTime * 4f);
+                        Vector3 pos = Vector3.Lerp(BaseInitializer.current.arrInputDeviceInfo[i].DEVICE_IMAGE.transform.position, _listFighterSpotInfo[i].DEVICE_ICON_SPOT.position, Time.deltaTime * BaseInitializer.current.fighterDataSO.InputDeviceIconMoveSpeed);
                         BaseInitializer.current.arrInputDeviceInfo[i].DEVICE_IMAGE.transform.position = pos;
                     }
                 }

@@ -129,6 +129,16 @@ namespace RB
         {
             UpdatePresses();
             UpdateSelection();
+
+            if (!IsSelected())
+            {
+                DEVICE_IMAGE.transform.localPosition = Vector3.Lerp(DEVICE_IMAGE.transform.localPosition, Vector3.zero, Time.deltaTime * BaseInitializer.current.fighterDataSO.InputDeviceIconMoveSpeed);
+
+                if (_deviceDetected)
+                {
+                    _downArrowImage.enabled = true;
+                }
+            }
         }
 
         void UpdatePresses()
@@ -180,6 +190,8 @@ namespace RB
         {
             if (_downIsPressed)
             {
+                _downArrowImage.enabled = false;
+
                 for (int i = 0; i < BaseInitializer.current.arrInputDeviceInfo.Length; i++)
                 {
                     if (BaseInitializer.current.arrInputDeviceInfo[i] == this)
@@ -206,6 +218,19 @@ namespace RB
                     }
                 }
             }
+        }
+
+        bool IsSelected()
+        {
+            for (int i = 0; i < BaseInitializer.current.arrInputDeviceInfo.Length; i++)
+            {
+                if (BaseInitializer.current.arrInputDeviceInfo[i] == this)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

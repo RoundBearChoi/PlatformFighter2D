@@ -54,6 +54,9 @@ namespace RB
         public float CameraYOffset = 0f;
 
         [Space(10)]
+        public float InputDeviceIconMoveSpeed = 0f;
+
+        [Space(10)]
 
         public float Camera_z = 0f;
         public float OldCity_BottomFog_z = 0f;
