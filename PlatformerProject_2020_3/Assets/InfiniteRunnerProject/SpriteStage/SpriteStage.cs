@@ -24,7 +24,7 @@ namespace RB
 
         public override void Init()
         {
-            _inputController.AddInput();
+            _inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null);
 
             _dummyObj = new GameObject();
             _dummyObj.transform.parent = this.transform;

@@ -12,7 +12,7 @@ namespace RB
 
         public override void Init()
         {
-            UserInput input = _inputController.AddInput();
+            UserInput input = _inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null);
             units = new Units(this);
 
             Physics2D.gravity = new Vector2(0f, -50);

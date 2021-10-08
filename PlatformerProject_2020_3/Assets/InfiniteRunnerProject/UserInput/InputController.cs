@@ -10,12 +10,12 @@ namespace RB
         [SerializeField]
         private List<UserInput> _listUserInputs = new List<UserInput>();
 
-        public UserInput AddInput()
+        public UserInput AddInput(UnityEngine.InputSystem.Keyboard keyboard, UnityEngine.InputSystem.Mouse mouse, UnityEngine.InputSystem.Gamepad gamepad)
         {
             if (_listUserInputs.Count < (int)InputType.PLAYER_FOUR)
             {
                 InputType inputType = (InputType)(_listUserInputs.Count + 1);
-                _listUserInputs.Add(new UserInput(inputType, UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null));
+                _listUserInputs.Add(new UserInput(inputType, keyboard, mouse, gamepad));
                 return _listUserInputs[_listUserInputs.Count - 1];
             }
 

@@ -25,14 +25,14 @@ namespace RB
             //player 0 & input
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_LIGHT);
             Unit player1 = units.GetUnit<LittleRed>();
-            UserInput input = _inputController.AddInput();
+            UserInput input = _inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null);
             _inputSelection = input.INPUT_TYPE;
             player1.SetUserInput(input);
 
             //player 1
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_DARK);
             Unit player2 = units.GetUnit<LittleRed>();
-            player2.SetUserInput(_inputController.AddInput());
+            player2.SetUserInput(_inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null));
 
             //set z for all players
             List<Unit> allPlayers = units.GetUnits<LittleRed>();

@@ -32,14 +32,14 @@ namespace RB
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_LIGHT);
             Unit serverPlayer = units.GetUnit<LittleRed>();
 
-            UserInput input = _inputController.AddInput();
+            UserInput input = _inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null);
             _inputSelection = input.INPUT_TYPE;
             serverPlayer.SetUserInput(input);
             playerUnits.Add(serverPlayer);
 
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_DARK);
             Unit client0 = units.GetUnit<LittleRed>();
-            client0.SetUserInput(_inputController.AddInput());
+            client0.SetUserInput(_inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null));
             playerUnits.Add(client0);
 
             //set z for all players
