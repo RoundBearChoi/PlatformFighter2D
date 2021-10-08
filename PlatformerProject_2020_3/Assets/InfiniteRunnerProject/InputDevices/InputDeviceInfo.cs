@@ -19,6 +19,9 @@ namespace RB
         [SerializeField]
         bool _deviceDetected = false;
 
+        [SerializeField]
+        bool _downIsPressed = false;
+
         UnityEngine.InputSystem.Keyboard _keyboard = null;
         UnityEngine.InputSystem.Mouse _mouse = null;
         UnityEngine.InputSystem.Gamepad _gamepad = null;
@@ -93,6 +96,33 @@ namespace RB
         {
             _pcImage.enabled = false;
             _psImage.enabled = false;
+        }
+
+        public void OnUpdate()
+        {
+            if (_keyboard != null)
+            {
+                if (_keyboard.downArrowKey.isPressed)
+                {
+                    _downIsPressed = true;
+                }
+                else
+                {
+                    _downIsPressed = false;
+                }
+            }
+
+            if (_gamepad != null)
+            {
+                if (_gamepad.leftStick.down.isPressed || _gamepad.dpad.down.isPressed)
+                {
+                    _downIsPressed = true;
+                }
+                else if (_gamepad.leftStick.down.isPressed == false && _gamepad.dpad.down.isPressed == false)
+                {
+                    _downIsPressed = false;
+                }
+            }
         }
     }
 }

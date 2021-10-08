@@ -48,7 +48,10 @@ namespace RB
 
         public override void OnUpdate()
         {
-
+            foreach(InputDeviceInfo info in _listInputDeviceInfo)
+            {
+                info.OnUpdate();
+            }
         }
 
         public override void OnFixedUpdate()
