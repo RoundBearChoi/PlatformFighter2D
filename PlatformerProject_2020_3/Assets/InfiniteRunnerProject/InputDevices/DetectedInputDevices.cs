@@ -8,15 +8,15 @@ namespace RB
     {
         [Space(10)]
         [SerializeField]
-        List<InputDeviceInfo> _listInputDeviceInfo = new List<InputDeviceInfo>();
+        List<InputDeviceInfoUI> _listInputDeviceInfo = new List<InputDeviceInfoUI>();
 
         public override void InitElement()
         {
             _listInputDeviceInfo.Clear();
 
-            InputDeviceInfo[] arr = this.gameObject.GetComponentsInChildren<InputDeviceInfo>();
+            InputDeviceInfoUI[] arr = this.gameObject.GetComponentsInChildren<InputDeviceInfoUI>();
 
-            foreach(InputDeviceInfo info in arr)
+            foreach(InputDeviceInfoUI info in arr)
             {
                 _listInputDeviceInfo.Add(info);
                 info.ShowDeviceIcon();
@@ -37,7 +37,7 @@ namespace RB
                 }
             }
 
-            foreach(InputDeviceInfo info in _listInputDeviceInfo)
+            foreach(InputDeviceInfoUI info in _listInputDeviceInfo)
             {
                 if (!info.DEVICE_DETECTED)
                 {
@@ -48,7 +48,7 @@ namespace RB
 
         public override void OnUpdate()
         {
-            foreach(InputDeviceInfo info in _listInputDeviceInfo)
+            foreach(InputDeviceInfoUI info in _listInputDeviceInfo)
             {
                 info.OnUpdate();
             }

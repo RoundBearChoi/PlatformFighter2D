@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace RB
 {
-    public class InputDeviceInfo : MonoBehaviour
+    public class InputDeviceInfoUI : MonoBehaviour
     {
         [SerializeField]
         string _deviceName = string.Empty;
@@ -69,6 +69,14 @@ namespace RB
             get
             {
                 return _deviceDetected;
+            }
+        }
+
+        public string DEVICE_NAME
+        {
+            get
+            {
+                return _deviceName;
             }
         }
 
@@ -192,16 +200,16 @@ namespace RB
             {
                 _downArrowImage.enabled = false;
 
-                for (int i = 0; i < BaseInitializer.current.arrInputDeviceInfo.Length; i++)
+                for (int i = 0; i < BaseInitializer.current.arrInputDeviceUI.Length; i++)
                 {
-                    if (BaseInitializer.current.arrInputDeviceInfo[i] == this)
+                    if (BaseInitializer.current.arrInputDeviceUI[i] == this)
                     {
                         break;
                     }
 
-                    if (BaseInitializer.current.arrInputDeviceInfo[i] == null)
+                    if (BaseInitializer.current.arrInputDeviceUI[i] == null)
                     {
-                        BaseInitializer.current.arrInputDeviceInfo[i] = this;
+                        BaseInitializer.current.arrInputDeviceUI[i] = this;
                         break;
                     }
                 }
@@ -209,11 +217,11 @@ namespace RB
 
             if (_upIsPressed)
             {
-                for (int i = 0; i < BaseInitializer.current.arrInputDeviceInfo.Length; i++)
+                for (int i = 0; i < BaseInitializer.current.arrInputDeviceUI.Length; i++)
                 {
-                    if (BaseInitializer.current.arrInputDeviceInfo[i] == this)
+                    if (BaseInitializer.current.arrInputDeviceUI[i] == this)
                     {
-                        BaseInitializer.current.arrInputDeviceInfo[i] = null;
+                        BaseInitializer.current.arrInputDeviceUI[i] = null;
                         break;
                     }
                 }
@@ -222,9 +230,9 @@ namespace RB
 
         bool IsSelected()
         {
-            for (int i = 0; i < BaseInitializer.current.arrInputDeviceInfo.Length; i++)
+            for (int i = 0; i < BaseInitializer.current.arrInputDeviceUI.Length; i++)
             {
-                if (BaseInitializer.current.arrInputDeviceInfo[i] == this)
+                if (BaseInitializer.current.arrInputDeviceUI[i] == this)
                 {
                     return true;
                 }

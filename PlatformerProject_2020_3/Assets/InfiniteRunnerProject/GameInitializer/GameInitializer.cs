@@ -20,12 +20,19 @@ namespace RB
             stageTransitioner = new StageTransitioner();
 
             //controllers
-            arrInputDeviceInfo = new InputDeviceInfo[5];
+            arrInputDeviceUI = new InputDeviceInfoUI[5];
 
-            for (int i = 0; i < arrInputDeviceInfo.Length; i++)
+            for (int i = 0; i < arrInputDeviceUI.Length; i++)
             {
-                arrInputDeviceInfo[i] = null;
+                arrInputDeviceUI[i] = null;
             }
+
+            arrInputDeviceData = new InputDeviceData[5] {
+                new InputDeviceData(),
+                new InputDeviceData(),
+                new InputDeviceData(),
+                new InputDeviceData(),
+                new InputDeviceData() };
 
             //first stage
             stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));

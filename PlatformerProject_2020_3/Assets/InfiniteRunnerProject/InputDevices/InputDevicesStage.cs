@@ -43,6 +43,22 @@ namespace RB
 
             if (latestInput.commands.ContainsPress(CommandType.ENTER, true))
             {
+                for(int i = 0; i < BaseInitializer.current.arrInputDeviceUI.Length; i++)
+                {
+                    if (i < BaseInitializer.current.arrInputDeviceData.Length)
+                    {
+                        if (BaseInitializer.current.arrInputDeviceUI[i] != null)
+                        {
+                            BaseInitializer.current.arrInputDeviceData[i].deviceName = BaseInitializer.current.arrInputDeviceUI[i].DEVICE_NAME;
+                            BaseInitializer.current.arrInputDeviceData[i].keyboard = BaseInitializer.current.arrInputDeviceUI[i].KEYBOARD;
+                            BaseInitializer.current.arrInputDeviceData[i].mouse = BaseInitializer.current.arrInputDeviceUI[i].MOUSE;
+                            BaseInitializer.current.arrInputDeviceData[i].gamepad = BaseInitializer.current.arrInputDeviceUI[i].GAMEPAD;
+
+                            BaseInitializer.current.arrInputDeviceUI[i] = null;
+                        }
+                    }
+                }
+
                 BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.FIGHT_STAGE));
             }
         }

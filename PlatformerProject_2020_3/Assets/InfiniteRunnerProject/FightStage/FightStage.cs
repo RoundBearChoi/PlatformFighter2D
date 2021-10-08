@@ -60,20 +60,20 @@ namespace RB
             _baseUI.Init(BaseUIType.FIGHT_STAGE_UI);
 
             //gamepads
-            Debugger.Log("gamepads detected: " + UnityEngine.InputSystem.Gamepad.all.Count);
-
-            for (int i = 0; i < UnityEngine.InputSystem.Gamepad.all.Count; i++)
-            {
-                UserInput userInput = _inputController.GetUserInput(i);
-
-                if (userInput != null)
-                {
-                    Debugger.Log("initiating: " + UnityEngine.InputSystem.Gamepad.all[i].name);
-
-                    userInput.gamepad = UnityEngine.InputSystem.Gamepad.all[i];
-                    userInput.InitGamepadInput();
-                }
-            }
+            //Debugger.Log("gamepads detected: " + UnityEngine.InputSystem.Gamepad.all.Count);
+            //
+            //for (int i = 0; i < UnityEngine.InputSystem.Gamepad.all.Count; i++)
+            //{
+            //    UserInput userInput = _inputController.GetUserInput(i);
+            //
+            //    if (userInput != null)
+            //    {
+            //        Debugger.Log("initiating: " + UnityEngine.InputSystem.Gamepad.all[i].name);
+            //
+            //        userInput.gamepad = UnityEngine.InputSystem.Gamepad.all[i];
+            //        userInput.InitGamepadInput();
+            //    }
+            //}
         }
 
         public override void OnUpdate()
