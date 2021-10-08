@@ -15,6 +15,7 @@ namespace RB
             LoadObj<RunnerStage>(StageType.RUNNER_STAGE, "RunnerStage");
             LoadObj<SpriteStage>(StageType.SPRITE_STAGE, "SpriteStage");
 
+            LoadObj<InputDevicesStage>(StageType.INPUT_DEVICES_STAGE, "InputDevicesStage");
             LoadObj<FightStage>(StageType.FIGHT_STAGE, "FightStage");
             LoadObj<MultiplayerServerStage>(StageType.MULTIPLAYER_SERVER_STAGE, "MultiplayerServerStage");
             LoadObj<MultiplayerClientStage>(StageType.MULTIPLAYER_CLIENT_STAGE, "MultiplayerClientStage");

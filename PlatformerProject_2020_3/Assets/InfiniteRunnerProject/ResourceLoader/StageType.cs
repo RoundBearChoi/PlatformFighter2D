@@ -11,6 +11,7 @@ namespace RB
         INTRO_STAGE = 2,
         SPRITE_STAGE = 3,
 
+        INPUT_DEVICES_STAGE = 99,
         FIGHT_STAGE = 100,
         MULTIPLAYER_SERVER_STAGE = 101,
         MULTIPLAYER_CLIENT_STAGE = 102,
