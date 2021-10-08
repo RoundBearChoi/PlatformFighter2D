@@ -36,17 +36,14 @@ namespace RB
 
             UserInput latestInput = _inputController.GetLatestUserInput();
 
-            //if (latestInput.commands.ContainsPress(CommandType.ENTER, true))
-            //{
-            //    Debugger.Log("enter pressed");
-            //
-            //    BaseMessage enteredMessage = new Message_HostIPEntered();
-            //    enteredMessage.Register();
-            //}
-
             if (latestInput.commands.ContainsPress(CommandType.ESCAPE, true))
             {
                 ReturnToMenu.Return();
+            }
+
+            if (latestInput.commands.ContainsPress(CommandType.ENTER, true))
+            {
+                BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.FIGHT_STAGE));
             }
         }
 
