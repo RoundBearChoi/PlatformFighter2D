@@ -15,6 +15,8 @@ namespace RB
 
         ON_ESC,
         FIGHTERS_HP,
+        DETECTED_INPUT_DEVICES,
+
         QUIT_GAME_ASK,
     }
 }

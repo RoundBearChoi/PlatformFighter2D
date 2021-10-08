@@ -75,7 +75,8 @@ namespace RB
 
             else if (uiLayerType == UILayerType.INPUT_DEVICES_STAGE_LAYER)
             {
-
+                UIElement detectedInputDevices = UIElement.AddUIElement(UIElementType.DETECTED_INPUT_DEVICES, this.transform);
+                _uiElements.Add(detectedInputDevices);
             }
         }
     }
