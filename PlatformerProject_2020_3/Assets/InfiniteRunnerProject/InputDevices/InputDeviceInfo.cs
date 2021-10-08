@@ -17,7 +17,13 @@ namespace RB
         Image _psImage = null;
 
         [SerializeField]
+        Image _downArrowImage = null;
+
+        [SerializeField]
         bool _deviceDetected = false;
+
+        [SerializeField]
+        bool _upIsPressed = false;
 
         [SerializeField]
         bool _downIsPressed = false;
@@ -30,6 +36,7 @@ namespace RB
         {
             _pcImage.enabled = false;
             _psImage.enabled = false;
+            _downArrowImage.enabled = false;
 
             if (_inputDeviceType == InputDeviceType.PC)
             {
@@ -78,18 +85,21 @@ namespace RB
         {
             _keyboard = keyboard;
             _deviceDetected = true;
+            _downArrowImage.enabled = true;
         }
 
         public void SetInputDevice(UnityEngine.InputSystem.Mouse mouse)
         {
             _mouse = mouse;
             _deviceDetected = true;
+            _downArrowImage.enabled = true;
         }
 
         public void SetInputDevice(UnityEngine.InputSystem.Gamepad gamepad)
         {
             _gamepad = gamepad;
             _deviceDetected = true;
+            _downArrowImage.enabled = true;
         }
 
         public void NoDeviceDetected()
@@ -110,6 +120,15 @@ namespace RB
                 {
                     _downIsPressed = false;
                 }
+
+                if (_keyboard.upArrowKey.isPressed)
+                {
+                    _upIsPressed = true;
+                }
+                else
+                {
+                    _upIsPressed = false;
+                }
             }
 
             if (_gamepad != null)
@@ -121,6 +140,15 @@ namespace RB
                 else if (_gamepad.leftStick.down.isPressed == false && _gamepad.dpad.down.isPressed == false)
                 {
                     _downIsPressed = false;
+                }
+
+                if (_gamepad.leftStick.up.isPressed || _gamepad.dpad.up.isPressed)
+                {
+                    _upIsPressed = true;
+                }
+                else if (_gamepad.leftStick.up.isPressed == false && _gamepad.dpad.up.isPressed == false)
+                {
+                    _upIsPressed = false;
                 }
             }
         }
