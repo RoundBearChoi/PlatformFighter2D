@@ -7,7 +7,6 @@ namespace RB
     public abstract class UnitState
     {
         public uint fixedUpdateCount = 0;
-        
         public Unit ownerUnit = null;
 
         protected bool noHitStopAllowed = false;
