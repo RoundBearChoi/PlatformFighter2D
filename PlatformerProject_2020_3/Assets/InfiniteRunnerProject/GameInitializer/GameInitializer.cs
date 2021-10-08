@@ -19,6 +19,14 @@ namespace RB
             specsGetter = new SpecsGetter(listCreationSpecsSO);
             stageTransitioner = new StageTransitioner();
 
+            //controllers
+            arrInputDeviceInfo = new InputDeviceInfo[5];
+
+            for (int i = 0; i < arrInputDeviceInfo.Length; i++)
+            {
+                arrInputDeviceInfo[i] = null;
+            }
+
             //first stage
             stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
         }

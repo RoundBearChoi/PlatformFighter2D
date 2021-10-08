@@ -22,6 +22,7 @@ namespace RB
             LoadObj<OnESC>(UIElementType.ON_ESC, "OnESC");
             LoadObj<FightersHP>(UIElementType.FIGHTERS_HP, "FightersHP");
             LoadObj<DetectedInputDevices>(UIElementType.DETECTED_INPUT_DEVICES, "DetectedInputDevices");
+            LoadObj<PickFighters>(UIElementType.PICK_FIGHTERS, "PickFighters");
 
             LoadObj<QuitGameAsk>(UIElementType.QUIT_GAME_ASK, "QuitGameAsk");
         }

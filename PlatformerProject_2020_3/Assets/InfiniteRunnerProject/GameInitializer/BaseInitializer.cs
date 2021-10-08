@@ -25,6 +25,7 @@ namespace RB
         public FighterData fighterDataSO = null;
         public SwampParallax swampParallaxSO;
         public OldCityParallax oldCityParallaxSO;
+        public InputDeviceInfo[] arrInputDeviceInfo = null;
 
         protected BaseStage _stage = null;
 

@@ -8,6 +8,9 @@ namespace RB
     public class InputDeviceInfo : MonoBehaviour
     {
         [SerializeField]
+        string _deviceName = string.Empty;
+
+        [SerializeField]
         InputDeviceType _inputDeviceType = InputDeviceType.NONE;
 
         [SerializeField]
@@ -84,6 +87,7 @@ namespace RB
         public void SetInputDevice(UnityEngine.InputSystem.Keyboard keyboard)
         {
             _keyboard = keyboard;
+            _deviceName = _keyboard.name;
             _deviceDetected = true;
             _downArrowImage.enabled = true;
         }
@@ -98,6 +102,7 @@ namespace RB
         public void SetInputDevice(UnityEngine.InputSystem.Gamepad gamepad)
         {
             _gamepad = gamepad;
+            _deviceName = gamepad.name;
             _deviceDetected = true;
             _downArrowImage.enabled = true;
         }
@@ -109,6 +114,12 @@ namespace RB
         }
 
         public void OnUpdate()
+        {
+            UpdatePresses();
+            UpdateSelection();
+        }
+
+        void UpdatePresses()
         {
             if (_keyboard != null)
             {
@@ -149,6 +160,38 @@ namespace RB
                 else if (_gamepad.leftStick.up.isPressed == false && _gamepad.dpad.up.isPressed == false)
                 {
                     _upIsPressed = false;
+                }
+            }
+        }
+
+        void UpdateSelection()
+        {
+            if (_downIsPressed)
+            {
+                for (int i = 0; i < BaseInitializer.current.arrInputDeviceInfo.Length; i++)
+                {
+                    if (BaseInitializer.current.arrInputDeviceInfo[i] == this)
+                    {
+                        break;
+                    }
+
+                    if (BaseInitializer.current.arrInputDeviceInfo[i] == null)
+                    {
+                        BaseInitializer.current.arrInputDeviceInfo[i] = this;
+                        break;
+                    }
+                }
+            }
+
+            if (_upIsPressed)
+            {
+                for (int i = 0; i < BaseInitializer.current.arrInputDeviceInfo.Length; i++)
+                {
+                    if (BaseInitializer.current.arrInputDeviceInfo[i] == this)
+                    {
+                        BaseInitializer.current.arrInputDeviceInfo[i] = null;
+                        break;
+                    }
                 }
             }
         }
