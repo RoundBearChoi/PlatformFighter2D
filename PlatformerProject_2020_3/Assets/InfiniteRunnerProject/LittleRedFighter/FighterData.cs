@@ -10,13 +10,12 @@ namespace RB
         public float Gravity = 0f;
 
         [Space(10)]
-
         public float DefaultRunSpeed = 0f;
         public float RunSpeedLerpPercentage = 0f;
         public float IdleSlowDownLerpPercentage = 0f;
+        public float AttackASlowDownPercentage = 0f;
 
         [Space(10)]
-
         public float HorizontalJumpVelocityMultiplier = 0f;
         public float VerticalJumpForce = 0f;
         public float JumpPullPercentagePerFixedUpdate = 0f;
@@ -42,22 +41,15 @@ namespace RB
         public float MaxWallSlideFallSpeed = 0f;
 
         [Space(10)]
-
         public float CumulativeGravityForcePercentage = 0f;
 
         [Space(10)]
-
-        public float AttackASlowDownPercentage = 0f;
-
-        [Space(10)]
-
         public float CameraYOffset = 0f;
 
         [Space(10)]
         public float InputDeviceIconMoveSpeed = 0f;
 
         [Space(10)]
-
         public float Camera_z = 0f;
         public float OldCity_BottomFog_z = 0f;
         public float OldCity_TopFog_z = 0f;
