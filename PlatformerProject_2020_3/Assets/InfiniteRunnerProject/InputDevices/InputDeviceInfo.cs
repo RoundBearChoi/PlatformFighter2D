@@ -16,6 +16,9 @@ namespace RB
         [SerializeField]
         Image _psImage = null;
 
+        [SerializeField]
+        bool _deviceDetected = false;
+
         UnityEngine.InputSystem.Keyboard _keyboard = null;
         UnityEngine.InputSystem.Mouse _mouse = null;
         UnityEngine.InputSystem.Gamepad _gamepad = null;
@@ -33,6 +36,14 @@ namespace RB
             else if (_inputDeviceType == InputDeviceType.PS4)
             {
                 _psImage.enabled = true;
+            }
+        }
+
+        public bool DEVICE_DETECTED
+        {
+            get
+            {
+                return _deviceDetected;
             }
         }
 
@@ -63,16 +74,19 @@ namespace RB
         public void SetInputDevice(UnityEngine.InputSystem.Keyboard keyboard)
         {
             _keyboard = keyboard;
+            _deviceDetected = true;
         }
 
         public void SetInputDevice(UnityEngine.InputSystem.Mouse mouse)
         {
             _mouse = mouse;
+            _deviceDetected = true;
         }
 
         public void SetInputDevice(UnityEngine.InputSystem.Gamepad gamepad)
         {
             _gamepad = gamepad;
+            _deviceDetected = true;
         }
 
         public void NoDeviceDetected()

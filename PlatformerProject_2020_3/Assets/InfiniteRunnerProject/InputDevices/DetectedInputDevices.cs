@@ -39,7 +39,7 @@ namespace RB
 
             foreach(InputDeviceInfo info in _listInputDeviceInfo)
             {
-                if (info.KEYBOARD == null && info.MOUSE == null && info.GAMEPAD == null)
+                if (!info.DEVICE_DETECTED)
                 {
                     info.NoDeviceDetected();
                 }
