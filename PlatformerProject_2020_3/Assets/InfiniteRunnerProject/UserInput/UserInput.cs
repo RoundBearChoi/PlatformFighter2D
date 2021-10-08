@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
 
 namespace RB
 {
@@ -12,7 +11,9 @@ namespace RB
         [SerializeField]
         InputType _inputType = InputType.NONE;
 
-        public Gamepad gamepad = null;
+        private Keyboard _keyboard = null;
+        private Mouse _mouse = null;
+        private Gamepad _gamepad = null;
 
         public UserCommands commands = new UserCommands();
 
@@ -24,72 +25,63 @@ namespace RB
             }
         }
 
-        public UserInput(InputType inputType)
+        public UserInput(InputType inputType, Keyboard keyboard, Mouse mouse, Gamepad gamepad)
         {
             _inputType = inputType;
+            _keyboard = keyboard;
+            _mouse = mouse;
+            _gamepad = gamepad;
 
-            //keyboard = Keyboard.current;
-            //mouse = Mouse.current;
-
-            try
+            if (_mouse != null)
             {
-                if (Mouse.current != null)
-                {
-                    commands.AddCommand(new UserCommand(CommandType.ATTACK_A, Mouse.current.leftButton));
-                    commands.AddCommand(new UserCommand(CommandType.ATTACK_B, Mouse.current.rightButton));
-                }
-
-                if (Keyboard.current != null)
-                {
-                    commands.AddCommand(new UserCommand(CommandType.MOVE_UP, Keyboard.current.wKey));
-                    commands.AddCommand(new UserCommand(CommandType.MOVE_DOWN, Keyboard.current.sKey));
-                    commands.AddCommand(new UserCommand(CommandType.MOVE_LEFT, Keyboard.current.aKey));
-                    commands.AddCommand(new UserCommand(CommandType.MOVE_RIGHT, Keyboard.current.dKey));
-
-                    commands.AddCommand(new UserCommand(CommandType.JUMP, Keyboard.current.spaceKey));
-
-                    commands.AddCommand(new UserCommand(CommandType.SHIFT, Keyboard.current.shiftKey));
-
-                    commands.AddCommand(new UserCommand(CommandType.F4, Keyboard.current.f4Key));
-                    commands.AddCommand(new UserCommand(CommandType.F5, Keyboard.current.f5Key));
-                    commands.AddCommand(new UserCommand(CommandType.F6, Keyboard.current.f6Key));
-                    commands.AddCommand(new UserCommand(CommandType.F7, Keyboard.current.f7Key));
-                    commands.AddCommand(new UserCommand(CommandType.F8, Keyboard.current.f8Key));
-                    commands.AddCommand(new UserCommand(CommandType.F9, Keyboard.current.f9Key));
-                    commands.AddCommand(new UserCommand(CommandType.F10, Keyboard.current.f10Key));
-                    commands.AddCommand(new UserCommand(CommandType.F11, Keyboard.current.f11Key));
-
-                    commands.AddCommand(new UserCommand(CommandType.ENTER, Keyboard.current.enterKey));
-                    commands.AddCommand(new UserCommand(CommandType.ARROW_UP, Keyboard.current.upArrowKey));
-                    commands.AddCommand(new UserCommand(CommandType.ARROW_DOWN, Keyboard.current.downArrowKey));
-                    commands.AddCommand(new UserCommand(CommandType.ARROW_LEFT, Keyboard.current.leftArrowKey));
-                    commands.AddCommand(new UserCommand(CommandType.ARROW_RIGHT, Keyboard.current.rightArrowKey));
-                    commands.AddCommand(new UserCommand(CommandType.ESCAPE, Keyboard.current.escapeKey));
-                }
+                commands.AddCommand(new UserCommand(CommandType.ATTACK_A, _mouse.leftButton));
+                commands.AddCommand(new UserCommand(CommandType.ATTACK_B, _mouse.rightButton));
             }
-            catch (System.Exception e)
+
+            if (_keyboard != null)
             {
-                Debugger.Log(e);
+                commands.AddCommand(new UserCommand(CommandType.MOVE_UP, _keyboard.wKey));
+                commands.AddCommand(new UserCommand(CommandType.MOVE_DOWN, _keyboard.sKey));
+                commands.AddCommand(new UserCommand(CommandType.MOVE_LEFT, _keyboard.aKey));
+                commands.AddCommand(new UserCommand(CommandType.MOVE_RIGHT, _keyboard.dKey));
+
+                commands.AddCommand(new UserCommand(CommandType.JUMP, _keyboard.spaceKey));
+                commands.AddCommand(new UserCommand(CommandType.SHIFT, _keyboard.shiftKey));
+
+                commands.AddCommand(new UserCommand(CommandType.F4, _keyboard.f4Key));
+                commands.AddCommand(new UserCommand(CommandType.F5, _keyboard.f5Key));
+                commands.AddCommand(new UserCommand(CommandType.F6, _keyboard.f6Key));
+                commands.AddCommand(new UserCommand(CommandType.F7, _keyboard.f7Key));
+                commands.AddCommand(new UserCommand(CommandType.F8, _keyboard.f8Key));
+                commands.AddCommand(new UserCommand(CommandType.F9, _keyboard.f9Key));
+                commands.AddCommand(new UserCommand(CommandType.F10, _keyboard.f10Key));
+                commands.AddCommand(new UserCommand(CommandType.F11, _keyboard.f11Key));
+
+                commands.AddCommand(new UserCommand(CommandType.ENTER, _keyboard.enterKey));
+                commands.AddCommand(new UserCommand(CommandType.ARROW_UP, _keyboard.upArrowKey));
+                commands.AddCommand(new UserCommand(CommandType.ARROW_DOWN, _keyboard.downArrowKey));
+                commands.AddCommand(new UserCommand(CommandType.ARROW_LEFT, _keyboard.leftArrowKey));
+                commands.AddCommand(new UserCommand(CommandType.ARROW_RIGHT, _keyboard.rightArrowKey));
+                commands.AddCommand(new UserCommand(CommandType.ESCAPE, _keyboard.escapeKey));
             }
         }
 
         public void InitGamepadInput()
         {
-            commands.AddCommand(new UserCommand(CommandType.ATTACK_A, gamepad.buttonEast));
+            commands.AddCommand(new UserCommand(CommandType.ATTACK_A, _gamepad.buttonEast));
 
-            commands.AddCommand(new UserCommand(CommandType.MOVE_UP, gamepad.leftStick.up));
-            commands.AddCommand(new UserCommand(CommandType.MOVE_DOWN, gamepad.leftStick.down));
-            commands.AddCommand(new UserCommand(CommandType.MOVE_LEFT, gamepad.leftStick.left));
-            commands.AddCommand(new UserCommand(CommandType.MOVE_RIGHT, gamepad.leftStick.right));
+            commands.AddCommand(new UserCommand(CommandType.MOVE_UP, _gamepad.leftStick.up));
+            commands.AddCommand(new UserCommand(CommandType.MOVE_DOWN, _gamepad.leftStick.down));
+            commands.AddCommand(new UserCommand(CommandType.MOVE_LEFT, _gamepad.leftStick.left));
+            commands.AddCommand(new UserCommand(CommandType.MOVE_RIGHT, _gamepad.leftStick.right));
 
             //commands.AddCommand(new UserCommand(CommandType.MOVE_UP, gamepad.dpad.up));
             //commands.AddCommand(new UserCommand(CommandType.MOVE_DOWN, gamepad.dpad.down));
             //commands.AddCommand(new UserCommand(CommandType.MOVE_LEFT, gamepad.dpad.left));
             //commands.AddCommand(new UserCommand(CommandType.MOVE_RIGHT, gamepad.dpad.right));
 
-            commands.AddCommand(new UserCommand(CommandType.JUMP, gamepad.buttonSouth));
-
-            commands.AddCommand(new UserCommand(CommandType.SHIFT, gamepad.buttonWest));
+            commands.AddCommand(new UserCommand(CommandType.JUMP, _gamepad.buttonSouth));
+            commands.AddCommand(new UserCommand(CommandType.SHIFT, _gamepad.buttonWest));
         }
 
         public void OnUpdate()

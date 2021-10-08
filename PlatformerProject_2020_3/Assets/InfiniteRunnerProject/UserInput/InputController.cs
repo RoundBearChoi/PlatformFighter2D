@@ -15,7 +15,7 @@ namespace RB
             if (_listUserInputs.Count < (int)InputType.PLAYER_FOUR)
             {
                 InputType inputType = (InputType)(_listUserInputs.Count + 1);
-                _listUserInputs.Add(new UserInput(inputType));
+                _listUserInputs.Add(new UserInput(inputType, UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null));
                 return _listUserInputs[_listUserInputs.Count - 1];
             }
 
