@@ -72,6 +72,11 @@ namespace RB
                 onESC.messageHandler = new OnEscapeMessageHandler();
                 Message_ClearOnEscapeChildElements.onESCMessageHandler = onESC.messageHandler;
             }
+
+            else if (uiLayerType == UILayerType.INPUT_DEVICES_STAGE_LAYER)
+            {
+
+            }
         }
     }
 }

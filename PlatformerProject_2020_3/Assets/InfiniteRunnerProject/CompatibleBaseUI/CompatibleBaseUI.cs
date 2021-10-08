@@ -56,6 +56,11 @@ namespace RB
             {
                 AddCompatibleUILayer(UILayerType.FIGHT_STAGE_LAYER);
             }
+
+            else if (baseUIType == BaseUIType.INPUT_DEVICES_STAGE_UI)
+            {
+                AddCompatibleUILayer(UILayerType.INPUT_DEVICES_STAGE_LAYER);
+            }
         }
     }
 }

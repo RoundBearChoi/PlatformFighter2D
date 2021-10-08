@@ -14,5 +14,6 @@ namespace RB
         CONNECTED_UI,
 
         FIGHT_STAGE_UI,
+        INPUT_DEVICES_STAGE_UI,
     }
 }

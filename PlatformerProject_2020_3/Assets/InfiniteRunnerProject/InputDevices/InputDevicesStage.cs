@@ -19,10 +19,10 @@ namespace RB
 
             _inputController.AddInput();
 
-            //_baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
-            //_baseUI.transform.parent = this.transform;
-            //
-            //_baseUI.Init(BaseUIType.ENTER_IP_UI);
+            _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
+            _baseUI.transform.parent = this.transform;
+            
+            _baseUI.Init(BaseUIType.INPUT_DEVICES_STAGE_UI);
         }
 
         public override void OnUpdate()
