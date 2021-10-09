@@ -90,14 +90,6 @@ namespace RB
             UpdatePressOnClientInput(CommandType.JUMP, inputArray[4]);
             UpdatePressOnClientInput(CommandType.ATTACK_A, inputArray[5]);
             UpdatePressOnClientInput(CommandType.SHIFT, inputArray[6]);
-
-            //UpdateHoldOnClientInput(CommandType.MOVE_UP, inputArray[7]);
-            //UpdateHoldOnClientInput(CommandType.MOVE_DOWN, inputArray[8]);
-            //UpdateHoldOnClientInput(CommandType.MOVE_LEFT, inputArray[9]);
-            //UpdateHoldOnClientInput(CommandType.MOVE_RIGHT, inputArray[10]);
-            //UpdateHoldOnClientInput(CommandType.JUMP, inputArray[11]);
-            //UpdateHoldOnClientInput(CommandType.ATTACK_A, inputArray[12]);
-            //UpdateHoldOnClientInput(CommandType.SHIFT, inputArray[13]);
         }
 
         void UpdatePressOnClientInput(CommandType commandType, bool isHeld)

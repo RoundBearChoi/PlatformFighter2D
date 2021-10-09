@@ -13,7 +13,7 @@ namespace RB.Client
         {
             if (_inputs == null || _inputs.Length == 0)
             {
-                _inputs = new bool[14];
+                _inputs = new bool[7];
             }
 
             _inputs[0] = ContainsPress(CommandType.MOVE_UP);
