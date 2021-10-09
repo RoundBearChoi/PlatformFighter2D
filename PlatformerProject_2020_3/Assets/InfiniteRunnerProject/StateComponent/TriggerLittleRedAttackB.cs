@@ -22,7 +22,7 @@ namespace RB
             {
                 if (ani.SPRITE_INDEX >= _requiredIndexCount)
                 {
-                    if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, false))
+                    if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, true))
                     {
                         _unit.unitData.listNextStates.Add(new LittleRed_Attack_B(_unit));
                     }

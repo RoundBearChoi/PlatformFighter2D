@@ -16,7 +16,7 @@ namespace RB
             if (_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM) ||
                 _unit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM))
             {
-                if (_unit.USER_INPUT.commands.ContainsPress(CommandType.JUMP, false))
+                if (_unit.USER_INPUT.commands.ContainsPress(CommandType.JUMP, true))
                 {
                     if (!_unit.isDummy)
                     {

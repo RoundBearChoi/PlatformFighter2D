@@ -24,7 +24,7 @@ namespace RB
                 {
                     if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_UP, false))
                     {
-                        if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, false))
+                        if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, true))
                         {
                             Debugger.Log("uppercut!");
                             _unit.unitData.listNextStates.Add(new LittleRedUppercut(_unit));

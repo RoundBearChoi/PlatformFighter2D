@@ -13,7 +13,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, false))
+            if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, true))
             {
                 Debugger.Log("attack A!");
                 _unit.unitData.listNextStates.Add(new LittleRed_Attack_A(_unit));
