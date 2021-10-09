@@ -26,12 +26,7 @@ namespace RB
         {
             foreach(KeyValuePair<CommandType, UserCommand> data in _dicAllCommands)
             {
-                ButtonControl button = data.Value.BUTTON;
-
-                if (button != null)
-                {
-                    UpdateKeyPress(button);
-                }
+                UpdateKeyPress(data.Value.BUTTON);
             }
         }
 
@@ -39,19 +34,14 @@ namespace RB
         {
             if (_dicAllCommands.ContainsKey(commandType))
             {
-                ButtonControl button = _dicAllCommands[commandType].BUTTON;
-
-                if (button != null)
+                if (_listButtonPresses.Contains(_dicAllCommands[commandType].BUTTON))
                 {
-                    if (_listButtonPresses.Contains(button))
+                    if (clearPress)
                     {
-                        if (clearPress)
-                        {
-                            _listButtonPresses.Remove(button);
-                        }
-
-                        return true;
+                        _listButtonPresses.Remove(_dicAllCommands[commandType].BUTTON);
                     }
+
+                    return true;
                 }
             }
 
@@ -62,11 +52,7 @@ namespace RB
         {
             if (buttonControl.wasPressedThisFrame)
             {
-                if (_listButtonPresses.Contains(buttonControl))
-                {
-                    //do nothing
-                }
-                else
+                if (!_listButtonPresses.Contains(buttonControl))
                 {
                     _listButtonPresses.Add(buttonControl);
                 }
@@ -96,26 +82,18 @@ namespace RB
         {
             if (_dicAllCommands.ContainsKey(commandType))
             {
-                ButtonControl buttonControl = _dicAllCommands[commandType].BUTTON;
-
                 if (isHeld)
                 {
-                    if (buttonControl != null)
+                    if (!_listButtonPresses.Contains(_dicAllCommands[commandType].BUTTON))
                     {
-                        if (!_listButtonPresses.Contains(buttonControl))
-                        {
-                            _listButtonPresses.Add(buttonControl);
-                        }
+                        _listButtonPresses.Add(_dicAllCommands[commandType].BUTTON);
                     }
                 }
                 else
                 {
-                    if (buttonControl != null)
+                    if (_listButtonPresses.Contains(_dicAllCommands[commandType].BUTTON))
                     {
-                        if (_listButtonPresses.Contains(buttonControl))
-                        {
-                            _listButtonPresses.Remove(buttonControl);
-                        }
+                        _listButtonPresses.Remove(_dicAllCommands[commandType].BUTTON);
                     }
                 }
             }
