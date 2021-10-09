@@ -64,24 +64,24 @@ namespace RB
                 commands.AddCommand(new UserCommand(CommandType.ARROW_RIGHT, _keyboard.rightArrowKey));
                 commands.AddCommand(new UserCommand(CommandType.ESCAPE, _keyboard.escapeKey));
             }
-        }
 
-        public void InitGamepadInput()
-        {
-            commands.AddCommand(new UserCommand(CommandType.ATTACK_A, _gamepad.buttonEast));
+            if (_gamepad != null)
+            {
+                commands.AddCommand(new UserCommand(CommandType.ATTACK_A, _gamepad.buttonEast));
 
-            commands.AddCommand(new UserCommand(CommandType.MOVE_UP, _gamepad.leftStick.up));
-            commands.AddCommand(new UserCommand(CommandType.MOVE_DOWN, _gamepad.leftStick.down));
-            commands.AddCommand(new UserCommand(CommandType.MOVE_LEFT, _gamepad.leftStick.left));
-            commands.AddCommand(new UserCommand(CommandType.MOVE_RIGHT, _gamepad.leftStick.right));
+                commands.AddCommand(new UserCommand(CommandType.MOVE_UP, _gamepad.leftStick.up));
+                commands.AddCommand(new UserCommand(CommandType.MOVE_DOWN, _gamepad.leftStick.down));
+                commands.AddCommand(new UserCommand(CommandType.MOVE_LEFT, _gamepad.leftStick.left));
+                commands.AddCommand(new UserCommand(CommandType.MOVE_RIGHT, _gamepad.leftStick.right));
 
-            //commands.AddCommand(new UserCommand(CommandType.MOVE_UP, gamepad.dpad.up));
-            //commands.AddCommand(new UserCommand(CommandType.MOVE_DOWN, gamepad.dpad.down));
-            //commands.AddCommand(new UserCommand(CommandType.MOVE_LEFT, gamepad.dpad.left));
-            //commands.AddCommand(new UserCommand(CommandType.MOVE_RIGHT, gamepad.dpad.right));
+                //commands.AddCommand(new UserCommand(CommandType.MOVE_UP, gamepad.dpad.up));
+                //commands.AddCommand(new UserCommand(CommandType.MOVE_DOWN, gamepad.dpad.down));
+                //commands.AddCommand(new UserCommand(CommandType.MOVE_LEFT, gamepad.dpad.left));
+                //commands.AddCommand(new UserCommand(CommandType.MOVE_RIGHT, gamepad.dpad.right));
 
-            commands.AddCommand(new UserCommand(CommandType.JUMP, _gamepad.buttonSouth));
-            commands.AddCommand(new UserCommand(CommandType.SHIFT, _gamepad.buttonWest));
+                commands.AddCommand(new UserCommand(CommandType.JUMP, _gamepad.buttonSouth));
+                commands.AddCommand(new UserCommand(CommandType.SHIFT, _gamepad.buttonWest));
+            }
         }
 
         public void OnUpdate()

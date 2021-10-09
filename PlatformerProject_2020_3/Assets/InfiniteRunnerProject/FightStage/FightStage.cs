@@ -22,17 +22,34 @@ namespace RB
 
             BaseInitializer.current.GetStage().InstantiateUnits_ByUnitType(UnitType.OLD_CITY);
 
-            //player 0 & input
+            //player 0
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_LIGHT);
             Unit player1 = units.GetUnit<LittleRed>();
-            UserInput input = _inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null);
-            _inputSelection = input.INPUT_TYPE;
-            player1.SetUserInput(input);
+
+            if (BaseInitializer.current.arrInputDeviceData[0] != null)
+            {
+                UserInput input = _inputController.AddInput(
+                    BaseInitializer.current.arrInputDeviceData[0].keyboard,
+                    BaseInitializer.current.arrInputDeviceData[0].mouse,
+                    BaseInitializer.current.arrInputDeviceData[0].gamepad);
+
+                player1.SetUserInput(input);
+                _inputSelection = input.INPUT_TYPE;
+            }
 
             //player 1
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_DARK);
             Unit player2 = units.GetUnit<LittleRed>();
-            player2.SetUserInput(_inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null));
+
+            if (BaseInitializer.current.arrInputDeviceData[1] != null)
+            {
+                UserInput input = _inputController.AddInput(
+                    BaseInitializer.current.arrInputDeviceData[1].keyboard,
+                    BaseInitializer.current.arrInputDeviceData[1].mouse,
+                    BaseInitializer.current.arrInputDeviceData[1].gamepad);
+
+                player2.SetUserInput(input);
+            }
 
             //set z for all players
             List<Unit> allPlayers = units.GetUnits<LittleRed>();
