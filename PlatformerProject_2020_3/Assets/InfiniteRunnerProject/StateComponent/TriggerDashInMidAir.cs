@@ -17,13 +17,13 @@ namespace RB
             {
                 uint fixedUpdateCount = _unit.iStateController.GetCurrentState().fixedUpdateCount;
 
-                if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.SHIFT) && fixedUpdateCount >= 1)
+                if (_unit.USER_INPUT.commands.ContainsPress(CommandType.SHIFT, false) && fixedUpdateCount >= 1)
                 {
                     if (_unit.unitData.facingRight)
                     {
                         if (_unit.unitData.collisionStays.GetCollisionData(CollisionType.RIGHT).Count == 0)
                         {
-                            if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_RIGHT))
+                            if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false))
                             {
                                 _unit.unitData.listNextStates.Add(new LittleRed_Dash(_unit));
                             }
@@ -33,7 +33,7 @@ namespace RB
                     {
                         if (_unit.unitData.collisionStays.GetCollisionData(CollisionType.LEFT).Count == 0)
                         {
-                            if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_LEFT))
+                            if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false))
                             {
                                 _unit.unitData.listNextStates.Add(new LittleRed_Dash(_unit));
                             }

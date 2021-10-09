@@ -22,7 +22,7 @@ namespace RB
             {
                 if (ani.SPRITE_INDEX >= _requiredIndexCount)
                 {
-                    if (_unit.USER_INPUT.commands.ContainsHold(CommandType.MOVE_UP))
+                    if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_UP, false))
                     {
                         if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, false))
                         {

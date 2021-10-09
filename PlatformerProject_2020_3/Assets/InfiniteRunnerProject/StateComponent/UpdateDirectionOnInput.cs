@@ -13,12 +13,12 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_LEFT))
+            if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false))
             {
                 _unit.unitData.facingRight = false;
             }
 
-            if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_RIGHT))
+            if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false))
             {
                 _unit.unitData.facingRight = true;
             }

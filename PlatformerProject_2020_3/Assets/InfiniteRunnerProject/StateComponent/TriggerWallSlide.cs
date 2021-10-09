@@ -23,14 +23,14 @@ namespace RB
 
                     if (grounds[0].contactPoint.point.x < _unit.transform.position.x)
                     {
-                        if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_LEFT))
+                        if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false))
                         {
                             makeTransition = true;
                         }
                     }
                     else if (grounds[0].contactPoint.point.x > _unit.transform.position.x)
                     {
-                        if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_RIGHT))
+                        if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false))
                         {
                             makeTransition = true;
                         }

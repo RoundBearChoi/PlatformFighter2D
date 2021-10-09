@@ -29,7 +29,7 @@ namespace RB
 
             if (!_startPullDown)
             {
-                if (!ownerUnit.USER_INPUT.commands.ContainsHold(CommandType.JUMP))
+                if (!ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.JUMP, false))
                 {
                     _startPullDown = true;
                 }

@@ -13,11 +13,11 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (_unit.USER_INPUT.commands.ContainsPress(CommandType.JUMP, false) || _unit.USER_INPUT.commands.ContainsHold(CommandType.JUMP))
+            if (_unit.USER_INPUT.commands.ContainsPress(CommandType.JUMP, false))
             {
                 _unit.unitData.listNextStates.Add(new Runner_Jump_Up(_unit));
             }
-            else if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false) || _unit.USER_INPUT.commands.ContainsHold(CommandType.MOVE_DOWN))
+            else if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
             {
                 if (_unit.unitData.rigidBody2D.velocity.x > BaseInitializer.current.runnerDataSO.SlideSpeedThreshold)
                 {   

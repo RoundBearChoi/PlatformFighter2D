@@ -21,7 +21,7 @@ namespace RB
             //cancel last frame and go straight to crouch
             if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 5)
             {
-                if (ownerUnit.USER_INPUT.commands.ContainsHold(CommandType.MOVE_DOWN))
+                if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
                 {
                     ownerUnit.unitData.listNextStates.Add(new Runner_Crouch(ownerUnit));
                 }
@@ -29,7 +29,7 @@ namespace RB
 
             if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().IsOnEnd())
             {
-                if (ownerUnit.USER_INPUT.commands.ContainsHold(CommandType.MOVE_DOWN))
+                if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
                 {
                     ownerUnit.unitData.listNextStates.Add(new Runner_Crouch(ownerUnit));
                 }

@@ -58,43 +58,6 @@ namespace RB
             return false;
         }
 
-        public bool ContainsHold(CommandType commandType)
-        {
-            if (_dicAllCommands.ContainsKey(commandType))
-            {
-                ButtonControl button = _dicAllCommands[commandType].BUTTON;
-
-                if (button != null)
-                {
-                    if (_listButtonPresses.Contains(button))
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-            }
-
-            return false;
-        }
-
-        public bool ContainsHoldOrPress(CommandType commandType)
-        {
-            if (ContainsPress(commandType, false))
-            {
-                return true;
-            }
-
-            if (ContainsHold(commandType))
-            {
-                return true;
-            }
-
-            return false;
-        }
-
         void UpdateKeyPress(ButtonControl buttonControl)
         {
             if (buttonControl.wasPressedThisFrame)
@@ -128,45 +91,16 @@ namespace RB
             UpdatePressOnClientInput(CommandType.ATTACK_A, inputArray[5]);
             UpdatePressOnClientInput(CommandType.SHIFT, inputArray[6]);
 
-            UpdateHoldOnClientInput(CommandType.MOVE_UP, inputArray[7]);
-            UpdateHoldOnClientInput(CommandType.MOVE_DOWN, inputArray[8]);
-            UpdateHoldOnClientInput(CommandType.MOVE_LEFT, inputArray[9]);
-            UpdateHoldOnClientInput(CommandType.MOVE_RIGHT, inputArray[10]);
-            UpdateHoldOnClientInput(CommandType.JUMP, inputArray[11]);
-            UpdateHoldOnClientInput(CommandType.ATTACK_A, inputArray[12]);
-            UpdateHoldOnClientInput(CommandType.SHIFT, inputArray[13]);
+            //UpdateHoldOnClientInput(CommandType.MOVE_UP, inputArray[7]);
+            //UpdateHoldOnClientInput(CommandType.MOVE_DOWN, inputArray[8]);
+            //UpdateHoldOnClientInput(CommandType.MOVE_LEFT, inputArray[9]);
+            //UpdateHoldOnClientInput(CommandType.MOVE_RIGHT, inputArray[10]);
+            //UpdateHoldOnClientInput(CommandType.JUMP, inputArray[11]);
+            //UpdateHoldOnClientInput(CommandType.ATTACK_A, inputArray[12]);
+            //UpdateHoldOnClientInput(CommandType.SHIFT, inputArray[13]);
         }
 
         void UpdatePressOnClientInput(CommandType commandType, bool isHeld)
-        {
-            if (_dicAllCommands.ContainsKey(commandType))
-            {
-                ButtonControl buttonControl = _dicAllCommands[commandType].BUTTON;
-
-                if (isHeld)
-                {
-                    if (buttonControl != null)
-                    {
-                        if (!_listButtonPresses.Contains(buttonControl))
-                        {
-                            _listButtonPresses.Add(buttonControl);
-                        }
-                    }
-                }
-                else
-                {
-                    if (buttonControl != null)
-                    {
-                        if (_listButtonPresses.Contains(buttonControl))
-                        {
-                            _listButtonPresses.Remove(buttonControl);
-                        }
-                    }
-                }
-            }
-        }
-
-        void UpdateHoldOnClientInput(CommandType commandType, bool isHeld)
         {
             if (_dicAllCommands.ContainsKey(commandType))
             {

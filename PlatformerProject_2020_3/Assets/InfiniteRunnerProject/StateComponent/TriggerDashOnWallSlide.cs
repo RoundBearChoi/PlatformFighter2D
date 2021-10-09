@@ -15,11 +15,11 @@ namespace RB
         {
             if (!_unit.unitData.airControl.DashTriggered)
             {
-                if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.SHIFT))
+                if (_unit.USER_INPUT.commands.ContainsPress(CommandType.SHIFT, false))
                 {
                     if (_unit.unitData.collisionStays.IsTouchingGround(CollisionType.RIGHT))
                     {
-                        if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_LEFT))
+                        if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false))
                         {
 
                             _unit.unitData.facingRight = false;
@@ -29,7 +29,7 @@ namespace RB
 
                     if (_unit.unitData.collisionStays.IsTouchingGround(CollisionType.LEFT))
                     {
-                        if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_RIGHT))
+                        if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false))
                         {
                             _unit.unitData.facingRight = true;
                             _unit.unitData.listNextStates.Add(new LittleRed_Dash(_unit));

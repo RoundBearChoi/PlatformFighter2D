@@ -23,7 +23,7 @@ namespace RB
                 {
                     if (_unit.iStateController.GetCurrentState().fixedUpdateCount > _minimumJumpUpFrames)
                     {
-                        if (!_unit.USER_INPUT.commands.ContainsHold(CommandType.JUMP))
+                        if (!_unit.USER_INPUT.commands.ContainsPress(CommandType.JUMP, false))
                         {
                             _startPullDown = true;
                         }

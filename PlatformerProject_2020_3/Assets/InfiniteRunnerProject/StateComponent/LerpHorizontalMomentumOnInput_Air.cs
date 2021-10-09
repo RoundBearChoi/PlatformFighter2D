@@ -32,12 +32,12 @@ namespace RB
                     }
                 }
 
-                if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_LEFT))
+                if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false))
                 {
                     _unit.unitData.airControl.AddMomentum(BaseInitializer.current.fighterDataSO.HorizontalAirMomentumIncreaseAmount * -1f);
                 }
 
-                if (_unit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_RIGHT))
+                if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false))
                 {
                     _unit.unitData.airControl.AddMomentum(BaseInitializer.current.fighterDataSO.HorizontalAirMomentumIncreaseAmount);
                 }

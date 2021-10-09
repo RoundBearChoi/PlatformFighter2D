@@ -53,7 +53,7 @@ namespace RB
                 showSlideDust.Register();
             }
 
-            if (ownerUnit.USER_INPUT.commands.ContainsHold(CommandType.MOVE_DOWN))
+            if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
             {
                 if (ownerUnit.unitData.rigidBody2D.velocity.x < 1.5f)
                 {

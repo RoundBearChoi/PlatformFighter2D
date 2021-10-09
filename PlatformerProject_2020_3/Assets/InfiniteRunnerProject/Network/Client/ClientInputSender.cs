@@ -24,14 +24,6 @@ namespace RB.Client
             _inputs[5] = ContainsPress(CommandType.ATTACK_A);
             _inputs[6] = ContainsPress(CommandType.SHIFT);
 
-            _inputs[7] = ContainsHold(CommandType.MOVE_UP);
-            _inputs[8] = ContainsHold(CommandType.MOVE_DOWN);
-            _inputs[9] = ContainsHold(CommandType.MOVE_LEFT);
-            _inputs[10] = ContainsHold(CommandType.MOVE_RIGHT);
-            _inputs[11] = ContainsHold(CommandType.JUMP);
-            _inputs[12] = ContainsHold(CommandType.ATTACK_A);
-            _inputs[13] = ContainsHold(CommandType.SHIFT);
-
             RB.Client.ClientSend.SendClientInput(_inputs);
         }
 
@@ -41,21 +33,6 @@ namespace RB.Client
             UserInput latestInput = inputController.GetLatestUserInput();
 
             if (latestInput.commands.ContainsPress(commandType, false))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        bool ContainsHold(CommandType commandType)
-        {
-            InputController inputController = GameInitializer.current.GetStage().GetInputController();
-            UserInput latestInput = inputController.GetLatestUserInput();
-
-            if (latestInput.commands.ContainsHold(commandType))
             {
                 return true;
             }

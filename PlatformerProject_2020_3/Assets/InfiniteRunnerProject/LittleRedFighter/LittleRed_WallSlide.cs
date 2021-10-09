@@ -67,7 +67,7 @@ namespace RB
                 //fall off
                 if (ownerUnit.unitData.facingRight)
                 {
-                    if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_LEFT) && ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_DOWN))
+                    if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false) && ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
                     {
                         ownerUnit.unitData.airControl.SetMomentum(BaseInitializer.current.fighterDataSO.WallFallHorizontalMomentum * -1f);
                         ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall(ownerUnit));
@@ -75,7 +75,7 @@ namespace RB
                 }
                 else
                 {
-                    if (ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_RIGHT) && ownerUnit.USER_INPUT.commands.ContainsHoldOrPress(CommandType.MOVE_DOWN))
+                    if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false) && ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
                     {
                         ownerUnit.unitData.airControl.SetMomentum(BaseInitializer.current.fighterDataSO.WallFallHorizontalMomentum);
                         ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall(ownerUnit));
