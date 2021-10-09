@@ -6,9 +6,6 @@ namespace RB
 {
     public class FightStage : BaseStage
     {
-        [SerializeField]
-        InputType _inputSelection = InputType.PLAYER_ONE;
-
         public override void Init()
         {
             units = new Units(this);
@@ -34,7 +31,6 @@ namespace RB
                     BaseInitializer.current.arrInputDeviceData[0].gamepad);
 
                 player1.SetUserInput(input);
-                _inputSelection = input.INPUT_TYPE;
             }
 
             //player 1
@@ -75,53 +71,30 @@ namespace RB
             _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
             _baseUI.transform.parent = this.transform;
             _baseUI.Init(BaseUIType.FIGHT_STAGE_UI);
-
-            //gamepads
-            //Debugger.Log("gamepads detected: " + UnityEngine.InputSystem.Gamepad.all.Count);
-            //
-            //for (int i = 0; i < UnityEngine.InputSystem.Gamepad.all.Count; i++)
-            //{
-            //    UserInput userInput = _inputController.GetUserInput(i);
-            //
-            //    if (userInput != null)
-            //    {
-            //        Debugger.Log("initiating: " + UnityEngine.InputSystem.Gamepad.all[i].name);
-            //
-            //        userInput.gamepad = UnityEngine.InputSystem.Gamepad.all[i];
-            //        userInput.InitGamepadInput();
-            //    }
-            //}
         }
 
         public override void OnUpdate()
         {
-            _inputController.GetUserInput(_inputSelection).OnUpdate();
+            _inputController.UpdateInputDevices();
             _baseUI.OnUpdate();
 
             cameraScript.OnUpdate();
             trailEffects.OnUpdate();
             units.OnUpdate();
-            
 
             //temp
+            UserInput pcInput = _inputController.GetPCUserInput();
 
-            if (_inputController.GetUserInput(_inputSelection).commands.ContainsPress(CommandType.F5, false))
+            if (pcInput != null)
             {
-                _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.FIGHT_STAGE));
-            }
-
-            if (_inputController.GetUserInput(_inputSelection).commands.ContainsPress(CommandType.F6, false))
-            {
-                _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
-            }
-
-            if (_inputController.GetUserInput(_inputSelection).commands.ContainsPress(CommandType.F7, false))
-            {
-                _inputSelection++;
-
-                if ((int)_inputSelection > _inputController.GetCount())
+                if (pcInput.commands.ContainsPress(CommandType.F5, false))
                 {
-                    _inputSelection = InputType.PLAYER_ONE;
+                    _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.FIGHT_STAGE));
+                }
+
+                if (pcInput.commands.ContainsPress(CommandType.F6, false))
+                {
+                    _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
                 }
             }
         }

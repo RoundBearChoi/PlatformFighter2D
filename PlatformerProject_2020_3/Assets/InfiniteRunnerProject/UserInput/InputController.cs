@@ -22,6 +22,14 @@ namespace RB
             return null;
         }
 
+        public void UpdateInputDevices()
+        {
+            foreach(UserInput input in _listUserInputs)
+            {
+                input.OnUpdate();
+            }
+        }
+
         public UserInput GetLatestUserInput()
         {
             if (_listUserInputs.Count > 0)
@@ -32,16 +40,17 @@ namespace RB
             return null;
         }
 
-        public UserInput GetUserInput(int index)
+        public UserInput GetPCUserInput()
         {
-            if (index < _listUserInputs.Count)
+            foreach (UserInput input in _listUserInputs)
             {
-                return _listUserInputs[index];
+                if (input.KEYBOARD != null)
+                {
+                    return input;
+                }
             }
-            else
-            {
-                return null;
-            }
+
+            return null;
         }
 
         public UserInput GetUserInput(InputType inputType)

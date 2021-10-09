@@ -25,6 +25,14 @@ namespace RB
             }
         }
 
+        public Keyboard KEYBOARD
+        {
+            get
+            {
+                return _keyboard;
+            }
+        }
+
         public UserInput(InputType inputType, Keyboard keyboard, Mouse mouse, Gamepad gamepad)
         {
             _inputType = inputType;
