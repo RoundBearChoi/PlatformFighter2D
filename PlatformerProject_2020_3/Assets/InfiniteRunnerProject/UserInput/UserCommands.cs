@@ -7,26 +7,26 @@ namespace RB
 {
     public class UserCommands
     {
-        private Dictionary<CommandType, UserCommand> _dicAllCommands = new Dictionary<CommandType, UserCommand>();
+        private Dictionary<CommandType, ButtonControl> _dicAllCommands = new Dictionary<CommandType, ButtonControl>();
         private Dictionary<ButtonControl, bool> _dicPresses = new Dictionary<ButtonControl, bool>();
 
-        public void AddCommand(UserCommand command)
+        public void AddCommand(CommandType commandType, ButtonControl buttonControl)
         {
-            if (!_dicAllCommands.ContainsKey(command.COMMAND_TYPE))
+            if (!_dicAllCommands.ContainsKey(commandType))
             {
-                _dicAllCommands.Add(command.COMMAND_TYPE, command);
+                _dicAllCommands.Add(commandType, buttonControl);
             }
             else
             {
-                _dicAllCommands[command.COMMAND_TYPE] = command;
+                _dicAllCommands[commandType] = buttonControl;
             }
         }
 
         public void OnUpdate()
         {
-            foreach(KeyValuePair<CommandType, UserCommand> data in _dicAllCommands)
+            foreach(KeyValuePair<CommandType, ButtonControl> data in _dicAllCommands)
             {
-                UpdateKeyPress(data.Value.BUTTON);
+                UpdateKeyPress(data.Value);
             }
         }
 
@@ -34,7 +34,7 @@ namespace RB
         {
             if (_dicAllCommands.ContainsKey(commandType))
             {
-                ButtonControl button = _dicAllCommands[commandType].BUTTON;
+                ButtonControl button = _dicAllCommands[commandType];
 
                 if (_dicPresses.ContainsKey(button))
                 {
@@ -91,7 +91,7 @@ namespace RB
         {
             if (_dicAllCommands.ContainsKey(commandType))
             {
-                ButtonControl button = _dicAllCommands[commandType].BUTTON;
+                ButtonControl button = _dicAllCommands[commandType];
 
                 if (isHeld)
                 {

@@ -34,27 +34,30 @@ namespace RB
 
                 if (ani.SPRITE_INDEX >= 4)
                 {
-                    if (!_uppercutEffectShown)
+                    if (!ownerUnit.isDummy)
                     {
-                        _uppercutEffectShown = true;
-
-                        if (ownerUnit.unitType == UnitType.LITTLE_RED_LIGHT)
+                        if (!_uppercutEffectShown)
                         {
-                            BaseInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.UPPERCUT_EFFECT_LIGHT);
-                            Unit lightUppercutVFX = Units.instance.GetUnit<UppercutEffect_Light>();
-                            lightUppercutVFX.transform.parent = ownerUnit.transform;
-                            lightUppercutVFX.transform.position = ownerUnit.transform.position;
+                            _uppercutEffectShown = true;
 
-                            lightUppercutVFX.unitData.facingRight = ownerUnit.unitData.facingRight;
-                        }
-                        else if (ownerUnit.unitType == UnitType.LITTLE_RED_DARK)
-                        {
-                            BaseInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.UPPERCUT_EFFECT_DARK);
-                            Unit darkUppercutVFX = Units.instance.GetUnit<UppercutEffect_Dark>();
-                            darkUppercutVFX.transform.parent = ownerUnit.transform;
-                            darkUppercutVFX.transform.position = ownerUnit.transform.position;
+                            if (ownerUnit.unitType == UnitType.LITTLE_RED_LIGHT)
+                            {
+                                BaseInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.UPPERCUT_EFFECT_LIGHT);
+                                Unit lightUppercutVFX = Units.instance.GetUnit<UppercutEffect_Light>();
+                                lightUppercutVFX.transform.parent = ownerUnit.transform;
+                                lightUppercutVFX.transform.position = ownerUnit.transform.position;
 
-                            darkUppercutVFX.unitData.facingRight = ownerUnit.unitData.facingRight;
+                                lightUppercutVFX.unitData.facingRight = ownerUnit.unitData.facingRight;
+                            }
+                            else if (ownerUnit.unitType == UnitType.LITTLE_RED_DARK)
+                            {
+                                BaseInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.UPPERCUT_EFFECT_DARK);
+                                Unit darkUppercutVFX = Units.instance.GetUnit<UppercutEffect_Dark>();
+                                darkUppercutVFX.transform.parent = ownerUnit.transform;
+                                darkUppercutVFX.transform.position = ownerUnit.transform.position;
+
+                                darkUppercutVFX.unitData.facingRight = ownerUnit.unitData.facingRight;
+                            }
                         }
                     }
 
