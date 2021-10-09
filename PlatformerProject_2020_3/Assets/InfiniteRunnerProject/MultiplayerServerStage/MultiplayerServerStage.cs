@@ -8,9 +8,6 @@ namespace RB
     public class MultiplayerServerStage : BaseStage
     {
         [SerializeField]
-        InputType _inputSelection = InputType.PLAYER_ONE;
-
-        [SerializeField]
         RB.Server.PlayerDataSender _playerDataSender = null;
 
         List<Unit> playerUnits = null;
@@ -33,7 +30,6 @@ namespace RB
             Unit serverPlayer = units.GetUnit<LittleRed>();
 
             UserInput input = _inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null);
-            _inputSelection = input.INPUT_TYPE;
             serverPlayer.SetUserInput(input);
             playerUnits.Add(serverPlayer);
 
@@ -85,7 +81,7 @@ namespace RB
         public override void OnUpdate()
         {
             _playerDataSender.Send();
-            _inputController.GetUserInput(_inputSelection).OnUpdate();
+            _inputController.GetLatestUserInput().OnUpdate();
             _baseUI.OnUpdate();
 
             cameraScript.OnUpdate();
@@ -94,24 +90,14 @@ namespace RB
             
             //temp
 
-            if (_inputController.GetUserInput(_inputSelection).commands.ContainsPress(CommandType.F5, false))
+            if (_inputController.GetLatestUserInput().commands.ContainsPress(CommandType.F5, false))
             {
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.FIGHT_STAGE));
             }
 
-            if (_inputController.GetUserInput(_inputSelection).commands.ContainsPress(CommandType.F6, false))
+            if (_inputController.GetLatestUserInput().commands.ContainsPress(CommandType.F6, false))
             {
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
-            }
-
-            if (_inputController.GetUserInput(_inputSelection).commands.ContainsPress(CommandType.F7, false))
-            {
-                _inputSelection++;
-
-                if ((int)_inputSelection > _inputController.GetCount())
-                {
-                    _inputSelection = InputType.PLAYER_ONE;
-                }
             }
         }
 

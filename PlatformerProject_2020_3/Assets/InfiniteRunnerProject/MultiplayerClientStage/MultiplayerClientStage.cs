@@ -9,9 +9,6 @@ namespace RB
     public class MultiplayerClientStage : BaseStage
     {
         [SerializeField]
-        InputType _inputSelection = InputType.PLAYER_ONE;
-
-        [SerializeField]
         ClientObjects _clientObjects = null;
 
         Unit _dummyOfflinePlayer = null;
@@ -30,7 +27,6 @@ namespace RB
             _dummyOfflinePlayer.isDummy = true;
 
             UserInput input = _inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null);
-            _inputSelection = input.INPUT_TYPE;
             _dummyOfflinePlayer.SetUserInput(input);
 
             //load level 3 (oldcity)

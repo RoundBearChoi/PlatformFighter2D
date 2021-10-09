@@ -54,7 +54,7 @@ namespace RB
 
         public override void OnUpdate()
         {
-            _inputController.GetUserInput(InputType.PLAYER_ONE).OnUpdate();
+            _inputController.GetLatestUserInput().OnUpdate();
 
             if (_prevSpec != animationSpec)
             {
@@ -63,7 +63,7 @@ namespace RB
                 Init();
             }
 
-            if (_inputController.GetUserInput(InputType.PLAYER_ONE).commands.ContainsPress(CommandType.F6, false))
+            if (_inputController.GetLatestUserInput().commands.ContainsPress(CommandType.F6, false))
             {
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
             }
@@ -71,7 +71,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (_inputController.GetUserInput(InputType.PLAYER_ONE).commands.ContainsPress(CommandType.JUMP, false))
+            if (_inputController.GetLatestUserInput().commands.ContainsPress(CommandType.JUMP, true))
             {
                 _dummyAnimation.ManualSetSpriteIndex(_dummyAnimation.GetCurrentAnimation().SPRITE_INDEX + 1);
 

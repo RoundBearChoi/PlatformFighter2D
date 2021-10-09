@@ -8,22 +8,11 @@ namespace RB
     [System.Serializable]
     public class UserInput
     {
-        [SerializeField]
-        InputType _inputType = InputType.NONE;
-
         private Keyboard _keyboard = null;
         private Mouse _mouse = null;
         private Gamepad _gamepad = null;
 
         public UserCommands commands = new UserCommands();
-
-        public InputType INPUT_TYPE
-        {
-            get
-            {
-                return _inputType;
-            }
-        }
 
         public Keyboard KEYBOARD
         {
@@ -33,9 +22,8 @@ namespace RB
             }
         }
 
-        public UserInput(InputType inputType, Keyboard keyboard, Mouse mouse, Gamepad gamepad)
+        public UserInput(Keyboard keyboard, Mouse mouse, Gamepad gamepad)
         {
-            _inputType = inputType;
             _keyboard = keyboard;
             _mouse = mouse;
             _gamepad = gamepad;

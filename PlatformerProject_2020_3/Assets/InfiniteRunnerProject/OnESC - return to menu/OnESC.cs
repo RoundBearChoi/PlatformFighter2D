@@ -14,7 +14,7 @@ namespace RB
         public override void OnUpdate()
         {
             InputController inputController = BaseInitializer.current.GetStage().GetInputController();
-            UserInput userInput = inputController.GetUserInput(InputType.PLAYER_ONE);
+            UserInput userInput = inputController.GetLatestUserInput();
 
             if (userInput.commands.ContainsPress(CommandType.ESCAPE, true))
             {

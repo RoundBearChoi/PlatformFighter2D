@@ -12,14 +12,9 @@ namespace RB
 
         public UserInput AddInput(UnityEngine.InputSystem.Keyboard keyboard, UnityEngine.InputSystem.Mouse mouse, UnityEngine.InputSystem.Gamepad gamepad)
         {
-            if (_listUserInputs.Count < (int)InputType.PLAYER_FOUR)
-            {
-                InputType inputType = (InputType)(_listUserInputs.Count + 1);
-                _listUserInputs.Add(new UserInput(inputType, keyboard, mouse, gamepad));
-                return _listUserInputs[_listUserInputs.Count - 1];
-            }
-
-            return null;
+            UserInput userInput = new UserInput(keyboard, mouse, gamepad);
+            _listUserInputs.Add(userInput);
+            return userInput;
         }
 
         public void UpdateInputDevices()
@@ -51,24 +46,6 @@ namespace RB
             }
 
             return null;
-        }
-
-        public UserInput GetUserInput(InputType inputType)
-        {
-            foreach(UserInput input in _listUserInputs)
-            {
-                if (input.INPUT_TYPE == inputType)
-                {
-                    return input;
-                }
-            }
-
-            return null;
-        }
-
-        public int GetCount()
-        {
-            return _listUserInputs.Count;
         }
     }
 }
