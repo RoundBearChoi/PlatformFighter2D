@@ -93,8 +93,6 @@ namespace RB
                     BoxCalculator.GetCollisionResults(centerPoint, bounds, specs.mContactFilter2D, 0f);
                 }
             }
-
-            _inputController.GetUserInput(InputType.PLAYER_ONE).commands.ClearKeyPressDictionary();
         }
 
         public override void OnLateUpdate()

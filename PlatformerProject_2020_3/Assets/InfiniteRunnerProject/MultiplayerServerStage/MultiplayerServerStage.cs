@@ -122,8 +122,6 @@ namespace RB
 
             cameraScript.OnFixedUpdate();
             units.OnFixedUpdate();
-
-            _inputController.ClearAllKeysAndButtons();
         }
 
         public override void OnLateUpdate()

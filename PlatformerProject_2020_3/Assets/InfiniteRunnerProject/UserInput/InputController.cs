@@ -66,14 +66,6 @@ namespace RB
             return null;
         }
 
-        public void ClearAllKeysAndButtons()
-        {
-            foreach(UserInput input in _listUserInputs)
-            {
-                input.commands.ClearKeyPressDictionary();
-            }
-        }
-
         public int GetCount()
         {
             return _listUserInputs.Count;

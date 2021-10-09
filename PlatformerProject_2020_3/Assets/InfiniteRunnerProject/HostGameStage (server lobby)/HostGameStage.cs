@@ -57,8 +57,6 @@ namespace RB
             {
                 _baseUI.OnFixedUpdate();
             }
-
-            _inputController.ClearAllKeysAndButtons();
         }
     }
 }

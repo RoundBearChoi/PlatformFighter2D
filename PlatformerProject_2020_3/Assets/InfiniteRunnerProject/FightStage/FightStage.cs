@@ -105,7 +105,6 @@ namespace RB
             units.OnFixedUpdate();
 
             _baseUI.OnFixedUpdate();
-            _inputController.ClearAllKeysAndButtons();
         }
 
         public override void OnLateUpdate()

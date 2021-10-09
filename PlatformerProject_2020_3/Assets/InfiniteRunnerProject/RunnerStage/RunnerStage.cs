@@ -69,7 +69,6 @@ namespace RB
         {
             units.OnFixedUpdate();
 
-            _inputController.GetUserInput(InputType.PLAYER_ONE).commands.ClearKeyPressDictionary();
             _baseUI.OnFixedUpdate();
             cameraScript.OnFixedUpdate();
             npcSetup.UPDATER.CustomFixedUpdate();

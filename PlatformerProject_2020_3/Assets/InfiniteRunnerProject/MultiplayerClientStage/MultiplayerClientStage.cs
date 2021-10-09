@@ -155,8 +155,6 @@ namespace RB
                     cameraScript.SetFollowTarget(myObj.GetPlayerSphere());
                 }
             }
-
-            _inputController.ClearAllKeysAndButtons();
         }
 
         public override float GetCumulativeGravityForcePercentage()

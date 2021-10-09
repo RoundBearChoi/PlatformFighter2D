@@ -55,8 +55,6 @@ namespace RB
         public override void OnFixedUpdate()
         {
             _baseUI.OnFixedUpdate();
-
-            _inputController.ClearAllKeysAndButtons();
         }
     }
 }

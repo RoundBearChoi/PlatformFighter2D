@@ -8,9 +8,7 @@ namespace RB
     public class UserCommands
     {
         private Dictionary<CommandType, UserCommand> _dicAllCommands = new Dictionary<CommandType, UserCommand>();
-
-        private Dictionary<ButtonControl, int> _dicButtonPresses = new Dictionary<ButtonControl, int>();
-        private List<ButtonControl> _listButtonHolds = new List<ButtonControl>();
+        private List<ButtonControl> _listButtonPresses = new List<ButtonControl>();
 
         public void AddCommand(UserCommand command)
         {
@@ -37,11 +35,6 @@ namespace RB
             }
         }
 
-        public void ClearKeyPressDictionary()
-        {
-            _dicButtonPresses.Clear();
-        }
-
         public bool ContainsPress(CommandType commandType, bool clearPress)
         {
             if (_dicAllCommands.ContainsKey(commandType))
@@ -50,11 +43,11 @@ namespace RB
 
                 if (button != null)
                 {
-                    if (_dicButtonPresses.ContainsKey(button))
+                    if (_listButtonPresses.Contains(button))
                     {
                         if (clearPress)
                         {
-                            _dicButtonPresses.Remove(button);
+                            _listButtonPresses.Remove(button);
                         }
 
                         return true;
@@ -73,7 +66,7 @@ namespace RB
 
                 if (button != null)
                 {
-                    if (_listButtonHolds.Contains(button))
+                    if (_listButtonPresses.Contains(button))
                     {
                         return true;
                     }
@@ -106,51 +99,21 @@ namespace RB
         {
             if (buttonControl.wasPressedThisFrame)
             {
-                if (_dicButtonPresses.ContainsKey(buttonControl))
+                if (_listButtonPresses.Contains(buttonControl))
                 {
-                    _dicButtonPresses[buttonControl]++;
+                    //do nothing
                 }
                 else
                 {
-                    _dicButtonPresses.Add(buttonControl, 1);
-                }
-
-                if (!ContainsKeyHold(buttonControl))
-                {
-                    _listButtonHolds.Add(buttonControl);
+                    _listButtonPresses.Add(buttonControl);
                 }
             }
 
             if (!buttonControl.isPressed || buttonControl.wasReleasedThisFrame)
             {
-                if (ContainsKeyHold(buttonControl))
+                if (_listButtonPresses.Contains(buttonControl))
                 {
-                    RemoveKeyHold(buttonControl);
-                }
-            }
-        }
-
-        bool ContainsKeyHold(ButtonControl buttonControl)
-        {
-            foreach (ButtonControl b in _listButtonHolds)
-            {
-                if (buttonControl == b)
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        void RemoveKeyHold(ButtonControl buttonControl)
-        {
-            for (int i = _listButtonHolds.Count - 1; i >= 0; i--)
-            {
-                if (_listButtonHolds[i] == buttonControl)
-                {
-                    _listButtonHolds.RemoveAt(i);
-                    return;
+                    _listButtonPresses.Remove(buttonControl);
                 }
             }
         }
@@ -184,9 +147,9 @@ namespace RB
                 {
                     if (buttonControl != null)
                     {
-                        if (!_dicButtonPresses.ContainsKey(buttonControl))
+                        if (!_listButtonPresses.Contains(buttonControl))
                         {
-                            _dicButtonPresses.Add(buttonControl, 0);
+                            _listButtonPresses.Add(buttonControl);
                         }
                     }
                 }
@@ -194,9 +157,9 @@ namespace RB
                 {
                     if (buttonControl != null)
                     {
-                        if (_dicButtonPresses.ContainsKey(buttonControl))
+                        if (_listButtonPresses.Contains(buttonControl))
                         {
-                            _listButtonHolds.Remove(buttonControl);
+                            _listButtonPresses.Remove(buttonControl);
                         }
                     }
                 }
@@ -213,9 +176,9 @@ namespace RB
                 {
                     if (buttonControl != null)
                     {
-                        if (!_listButtonHolds.Contains(buttonControl))
+                        if (!_listButtonPresses.Contains(buttonControl))
                         {
-                            _listButtonHolds.Add(buttonControl);
+                            _listButtonPresses.Add(buttonControl);
                         }
                     }
                 }
@@ -223,9 +186,9 @@ namespace RB
                 {
                     if (buttonControl != null)
                     {
-                        if (_listButtonHolds.Contains(buttonControl))
+                        if (_listButtonPresses.Contains(buttonControl))
                         {
-                            _listButtonHolds.Remove(buttonControl);
+                            _listButtonPresses.Remove(buttonControl);
                         }
                     }
                 }

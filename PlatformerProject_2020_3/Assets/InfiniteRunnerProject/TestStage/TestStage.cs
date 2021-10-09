@@ -70,8 +70,6 @@ namespace RB
             units.OnFixedUpdate();
             ui.OnFixedUpdate();
 
-            _inputController.GetUserInput(InputType.PLAYER_ONE).commands.ClearKeyPressDictionary();
-
             cameraScript.OnFixedUpdate();
         }
 
