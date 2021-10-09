@@ -34,6 +34,7 @@ namespace RB
                     {
                         _unit.unitData.rigidBody2D.velocity = _previousVelocity;
 
+                        Debugger.Log("--- hitstop end: " + _unit.name + " ---");
                         Debugger.Log("momentum on wakeup: " + _unit.unitData.airControl.HORIZONTAL_MOMENTUM);
                         Debugger.Log("velocity on wakeup: " + _unit.unitData.rigidBody2D.velocity);
 
@@ -57,6 +58,7 @@ namespace RB
                     {
                         if (!_unit.unitData.rigidBody2D.isKinematic)
                         {
+                            Debugger.Log("--- hitstop start: " + _unit.name + " ---");
                             Debugger.Log("momentum on sleep: " + _unit.unitData.airControl.HORIZONTAL_MOMENTUM);
                             Debugger.Log("velocity on sleep: " + _unit.unitData.rigidBody2D.velocity);
 
