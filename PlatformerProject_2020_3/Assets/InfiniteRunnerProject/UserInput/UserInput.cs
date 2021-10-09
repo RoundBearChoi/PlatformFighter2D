@@ -82,10 +82,10 @@ namespace RB
                 commands.AddCommand(CommandType.MOVE_LEFT, _gamepad.leftStick.left);
                 commands.AddCommand(CommandType.MOVE_RIGHT, _gamepad.leftStick.right);
 
-                //commands.AddCommand(CommandType.MOVE_UP, gamepad.dpad.up);
-                //commands.AddCommand(CommandType.MOVE_DOWN, gamepad.dpad.down);
-                //commands.AddCommand(CommandType.MOVE_LEFT, gamepad.dpad.left);
-                //commands.AddCommand(CommandType.MOVE_RIGHT, gamepad.dpad.right);
+                commands.AddCommand(CommandType.MOVE_UP, _gamepad.dpad.up);
+                commands.AddCommand(CommandType.MOVE_DOWN, _gamepad.dpad.down);
+                commands.AddCommand(CommandType.MOVE_LEFT, _gamepad.dpad.left);
+                commands.AddCommand(CommandType.MOVE_RIGHT, _gamepad.dpad.right);
 
                 commands.AddCommand(CommandType.JUMP, _gamepad.buttonSouth);
                 commands.AddCommand(CommandType.SHIFT, _gamepad.buttonWest);

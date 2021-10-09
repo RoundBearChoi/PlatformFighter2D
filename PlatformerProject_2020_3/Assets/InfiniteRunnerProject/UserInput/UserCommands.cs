@@ -7,26 +7,28 @@ namespace RB
 {
     public class UserCommands
     {
-        private Dictionary<CommandType, ButtonControl> _dicAllCommands = new Dictionary<CommandType, ButtonControl>();
+        private Dictionary<CommandType, List<ButtonControl>> _dicAllCommands = new Dictionary<CommandType, List<ButtonControl>>();
         private Dictionary<ButtonControl, bool> _dicPresses = new Dictionary<ButtonControl, bool>();
 
         public void AddCommand(CommandType commandType, ButtonControl buttonControl)
         {
             if (!_dicAllCommands.ContainsKey(commandType))
             {
-                _dicAllCommands.Add(commandType, buttonControl);
+                List<ButtonControl> listControls = new List<ButtonControl>();
+                _dicAllCommands.Add(commandType, listControls);
             }
-            else
-            {
-                _dicAllCommands[commandType] = buttonControl;
-            }
+
+            _dicAllCommands[commandType].Add(buttonControl);
         }
 
         public void OnUpdate()
         {
-            foreach(KeyValuePair<CommandType, ButtonControl> data in _dicAllCommands)
+            foreach(KeyValuePair<CommandType, List<ButtonControl>> data in _dicAllCommands)
             {
-                UpdateKeyPress(data.Value);
+                foreach(ButtonControl button in data.Value)
+                {
+                    UpdateKeyPress(button);
+                }
             }
         }
 
@@ -34,22 +36,23 @@ namespace RB
         {
             if (_dicAllCommands.ContainsKey(commandType))
             {
-                ButtonControl button = _dicAllCommands[commandType];
-
-                if (_dicPresses.ContainsKey(button))
+                foreach(ButtonControl b in _dicAllCommands[commandType])
                 {
-                    if (requireUnusedButton)
+                    if (_dicPresses.ContainsKey(b))
                     {
-                        if (_dicPresses[button] == false)
+                        if (requireUnusedButton)
                         {
-                            _dicPresses[button] = true;
+                            if (_dicPresses[b] == false)
+                            {
+                                _dicPresses[b] = true;
+                                return true;
+                            }
+                        }
+                        else
+                        {
+                            _dicPresses[b] = true;
                             return true;
                         }
-                    }
-                    else
-                    {
-                        _dicPresses[button] = true;
-                        return true;
                     }
                 }
             }
@@ -91,20 +94,21 @@ namespace RB
         {
             if (_dicAllCommands.ContainsKey(commandType))
             {
-                ButtonControl button = _dicAllCommands[commandType];
-
-                if (isHeld)
+                foreach(ButtonControl b in _dicAllCommands[commandType])
                 {
-                    if (!_dicPresses.ContainsKey(button))
+                    if (isHeld)
                     {
-                        _dicPresses.Add(button, false);
+                        if (!_dicPresses.ContainsKey(b))
+                        {
+                            _dicPresses.Add(b, false);
+                        }
                     }
-                }
-                else
-                {
-                    if (_dicPresses.ContainsKey(button))
+                    else
                     {
-                        _dicPresses.Remove(button);
+                        if (_dicPresses.ContainsKey(b))
+                        {
+                            _dicPresses.Remove(b);
+                        }
                     }
                 }
             }
