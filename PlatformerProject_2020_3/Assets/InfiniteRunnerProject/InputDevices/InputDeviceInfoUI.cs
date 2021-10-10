@@ -11,13 +11,13 @@ namespace RB
         string _deviceName = string.Empty;
 
         [SerializeField]
-        InputDeviceType _inputDeviceType = InputDeviceType.NONE;
-
-        [SerializeField]
         Image _pcImage = null;
 
         [SerializeField]
         Image _psImage = null;
+
+        [SerializeField]
+        Text _deviceNameText = null;
 
         Image _deviceImage = null;
 
@@ -36,25 +36,6 @@ namespace RB
         UnityEngine.InputSystem.Keyboard _keyboard = null;
         UnityEngine.InputSystem.Mouse _mouse = null;
         UnityEngine.InputSystem.Gamepad _gamepad = null;
-
-        public void ShowDeviceIcon()
-        {
-            _pcImage.enabled = false;
-            _psImage.enabled = false;
-            _downArrowImage.enabled = false;
-
-            if (_inputDeviceType == InputDeviceType.PC)
-            {
-                _pcImage.enabled = true;
-                _deviceImage = _pcImage;
-            }
-
-            else if (_inputDeviceType == InputDeviceType.PS4)
-            {
-                _psImage.enabled = true;
-                _deviceImage = _psImage;
-            }
-        }
 
         public Image DEVICE_IMAGE
         {
@@ -110,6 +91,11 @@ namespace RB
             _deviceName = _keyboard.name;
             _deviceDetected = true;
             _downArrowImage.enabled = true;
+
+            _psImage.enabled = false;
+            _deviceImage = _pcImage;
+
+            _deviceNameText.text = "KEYBOARD & MOUSE";
         }
 
         public void SetInputDevice(UnityEngine.InputSystem.Mouse mouse)
@@ -117,20 +103,31 @@ namespace RB
             _mouse = mouse;
             _deviceDetected = true;
             _downArrowImage.enabled = true;
+
+            _psImage.enabled = false;
+            _deviceImage = _pcImage;
         }
 
-        public void SetInputDevice(UnityEngine.InputSystem.Gamepad gamepad)
+        public void SetInputDevice(UnityEngine.InputSystem.Gamepad gamepad, int gamepadIndex)
         {
             _gamepad = gamepad;
             _deviceName = gamepad.name;
+            _deviceName = gamepad.name;
             _deviceDetected = true;
             _downArrowImage.enabled = true;
+
+            _pcImage.enabled = false;
+            _deviceImage = _psImage;
+
+            _deviceNameText.text = "CONTROLLER " + (gamepadIndex + 1);
         }
 
         public void NoDeviceDetected()
         {
             _pcImage.enabled = false;
             _psImage.enabled = false;
+            _downArrowImage.enabled = false;
+            _deviceNameText.text = string.Empty;
         }
 
         public void OnUpdate()
@@ -138,13 +135,16 @@ namespace RB
             UpdatePresses();
             UpdateSelection();
 
-            if (!IsSelected())
+            if (_deviceDetected)
             {
-                DEVICE_IMAGE.transform.localPosition = Vector3.Lerp(DEVICE_IMAGE.transform.localPosition, Vector3.zero, Time.deltaTime * BaseInitializer.current.fighterDataSO.InputDeviceIconMoveSpeed);
-
-                if (_deviceDetected)
+                if (!IsSelected())
                 {
-                    _downArrowImage.enabled = true;
+                    DEVICE_IMAGE.transform.localPosition = Vector3.Lerp(DEVICE_IMAGE.transform.localPosition, Vector3.zero, Time.deltaTime * BaseInitializer.current.fighterDataSO.InputDeviceIconMoveSpeed);
+
+                    if (_deviceDetected)
+                    {
+                        _downArrowImage.enabled = true;
+                    }
                 }
             }
         }

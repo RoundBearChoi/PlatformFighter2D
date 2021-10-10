@@ -19,7 +19,6 @@ namespace RB
             foreach(InputDeviceInfoUI info in arr)
             {
                 _listInputDeviceInfo.Add(info);
-                info.ShowDeviceIcon();
             }
 
             if (UnityEngine.InputSystem.Keyboard.current != null && UnityEngine.InputSystem.Mouse.current != null)
@@ -33,7 +32,7 @@ namespace RB
                 if (_listInputDeviceInfo.Count > i + 1)
                 {
                     Debugger.Log("gamepad detected: " + UnityEngine.InputSystem.Gamepad.all[i].name);
-                    _listInputDeviceInfo[i + 1].SetInputDevice(UnityEngine.InputSystem.Gamepad.all[i]);
+                    _listInputDeviceInfo[i + 1].SetInputDevice(UnityEngine.InputSystem.Gamepad.all[i], i);
                 }
             }
 

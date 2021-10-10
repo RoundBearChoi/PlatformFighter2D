@@ -23,6 +23,7 @@ namespace RB
             LoadObj<FightersHP>(UIElementType.FIGHTERS_HP, "FightersHP");
             LoadObj<DetectedInputDevices>(UIElementType.DETECTED_INPUT_DEVICES, "DetectedInputDevices");
             LoadObj<PickFighters>(UIElementType.PICK_FIGHTERS, "PickFighters");
+            LoadObj<PressEnterToStart>(UIElementType.PRESS_ENTER_TO_START, "PressEnterToStart");
 
             LoadObj<QuitGameAsk>(UIElementType.QUIT_GAME_ASK, "QuitGameAsk");
         }

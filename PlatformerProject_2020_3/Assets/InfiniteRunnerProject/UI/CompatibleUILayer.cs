@@ -80,6 +80,9 @@ namespace RB
 
                 UIElement detectedInputDevices = UIElement.AddUIElement(UIElementType.DETECTED_INPUT_DEVICES, this.transform);
                 _uiElements.Add(detectedInputDevices);
+
+                UIElement pressEnterToStart = UIElement.AddUIElement(UIElementType.PRESS_ENTER_TO_START, this.transform);
+                _uiElements.Add(pressEnterToStart);
             }
         }
     }

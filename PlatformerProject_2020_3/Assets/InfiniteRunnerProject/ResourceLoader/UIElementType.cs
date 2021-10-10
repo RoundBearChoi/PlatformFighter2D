@@ -17,6 +17,7 @@ namespace RB
         FIGHTERS_HP,
         DETECTED_INPUT_DEVICES,
         PICK_FIGHTERS,
+        PRESS_ENTER_TO_START,
 
         QUIT_GAME_ASK,
     }
