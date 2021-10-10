@@ -46,10 +46,11 @@ namespace RB.Server
         {
             _inputs = arrInputs;
 
-            UserInput input = BaseInitializer.current.GetStage().GetUserInput(clientIndex);
+            UserInput input = BaseInitializer.current.GetStage().GetUserInputByClientIndex(clientIndex);
 
             if (input != null)
             {
+                Debugger.Log("updating client input");
                 input.commands.UpdatePressAndHold(_inputs);
             }
         }

@@ -92,7 +92,7 @@ namespace RB
             return null;
         }
 
-        public virtual UserInput GetUserInput(int clientIndex)
+        public virtual UserInput GetUserInputByClientIndex(int clientIndex)
         {
             return null;
         }

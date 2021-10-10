@@ -104,7 +104,7 @@ namespace RB
 
         public override void OnUpdate()
         {
-            _inputController.GetLatestUserInput().OnUpdate();
+            _inputController.GetPCUserInput().OnUpdate();
             _clientObjects.OnUpdate();
             units.OnUpdate();
             trailEffects.OnUpdate();

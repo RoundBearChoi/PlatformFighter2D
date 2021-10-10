@@ -28,9 +28,7 @@ namespace RB
 
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_LIGHT);
             Unit serverPlayer = units.GetUnit<LittleRed>();
-
-            UserInput input = _inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null);
-            serverPlayer.SetUserInput(input);
+            serverPlayer.SetUserInput(_inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null));
             playerUnits.Add(serverPlayer);
 
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_DARK);
@@ -81,7 +79,7 @@ namespace RB
         public override void OnUpdate()
         {
             _playerDataSender.Send();
-            _inputController.GetLatestUserInput().OnUpdate();
+            _inputController.GetPCUserInput().OnUpdate();
             _baseUI.OnUpdate();
 
             cameraScript.OnUpdate();
@@ -90,12 +88,12 @@ namespace RB
             
             //temp
 
-            if (_inputController.GetLatestUserInput().commands.ContainsPress(CommandType.F5, false))
+            if (_inputController.GetPCUserInput().commands.ContainsPress(CommandType.F5, false))
             {
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.FIGHT_STAGE));
             }
 
-            if (_inputController.GetLatestUserInput().commands.ContainsPress(CommandType.F6, false))
+            if (_inputController.GetPCUserInput().commands.ContainsPress(CommandType.F6, false))
             {
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
             }
@@ -127,7 +125,7 @@ namespace RB
             return new Camera_LerpOnFighterXAndY(0.08f, 0.08f);
         }
 
-        public override UserInput GetUserInput(int clientIndex)
+        public override UserInput GetUserInputByClientIndex(int clientIndex)
         {
             foreach(Unit unit in playerUnits)
             {
