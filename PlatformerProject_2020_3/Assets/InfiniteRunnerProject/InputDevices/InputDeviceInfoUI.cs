@@ -33,6 +33,9 @@ namespace RB
         [SerializeField]
         bool _downIsPressed = false;
 
+        [SerializeField]
+        MoveUpAndDown _moveUpAndDown = null;
+
         UnityEngine.InputSystem.Keyboard _keyboard = null;
         UnityEngine.InputSystem.Mouse _mouse = null;
         UnityEngine.InputSystem.Gamepad _gamepad = null;
@@ -96,6 +99,8 @@ namespace RB
             _deviceImage = _pcImage;
 
             _deviceNameText.text = "KEYBOARD & MOUSE";
+
+            _moveUpAndDown = new MoveUpAndDown(_downArrowImage.rectTransform, -50f, -58f, 18f);
         }
 
         public void SetInputDevice(UnityEngine.InputSystem.Mouse mouse)
@@ -120,6 +125,8 @@ namespace RB
             _deviceImage = _psImage;
 
             _deviceNameText.text = "CONTROLLER " + (gamepadIndex + 1);
+
+            _moveUpAndDown = new MoveUpAndDown(_downArrowImage.rectTransform, -50f, -58f, 18f);
         }
 
         public void NoDeviceDetected()
@@ -146,6 +153,11 @@ namespace RB
                         _downArrowImage.enabled = true;
                     }
                 }
+            }
+
+            if (_moveUpAndDown != null)
+            {
+                _moveUpAndDown.OnUpdate();
             }
         }
 
