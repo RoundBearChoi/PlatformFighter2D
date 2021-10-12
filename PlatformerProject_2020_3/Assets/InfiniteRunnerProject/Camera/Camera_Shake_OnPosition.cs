@@ -7,12 +7,13 @@ namespace RB
     public class Camera_Shake_OnPosition : CameraState
     {
         uint _totalShakeFrames = 0;
-        float _shakeAmount = 1f;
+        float _shakeAmount = 0f;
         Vector3 _initialPosition = Vector3.zero;
 
-        public Camera_Shake_OnPosition(uint totalShakeFrames)
+        public Camera_Shake_OnPosition(uint totalShakeFrames, float shakeAmount)
         {
             _totalShakeFrames = totalShakeFrames;
+            _shakeAmount = shakeAmount;
             _cameraScript = BaseInitializer.current.GetStage().cameraScript;
             _initialPosition = _cameraScript.GetCamera().gameObject.transform.position;
         }
@@ -29,7 +30,7 @@ namespace RB
             }
             else
             {
-                _cameraScript.SetCameraState(new Camera_EmptyState(), false);
+                _cameraScript.SetCameraState(CameraState.defaultState, false);
             }
         }
 

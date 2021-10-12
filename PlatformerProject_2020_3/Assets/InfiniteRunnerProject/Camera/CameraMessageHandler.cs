@@ -23,7 +23,7 @@ namespace RB
                 }
                 else if (message.MESSAGE_TYPE == MessageType.SHAKE_CAMERA_ONPOSITION)
                 {
-                    _cameraScript.SetCameraState(new Camera_Shake_OnPosition(message.GetUnsignedIntMessage()), false);
+                    _cameraScript.SetCameraState(new Camera_Shake_OnPosition(message.GetUnsignedIntMessage(), message.GetFloatMessage()), false);
                 }
             }
         }

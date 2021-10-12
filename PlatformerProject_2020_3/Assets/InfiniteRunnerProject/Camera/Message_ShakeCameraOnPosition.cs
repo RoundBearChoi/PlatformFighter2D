@@ -7,10 +7,12 @@ namespace RB
     public class Message_ShakeCameraOnPosition : BaseMessage
     {
         private uint _totalShakeFrames = 0;
+        private float _shakeAmount = 0f;
 
-        public Message_ShakeCameraOnPosition(uint totalShakeFrames)
+        public Message_ShakeCameraOnPosition(uint totalShakeFrames, float shakeAmount)
         {
             _totalShakeFrames = totalShakeFrames;
+            _shakeAmount = shakeAmount;
             mMessageType = MessageType.SHAKE_CAMERA_ONPOSITION;
         }
 
@@ -22,6 +24,11 @@ namespace RB
         public override uint GetUnsignedIntMessage()
         {
             return _totalShakeFrames;
+        }
+
+        public override float GetFloatMessage()
+        {
+            return _shakeAmount;
         }
     }
 }

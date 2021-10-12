@@ -141,7 +141,7 @@ namespace RB
                         {
                             if (_listUnits[i].unitData.hp > 0)
                             {
-                                BaseMessage shakeCamOnPosition = new Message_ShakeCameraOnPosition(20);
+                                BaseMessage shakeCamOnPosition = new Message_ShakeCameraOnPosition(25, 2f);
                                 shakeCamOnPosition.Register();
                             }
                         }
@@ -151,6 +151,9 @@ namespace RB
                         {
                             if ((_listUnits[i].iStateController.GetCurrentState() is LittleRed_Death) == false)
                             {
+                                BaseMessage shakeCam = new Message_ShakeCameraOnPosition(25, 2f);
+                                shakeCam.Register();
+
                                 _listUnits[i].unitData.listNextStates.Add(new LittleRed_Death(_listUnits[i]));
                             }
                         }
