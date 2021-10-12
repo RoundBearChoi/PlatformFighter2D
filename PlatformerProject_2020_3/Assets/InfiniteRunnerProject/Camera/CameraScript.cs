@@ -39,9 +39,14 @@ namespace RB
             messageHandler.ClearMessages();
         }
 
-        public void SetCameraState(CameraState cameraState)
+        public void SetCameraState(CameraState cameraState, bool setDefaultState)
         {
             _cameraStateController.SetNewState(cameraState);
+
+            if (setDefaultState)
+            {
+                CameraState.defaultState = cameraState;
+            }
         }
 
         public void SetCamera(Camera camera)

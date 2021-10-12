@@ -26,7 +26,7 @@ namespace RB
             cam.orthographicSize = 8f;
             cam.transform.position = new Vector3(0f, 5f, 0f);
             cameraScript.SetCamera(cam);
-            cameraScript.SetCameraState(new Camera_LerpOnTargetY());
+            cameraScript.SetCameraState(new Camera_LerpOnTargetY(), true);
             cameraScript.SetFollowTarget(units.GetUnit<Runner>().gameObject);
 
             _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
@@ -85,11 +85,6 @@ namespace RB
         public override float GetCumulativeGravityForcePercentage()
         {
             return BaseInitializer.current.runnerDataSO.CumulativeGravityForcePercentage;
-        }
-
-        public override CameraState GetStageDefaultCameraState()
-        {
-            return new Camera_LerpOnTargetY();
         }
     }
 }

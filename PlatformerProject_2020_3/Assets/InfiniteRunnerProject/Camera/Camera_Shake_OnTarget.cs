@@ -15,15 +15,13 @@ namespace RB
             _totalShakeFrames = totalShakeFrames;
             _shakeAmount = shakeAmount;
             _cameraScript = BaseInitializer.current.GetStage().cameraScript;
-            //_initialPos = _cameraScript.GetCamera().transform.position;
         }
 
         public override void OnFixedUpdate()
         {
             if (_totalShakeFrames <= 0)
             {
-                CameraState defaultCameraState = BaseInitializer.current.GetStage().GetStageDefaultCameraState();
-                _cameraScript.SetCameraState(defaultCameraState);
+                _cameraScript.SetCameraState(CameraState.defaultState, false);
             }
         }
 

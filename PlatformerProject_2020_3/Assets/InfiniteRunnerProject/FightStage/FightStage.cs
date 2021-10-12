@@ -64,7 +64,7 @@ namespace RB
 
             cameraScript = new CameraScript();
             cameraScript.SetCamera(cam);
-            cameraScript.SetCameraState(GetStageDefaultCameraState());
+            cameraScript.SetCameraState(new Camera_LerpOnFighterXAndY(0.08f, 0.08f, 4f), true);
             cameraScript.SetFollowTarget(player1.gameObject);
 
             //ui
@@ -118,11 +118,6 @@ namespace RB
         public override float GetCumulativeGravityForcePercentage()
         {
             return BaseInitializer.current.fighterDataSO.CumulativeGravityForcePercentage;
-        }
-
-        public override CameraState GetStageDefaultCameraState()
-        {
-            return new Camera_LerpOnFighterXAndY(0.08f, 0.08f);
         }
     }
 }

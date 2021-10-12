@@ -45,7 +45,7 @@ namespace RB
 
             cameraScript = new CameraScript();
             cameraScript.SetCamera(cam);
-            cameraScript.SetCameraState(GetStageDefaultCameraState());
+            cameraScript.SetCameraState(new Camera_LerpOnFighterXAndY(0.08f, 0.08f, 4f), true);
 
             //ui
             //_baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
@@ -156,11 +156,6 @@ namespace RB
         public override float GetCumulativeGravityForcePercentage()
         {
             return BaseInitializer.current.fighterDataSO.CumulativeGravityForcePercentage;
-        }
-
-        public override CameraState GetStageDefaultCameraState()
-        {
-            return new Camera_LerpOnFighterXAndY(0.08f, 0.08f);
         }
     }
 }

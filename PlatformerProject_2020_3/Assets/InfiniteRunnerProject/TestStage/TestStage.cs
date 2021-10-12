@@ -40,7 +40,7 @@ namespace RB
             gameCamera.transform.parent = this.transform;
 
             cameraScript.SetCamera(camera);
-            cameraScript.SetCameraState(new Camera_LerpOnTargetY());
+            cameraScript.SetCameraState(new Camera_LerpOnTargetY(), true);
             cameraScript.SetFollowTarget(runner.gameObject);
         }
 
@@ -82,11 +82,6 @@ namespace RB
         public override float GetCumulativeGravityForcePercentage()
         {
             return BaseInitializer.current.runnerDataSO.CumulativeGravityForcePercentage;
-        }
-
-        public override CameraState GetStageDefaultCameraState()
-        {
-            return new Camera_LerpOnTargetY();
         }
     }
 }

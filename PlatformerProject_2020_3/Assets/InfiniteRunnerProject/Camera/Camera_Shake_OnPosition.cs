@@ -29,7 +29,7 @@ namespace RB
             }
             else
             {
-                _cameraScript.SetCameraState(new Camera_EmptyState());
+                _cameraScript.SetCameraState(new Camera_EmptyState(), false);
             }
         }
 

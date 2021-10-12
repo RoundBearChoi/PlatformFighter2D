@@ -87,11 +87,6 @@ namespace RB
 
         }
 
-        public virtual CameraState GetStageDefaultCameraState()
-        {
-            return null;
-        }
-
         public virtual UserInput GetUserInputByClientIndex(int clientIndex)
         {
             return null;
