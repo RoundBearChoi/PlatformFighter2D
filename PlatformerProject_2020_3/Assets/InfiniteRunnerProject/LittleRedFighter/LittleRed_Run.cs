@@ -33,11 +33,11 @@ namespace RB
             FixedUpdateComponents();
 
             //speed up
-            if (fixedUpdateCount > 50)
-            {
-                Debugger.Log("trigger turbo run");
-                ownerUnit.unitData.listNextStates.Add(new LittleRed_TurboRun(ownerUnit));
-            }
+            //if (fixedUpdateCount > 50)
+            //{
+            //    Debugger.Log("trigger turbo run");
+            //    ownerUnit.unitData.listNextStates.Add(new LittleRed_TurboRun(ownerUnit));
+            //}
         }
     }
 }
