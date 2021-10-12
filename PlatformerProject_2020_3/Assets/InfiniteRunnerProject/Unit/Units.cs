@@ -141,18 +141,17 @@ namespace RB
                         {
                             if (_listUnits[i].unitData.hp > 0)
                             {
-                                BaseMessage shakeCamOnPosition = new Message_ShakeCameraOnPosition(25, 2f);
+                                BaseMessage shakeCamOnPosition = new Message_ShakeCameraOnPosition(20, 2f);
                                 shakeCamOnPosition.Register();
                             }
                         }
-                        else if (
-                            _listUnits[i].unitType == UnitType.LITTLE_RED_LIGHT ||
+                        else if (_listUnits[i].unitType == UnitType.LITTLE_RED_LIGHT ||
                             _listUnits[i].unitType == UnitType.LITTLE_RED_DARK)
                         {
                             if ((_listUnits[i].iStateController.GetCurrentState() is LittleRed_Death) == false)
                             {
-                                BaseMessage shakeCam = new Message_ShakeCameraOnPosition(25, 2f);
-                                shakeCam.Register();
+                                BaseMessage shakeCamOnPosition = new Message_ShakeCameraOnPosition(20, 2f);
+                                shakeCamOnPosition.Register();
 
                                 _listUnits[i].unitData.listNextStates.Add(new LittleRed_Death(_listUnits[i]));
                             }
