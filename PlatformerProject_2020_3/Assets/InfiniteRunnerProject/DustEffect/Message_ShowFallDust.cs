@@ -11,7 +11,7 @@ namespace RB
         public Message_ShowFallDust(Vector3 position)
         {
             float bottomY = BaseInitializer.current.GetStage().cameraScript.cameraEdges.GetEdge(1).y;
-            _position = new Vector3(position.x, bottomY, position.z);
+            _position = new Vector3(position.x, bottomY, BaseInitializer.current.fighterDataSO.FallDust_z);
 
             mMessageType = MessageType.SHOW_FALL_DUST;
         }

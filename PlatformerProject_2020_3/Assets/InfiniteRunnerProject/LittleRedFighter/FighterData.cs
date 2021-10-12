@@ -51,6 +51,7 @@ namespace RB
 
         [Space(10)]
         public float Camera_z = 0f;
+        public float FallDust_z = 0f;
         public float OldCity_BottomFog_z = 0f;
         public float OldCity_TopFog_z = 0f;
         public float OldCity_Fences_z = 0f;
