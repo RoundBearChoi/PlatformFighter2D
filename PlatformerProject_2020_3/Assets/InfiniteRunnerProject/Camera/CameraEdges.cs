@@ -14,6 +14,11 @@ namespace RB
             _cam = cam;
         }
 
+        public Vector3 GetEdge(int index)
+        {
+            return _edges[index];
+        }
+
         public Vector3[] GetEdges()
         {
             return _edges;

@@ -21,6 +21,7 @@ namespace RB
         SMASH_DUST = 306,
         WALLSLIDE_DUST = 307,
         WALLJUMP_DUST = 308,
+        FALL_DUST = 309,
 
         SWAMP = 400,
         OLD_CITY = 401,

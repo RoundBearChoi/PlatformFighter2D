@@ -153,6 +153,9 @@ namespace RB
                                 BaseMessage shakeCamOnPosition = new Message_ShakeCameraOnPosition(20, 2f);
                                 shakeCamOnPosition.Register();
 
+                                BaseMessage showFallDust = new Message_ShowFallDust(_listUnits[i].transform.position);
+                                showFallDust.Register();
+
                                 _listUnits[i].unitData.listNextStates.Add(new LittleRed_Death(_listUnits[i]));
                             }
                         }

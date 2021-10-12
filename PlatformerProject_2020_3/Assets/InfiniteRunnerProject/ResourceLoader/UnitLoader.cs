@@ -38,6 +38,7 @@ namespace RB
             LoadObj<SlideDust>(UnitType.SLIDE_DUST, "SlideDust");
             LoadObj<JumpDust>(UnitType.JUMP_DUST, "JumpDust");
             LoadObj<SmashDust>(UnitType.SMASH_DUST, "SmashDust");
+            LoadObj<FallDust>(UnitType.FALL_DUST, "FallDust");
         }
 
         public void LoadHitEffects()
