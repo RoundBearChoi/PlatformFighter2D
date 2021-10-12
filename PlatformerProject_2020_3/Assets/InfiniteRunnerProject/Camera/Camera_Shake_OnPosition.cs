@@ -30,7 +30,7 @@ namespace RB
             }
             else
             {
-                _cameraScript.SetCameraState(CameraState.defaultState, false);
+                _cameraScript.SetCameraState(defaultState, false);
             }
         }
 

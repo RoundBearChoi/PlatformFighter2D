@@ -21,7 +21,7 @@ namespace RB
         {
             if (_totalShakeFrames <= 0)
             {
-                _cameraScript.SetCameraState(CameraState.defaultState, false);
+                _cameraScript.SetCameraState(defaultState, false);
             }
         }
 
