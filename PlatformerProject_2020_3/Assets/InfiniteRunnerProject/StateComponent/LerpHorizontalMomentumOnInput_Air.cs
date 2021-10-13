@@ -12,8 +12,6 @@ namespace RB
         {
             _unit = unit;
             _maxMomentum = maxMomentum;
-
-            ResetMomentum();
         }
 
         public override void OnFixedUpdate()

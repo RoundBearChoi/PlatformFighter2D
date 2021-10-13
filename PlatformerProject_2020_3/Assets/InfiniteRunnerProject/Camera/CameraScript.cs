@@ -34,84 +34,7 @@ namespace RB
 
             cameraEdges.FixedUpdateEdges();
 
-            _playerIsOnInnerEdge = false;
-            _playerIsOnOuterEdge = false;
-
-            foreach (Unit unit in _listViewFighters)
-            {
-                Vector3[] innerEdges = cameraEdges.GetInnerEdges();
-
-                if (innerEdges.Length >= 4)
-                {
-                    if (unit.transform.position.x <= innerEdges[0].x)
-                    {
-                        _playerIsOnInnerEdge = true;
-                        break;
-                    }
-
-                    if (unit.transform.position.x >= innerEdges[2].x)
-                    {
-                        _playerIsOnInnerEdge = true;
-                        break;
-                    }
-
-                    if (unit.transform.position.y >= innerEdges[0].y)
-                    {
-                        _playerIsOnInnerEdge = true;
-                        break;
-                    }
-
-                    if (unit.transform.position.y <= innerEdges[2].y)
-                    {
-                        _playerIsOnInnerEdge = true;
-                        break;
-                    }
-                }
-            }
-
-            foreach (Unit unit in _listViewFighters)
-            {
-                Vector3[] outerEdges = cameraEdges.GetOuterEdges();
-
-                if (outerEdges.Length >= 4)
-                {
-                    if (unit.transform.position.x <= outerEdges[0].x)
-                    {
-                        _playerIsOnOuterEdge = true;
-                        break;
-                    }
-
-                    if (unit.transform.position.x >= outerEdges[2].x)
-                    {
-                        _playerIsOnOuterEdge = true;
-                        break;
-                    }
-
-                    if (unit.transform.position.y >= outerEdges[0].y)
-                    {
-                        _playerIsOnOuterEdge = true;
-                        break;
-                    }
-
-                    if (unit.transform.position.y <= outerEdges[2].y)
-                    {
-                        _playerIsOnOuterEdge = true;
-                        break;
-                    }
-                }
-            }
-
-            if (_playerIsOnOuterEdge)
-            {
-                _camera.orthographicSize += 0.1f;
-            }
-            else if (!_playerIsOnInnerEdge)
-            {
-                if (_camera.orthographicSize > 10f)
-                {
-                    _camera.orthographicSize -= 0.05f;
-                }
-            }
+            ZoomInOut();
         }
 
         public void OnLateUpdate()
@@ -160,6 +83,105 @@ namespace RB
         public void RegierViewPlayers(Unit player)
         {
             _listViewFighters.Add(player);
+        }
+
+        bool ZoomOnWinner()
+        {
+            foreach (Unit unit in _listViewFighters)
+            {
+                if (unit.unitData.hp <= 0)
+                {
+                    _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, 10f, 0.01f);
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        void ZoomInOut()
+        {
+            _playerIsOnInnerEdge = false;
+            _playerIsOnOuterEdge = false;
+
+            if (!ZoomOnWinner())
+            {
+                foreach (Unit unit in _listViewFighters)
+                {
+                    Vector3[] innerEdges = cameraEdges.GetInnerEdges();
+
+                    if (innerEdges.Length >= 4)
+                    {
+                        if (unit.transform.position.x <= innerEdges[0].x)
+                        {
+                            _playerIsOnInnerEdge = true;
+                            break;
+                        }
+
+                        if (unit.transform.position.x >= innerEdges[2].x)
+                        {
+                            _playerIsOnInnerEdge = true;
+                            break;
+                        }
+
+                        if (unit.transform.position.y >= innerEdges[0].y)
+                        {
+                            _playerIsOnInnerEdge = true;
+                            break;
+                        }
+
+                        if (unit.transform.position.y <= innerEdges[2].y)
+                        {
+                            _playerIsOnInnerEdge = true;
+                            break;
+                        }
+                    }
+                }
+
+                foreach (Unit unit in _listViewFighters)
+                {
+                    Vector3[] outerEdges = cameraEdges.GetOuterEdges();
+
+                    if (outerEdges.Length >= 4)
+                    {
+                        if (unit.transform.position.x <= outerEdges[0].x)
+                        {
+                            _playerIsOnOuterEdge = true;
+                            break;
+                        }
+
+                        if (unit.transform.position.x >= outerEdges[2].x)
+                        {
+                            _playerIsOnOuterEdge = true;
+                            break;
+                        }
+
+                        if (unit.transform.position.y >= outerEdges[0].y)
+                        {
+                            _playerIsOnOuterEdge = true;
+                            break;
+                        }
+
+                        if (unit.transform.position.y <= outerEdges[2].y)
+                        {
+                            _playerIsOnOuterEdge = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (_playerIsOnOuterEdge)
+                {
+                    _camera.orthographicSize += 0.1f;
+                }
+                else if (!_playerIsOnInnerEdge)
+                {
+                    if (_camera.orthographicSize > 10f)
+                    {
+                        _camera.orthographicSize -= 0.05f;
+                    }
+                }
+            }
         }
     }
 }
