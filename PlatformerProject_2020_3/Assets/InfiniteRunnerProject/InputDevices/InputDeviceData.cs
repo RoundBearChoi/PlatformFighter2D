@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace RB
 {
-    [System.Serializable]
     public class InputDeviceData
     {
         public string deviceName = string.Empty;
