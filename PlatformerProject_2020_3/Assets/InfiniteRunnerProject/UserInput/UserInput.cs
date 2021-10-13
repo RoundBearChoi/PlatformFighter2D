@@ -8,6 +8,8 @@ namespace RB
     [System.Serializable]
     public class UserInput
     {
+        public UserCommands commands = new UserCommands();
+
         private Keyboard _keyboard = null;
         private Mouse _mouse = null;
         private Gamepad _gamepad = null;
@@ -20,8 +22,6 @@ namespace RB
 
         [SerializeField]
         private bool _gamepadDetected = false;
-
-        public UserCommands commands = new UserCommands();
 
         public Keyboard KEYBOARD
         {

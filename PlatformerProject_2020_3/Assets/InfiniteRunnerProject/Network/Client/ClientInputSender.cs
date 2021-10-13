@@ -16,30 +16,18 @@ namespace RB.Client
                 _inputs = new bool[7];
             }
 
-            _inputs[0] = ContainsPress(CommandType.MOVE_UP);
-            _inputs[1] = ContainsPress(CommandType.MOVE_DOWN);
-            _inputs[2] = ContainsPress(CommandType.MOVE_LEFT);
-            _inputs[3] = ContainsPress(CommandType.MOVE_RIGHT);
-            _inputs[4] = ContainsPress(CommandType.JUMP);
-            _inputs[5] = ContainsPress(CommandType.ATTACK_A);
-            _inputs[6] = ContainsPress(CommandType.SHIFT);
+            InputController inputController = GameInitializer.current.GetStage().GetInputController();
+            UserInput input = inputController.GetFirstUserInput();
+
+            _inputs[0] = input.commands.ContainsPress(CommandType.MOVE_UP, false);
+            _inputs[1] = input.commands.ContainsPress(CommandType.MOVE_DOWN, false);
+            _inputs[2] = input.commands.ContainsPress(CommandType.MOVE_LEFT, false);
+            _inputs[3] = input.commands.ContainsPress(CommandType.MOVE_RIGHT, false);
+            _inputs[4] = input.commands.ContainsPress(CommandType.JUMP, false);
+            _inputs[5] = input.commands.ContainsPress(CommandType.ATTACK_A, false);
+            _inputs[6] = input.commands.ContainsPress(CommandType.SHIFT, false);
 
             RB.Client.ClientSend.SendClientInput(_inputs);
-        }
-
-        bool ContainsPress(CommandType commandType)
-        {
-            InputController inputController = GameInitializer.current.GetStage().GetInputController();
-            UserInput latestInput = inputController.GetFirstUserInput();
-
-            if (latestInput.commands.ContainsPress(commandType, false))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }
     }
 }
