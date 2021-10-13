@@ -49,12 +49,6 @@ namespace RB
                 player2.SetUserInput(input);
             }
 
-            //midpoint
-            GameObject midPoint = new GameObject();
-            midPoint.name = "midPoint";
-            midPoint.transform.parent = this.transform;
-            _midPoint = new PlayersMidPoint(midPoint, player1, player2);
-
             //set z for all players
             List<Unit> allPlayers = units.GetUnits<LittleRed>();
 
@@ -62,6 +56,12 @@ namespace RB
             {
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, BaseInitializer.current.fighterDataSO.Players_z);
             }
+
+            //midpoint
+            GameObject midPoint = new GameObject();
+            midPoint.name = "midPoint";
+            midPoint.transform.parent = this.transform;
+            _midPoint = new PlayersMidPoint(midPoint, player1, player2);
 
             //set camera
             FightCamera fightCamera = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.FIGHT_CAMERA)) as FightCamera;
@@ -73,7 +73,9 @@ namespace RB
             cameraScript = new CameraScript();
             cameraScript.SetCamera(cam);
             cameraScript.SetCameraState(new Camera_LerpOnFighterXAndY(0.08f, 0.08f, 10f, 52f, 4f), true);
-            cameraScript.SetFollowTarget(/*player1.gameObject*/midPoint);
+            cameraScript.SetFollowTarget(midPoint);
+            cameraScript.RegierViewPlayers(player1);
+            cameraScript.RegierViewPlayers(player2);
 
             //ui
             _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;

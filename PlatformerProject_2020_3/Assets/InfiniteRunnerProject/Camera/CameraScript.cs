@@ -12,6 +12,8 @@ namespace RB
         IStateController<CameraState> _cameraStateController = null;
         GameObject _target = null;
         Camera _camera = null;
+        List<Unit> _listViewFighters = new List<Unit>();
+        bool _playerIsOnEdge = false;
 
         public CameraScript()
         {
@@ -30,6 +32,53 @@ namespace RB
             _cameraStateController.GetCurrentState().cameraUpdateCount++;
 
             cameraEdges.FixedUpdateEdges();
+
+            _playerIsOnEdge = false;
+
+            foreach (Unit unit in _listViewFighters)
+            {
+                Vector3[] nearEdges = cameraEdges.GetNearEdges();
+
+                if (nearEdges.Length >= 4)
+                {
+                    if (unit.transform.position.x <= nearEdges[0].x)
+                    {
+                        Debugger.Log("player on left!");
+                        _playerIsOnEdge = true;
+                        break;
+                    }
+
+                    if (unit.transform.position.x >= nearEdges[2].x)
+                    {
+                        Debugger.Log("player on right!");
+                        _playerIsOnEdge = true;
+                        break;
+                    }
+
+                    if (unit.transform.position.y >= nearEdges[0].y)
+                    {
+                        Debugger.Log("player on top!");
+                        _playerIsOnEdge = true;
+                        break;
+                    }
+
+                    if (unit.transform.position.y <= nearEdges[2].y)
+                    {
+                        Debugger.Log("player on bottom!");
+                        _playerIsOnEdge = true;
+                        break;
+                    }
+                }
+            }
+
+            if (!_playerIsOnEdge)
+            {
+                _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, 10f, 0.005f);
+            }
+            else
+            {
+                _camera.orthographicSize += 0.005f;
+            }
         }
 
         public void OnLateUpdate()
@@ -73,6 +122,11 @@ namespace RB
         public void UpdateCameraPositionOnTarget(Vector3 pos)
         {
             _camera.transform.position = pos;
+        }
+
+        public void RegierViewPlayers(Unit player)
+        {
+            _listViewFighters.Add(player);
         }
     }
 }
