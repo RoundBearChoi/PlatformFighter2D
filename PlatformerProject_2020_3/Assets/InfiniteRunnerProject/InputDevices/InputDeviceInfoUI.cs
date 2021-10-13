@@ -22,9 +22,6 @@ namespace RB
         Image _deviceImage = null;
 
         [SerializeField]
-        Image _downArrowImage = null;
-
-        [SerializeField]
         bool _deviceDetected = false;
 
         [SerializeField]
@@ -33,8 +30,7 @@ namespace RB
         [SerializeField]
         bool _downIsPressed = false;
 
-        [SerializeField]
-        MoveUpAndDown _moveUpAndDown = null;
+        DownButton _downButton = null;
 
         UnityEngine.InputSystem.Keyboard _keyboard = null;
         UnityEngine.InputSystem.Mouse _mouse = null;
@@ -88,26 +84,29 @@ namespace RB
             }
         }
 
+        public void Init()
+        {
+            _downButton = this.gameObject.GetComponentInChildren<DownButton>();
+        }
+
         public void SetInputDevice(UnityEngine.InputSystem.Keyboard keyboard)
         {
             _keyboard = keyboard;
             _deviceName = _keyboard.name;
             _deviceDetected = true;
-            _downArrowImage.enabled = true;
 
             _psImage.enabled = false;
             _deviceImage = _pcImage;
 
             _deviceNameText.text = "KEYBOARD & MOUSE";
 
-            _moveUpAndDown = new MoveUpAndDown(_downArrowImage.rectTransform, -50f, -58f, 20f, -15f);
+            _downButton.HideImages(false);
         }
 
         public void SetInputDevice(UnityEngine.InputSystem.Mouse mouse)
         {
             _mouse = mouse;
             _deviceDetected = true;
-            _downArrowImage.enabled = true;
 
             _psImage.enabled = false;
             _deviceImage = _pcImage;
@@ -119,22 +118,21 @@ namespace RB
             _deviceName = gamepad.name;
             _deviceName = gamepad.name;
             _deviceDetected = true;
-            _downArrowImage.enabled = true;
 
             _pcImage.enabled = false;
             _deviceImage = _psImage;
 
             _deviceNameText.text = "CONTROLLER " + (gamepadIndex + 1);
 
-            _moveUpAndDown = new MoveUpAndDown(_downArrowImage.rectTransform, -50f, -58f, 20f, -15f);
+            _downButton.HideImages(false);
         }
 
         public void NoDeviceDetected()
         {
             _pcImage.enabled = false;
             _psImage.enabled = false;
-            _downArrowImage.enabled = false;
             _deviceNameText.text = string.Empty;
+            _downButton.HideImages(true);
         }
 
         public void OnUpdate()
@@ -147,18 +145,14 @@ namespace RB
                 if (!IsSelected())
                 {
                     DEVICE_IMAGE.transform.localPosition = Vector3.Lerp(DEVICE_IMAGE.transform.localPosition, Vector3.zero, Time.deltaTime * BaseInitializer.current.fighterDataSO.InputDeviceIconMoveSpeed);
-
-                    if (_deviceDetected)
-                    {
-                        _downArrowImage.enabled = true;
-                    }
+                    _downButton.HideImages(false);
                 }
             }
+        }
 
-            if (_moveUpAndDown != null)
-            {
-                _moveUpAndDown.OnUpdate();
-            }
+        public void OnFixedUpdate()
+        {
+            _downButton.OnFixedUpdate();
         }
 
         void UpdatePresses()
@@ -210,7 +204,7 @@ namespace RB
         {
             if (_downIsPressed)
             {
-                _downArrowImage.enabled = false;
+                _downButton.HideImages(true);
 
                 for (int i = 0; i < BaseInitializer.current.arrInputDeviceUI.Length; i++)
                 {

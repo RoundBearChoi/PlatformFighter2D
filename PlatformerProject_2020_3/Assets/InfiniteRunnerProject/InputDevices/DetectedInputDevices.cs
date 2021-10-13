@@ -18,6 +18,7 @@ namespace RB
 
             foreach(InputDeviceInfoUI info in arr)
             {
+                info.Init();
                 _listInputDeviceInfo.Add(info);
             }
 
@@ -55,7 +56,10 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-
+            foreach (InputDeviceInfoUI info in _listInputDeviceInfo)
+            {
+                info.OnFixedUpdate();
+            }
         }
 
         public override void OnLateUpdate()

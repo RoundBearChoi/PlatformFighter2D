@@ -36,6 +36,9 @@ namespace RB
 
             if (_keyboard != null)
             {
+                commands.AddCommand(CommandType.ATTACK_A, _keyboard.enterKey);
+                //commands.AddCommand(CommandType.ATTACK_B, _mouse.rightButton);
+
                 commands.AddCommand(CommandType.MOVE_UP, _keyboard.wKey);
                 commands.AddCommand(CommandType.MOVE_DOWN, _keyboard.sKey);
                 commands.AddCommand(CommandType.MOVE_LEFT, _keyboard.aKey);

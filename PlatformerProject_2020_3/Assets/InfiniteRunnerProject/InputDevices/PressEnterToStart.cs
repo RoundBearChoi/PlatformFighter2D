@@ -15,12 +15,12 @@ namespace RB
 
         public override void InitElement()
         {
-            _blinkText = new BlinkText(_targetText, 50, 45);
+            _blinkText = new BlinkText(_targetText, 50, 50);
         }
 
         public override void OnFixedUpdate()
         {
-            _blinkText.OnFixedUpdate();
+            //_blinkText.OnFixedUpdate();
         }
 
         public override void OnUpdate()
