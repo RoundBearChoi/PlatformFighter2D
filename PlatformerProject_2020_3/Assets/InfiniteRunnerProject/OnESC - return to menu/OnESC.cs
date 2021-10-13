@@ -16,16 +16,19 @@ namespace RB
             InputController inputController = BaseInitializer.current.GetStage().GetInputController();
             UserInput userInput = inputController.GetPCUserInput();
 
-            if (userInput.commands.ContainsPress(CommandType.ESCAPE, true))
+            if (userInput != null)
             {
-                if (_listChildElements.Count == 0)
+                if (userInput.commands.ContainsPress(CommandType.ESCAPE, true))
                 {
-                    UIElement uiElement = UIElement.AddUIElement(UIElementType.QUIT_GAME_ASK, this.transform);
-                    _listChildElements.Add(uiElement);
-                }
-                else
-                {
-                    ClearChildElements();
+                    if (_listChildElements.Count == 0)
+                    {
+                        UIElement uiElement = UIElement.AddUIElement(UIElementType.QUIT_GAME_ASK, this.transform);
+                        _listChildElements.Add(uiElement);
+                    }
+                    else
+                    {
+                        ClearChildElements();
+                    }
                 }
             }
 
