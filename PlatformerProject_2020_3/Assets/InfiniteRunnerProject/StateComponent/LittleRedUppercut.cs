@@ -32,7 +32,7 @@ namespace RB
             {
                 float forwardVelocity = 0f;
 
-                if (ani.SPRITE_INDEX >= 4)
+                if (ani.SPRITE_INDEX >= 2)
                 {
                     if (!ownerUnit.isDummy)
                     {
