@@ -14,10 +14,10 @@ namespace RB
             _listStateComponents.Add(new UpdateDirectionOnInput(ownerUnit));
 
             _listStateComponents.Add(new TriggerLittleRedUppercut(ownerUnit, 0));
-            _listStateComponents.Add(new TriggerJumpUp(ownerUnit));
             _listStateComponents.Add(new TriggerRunOnGround(ownerUnit));
             _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit));
             _listStateComponents.Add(new TriggerFallState(ownerUnit));
+            _listStateComponents.Add(new TriggerJumpUp(ownerUnit));
 
             ownerUnit.unitData.airControl.SetMomentum(0f);
             ownerUnit.unitData.airControl.DashTriggered = false;

@@ -13,7 +13,8 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM) == false && _unit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM) == false)
+            if (_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM) == false &&
+                _unit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM) == false)
             {
                 if (_unit.unitData.rigidBody2D.velocity.y <= -0.0001f)
                 {

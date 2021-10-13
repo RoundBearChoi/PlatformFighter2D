@@ -26,8 +26,6 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            FixedUpdateComponents();
-
             if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
             {
                 if (!ownerUnit.isDummy)
@@ -38,6 +36,8 @@ namespace RB
 
                 ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
             }
+
+            FixedUpdateComponents();
         }
     }
 }

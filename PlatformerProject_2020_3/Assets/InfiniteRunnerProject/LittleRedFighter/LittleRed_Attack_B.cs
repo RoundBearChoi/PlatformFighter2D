@@ -30,14 +30,7 @@ namespace RB
 
             if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().IsOnEnd())
             {
-                if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
-                {
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
-                }
-                else
-                {
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall(ownerUnit));
-                }
+                ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
             }
         }
     }

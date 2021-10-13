@@ -13,22 +13,18 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM) ||
-                _unit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM))
+            if (_unit.USER_INPUT.commands.ContainsPress(CommandType.JUMP, true))
             {
-                if (_unit.USER_INPUT.commands.ContainsPress(CommandType.JUMP, true))
+                if (!_unit.isDummy)
                 {
-                    if (!_unit.isDummy)
-                    {
-                        BaseMessage jumpDustMessage = new Message_ShowJumpDust(true, _unit.transform.position);
-                        jumpDustMessage.Register();
-                    }
-
-                    //multiply/divide runspeed on jump
-                    _unit.unitData.rigidBody2D.velocity = new Vector2(_unit.unitData.rigidBody2D.velocity.x * BaseInitializer.current.fighterDataSO.HorizontalMomentumMultiplierOnRunningJump, _unit.unitData.rigidBody2D.velocity.y);
-                    _unit.unitData.airControl.SetMomentum(_unit.unitData.rigidBody2D.velocity.x);
-                    _unit.unitData.listNextStates.Add(new LittleRed_Jump_Up(_unit, BaseInitializer.current.fighterDataSO.VerticalJumpForce, 0));
+                    BaseMessage jumpDustMessage = new Message_ShowJumpDust(true, _unit.transform.position);
+                    jumpDustMessage.Register();
                 }
+
+                //multiply/divide runspeed on jump
+                _unit.unitData.rigidBody2D.velocity = new Vector2(_unit.unitData.rigidBody2D.velocity.x * BaseInitializer.current.fighterDataSO.HorizontalMomentumMultiplierOnRunningJump, _unit.unitData.rigidBody2D.velocity.y);
+                _unit.unitData.airControl.SetMomentum(_unit.unitData.rigidBody2D.velocity.x);
+                _unit.unitData.listNextStates.Add(new LittleRed_Jump_Up(_unit, BaseInitializer.current.fighterDataSO.VerticalJumpForce, 0));
             }
         }
     }
