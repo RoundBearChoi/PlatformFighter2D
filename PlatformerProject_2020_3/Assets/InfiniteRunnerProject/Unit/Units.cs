@@ -180,7 +180,7 @@ namespace RB
                         {
                             if (_listUnits[i].unitData.rigidBody2D.velocity.y < -0.0001f)
                             {
-                                Debugger.Log("adding downforce to unit: " + _listUnits[i].gameObject.name);
+                                //Debugger.Log("adding downforce to unit: " + _listUnits[i].gameObject.name);
 
                                 float y = _listUnits[i].unitData.rigidBody2D.velocity.y * BaseInitializer.current.GetStage().GetCumulativeGravityForcePercentage();
                                 float x = _listUnits[i].unitData.rigidBody2D.velocity.x;
