@@ -100,7 +100,7 @@ namespace RB
 
             _deviceNameText.text = "KEYBOARD & MOUSE";
 
-            _moveUpAndDown = new MoveUpAndDown(_downArrowImage.rectTransform, -50f, -58f, 18f);
+            _moveUpAndDown = new MoveUpAndDown(_downArrowImage.rectTransform, -50f, -58f, 20f, -15f);
         }
 
         public void SetInputDevice(UnityEngine.InputSystem.Mouse mouse)
@@ -126,7 +126,7 @@ namespace RB
 
             _deviceNameText.text = "CONTROLLER " + (gamepadIndex + 1);
 
-            _moveUpAndDown = new MoveUpAndDown(_downArrowImage.rectTransform, -50f, -58f, 18f);
+            _moveUpAndDown = new MoveUpAndDown(_downArrowImage.rectTransform, -50f, -58f, 20f, -15f);
         }
 
         public void NoDeviceDetected()

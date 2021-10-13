@@ -18,15 +18,23 @@ namespace RB
         float _downY = 0f;
 
         [SerializeField]
-        float _speed = 0f;
+        float _currentSpeed = 0f;
 
-        public MoveUpAndDown(RectTransform rect, float upY, float downY, float speed)
+        [SerializeField]
+        float _upSpeed = 0f;
+
+        [SerializeField]
+        float _downSpeed = 0f;
+
+        public MoveUpAndDown(RectTransform rect, float upY, float downY, float upSpeed, float downSpeed)
         {
             _rect = rect;
 
             _upY = upY;
             _downY = downY;
-            _speed = speed;
+            _upSpeed = upSpeed;
+            _downSpeed = downSpeed;
+            _currentSpeed = downSpeed;
         }
 
         public void OnUpdate()
@@ -35,21 +43,21 @@ namespace RB
             {
                 if (_rect.anchoredPosition.y > _upY)
                 {
-                    if (_speed > 0f)
+                    if (_currentSpeed > 0f)
                     {
-                        _speed *= -1f;
+                        _currentSpeed = _downSpeed;
                     }
                 }
 
                 if (_rect.anchoredPosition.y < _downY)
                 {
-                    if (_speed < 0f)
+                    if (_currentSpeed < 0f)
                     {
-                        _speed *= -1f;
+                        _currentSpeed = _upSpeed;
                     }
                 }
 
-                _rect.anchoredPosition += (Vector2.up * _speed * Time.deltaTime);
+                _rect.anchoredPosition += (Vector2.up * _currentSpeed * Time.deltaTime);
             }
         }
     }
