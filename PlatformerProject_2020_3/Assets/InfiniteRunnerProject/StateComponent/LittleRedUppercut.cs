@@ -15,7 +15,7 @@ namespace RB
             initialFaceRight = unit.unitData.facingRight;
 
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, BaseInitializer.current.fighterDataSO.AttackASlowDownPercentage));
-            _listStateComponents.Add(new DelayedJump(ownerUnit, BaseInitializer.current.fighterDataSO.VerticalJumpForce * 0.8f, 3));
+            _listStateComponents.Add(new DelayedJump(ownerUnit, BaseInitializer.current.fighterDataSO.VerticalJumpForce * 0.75f, 2));
             _listStateComponents.Add(new UpdateAirMovementOnMomentum(ownerUnit));
             _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, BaseInitializer.current.GetOverlapBoxCollisionData(OverlapBoxDataType.LITTLE_RED_UPPERCUT)));
 
@@ -63,17 +63,6 @@ namespace RB
 
                     if (ownerUnit.unitData.facingRight)
                     {
-                        forwardVelocity = 2.5f;
-                    }
-                    else
-                    {
-                        forwardVelocity = -2.5f;
-                    }
-                }
-                else if (ani.SPRITE_INDEX >= 8)
-                {
-                    if (ownerUnit.unitData.facingRight)
-                    {
                         forwardVelocity = 1f;
                     }
                     else
@@ -81,7 +70,18 @@ namespace RB
                         forwardVelocity = -1f;
                     }
                 }
-                else if (ani.SPRITE_INDEX >= 12)
+                else if (ani.SPRITE_INDEX >= 6)
+                {
+                    if (ownerUnit.unitData.facingRight)
+                    {
+                        forwardVelocity = 0.5f;
+                    }
+                    else
+                    {
+                        forwardVelocity = -0.5f;
+                    }
+                }
+                else if (ani.SPRITE_INDEX >= 10)
                 {
                     if (ownerUnit.unitData.facingRight)
                     {
@@ -113,12 +113,12 @@ namespace RB
         {
             if (initialFaceRight)
             {
-                ownerUnit.unitData.airControl.SetMomentum(-0.01f);
+                ownerUnit.unitData.airControl.SetMomentum(-0.001f);
                 ownerUnit.unitData.facingRight = false;
             }
             else
             {
-                ownerUnit.unitData.airControl.SetMomentum(0.01f);
+                ownerUnit.unitData.airControl.SetMomentum(0.001f);
                 ownerUnit.unitData.facingRight = true;
             }
         }
