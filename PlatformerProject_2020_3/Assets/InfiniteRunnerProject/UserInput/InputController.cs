@@ -25,11 +25,11 @@ namespace RB
             }
         }
 
-        public UserInput GetLatestUserInput()
+        public UserInput GetFirstUserInput()
         {
             if (_listUserInputs.Count > 0)
             {
-                return _listUserInputs[_listUserInputs.Count - 1];
+                return _listUserInputs[0];
             }
 
             return null;

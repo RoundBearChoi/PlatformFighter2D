@@ -27,7 +27,7 @@ namespace RB
 
         public override void OnUpdate()
         {
-            _inputController.GetLatestUserInput().OnUpdate();
+            _inputController.GetFirstUserInput().OnUpdate();
 
             if (_baseUI != null)
             {

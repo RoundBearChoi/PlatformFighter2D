@@ -34,14 +34,14 @@ namespace RB
 
         public override void OnUpdate()
         {
-            _inputController.GetLatestUserInput().OnUpdate();
+            _inputController.GetFirstUserInput().OnUpdate();
 
             if (_baseUI != null)
             {
                 _baseUI.OnUpdate();
             }
 
-            UserInput latestInput = _inputController.GetLatestUserInput();
+            UserInput latestInput = _inputController.GetFirstUserInput();
 
             if (latestInput.commands.ContainsPress(CommandType.ENTER, true))
             {

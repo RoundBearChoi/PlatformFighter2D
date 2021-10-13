@@ -87,25 +87,25 @@ namespace RB
 
         public virtual void UpdateSelection()
         {
-            UserInput latestInput = _inputController.GetLatestUserInput();
+            UserInput pcInput = _inputController.GetPCUserInput();
 
             //game keys
-            if (latestInput.commands.ContainsPress(CommandType.MOVE_UP, true))
+            if (pcInput.commands.ContainsPress(CommandType.MOVE_UP, true))
             {
                 UpSelection();
             }
 
-            if (latestInput.commands.ContainsPress(CommandType.MOVE_DOWN, true))
+            if (pcInput.commands.ContainsPress(CommandType.MOVE_DOWN, true))
             {
                 DownSelection();
             }
 
             //non game keys
-            if (latestInput.commands.ContainsPress(CommandType.ARROW_UP, true))
+            if (pcInput.commands.ContainsPress(CommandType.ARROW_UP, true))
             {
                 UpSelection();
             }
-            if (latestInput.commands.ContainsPress(CommandType.ARROW_DOWN, true))
+            if (pcInput.commands.ContainsPress(CommandType.ARROW_DOWN, true))
             {
                 DownSelection();
             }
@@ -115,9 +115,9 @@ namespace RB
 
         public virtual void OnSelect()
         {
-            UserInput input = _inputController.GetLatestUserInput();
+            UserInput pcInput = _inputController.GetPCUserInput();
 
-            if (input.commands.ContainsPress(CommandType.ENTER, true))
+            if (pcInput.commands.ContainsPress(CommandType.ENTER, true))
             {
                 _listOptions[_currentSelectionIndex].OnEnterKey();
                 return;

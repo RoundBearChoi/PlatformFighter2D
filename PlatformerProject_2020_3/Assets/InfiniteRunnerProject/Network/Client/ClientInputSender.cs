@@ -30,7 +30,7 @@ namespace RB.Client
         bool ContainsPress(CommandType commandType)
         {
             InputController inputController = GameInitializer.current.GetStage().GetInputController();
-            UserInput latestInput = inputController.GetLatestUserInput();
+            UserInput latestInput = inputController.GetFirstUserInput();
 
             if (latestInput.commands.ContainsPress(commandType, false))
             {

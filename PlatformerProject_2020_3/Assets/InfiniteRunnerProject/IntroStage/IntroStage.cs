@@ -27,19 +27,19 @@ namespace RB
         
         public override void OnUpdate()
         {
-            _inputController.GetLatestUserInput().OnUpdate();
+            _inputController.GetFirstUserInput().OnUpdate();
 
-            if (_inputController.GetLatestUserInput().commands.ContainsPress(CommandType.F4, true))
+            if (_inputController.GetFirstUserInput().commands.ContainsPress(CommandType.F4, true))
             {
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.SPRITE_STAGE));
             }
 
-            if (_inputController.GetLatestUserInput().commands.ContainsPress(CommandType.F5, true))
+            if (_inputController.GetFirstUserInput().commands.ContainsPress(CommandType.F5, true))
             {
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.TEST_STAGE));
             }
 
-            if (_inputController.GetLatestUserInput().commands.ContainsPress(CommandType.F6, true))
+            if (_inputController.GetFirstUserInput().commands.ContainsPress(CommandType.F6, true))
             {
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.RUNNER_STAGE));
             }
