@@ -40,37 +40,40 @@ namespace RB
                         {
                             Unit collidingUnit = col.gameObject.GetComponent<Unit>();
 
-                            if (collidingUnit.unitData.hp > 0)
+                            if (collidingUnit != null)
                             {
-                                //check against self, none, ground
-                                if (collidingUnit.unitType != _unit.unitType && collidingUnit.unitType != UnitType.NONE && collidingUnit.unitType != UnitType.FLAT_GROUND)
+                                if (collidingUnit.unitData.hp > 0)
                                 {
-                                    _currentHitCount++;
-
-                                    if (_currentHitCount <= specs.mMaxHits)
+                                    //check against self, none, ground
+                                    if (collidingUnit.unitType != _unit.unitType && collidingUnit.unitType != UnitType.NONE && collidingUnit.unitType != UnitType.FLAT_GROUND)
                                     {
-                                        BaseMessage winceMessage = new Message_Wince(collidingUnit, _boxCollisionData.pushForce, _unit);
-                                        winceMessage.Register();
+                                        _currentHitCount++;
 
-                                        BaseMessage attackerHitStop = new Message_HitStop(specs.mStopFrames, _unit.unitType);
-                                        attackerHitStop.Register();
+                                        if (_currentHitCount <= specs.mMaxHits)
+                                        {
+                                            BaseMessage winceMessage = new Message_Wince(collidingUnit, _boxCollisionData.pushForce, _unit);
+                                            winceMessage.Register();
 
-                                        Vector2 closest = col.ClosestPoint(centerPoint);
-                                        BaseMessage showBloodMessage = new Message_ShowBlood5(_unit.unitData.facingRight, new Vector3(closest.x, closest.y, BaseInitializer.current.fighterDataSO.BloodEffects_z));
-                                        showBloodMessage.Register();
+                                            BaseMessage attackerHitStop = new Message_HitStop(specs.mStopFrames, _unit.unitType);
+                                            attackerHitStop.Register();
 
-                                        BaseMessage showParryEffectMessage = new Message_ShowParryEffect(new Vector3(closest.x, closest.y, BaseInitializer.current.fighterDataSO.ParryEffects_z));
-                                        showParryEffectMessage.Register();
+                                            Vector2 closest = col.ClosestPoint(centerPoint);
+                                            BaseMessage showBloodMessage = new Message_ShowBlood5(_unit.unitData.facingRight, new Vector3(closest.x, closest.y, BaseInitializer.current.fighterDataSO.BloodEffects_z));
+                                            showBloodMessage.Register();
 
-                                        float shake = Random.Range(_boxCollisionData.camerShakeAmount_min, _boxCollisionData.camerShakeAmount_max);
+                                            BaseMessage showParryEffectMessage = new Message_ShowParryEffect(new Vector3(closest.x, closest.y, BaseInitializer.current.fighterDataSO.ParryEffects_z));
+                                            showParryEffectMessage.Register();
 
-                                        BaseMessage shakeCam = new Message_ShakeCameraOnTarget(_boxCollisionData.cameraShakeFrames, shake);
-                                        shakeCam.Register();
+                                            float shake = Random.Range(_boxCollisionData.camerShakeAmount_min, _boxCollisionData.camerShakeAmount_max);
 
-                                        BaseMessage takeDamage = new Message_TakeDamage(collidingUnit, 10);
-                                        takeDamage.Register();
+                                            BaseMessage shakeCam = new Message_ShakeCameraOnTarget(_boxCollisionData.cameraShakeFrames, shake);
+                                            shakeCam.Register();
 
-                                        _unit.unitData.comboHitCount.AddCount();
+                                            BaseMessage takeDamage = new Message_TakeDamage(collidingUnit, 10);
+                                            takeDamage.Register();
+
+                                            _unit.unitData.comboHitCount.AddCount();
+                                        }
                                     }
                                 }
                             }
