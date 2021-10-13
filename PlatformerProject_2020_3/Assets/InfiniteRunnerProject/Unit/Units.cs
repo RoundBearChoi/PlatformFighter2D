@@ -150,7 +150,7 @@ namespace RB
                         {
                             if ((_listUnits[i].iStateController.GetCurrentState() is LittleRed_Death) == false)
                             {
-                                BaseMessage shakeCamOnPosition = new Message_ShakeCameraOnPosition(20, 2f);
+                                BaseMessage shakeCamOnPosition = new Message_ShakeCameraOnPosition(25, 2f);
                                 shakeCamOnPosition.Register();
 
                                 BaseMessage showFallDust = new Message_ShowFallDust(_listUnits[i].transform.position);
