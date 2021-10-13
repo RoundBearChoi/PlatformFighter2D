@@ -13,7 +13,8 @@ namespace RB
         GameObject _target = null;
         Camera _camera = null;
         List<Unit> _listViewFighters = new List<Unit>();
-        bool _playerIsOnEdge = false;
+        bool _playerIsOnInnerEdge = false;
+        bool _playerIsOnOuterEdge = false;
 
         public CameraScript()
         {
@@ -33,51 +34,83 @@ namespace RB
 
             cameraEdges.FixedUpdateEdges();
 
-            _playerIsOnEdge = false;
+            _playerIsOnInnerEdge = false;
+            _playerIsOnOuterEdge = false;
 
             foreach (Unit unit in _listViewFighters)
             {
-                Vector3[] nearEdges = cameraEdges.GetNearEdges();
+                Vector3[] innerEdges = cameraEdges.GetInnerEdges();
 
-                if (nearEdges.Length >= 4)
+                if (innerEdges.Length >= 4)
                 {
-                    if (unit.transform.position.x <= nearEdges[0].x)
+                    if (unit.transform.position.x <= innerEdges[0].x)
                     {
-                        Debugger.Log("player on left!");
-                        _playerIsOnEdge = true;
+                        _playerIsOnInnerEdge = true;
                         break;
                     }
 
-                    if (unit.transform.position.x >= nearEdges[2].x)
+                    if (unit.transform.position.x >= innerEdges[2].x)
                     {
-                        Debugger.Log("player on right!");
-                        _playerIsOnEdge = true;
+                        _playerIsOnInnerEdge = true;
                         break;
                     }
 
-                    if (unit.transform.position.y >= nearEdges[0].y)
+                    if (unit.transform.position.y >= innerEdges[0].y)
                     {
-                        Debugger.Log("player on top!");
-                        _playerIsOnEdge = true;
+                        _playerIsOnInnerEdge = true;
                         break;
                     }
 
-                    if (unit.transform.position.y <= nearEdges[2].y)
+                    if (unit.transform.position.y <= innerEdges[2].y)
                     {
-                        Debugger.Log("player on bottom!");
-                        _playerIsOnEdge = true;
+                        _playerIsOnInnerEdge = true;
                         break;
                     }
                 }
             }
 
-            if (!_playerIsOnEdge)
+            foreach (Unit unit in _listViewFighters)
             {
-                _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, 10f, 0.005f);
+                Vector3[] outerEdges = cameraEdges.GetOuterEdges();
+
+                if (outerEdges.Length >= 4)
+                {
+                    if (unit.transform.position.x <= outerEdges[0].x)
+                    {
+                        _playerIsOnOuterEdge = true;
+                        break;
+                    }
+
+                    if (unit.transform.position.x >= outerEdges[2].x)
+                    {
+                        _playerIsOnOuterEdge = true;
+                        break;
+                    }
+
+                    if (unit.transform.position.y >= outerEdges[0].y)
+                    {
+                        _playerIsOnOuterEdge = true;
+                        break;
+                    }
+
+                    if (unit.transform.position.y <= outerEdges[2].y)
+                    {
+                        _playerIsOnOuterEdge = true;
+                        break;
+                    }
+                }
             }
-            else
+
+            if (_playerIsOnOuterEdge)
             {
-                _camera.orthographicSize += 0.005f;
+                _camera.orthographicSize += 0.1f;
+            }
+            else if (!_playerIsOnInnerEdge)
+            {
+                if (_camera.orthographicSize > 10f)
+                {
+                    _camera.orthographicSize -= 0.05f;
+                }
             }
         }
 

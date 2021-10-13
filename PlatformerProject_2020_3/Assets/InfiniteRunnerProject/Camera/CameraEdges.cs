@@ -7,7 +7,11 @@ namespace RB
     public class CameraEdges
     {
         Vector3[] _edges = new Vector3[4];
-        Vector3[] _nearEdges = new Vector3[4];
+        //Vector3[] _nearEdges = new Vector3[4];
+
+        Vector3[] _innerEdges = new Vector3[4];
+        Vector3[] _outerEdges = new Vector3[4];
+
         Camera _cam = null;
 
         public CameraEdges(Camera cam)
@@ -25,9 +29,14 @@ namespace RB
             return _edges;
         }
 
-        public Vector3[] GetNearEdges()
+        public Vector3[] GetInnerEdges()
         {
-            return _nearEdges;
+            return _innerEdges;
+        }
+
+        public Vector3[] GetOuterEdges()
+        {
+            return _outerEdges;
         }
 
         public void FixedUpdateEdges()
@@ -47,15 +56,29 @@ namespace RB
             }
 
             //top left
-            _nearEdges[0] = _cam.ScreenToWorldPoint(new Vector3(_cam.pixelWidth * 0.15f, _cam.pixelHeight * 0.85f, _cam.nearClipPlane));
+            _innerEdges[0] = _cam.ScreenToWorldPoint(new Vector3(_cam.pixelWidth * 0.3f, _cam.pixelHeight * 0.7f, _cam.nearClipPlane));
             //bottom left
-            _nearEdges[1] = _cam.ScreenToWorldPoint(new Vector3(_cam.pixelWidth * 0.15f, _cam.pixelHeight * 0.15f, _cam.nearClipPlane));
+            _innerEdges[1] = _cam.ScreenToWorldPoint(new Vector3(_cam.pixelWidth * 0.3f, _cam.pixelHeight * 0.3f, _cam.nearClipPlane));
             //bottom right
-            _nearEdges[2] = _cam.ScreenToWorldPoint(new Vector3(_cam.pixelWidth * 0.85f, _cam.pixelHeight * 0.15f, _cam.nearClipPlane));
+            _innerEdges[2] = _cam.ScreenToWorldPoint(new Vector3(_cam.pixelWidth * 0.7f, _cam.pixelHeight * 0.3f, _cam.nearClipPlane));
             //top right
-            _nearEdges[3] = _cam.ScreenToWorldPoint(new Vector3(_cam.pixelWidth * 0.85f, _cam.pixelHeight * 0.85f, _cam.nearClipPlane));
+            _innerEdges[3] = _cam.ScreenToWorldPoint(new Vector3(_cam.pixelWidth * 0.7f, _cam.pixelHeight * 0.7f, _cam.nearClipPlane));
 
-            foreach (Vector3 edge in _nearEdges)
+            foreach (Vector3 edge in _innerEdges)
+            {
+                Debug.DrawLine(Vector3.zero, edge, Color.green, 0.025f);
+            }
+
+            //top left
+            _outerEdges[0] = _cam.ScreenToWorldPoint(new Vector3(_cam.pixelWidth * 0.1f, _cam.pixelHeight * 0.9f, _cam.nearClipPlane));
+            //bottom left
+            _outerEdges[1] = _cam.ScreenToWorldPoint(new Vector3(_cam.pixelWidth * 0.1f, _cam.pixelHeight * 0.1f, _cam.nearClipPlane));
+            //bottom right
+            _outerEdges[2] = _cam.ScreenToWorldPoint(new Vector3(_cam.pixelWidth * 0.9f, _cam.pixelHeight * 0.1f, _cam.nearClipPlane));
+            //top right
+            _outerEdges[3] = _cam.ScreenToWorldPoint(new Vector3(_cam.pixelWidth * 0.9f, _cam.pixelHeight * 0.9f, _cam.nearClipPlane));
+
+            foreach (Vector3 edge in _outerEdges)
             {
                 Debug.DrawLine(Vector3.zero, edge, Color.blue, 0.025f);
             }
