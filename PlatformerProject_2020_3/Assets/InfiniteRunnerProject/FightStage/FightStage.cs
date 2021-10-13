@@ -6,6 +6,8 @@ namespace RB
 {
     public class FightStage : BaseStage
     {
+        PlayersMidPoint _midPoint = null;
+
         public override void Init()
         {
             units = new Units(this);
@@ -47,6 +49,12 @@ namespace RB
                 player2.SetUserInput(input);
             }
 
+            //midpoint
+            GameObject midPoint = new GameObject();
+            midPoint.name = "midPoint";
+            midPoint.transform.parent = this.transform;
+            _midPoint = new PlayersMidPoint(midPoint, player1, player2);
+
             //set z for all players
             List<Unit> allPlayers = units.GetUnits<LittleRed>();
 
@@ -65,7 +73,7 @@ namespace RB
             cameraScript = new CameraScript();
             cameraScript.SetCamera(cam);
             cameraScript.SetCameraState(new Camera_LerpOnFighterXAndY(0.08f, 0.08f, 10f, 52f, 4f), true);
-            cameraScript.SetFollowTarget(player1.gameObject);
+            cameraScript.SetFollowTarget(/*player1.gameObject*/midPoint);
 
             //ui
             _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
@@ -105,6 +113,7 @@ namespace RB
             units.OnFixedUpdate();
 
             _baseUI.OnFixedUpdate();
+            _midPoint.OnFixedUpdate();
         }
 
         public override void OnLateUpdate()
