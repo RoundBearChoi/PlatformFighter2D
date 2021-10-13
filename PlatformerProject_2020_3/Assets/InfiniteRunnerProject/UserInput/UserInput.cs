@@ -12,6 +12,15 @@ namespace RB
         private Mouse _mouse = null;
         private Gamepad _gamepad = null;
 
+        [SerializeField]
+        private bool _keyboardDetected = false;
+
+        [SerializeField]
+        private bool _mouseDetected = false;
+
+        [SerializeField]
+        private bool _gamepadDetected = false;
+
         public UserCommands commands = new UserCommands();
 
         public Keyboard KEYBOARD
@@ -30,12 +39,16 @@ namespace RB
 
             if (_mouse != null)
             {
+                _mouseDetected = true;
+
                 commands.AddCommand(CommandType.ATTACK_A, _mouse.leftButton);
                 commands.AddCommand(CommandType.ATTACK_B, _mouse.rightButton);
             }
 
             if (_keyboard != null)
             {
+                _keyboardDetected = true;
+
                 commands.AddCommand(CommandType.ATTACK_A, _keyboard.enterKey);
                 //commands.AddCommand(CommandType.ATTACK_B, _mouse.rightButton);
 
@@ -66,6 +79,8 @@ namespace RB
 
             if (_gamepad != null)
             {
+                _gamepadDetected = true;
+
                 commands.AddCommand(CommandType.ATTACK_A, _gamepad.buttonEast);
 
                 commands.AddCommand(CommandType.MOVE_UP, _gamepad.leftStick.up);
