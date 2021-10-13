@@ -12,6 +12,8 @@ namespace RB
         {
             _unit = unit;
             _maxMomentum = maxMomentum;
+
+            ResetMomentum();
         }
 
         public override void OnFixedUpdate()
@@ -46,7 +48,19 @@ namespace RB
             //reset momentum when on ground
             else if (_unit.unitData.collisionStays.IsOnFlatGround())
             {
-                _unit.unitData.airControl.SetMomentum(0f);
+                ResetMomentum();
+            }
+        }
+
+        void ResetMomentum()
+        {
+            if (_unit.unitData.facingRight)
+            {
+                _unit.unitData.airControl.SetMomentum(0.001f);
+            }
+            else
+            {
+                _unit.unitData.airControl.SetMomentum(-0.001f);
             }
         }
     }
