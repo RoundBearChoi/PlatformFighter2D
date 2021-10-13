@@ -52,6 +52,11 @@ namespace RB
             unit.iStateController.SetNewState(new OldCity_Pillars_DefaultState(unit));
         }
 
+        public void New_OldCity_Background(Unit unit)
+        {
+            unit.iStateController.SetNewState(new OldCity_Background_DefaultState(unit));
+        }
+
         public void New_OldCity_BottomFog(Unit unit)
         {
             unit.iStateController.SetNewState(new OldCity_BottomFog_DefaultState(unit));

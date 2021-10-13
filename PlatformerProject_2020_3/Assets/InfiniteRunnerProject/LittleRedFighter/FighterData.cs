@@ -65,5 +65,6 @@ namespace RB
         public float OldCity_Platforms_z = 0f;
         public float OldCity_Arches_z = 0f;
         public float OldCity_Pillars_z = 0f;
+        public float OldCity_Background_z = 0f;
     }
 }

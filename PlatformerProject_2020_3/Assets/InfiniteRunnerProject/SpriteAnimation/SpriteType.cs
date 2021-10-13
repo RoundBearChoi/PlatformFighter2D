@@ -57,6 +57,7 @@ namespace RB
         OLDCITY_PILLARS = 402,
         OLDCITY_BOTTOMFOG = 403,
         OLDCITY_TOPFOG = 404,
+        OLDCITY_BACKGROUND = 405,
 
         HITEFFECT_PARRY = 500,
 
