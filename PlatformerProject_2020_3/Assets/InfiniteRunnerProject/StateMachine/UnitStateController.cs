@@ -55,7 +55,9 @@ namespace RB
                 currentUnitState.OnExit();
 
                 SetNewState(_unit.unitData.listNextStates[0]);
-                _unit.unitData.listNextStates.Clear();
+
+                _unit.unitData.listNextStates.RemoveAt(0);
+                //_unit.unitData.listNextStates.Clear();
             }
         }
     }
