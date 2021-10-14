@@ -33,6 +33,7 @@ namespace RB
                     BaseInitializer.current.arrInputDeviceData[0].gamepad);
 
                 player1.SetUserInput(input);
+                input.commands.SetDebug(player1);
             }
 
             //player 1
@@ -47,6 +48,7 @@ namespace RB
                     BaseInitializer.current.arrInputDeviceData[1].gamepad);
 
                 player2.SetUserInput(input);
+                input.commands.SetDebug(player2);
             }
 
             //set z for all players

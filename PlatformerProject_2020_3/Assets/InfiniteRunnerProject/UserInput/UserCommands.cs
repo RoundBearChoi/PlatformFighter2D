@@ -60,6 +60,29 @@ namespace RB
             return false;
         }
 
+        public void UpdatePressAndHold(bool[] inputArray)
+        {
+            UpdatePressOnClientInput(CommandType.MOVE_UP, inputArray[0]);
+            UpdatePressOnClientInput(CommandType.MOVE_DOWN, inputArray[1]);
+            UpdatePressOnClientInput(CommandType.MOVE_LEFT, inputArray[2]);
+            UpdatePressOnClientInput(CommandType.MOVE_RIGHT, inputArray[3]);
+            UpdatePressOnClientInput(CommandType.JUMP, inputArray[4]);
+            UpdatePressOnClientInput(CommandType.ATTACK_A, inputArray[5]);
+            UpdatePressOnClientInput(CommandType.SHIFT, inputArray[6]);
+        }
+
+        public void SetDebug(Unit player)
+        {
+            GameObject obj = GameObject.Instantiate(Resources.Load("PressesDebug")) as GameObject;
+            obj.transform.parent = player.transform;
+            obj.transform.localPosition = Vector3.zero;
+            obj.transform.localRotation = Quaternion.identity;
+
+            PressesDebug pressesDebug = obj.GetComponent<PressesDebug>();
+            pressesDebug.allCommands = _dicAllCommands;
+            pressesDebug.presses = _dicPresses;
+        }
+
         void UpdateKeyPress(ButtonControl buttonControl)
         {
             if (buttonControl.wasPressedThisFrame)
@@ -77,17 +100,6 @@ namespace RB
                     _dicPresses.Remove(buttonControl);
                 }
             }
-        }
-
-        public void UpdatePressAndHold(bool[] inputArray)
-        {
-            UpdatePressOnClientInput(CommandType.MOVE_UP, inputArray[0]);
-            UpdatePressOnClientInput(CommandType.MOVE_DOWN, inputArray[1]);
-            UpdatePressOnClientInput(CommandType.MOVE_LEFT, inputArray[2]);
-            UpdatePressOnClientInput(CommandType.MOVE_RIGHT, inputArray[3]);
-            UpdatePressOnClientInput(CommandType.JUMP, inputArray[4]);
-            UpdatePressOnClientInput(CommandType.ATTACK_A, inputArray[5]);
-            UpdatePressOnClientInput(CommandType.SHIFT, inputArray[6]);
         }
 
         void UpdatePressOnClientInput(CommandType commandType, bool isHeld)
