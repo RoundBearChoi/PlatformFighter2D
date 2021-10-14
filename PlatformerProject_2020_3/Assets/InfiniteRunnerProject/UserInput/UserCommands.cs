@@ -5,10 +5,13 @@ using UnityEngine.InputSystem.Controls;
 
 namespace RB
 {
+    [System.Serializable]
     public class UserCommands
     {
         private Dictionary<CommandType, List<ButtonControl>> _dicAllCommands = new Dictionary<CommandType, List<ButtonControl>>();
-        private Dictionary<ButtonControl, bool[]> _dicPresses = new Dictionary<ButtonControl, bool[]>();
+
+        [SerializeField]
+        Presses _presses = new Presses();
 
         public void AddCommand(CommandType commandType, ButtonControl buttonControl)
         {
@@ -27,10 +30,7 @@ namespace RB
             {
                 foreach(ButtonControl button in data.Value)
                 {
-                    if (!_dicPresses.ContainsKey(button))
-                    {
-                        _dicPresses.Add(button, new bool[2]);
-                    }
+                    _presses.Add(data.Key, button);
                 }
             }
         }
@@ -52,21 +52,23 @@ namespace RB
             {
                 foreach(ButtonControl b in _dicAllCommands[commandType])
                 {
-                    if (_dicPresses.ContainsKey(b))
+                    Press p = _presses.GetPress(b);
+                    
+                    if (p != null)
                     {
-                        if (_dicPresses[b][0] == true)
+                        if (p.PRESSED)
                         {
                             if (requireUnusedButton)
                             {
-                                if (_dicPresses[b][1] == false)
+                                if (!p.USED)
                                 {
-                                    _dicPresses[b][1] = true;
+                                    p.SetUsed(true);
                                     return true;
                                 }
                             }
                             else
                             {
-                                _dicPresses[b][1] = true;
+                                p.SetUsed(true);
                                 return true;
                             }
                         }
@@ -88,34 +90,26 @@ namespace RB
             UpdatePressOnClientInput(CommandType.SHIFT, inputArray[6]);
         }
 
-        public void SetDebug(Unit player)
-        {
-            GameObject obj = GameObject.Instantiate(Resources.Load("PressesDebug")) as GameObject;
-            obj.transform.parent = player.transform;
-            obj.transform.localPosition = Vector3.zero;
-            obj.transform.localRotation = Quaternion.identity;
-
-            PressesDebug pressesDebug = obj.GetComponent<PressesDebug>();
-            pressesDebug.allCommands = _dicAllCommands;
-            pressesDebug.presses = _dicPresses;
-        }
-
         void UpdateKeyPress(ButtonControl buttonControl)
         {
             if (buttonControl.wasPressedThisFrame)
             {
-                if (_dicPresses.ContainsKey(buttonControl))
+                Press p = _presses.GetPress(buttonControl);
+
+                if (p != null)
                 {
-                    _dicPresses[buttonControl][0] = true;
+                    p.SetPressed(true);
                 }
             }
 
             if (!buttonControl.isPressed || buttonControl.wasReleasedThisFrame)
             {
-                if (_dicPresses.ContainsKey(buttonControl))
+                Press p = _presses.GetPress(buttonControl);
+
+                if (p != null)
                 {
-                    _dicPresses[buttonControl][0] = false;
-                    _dicPresses[buttonControl][1] = false;
+                    p.SetPressed(false);
+                    p.SetUsed(false);
                 }
             }
         }
@@ -126,19 +120,18 @@ namespace RB
             {
                 foreach(ButtonControl b in _dicAllCommands[commandType])
                 {
-                    if (isHeld)
+                    Press p = _presses.GetPress(b);
+
+                    if (p != null)
                     {
-                        if (_dicPresses.ContainsKey(b))
+                        if (isHeld)
                         {
-                            _dicPresses[b][0] = true;
+                            p.SetPressed(true);
                         }
-                    }
-                    else
-                    {
-                        if (_dicPresses.ContainsKey(b))
+                        else
                         {
-                            _dicPresses[b][0] = false;
-                            _dicPresses[b][1] = false;
+                            p.SetPressed(false);
+                            p.SetUsed(false);
                         }
                     }
                 }
