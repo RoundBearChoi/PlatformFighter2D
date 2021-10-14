@@ -94,14 +94,12 @@ namespace RB
 
                 commands.AddCommand(CommandType.JUMP, _gamepad.buttonSouth);
                 commands.AddCommand(CommandType.SHIFT, _gamepad.buttonWest);
+
+                commands.AddCommand(CommandType.ENTER, _gamepad.buttonEast);
+                commands.AddCommand(CommandType.ESCAPE, _gamepad.selectButton);
             }
 
             commands.SetPressesDictionary();
         }
-
-        //public void OnUpdate()
-        //{
-        //    commands.UpdateKeyPresses();
-        //}
     }
 }
