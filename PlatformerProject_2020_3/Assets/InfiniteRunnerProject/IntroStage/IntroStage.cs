@@ -11,6 +11,8 @@ namespace RB
 
         public override void Init()
         {
+            inputController.InitCentralUserInput();
+
             IntroCamera introCam = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.INTRO_CAMERA)) as IntroCamera;
             introCam.transform.parent = this.transform;
 
@@ -27,19 +29,19 @@ namespace RB
         
         public override void OnUpdate()
         {
-            inputController.GetFirstUserInput().OnUpdate();
+            InputController.centralUserInput.OnUpdate();
 
-            if (inputController.GetFirstUserInput().commands.ContainsPress(CommandType.F4, true))
+            if (InputController.centralUserInput.commands.ContainsPress(CommandType.F4, true))
             {
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.SPRITE_STAGE));
             }
 
-            if (inputController.GetFirstUserInput().commands.ContainsPress(CommandType.F5, true))
+            if (InputController.centralUserInput.commands.ContainsPress(CommandType.F5, true))
             {
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.TEST_STAGE));
             }
 
-            if (inputController.GetFirstUserInput().commands.ContainsPress(CommandType.F6, true))
+            if (InputController.centralUserInput.commands.ContainsPress(CommandType.F6, true))
             {
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.RUNNER_STAGE));
             }

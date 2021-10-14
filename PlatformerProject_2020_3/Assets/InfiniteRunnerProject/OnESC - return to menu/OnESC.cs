@@ -13,21 +13,18 @@ namespace RB
 
         public override void OnUpdate()
         {
-            UserInput userInput = BaseInitializer.current.GetStage().inputController.GetPCUserInput();
+            InputController.centralUserInput.OnUpdate();
 
-            if (userInput != null)
+            if (InputController.centralUserInput.commands.ContainsPress(CommandType.ESCAPE, true))
             {
-                if (userInput.commands.ContainsPress(CommandType.ESCAPE, true))
+                if (_listChildElements.Count == 0)
                 {
-                    if (_listChildElements.Count == 0)
-                    {
-                        UIElement uiElement = UIElement.AddUIElement(UIElementType.QUIT_GAME_ASK, this.transform);
-                        _listChildElements.Add(uiElement);
-                    }
-                    else
-                    {
-                        ClearChildElements();
-                    }
+                    UIElement uiElement = UIElement.AddUIElement(UIElementType.QUIT_GAME_ASK, this.transform);
+                    _listChildElements.Add(uiElement);
+                }
+                else
+                {
+                    ClearChildElements();
                 }
             }
 

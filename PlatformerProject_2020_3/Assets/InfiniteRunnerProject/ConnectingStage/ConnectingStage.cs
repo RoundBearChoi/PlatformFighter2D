@@ -29,7 +29,7 @@ namespace RB
 
         public override void OnUpdate()
         {
-            inputController.GetFirstUserInput().OnUpdate();
+            InputController.centralUserInput.OnUpdate();
             
             if (_baseUI != null)
             {

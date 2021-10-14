@@ -27,21 +27,19 @@ namespace RB
 
         public override void OnUpdate()
         {
-            inputController.GetFirstUserInput().OnUpdate();
+            InputController.centralUserInput.OnUpdate();
 
             if (_baseUI != null)
             {
                 _baseUI.OnUpdate();
             }
 
-            UserInput latestInput = inputController.GetFirstUserInput();
-
-            if (latestInput.commands.ContainsPress(CommandType.ESCAPE, true))
+            if (InputController.centralUserInput.commands.ContainsPress(CommandType.ESCAPE, true))
             {
                 ReturnToMenu.Return();
             }
 
-            if (latestInput.commands.ContainsPress(CommandType.ENTER, true))
+            if (InputController.centralUserInput.commands.ContainsPress(CommandType.ENTER, true))
             {
                 for(int i = 0; i < BaseInitializer.current.arrInputDeviceUI.Length; i++)
                 {

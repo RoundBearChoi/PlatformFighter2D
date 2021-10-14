@@ -46,19 +46,19 @@ namespace RB
 
         public override void OnUpdate()
         {
+            InputController.centralUserInput.OnUpdate();
             updateCounter.OnUpdate();
-            inputController.GetFirstUserInput().OnUpdate();
             units.OnUpdate();
             trailEffects.OnUpdate();
             ui.OnUpdate();
             cameraScript.OnUpdate();
 
-            if (inputController.GetFirstUserInput().commands.ContainsPress(CommandType.F5, false))
+            if (InputController.centralUserInput.commands.ContainsPress(CommandType.F5, false))
             {
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.TEST_STAGE));
             }
 
-            if (inputController.GetFirstUserInput().commands.ContainsPress(CommandType.F6, false))
+            if (InputController.centralUserInput.commands.ContainsPress(CommandType.F6, false))
             {
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
             }

@@ -34,16 +34,14 @@ namespace RB
 
         public override void OnUpdate()
         {
-            inputController.GetFirstUserInput().OnUpdate();
+            InputController.centralUserInput.OnUpdate();
 
             if (_baseUI != null)
             {
                 _baseUI.OnUpdate();
             }
 
-            UserInput latestInput = inputController.GetFirstUserInput();
-
-            if (latestInput.commands.ContainsPress(CommandType.ENTER, true))
+            if (InputController.centralUserInput.commands.ContainsPress(CommandType.ENTER, true))
             {
                 Debugger.Log("enter pressed");
 
@@ -51,7 +49,7 @@ namespace RB
                 enteredMessage.Register();
             }
 
-            if (latestInput.commands.ContainsPress(CommandType.ESCAPE, true))
+            if (InputController.centralUserInput.commands.ContainsPress(CommandType.ESCAPE, true))
             {
                 ReturnToMenu.Return();
             }

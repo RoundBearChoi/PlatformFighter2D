@@ -78,8 +78,8 @@ namespace RB
 
         public override void OnUpdate()
         {
+            InputController.centralUserInput.OnUpdate();
             _playerDataSender.Send();
-            inputController.GetPCUserInput().OnUpdate();
             _baseUI.OnUpdate();
 
             cameraScript.OnUpdate();
@@ -88,12 +88,12 @@ namespace RB
             
             //temp
 
-            if (inputController.GetPCUserInput().commands.ContainsPress(CommandType.F5, false))
+            if (InputController.centralUserInput.commands.ContainsPress(CommandType.F5, false))
             {
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.FIGHT_STAGE));
             }
 
-            if (inputController.GetPCUserInput().commands.ContainsPress(CommandType.F6, false))
+            if (InputController.centralUserInput.commands.ContainsPress(CommandType.F6, false))
             {
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
             }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace RB
 {
@@ -10,7 +11,23 @@ namespace RB
         [SerializeField]
         private List<UserInput> _listUserInputs = new List<UserInput>();
 
-        public UserInput AddInput(UnityEngine.InputSystem.Keyboard keyboard, UnityEngine.InputSystem.Mouse mouse, UnityEngine.InputSystem.Gamepad gamepad)
+        public static UserInput centralUserInput = null;
+
+        public void InitCentralUserInput()
+        {
+            Keyboard keyboard = Keyboard.current;
+            Mouse mouse = Mouse.current;
+            Gamepad gamepad = null;
+
+            if (Gamepad.all.Count > 0)
+            {
+                gamepad = Gamepad.all[0];
+            }
+
+            centralUserInput = new UserInput(keyboard, mouse, gamepad);
+        }
+
+        public UserInput AddInput(Keyboard keyboard, Mouse mouse, Gamepad gamepad)
         {
             UserInput userInput = new UserInput(keyboard, mouse, gamepad);
             _listUserInputs.Add(userInput);
@@ -23,29 +40,6 @@ namespace RB
             {
                 input.OnUpdate();
             }
-        }
-
-        public UserInput GetFirstUserInput()
-        {
-            if (_listUserInputs.Count > 0)
-            {
-                return _listUserInputs[0];
-            }
-
-            return null;
-        }
-
-        public UserInput GetPCUserInput()
-        {
-            foreach (UserInput input in _listUserInputs)
-            {
-                if (input.KEYBOARD != null)
-                {
-                    return input;
-                }
-            }
-
-            return null;
         }
     }
 }

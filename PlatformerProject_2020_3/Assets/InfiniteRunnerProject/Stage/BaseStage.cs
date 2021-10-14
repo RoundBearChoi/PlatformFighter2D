@@ -19,7 +19,7 @@ namespace RB
         protected BaseUI _baseUI = null;
 
         [SerializeField]
-        public InputController inputController = null;
+        public InputController inputController;
 
         public static BaseStage InstantiateNewStage(StageType stageType)
         {

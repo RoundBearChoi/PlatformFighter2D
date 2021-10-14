@@ -85,6 +85,7 @@ namespace RB
 
         public override void OnUpdate()
         {
+            InputController.centralUserInput.OnUpdate();
             inputController.UpdateInputDevices();
             _baseUI.OnUpdate();
 
@@ -93,19 +94,14 @@ namespace RB
             units.OnUpdate();
 
             //temp
-            UserInput pcInput = inputController.GetPCUserInput();
-
-            if (pcInput != null)
+            if (InputController.centralUserInput.commands.ContainsPress(CommandType.F5, false))
             {
-                if (pcInput.commands.ContainsPress(CommandType.F5, false))
-                {
-                    _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.FIGHT_STAGE));
-                }
+                _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.FIGHT_STAGE));
+            }
 
-                if (pcInput.commands.ContainsPress(CommandType.F6, false))
-                {
-                    _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
-                }
+            if (InputController.centralUserInput.commands.ContainsPress(CommandType.F6, false))
+            {
+                _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
             }
         }
 
