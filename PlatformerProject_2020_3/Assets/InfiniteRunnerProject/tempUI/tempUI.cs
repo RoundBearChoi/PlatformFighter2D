@@ -11,7 +11,6 @@ namespace RB.UITest
         private UpdateCounter updateCounter = null;
         private Canvas _canvas = null;
         private List<UIBlock> _listUIBlocks = new List<UIBlock>();
-        private UserInput _userInput = null;
 
         public List<BaseMessage> listMessages = new List<BaseMessage>();
         public Text text_fixedUpdate = null;
@@ -31,11 +30,6 @@ namespace RB.UITest
         {
             fixedUpdateCounter = _fixedUpdateCounter;
             updateCounter = _updateCounter;
-        }
-
-        public void SetInput(UserInput input)
-        {
-            _userInput = input;
         }
 
         public void OnUpdate()
@@ -63,7 +57,6 @@ namespace RB.UITest
             {
                 Debugger.Log("runner death message received by ui");
                 RunnerDeathNotification notification = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.RUNNER_DEATH_NOTIFICATION), _canvas.transform) as RunnerDeathNotification;
-                notification.SetUserInput(_userInput);
                 _listUIBlocks.Add(notification);
             }
         }
