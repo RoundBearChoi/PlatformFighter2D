@@ -9,11 +9,16 @@ namespace RB
         [SerializeField]
         GameObject FencesAndIron = null;
 
+        [SerializeField]
+        GameObject Fog = null;
+
         private void Start()
         {
-            Vector3 pos = new Vector3(FencesAndIron.transform.position.x, FencesAndIron.transform.position.y, BaseInitializer.current.fighterDataSO.OldCity_Fences_z);
+            Vector3 fencePos = new Vector3(FencesAndIron.transform.position.x, FencesAndIron.transform.position.y, BaseInitializer.current.fighterDataSO.OldCity_Fences_z);
+            FencesAndIron.transform.position = fencePos;
 
-            FencesAndIron.transform.position = pos;
+            Vector3 fogPos = new Vector3(Fog.transform.position.x, Fog.transform.position.y, BaseInitializer.current.fighterDataSO.OldCity_BottomFog_z);
+            Fog.transform.position = fogPos;
         }
     }
 }
