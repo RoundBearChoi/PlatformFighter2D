@@ -122,6 +122,10 @@ namespace RB
             {
                 _spriteRenderer.transform.localPosition = new Vector3(-_listSprites[0].bounds.size.x * x * 0.5f, 0f, 0f);
             }
+            else if (_animationSpec.offsetType == OffsetType.TOP_LEFT)
+            {
+                _spriteRenderer.transform.localPosition = new Vector3(_listSprites[0].bounds.size.x * x * 0.5f, 0f, 0f);
+            }
 
             _spriteRenderer.transform.localPosition += new Vector3(_animationSpec.additionalOffset.x, _animationSpec.additionalOffset.y, 0f);
         }

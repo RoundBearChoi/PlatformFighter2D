@@ -4,15 +4,15 @@ using UnityEngine;
 
 namespace RB
 {
-    public class OldCity_BottomFog_DefaultState : UnitState
+    public class OldCity_TopFog_DefaultState : UnitState
     {
-        public OldCity_BottomFog_DefaultState(Unit unit)
+        public OldCity_TopFog_DefaultState(Unit unit)
         {
             ownerUnit = unit;
 
             _listStateComponents.Add(new HorizontalParallax(unit, unit.transform.position, BaseInitializer.current.oldCityParallaxSO.OldCity_Pillars_ParallaxPercentage));
 
-            _listMatchingSpriteTypes.Add(SpriteType.OLDCITY_BOTTOM_FOG);
+            _listMatchingSpriteTypes.Add(SpriteType.OLDCITY_TOP_FOG);
 
             ownerUnit.transform.position = new Vector3(ownerUnit.transform.position.x, ownerUnit.transform.position.y, BaseInitializer.current.fighterDataSO.OldCity_BottomFog_z);
         }

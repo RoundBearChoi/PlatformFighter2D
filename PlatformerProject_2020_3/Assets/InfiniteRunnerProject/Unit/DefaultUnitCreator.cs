@@ -57,7 +57,8 @@ namespace RB
 
                     float xTiling = 0f;
 
-                    if (spriteSpec.offsetType == OffsetType.BOTTOM_LEFT)
+                    if (spriteSpec.offsetType == OffsetType.BOTTOM_LEFT ||
+                        spriteSpec.offsetType == OffsetType.TOP_LEFT)
                     {
                         xTiling = sprObj.transform.localPosition.x * 2 * i;
                     }

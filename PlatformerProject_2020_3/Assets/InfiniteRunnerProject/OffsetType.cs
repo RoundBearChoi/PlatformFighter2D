@@ -14,5 +14,7 @@ namespace RB
         CENTER_CENTER,
         CENTER_LEFT,
         CENTER_RIGHT,
+
+        TOP_LEFT,
     }
 }

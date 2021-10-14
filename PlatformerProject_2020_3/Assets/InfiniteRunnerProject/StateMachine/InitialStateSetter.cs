@@ -64,7 +64,7 @@ namespace RB
 
         public void New_OldCity_TopFog(Unit unit)
         {
-            //unit.iStateController.SetNewState(new OldCity_Pillars_DefaultState(unit));
+            unit.iStateController.SetNewState(new OldCity_TopFog_DefaultState(unit));
         }
 
         public void New_LandingDust(Unit unit)
