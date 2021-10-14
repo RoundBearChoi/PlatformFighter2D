@@ -8,14 +8,14 @@ namespace RB
     {
         public override void Init()
         {
-            UserInput input = inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null);
+            UserInput input = inputController.AddFighterInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null);
             units = new Units(this);
 
             Physics2D.gravity = new Vector2(0f, -50);
 
             InstantiateUnit_ByUnitType(UnitType.RUNNER);
             Unit runner = units.GetUnit<Runner>();
-            runner.SetUserInput(input);
+            runner.SetFighterInput(input);
 
             cameraScript = new CameraScript();
 
@@ -47,7 +47,8 @@ namespace RB
 
         public override void OnUpdate()
         {
-            InputController.centralUserInput.OnUpdate();
+            InputController.centralUserInput.commands.UpdateKeyPresses();
+
             _baseUI.OnUpdate();
             units.OnUpdate();
             trailEffects.OnUpdate();

@@ -27,7 +27,7 @@ namespace RB
             centralUserInput = new UserInput(keyboard, mouse, gamepad);
         }
 
-        public UserInput AddInput(Keyboard keyboard, Mouse mouse, Gamepad gamepad)
+        public UserInput AddFighterInput(Keyboard keyboard, Mouse mouse, Gamepad gamepad)
         {
             UserInput userInput = new UserInput(keyboard, mouse, gamepad);
             _listUserInputs.Add(userInput);
@@ -38,7 +38,7 @@ namespace RB
         {
             foreach(UserInput input in _listUserInputs)
             {
-                input.OnUpdate();
+                input.commands.UpdateKeyPresses();
             }
         }
     }

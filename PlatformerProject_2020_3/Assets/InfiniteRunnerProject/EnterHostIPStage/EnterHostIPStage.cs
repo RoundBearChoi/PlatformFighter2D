@@ -24,8 +24,6 @@ namespace RB
             _mainCam = introCam.GetComponent<Camera>();
             _mainCam.transform.position = new Vector3(0f, 0f, -5f);
 
-            inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null);
-
             _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
             _baseUI.transform.parent = this.transform;
             
@@ -34,7 +32,7 @@ namespace RB
 
         public override void OnUpdate()
         {
-            InputController.centralUserInput.OnUpdate();
+            InputController.centralUserInput.commands.UpdateKeyPresses();
 
             if (_baseUI != null)
             {

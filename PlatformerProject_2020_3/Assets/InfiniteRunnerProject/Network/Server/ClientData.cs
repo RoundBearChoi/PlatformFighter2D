@@ -50,7 +50,6 @@ namespace RB.Server
 
             if (input != null)
             {
-                Debugger.Log("updating client input");
                 input.commands.UpdatePressAndHold(_inputs);
             }
         }

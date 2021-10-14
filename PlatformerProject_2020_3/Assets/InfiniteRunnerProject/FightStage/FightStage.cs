@@ -27,12 +27,12 @@ namespace RB
 
             if (BaseInitializer.current.arrInputDeviceData[0] != null)
             {
-                UserInput input = inputController.AddInput(
+                UserInput input = inputController.AddFighterInput(
                     BaseInitializer.current.arrInputDeviceData[0].keyboard,
                     BaseInitializer.current.arrInputDeviceData[0].mouse,
                     BaseInitializer.current.arrInputDeviceData[0].gamepad);
 
-                player1.SetUserInput(input);
+                player1.SetFighterInput(input);
             }
 
             //player 1
@@ -41,12 +41,12 @@ namespace RB
 
             if (BaseInitializer.current.arrInputDeviceData[1] != null)
             {
-                UserInput input = inputController.AddInput(
+                UserInput input = inputController.AddFighterInput(
                     BaseInitializer.current.arrInputDeviceData[1].keyboard,
                     BaseInitializer.current.arrInputDeviceData[1].mouse,
                     BaseInitializer.current.arrInputDeviceData[1].gamepad);
 
-                player2.SetUserInput(input);
+                player2.SetFighterInput(input);
             }
 
             //set z for all players
@@ -85,8 +85,9 @@ namespace RB
 
         public override void OnUpdate()
         {
-            InputController.centralUserInput.OnUpdate();
+            InputController.centralUserInput.commands.UpdateKeyPresses();
             inputController.UpdateInputDevices();
+
             _baseUI.OnUpdate();
 
             cameraScript.OnUpdate();

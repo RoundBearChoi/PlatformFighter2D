@@ -99,9 +99,9 @@ namespace RB
             commands.SetPressesDictionary();
         }
 
-        public void OnUpdate()
-        {
-            commands.OnUpdate();
-        }
+        //public void OnUpdate()
+        //{
+        //    commands.UpdateKeyPresses();
+        //}
     }
 }

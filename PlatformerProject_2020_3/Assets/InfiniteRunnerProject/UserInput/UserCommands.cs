@@ -35,7 +35,7 @@ namespace RB
             }
         }
 
-        public void OnUpdate()
+        public void UpdateKeyPresses()
         {
             foreach(KeyValuePair<CommandType, List<ButtonControl>> data in _dicAllCommands)
             {

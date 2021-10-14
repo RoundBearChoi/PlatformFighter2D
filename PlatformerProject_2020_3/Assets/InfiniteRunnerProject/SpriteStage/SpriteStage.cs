@@ -24,8 +24,6 @@ namespace RB
 
         public override void Init()
         {
-            inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null);
-
             _dummyObj = new GameObject();
             _dummyObj.transform.parent = this.transform;
             _dummyObj.transform.position = Vector3.zero;
@@ -54,7 +52,7 @@ namespace RB
 
         public override void OnUpdate()
         {
-            InputController.centralUserInput.OnUpdate();
+            InputController.centralUserInput.commands.UpdateKeyPresses();
 
             if (_prevSpec != animationSpec)
             {

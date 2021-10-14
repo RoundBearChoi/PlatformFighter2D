@@ -13,7 +13,7 @@ namespace RB
 
         public override void OnUpdate()
         {
-            InputController.centralUserInput.OnUpdate();
+            InputController.centralUserInput.commands.UpdateKeyPresses();
 
             if (InputController.centralUserInput.commands.ContainsPress(CommandType.ESCAPE, true))
             {

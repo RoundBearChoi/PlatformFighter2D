@@ -26,8 +26,7 @@ namespace RB
             _dummyOfflinePlayer = units.GetUnit<LittleRed>();
             _dummyOfflinePlayer.isDummy = true;
 
-            UserInput input = inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null);
-            _dummyOfflinePlayer.SetUserInput(input);
+            _dummyOfflinePlayer.SetFighterInput(InputController.centralUserInput);
 
             //load level 3 (oldcity)
             GameObject levelObj = Instantiate(ResourceLoader.levelLoader.GetObj(3)) as GameObject;
@@ -104,7 +103,8 @@ namespace RB
 
         public override void OnUpdate()
         {
-            InputController.centralUserInput.OnUpdate();
+            InputController.centralUserInput.commands.UpdateKeyPresses();
+
             _clientObjects.OnUpdate();
             units.OnUpdate();
             trailEffects.OnUpdate();

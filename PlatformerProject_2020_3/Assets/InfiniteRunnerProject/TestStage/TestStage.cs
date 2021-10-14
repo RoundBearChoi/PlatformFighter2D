@@ -12,14 +12,14 @@ namespace RB
 
         public override void Init()
         {
-            UserInput input = inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null);
+            UserInput input = inputController.AddFighterInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null);
             units = new Units(this);
 
             Physics2D.gravity = new Vector2(0f, -50);
 
             InstantiateUnits_ByUnitType(UnitType.RUNNER);
             Unit runner = units.GetUnit<Runner>();
-            runner.SetUserInput(input);
+            runner.SetFighterInput(input);
 
             GameObject levelObj = Instantiate(ResourceLoader.levelLoader.GetObj(1)) as GameObject;
             levelObj.transform.parent = this.transform;
@@ -46,7 +46,8 @@ namespace RB
 
         public override void OnUpdate()
         {
-            InputController.centralUserInput.OnUpdate();
+            InputController.centralUserInput.commands.UpdateKeyPresses();
+
             updateCounter.OnUpdate();
             units.OnUpdate();
             trailEffects.OnUpdate();

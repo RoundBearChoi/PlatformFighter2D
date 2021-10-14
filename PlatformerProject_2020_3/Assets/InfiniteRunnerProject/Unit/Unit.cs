@@ -30,7 +30,7 @@ namespace RB
             }
         }
 
-        public void SetUserInput(UserInput userInput)
+        public void SetFighterInput(UserInput userInput)
         {
             _userInput = userInput;
         }
