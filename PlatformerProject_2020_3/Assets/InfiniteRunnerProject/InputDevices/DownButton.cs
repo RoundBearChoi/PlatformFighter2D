@@ -14,8 +14,8 @@ namespace RB
         Image _pressedImage = null;
 
         uint _fixedUpdateCount = 0;
-        uint _pressedFrames = 30;
-        uint _nonPressedFrames = 50;
+        uint _pressedFrames = 35;
+        uint _nonPressedFrames = 35;
         bool _showPressed = false;
         bool _hideAll = false;
 
