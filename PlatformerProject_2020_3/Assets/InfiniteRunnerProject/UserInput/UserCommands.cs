@@ -8,7 +8,7 @@ namespace RB
     public class UserCommands
     {
         private Dictionary<CommandType, List<ButtonControl>> _dicAllCommands = new Dictionary<CommandType, List<ButtonControl>>();
-        private Dictionary<ButtonControl, bool> _dicPresses = new Dictionary<ButtonControl, bool>();
+        private Dictionary<ButtonControl, bool[]> _dicPresses = new Dictionary<ButtonControl, bool[]>();
 
         public void AddCommand(CommandType commandType, ButtonControl buttonControl)
         {
@@ -19,6 +19,20 @@ namespace RB
             }
 
             _dicAllCommands[commandType].Add(buttonControl);
+        }
+
+        public void SetPressesDictionary()
+        {
+            foreach(KeyValuePair<CommandType, List<ButtonControl>> data in _dicAllCommands)
+            {
+                foreach(ButtonControl button in data.Value)
+                {
+                    if (!_dicPresses.ContainsKey(button))
+                    {
+                        _dicPresses.Add(button, new bool[2]);
+                    }
+                }
+            }
         }
 
         public void OnUpdate()
@@ -40,18 +54,21 @@ namespace RB
                 {
                     if (_dicPresses.ContainsKey(b))
                     {
-                        if (requireUnusedButton)
+                        if (_dicPresses[b][0] == true)
                         {
-                            if (_dicPresses[b] == false)
+                            if (requireUnusedButton)
                             {
-                                _dicPresses[b] = true;
+                                if (_dicPresses[b][1] == false)
+                                {
+                                    _dicPresses[b][1] = true;
+                                    return true;
+                                }
+                            }
+                            else
+                            {
+                                _dicPresses[b][1] = true;
                                 return true;
                             }
-                        }
-                        else
-                        {
-                            _dicPresses[b] = true;
-                            return true;
                         }
                     }
                 }
@@ -87,9 +104,9 @@ namespace RB
         {
             if (buttonControl.wasPressedThisFrame)
             {
-                if (!_dicPresses.ContainsKey(buttonControl))
+                if (_dicPresses.ContainsKey(buttonControl))
                 {
-                    _dicPresses.Add(buttonControl, false);
+                    _dicPresses[buttonControl][0] = true;
                 }
             }
 
@@ -97,7 +114,8 @@ namespace RB
             {
                 if (_dicPresses.ContainsKey(buttonControl))
                 {
-                    _dicPresses.Remove(buttonControl);
+                    _dicPresses[buttonControl][0] = false;
+                    _dicPresses[buttonControl][1] = false;
                 }
             }
         }
@@ -110,16 +128,17 @@ namespace RB
                 {
                     if (isHeld)
                     {
-                        if (!_dicPresses.ContainsKey(b))
+                        if (_dicPresses.ContainsKey(b))
                         {
-                            _dicPresses.Add(b, false);
+                            _dicPresses[b][0] = true;
                         }
                     }
                     else
                     {
                         if (_dicPresses.ContainsKey(b))
                         {
-                            _dicPresses.Remove(b);
+                            _dicPresses[b][0] = false;
+                            _dicPresses[b][1] = false;
                         }
                     }
                 }

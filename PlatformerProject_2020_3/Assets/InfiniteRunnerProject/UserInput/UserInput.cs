@@ -41,8 +41,8 @@ namespace RB
             {
                 _mouseDetected = true;
 
-                commands.AddCommand(CommandType.ATTACK_A, _mouse.leftButton);
-                commands.AddCommand(CommandType.ATTACK_B, _mouse.rightButton);
+                //commands.AddCommand(CommandType.ATTACK_A, _mouse.leftButton);
+                //commands.AddCommand(CommandType.ATTACK_B, _mouse.rightButton);
             }
 
             if (_keyboard != null)
@@ -50,7 +50,6 @@ namespace RB
                 _keyboardDetected = true;
 
                 commands.AddCommand(CommandType.ATTACK_A, _keyboard.enterKey);
-                //commands.AddCommand(CommandType.ATTACK_B, _mouse.rightButton);
 
                 commands.AddCommand(CommandType.MOVE_UP, _keyboard.wKey);
                 commands.AddCommand(CommandType.MOVE_DOWN, _keyboard.sKey);
@@ -96,6 +95,8 @@ namespace RB
                 commands.AddCommand(CommandType.JUMP, _gamepad.buttonSouth);
                 commands.AddCommand(CommandType.SHIFT, _gamepad.buttonWest);
             }
+
+            commands.SetPressesDictionary();
         }
 
         public void OnUpdate()
