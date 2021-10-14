@@ -13,8 +13,7 @@ namespace RB
 
         public override void OnUpdate()
         {
-            InputController inputController = BaseInitializer.current.GetStage().GetInputController();
-            UserInput userInput = inputController.GetPCUserInput();
+            UserInput userInput = BaseInitializer.current.GetStage().inputController.GetPCUserInput();
 
             if (userInput != null)
             {

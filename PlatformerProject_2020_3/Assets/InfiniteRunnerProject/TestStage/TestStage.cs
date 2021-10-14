@@ -12,7 +12,7 @@ namespace RB
 
         public override void Init()
         {
-            UserInput input = _inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null);
+            UserInput input = inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null);
             units = new Units(this);
 
             Physics2D.gravity = new Vector2(0f, -50);
@@ -47,18 +47,18 @@ namespace RB
         public override void OnUpdate()
         {
             updateCounter.OnUpdate();
-            _inputController.GetFirstUserInput().OnUpdate();
+            inputController.GetFirstUserInput().OnUpdate();
             units.OnUpdate();
             trailEffects.OnUpdate();
             ui.OnUpdate();
             cameraScript.OnUpdate();
 
-            if (_inputController.GetFirstUserInput().commands.ContainsPress(CommandType.F5, false))
+            if (inputController.GetFirstUserInput().commands.ContainsPress(CommandType.F5, false))
             {
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.TEST_STAGE));
             }
 
-            if (_inputController.GetFirstUserInput().commands.ContainsPress(CommandType.F6, false))
+            if (inputController.GetFirstUserInput().commands.ContainsPress(CommandType.F6, false))
             {
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
             }

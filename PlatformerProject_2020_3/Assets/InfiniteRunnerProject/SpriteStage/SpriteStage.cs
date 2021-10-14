@@ -24,7 +24,7 @@ namespace RB
 
         public override void Init()
         {
-            _inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null);
+            inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null);
 
             _dummyObj = new GameObject();
             _dummyObj.transform.parent = this.transform;
@@ -54,7 +54,7 @@ namespace RB
 
         public override void OnUpdate()
         {
-            _inputController.GetFirstUserInput().OnUpdate();
+            inputController.GetFirstUserInput().OnUpdate();
 
             if (_prevSpec != animationSpec)
             {
@@ -63,7 +63,7 @@ namespace RB
                 Init();
             }
 
-            if (_inputController.GetFirstUserInput().commands.ContainsPress(CommandType.F6, false))
+            if (inputController.GetFirstUserInput().commands.ContainsPress(CommandType.F6, false))
             {
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
             }
@@ -71,7 +71,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (_inputController.GetFirstUserInput().commands.ContainsPress(CommandType.JUMP, true))
+            if (inputController.GetFirstUserInput().commands.ContainsPress(CommandType.JUMP, true))
             {
                 _dummyAnimation.ManualSetSpriteIndex(_dummyAnimation.GetCurrentAnimation().SPRITE_INDEX + 1);
 

@@ -28,12 +28,12 @@ namespace RB
 
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_LIGHT);
             Unit serverPlayer = units.GetUnit<LittleRed>();
-            serverPlayer.SetUserInput(_inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null));
+            serverPlayer.SetUserInput(inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null));
             playerUnits.Add(serverPlayer);
 
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_DARK);
             Unit client0 = units.GetUnit<LittleRed>();
-            client0.SetUserInput(_inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null));
+            client0.SetUserInput(inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null));
             playerUnits.Add(client0);
 
             //set z for all players
@@ -79,7 +79,7 @@ namespace RB
         public override void OnUpdate()
         {
             _playerDataSender.Send();
-            _inputController.GetPCUserInput().OnUpdate();
+            inputController.GetPCUserInput().OnUpdate();
             _baseUI.OnUpdate();
 
             cameraScript.OnUpdate();
@@ -88,12 +88,12 @@ namespace RB
             
             //temp
 
-            if (_inputController.GetPCUserInput().commands.ContainsPress(CommandType.F5, false))
+            if (inputController.GetPCUserInput().commands.ContainsPress(CommandType.F5, false))
             {
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.FIGHT_STAGE));
             }
 
-            if (_inputController.GetPCUserInput().commands.ContainsPress(CommandType.F6, false))
+            if (inputController.GetPCUserInput().commands.ContainsPress(CommandType.F6, false))
             {
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
             }

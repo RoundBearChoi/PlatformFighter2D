@@ -16,8 +16,7 @@ namespace RB.Client
                 _inputs = new bool[7];
             }
 
-            InputController inputController = GameInitializer.current.GetStage().GetInputController();
-            UserInput input = inputController.GetFirstUserInput();
+            UserInput input = GameInitializer.current.GetStage().inputController.GetFirstUserInput();
 
             _inputs[0] = input.commands.ContainsPress(CommandType.MOVE_UP, false);
             _inputs[1] = input.commands.ContainsPress(CommandType.MOVE_DOWN, false);

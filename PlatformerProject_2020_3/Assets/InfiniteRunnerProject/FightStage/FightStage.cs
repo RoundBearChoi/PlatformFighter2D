@@ -27,7 +27,7 @@ namespace RB
 
             if (BaseInitializer.current.arrInputDeviceData[0] != null)
             {
-                UserInput input = _inputController.AddInput(
+                UserInput input = inputController.AddInput(
                     BaseInitializer.current.arrInputDeviceData[0].keyboard,
                     BaseInitializer.current.arrInputDeviceData[0].mouse,
                     BaseInitializer.current.arrInputDeviceData[0].gamepad);
@@ -41,7 +41,7 @@ namespace RB
 
             if (BaseInitializer.current.arrInputDeviceData[1] != null)
             {
-                UserInput input = _inputController.AddInput(
+                UserInput input = inputController.AddInput(
                     BaseInitializer.current.arrInputDeviceData[1].keyboard,
                     BaseInitializer.current.arrInputDeviceData[1].mouse,
                     BaseInitializer.current.arrInputDeviceData[1].gamepad);
@@ -85,7 +85,7 @@ namespace RB
 
         public override void OnUpdate()
         {
-            _inputController.UpdateInputDevices();
+            inputController.UpdateInputDevices();
             _baseUI.OnUpdate();
 
             cameraScript.OnUpdate();
@@ -93,7 +93,7 @@ namespace RB
             units.OnUpdate();
 
             //temp
-            UserInput pcInput = _inputController.GetPCUserInput();
+            UserInput pcInput = inputController.GetPCUserInput();
 
             if (pcInput != null)
             {

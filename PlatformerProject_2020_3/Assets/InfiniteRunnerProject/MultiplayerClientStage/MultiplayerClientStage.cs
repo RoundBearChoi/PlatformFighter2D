@@ -26,7 +26,7 @@ namespace RB
             _dummyOfflinePlayer = units.GetUnit<LittleRed>();
             _dummyOfflinePlayer.isDummy = true;
 
-            UserInput input = _inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null);
+            UserInput input = inputController.AddInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null);
             _dummyOfflinePlayer.SetUserInput(input);
 
             //load level 3 (oldcity)
@@ -104,7 +104,7 @@ namespace RB
 
         public override void OnUpdate()
         {
-            _inputController.GetPCUserInput().OnUpdate();
+            inputController.GetPCUserInput().OnUpdate();
             _clientObjects.OnUpdate();
             units.OnUpdate();
             trailEffects.OnUpdate();

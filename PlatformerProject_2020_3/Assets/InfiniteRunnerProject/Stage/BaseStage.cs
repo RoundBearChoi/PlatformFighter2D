@@ -19,7 +19,7 @@ namespace RB
         protected BaseUI _baseUI = null;
 
         [SerializeField]
-        protected InputController _inputController = null;
+        public InputController inputController = null;
 
         public static BaseStage InstantiateNewStage(StageType stageType)
         {
@@ -140,11 +140,6 @@ namespace RB
         public virtual float GetCumulativeGravityForcePercentage()
         {
             return 0f;
-        }
-
-        public InputController GetInputController()
-        {
-            return _inputController;
         }
     }
 }
