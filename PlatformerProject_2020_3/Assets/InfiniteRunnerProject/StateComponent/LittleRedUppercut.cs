@@ -11,7 +11,10 @@ namespace RB
 
         public LittleRedUppercut(Unit unit)
         {
+            disallowTransitionQueue = true;
+
             ownerUnit = unit;
+            
             initialFaceRight = unit.unitData.facingRight;
 
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, BaseInitializer.current.fighterDataSO.AttackASlowDownPercentage));

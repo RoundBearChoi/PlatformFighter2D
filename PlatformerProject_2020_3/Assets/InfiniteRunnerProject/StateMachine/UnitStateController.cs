@@ -56,7 +56,15 @@ namespace RB
 
                 SetNewState(_unit.unitData.listNextStates[0]);
 
-                _unit.unitData.listNextStates.RemoveAt(0);
+                if (_unit.unitData.listNextStates[0].disallowTransitionQueue)
+                {
+                    _unit.unitData.listNextStates.Clear();
+                }
+                else
+                {
+                    _unit.unitData.listNextStates.RemoveAt(0);
+                }
+                
                 //_unit.unitData.listNextStates.Clear();
             }
         }

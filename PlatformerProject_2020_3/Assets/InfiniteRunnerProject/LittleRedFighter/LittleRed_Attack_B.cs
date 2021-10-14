@@ -8,6 +8,8 @@ namespace RB
     {
         public LittleRed_Attack_B(Unit unit)
         {
+            disallowTransitionQueue = true;
+
             ownerUnit = unit;
 
             _listStateComponents.Add(new CancelJumpForceOnNonPress(ownerUnit, 0));

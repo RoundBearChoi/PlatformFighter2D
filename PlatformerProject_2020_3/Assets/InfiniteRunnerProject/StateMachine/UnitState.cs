@@ -8,6 +8,7 @@ namespace RB
     {
         public uint fixedUpdateCount = 0;
         public Unit ownerUnit = null;
+        public bool disallowTransitionQueue = false;
 
         protected bool noHitStopAllowed = false;
         protected List<StateComponent> _listStateComponents = new List<StateComponent>();

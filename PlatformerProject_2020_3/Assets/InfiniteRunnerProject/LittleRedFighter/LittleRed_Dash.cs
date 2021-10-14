@@ -8,6 +8,8 @@ namespace RB
     {
         public LittleRed_Dash(Unit unit)
         {
+            disallowTransitionQueue = true;
+
             ownerUnit = unit;
 
             if (!ownerUnit.isDummy)
