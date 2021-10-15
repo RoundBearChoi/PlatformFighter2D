@@ -13,7 +13,6 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-
             if (_unit.USER_INPUT.commands.ContainsPress(CommandType.SHIFT, false))
             {
                 if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false) == true &&

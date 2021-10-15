@@ -10,6 +10,8 @@ namespace RB
 
         public LittleRed_Jump_Up(Unit unit, float jumpForce, uint defaultJumpFrames)
         {
+            disallowTransitionQueue = true;
+
             ownerUnit = unit;
             _jumpForce = jumpForce;
 
