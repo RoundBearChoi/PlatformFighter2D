@@ -12,12 +12,9 @@ namespace RB
 
             ownerUnit = unit;
 
-            //_listStateComponents.Add(new LerpHorizontalMomentumOnInput_Air(ownerUnit, BaseInitializer.current.fighterDataSO.MaxHorizontalAirMomentum));
+            _listStateComponents.Add(new Create_LittleRed_Roll_StepDust(ownerUnit));
+
             _listStateComponents.Add(new UpdateAirMovementOnMomentum(ownerUnit));
-
-            //_listStateComponents.Add(new CancelJumpForceOnNonPress(ownerUnit, 0));
-            //_listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, BaseInitializer.current.fighterDataSO.AttackASlowDownPercentage));
-
             _listStateComponents.Add(new TriggerMarioStomp(ownerUnit));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_GROUND_ROLL);
@@ -25,6 +22,8 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
+            ownerUnit.gameObject.layer = (int)LayerType.GHOSTING_UNIT;
+
             float speed = 0f;
 
             if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX <= 2)
@@ -56,6 +55,16 @@ namespace RB
             }
             else
             {
+                if (ownerUnit.unitData.collisionStays.IsOnFlatGround() ||
+                    ownerUnit.unitData.collisionEnters.IsOnFlatGround())
+                {
+                    if (!ownerUnit.isDummy)
+                    {
+                        //BaseMessage showLandingDust = new Message_ShowLandingDust(true, ownerUnit.transform.position, new Vector2(1f, 1f));
+                        //showLandingDust.Register();
+                    }
+                }
+
                 ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
             }
 

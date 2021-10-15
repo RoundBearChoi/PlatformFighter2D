@@ -28,6 +28,8 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
+            ownerUnit.gameObject.layer = (int)LayerType.PHYSICAL_UNIT;
+
             FixedUpdateComponents();
 
             //random blink

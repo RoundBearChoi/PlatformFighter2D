@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace RB
 {
-    public class CreateStepDust : StateComponent
+    public class Create_LittleRed_Run_StepDust : StateComponent
     {
-        public CreateStepDust(Unit unit)
+        public Create_LittleRed_Run_StepDust(Unit unit)
         {
             _unit = unit;
         }

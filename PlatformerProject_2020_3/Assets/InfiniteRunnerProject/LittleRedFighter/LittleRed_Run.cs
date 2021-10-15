@@ -18,7 +18,7 @@ namespace RB
             }
 
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, runspeed, BaseInitializer.current.fighterDataSO.RunSpeedLerpPercentage));
-            _listStateComponents.Add(new CreateStepDust(ownerUnit));
+            _listStateComponents.Add(new Create_LittleRed_Run_StepDust(ownerUnit));
             _listStateComponents.Add(new SetDefaultAnimationInterval(ownerUnit));
 
             _listStateComponents.Add(new TriggerIdleOnGround(ownerUnit));
