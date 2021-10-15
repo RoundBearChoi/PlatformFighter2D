@@ -14,6 +14,7 @@ namespace RB
 
             _listStateComponents.Add(new Create_LittleRed_Roll_StepDust(ownerUnit));
 
+            _listStateComponents.Add(new MidAirRoll(ownerUnit));
             _listStateComponents.Add(new GroundRoll(ownerUnit));
             _listStateComponents.Add(new TriggerMarioStomp(ownerUnit));
 
@@ -25,6 +26,11 @@ namespace RB
             ownerUnit.gameObject.layer = (int)LayerType.GHOSTING_UNIT;
 
             FixedUpdateComponents();
+        }
+
+        public override void OnExit()
+        {
+            ownerUnit.gameObject.layer = (int)LayerType.PHYSICAL_UNIT;
         }
     }
 }

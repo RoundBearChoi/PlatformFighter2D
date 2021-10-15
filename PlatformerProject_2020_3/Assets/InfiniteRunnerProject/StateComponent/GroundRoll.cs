@@ -23,6 +23,8 @@ namespace RB
 
         void OnGround()
         {
+            _unit.gameObject.layer = (int)LayerType.GHOSTING_UNIT;
+
             if (_unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX <= 2)
             {
                 _speed = BaseInitializer.current.fighterDataSO.DefaultRunSpeed * 1.5f;
