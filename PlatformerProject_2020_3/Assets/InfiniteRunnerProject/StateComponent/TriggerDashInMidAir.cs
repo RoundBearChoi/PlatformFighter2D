@@ -13,7 +13,9 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (!_unit.unitData.airControl.DashTriggered)
+            if (!_unit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM) &&
+                !_unit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM) &&
+                !_unit.unitData.airControl.DashTriggered)
             {
                 uint fixedUpdateCount = _unit.iStateController.GetCurrentState().fixedUpdateCount;
 
