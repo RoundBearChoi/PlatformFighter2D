@@ -13,20 +13,24 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (_unit.USER_INPUT.commands.ContainsPress(CommandType.SHIFT, false))
+            if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false) == true &&
+                _unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false) == false)
             {
-                if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false) == true &&
-                    _unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false) == false)
-                {
-                    _unit.unitData.facingRight = false;
-                    _unit.unitData.listNextStates.Add(new LittleRed_GroundRoll(_unit));
-                }
-                else if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false) == false &&
-                    _unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false) == true)
-                {
-                    _unit.unitData.facingRight = true;
-                    _unit.unitData.listNextStates.Add(new LittleRed_GroundRoll(_unit));
-                }
+                Roll(false);
+            }
+            else if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false) == false &&
+                _unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false) == true)
+            {
+                Roll(true);
+            }
+        }
+
+        void Roll(bool faceRight)
+        {
+            if (_unit.USER_INPUT.commands.ContainsPress(CommandType.SHIFT, true))
+            {
+                _unit.unitData.facingRight = faceRight;
+                _unit.unitData.listNextStates.Add(new LittleRed_GroundRoll(_unit));
             }
         }
     }
