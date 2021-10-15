@@ -52,6 +52,8 @@ namespace RB
         LITTLE_RED_JUMP_FALL = 360,
         LITTLE_RED_JUMP_UP = 361,
 
+        LITTLE_RED_GROUND_ROLL = 370,
+
         OLDCITY_PLATFORMS = 400,
         OLDCITY_ARCHES = 401,
         OLDCITY_PILLARS = 402,
