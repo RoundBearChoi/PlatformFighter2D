@@ -41,8 +41,8 @@ namespace RB
             {
                 _mouseDetected = true;
 
-                //commands.AddCommand(CommandType.ATTACK_A, _mouse.leftButton);
-                //commands.AddCommand(CommandType.ATTACK_B, _mouse.rightButton);
+                commands.AddCommand(CommandType.ATTACK_A, _mouse.leftButton);
+                commands.AddCommand(CommandType.ATTACK_B, _mouse.rightButton);
             }
 
             if (_keyboard != null)
