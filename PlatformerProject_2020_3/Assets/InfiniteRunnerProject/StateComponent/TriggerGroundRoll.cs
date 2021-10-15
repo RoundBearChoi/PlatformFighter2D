@@ -30,7 +30,7 @@ namespace RB
             if (_unit.USER_INPUT.commands.ContainsPress(CommandType.SHIFT, true))
             {
                 _unit.unitData.facingRight = faceRight;
-                _unit.unitData.listNextStates.Add(new LittleRed_GroundRoll(_unit));
+                _unit.unitData.listNextStates.Add(new LittleRed_Roll(_unit));
             }
         }
     }
