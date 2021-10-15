@@ -26,6 +26,7 @@ namespace RB
             {
                 _listInputDeviceInfo[0].SetInputDevice(UnityEngine.InputSystem.Keyboard.current);
                 _listInputDeviceInfo[0].SetInputDevice(UnityEngine.InputSystem.Mouse.current);
+                _listInputDeviceInfo[0].deviceImage.SetPlayerIndex("P1");
             }
 
             for (int i = 0; i < UnityEngine.InputSystem.Gamepad.all.Count; i++)
@@ -33,7 +34,9 @@ namespace RB
                 if (_listInputDeviceInfo.Count > i + 1)
                 {
                     Debugger.Log("gamepad detected: " + UnityEngine.InputSystem.Gamepad.all[i].name);
-                    _listInputDeviceInfo[i + 1].SetInputDevice(UnityEngine.InputSystem.Gamepad.all[i], i);
+
+                    _listInputDeviceInfo[i + 1].SetInputDevice(UnityEngine.InputSystem.Gamepad.all[i]);
+                    _listInputDeviceInfo[i + 1].deviceImage.SetPlayerIndex("P" + (i + 2));
                 }
             }
 

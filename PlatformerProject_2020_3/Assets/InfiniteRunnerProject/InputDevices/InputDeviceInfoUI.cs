@@ -17,9 +17,6 @@ namespace RB
         public DownButton downButton = new DownButton();
 
         [SerializeField]
-        Text _deviceNameText = null;
-
-        [SerializeField]
         bool _deviceDetected = false;
 
         [SerializeField]
@@ -98,7 +95,6 @@ namespace RB
             _keyboard = keyboard;
             _deviceName = _keyboard.name;
             _deviceDetected = true;
-            _deviceNameText.text = "KEYBOARD";
 
             deviceImage.TogglePCImage(true);
             deviceImage.TogglePSImage(false);
@@ -112,12 +108,11 @@ namespace RB
             _deviceDetected = true;
         }
 
-        public void SetInputDevice(UnityEngine.InputSystem.Gamepad gamepad, int gamepadIndex)
+        public void SetInputDevice(UnityEngine.InputSystem.Gamepad gamepad)
         {
             _gamepad = gamepad;
             _deviceName = gamepad.name;
             _deviceDetected = true;
-            _deviceNameText.text = "CONTROLLER " + (gamepadIndex + 1);
 
             deviceImage.TogglePCImage(false);
             deviceImage.TogglePSImage(true);
@@ -127,10 +122,10 @@ namespace RB
 
         public void NoDeviceDetected()
         {
-            _deviceNameText.text = "no device detected";
-
             deviceImage.TogglePCImage(false);
             deviceImage.TogglePSImage(false);
+            deviceImage.TogglePlayerIcon(false);
+            deviceImage.SetPlayerIndex(string.Empty);
 
             downButton.HideImages(true);
         }
