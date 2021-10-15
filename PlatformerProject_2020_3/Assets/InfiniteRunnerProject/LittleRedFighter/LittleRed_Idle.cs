@@ -18,7 +18,7 @@ namespace RB
             _listStateComponents.Add(new TriggerJumpUp(ownerUnit));
             _listStateComponents.Add(new TriggerGroundRoll(ownerUnit));
             _listStateComponents.Add(new TriggerLittleRedUppercut(ownerUnit, 0));
-            _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit));
+            _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit, 0));
             
             ownerUnit.unitData.airControl.SetMomentum(0f);
             

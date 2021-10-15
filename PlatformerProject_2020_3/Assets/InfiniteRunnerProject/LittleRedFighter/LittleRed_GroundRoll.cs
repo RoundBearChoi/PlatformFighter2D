@@ -48,23 +48,13 @@ namespace RB
 
                 ownerUnit.unitData.rigidBody2D.velocity = new Vector2(speed, ownerUnit.unitData.rigidBody2D.velocity.y);
             }
-            else if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX <= 14)
+            else if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX <= 12)
             {
-                speed = Mathf.Lerp(ownerUnit.unitData.rigidBody2D.velocity.x, 0f, 0.1f);
+                speed = Mathf.Lerp(ownerUnit.unitData.rigidBody2D.velocity.x, 0f, 0.07f);
                 ownerUnit.unitData.rigidBody2D.velocity = new Vector2(speed, ownerUnit.unitData.rigidBody2D.velocity.y);
             }
             else
             {
-                if (ownerUnit.unitData.collisionStays.IsOnFlatGround() ||
-                    ownerUnit.unitData.collisionEnters.IsOnFlatGround())
-                {
-                    if (!ownerUnit.isDummy)
-                    {
-                        //BaseMessage showLandingDust = new Message_ShowLandingDust(true, ownerUnit.transform.position, new Vector2(1f, 1f));
-                        //showLandingDust.Register();
-                    }
-                }
-
                 ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
             }
 
