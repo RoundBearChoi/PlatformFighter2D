@@ -11,15 +11,10 @@ namespace RB
         string _deviceName = string.Empty;
 
         [SerializeField]
-        Image _pcImage = null;
-
-        [SerializeField]
-        Image _psImage = null;
+        public DeviceImage deviceImage = new DeviceImage();
 
         [SerializeField]
         Text _deviceNameText = null;
-
-        Image _deviceImage = null;
 
         [SerializeField]
         bool _deviceDetected = false;
@@ -35,14 +30,6 @@ namespace RB
         UnityEngine.InputSystem.Keyboard _keyboard = null;
         UnityEngine.InputSystem.Mouse _mouse = null;
         UnityEngine.InputSystem.Gamepad _gamepad = null;
-
-        public Image DEVICE_IMAGE
-        {
-            get
-            {
-                return _deviceImage;
-            }
-        }
 
         public bool DEVICE_DETECTED
         {
@@ -87,6 +74,15 @@ namespace RB
         public void Init()
         {
             _downButton = this.gameObject.GetComponentInChildren<DownButton>();
+
+            foreach(Transform t in this.GetComponentsInChildren<Transform>())
+            {
+                if (t.name == "DeviceImage")
+                {
+                    deviceImage.Init(t);
+                    break;
+                }
+            }
         }
 
         public void SetInputDevice(UnityEngine.InputSystem.Keyboard keyboard)
@@ -95,10 +91,10 @@ namespace RB
             _deviceName = _keyboard.name;
             _deviceDetected = true;
 
-            _psImage.enabled = false;
-            _deviceImage = _pcImage;
+            deviceImage.TogglePCImage(true);
+            deviceImage.TogglePSImage(false);
 
-            _deviceNameText.text = "KEYBOARD & MOUSE";
+            _deviceNameText.text = "KEYBOARD";
 
             _downButton.HideImages(false);
         }
@@ -107,9 +103,6 @@ namespace RB
         {
             _mouse = mouse;
             _deviceDetected = true;
-
-            _psImage.enabled = false;
-            _deviceImage = _pcImage;
         }
 
         public void SetInputDevice(UnityEngine.InputSystem.Gamepad gamepad, int gamepadIndex)
@@ -119,8 +112,8 @@ namespace RB
             _deviceName = gamepad.name;
             _deviceDetected = true;
 
-            _pcImage.enabled = false;
-            _deviceImage = _psImage;
+            deviceImage.TogglePCImage(false);
+            deviceImage.TogglePSImage(true);
 
             _deviceNameText.text = "CONTROLLER " + (gamepadIndex + 1);
 
@@ -129,8 +122,9 @@ namespace RB
 
         public void NoDeviceDetected()
         {
-            _pcImage.enabled = false;
-            _psImage.enabled = false;
+            deviceImage.TogglePCImage(false);
+            deviceImage.TogglePSImage(false);
+
             _deviceNameText.text = string.Empty;
             _downButton.HideImages(true);
         }
@@ -144,7 +138,7 @@ namespace RB
             {
                 if (!IsSelected())
                 {
-                    DEVICE_IMAGE.transform.localPosition = Vector3.Lerp(DEVICE_IMAGE.transform.localPosition, Vector3.zero, Time.deltaTime * BaseInitializer.current.fighterDataSO.InputDeviceIconMoveSpeed);
+                    deviceImage.TRANSFORM.localPosition = Vector3.Lerp(deviceImage.TRANSFORM.localPosition, Vector3.zero, Time.deltaTime * BaseInitializer.current.fighterDataSO.InputDeviceIconMoveSpeed);
                     _downButton.HideImages(false);
                 }
             }
