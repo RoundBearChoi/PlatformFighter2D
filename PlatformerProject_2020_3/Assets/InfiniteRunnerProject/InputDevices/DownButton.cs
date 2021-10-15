@@ -5,19 +5,39 @@ using UnityEngine.UI;
 
 namespace RB
 {
-    public class DownButton : MonoBehaviour
+    [System.Serializable]
+    public class DownButton
     {
         [SerializeField]
-        Image _nonPressedImage = null;
+        Transform _transform = null;
 
         [SerializeField]
         Image _pressedImage = null;
+
+        [SerializeField]
+        Image _nonPressedImage = null;
 
         uint _fixedUpdateCount = 0;
         uint _pressedFrames = 35;
         uint _nonPressedFrames = 35;
         bool _showPressed = false;
         bool _hideAll = false;
+
+        public void Init(Transform transform)
+        {
+            _transform = transform;
+
+            _pressedImage = transform.Find("PressedImage").GetComponent<Image>();
+            _nonPressedImage = transform.Find("NonPressedImage").GetComponent<Image>();
+        }
+
+        public Transform TRANSFORM
+        {
+            get
+            {
+                return _transform;
+            }
+        }
 
         public void OnFixedUpdate()
         {

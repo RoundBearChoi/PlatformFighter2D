@@ -14,6 +14,9 @@ namespace RB
         public DeviceImage deviceImage = new DeviceImage();
 
         [SerializeField]
+        public DownButton downButton = new DownButton();
+
+        [SerializeField]
         Text _deviceNameText = null;
 
         [SerializeField]
@@ -24,8 +27,6 @@ namespace RB
 
         [SerializeField]
         bool _downIsPressed = false;
-
-        DownButton _downButton = null;
 
         UnityEngine.InputSystem.Keyboard _keyboard = null;
         UnityEngine.InputSystem.Mouse _mouse = null;
@@ -73,13 +74,20 @@ namespace RB
 
         public void Init()
         {
-            _downButton = this.gameObject.GetComponentInChildren<DownButton>();
-
             foreach(Transform t in this.GetComponentsInChildren<Transform>())
             {
                 if (t.name == "DeviceImage")
                 {
                     deviceImage.Init(t);
+                    break;
+                }
+            }
+
+            foreach (Transform t in this.GetComponentsInChildren<Transform>())
+            {
+                if (t.name == "DownButton")
+                {
+                    downButton.Init(t);
                     break;
                 }
             }
@@ -90,13 +98,12 @@ namespace RB
             _keyboard = keyboard;
             _deviceName = _keyboard.name;
             _deviceDetected = true;
+            _deviceNameText.text = "KEYBOARD";
 
             deviceImage.TogglePCImage(true);
             deviceImage.TogglePSImage(false);
 
-            _deviceNameText.text = "KEYBOARD";
-
-            _downButton.HideImages(false);
+            downButton.HideImages(false);
         }
 
         public void SetInputDevice(UnityEngine.InputSystem.Mouse mouse)
@@ -109,24 +116,23 @@ namespace RB
         {
             _gamepad = gamepad;
             _deviceName = gamepad.name;
-            _deviceName = gamepad.name;
             _deviceDetected = true;
+            _deviceNameText.text = "CONTROLLER " + (gamepadIndex + 1);
 
             deviceImage.TogglePCImage(false);
             deviceImage.TogglePSImage(true);
 
-            _deviceNameText.text = "CONTROLLER " + (gamepadIndex + 1);
-
-            _downButton.HideImages(false);
+            downButton.HideImages(false);
         }
 
         public void NoDeviceDetected()
         {
+            _deviceNameText.text = "no device detected";
+
             deviceImage.TogglePCImage(false);
             deviceImage.TogglePSImage(false);
 
-            _deviceNameText.text = string.Empty;
-            _downButton.HideImages(true);
+            downButton.HideImages(true);
         }
 
         public void OnUpdate()
@@ -139,14 +145,14 @@ namespace RB
                 if (!IsSelected())
                 {
                     deviceImage.TRANSFORM.localPosition = Vector3.Lerp(deviceImage.TRANSFORM.localPosition, Vector3.zero, Time.deltaTime * BaseInitializer.current.fighterDataSO.InputDeviceIconMoveSpeed);
-                    _downButton.HideImages(false);
+                    downButton.HideImages(false);
                 }
             }
         }
 
         public void OnFixedUpdate()
         {
-            _downButton.OnFixedUpdate();
+            downButton.OnFixedUpdate();
         }
 
         void UpdatePresses()
@@ -198,7 +204,7 @@ namespace RB
         {
             if (_downIsPressed)
             {
-                _downButton.HideImages(true);
+                downButton.HideImages(true);
 
                 for (int i = 0; i < BaseInitializer.current.arrInputDeviceUI.Length; i++)
                 {
