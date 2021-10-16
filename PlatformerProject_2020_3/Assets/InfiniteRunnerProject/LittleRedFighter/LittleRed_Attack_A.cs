@@ -21,7 +21,7 @@ namespace RB
 
             _listStateComponents.Add(new TriggerMarioStomp(ownerUnit));
             _listStateComponents.Add(new TriggerLittleRedUppercut(ownerUnit, 4));
-            _listStateComponents.Add(new TriggerLittleRedAttackB(ownerUnit, 2));
+            _listStateComponents.Add(new TriggerLittleRedAttackB(ownerUnit, 3));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_ATTACK_A);
         }

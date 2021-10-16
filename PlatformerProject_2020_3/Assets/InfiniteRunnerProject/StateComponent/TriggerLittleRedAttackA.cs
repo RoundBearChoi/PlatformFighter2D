@@ -11,6 +11,7 @@ namespace RB
         public TriggerLittleRedAttackA(Unit unit, uint requiredIndexCount)
         {
             _unit = unit;
+            _requiredIndexCount = requiredIndexCount;
         }
 
         public override void OnFixedUpdate()

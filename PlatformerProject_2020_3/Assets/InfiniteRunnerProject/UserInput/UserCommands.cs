@@ -62,6 +62,8 @@ namespace RB
                             {
                                 if (!p.USED)
                                 {
+                                    Debugger.Log("unused key press: " + commandType.ToString());
+
                                     p.SetUsed(true);
                                     return true;
                                 }
@@ -77,17 +79,6 @@ namespace RB
             }
 
             return false;
-        }
-
-        public void UpdatePressAndHold(bool[] inputArray)
-        {
-            UpdatePressOnClientInput(CommandType.MOVE_UP, inputArray[0]);
-            UpdatePressOnClientInput(CommandType.MOVE_DOWN, inputArray[1]);
-            UpdatePressOnClientInput(CommandType.MOVE_LEFT, inputArray[2]);
-            UpdatePressOnClientInput(CommandType.MOVE_RIGHT, inputArray[3]);
-            UpdatePressOnClientInput(CommandType.JUMP, inputArray[4]);
-            UpdatePressOnClientInput(CommandType.ATTACK_A, inputArray[5]);
-            UpdatePressOnClientInput(CommandType.SHIFT, inputArray[6]);
         }
 
         void UpdateKeyPress(ButtonControl buttonControl)
@@ -114,21 +105,41 @@ namespace RB
             }
         }
 
+        public void UpdatePressAndHold(bool[] inputArray)
+        {
+            UpdatePressOnClientInput(CommandType.MOVE_UP, inputArray[0]);
+            UpdatePressOnClientInput(CommandType.MOVE_DOWN, inputArray[1]);
+            UpdatePressOnClientInput(CommandType.MOVE_LEFT, inputArray[2]);
+            UpdatePressOnClientInput(CommandType.MOVE_RIGHT, inputArray[3]);
+            UpdatePressOnClientInput(CommandType.JUMP, inputArray[4]);
+            UpdatePressOnClientInput(CommandType.ATTACK_A, inputArray[5]);
+            UpdatePressOnClientInput(CommandType.SHIFT, inputArray[6]);
+        }
+
         void UpdatePressOnClientInput(CommandType commandType, bool isHeld)
         {
             if (_dicAllCommands.ContainsKey(commandType))
             {
-                foreach(ButtonControl b in _dicAllCommands[commandType])
+                if (isHeld)
                 {
-                    Press p = _presses.GetPress(b);
-
-                    if (p != null)
+                    foreach (ButtonControl b in _dicAllCommands[commandType])
                     {
-                        if (isHeld)
+                        Press p = _presses.GetPress(b);
+
+                        if (p != null)
                         {
                             p.SetPressed(true);
+                            break;
                         }
-                        else
+                    }
+                }
+                else
+                {
+                    foreach (ButtonControl b in _dicAllCommands[commandType])
+                    {
+                        Press p = _presses.GetPress(b);
+
+                        if (p != null)
                         {
                             p.SetPressed(false);
                             p.SetUsed(false);

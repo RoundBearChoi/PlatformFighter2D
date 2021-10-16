@@ -116,13 +116,11 @@ namespace RB
         {
             if (initialFaceRight)
             {
-                ownerUnit.unitData.airControl.SetMomentum(-0.001f);
-                ownerUnit.unitData.facingRight = false;
+                ownerUnit.unitData.airControl.SetMomentum(0.001f);
             }
             else
             {
-                ownerUnit.unitData.airControl.SetMomentum(0.001f);
-                ownerUnit.unitData.facingRight = true;
+                ownerUnit.unitData.airControl.SetMomentum(-0.001f);
             }
         }
     }
