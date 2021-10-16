@@ -57,24 +57,17 @@ namespace RB.Client
         {
             if (_offlineDummy != null)
             {
-                _playerPositionSphere.transform.position = Vector3.Lerp(_playerPositionSphere.transform.position, _offlineDummy.transform.position, 0.7f);
+                _playerPositionSphere.transform.position = Vector3.Lerp(_playerPositionSphere.transform.position, _offlineDummy.transform.position, 0.5f);
             }
             else
             {
-                _playerPositionSphere.transform.position = Vector3.Lerp(_playerPositionSphere.transform.position, _networkPosition, 0.7f);
+                _playerPositionSphere.transform.position = Vector3.Lerp(_playerPositionSphere.transform.position, _networkPosition, 0.5f);
             }
         }
 
         public void UpdatePosition()
         {
-            if (_offlineDummy != null)
-            {
-                _playerPositionSphere.transform.position = Vector3.Lerp(_playerPositionSphere.transform.position, _offlineDummy.transform.position, Time.deltaTime * 10f);
-            }
-            else
-            {
-                _playerPositionSphere.transform.position = Vector3.Lerp(_playerPositionSphere.transform.position, _networkPosition, Time.deltaTime * 10f);
-            }
+
         }
 
         public GameObject GetPlayerSphere()

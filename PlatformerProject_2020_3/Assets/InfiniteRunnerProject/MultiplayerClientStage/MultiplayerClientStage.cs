@@ -36,6 +36,7 @@ namespace RB
             _dummyOfflinePlayer.isDummy = true;
 
             _dummyOfflinePlayer.SetFighterInput(InputController.centralUserInput);
+            _dummyOfflinePlayer.unitData.rigidBody2D.gravityScale = 0.15f;
 
             //load level 3 (oldcity)
             GameObject levelObj = Instantiate(ResourceLoader.levelLoader.GetObj(3)) as GameObject;
