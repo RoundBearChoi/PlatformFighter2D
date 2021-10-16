@@ -46,6 +46,30 @@ namespace RB
             }
         }
 
+        public bool MovementKey_Left()
+        {
+            if (ContainsPress(CommandType.MOVE_LEFT, false) == true && ContainsPress(CommandType.MOVE_RIGHT, false) == false)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool MovementKey_Right()
+        {
+            if (ContainsPress(CommandType.MOVE_LEFT, false) == false && ContainsPress(CommandType.MOVE_RIGHT, false) == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public bool ContainsPress(CommandType commandType, bool requireUnusedButton)
         {
             if (_dicAllCommands.ContainsKey(commandType))
@@ -62,8 +86,6 @@ namespace RB
                             {
                                 if (!p.USED)
                                 {
-                                    Debugger.Log("unused key press: " + commandType.ToString());
-
                                     p.SetUsed(true);
                                     return true;
                                 }
