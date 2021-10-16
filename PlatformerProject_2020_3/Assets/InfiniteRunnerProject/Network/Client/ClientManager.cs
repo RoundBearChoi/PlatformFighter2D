@@ -95,6 +95,18 @@ namespace RB.Client
             }
 
             Debug.Log("client ended");
+
+            BaseStage currentStage = BaseInitializer.current.GetStage();
+
+            if (currentStage != null)
+            {
+                if (currentStage is MultiplayerClientStage ||
+                    currentStage is ConnectedStage)
+                {
+                    Debugger.Log("returning to menu");
+                    BaseInitializer.current.stageTransitioner.AddNextStage(GameObject.Instantiate(ResourceLoader.stageLoader.GetObj(StageType.INTRO_STAGE)) as BaseStage);
+                }
+            }
         }
     }
 }

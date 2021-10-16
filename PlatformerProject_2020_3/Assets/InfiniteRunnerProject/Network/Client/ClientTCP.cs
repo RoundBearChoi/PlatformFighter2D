@@ -77,7 +77,6 @@ namespace RB.Client
                 RB.Network.ThreadControl.ExecuteOnMainThread(() =>
                 {
                     ClientManager.CURRENT.EndClient();
-                    BaseInitializer.current.stageTransitioner.AddNextStage(GameObject.Instantiate(ResourceLoader.stageLoader.GetObj(StageType.INTRO_STAGE)) as BaseStage);
                 });
             }
         }
