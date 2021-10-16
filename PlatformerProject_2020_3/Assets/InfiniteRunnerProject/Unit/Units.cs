@@ -10,7 +10,7 @@ namespace RB
         public BaseMessageHandler unitsMessageHandler = null;
 
         private List<Unit> _listUnits = new List<Unit>();
-        private List<BaseUnitCreator> _listUnitCreators = new List<BaseUnitCreator>();
+        private List<UnitCreator> _listUnitCreators = new List<UnitCreator>();
         private BaseStage _stage = null;
 
         public Units(BaseStage ownerStage)
@@ -20,7 +20,7 @@ namespace RB
             unitsMessageHandler = new UnitsMessageHandler(_listUnits);
         }
 
-        public void AddCreator(BaseUnitCreator creator)
+        public void AddCreator(UnitCreator creator)
         {
             _listUnitCreators.Add(creator);
         }
@@ -79,9 +79,10 @@ namespace RB
 
         public void ProcessCreators()
         {
-            foreach (BaseUnitCreator creator in _listUnitCreators)
+            foreach (UnitCreator creator in _listUnitCreators)
             {
-                creator.AddUnits(_listUnits);
+                Unit unit = creator.DefineUnit();
+                _listUnits.Add(unit);
             }
 
             _listUnitCreators.Clear();

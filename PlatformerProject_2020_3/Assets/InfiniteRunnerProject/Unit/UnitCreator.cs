@@ -4,15 +4,30 @@ using UnityEngine;
 
 namespace RB
 {
-    public class DefaultUnitCreator : BaseUnitCreator
+    public class UnitCreator
     {
-        public DefaultUnitCreator(Transform parentTransform, UnitCreationSpec creationSpec)
+        protected Transform _parentTransform = null;
+        protected UnitCreationSpec _creationSpec = null;
+
+        public UnitCreator(Transform parentTransform, UnitCreationSpec creationSpec)
         {
             _parentTransform = parentTransform;
             _creationSpec = creationSpec;
         }
 
-        public override Unit DefineUnit()
+        public Unit InstantiateUnit(UnitCreationSpec creationSpec)
+        {
+            Unit unit = GameObject.Instantiate(ResourceLoader.unitLoader.GetObj(creationSpec.unitType)) as Unit;
+            unit.unitType = creationSpec.unitType;
+            unit.gameObject.name += (" - " + creationSpec.unitType.ToString());
+
+            unit.transform.localRotation = creationSpec.localRotation;
+            unit.transform.localPosition = creationSpec.localPosition;
+
+            return unit;
+        }
+
+        public Unit DefineUnit()
         {
             Unit unit = InstantiateUnit(_creationSpec);
             unit.transform.SetParent(_parentTransform, false);
@@ -33,18 +48,13 @@ namespace RB
 
             if (_creationSpec.listSpriteAnimationSpecs.Count > 0)
             {
-                foreach(SpriteAnimationSpec spriteSpec in _creationSpec.listSpriteAnimationSpecs)
+                foreach (SpriteAnimationSpec spriteSpec in _creationSpec.listSpriteAnimationSpecs)
                 {
                     SetSpriteAnimation(unit, _creationSpec, spriteSpec);
                 }
             }
 
             return unit;
-        }
-
-        public override void AddUnits(List<Unit> listUnits)
-        {
-            listUnits.Add(DefineUnit());
         }
 
         void SetSpriteAnimation(Unit unit, UnitCreationSpec creationSpec, SpriteAnimationSpec spriteSpec)

@@ -106,7 +106,7 @@ namespace RB
 
         public virtual void InstantiateUnit(UnitCreationSpec spec)
         {
-            units.AddCreator(new DefaultUnitCreator(this.transform, spec));
+            units.AddCreator(new UnitCreator(this.transform, spec));
             units.ProcessCreators();
         }
 
@@ -114,7 +114,7 @@ namespace RB
         {
             foreach (UnitCreationSpec spec in listSpecs)
             {
-                units.AddCreator(new DefaultUnitCreator(this.transform, spec));
+                units.AddCreator(new UnitCreator(this.transform, spec));
             }
 
             units.ProcessCreators();
