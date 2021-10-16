@@ -178,13 +178,13 @@ namespace RB
 
                 if (_playerIsOnOuterEdge)
                 {
-                    _camera.orthographicSize += 0.1f;
+                    _camera.orthographicSize += BaseInitializer.current.fighterDataSO.CameraZoomOutRate;
                 }
                 else if (!_playerIsOnInnerEdge)
                 {
                     if (_camera.orthographicSize > 10f)
                     {
-                        _camera.orthographicSize -= 0.05f;
+                        _camera.orthographicSize -= BaseInitializer.current.fighterDataSO.CameraZoomInRate;
                     }
                 }
             }

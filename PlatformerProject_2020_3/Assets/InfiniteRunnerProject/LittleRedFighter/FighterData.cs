@@ -45,6 +45,10 @@ namespace RB
 
         [Space(10)]
         public float CameraYOffset = 0f;
+        public float CameraInnerEdgePercentage = 0f;
+        public float CameraOuterEdgePercentage = 0f;
+        public float CameraZoomInRate = 0f;
+        public float CameraZoomOutRate = 0f;
 
         [Space(10)]
         public float InputDeviceIconMoveSpeed = 0f;
