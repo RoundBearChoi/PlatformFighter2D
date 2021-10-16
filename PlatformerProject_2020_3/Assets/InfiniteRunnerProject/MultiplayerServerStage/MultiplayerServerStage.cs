@@ -19,6 +19,15 @@ namespace RB
 
             Physics2D.gravity = new Vector2(0f, BaseInitializer.current.fighterDataSO.Gravity);
 
+            //set camera
+            FightCamera fightCamera = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.FIGHT_CAMERA)) as FightCamera;
+            fightCamera.transform.parent = this.transform;
+            Camera cam = fightCamera.GetComponent<Camera>();
+            cam.orthographicSize = 10f;
+            cam.transform.position = new Vector3(8f, 4.5f, BaseInitializer.current.fighterDataSO.Camera_z);
+            _cameraScript = new CameraScript();
+            _cameraScript.SetCamera(cam);
+
             //load level 3 (oldcity)
             GameObject levelObj = Instantiate(ResourceLoader.levelLoader.GetObj(3)) as GameObject;
             levelObj.transform.parent = this.transform;
@@ -44,18 +53,6 @@ namespace RB
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, BaseInitializer.current.fighterDataSO.Players_z);
             }
 
-            //set camera
-            FightCamera fightCamera = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.FIGHT_CAMERA)) as FightCamera;
-            fightCamera.transform.parent = this.transform;
-            Camera cam = fightCamera.GetComponent<Camera>();
-            cam.orthographicSize = 10f;
-            cam.transform.position = new Vector3(8f, 4.5f, BaseInitializer.current.fighterDataSO.Camera_z);
-
-            _cameraScript = new CameraScript();
-            _cameraScript.SetCamera(cam);
-            _cameraScript.SetCameraState(new Camera_LerpOnFighterXY(_cameraScript, 0.08f, 0.08f, 10f, 52f, 4f), true);
-            _cameraScript.SetFollowTarget(serverPlayer.gameObject);
-
             //data to send to clients
             _playerDataSender = new RB.Server.PlayerDataSender();
             _playerDataSender.AddUnit(serverPlayer, 100);
@@ -74,6 +71,10 @@ namespace RB
             _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
             _baseUI.transform.parent = this.transform;
             _baseUI.Init(BaseUIType.FIGHT_STAGE_UI);
+
+            //set camera targets
+            _cameraScript.SetCameraState(new Camera_LerpOnFighterXY(_cameraScript, 0.08f, 0.08f, 10f, 52f, 4f), true);
+            _cameraScript.SetFollowTarget(serverPlayer.gameObject);
         }
 
         public override void OnUpdate()

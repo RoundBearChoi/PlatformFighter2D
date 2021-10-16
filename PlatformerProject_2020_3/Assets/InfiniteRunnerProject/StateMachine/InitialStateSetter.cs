@@ -12,31 +12,6 @@ namespace RB
             unit.iStateController.SetNewState(new Runner_Idle(unit));
         }
 
-        public void New_Golem_Idle(Unit unit)
-        {
-            unit.iStateController.SetNewState(new Golem_Idle(unit));
-        }
-
-        public void New_Swamp_Grass(Unit unit)
-        {
-            unit.iStateController.SetNewState(new Swamp_Grass_DefaultState(unit));
-        }
-
-        public void New_Swamp_River(Unit unit)
-        {
-            unit.iStateController.SetNewState(new Swamp_River_DefaultState(unit));
-        }
-
-        public void New_Swamp_FrontTrees(Unit unit)
-        {
-            unit.iStateController.SetNewState(new Swamp_FrontTrees_DefaultState(unit));
-        }
-
-        public void New_Swamp_BackTrees(Unit unit)
-        {
-            unit.iStateController.SetNewState(new Swamp_BackTrees_DefaultState(unit));
-        }
-
         public void New_OldCity_Platforms(Unit unit)
         {
             unit.iStateController.SetNewState(new OldCity_Platforms_DefaultState(unit));

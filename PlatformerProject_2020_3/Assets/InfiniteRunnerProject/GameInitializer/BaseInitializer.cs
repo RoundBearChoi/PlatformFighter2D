@@ -23,7 +23,6 @@ namespace RB
         [Space(10)]
         public GameData runnerDataSO = null;
         public FighterData fighterDataSO = null;
-        public SwampParallax swampParallaxSO;
         public OldCityParallax oldCityParallaxSO;
         public InputDeviceInfoUI[] arrInputDeviceUI = null;
         public InputDeviceData[] arrInputDeviceData = null;

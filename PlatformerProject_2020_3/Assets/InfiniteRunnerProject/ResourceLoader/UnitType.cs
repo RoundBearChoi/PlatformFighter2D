@@ -9,9 +9,6 @@ namespace RB
         NONE = 0,
 
         RUNNER = 100,
-        GOLEM = 101,
-
-        FLAT_GROUND = 200,
 
         LANDING_DUST = 301,
         STEP_DUST = 302,
@@ -23,7 +20,6 @@ namespace RB
         WALLJUMP_DUST = 308,
         FALL_DUST = 309,
 
-        SWAMP = 400,
         OLD_CITY = 401,
 
         BLOOD_5 = 500,

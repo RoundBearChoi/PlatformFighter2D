@@ -20,10 +20,8 @@ namespace RB
             Camera cam = fightCamera.GetComponent<Camera>();
             cam.orthographicSize = 10f;
             cam.transform.position = new Vector3(8f, 4.5f, BaseInitializer.current.fighterDataSO.Camera_z);
-
             _cameraScript = new CameraScript();
             _cameraScript.SetCamera(cam);
-            _cameraScript.SetCameraState(new Camera_LerpOnFighterXY(_cameraScript, 0.08f, 0.08f, 10f, 52f, 4f), true);
 
             //load level 3 (oldcity)
             GameObject levelObj = Instantiate(ResourceLoader.levelLoader.GetObj(3)) as GameObject;
@@ -79,7 +77,8 @@ namespace RB
             _baseUI.transform.parent = this.transform;
             _baseUI.Init(BaseUIType.FIGHT_STAGE_UI);
 
-            //camera details (after fighters are instantiated)
+            //set camera targets
+            _cameraScript.SetCameraState(new Camera_LerpOnFighterXY(_cameraScript, 0.08f, 0.08f, 10f, 52f, 4f), true);
             _cameraScript.SetFollowTarget(midPoint);
             _cameraScript.RegisterViewPlayers(player1);
             _cameraScript.RegisterViewPlayers(player2);
@@ -95,17 +94,6 @@ namespace RB
             _cameraScript.OnUpdate();
             trailEffects.OnUpdate();
             units.OnUpdate();
-
-            //temp
-            if (InputController.centralUserInput.commands.ContainsPress(CommandType.F5, false))
-            {
-                _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.FIGHT_STAGE));
-            }
-
-            if (InputController.centralUserInput.commands.ContainsPress(CommandType.F6, false))
-            {
-                _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
-            }
         }
 
         public override void OnFixedUpdate()

@@ -39,11 +39,6 @@ namespace RB
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.TEST_STAGE));
             }
 
-            if (InputController.centralUserInput.commands.ContainsPress(CommandType.F6, true))
-            {
-                _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.RUNNER_STAGE));
-            }
-
             _baseUI.OnUpdate();
         }
 

@@ -21,6 +21,15 @@ namespace RB
 
             Physics2D.gravity = new Vector2(0f, BaseInitializer.current.fighterDataSO.Gravity);
 
+            //set camera
+            FightCamera fightCamera = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.FIGHT_CAMERA)) as FightCamera;
+            fightCamera.transform.parent = this.transform;
+            Camera cam = fightCamera.GetComponent<Camera>();
+            cam.orthographicSize = 10f;
+            cam.transform.position = new Vector3(8f, 4.5f, BaseInitializer.current.fighterDataSO.Camera_z);
+            _cameraScript = new CameraScript();
+            _cameraScript.SetCamera(cam);
+
             //dummy player
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_DARK);
             _dummyOfflinePlayer = units.GetUnit<LittleRed>();
@@ -35,15 +44,7 @@ namespace RB
 
             BaseInitializer.current.GetStage().InstantiateUnits_ByUnitType(UnitType.OLD_CITY);
 
-            //set camera
-            FightCamera fightCamera = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.FIGHT_CAMERA)) as FightCamera;
-            fightCamera.transform.parent = this.transform;
-            Camera cam = fightCamera.GetComponent<Camera>();
-            cam.orthographicSize = 10f;
-            cam.transform.position = new Vector3(8f, 4.5f, BaseInitializer.current.fighterDataSO.Camera_z);
-
-            _cameraScript = new CameraScript();
-            _cameraScript.SetCamera(cam);
+            //set camera targets
             _cameraScript.SetCameraState(new Camera_LerpOnFighterXY(_cameraScript, 0.08f, 0.08f, 10f, 52f, 4f), true);
 
             //ui

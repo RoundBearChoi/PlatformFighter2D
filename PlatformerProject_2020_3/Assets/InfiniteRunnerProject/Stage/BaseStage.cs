@@ -10,7 +10,6 @@ namespace RB
         public TrailEffects trailEffects = new TrailEffects();
         public IBackgroundSetup backgroundSetup = null;
         public IBackgroundSetup groundSetup = null;
-        public BaseNPCSetup npcSetup = null;
 
         protected BaseInitializer _gameIntializer = null;
         protected CameraScript _cameraScript = null;

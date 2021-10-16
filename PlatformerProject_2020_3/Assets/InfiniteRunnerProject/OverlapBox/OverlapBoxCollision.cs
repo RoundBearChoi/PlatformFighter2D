@@ -45,7 +45,7 @@ namespace RB
                                 if (collidingUnit.unitData.hp > 0)
                                 {
                                     //check against self, none, ground
-                                    if (collidingUnit.unitType != _unit.unitType && collidingUnit.unitType != UnitType.NONE && collidingUnit.unitType != UnitType.FLAT_GROUND)
+                                    if (collidingUnit.unitType != _unit.unitType && collidingUnit.unitType != UnitType.NONE)
                                     {
                                         _currentHitCount++;
 
