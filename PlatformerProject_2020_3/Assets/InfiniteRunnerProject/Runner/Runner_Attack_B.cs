@@ -25,23 +25,23 @@ namespace RB
             {
                 if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, false))
                 {
-                    if (ownerUnit.unitData.comboHitCount.GetCount() >= 2)
-                    {
-                        ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x, BaseInitializer.current.runnerDataSO.Runner_ComboSmashJumpForce);
-                        ownerUnit.unitData.listNextStates.Add(new Runner_ComboTransitionTo_Smash(ownerUnit));
-                    }
-                    else
-                    {
-                        ownerUnit.unitData.listNextStates.Add(new Runner_Attack_A_Dash(ownerUnit));
-                    }
+                    //if (ownerUnit.unitData.comboHitCount.GetCount() >= 2)
+                    //{
+                    //    ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x, BaseInitializer.current.runnerDataSO.Runner_ComboSmashJumpForce);
+                    //    ownerUnit.unitData.listNextStates.Add(new Runner_ComboTransitionTo_Smash(ownerUnit));
+                    //}
+                    //else
+                    //{
+                    //    ownerUnit.unitData.listNextStates.Add(new Runner_Attack_A_Dash(ownerUnit));
+                    //}
                 }
 
                 if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_B, false))
                 {
-                    if (ownerUnit.unitData.comboHitCount.GetCount() >= 2)
-                    {
-                        ownerUnit.unitData.listNextStates.Add(new Runner_Overhead(ownerUnit));
-                    }
+                    //if (ownerUnit.unitData.comboHitCount.GetCount() >= 2)
+                    //{
+                    //    ownerUnit.unitData.listNextStates.Add(new Runner_Overhead(ownerUnit));
+                    //}
                 }
             }
         }

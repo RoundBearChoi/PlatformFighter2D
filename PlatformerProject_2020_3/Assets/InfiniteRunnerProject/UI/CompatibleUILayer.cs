@@ -73,6 +73,15 @@ namespace RB
                 Message_ClearOnEscapeChildElements.onESCMessageHandler = onESC.messageHandler;
             }
 
+            else if (uiLayerType == UILayerType.FIGHT_STAGE_CLIENT_LAYER)
+            {
+                UIElement onESC = UIElement.AddUIElement(UIElementType.ON_ESC, this.transform);
+                _uiElements.Add(onESC);
+
+                onESC.messageHandler = new OnEscapeMessageHandler();
+                Message_ClearOnEscapeChildElements.onESCMessageHandler = onESC.messageHandler;
+            }
+
             else if (uiLayerType == UILayerType.INPUT_DEVICES_STAGE_LAYER)
             {
                 UIElement pickFighters = UIElement.AddUIElement(UIElementType.PICK_FIGHTERS, this.transform);

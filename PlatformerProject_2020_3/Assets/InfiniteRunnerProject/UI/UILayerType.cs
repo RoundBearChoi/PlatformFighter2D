@@ -14,6 +14,7 @@ namespace RB
         CONNECTED_UI,
 
         FIGHT_STAGE_LAYER,
+        FIGHT_STAGE_CLIENT_LAYER,
         INPUT_DEVICES_STAGE_LAYER,
     }
 }

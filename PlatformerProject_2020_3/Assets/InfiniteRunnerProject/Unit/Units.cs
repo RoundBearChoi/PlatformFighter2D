@@ -173,28 +173,20 @@ namespace RB
             //cumulative gravity force on fall
             for (int i = 0; i < _listUnits.Count; i++)
             {
-                if (_listUnits[i].unitData.rigidBody2D != null)
+                if (!_listUnits[i].isDummy &&
+                    _listUnits[i].unitData.rigidBody2D != null)
                 {
-                    if (_listUnits[i].unitData.rigidBody2D.bodyType != RigidbodyType2D.Static)
+                    if (_listUnits[i].unitData.rigidBody2D.bodyType != RigidbodyType2D.Static &&
+                        _listUnits[i].unitData.rigidBody2D.gravityScale > 0f &&
+                        _listUnits[i].unitData.rigidBody2D.velocity.y < -0.0001f)
                     {
-                        if (_listUnits[i].unitData.rigidBody2D.gravityScale > 0f)
-                        {
-                            if (_listUnits[i].unitData.rigidBody2D.velocity.y < -0.0001f)
-                            {
-                                //Debugger.Log("adding downforce to unit: " + _listUnits[i].gameObject.name);
+                        //Debugger.Log("adding downforce to unit: " + _listUnits[i].gameObject.name);
 
-                                float y = _listUnits[i].unitData.rigidBody2D.velocity.y * BaseInitializer.current.GetStage().GetCumulativeGravityForcePercentage();
-                                float x = _listUnits[i].unitData.rigidBody2D.velocity.x;
-                                _listUnits[i].unitData.rigidBody2D.velocity = new Vector2(x, y);
-                            }
-                        }
+                        float y = _listUnits[i].unitData.rigidBody2D.velocity.y * BaseInitializer.current.GetStage().GetCumulativeGravityForcePercentage();
+                        float x = _listUnits[i].unitData.rigidBody2D.velocity.x;
+                        _listUnits[i].unitData.rigidBody2D.velocity = new Vector2(x, y);
                     }
                 }
-            }
-
-            for (int i = 0; i < _listUnits.Count; i++)
-            {
-                _listUnits[i].unitData.comboHitCount.OnFixedUpdate();
             }
 
             //main fixedupdate

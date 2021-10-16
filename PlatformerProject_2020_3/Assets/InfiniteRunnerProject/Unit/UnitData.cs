@@ -19,9 +19,7 @@ namespace RB
         public BoxCollider2D boxCollider2D = null;
         public CompositeCollider2D compositeCollider2D = null;
 
-        public ComboHitCount comboHitCount = new ComboHitCount();
         public AirControl airControl = new AirControl();
-
         public Collisions collisionStays = new CollisionStays();
         public Collisions collisionEnters = new CollisionEnters();
 

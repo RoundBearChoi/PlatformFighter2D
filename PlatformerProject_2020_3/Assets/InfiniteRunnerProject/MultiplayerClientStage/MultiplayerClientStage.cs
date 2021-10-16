@@ -48,9 +48,9 @@ namespace RB
             _cameraScript.SetCameraState(new Camera_LerpOnFighterXY(_cameraScript, 0.08f, 0.08f, 10f, 52f, 4f), true);
 
             //ui
-            //_baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
-            //_baseUI.transform.parent = this.transform;
-            //_baseUI.Init(BaseUIType.FIGHT_STAGE_UI);
+            _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
+            _baseUI.transform.parent = this.transform;
+            _baseUI.Init(BaseUIType.FIGHT_STAGE_CLIENT_UI);
         }
 
         public override void UpdateClientUnitTypes(PlayerDataset<UnitType> playerData)
