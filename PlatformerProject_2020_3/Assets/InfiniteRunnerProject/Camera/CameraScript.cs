@@ -22,6 +22,22 @@ namespace RB
             messageHandler = new CameraMessageHandler(this);
         }
 
+        public Camera CAMERA
+        {
+            get
+            {
+                return _camera;
+            }
+        }
+
+        public GameObject TARGET_OBJ
+        {
+            get
+            {
+                return _target;
+            }
+        }
+
         public void OnUpdate()
         {
             _cameraStateController.OnUpdate();
@@ -60,19 +76,9 @@ namespace RB
             cameraEdges = new CameraEdges(_camera);
         }
 
-        public Camera GetCamera()
-        {
-            return _camera;
-        }
-
         public void SetFollowTarget(GameObject target)
         {
             _target = target;
-        }
-
-        public GameObject GetTarget()
-        {
-            return _target;
         }
 
         public void UpdateCameraPositionOnTarget(Vector3 pos)

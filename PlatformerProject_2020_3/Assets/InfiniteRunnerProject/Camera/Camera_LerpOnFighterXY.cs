@@ -26,12 +26,17 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            GameObject target = _cameraScript.GetTarget();
-
-            if (target != null)
+            if (_cameraScript.TARGET_OBJ != null)
             {
-                float x = Mathf.Lerp(_cameraScript.GetCamera().transform.position.x, target.transform.position.x, _xPercentage);
-                float y = Mathf.Lerp(_cameraScript.GetCamera().transform.position.y, target.transform.position.y + BaseInitializer.current.fighterDataSO.CameraYOffset, _yPercentage);
+                float x = Mathf.Lerp(
+                    _cameraScript.TARGET_OBJ.transform.position.x,
+                    _cameraScript.TARGET_OBJ.transform.position.x,
+                    _xPercentage);
+
+                float y = Mathf.Lerp(
+                    _cameraScript.TARGET_OBJ.transform.position.y,
+                    _cameraScript.TARGET_OBJ.transform.position.y + BaseInitializer.current.fighterDataSO.CameraYOffset,
+                    _yPercentage);
 
                 if (x < _leftXLimit)
                 {

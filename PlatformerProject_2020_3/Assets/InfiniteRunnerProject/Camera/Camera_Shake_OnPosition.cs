@@ -16,10 +16,15 @@ namespace RB
 
             _totalShakeFrames = totalShakeFrames;
             _shakeAmount = shakeAmount;
-            _initialPosition = _cameraScript.GetCamera().gameObject.transform.position;
+            _initialPosition = _cameraScript.CAMERA.gameObject.transform.position;
         }
 
         public override void OnFixedUpdate()
+        {
+
+        }
+
+        public override void OnUpdate()
         {
             if (_totalShakeFrames > 0)
             {

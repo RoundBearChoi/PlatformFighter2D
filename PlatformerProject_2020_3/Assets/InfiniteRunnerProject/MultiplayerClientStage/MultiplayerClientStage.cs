@@ -143,7 +143,7 @@ namespace RB
                 _baseUI.OnFixedUpdate();
             }
 
-            if (_cameraScript.GetTarget() == null)
+            if (_cameraScript.TARGET_OBJ == null)
             {
                 ClientObject myObj = _clientObjects.GetClientObj(ClientManager.CURRENT.clientController.myId);
 

@@ -46,11 +46,12 @@ namespace RB
 
                 Vector3 shakeOffset = new Vector3(xShake, yShake, 0f);
 
-                GameObject target = _cameraScript.GetTarget();
-
-                if (target != null)
+                if (_cameraScript.TARGET_OBJ != null)
                 {
-                    _targetPosition = new Vector3(target.transform.position.x, target.transform.position.y + BaseInitializer.current.fighterDataSO.CameraYOffset, BaseInitializer.current.fighterDataSO.Camera_z);
+                    _targetPosition = new Vector3(
+                        _cameraScript.TARGET_OBJ.transform.position.x,
+                        _cameraScript.TARGET_OBJ.transform.position.y + BaseInitializer.current.fighterDataSO.CameraYOffset,
+                        BaseInitializer.current.fighterDataSO.Camera_z);
                 }
 
                 _targetPosition += shakeOffset;

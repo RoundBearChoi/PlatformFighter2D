@@ -8,11 +8,9 @@ namespace RB
     {
         Vector2 _basePos = Vector2.zero;
         float _percentage = 0f;
-        GameObject _parallaxAnchor = null;
         
         public HorizontalParallax(Unit unit, Vector2 basePos, float percentage)
         {
-            _parallaxAnchor = unit.OWNER_STAGE.CAMERA_SCRIPT.GetCamera().gameObject;
             _unit = unit;
             _basePos = basePos;
             _percentage = percentage;
@@ -20,7 +18,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            Vector3 pos = _parallaxAnchor.transform.position * _percentage;
+            Vector3 pos = _unit.OWNER_STAGE.CAMERA_SCRIPT.CAMERA.transform.position * _percentage;
             _unit.transform.position = new Vector3(_basePos.x + pos.x, _unit.transform.position.y, _unit.transform.position.z);
         }
     }

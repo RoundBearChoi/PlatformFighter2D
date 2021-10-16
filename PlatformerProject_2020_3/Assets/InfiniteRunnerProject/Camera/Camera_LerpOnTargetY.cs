@@ -15,21 +15,24 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            GameObject target = _cameraScript.GetTarget();
-            Camera currentCam = _cameraScript.GetCamera();
-
-            if (target != null)
+            if (_cameraScript.TARGET_OBJ != null)
             {
                 float lerpPercentage = 0.005f;
 
-                if (currentCam.transform.position.y > target.transform.position.y + _yOffsetOnPlayer)
+                if (_cameraScript.CAMERA.transform.position.y > _cameraScript.TARGET_OBJ.transform.position.y + _yOffsetOnPlayer)
                 {
                     lerpPercentage = 0.05f;
                 }
 
-                float camY = Mathf.Lerp(_cameraScript.GetCamera().transform.position.y, target.transform.position.y + _yOffsetOnPlayer, lerpPercentage);
+                float camY = Mathf.Lerp(
+                    _cameraScript.CAMERA.transform.position.y,
+                    _cameraScript.TARGET_OBJ.transform.position.y + _yOffsetOnPlayer,
+                    lerpPercentage);
 
-                _targetPosition = new Vector3(target.transform.position.x, camY, target.transform.position.z - 5f);
+                _targetPosition = new Vector3(
+                    _cameraScript.TARGET_OBJ.transform.position.x,
+                    camY,
+                    _cameraScript.TARGET_OBJ.transform.position.z - 5f);
             }
 
             _cameraScript.UpdateCameraPositionOnTarget(_targetPosition);
