@@ -10,7 +10,7 @@ namespace RB
         {
             ownerUnit = unit;
 
-            _listStateComponents.Add(new HorizontalParallax(BaseInitializer.current.GetStage().CAMERA_SCRIPT, unit, unit.transform.position, BaseInitializer.current.oldCityParallaxSO.OldCity_Arches_ParallaxPercentage));
+            _listStateComponents.Add(new HorizontalParallax(unit, unit.transform.position, BaseInitializer.current.oldCityParallaxSO.OldCity_Arches_ParallaxPercentage));
 
             _listMatchingSpriteTypes.Add(SpriteType.OLDCITY_ARCHES);
 

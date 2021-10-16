@@ -77,11 +77,11 @@ namespace RB
             return null;
         }
 
-        public void ProcessCreators()
+        public void ProcessCreators(BaseStage stage)
         {
             foreach (UnitCreator creator in _listUnitCreators)
             {
-                Unit unit = creator.DefineUnit();
+                Unit unit = creator.DefineUnit(stage);
                 _listUnits.Add(unit);
             }
 

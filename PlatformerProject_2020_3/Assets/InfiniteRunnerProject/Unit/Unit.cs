@@ -18,6 +18,7 @@ namespace RB
         public bool isDummy = false;
 
         protected ICollisionSideChecker _collisionChecker = null;
+        protected BaseStage _ownerStage = null;
 
         [Header("Debug")]
         [SerializeField] protected UserInput _userInput = null;
@@ -28,6 +29,19 @@ namespace RB
             {
                 return _userInput;
             }
+        }
+
+        public BaseStage OWNER_STAGE
+        {
+            get
+            {
+                return _ownerStage;
+            }
+        }
+
+        public void SetOwnerStage(BaseStage stage)
+        {
+            _ownerStage = stage;
         }
 
         public void SetFighterInput(UserInput userInput)

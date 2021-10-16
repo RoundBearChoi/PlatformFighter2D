@@ -27,10 +27,11 @@ namespace RB
             return unit;
         }
 
-        public Unit DefineUnit()
+        public Unit DefineUnit(BaseStage stage)
         {
             Unit unit = InstantiateUnit(_creationSpec);
             unit.transform.SetParent(_parentTransform, false);
+            unit.SetOwnerStage(stage);
             unit.gameObject.layer = (int)LayerType.PHYSICAL_UNIT;
 
             unit.unitData.facingRight = _creationSpec.faceRight;

@@ -6,15 +6,13 @@ namespace RB
 {
     public class HorizontalParallax : StateComponent
     {
-        CameraScript _cameraScript = null;
         Vector2 _basePos = Vector2.zero;
         float _percentage = 0f;
         GameObject _parallaxAnchor = null;
         
-        public HorizontalParallax(CameraScript cameraScript, Unit unit, Vector2 basePos, float percentage)
+        public HorizontalParallax(Unit unit, Vector2 basePos, float percentage)
         {
-            _cameraScript = cameraScript;
-            _parallaxAnchor = _cameraScript.GetCamera().gameObject;
+            _parallaxAnchor = unit.OWNER_STAGE.CAMERA_SCRIPT.GetCamera().gameObject;
             _unit = unit;
             _basePos = basePos;
             _percentage = percentage;
