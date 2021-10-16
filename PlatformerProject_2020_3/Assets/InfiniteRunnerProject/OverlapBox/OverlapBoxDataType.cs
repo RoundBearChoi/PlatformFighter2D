@@ -11,8 +11,6 @@ namespace RB
         RUNNER_ATTACK_A = 1,
         RUNNER_ATTACK_B = 2,
 
-        GOLEM_ATTACK_A = 100,
-
         LITTLE_RED_ATTACK_A = 200,
         LITTLE_RED_ATTACK_B = 201,
         LITTLE_RED_ATTACK_C = 202,

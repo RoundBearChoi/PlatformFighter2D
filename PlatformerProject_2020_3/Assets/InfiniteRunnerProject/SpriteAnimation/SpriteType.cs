@@ -30,13 +30,6 @@ namespace RB
         DUST_WALLJUMP = 106,
         DUST_FALL = 107,
 
-        GOLEM_ATTACK_A = 200,
-        GOLEM_ATTACK_B = 201,
-
-        GOLEM_DEATH = 250,
-        GOLEM_IDLE = 251,
-        GOLEM_WINCING = 252,
-
         LITTLE_RED_IDLE = 300,
         LITTLE_RED_RUN = 301,
         LITTLE_RED_WALLSLIDE = 302,
