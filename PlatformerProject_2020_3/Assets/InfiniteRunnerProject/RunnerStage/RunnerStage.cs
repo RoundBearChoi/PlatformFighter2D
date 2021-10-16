@@ -8,16 +8,14 @@ namespace RB
     {
         public override void Init()
         {
-            UserInput input = inputController.AddFighterInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null);
+            //UserInput input = inputController.AddFighterInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null);
             units = new Units(this);
 
             Physics2D.gravity = new Vector2(0f, -50);
 
             InstantiateUnit_ByUnitType(UnitType.RUNNER);
             Unit runner = units.GetUnit<Runner>();
-            runner.SetFighterInput(input);
-
-            cameraScript = new CameraScript();
+            runner.SetFighterInput(InputController.centralUserInput);
 
             GameCamera gameCamera = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.GAME_CAMERA)) as GameCamera;
             gameCamera.transform.parent = this.transform;
@@ -25,15 +23,17 @@ namespace RB
 
             cam.orthographicSize = 8f;
             cam.transform.position = new Vector3(0f, 5f, 0f);
-            cameraScript.SetCamera(cam);
-            cameraScript.SetCameraState(new Camera_LerpOnTargetY(), true);
-            cameraScript.SetFollowTarget(units.GetUnit<Runner>().gameObject);
+
+            _cameraScript = new CameraScript();
+            _cameraScript.SetCamera(cam);
+            _cameraScript.SetCameraState(new Camera_LerpOnTargetY(_cameraScript), true);
+            _cameraScript.SetFollowTarget(units.GetUnit<Runner>().gameObject);
 
             _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
             _baseUI.transform.parent = this.transform;
             _baseUI.Init(BaseUIType.RUNNER_GAME_UI);
 
-            backgroundSetup = new SwampSetup();
+            backgroundSetup = new SwampSetup(_cameraScript);
             backgroundSetup.InstantiateBaseLayer();
 
             groundSetup = new FlatGroundSetup();
@@ -42,7 +42,7 @@ namespace RB
             Unit firstGround = units.GetUnit<Ground>();
             firstGround.transform.position -= new Vector3(20f, 0f, 0f);
 
-            npcSetup = new RunnerStageNPCSetup(this);
+            npcSetup = new RunnerStageNPCSetup(this, _cameraScript);
         }
 
         public override void OnUpdate()
@@ -52,15 +52,15 @@ namespace RB
             _baseUI.OnUpdate();
             units.OnUpdate();
             trailEffects.OnUpdate();
-            cameraScript.OnUpdate();
+            _cameraScript.OnUpdate();
             npcSetup.UPDATER.CustomUpdate();
 
-            if (InputController.centralUserInput.commands.ContainsPress(CommandType.F5, false))
+            if (InputController.centralUserInput.commands.ContainsPress(CommandType.F5, true))
             {
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.RUNNER_STAGE));
             }
 
-            if (InputController.centralUserInput.commands.ContainsPress(CommandType.F6, false))
+            if (InputController.centralUserInput.commands.ContainsPress(CommandType.F6, true))
             {
                 _gameIntializer.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
             }
@@ -71,7 +71,7 @@ namespace RB
             units.OnFixedUpdate();
 
             _baseUI.OnFixedUpdate();
-            cameraScript.OnFixedUpdate();
+            _cameraScript.OnFixedUpdate();
             npcSetup.UPDATER.CustomFixedUpdate();
         }
 
@@ -79,7 +79,7 @@ namespace RB
         {
             _baseUI.OnLateUpdate();
             units.OnLateUpdate();
-            cameraScript.OnLateUpdate();
+            _cameraScript.OnLateUpdate();
             npcSetup.UPDATER.CustomLateUpdate();
         }
 

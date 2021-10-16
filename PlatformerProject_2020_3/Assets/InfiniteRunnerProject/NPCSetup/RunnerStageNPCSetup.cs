@@ -9,12 +9,13 @@ namespace RB
         Unit _runner = null;
         CameraScript _cameraScript = null;
 
-        public RunnerStageNPCSetup(BaseStage ownerStage)
+        public RunnerStageNPCSetup(BaseStage ownerStage, CameraScript cameraScript)
         {
             _stage = ownerStage;
+            _cameraScript = cameraScript;
+
             _runner = ownerStage.units.GetUnit<Runner>();
             _updater = new NPCSetupUpdater(ownerStage, this);
-            _cameraScript = BaseInitializer.current.GetStage().cameraScript;
         }
 
         public override void InstantiateNPC()

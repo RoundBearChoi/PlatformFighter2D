@@ -8,12 +8,12 @@ namespace RB
     {
         public Units units = null;
         public TrailEffects trailEffects = new TrailEffects();
-        public CameraScript cameraScript = null;
         public IBackgroundSetup backgroundSetup = null;
         public IBackgroundSetup groundSetup = null;
         public BaseNPCSetup npcSetup = null;
 
         protected BaseInitializer _gameIntializer = null;
+        protected CameraScript _cameraScript = null;
 
         [SerializeField]
         protected BaseUI _baseUI = null;
@@ -49,6 +49,14 @@ namespace RB
                 stageType == StageType.MULTIPLAYER_CLIENT_STAGE)
             {
                 ResourceLoader.LoadFightStage();
+            }
+        }
+
+        public CameraScript CAMERA_SCRIPT
+        {
+            get
+            {
+                return _cameraScript;
             }
         }
 

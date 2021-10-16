@@ -141,7 +141,7 @@ namespace RB
                         {
                             if (_listUnits[i].unitData.hp > 0)
                             {
-                                BaseMessage shakeCamOnPosition = new Message_ShakeCameraOnPosition(20, 2f);
+                                BaseMessage shakeCamOnPosition = new Message_ShakeCameraOnPosition(_stage.CAMERA_SCRIPT, 20, 2f);
                                 shakeCamOnPosition.Register();
                             }
                         }
@@ -150,10 +150,10 @@ namespace RB
                         {
                             if ((_listUnits[i].iStateController.GetCurrentState() is LittleRed_Death) == false)
                             {
-                                BaseMessage shakeCamOnPosition = new Message_ShakeCameraOnPosition(25, 2f);
+                                BaseMessage shakeCamOnPosition = new Message_ShakeCameraOnPosition(_stage.CAMERA_SCRIPT, 25, 2f);
                                 shakeCamOnPosition.Register();
 
-                                BaseMessage showFallDust = new Message_ShowFallDust(_listUnits[i].transform.position);
+                                BaseMessage showFallDust = new Message_ShowFallDust(_stage.CAMERA_SCRIPT, _listUnits[i].transform.position);
                                 showFallDust.Register();
 
                                 _listUnits[i].unitData.listNextStates.Add(new LittleRed_Death(_listUnits[i]));

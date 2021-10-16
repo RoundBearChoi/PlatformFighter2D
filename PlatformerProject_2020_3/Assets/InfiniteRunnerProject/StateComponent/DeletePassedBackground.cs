@@ -8,10 +8,10 @@ namespace RB
     {
         CameraScript _cameraScript = null;
 
-        public DeletePassedBackground(Unit unit)
+        public DeletePassedBackground(CameraScript cameraScript, Unit unit)
         {
             _unit = unit;
-            _cameraScript = BaseInitializer.current.GetStage().cameraScript;
+            _cameraScript = cameraScript;
         }
 
         public override void OnFixedUpdate()

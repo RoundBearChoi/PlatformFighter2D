@@ -31,15 +31,14 @@ namespace RB
 
             UITest.tempUI.currentUI = ui;
 
-            cameraScript = new CameraScript();
-
             GameCamera gameCamera = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.GAME_CAMERA)) as GameCamera;
             Camera camera = gameCamera.GetComponent<Camera>();
             gameCamera.transform.parent = this.transform;
 
-            cameraScript.SetCamera(camera);
-            cameraScript.SetCameraState(new Camera_LerpOnTargetY(), true);
-            cameraScript.SetFollowTarget(runner.gameObject);
+            _cameraScript = new CameraScript();
+            _cameraScript.SetCamera(camera);
+            _cameraScript.SetCameraState(new Camera_LerpOnTargetY(_cameraScript), true);
+            _cameraScript.SetFollowTarget(runner.gameObject);
         }
 
         public override void OnUpdate()
@@ -50,7 +49,7 @@ namespace RB
             units.OnUpdate();
             trailEffects.OnUpdate();
             ui.OnUpdate();
-            cameraScript.OnUpdate();
+            _cameraScript.OnUpdate();
 
             if (InputController.centralUserInput.commands.ContainsPress(CommandType.F5, false))
             {
@@ -69,13 +68,13 @@ namespace RB
             units.OnFixedUpdate();
             ui.OnFixedUpdate();
 
-            cameraScript.OnFixedUpdate();
+            _cameraScript.OnFixedUpdate();
         }
 
         public override void OnLateUpdate()
         {
             units.OnLateUpdate();
-            cameraScript.OnLateUpdate();
+            _cameraScript.OnLateUpdate();
         }
 
         public override float GetCumulativeGravityForcePercentage()

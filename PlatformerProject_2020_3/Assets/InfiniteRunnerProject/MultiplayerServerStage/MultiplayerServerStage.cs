@@ -51,10 +51,10 @@ namespace RB
             cam.orthographicSize = 10f;
             cam.transform.position = new Vector3(8f, 4.5f, BaseInitializer.current.fighterDataSO.Camera_z);
 
-            cameraScript = new CameraScript();
-            cameraScript.SetCamera(cam);
-            cameraScript.SetCameraState(new Camera_LerpOnFighterXY(cameraScript, 0.08f, 0.08f, 10f, 52f, 4f), true);
-            cameraScript.SetFollowTarget(serverPlayer.gameObject);
+            _cameraScript = new CameraScript();
+            _cameraScript.SetCamera(cam);
+            _cameraScript.SetCameraState(new Camera_LerpOnFighterXY(_cameraScript, 0.08f, 0.08f, 10f, 52f, 4f), true);
+            _cameraScript.SetFollowTarget(serverPlayer.gameObject);
 
             //data to send to clients
             _playerDataSender = new RB.Server.PlayerDataSender();
@@ -83,7 +83,7 @@ namespace RB
             _playerDataSender.Send();
             _baseUI.OnUpdate();
 
-            cameraScript.OnUpdate();
+            _cameraScript.OnUpdate();
             trailEffects.OnUpdate();
             units.OnUpdate();
             
@@ -105,13 +105,13 @@ namespace RB
             _playerDataSender.Send();
             _baseUI.OnFixedUpdate();
 
-            cameraScript.OnFixedUpdate();
+            _cameraScript.OnFixedUpdate();
             units.OnFixedUpdate();
         }
 
         public override void OnLateUpdate()
         {
-            cameraScript.OnLateUpdate();
+            _cameraScript.OnLateUpdate();
             units.OnLateUpdate();
             _baseUI.OnLateUpdate();
         }

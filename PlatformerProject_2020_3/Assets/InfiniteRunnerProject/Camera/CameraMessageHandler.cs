@@ -19,11 +19,11 @@ namespace RB
             {
                 if (message.MESSAGE_TYPE == MessageType.SHAKE_CAMERA_ONTARGET)
                 {
-                    _cameraScript.SetCameraState(new Camera_Shake_OnTarget(message.GetUnsignedIntMessage(), message.GetFloatMessage()), false);
+                    _cameraScript.SetCameraState(new Camera_Shake_OnTarget(_cameraScript, message.GetUnsignedIntMessage(), message.GetFloatMessage()), false);
                 }
                 else if (message.MESSAGE_TYPE == MessageType.SHAKE_CAMERA_ONPOSITION)
                 {
-                    _cameraScript.SetCameraState(new Camera_Shake_OnPosition(message.GetUnsignedIntMessage(), message.GetFloatMessage()), false);
+                    _cameraScript.SetCameraState(new Camera_Shake_OnPosition(_cameraScript, message.GetUnsignedIntMessage(), message.GetFloatMessage()), false);
                 }
             }
         }

@@ -8,9 +8,9 @@ namespace RB
     {
         CameraScript _cameraScript = null;
 
-        public SwampSetup()
+        public SwampSetup(CameraScript cameraScript)
         {
-            _cameraScript = BaseInitializer.current.GetStage().cameraScript;
+            _cameraScript = cameraScript;
         }
 
         public void InstantiateBaseLayer()

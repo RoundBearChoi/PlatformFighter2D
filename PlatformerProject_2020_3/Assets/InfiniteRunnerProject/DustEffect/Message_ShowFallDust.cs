@@ -8,9 +8,9 @@ namespace RB
     {
         Vector3 _position;
 
-        public Message_ShowFallDust(Vector3 position)
+        public Message_ShowFallDust(CameraScript cameraScript, Vector3 position)
         {
-            float bottomY = BaseInitializer.current.GetStage().cameraScript.cameraEdges.GetEdge(1).y;
+            float bottomY = cameraScript.cameraEdges.GetEdge(1).y;
             _position = new Vector3(position.x, bottomY, BaseInitializer.current.fighterDataSO.FallDust_z);
 
             mMessageType = MessageType.SHOW_FALL_DUST;

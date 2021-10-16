@@ -6,11 +6,14 @@ namespace RB
 {
     public class Message_ShakeCameraOnPosition : BaseMessage
     {
+        private CameraScript _cameraScript = null;
         private uint _totalShakeFrames = 0;
         private float _shakeAmount = 0f;
 
-        public Message_ShakeCameraOnPosition(uint totalShakeFrames, float shakeAmount)
+        public Message_ShakeCameraOnPosition(CameraScript cameraScript, uint totalShakeFrames, float shakeAmount)
         {
+            _cameraScript = cameraScript;
+
             _totalShakeFrames = totalShakeFrames;
             _shakeAmount = shakeAmount;
             mMessageType = MessageType.SHAKE_CAMERA_ONPOSITION;
@@ -18,7 +21,7 @@ namespace RB
 
         public override void Register()
         {
-            BaseInitializer.current.GetStage().cameraScript.messageHandler.Register(this);
+            _cameraScript.messageHandler.Register(this);
         }
 
         public override uint GetUnsignedIntMessage()

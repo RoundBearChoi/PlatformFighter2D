@@ -8,9 +8,9 @@ namespace RB
     {
         float _yOffsetOnPlayer = 5f;
 
-        public Camera_LerpOnTargetY()
+        public Camera_LerpOnTargetY(CameraScript cameraScript)
         {
-            _cameraScript = BaseInitializer.current.GetStage().cameraScript;
+            _cameraScript = cameraScript;
         }
 
         public override void OnFixedUpdate()

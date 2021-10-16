@@ -42,9 +42,9 @@ namespace RB
             cam.orthographicSize = 10f;
             cam.transform.position = new Vector3(8f, 4.5f, BaseInitializer.current.fighterDataSO.Camera_z);
 
-            cameraScript = new CameraScript();
-            cameraScript.SetCamera(cam);
-            cameraScript.SetCameraState(new Camera_LerpOnFighterXY(cameraScript, 0.08f, 0.08f, 10f, 52f, 4f), true);
+            _cameraScript = new CameraScript();
+            _cameraScript.SetCamera(cam);
+            _cameraScript.SetCameraState(new Camera_LerpOnFighterXY(_cameraScript, 0.08f, 0.08f, 10f, 52f, 4f), true);
 
             //ui
             //_baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
@@ -108,7 +108,7 @@ namespace RB
             _clientObjects.OnUpdate();
             units.OnUpdate();
             trailEffects.OnUpdate();
-            cameraScript.OnUpdate();
+            _cameraScript.OnUpdate();
 
             if (_baseUI != null)
             {
@@ -119,7 +119,7 @@ namespace RB
         public override void OnLateUpdate()
         {
             units.OnLateUpdate();
-            cameraScript.OnLateUpdate();
+            _cameraScript.OnLateUpdate();
 
             if (_baseUI != null)
             {
@@ -135,20 +135,20 @@ namespace RB
 
             _clientObjects.OnFixedUpdate();
             units.OnFixedUpdate();
-            cameraScript.OnFixedUpdate();
+            _cameraScript.OnFixedUpdate();
 
             if (_baseUI != null)
             {
                 _baseUI.OnFixedUpdate();
             }
 
-            if (cameraScript.GetTarget() == null)
+            if (_cameraScript.GetTarget() == null)
             {
                 ClientObject myObj = _clientObjects.GetClientObj(ClientManager.CURRENT.clientController.myId);
 
                 if (myObj != null)
                 {
-                    cameraScript.SetFollowTarget(myObj.GetPlayerSphere());
+                    _cameraScript.SetFollowTarget(myObj.GetPlayerSphere());
                 }
             }
         }

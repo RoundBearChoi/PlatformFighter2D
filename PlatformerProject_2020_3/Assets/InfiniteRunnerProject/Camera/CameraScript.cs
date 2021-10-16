@@ -80,7 +80,7 @@ namespace RB
             _camera.transform.position = pos;
         }
 
-        public void RegierViewPlayers(Unit player)
+        public void RegisterViewPlayers(Unit player)
         {
             _listViewFighters.Add(player);
         }

@@ -10,11 +10,12 @@ namespace RB
         float _shakeAmount = 0f;
         Vector3 _initialPosition = Vector3.zero;
 
-        public Camera_Shake_OnPosition(uint totalShakeFrames, float shakeAmount)
+        public Camera_Shake_OnPosition(CameraScript cameraScript, uint totalShakeFrames, float shakeAmount)
         {
+            _cameraScript = cameraScript;
+
             _totalShakeFrames = totalShakeFrames;
             _shakeAmount = shakeAmount;
-            _cameraScript = BaseInitializer.current.GetStage().cameraScript;
             _initialPosition = _cameraScript.GetCamera().gameObject.transform.position;
         }
 

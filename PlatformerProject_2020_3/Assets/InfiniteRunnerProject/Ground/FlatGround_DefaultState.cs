@@ -13,8 +13,8 @@ namespace RB
             latest = this;
             ownerUnit = unit;
 
-            _listStateComponents.Add(new DeletePassedGround(unit));
-            _listStateComponents.Add(new AddFlatGround(this));
+            _listStateComponents.Add(new DeletePassedGround(BaseInitializer.current.GetStage().CAMERA_SCRIPT, unit));
+            _listStateComponents.Add(new AddFlatGround(BaseInitializer.current.GetStage().CAMERA_SCRIPT, this));
         }
 
         public override UnitState GetLastestInstantiatedState()

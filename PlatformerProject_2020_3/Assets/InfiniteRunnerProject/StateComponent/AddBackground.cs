@@ -9,10 +9,10 @@ namespace RB
         UnitState _state = null;
         CameraScript _cameraScript = null;
 
-        public AddBackground(UnitState state)
+        public AddBackground(CameraScript cameraScript, UnitState state)
         {
             _state = state;
-            _cameraScript = BaseInitializer.current.GetStage().cameraScript;
+            _cameraScript = cameraScript;
         }
 
         public override void OnFixedUpdate()

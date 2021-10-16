@@ -10,11 +10,11 @@ namespace RB
         float _shakeAmount = 0f;
         private Vector3 _initialPos = Vector3.zero;
 
-        public Camera_Shake_OnTarget(uint totalShakeFrames, float shakeAmount)
+        public Camera_Shake_OnTarget(CameraScript cameraScript, uint totalShakeFrames, float shakeAmount)
         {
+            _cameraScript = cameraScript;
             _totalShakeFrames = totalShakeFrames;
             _shakeAmount = shakeAmount;
-            _cameraScript = BaseInitializer.current.GetStage().cameraScript;
         }
 
         public override void OnFixedUpdate()

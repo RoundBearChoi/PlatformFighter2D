@@ -14,6 +14,17 @@ namespace RB
 
             Physics2D.gravity = new Vector2(0f, BaseInitializer.current.fighterDataSO.Gravity);
 
+            //set camera
+            FightCamera fightCamera = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.FIGHT_CAMERA)) as FightCamera;
+            fightCamera.transform.parent = this.transform;
+            Camera cam = fightCamera.GetComponent<Camera>();
+            cam.orthographicSize = 10f;
+            cam.transform.position = new Vector3(8f, 4.5f, BaseInitializer.current.fighterDataSO.Camera_z);
+
+            _cameraScript = new CameraScript();
+            _cameraScript.SetCamera(cam);
+            _cameraScript.SetCameraState(new Camera_LerpOnFighterXY(_cameraScript, 0.08f, 0.08f, 10f, 52f, 4f), true);
+
             //load level 3 (oldcity)
             GameObject levelObj = Instantiate(ResourceLoader.levelLoader.GetObj(3)) as GameObject;
             levelObj.transform.parent = this.transform;
@@ -63,24 +74,15 @@ namespace RB
             midPoint.transform.parent = this.transform;
             _midPoint = new PlayersMidPoint(midPoint, player1, player2);
 
-            //set camera
-            FightCamera fightCamera = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.FIGHT_CAMERA)) as FightCamera;
-            fightCamera.transform.parent = this.transform;
-            Camera cam = fightCamera.GetComponent<Camera>();
-            cam.orthographicSize = 10f;
-            cam.transform.position = new Vector3(8f, 4.5f, BaseInitializer.current.fighterDataSO.Camera_z);
-
-            cameraScript = new CameraScript();
-            cameraScript.SetCamera(cam);
-            cameraScript.SetCameraState(new Camera_LerpOnFighterXY(cameraScript, 0.08f, 0.08f, 10f, 52f, 4f), true);
-            cameraScript.SetFollowTarget(midPoint);
-            cameraScript.RegierViewPlayers(player1);
-            cameraScript.RegierViewPlayers(player2);
-
             //ui
             _baseUI = Instantiate(ResourceLoader.uiLoader.GetObj(UIType.COMPATIBLE_BASE_UI)) as CompatibleBaseUI;
             _baseUI.transform.parent = this.transform;
             _baseUI.Init(BaseUIType.FIGHT_STAGE_UI);
+
+            //camera details (after fighters are instantiated)
+            _cameraScript.SetFollowTarget(midPoint);
+            _cameraScript.RegisterViewPlayers(player1);
+            _cameraScript.RegisterViewPlayers(player2);
         }
 
         public override void OnUpdate()
@@ -90,7 +92,7 @@ namespace RB
 
             _baseUI.OnUpdate();
 
-            cameraScript.OnUpdate();
+            _cameraScript.OnUpdate();
             trailEffects.OnUpdate();
             units.OnUpdate();
 
@@ -108,7 +110,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            cameraScript.OnFixedUpdate();
+            _cameraScript.OnFixedUpdate();
             units.OnFixedUpdate();
 
             _baseUI.OnFixedUpdate();
@@ -119,7 +121,7 @@ namespace RB
         {
             _baseUI.OnLateUpdate();
 
-            cameraScript.OnLateUpdate();
+            _cameraScript.OnLateUpdate();
             units.OnLateUpdate();
         }
 
