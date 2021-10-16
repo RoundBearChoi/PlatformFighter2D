@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Camera_LerpOnFighterXAndY : CameraState
+    public class Camera_LerpOnFighterXY : CameraState
     {
         float _xPercentage = 0f;
         float _yPercentage = 0f;
@@ -13,9 +13,9 @@ namespace RB
         float _rightXLimit = 0f;
         float _lowYLimit = 0f;
 
-        public Camera_LerpOnFighterXAndY(float xPercentage, float yPercentage, float leftXLimit, float rightXLimit, float lowYLimit)
+        public Camera_LerpOnFighterXY(CameraScript cameraScript, float xPercentage, float yPercentage, float leftXLimit, float rightXLimit, float lowYLimit)
         {
-            _cameraScript = BaseInitializer.current.GetStage().cameraScript;
+            _cameraScript = cameraScript;
             _xPercentage = xPercentage;
             _yPercentage = yPercentage;
 

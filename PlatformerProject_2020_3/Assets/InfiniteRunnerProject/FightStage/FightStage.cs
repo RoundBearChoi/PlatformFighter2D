@@ -72,7 +72,7 @@ namespace RB
 
             cameraScript = new CameraScript();
             cameraScript.SetCamera(cam);
-            cameraScript.SetCameraState(new Camera_LerpOnFighterXAndY(0.08f, 0.08f, 10f, 52f, 4f), true);
+            cameraScript.SetCameraState(new Camera_LerpOnFighterXY(cameraScript, 0.08f, 0.08f, 10f, 52f, 4f), true);
             cameraScript.SetFollowTarget(midPoint);
             cameraScript.RegierViewPlayers(player1);
             cameraScript.RegierViewPlayers(player2);
