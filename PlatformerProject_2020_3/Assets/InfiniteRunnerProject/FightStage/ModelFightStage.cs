@@ -18,6 +18,7 @@ namespace RB
             cam.transform.position = new Vector3(30f, 7f, BaseInitializer.CURRENT.fighterDataSO.Camera_z);
             _cameraScript = new CameraScript();
             _cameraScript.SetCamera(cam);
+            _cameraScript.SetCameraState(new Camera_SlowMoveLeftRight(_cameraScript, new Vector3(24f, 0f, 0f), new Vector3(35, 0f, 0f)), true);
 
             //load level 3 (oldcity)
             GameObject levelObj = Instantiate(ResourceLoader.levelLoader.GetObj(3)) as GameObject;
@@ -39,12 +40,6 @@ namespace RB
             {
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, BaseInitializer.CURRENT.fighterDataSO.Players_z);
             }
-
-            //set camera targets
-            //_cameraScript.SetCameraState(new Camera_LerpOnFighterXY(_cameraScript, 0.08f, 0.08f, 10f, 52f, 4f), true);
-            //_cameraScript.SetFollowTarget(midPoint);
-            //_cameraScript.RegisterViewPlayers(player1);
-            //_cameraScript.RegisterViewPlayers(player2);
         }
 
         public override void OnUpdate()

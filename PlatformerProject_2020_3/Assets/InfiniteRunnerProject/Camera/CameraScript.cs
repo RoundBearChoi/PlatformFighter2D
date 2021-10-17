@@ -105,6 +105,11 @@ namespace RB
             _playerIsOnInnerEdge = false;
             _playerIsOnOuterEdge = false;
 
+            if (_listViewFighters.Count == 0)
+            {
+                return;
+            }
+
             if (!ZoomOnWinner())
             {
                 foreach (Unit unit in _listViewFighters)
