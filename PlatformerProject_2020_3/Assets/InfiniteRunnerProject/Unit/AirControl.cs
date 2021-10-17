@@ -11,6 +11,7 @@ namespace RB
         float _horizontalMomentum = 0f;
 
         public bool DashTriggered = false;
+        public bool UppercutTriggered = false;
 
         public float HORIZONTAL_MOMENTUM
         {

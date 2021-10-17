@@ -10,7 +10,6 @@ namespace RB
         public UnitType unitType = UnitType.NONE;
         public IStateController<UnitState> iStateController = null;
         public UnitData unitData = new UnitData();
-        public bool deathAnimationTriggered = false;
         public bool destroy = false;
         public BaseMessageHandler messageHandler = null;
         public int clientIndex = 0;

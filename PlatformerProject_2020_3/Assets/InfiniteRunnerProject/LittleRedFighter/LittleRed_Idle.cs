@@ -20,9 +20,14 @@ namespace RB
             _listStateComponents.Add(new TriggerLittleRedUppercut(ownerUnit, 0));
             _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit, 0));
             
-            ownerUnit.unitData.airControl.SetMomentum(0f);
-            
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_IDLE);
+        }
+
+        public override void OnEnter()
+        {
+            ownerUnit.unitData.airControl.SetMomentum(0f);
+            ownerUnit.unitData.airControl.DashTriggered = false;
+            ownerUnit.unitData.airControl.UppercutTriggered = false;
         }
 
         public override void OnFixedUpdate()
@@ -36,9 +41,6 @@ namespace RB
             }
         }
 
-        public override void OnEnter()
-        {
-            ownerUnit.unitData.airControl.DashTriggered = false;
-        }
+
     }
 }

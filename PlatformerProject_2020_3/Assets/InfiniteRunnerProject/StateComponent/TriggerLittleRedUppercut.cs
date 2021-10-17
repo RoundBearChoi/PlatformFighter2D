@@ -18,7 +18,7 @@ namespace RB
         {
             SpriteAnimation ani = _unit.unitData.spriteAnimations.GetCurrentAnimation();
 
-            if (ani != null)
+            if (ani != null && !_unit.unitData.airControl.UppercutTriggered)
             {
                 if (ani.SPRITE_INDEX >= _requiredIndexCount)
                 {
@@ -26,6 +26,7 @@ namespace RB
                     {
                         if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, true))
                         {
+                            _unit.unitData.airControl.UppercutTriggered = true;
                             _unit.unitData.listNextStates.Add(new LittleRedUppercut(_unit));
                         }
                     }
