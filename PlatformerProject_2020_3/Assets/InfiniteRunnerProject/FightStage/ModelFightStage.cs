@@ -28,6 +28,9 @@ namespace RB
 
             //fighter model
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_LIGHT);
+            InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_DARK);
+
+            units.GetUnit<LittleRed>().unitData.facingRight = false;
 
             //set z for all players
             List<Unit> allPlayers = units.GetUnits<LittleRed>();
