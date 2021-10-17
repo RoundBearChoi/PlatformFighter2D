@@ -24,7 +24,7 @@ namespace RB
         {
             if (_listNextStages.Count > 0)
             {
-                BaseStage currentStage = BaseInitializer.current.STAGE;
+                BaseStage currentStage = BaseInitializer.CURRENT.STAGE;
 
                 if (currentStage != null)
                 {
@@ -33,7 +33,7 @@ namespace RB
 
                 BaseStage newStage = _listNextStages[0];
 
-                BaseInitializer.current.SetStage(newStage);
+                BaseInitializer.CURRENT.SetStage(newStage);
                 newStage.Init();
             }
 

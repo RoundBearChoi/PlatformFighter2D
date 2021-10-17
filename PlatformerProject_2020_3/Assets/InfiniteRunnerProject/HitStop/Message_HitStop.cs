@@ -18,7 +18,7 @@ namespace RB
 
         public override void Register()
         {
-            BaseInitializer.current.RunCoroutine(_register());
+            BaseInitializer.CURRENT.RunCoroutine(_register());
         }
 
         IEnumerator _register()
@@ -27,7 +27,7 @@ namespace RB
         
             yield return new WaitForEndOfFrame();
 
-            BaseInitializer.current.STAGE.units.unitsMessageHandler.Register(this);
+            BaseInitializer.CURRENT.STAGE.units.unitsMessageHandler.Register(this);
         }
 
         public override uint GetUnsignedIntMessage()

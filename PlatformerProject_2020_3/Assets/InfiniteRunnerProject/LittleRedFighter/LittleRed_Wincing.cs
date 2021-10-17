@@ -13,7 +13,7 @@ namespace RB
 
             _listStateComponents.Add(new InitialPushBack(ownerUnit, pushForce, attacker));
             _listStateComponents.Add(new InitialTextGUIMaterial(ownerUnit, 8));
-            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, BaseInitializer.current.fighterDataSO.IdleSlowDownLerpPercentage));
+            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, BaseInitializer.CURRENT.fighterDataSO.IdleSlowDownLerpPercentage));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_IDLE);
         }

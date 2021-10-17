@@ -9,7 +9,7 @@ namespace RB
         public override void OnEnterKey()
         {
             //BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.FIGHT_STAGE));
-            BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INPUT_DEVICES_STAGE));
+            BaseInitializer.CURRENT.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INPUT_DEVICES_STAGE));
         }
     }
 }

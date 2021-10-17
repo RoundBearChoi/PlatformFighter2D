@@ -58,15 +58,15 @@ namespace RB
                                             attackerHitStop.Register();
 
                                             Vector2 closest = col.ClosestPoint(centerPoint);
-                                            BaseMessage showBloodMessage = new Message_ShowBlood5(_unit.unitData.facingRight, new Vector3(closest.x, closest.y, BaseInitializer.current.fighterDataSO.BloodEffects_z));
+                                            BaseMessage showBloodMessage = new Message_ShowBlood5(_unit.unitData.facingRight, new Vector3(closest.x, closest.y, BaseInitializer.CURRENT.fighterDataSO.BloodEffects_z));
                                             showBloodMessage.Register();
 
-                                            BaseMessage showParryEffectMessage = new Message_ShowParryEffect(new Vector3(closest.x, closest.y, BaseInitializer.current.fighterDataSO.ParryEffects_z));
+                                            BaseMessage showParryEffectMessage = new Message_ShowParryEffect(new Vector3(closest.x, closest.y, BaseInitializer.CURRENT.fighterDataSO.ParryEffects_z));
                                             showParryEffectMessage.Register();
 
                                             float shake = Random.Range(_boxCollisionData.camerShakeAmount_min, _boxCollisionData.camerShakeAmount_max);
 
-                                            BaseMessage shakeCam = new Message_ShakeCameraOnTarget(BaseInitializer.current.STAGE.CAMERA_SCRIPT, _boxCollisionData.cameraShakeFrames, shake);
+                                            BaseMessage shakeCam = new Message_ShakeCameraOnTarget(BaseInitializer.CURRENT.STAGE.CAMERA_SCRIPT, _boxCollisionData.cameraShakeFrames, shake);
                                             shakeCam.Register();
 
                                             BaseMessage takeDamage = new Message_TakeDamage(collidingUnit, 10);

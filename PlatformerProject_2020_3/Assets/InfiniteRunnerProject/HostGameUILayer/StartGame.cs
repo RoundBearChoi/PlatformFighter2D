@@ -12,7 +12,7 @@ namespace RB
 
             RB.Server.ServerManager.CURRENT.serverSend.EnterMultiplayerStage();
 
-            BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.MULTIPLAYER_SERVER_STAGE));
+            BaseInitializer.CURRENT.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.MULTIPLAYER_SERVER_STAGE));
         }
     }
 }

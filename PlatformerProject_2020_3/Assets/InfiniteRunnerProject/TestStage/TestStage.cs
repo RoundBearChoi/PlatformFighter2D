@@ -79,7 +79,7 @@ namespace RB
 
         public override float GetCumulativeGravityForcePercentage()
         {
-            return BaseInitializer.current.runnerDataSO.CumulativeGravityForcePercentage;
+            return BaseInitializer.CURRENT.runnerDataSO.CumulativeGravityForcePercentage;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace RB
         public LittleRed_WallSlide(Unit unit)
         {
             ownerUnit = unit;
-            _maxFallVelocity = BaseInitializer.current.fighterDataSO.MaxWallSlideFallSpeed;
+            _maxFallVelocity = BaseInitializer.CURRENT.fighterDataSO.MaxWallSlideFallSpeed;
 
             _listStateComponents.Add(new TriggerDashOnWallSlide(ownerUnit));
             _listStateComponents.Add(new TriggerWallSlideDust(ownerUnit));
@@ -69,7 +69,7 @@ namespace RB
                 {
                     if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false) && ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
                     {
-                        ownerUnit.unitData.airControl.SetMomentum(BaseInitializer.current.fighterDataSO.WallFallHorizontalMomentum * -1f);
+                        ownerUnit.unitData.airControl.SetMomentum(BaseInitializer.CURRENT.fighterDataSO.WallFallHorizontalMomentum * -1f);
                         ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall(ownerUnit));
                     }
                 }
@@ -77,7 +77,7 @@ namespace RB
                 {
                     if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false) && ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
                     {
-                        ownerUnit.unitData.airControl.SetMomentum(BaseInitializer.current.fighterDataSO.WallFallHorizontalMomentum);
+                        ownerUnit.unitData.airControl.SetMomentum(BaseInitializer.CURRENT.fighterDataSO.WallFallHorizontalMomentum);
                         ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall(ownerUnit));
                     }
                 }

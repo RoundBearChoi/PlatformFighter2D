@@ -96,7 +96,7 @@ namespace RB.Client
 
             Debug.Log("client ended");
 
-            BaseStage currentStage = BaseInitializer.current.STAGE;
+            BaseStage currentStage = BaseInitializer.CURRENT.STAGE;
 
             if (currentStage != null)
             {
@@ -104,7 +104,7 @@ namespace RB.Client
                     currentStage is ConnectedStage)
                 {
                     Debugger.Log("returning to menu");
-                    BaseInitializer.current.stageTransitioner.AddNextStage(GameObject.Instantiate(ResourceLoader.stageLoader.GetObj(StageType.INTRO_STAGE)) as BaseStage);
+                    BaseInitializer.CURRENT.stageTransitioner.AddNextStage(GameObject.Instantiate(ResourceLoader.stageLoader.GetObj(StageType.INTRO_STAGE)) as BaseStage);
                 }
             }
         }

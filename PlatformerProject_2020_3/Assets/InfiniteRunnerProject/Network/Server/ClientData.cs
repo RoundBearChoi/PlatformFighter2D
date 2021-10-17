@@ -46,7 +46,7 @@ namespace RB.Server
         {
             _inputs = arrInputs;
 
-            UserInput input = BaseInitializer.current.STAGE.GetUserInputByClientIndex(clientIndex);
+            UserInput input = BaseInitializer.CURRENT.STAGE.GetUserInputByClientIndex(clientIndex);
 
             if (input != null)
             {

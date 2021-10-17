@@ -12,7 +12,7 @@ namespace RB
             ownerUnit = unit;
 
             _listStateComponents.Add(new NormalRunToFall(ownerUnit));
-            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, BaseInitializer.current.runnerDataSO.Runner_FlatGround_RunSpeed, 0.1f));
+            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, BaseInitializer.CURRENT.runnerDataSO.Runner_FlatGround_RunSpeed, 0.1f));
             _listStateComponents.Add(new NormalRun_OnUserInput(ownerUnit));
             _listStateComponents.Add(new UpdateCollider2DSize(ownerUnit, new Vector2(0.8f, 3.4f)));
 

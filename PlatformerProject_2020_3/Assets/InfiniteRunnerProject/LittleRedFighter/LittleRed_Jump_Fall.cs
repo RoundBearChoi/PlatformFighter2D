@@ -10,7 +10,7 @@ namespace RB
         {
             ownerUnit = unit;
 
-            _listStateComponents.Add(new LerpHorizontalMomentumOnInput_Air(ownerUnit, BaseInitializer.current.fighterDataSO.MaxHorizontalAirMomentum));
+            _listStateComponents.Add(new LerpHorizontalMomentumOnInput_Air(ownerUnit, BaseInitializer.CURRENT.fighterDataSO.MaxHorizontalAirMomentum));
             _listStateComponents.Add(new UpdateAirMovementOnMomentum(ownerUnit));
 
             _listStateComponents.Add(new UpdateDirectionOnVelocity(ownerUnit));

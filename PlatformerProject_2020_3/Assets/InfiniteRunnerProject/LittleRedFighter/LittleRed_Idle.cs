@@ -10,7 +10,7 @@ namespace RB
         {
             ownerUnit = unit;
 
-            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, BaseInitializer.current.fighterDataSO.IdleSlowDownLerpPercentage));
+            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, BaseInitializer.CURRENT.fighterDataSO.IdleSlowDownLerpPercentage));
             _listStateComponents.Add(new UpdateDirectionOnInput(ownerUnit));
 
             _listStateComponents.Add(new TriggerFallState(ownerUnit));

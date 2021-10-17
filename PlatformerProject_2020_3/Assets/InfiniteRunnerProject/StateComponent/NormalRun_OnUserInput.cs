@@ -19,7 +19,7 @@ namespace RB
             }
             else if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
             {
-                if (_unit.unitData.rigidBody2D.velocity.x > BaseInitializer.current.runnerDataSO.SlideSpeedThreshold)
+                if (_unit.unitData.rigidBody2D.velocity.x > BaseInitializer.CURRENT.runnerDataSO.SlideSpeedThreshold)
                 {   
                     _unit.unitData.listNextStates.Add(new Runner_Slide(_unit));
                 }

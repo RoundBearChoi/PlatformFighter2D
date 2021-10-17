@@ -35,7 +35,7 @@ namespace RB
 
                 float y = Mathf.Lerp(
                     _cameraScript.TARGET_OBJ.transform.position.y,
-                    _cameraScript.TARGET_OBJ.transform.position.y + BaseInitializer.current.fighterDataSO.CameraYOffset,
+                    _cameraScript.TARGET_OBJ.transform.position.y + BaseInitializer.CURRENT.fighterDataSO.CameraYOffset,
                     _yPercentage);
 
                 if (x < _leftXLimit)
@@ -53,7 +53,7 @@ namespace RB
                     y = _lowYLimit;
                 }
 
-                _targetPosition = new Vector3(x, y, BaseInitializer.current.fighterDataSO.Camera_z);
+                _targetPosition = new Vector3(x, y, BaseInitializer.CURRENT.fighterDataSO.Camera_z);
             }
 
             _cameraScript.UpdateCameraPositionOnTarget(_targetPosition);

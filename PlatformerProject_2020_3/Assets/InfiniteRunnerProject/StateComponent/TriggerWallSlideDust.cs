@@ -36,7 +36,7 @@ namespace RB
 
                     y = _unit.transform.position.y + 1.5f;
 
-                    Vector3 dustPosition = new Vector3(x, y, BaseInitializer.current.fighterDataSO.DustEffects_z);
+                    Vector3 dustPosition = new Vector3(x, y, BaseInitializer.CURRENT.fighterDataSO.DustEffects_z);
 
                     if (!_unit.isDummy)
                     {

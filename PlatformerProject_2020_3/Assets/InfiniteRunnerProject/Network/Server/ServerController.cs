@@ -71,9 +71,9 @@ namespace RB.Server
 
         private void TCPConnectCallback(System.IAsyncResult result)
         {
-            if (BaseInitializer.current != null)
+            if (BaseInitializer.CURRENT != null)
             {
-                if (BaseInitializer.current.STAGE is HostGameStage)
+                if (BaseInitializer.CURRENT.STAGE is HostGameStage)
                 {
                     System.Net.Sockets.TcpClient tcpClient = _tcpListener.EndAcceptTcpClient(result);
                     _tcpListener.BeginAcceptTcpClient(TCPConnectCallback, null);

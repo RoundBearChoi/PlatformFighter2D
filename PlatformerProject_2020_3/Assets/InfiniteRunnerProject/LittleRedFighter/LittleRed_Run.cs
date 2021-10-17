@@ -10,14 +10,14 @@ namespace RB
         {
             ownerUnit = unit;
 
-            float runspeed = BaseInitializer.current.fighterDataSO.DefaultRunSpeed;
+            float runspeed = BaseInitializer.CURRENT.fighterDataSO.DefaultRunSpeed;
 
             if (!ownerUnit.unitData.facingRight)
             {
                 runspeed *= -1f;
             }
 
-            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, runspeed, BaseInitializer.current.fighterDataSO.RunSpeedLerpPercentage));
+            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, runspeed, BaseInitializer.CURRENT.fighterDataSO.RunSpeedLerpPercentage));
             _listStateComponents.Add(new Create_LittleRed_Run_StepDust(ownerUnit));
             _listStateComponents.Add(new SetDefaultAnimationInterval(ownerUnit));
 

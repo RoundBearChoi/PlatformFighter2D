@@ -12,7 +12,7 @@ namespace RB
 
             _listMatchingSpriteTypes.Add(SpriteType.OLDCITY_PLATFORMS);
 
-            ownerUnit.transform.position = new Vector3(ownerUnit.transform.position.x, ownerUnit.transform.position.y, BaseInitializer.current.fighterDataSO.OldCity_Platforms_z);
+            ownerUnit.transform.position = new Vector3(ownerUnit.transform.position.x, ownerUnit.transform.position.y, BaseInitializer.CURRENT.fighterDataSO.OldCity_Platforms_z);
         }
 
         public override void OnFixedUpdate()

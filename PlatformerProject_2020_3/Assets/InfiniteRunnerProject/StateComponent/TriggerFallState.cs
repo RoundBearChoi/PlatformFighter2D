@@ -19,7 +19,7 @@ namespace RB
                 if (_unit.unitData.rigidBody2D.velocity.y <= -0.0001f)
                 {
                     //multiply/divide runspeed on fall
-                    _unit.unitData.rigidBody2D.velocity = new Vector2(_unit.unitData.rigidBody2D.velocity.x * BaseInitializer.current.fighterDataSO.HorizontalMomentumMultiplierOnFall, _unit.unitData.rigidBody2D.velocity.y);
+                    _unit.unitData.rigidBody2D.velocity = new Vector2(_unit.unitData.rigidBody2D.velocity.x * BaseInitializer.CURRENT.fighterDataSO.HorizontalMomentumMultiplierOnFall, _unit.unitData.rigidBody2D.velocity.y);
                     _unit.unitData.airControl.SetMomentum(_unit.unitData.rigidBody2D.velocity.x);
                     _unit.unitData.listNextStates.Add(new LittleRed_Jump_Fall(_unit));
                 }

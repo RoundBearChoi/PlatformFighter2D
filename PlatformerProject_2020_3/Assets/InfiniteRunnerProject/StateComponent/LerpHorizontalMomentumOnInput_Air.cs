@@ -34,12 +34,12 @@ namespace RB
 
                 if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false))
                 {
-                    _unit.unitData.airControl.AddMomentum(BaseInitializer.current.fighterDataSO.HorizontalAirMomentumIncreaseAmount * -1f);
+                    _unit.unitData.airControl.AddMomentum(BaseInitializer.CURRENT.fighterDataSO.HorizontalAirMomentumIncreaseAmount * -1f);
                 }
 
                 if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false))
                 {
-                    _unit.unitData.airControl.AddMomentum(BaseInitializer.current.fighterDataSO.HorizontalAirMomentumIncreaseAmount);
+                    _unit.unitData.airControl.AddMomentum(BaseInitializer.CURRENT.fighterDataSO.HorizontalAirMomentumIncreaseAmount);
                 }
             }
 

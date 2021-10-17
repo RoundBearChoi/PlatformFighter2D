@@ -17,7 +17,7 @@ namespace RB
         {
             if (UnityEngine.InputSystem.Keyboard.current.anyKey.wasReleasedThisFrame)
             {
-                BaseInitializer.current.RunCoroutine(TriggerRun());
+                BaseInitializer.CURRENT.RunCoroutine(TriggerRun());
             }
         }
 

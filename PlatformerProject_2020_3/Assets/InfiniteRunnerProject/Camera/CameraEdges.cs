@@ -50,8 +50,8 @@ namespace RB
                 Debug.DrawLine(Vector3.zero, edge, Color.yellow, 0.025f);
             }
 
-            float inner = BaseInitializer.current.fighterDataSO.CameraInnerEdgePercentage;
-            float outer = BaseInitializer.current.fighterDataSO.CameraOuterEdgePercentage;
+            float inner = BaseInitializer.CURRENT.fighterDataSO.CameraInnerEdgePercentage;
+            float outer = BaseInitializer.CURRENT.fighterDataSO.CameraOuterEdgePercentage;
 
             //top left
             _innerEdges[0] = _cam.ScreenToWorldPoint(new Vector3(_cam.pixelWidth * (1 - inner), _cam.pixelHeight * inner, _cam.nearClipPlane));

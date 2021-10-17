@@ -50,7 +50,7 @@ namespace RB
 
             if (_updateCount > uint.MaxValue || _updateCount > 50 * 3)
             {
-                BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.ENTER_IP_STAGE));
+                BaseInitializer.CURRENT.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.ENTER_IP_STAGE));
             }
 
             //normal operations

@@ -16,7 +16,7 @@ namespace RB
 
         public override void Register()
         {
-            BaseInitializer.current.STAGE.units.unitsMessageHandler.Register(this);
+            BaseInitializer.CURRENT.STAGE.units.unitsMessageHandler.Register(this);
         }
 
         public override Vector3 GetVector3Message()

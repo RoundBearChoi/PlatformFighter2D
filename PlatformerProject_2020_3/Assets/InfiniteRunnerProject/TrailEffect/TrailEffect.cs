@@ -28,7 +28,7 @@ namespace RB
 
         public void OnUpdate()
         {
-            _decreaingAlpha = Mathf.Lerp(spriteRenderer.color.a, 0f, Time.deltaTime * BaseInitializer.current.fighterDataSO.TrailFadeSpeed);
+            _decreaingAlpha = Mathf.Lerp(spriteRenderer.color.a, 0f, Time.deltaTime * BaseInitializer.CURRENT.fighterDataSO.TrailFadeSpeed);
 
             spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, _decreaingAlpha);
         }

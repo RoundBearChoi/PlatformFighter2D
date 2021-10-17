@@ -14,10 +14,10 @@ namespace RB
 
         private void Start()
         {
-            Vector3 fencePos = new Vector3(FencesAndIron.transform.position.x, FencesAndIron.transform.position.y, BaseInitializer.current.fighterDataSO.OldCity_Fences_z);
+            Vector3 fencePos = new Vector3(FencesAndIron.transform.position.x, FencesAndIron.transform.position.y, BaseInitializer.CURRENT.fighterDataSO.OldCity_Fences_z);
             FencesAndIron.transform.position = fencePos;
 
-            Vector3 fogPos = new Vector3(Fog.transform.position.x, Fog.transform.position.y, BaseInitializer.current.fighterDataSO.OldCity_BottomFog_z);
+            Vector3 fogPos = new Vector3(Fog.transform.position.x, Fog.transform.position.y, BaseInitializer.CURRENT.fighterDataSO.OldCity_BottomFog_z);
             Fog.transform.position = fogPos;
         }
     }

@@ -26,7 +26,7 @@ namespace RB
 
                 TrailEffect trail = trailObj.AddComponent<TrailEffect>();
                 trail.gameObject.name = "trail - " + _unit.gameObject.name;
-                trail.transform.SetParent(BaseInitializer.current.STAGE.transform, false);
+                trail.transform.SetParent(BaseInitializer.CURRENT.STAGE.transform, false);
 
                 trail.spriteRenderer = trailObj.AddComponent<SpriteRenderer>();
                 trail.spriteRenderer.sprite = _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.sprite;
@@ -52,7 +52,7 @@ namespace RB
                     }
                 }
 
-                BaseInitializer.current.STAGE.trailEffects.AddTrail(trail);
+                BaseInitializer.CURRENT.STAGE.trailEffects.AddTrail(trail);
             }
         }
     }

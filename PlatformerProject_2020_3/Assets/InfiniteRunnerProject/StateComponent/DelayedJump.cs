@@ -28,7 +28,7 @@ namespace RB
                     if (ani.SPRITE_INDEX >= _jumpFrame)
                     {
                         _jumped = true;
-                        _unit.unitData.rigidBody2D.velocity = new Vector2(_unit.unitData.rigidBody2D.velocity.x * BaseInitializer.current.fighterDataSO.HorizontalJumpVelocityMultiplier, _jumpForce);
+                        _unit.unitData.rigidBody2D.velocity = new Vector2(_unit.unitData.rigidBody2D.velocity.x * BaseInitializer.CURRENT.fighterDataSO.HorizontalJumpVelocityMultiplier, _jumpForce);
                     }
                 }
             }

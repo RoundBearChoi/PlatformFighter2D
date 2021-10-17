@@ -6,9 +6,9 @@ namespace RB
 {
     public abstract class BaseInitializer : MonoBehaviour
     {
-        public static BaseInitializer current = null;
-        public SpecsGetter specsGetter = null;
-        public StageTransitioner stageTransitioner = null;
+        public static BaseInitializer CURRENT = null;
+        protected BaseStage _stage = null;
+        protected BaseStage _modelStage = null;
 
         [Space(10)] [SerializeField]
         protected List<UnitCreationSpec> listCreationSpecsSO = new List<UnitCreationSpec>();
@@ -20,15 +20,15 @@ namespace RB
         [Space(10)] [SerializeField]
         protected bool _useDebugLog;
 
+        public SpecsGetter specsGetter = null;
+        public StageTransitioner stageTransitioner = null;
+
         [Space(10)]
         public GameData runnerDataSO = null;
         public FighterData fighterDataSO = null;
         public OldCityParallax oldCityParallaxSO;
         public InputDeviceInfoUI[] arrInputDeviceUI = null;
         public InputDeviceData[] arrInputDeviceData = null;
-
-        protected BaseStage _stage = null;
-        protected BaseStage _modelStage = null;
 
         public virtual BaseStage STAGE
         {

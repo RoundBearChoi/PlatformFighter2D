@@ -139,7 +139,7 @@ namespace RB
             {
                 if (!IsSelected())
                 {
-                    deviceImage.TRANSFORM.localPosition = Vector3.Lerp(deviceImage.TRANSFORM.localPosition, Vector3.zero, Time.deltaTime * BaseInitializer.current.fighterDataSO.InputDeviceIconMoveSpeed);
+                    deviceImage.TRANSFORM.localPosition = Vector3.Lerp(deviceImage.TRANSFORM.localPosition, Vector3.zero, Time.deltaTime * BaseInitializer.CURRENT.fighterDataSO.InputDeviceIconMoveSpeed);
                     downButton.HideImages(false);
                 }
             }
@@ -201,16 +201,16 @@ namespace RB
             {
                 downButton.HideImages(true);
 
-                for (int i = 0; i < BaseInitializer.current.arrInputDeviceUI.Length; i++)
+                for (int i = 0; i < BaseInitializer.CURRENT.arrInputDeviceUI.Length; i++)
                 {
-                    if (BaseInitializer.current.arrInputDeviceUI[i] == this)
+                    if (BaseInitializer.CURRENT.arrInputDeviceUI[i] == this)
                     {
                         break;
                     }
 
-                    if (BaseInitializer.current.arrInputDeviceUI[i] == null)
+                    if (BaseInitializer.CURRENT.arrInputDeviceUI[i] == null)
                     {
-                        BaseInitializer.current.arrInputDeviceUI[i] = this;
+                        BaseInitializer.CURRENT.arrInputDeviceUI[i] = this;
                         break;
                     }
                 }
@@ -218,11 +218,11 @@ namespace RB
 
             if (_upIsPressed)
             {
-                for (int i = 0; i < BaseInitializer.current.arrInputDeviceUI.Length; i++)
+                for (int i = 0; i < BaseInitializer.CURRENT.arrInputDeviceUI.Length; i++)
                 {
-                    if (BaseInitializer.current.arrInputDeviceUI[i] == this)
+                    if (BaseInitializer.CURRENT.arrInputDeviceUI[i] == this)
                     {
-                        BaseInitializer.current.arrInputDeviceUI[i] = null;
+                        BaseInitializer.CURRENT.arrInputDeviceUI[i] = null;
                         break;
                     }
                 }
@@ -231,9 +231,9 @@ namespace RB
 
         bool IsSelected()
         {
-            for (int i = 0; i < BaseInitializer.current.arrInputDeviceUI.Length; i++)
+            for (int i = 0; i < BaseInitializer.CURRENT.arrInputDeviceUI.Length; i++)
             {
-                if (BaseInitializer.current.arrInputDeviceUI[i] == this)
+                if (BaseInitializer.CURRENT.arrInputDeviceUI[i] == this)
                 {
                     return true;
                 }

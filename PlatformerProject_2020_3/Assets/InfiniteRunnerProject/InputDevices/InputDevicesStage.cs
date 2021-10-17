@@ -39,23 +39,23 @@ namespace RB
 
             if (InputController.centralUserInput.commands.ContainsPress(CommandType.ENTER, true))
             {
-                for(int i = 0; i < BaseInitializer.current.arrInputDeviceUI.Length; i++)
+                for(int i = 0; i < BaseInitializer.CURRENT.arrInputDeviceUI.Length; i++)
                 {
-                    if (i < BaseInitializer.current.arrInputDeviceData.Length)
+                    if (i < BaseInitializer.CURRENT.arrInputDeviceData.Length)
                     {
-                        if (BaseInitializer.current.arrInputDeviceUI[i] != null)
+                        if (BaseInitializer.CURRENT.arrInputDeviceUI[i] != null)
                         {
-                            BaseInitializer.current.arrInputDeviceData[i].deviceName = BaseInitializer.current.arrInputDeviceUI[i].DEVICE_NAME;
-                            BaseInitializer.current.arrInputDeviceData[i].keyboard = BaseInitializer.current.arrInputDeviceUI[i].KEYBOARD;
-                            BaseInitializer.current.arrInputDeviceData[i].mouse = BaseInitializer.current.arrInputDeviceUI[i].MOUSE;
-                            BaseInitializer.current.arrInputDeviceData[i].gamepad = BaseInitializer.current.arrInputDeviceUI[i].GAMEPAD;
+                            BaseInitializer.CURRENT.arrInputDeviceData[i].deviceName = BaseInitializer.CURRENT.arrInputDeviceUI[i].DEVICE_NAME;
+                            BaseInitializer.CURRENT.arrInputDeviceData[i].keyboard = BaseInitializer.CURRENT.arrInputDeviceUI[i].KEYBOARD;
+                            BaseInitializer.CURRENT.arrInputDeviceData[i].mouse = BaseInitializer.CURRENT.arrInputDeviceUI[i].MOUSE;
+                            BaseInitializer.CURRENT.arrInputDeviceData[i].gamepad = BaseInitializer.CURRENT.arrInputDeviceUI[i].GAMEPAD;
 
-                            BaseInitializer.current.arrInputDeviceUI[i] = null;
+                            BaseInitializer.CURRENT.arrInputDeviceUI[i] = null;
                         }
                     }
                 }
 
-                BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.FIGHT_STAGE));
+                BaseInitializer.CURRENT.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.FIGHT_STAGE));
             }
         }
 

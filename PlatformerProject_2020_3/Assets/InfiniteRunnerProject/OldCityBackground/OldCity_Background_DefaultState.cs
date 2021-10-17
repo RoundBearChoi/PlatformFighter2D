@@ -10,11 +10,11 @@ namespace RB
         {
             ownerUnit = unit;
 
-            _listStateComponents.Add(new HorizontalParallax(unit, unit.transform.position, BaseInitializer.current.oldCityParallaxSO.OldCity_Background_ParallaxPercentage));
+            _listStateComponents.Add(new HorizontalParallax(unit, unit.transform.position, BaseInitializer.CURRENT.oldCityParallaxSO.OldCity_Background_ParallaxPercentage));
 
             _listMatchingSpriteTypes.Add(SpriteType.OLDCITY_BACKGROUND);
 
-            ownerUnit.transform.position = new Vector3(ownerUnit.transform.position.x, ownerUnit.transform.position.y, BaseInitializer.current.fighterDataSO.OldCity_Background_z);
+            ownerUnit.transform.position = new Vector3(ownerUnit.transform.position.x, ownerUnit.transform.position.y, BaseInitializer.CURRENT.fighterDataSO.OldCity_Background_z);
         }
 
         public override void OnFixedUpdate()

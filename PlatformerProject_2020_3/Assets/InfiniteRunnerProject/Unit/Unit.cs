@@ -79,7 +79,7 @@ namespace RB
 
                 unitData.rigidBody2D = this.gameObject.AddComponent<Rigidbody2D>();
                 unitData.rigidBody2D.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
-                unitData.rigidBody2D.sharedMaterial = BaseInitializer.current.runnerDataSO.physicsMaterial_NoFrictionNoBounce;
+                unitData.rigidBody2D.sharedMaterial = BaseInitializer.CURRENT.runnerDataSO.physicsMaterial_NoFrictionNoBounce;
                 unitData.rigidBody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
             }
         }

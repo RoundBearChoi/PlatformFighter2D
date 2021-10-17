@@ -15,7 +15,7 @@ namespace RB
 
         public static void Return()
         {
-            BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
+            BaseInitializer.CURRENT.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
 
             if (RB.Server.ServerManager.CURRENT != null)
             {

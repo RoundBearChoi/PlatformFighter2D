@@ -17,10 +17,10 @@ namespace RB
             
             initialFaceRight = unit.unitData.facingRight;
 
-            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, BaseInitializer.current.fighterDataSO.AttackASlowDownPercentage));
-            _listStateComponents.Add(new DelayedJump(ownerUnit, BaseInitializer.current.fighterDataSO.VerticalJumpForce * 0.75f, 2));
+            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, BaseInitializer.CURRENT.fighterDataSO.AttackASlowDownPercentage));
+            _listStateComponents.Add(new DelayedJump(ownerUnit, BaseInitializer.CURRENT.fighterDataSO.VerticalJumpForce * 0.75f, 2));
             _listStateComponents.Add(new UpdateAirMovementOnMomentum(ownerUnit));
-            _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, BaseInitializer.current.GetOverlapBoxCollisionData(OverlapBoxDataType.LITTLE_RED_UPPERCUT)));
+            _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, BaseInitializer.CURRENT.GetOverlapBoxCollisionData(OverlapBoxDataType.LITTLE_RED_UPPERCUT)));
 
             _listStateComponents.Add(new TriggerAirDash(ownerUnit, 10));
 
@@ -47,7 +47,7 @@ namespace RB
 
                             if (ownerUnit.unitType == UnitType.LITTLE_RED_LIGHT)
                             {
-                                BaseInitializer.current.STAGE.InstantiateUnit_ByUnitType(UnitType.UPPERCUT_EFFECT_LIGHT);
+                                BaseInitializer.CURRENT.STAGE.InstantiateUnit_ByUnitType(UnitType.UPPERCUT_EFFECT_LIGHT);
                                 Unit lightUppercutVFX = Units.instance.GetUnit<UppercutEffect_Light>();
                                 lightUppercutVFX.transform.parent = ownerUnit.transform;
                                 lightUppercutVFX.transform.position = ownerUnit.transform.position;
@@ -56,7 +56,7 @@ namespace RB
                             }
                             else if (ownerUnit.unitType == UnitType.LITTLE_RED_DARK)
                             {
-                                BaseInitializer.current.STAGE.InstantiateUnit_ByUnitType(UnitType.UPPERCUT_EFFECT_DARK);
+                                BaseInitializer.CURRENT.STAGE.InstantiateUnit_ByUnitType(UnitType.UPPERCUT_EFFECT_DARK);
                                 Unit darkUppercutVFX = Units.instance.GetUnit<UppercutEffect_Dark>();
                                 darkUppercutVFX.transform.parent = ownerUnit.transform;
                                 darkUppercutVFX.transform.position = ownerUnit.transform.position;

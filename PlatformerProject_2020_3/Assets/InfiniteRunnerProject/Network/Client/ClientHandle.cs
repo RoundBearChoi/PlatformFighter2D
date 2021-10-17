@@ -66,7 +66,7 @@ namespace RB.Client
         {
             Debugger.Log("packet received to enter multiplayer stage");
 
-            BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.MULTIPLAYER_CLIENT_STAGE));
+            BaseInitializer.CURRENT.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.MULTIPLAYER_CLIENT_STAGE));
         }
 
         public static void InitOnPlayerUnitTypes(Packet packet)
@@ -88,7 +88,7 @@ namespace RB.Client
                 dataset.listData.Add((UnitType)unitType);
             }
 
-            BaseInitializer.current.STAGE.UpdateClientUnitTypes(dataset);
+            BaseInitializer.CURRENT.STAGE.UpdateClientUnitTypes(dataset);
         }
 
         public static void UpdateOnPlayerPositions(Packet packet)
@@ -111,7 +111,7 @@ namespace RB.Client
                 dataset.listData.Add(positionAndDirection);
             }
 
-            BaseInitializer.current.STAGE.SetTargetClientPosition(dataset);
+            BaseInitializer.CURRENT.STAGE.SetTargetClientPosition(dataset);
         }
 
         public static void UpdateOnPlayerSpriteType(Packet packet)
@@ -122,7 +122,7 @@ namespace RB.Client
 
             Debugger.Log("player " + index + " sprite type received: " + " " + st.ToString());
 
-            BaseInitializer.current.STAGE.UpdateClientSprite(index, st);
+            BaseInitializer.CURRENT.STAGE.UpdateClientSprite(index, st);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace RB
             Application.targetFrameRate = 144;
             Screen.SetResolution(1920, 1080, true);
 
-            current = this;
+            CURRENT = this;
             Debugger.Log("setting current GameInitializer instance");
 
             ResourceLoader.Init();

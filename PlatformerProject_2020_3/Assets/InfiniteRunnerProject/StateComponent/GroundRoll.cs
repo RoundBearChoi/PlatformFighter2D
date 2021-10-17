@@ -27,11 +27,11 @@ namespace RB
 
             if (_unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX <= 2)
             {
-                _speed = BaseInitializer.current.fighterDataSO.DefaultRunSpeed * 1.5f;
+                _speed = BaseInitializer.CURRENT.fighterDataSO.DefaultRunSpeed * 1.5f;
             }
             else if (_unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX <= 6)
             {
-                _speed = BaseInitializer.current.fighterDataSO.DefaultRunSpeed * 0.8f;
+                _speed = BaseInitializer.CURRENT.fighterDataSO.DefaultRunSpeed * 0.8f;
             }
             else if (_unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX <= 12)
             {

@@ -27,12 +27,12 @@ namespace RB
         {
             for (int i = 0; i < _listFighterSpotInfo.Count; i++)
             {
-                if (i < BaseInitializer.current.arrInputDeviceUI.Length)
+                if (i < BaseInitializer.CURRENT.arrInputDeviceUI.Length)
                 {
-                    if (BaseInitializer.current.arrInputDeviceUI[i] != null)
+                    if (BaseInitializer.CURRENT.arrInputDeviceUI[i] != null)
                     {
-                        Vector3 pos = Vector3.Lerp(BaseInitializer.current.arrInputDeviceUI[i].deviceImage.TRANSFORM.position, _listFighterSpotInfo[i].DEVICE_ICON_SPOT.position, Time.deltaTime * BaseInitializer.current.fighterDataSO.InputDeviceIconMoveSpeed);
-                        BaseInitializer.current.arrInputDeviceUI[i].deviceImage.TRANSFORM.position = pos;
+                        Vector3 pos = Vector3.Lerp(BaseInitializer.CURRENT.arrInputDeviceUI[i].deviceImage.TRANSFORM.position, _listFighterSpotInfo[i].DEVICE_ICON_SPOT.position, Time.deltaTime * BaseInitializer.CURRENT.fighterDataSO.InputDeviceIconMoveSpeed);
+                        BaseInitializer.CURRENT.arrInputDeviceUI[i].deviceImage.TRANSFORM.position = pos;
                     }
                 }
             }

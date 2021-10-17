@@ -50,8 +50,8 @@ namespace RB
                 {
                     _targetPosition = new Vector3(
                         _cameraScript.TARGET_OBJ.transform.position.x,
-                        _cameraScript.TARGET_OBJ.transform.position.y + BaseInitializer.current.fighterDataSO.CameraYOffset,
-                        BaseInitializer.current.fighterDataSO.Camera_z);
+                        _cameraScript.TARGET_OBJ.transform.position.y + BaseInitializer.CURRENT.fighterDataSO.CameraYOffset,
+                        BaseInitializer.CURRENT.fighterDataSO.Camera_z);
                 }
 
                 _targetPosition += shakeOffset;

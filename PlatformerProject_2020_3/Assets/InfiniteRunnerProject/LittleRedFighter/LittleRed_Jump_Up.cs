@@ -17,7 +17,7 @@ namespace RB
 
             _listStateComponents.Add(new CancelJumpForceOnNonPress(ownerUnit, defaultJumpFrames));
             
-            _listStateComponents.Add(new LerpHorizontalMomentumOnInput_Air(ownerUnit, BaseInitializer.current.fighterDataSO.MaxHorizontalAirMomentum));
+            _listStateComponents.Add(new LerpHorizontalMomentumOnInput_Air(ownerUnit, BaseInitializer.CURRENT.fighterDataSO.MaxHorizontalAirMomentum));
             _listStateComponents.Add(new UpdateAirMovementOnMomentum(ownerUnit));
 
             _listStateComponents.Add(new UpdateDirectionOnVelocity(ownerUnit));
@@ -32,7 +32,7 @@ namespace RB
 
         public override void OnEnter()
         {
-            ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x * BaseInitializer.current.fighterDataSO.HorizontalJumpVelocityMultiplier, _jumpForce);
+            ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x * BaseInitializer.CURRENT.fighterDataSO.HorizontalJumpVelocityMultiplier, _jumpForce);
         }
 
         public override void OnFixedUpdate()
