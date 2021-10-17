@@ -47,7 +47,7 @@ namespace RB
 
                             if (ownerUnit.unitType == UnitType.LITTLE_RED_LIGHT)
                             {
-                                BaseInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.UPPERCUT_EFFECT_LIGHT);
+                                BaseInitializer.current.STAGE.InstantiateUnit_ByUnitType(UnitType.UPPERCUT_EFFECT_LIGHT);
                                 Unit lightUppercutVFX = Units.instance.GetUnit<UppercutEffect_Light>();
                                 lightUppercutVFX.transform.parent = ownerUnit.transform;
                                 lightUppercutVFX.transform.position = ownerUnit.transform.position;
@@ -56,7 +56,7 @@ namespace RB
                             }
                             else if (ownerUnit.unitType == UnitType.LITTLE_RED_DARK)
                             {
-                                BaseInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.UPPERCUT_EFFECT_DARK);
+                                BaseInitializer.current.STAGE.InstantiateUnit_ByUnitType(UnitType.UPPERCUT_EFFECT_DARK);
                                 Unit darkUppercutVFX = Units.instance.GetUnit<UppercutEffect_Dark>();
                                 darkUppercutVFX.transform.parent = ownerUnit.transform;
                                 darkUppercutVFX.transform.position = ownerUnit.transform.position;

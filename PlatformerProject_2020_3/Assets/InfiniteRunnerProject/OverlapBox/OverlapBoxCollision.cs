@@ -66,7 +66,7 @@ namespace RB
 
                                             float shake = Random.Range(_boxCollisionData.camerShakeAmount_min, _boxCollisionData.camerShakeAmount_max);
 
-                                            BaseMessage shakeCam = new Message_ShakeCameraOnTarget(BaseInitializer.current.GetStage().CAMERA_SCRIPT, _boxCollisionData.cameraShakeFrames, shake);
+                                            BaseMessage shakeCam = new Message_ShakeCameraOnTarget(BaseInitializer.current.STAGE.CAMERA_SCRIPT, _boxCollisionData.cameraShakeFrames, shake);
                                             shakeCam.Register();
 
                                             BaseMessage takeDamage = new Message_TakeDamage(collidingUnit, 10);

@@ -18,12 +18,12 @@ namespace RB
 
             if (ownerUnit.unitType == UnitType.LITTLE_RED_LIGHT)
             {
-                BaseInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.DeathFX_Light);
+                BaseInitializer.current.STAGE.InstantiateUnit_ByUnitType(UnitType.DeathFX_Light);
                 _deathFX = Units.instance.GetUnit<DeathFX_Light>();
             }
             else if (ownerUnit.unitType == UnitType.LITTLE_RED_DARK)
             {
-                BaseInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.DeathFX_Dark);
+                BaseInitializer.current.STAGE.InstantiateUnit_ByUnitType(UnitType.DeathFX_Dark);
                  _deathFX = Units.instance.GetUnit<DeathFX_Dark>();
             }
 

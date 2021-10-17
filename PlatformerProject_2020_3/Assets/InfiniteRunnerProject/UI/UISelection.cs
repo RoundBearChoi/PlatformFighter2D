@@ -26,7 +26,7 @@ namespace RB
                 _listOptions.Add(option);
             }
 
-            _inputController = BaseInitializer.current.GetStage().inputController;
+            _inputController = BaseInitializer.current.STAGE.inputController;
             _selectionArrow = GameObject.Instantiate(ResourceLoader.uiLoader.GetObj(UIType.SELECTION_ARROW)) as SelectionArrow;
         }
 

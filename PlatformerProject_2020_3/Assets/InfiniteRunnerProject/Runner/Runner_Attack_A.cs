@@ -27,7 +27,7 @@ namespace RB
             {
                 _dustCreated = true;
 
-                BaseInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.STEP_DUST);
+                BaseInitializer.current.STAGE.InstantiateUnit_ByUnitType(UnitType.STEP_DUST);
                 Units.instance.GetUnit<StepDust>().transform.position = ownerUnit.transform.position + new Vector3(ownerUnit.transform.right.x * 0.8f, 0f, 0f);
             }
 

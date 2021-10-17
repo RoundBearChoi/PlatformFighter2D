@@ -182,7 +182,7 @@ namespace RB
                     {
                         //Debugger.Log("adding downforce to unit: " + _listUnits[i].gameObject.name);
 
-                        float y = _listUnits[i].unitData.rigidBody2D.velocity.y * BaseInitializer.current.GetStage().GetCumulativeGravityForcePercentage();
+                        float y = _listUnits[i].unitData.rigidBody2D.velocity.y * BaseInitializer.current.STAGE.GetCumulativeGravityForcePercentage();
                         float x = _listUnits[i].unitData.rigidBody2D.velocity.x;
                         _listUnits[i].unitData.rigidBody2D.velocity = new Vector2(x, y);
                     }

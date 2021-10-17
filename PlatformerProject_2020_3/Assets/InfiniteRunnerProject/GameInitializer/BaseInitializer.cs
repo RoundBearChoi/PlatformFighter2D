@@ -28,10 +28,14 @@ namespace RB
         public InputDeviceData[] arrInputDeviceData = null;
 
         protected BaseStage _stage = null;
+        protected BaseStage _modelStage = null;
 
-        public virtual BaseStage GetStage()
+        public virtual BaseStage STAGE
         {
-            return _stage;
+            get
+            {
+                return _stage;
+            }
         }
 
         public virtual void SetStage(BaseStage stage)

@@ -24,7 +24,7 @@ namespace RB
         {
             if (_listNextStages.Count > 0)
             {
-                BaseStage currentStage = BaseInitializer.current.GetStage();
+                BaseStage currentStage = BaseInitializer.current.STAGE;
 
                 if (currentStage != null)
                 {

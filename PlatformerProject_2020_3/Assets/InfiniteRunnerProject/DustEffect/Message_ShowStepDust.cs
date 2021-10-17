@@ -22,7 +22,7 @@ namespace RB
 
         public override void Register()
         {
-            BaseInitializer.current.GetStage().units.unitsMessageHandler.Register(this);
+            BaseInitializer.current.STAGE.units.unitsMessageHandler.Register(this);
         }
 
         public override bool GetBoolMessage()

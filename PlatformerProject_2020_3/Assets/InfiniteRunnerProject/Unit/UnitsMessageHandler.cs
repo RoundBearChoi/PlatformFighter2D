@@ -35,7 +35,7 @@ namespace RB
 
                 else if (message.MESSAGE_TYPE == MessageType.SHOW_BLOOD_5)
                 {
-                    BaseInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.BLOOD_5);
+                    BaseInitializer.current.STAGE.InstantiateUnit_ByUnitType(UnitType.BLOOD_5);
                     Unit blood = Units.instance.GetUnit<Blood_5>();
                     blood.unitData.facingRight = message.GetBoolMessage();
 
@@ -48,7 +48,7 @@ namespace RB
 
                 else if (message.MESSAGE_TYPE == MessageType.SHOW_PARRY_EFFECT)
                 {
-                    BaseInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.PARRY_EFFECT);
+                    BaseInitializer.current.STAGE.InstantiateUnit_ByUnitType(UnitType.PARRY_EFFECT);
                     Unit parryEffect = Units.instance.GetUnit<ParryEffect>();
                     parryEffect.transform.position = message.GetVector3Message();
                 }
@@ -72,7 +72,7 @@ namespace RB
 
                 else if (message.MESSAGE_TYPE == MessageType.SHOW_WALLJUMP_DUST)
                 {
-                    BaseInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.WALLJUMP_DUST);
+                    BaseInitializer.current.STAGE.InstantiateUnit_ByUnitType(UnitType.WALLJUMP_DUST);
                     Unit wallJumpDust = Units.instance.GetUnit<WallJumpDust>();
 
                     wallJumpDust.transform.position = message.GetVector3Message();
@@ -83,7 +83,7 @@ namespace RB
 
                 else if (message.MESSAGE_TYPE == MessageType.SHOW_DASH_DUST)
                 {
-                    BaseInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.DASH_DUST);
+                    BaseInitializer.current.STAGE.InstantiateUnit_ByUnitType(UnitType.DASH_DUST);
                     Unit dashDust = Units.instance.GetUnit<DashDust>();
                     dashDust.transform.position = message.GetVector3Message();
                     dashDust.unitData.facingRight = message.GetBoolMessage();
@@ -91,7 +91,7 @@ namespace RB
 
                 else if (message.MESSAGE_TYPE == MessageType.SHOW_STEP_DUST)
                 {
-                    BaseInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.STEP_DUST);
+                    BaseInitializer.current.STAGE.InstantiateUnit_ByUnitType(UnitType.STEP_DUST);
                     Unit stepDust = Units.instance.GetUnit<StepDust>();
                     stepDust.transform.position = message.GetVector3Message();
                     stepDust.unitData.facingRight = message.GetBoolMessage();
@@ -108,7 +108,7 @@ namespace RB
 
                 else if (message.MESSAGE_TYPE == MessageType.SHOW_SLIDE_DUST)
                 {
-                    BaseInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.SLIDE_DUST);
+                    BaseInitializer.current.STAGE.InstantiateUnit_ByUnitType(UnitType.SLIDE_DUST);
                     Unit slideDust = Units.instance.GetUnit<SlideDust>();
                     slideDust.transform.position = message.GetVector3Message();
                     slideDust.unitData.facingRight = message.GetBoolMessage();
@@ -116,7 +116,7 @@ namespace RB
 
                 else if (message.MESSAGE_TYPE == MessageType.SHOW_JUMP_DUST)
                 {
-                    BaseInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.JUMP_DUST);
+                    BaseInitializer.current.STAGE.InstantiateUnit_ByUnitType(UnitType.JUMP_DUST);
                     Unit slideDust = Units.instance.GetUnit<JumpDust>();
                     slideDust.transform.position = message.GetVector3Message();
                     slideDust.unitData.facingRight = message.GetBoolMessage();
@@ -124,7 +124,7 @@ namespace RB
 
                 else if (message.MESSAGE_TYPE == MessageType.SHOW_SMASH_DUST)
                 {
-                    BaseInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.SMASH_DUST);
+                    BaseInitializer.current.STAGE.InstantiateUnit_ByUnitType(UnitType.SMASH_DUST);
                     Unit smashDust = Units.instance.GetUnit<SmashDust>();
                     smashDust.transform.position = message.GetVector3Message();
                     smashDust.unitData.facingRight = message.GetBoolMessage();
@@ -132,7 +132,7 @@ namespace RB
 
                 else if (message.MESSAGE_TYPE == MessageType.SHOW_FALL_DUST)
                 {
-                    BaseInitializer.current.GetStage().InstantiateUnit_ByUnitType(UnitType.FALL_DUST);
+                    BaseInitializer.current.STAGE.InstantiateUnit_ByUnitType(UnitType.FALL_DUST);
                     Unit fallDust = Units.instance.GetUnit<FallDust>();
                     fallDust.transform.position = message.GetVector3Message();
                 }
@@ -141,7 +141,7 @@ namespace RB
 
         void SetBloodLayer(GameObject obj)
         {
-            if (BaseInitializer.current.GetStage() is FightStage)
+            if (BaseInitializer.current.STAGE is FightStage)
             {
                 obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y, BaseInitializer.current.fighterDataSO.BloodEffects_z);
             }
@@ -149,7 +149,7 @@ namespace RB
 
         void SetDustLayer(GameObject obj)
         {
-            if (BaseInitializer.current.GetStage() is FightStage)
+            if (BaseInitializer.current.STAGE is FightStage)
             {
                 obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y, BaseInitializer.current.fighterDataSO.DustEffects_z);
             }

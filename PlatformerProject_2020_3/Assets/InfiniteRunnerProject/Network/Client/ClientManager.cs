@@ -96,7 +96,7 @@ namespace RB.Client
 
             Debug.Log("client ended");
 
-            BaseStage currentStage = BaseInitializer.current.GetStage();
+            BaseStage currentStage = BaseInitializer.current.STAGE;
 
             if (currentStage != null)
             {

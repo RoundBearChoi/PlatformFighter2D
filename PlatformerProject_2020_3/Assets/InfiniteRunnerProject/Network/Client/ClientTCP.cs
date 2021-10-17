@@ -53,7 +53,7 @@ namespace RB.Client
 
                 RB.Network.ThreadControl.ExecuteOnMainThread(() =>
                 {
-                    if (BaseInitializer.current.GetStage() is ConnectingStage)
+                    if (BaseInitializer.current.STAGE is ConnectingStage)
                     {
                         BaseInitializer.current.stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.ENTER_IP_STAGE));
                     }

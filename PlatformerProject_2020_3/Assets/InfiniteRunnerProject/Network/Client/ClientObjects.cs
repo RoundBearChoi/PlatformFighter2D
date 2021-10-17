@@ -45,7 +45,7 @@ namespace RB.Client
             clientObject.SetID(clientID);
             _listClientObjects.Add(clientObject);
 
-            clientObject.transform.SetParent(BaseInitializer.current.GetStage().transform, true);
+            clientObject.transform.SetParent(BaseInitializer.current.STAGE.transform, true);
 
             return clientObject;
         }

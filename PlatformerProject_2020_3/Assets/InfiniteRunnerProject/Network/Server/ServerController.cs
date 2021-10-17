@@ -73,7 +73,7 @@ namespace RB.Server
         {
             if (BaseInitializer.current != null)
             {
-                if (BaseInitializer.current.GetStage() is HostGameStage)
+                if (BaseInitializer.current.STAGE is HostGameStage)
                 {
                     System.Net.Sockets.TcpClient tcpClient = _tcpListener.EndAcceptTcpClient(result);
                     _tcpListener.BeginAcceptTcpClient(TCPConnectCallback, null);

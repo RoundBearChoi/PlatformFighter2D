@@ -20,7 +20,7 @@ namespace RB
                 _listFighterHPInfo.Add(h);
             }
 
-            List<Unit> fighters = BaseInitializer.current.GetStage().units.GetUnits<LittleRed>();
+            List<Unit> fighters = BaseInitializer.current.STAGE.units.GetUnits<LittleRed>();
             List<Unit> fightersOrdered = new List<Unit>();
 
             for (int i = fighters.Count - 1; i >= 0; i--)

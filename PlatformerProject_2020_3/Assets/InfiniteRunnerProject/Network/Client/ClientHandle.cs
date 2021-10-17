@@ -88,7 +88,7 @@ namespace RB.Client
                 dataset.listData.Add((UnitType)unitType);
             }
 
-            BaseInitializer.current.GetStage().UpdateClientUnitTypes(dataset);
+            BaseInitializer.current.STAGE.UpdateClientUnitTypes(dataset);
         }
 
         public static void UpdateOnPlayerPositions(Packet packet)
@@ -111,7 +111,7 @@ namespace RB.Client
                 dataset.listData.Add(positionAndDirection);
             }
 
-            BaseInitializer.current.GetStage().SetTargetClientPosition(dataset);
+            BaseInitializer.current.STAGE.SetTargetClientPosition(dataset);
         }
 
         public static void UpdateOnPlayerSpriteType(Packet packet)
@@ -122,7 +122,7 @@ namespace RB.Client
 
             Debugger.Log("player " + index + " sprite type received: " + " " + st.ToString());
 
-            BaseInitializer.current.GetStage().UpdateClientSprite(index, st);
+            BaseInitializer.current.STAGE.UpdateClientSprite(index, st);
         }
     }
 }
