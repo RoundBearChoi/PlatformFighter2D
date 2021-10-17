@@ -15,7 +15,7 @@ namespace RB
             modelFightCam.transform.parent = this.transform;
             Camera cam = modelFightCam.GetComponent<Camera>();
             cam.orthographicSize = 10f;
-            cam.transform.position = new Vector3(8f, 4.5f, BaseInitializer.CURRENT.fighterDataSO.Camera_z);
+            cam.transform.position = new Vector3(27f, 12f, BaseInitializer.CURRENT.fighterDataSO.Camera_z);
             _cameraScript = new CameraScript();
             _cameraScript.SetCamera(cam);
 
