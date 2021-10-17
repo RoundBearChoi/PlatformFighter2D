@@ -28,6 +28,7 @@ namespace RB
 
                 if (currentStage != null)
                 {
+                    currentStage.OnExit();
                     GameObject.Destroy(currentStage.gameObject);
                 }
 

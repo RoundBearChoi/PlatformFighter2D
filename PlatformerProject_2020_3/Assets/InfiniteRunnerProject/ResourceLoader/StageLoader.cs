@@ -19,6 +19,8 @@ namespace RB
             LoadObj<MultiplayerServerStage>(StageType.MULTIPLAYER_SERVER_STAGE, "MultiplayerServerStage");
             LoadObj<MultiplayerClientStage>(StageType.MULTIPLAYER_CLIENT_STAGE, "MultiplayerClientStage");
 
+            LoadObj<ModelFightStage>(StageType.MODEL_FIGHT_STAGE, "ModelFightStage");
+
             LoadObj<HostGameStage>(StageType.HOST_GAME_STAGE, "HostGameStage");
             LoadObj<EnterHostIPStage>(StageType.ENTER_IP_STAGE, "EnterHostIPStage");
             LoadObj<ConnectingStage>(StageType.CONNECTING_STAGE, "ConnectingStage");

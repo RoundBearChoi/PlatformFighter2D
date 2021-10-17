@@ -11,8 +11,7 @@ namespace RB
         INTRO_CAMERA,
         GAME_CAMERA,
         FIGHT_CAMERA,
-
-        HP_BAR,
+        MODEL_FIGHT_CAMERA,
 
         SERVER_MANAGER,
         CLIENT_MANAGER,

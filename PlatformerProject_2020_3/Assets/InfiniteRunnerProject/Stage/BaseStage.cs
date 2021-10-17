@@ -34,16 +34,27 @@ namespace RB
             return newStage;
         }
 
+        public static BaseStage InstantiateNewModelStage(StageType stageType)
+        {
+            LoadStageObjs(stageType);
+
+            BaseStage modelStage = GameObject.Instantiate(ResourceLoader.stageLoader.GetObj(stageType)) as BaseStage;
+
+            modelStage.SetInitializer(BaseInitializer.CURRENT);
+            modelStage.Init();
+
+            return modelStage;
+        }
+
         public static void LoadStageObjs(StageType stageType)
         {
-            if (stageType == StageType.RUNNER_STAGE ||
-                stageType == StageType.TEST_STAGE
-                )
+            if (stageType == StageType.TEST_STAGE)
             {
                 ResourceLoader.LoadRunnerStage();
             }
             else if (
                 stageType == StageType.FIGHT_STAGE ||
+                stageType == StageType.MODEL_FIGHT_STAGE ||
                 stageType == StageType.MULTIPLAYER_SERVER_STAGE ||
                 stageType == StageType.MULTIPLAYER_CLIENT_STAGE)
             {
@@ -75,6 +86,11 @@ namespace RB
         }
 
         public virtual void OnLateUpdate()
+        {
+
+        }
+
+        public virtual void OnExit()
         {
 
         }

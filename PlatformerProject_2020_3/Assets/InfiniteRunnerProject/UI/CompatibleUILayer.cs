@@ -10,10 +10,7 @@ namespace RB
         {
             if (uiLayerType == UILayerType.RUNNER_INFO)
             {
-                UIElement runnerHPBar = UIElement.AddUIElement(UIElementType.RUNNER_HP_BAR, this.transform);
-                _uiElements.Add(runnerHPBar);
 
-                runnerHPBar.messageHandler = new RunnerHPMessageHandler(runnerHPBar as RunnerHPBar);
             }
 
             else if (uiLayerType == UILayerType.INTRO_SELECTION)

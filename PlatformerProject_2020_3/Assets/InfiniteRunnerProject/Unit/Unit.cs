@@ -13,7 +13,6 @@ namespace RB
         public bool deathAnimationTriggered = false;
         public bool destroy = false;
         public BaseMessageHandler messageHandler = null;
-        public EnemyHPBar hpBar = null;
         public int clientIndex = 0;
         public bool isDummy = false;
 

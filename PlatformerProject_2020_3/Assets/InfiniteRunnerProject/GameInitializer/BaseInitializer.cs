@@ -38,9 +38,22 @@ namespace RB
             }
         }
 
+        public virtual BaseStage MODEL_STAGE
+        {
+            get
+            {
+                return _modelStage;
+            }
+        }
+
         public virtual void SetStage(BaseStage stage)
         {
             _stage = stage;
+        }
+
+        public virtual void SetModelStage(BaseStage stage)
+        {
+            _modelStage = stage;
         }
 
         public virtual void RunCoroutine(IEnumerator enumerator)

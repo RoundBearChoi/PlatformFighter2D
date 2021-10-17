@@ -23,6 +23,9 @@ namespace RB
             _baseUI.transform.parent = this.transform;
 
             _baseUI.Init(BaseUIType.FIGHTER_INTRO_UI);
+
+            //model stage
+            BaseInitializer.CURRENT.SetModelStage(BaseStage.InstantiateNewModelStage(StageType.MODEL_FIGHT_STAGE));
         }
         
         public override void OnUpdate()
@@ -50,6 +53,11 @@ namespace RB
         public override void OnFixedUpdate()
         {
             _baseUI.OnFixedUpdate();
+        }
+
+        public override void OnExit()
+        {
+            Destroy(BaseInitializer.CURRENT.MODEL_STAGE.gameObject);
         }
     }
 }

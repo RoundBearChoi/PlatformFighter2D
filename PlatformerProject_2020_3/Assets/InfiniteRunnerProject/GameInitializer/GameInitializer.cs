@@ -48,6 +48,11 @@ namespace RB
             {
                 _stage.OnUpdate();
             }
+
+            if (_modelStage != null)
+            {
+                _modelStage.OnUpdate();
+            }
         }
 
         private void FixedUpdate()
@@ -58,6 +63,11 @@ namespace RB
             {
                 _stage.OnFixedUpdate();
             }
+
+            if (_modelStage != null)
+            {
+                _modelStage.OnFixedUpdate();
+            }
         }
 
         private void LateUpdate()
@@ -65,6 +75,11 @@ namespace RB
             if (_stage != null)
             {
                 _stage.OnLateUpdate();
+            }
+
+            if (_modelStage != null)
+            {
+                _modelStage.OnLateUpdate();
             }
         }
 

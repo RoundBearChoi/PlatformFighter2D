@@ -19,9 +19,6 @@ namespace RB
         public override void OnLateUpdate()
         {
             unitUpdater.CustomLateUpdate();
-
-            BaseMessage runnerHPUpdate = new Message_UpdateRunnerHP(unitData.hp, unitData.initialHP);
-            runnerHPUpdate.Register();
         }
 
         public override void OnFixedUpdate()

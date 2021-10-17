@@ -93,11 +93,6 @@ namespace RB
             for (int i = 0; i < _listUnits.Count; i++)
             {
                 _listUnits[i].OnUpdate();
-
-                if (_listUnits[i].hpBar != null)
-                {
-                    _listUnits[i].hpBar.Update();
-                }
             }
         }
 

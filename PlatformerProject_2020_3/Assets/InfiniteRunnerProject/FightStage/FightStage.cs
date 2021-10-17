@@ -28,7 +28,7 @@ namespace RB
             levelObj.transform.parent = this.transform;
             levelObj.transform.position = new Vector3(levelObj.transform.position.x, levelObj.transform.position.y, BaseInitializer.CURRENT.fighterDataSO.tempPlatforms_z);
 
-            BaseInitializer.CURRENT.STAGE.InstantiateUnits_ByUnitType(UnitType.OLD_CITY);
+            InstantiateUnits_ByUnitType(UnitType.OLD_CITY);
 
             //player 0
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_LIGHT);
