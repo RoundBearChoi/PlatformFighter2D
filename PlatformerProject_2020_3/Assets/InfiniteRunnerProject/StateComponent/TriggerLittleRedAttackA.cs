@@ -20,7 +20,8 @@ namespace RB
 
             if (ani != null)
             {
-                if (ani.SPRITE_INDEX >= _requiredIndexCount)
+                if (ani.SPRITE_INDEX >= _requiredIndexCount &&
+                    !_unit.unitData.AttackATriggered)
                 {
                     if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, true))
                     {

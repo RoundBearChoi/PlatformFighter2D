@@ -22,6 +22,7 @@ namespace RB
             _listStateComponents.Add(new UpdateAirMovementOnMomentum(ownerUnit));
             _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, BaseInitializer.CURRENT.GetOverlapBoxCollisionData(OverlapBoxDataType.LITTLE_RED_UPPERCUT)));
 
+            _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit, 10));
             _listStateComponents.Add(new TriggerAirDash(ownerUnit, 10));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_UPPERCUT);

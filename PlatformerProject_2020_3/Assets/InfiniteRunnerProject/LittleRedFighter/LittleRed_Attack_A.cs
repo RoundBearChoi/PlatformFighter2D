@@ -26,6 +26,11 @@ namespace RB
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_ATTACK_A);
         }
 
+        public override void OnEnter()
+        {
+            ownerUnit.unitData.AttackATriggered = true;
+        }
+
         public override void OnFixedUpdate()
         {
             FixedUpdateComponents();

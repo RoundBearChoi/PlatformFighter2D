@@ -22,6 +22,7 @@ namespace RB
         public AirControl airControl = new AirControl();
         public Collisions collisionStays = new CollisionStays();
         public Collisions collisionEnters = new CollisionEnters();
+        public bool AttackATriggered = false;
 
         public ISpriteAnimations spriteAnimations = null;
 
