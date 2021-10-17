@@ -17,6 +17,9 @@ namespace RB
             {
                 UISelection introSelect = UISelection.AddUISelection(UIType.INTRO_SELECT, this.transform);
                 _uiSelection = introSelect;
+
+                UIElement gameVersion = UIElement.AddUIElement(UIElementType.GAME_VERSION, this.transform);
+                _uiElements.Add(gameVersion);
             }
 
             else if (uiLayerType == UILayerType.HOST_GAME)

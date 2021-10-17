@@ -6,7 +6,8 @@ namespace RB
 {
     public enum UIElementType
     {
-        RUNNER_HP_BAR,
+        GAME_VERSION,
+
         WAITING_FOR_PLAYERS,
         SERVER_IP,
         ENTER_HOST_IP,

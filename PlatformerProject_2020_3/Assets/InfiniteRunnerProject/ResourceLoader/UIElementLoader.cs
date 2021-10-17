@@ -10,7 +10,7 @@ namespace RB
         {
             Debugger.Log("loading ui elements..");
 
-            LoadObj<UIElement>(UIElementType.RUNNER_HP_BAR, "RunnerHPBar");
+            LoadObj<GameVersion>(UIElementType.GAME_VERSION, "GameVersion");
 
             //LoadObj<RB.Server.WaitingForPlayers>(UIElementType.WAITING_FOR_PLAYERS, "WaitingForPlayers");
             LoadObj<RB.Server.ServerIP>(UIElementType.SERVER_IP, "ServerIP");
