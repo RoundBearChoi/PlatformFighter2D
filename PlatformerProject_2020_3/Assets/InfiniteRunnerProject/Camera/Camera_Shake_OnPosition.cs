@@ -32,7 +32,7 @@ namespace RB
 
                 _targetPosition = _initialPosition + shakeOffset;
 
-                _cameraScript.UpdateCameraPositionOnTarget(_targetPosition);
+                _cameraScript.CAMERA.transform.position = _targetPosition;
             }
             else
             {

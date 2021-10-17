@@ -35,7 +35,7 @@ namespace RB
                     _cameraScript.TARGET_OBJ.transform.position.z - 5f);
             }
 
-            _cameraScript.UpdateCameraPositionOnTarget(_targetPosition);
+            _cameraScript.CAMERA.transform.position = _targetPosition;
         }
     }
 }

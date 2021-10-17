@@ -56,7 +56,7 @@ namespace RB
 
                 _targetPosition += shakeOffset;
 
-                _cameraScript.UpdateCameraPositionOnTarget(_targetPosition);
+                _cameraScript.CAMERA.transform.position = _targetPosition;
             }
         }
     }

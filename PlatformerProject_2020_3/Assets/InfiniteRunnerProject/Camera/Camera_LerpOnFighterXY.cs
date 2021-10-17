@@ -56,7 +56,7 @@ namespace RB
                 _targetPosition = new Vector3(x, y, BaseInitializer.CURRENT.fighterDataSO.Camera_z);
             }
 
-            _cameraScript.UpdateCameraPositionOnTarget(_targetPosition);
+            _cameraScript.CAMERA.transform.position = _targetPosition;
         }
     }
 }

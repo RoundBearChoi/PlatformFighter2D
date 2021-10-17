@@ -81,11 +81,6 @@ namespace RB
             _target = target;
         }
 
-        public void UpdateCameraPositionOnTarget(Vector3 pos)
-        {
-            _camera.transform.position = pos;
-        }
-
         public void RegisterViewPlayers(Unit player)
         {
             _listViewFighters.Add(player);
