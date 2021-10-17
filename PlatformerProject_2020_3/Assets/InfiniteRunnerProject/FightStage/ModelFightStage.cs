@@ -15,7 +15,7 @@ namespace RB
             modelFightCam.transform.parent = this.transform;
             Camera cam = modelFightCam.GetComponent<Camera>();
             cam.orthographicSize = 10f;
-            cam.transform.position = new Vector3(27f, 12f, BaseInitializer.CURRENT.fighterDataSO.Camera_z);
+            cam.transform.position = new Vector3(30f, 7f, BaseInitializer.CURRENT.fighterDataSO.Camera_z);
             _cameraScript = new CameraScript();
             _cameraScript.SetCamera(cam);
 
@@ -25,6 +25,17 @@ namespace RB
             levelObj.transform.position = new Vector3(levelObj.transform.position.x, levelObj.transform.position.y, BaseInitializer.CURRENT.fighterDataSO.tempPlatforms_z);
 
             InstantiateUnits_ByUnitType(UnitType.OLD_CITY);
+
+            //fighter model
+            InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_LIGHT);
+
+            //set z for all players
+            List<Unit> allPlayers = units.GetUnits<LittleRed>();
+
+            foreach (Unit player in allPlayers)
+            {
+                player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, BaseInitializer.CURRENT.fighterDataSO.Players_z);
+            }
 
             //set camera targets
             //_cameraScript.SetCameraState(new Camera_LerpOnFighterXY(_cameraScript, 0.08f, 0.08f, 10f, 52f, 4f), true);
