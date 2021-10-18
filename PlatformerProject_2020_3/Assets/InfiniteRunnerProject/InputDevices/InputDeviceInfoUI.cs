@@ -170,17 +170,15 @@ namespace RB
         {
             if (_downIsPressed)
             {
-                downButton.HideImages(true);
-
                 for (int i = 0; i < BaseInitializer.CURRENT.arrInputDeviceUI.Length; i++)
                 {
                     if (BaseInitializer.CURRENT.arrInputDeviceUI[i] == this)
                     {
                         break;
                     }
-
-                    if (BaseInitializer.CURRENT.arrInputDeviceUI[i] == null)
+                    else if (BaseInitializer.CURRENT.arrInputDeviceUI[i] == null)
                     {
+                        downButton.HideImages(true);
                         BaseInitializer.CURRENT.arrInputDeviceUI[i] = this;
                         break;
                     }
