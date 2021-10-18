@@ -6,7 +6,6 @@ namespace RB
 {
     public class FighterSpotInfo : MonoBehaviour
     {
-        [SerializeField]
         Transform _deviceIconSpot = null;
 
         public Transform DEVICE_ICON_SPOT
@@ -19,7 +18,7 @@ namespace RB
 
         public void Init()
         {
-
+            _deviceIconSpot = this.transform.Find("DeviceIconSpot").GetComponent<Transform>();
         }
     }
 }
