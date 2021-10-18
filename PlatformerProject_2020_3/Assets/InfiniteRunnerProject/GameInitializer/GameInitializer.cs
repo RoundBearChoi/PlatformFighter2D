@@ -27,13 +27,6 @@ namespace RB
                 arrInputDeviceUI[i] = null;
             }
 
-            arrInputDeviceData = new InputDeviceData[5] {
-                new InputDeviceData(),
-                new InputDeviceData(),
-                new InputDeviceData(),
-                new InputDeviceData(),
-                new InputDeviceData() };
-
             //first stage
             stageTransitioner.AddNextStage(BaseStage.InstantiateNewStage(StageType.INTRO_STAGE));
         }

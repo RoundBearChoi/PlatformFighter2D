@@ -13,6 +13,11 @@ namespace RB
 
         public static UserInput centralUserInput = null;
 
+        public void Clear()
+        {
+            _listUserInputs.Clear();
+        }
+
         public void InitCentralUserInput()
         {
             Keyboard keyboard = Keyboard.current;

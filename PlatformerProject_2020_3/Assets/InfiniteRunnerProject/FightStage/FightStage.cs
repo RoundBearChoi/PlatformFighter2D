@@ -30,6 +30,9 @@ namespace RB
 
             InstantiateUnits_ByUnitType(UnitType.OLD_CITY);
 
+            //clear inputcontroller
+            inputController.Clear();
+
             //player 0
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_LIGHT);
             Unit player1 = units.GetUnit<LittleRed>();

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 namespace RB
 {
@@ -25,53 +26,23 @@ namespace RB
         [SerializeField]
         bool _downIsPressed = false;
 
-        UnityEngine.InputSystem.Keyboard _keyboard = null;
-        UnityEngine.InputSystem.Mouse _mouse = null;
-        UnityEngine.InputSystem.Gamepad _gamepad = null;
+        Keyboard _keyboard = null;
+        Mouse _mouse = null;
+        Gamepad _gamepad = null;
 
-        public bool DEVICE_DETECTED
-        {
-            get
-            {
-                return _deviceDetected;
-            }
-        }
-
-        public string DEVICE_NAME
-        {
-            get
-            {
-                return _deviceName;
-            }
-        }
-
-        public UnityEngine.InputSystem.Keyboard KEYBOARD
-        {
-            get
-            {
-                return _keyboard;
-            }
-        }
-
-        public UnityEngine.InputSystem.Mouse MOUSE
-        {
-            get
-            {
-                return _mouse;
-            }
-        }
-
-        public UnityEngine.InputSystem.Gamepad GAMEPAD
-        {
-            get
-            {
-                return _gamepad;
-            }
-        }
+        public bool DEVICE_DETECTED { get { return _deviceDetected; } }
+        public string DEVICE_NAME { get { return _deviceName; } }
+        public Keyboard KEYBOARD { get { return _keyboard; } }
+        public Mouse MOUSE { get { return _mouse; } }
+        public Gamepad GAMEPAD { get { return _gamepad; } }
 
         public void Init()
         {
-            foreach(Transform t in this.GetComponentsInChildren<Transform>())
+            _keyboard = null;
+            _mouse = null;
+            _gamepad = null;
+
+            foreach (Transform t in this.GetComponentsInChildren<Transform>())
             {
                 if (t.name == "DeviceImage")
                 {

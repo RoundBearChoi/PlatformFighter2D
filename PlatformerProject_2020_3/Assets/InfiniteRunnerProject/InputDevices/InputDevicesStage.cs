@@ -11,6 +11,13 @@ namespace RB
 
         public override void Init()
         {
+            BaseInitializer.CURRENT.arrInputDeviceData = new InputDeviceData[5] {
+                new InputDeviceData(),
+                new InputDeviceData(),
+                new InputDeviceData(),
+                new InputDeviceData(),
+                new InputDeviceData() };
+
             IntroCamera introCam = GameObject.Instantiate(ResourceLoader.etcLoader.GetObj(etcType.INTRO_CAMERA)) as IntroCamera;
             introCam.transform.parent = this.transform;
 
