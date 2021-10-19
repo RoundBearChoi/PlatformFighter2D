@@ -31,11 +31,11 @@ namespace RB
                 Units.instance.GetUnit<StepDust>().transform.position = ownerUnit.transform.position + new Vector3(ownerUnit.transform.right.x * 0.8f, 0f, 0f);
             }
 
-            if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 1)
+            if (ownerUnit.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 1)
             {
                 if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_B, false))
                 {
-                    ownerUnit.unitData.listNextStates.Add(new Runner_Attack_B());
+                    ownerUnit.listNextStates.Add(new Runner_Attack_B());
                 }
             }
         }

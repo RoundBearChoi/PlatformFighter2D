@@ -13,7 +13,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().IsOnEnd())
+            if (ownerUnit.spriteAnimations.GetCurrentAnimation().IsOnEnd())
             {
                 ownerUnit.destroy = true;
             }

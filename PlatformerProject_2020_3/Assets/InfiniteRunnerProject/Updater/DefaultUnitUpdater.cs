@@ -16,7 +16,7 @@ namespace RB
 
         public override void CustomUpdate()
         {
-            _unit.unitData.spriteAnimations.OnUpdate();
+            _unit.spriteAnimations.OnUpdate();
 
             _unit.iStateController.OnUpdate();
 
@@ -42,7 +42,7 @@ namespace RB
                     }
                 }
 
-                _unit.unitData.spriteAnimations.OnFixedUpdate();
+                _unit.spriteAnimations.OnFixedUpdate();
                 _unit.iStateController.OnFixedUpdate();
             }
             else

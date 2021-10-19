@@ -19,23 +19,23 @@ namespace RB
             FixedUpdateComponents();
 
             //cancel last frame and go straight to crouch
-            if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 5)
+            if (ownerUnit.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 5)
             {
                 if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
                 {
-                    ownerUnit.unitData.listNextStates.Add(new Runner_Crouch());
+                    ownerUnit.listNextStates.Add(new Runner_Crouch());
                 }
             }
 
-            if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().IsOnEnd())
+            if (ownerUnit.spriteAnimations.GetCurrentAnimation().IsOnEnd())
             {
                 if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
                 {
-                    ownerUnit.unitData.listNextStates.Add(new Runner_Crouch());
+                    ownerUnit.listNextStates.Add(new Runner_Crouch());
                 }
                 else
                 {
-                    ownerUnit.unitData.listNextStates.Add(new Runner_NormalRun());
+                    ownerUnit.listNextStates.Add(new Runner_NormalRun());
                 }
             }
         }

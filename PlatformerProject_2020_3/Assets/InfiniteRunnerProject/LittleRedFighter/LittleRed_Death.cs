@@ -44,7 +44,7 @@ namespace RB
         {
             if (_deathFX != null)
             {
-                _deathFX.unitData.facingRight = ownerUnit.unitData.facingRight;
+                _deathFX.facingRight = ownerUnit.facingRight;
                 _deathFX.transform.position = new Vector3(ownerUnit.transform.position.x, ownerUnit.transform.position.y, BaseInitializer.CURRENT.fighterDataSO.Player_DeathParticles_z);
             }
         }

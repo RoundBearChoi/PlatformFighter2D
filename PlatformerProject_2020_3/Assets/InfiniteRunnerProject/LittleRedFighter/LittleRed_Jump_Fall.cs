@@ -32,7 +32,7 @@ namespace RB
                     showLandingDust.Register();
                 }
 
-                ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle());
+                ownerUnit.listNextStates.Add(new LittleRed_Idle());
             }
 
             FixedUpdateComponents();

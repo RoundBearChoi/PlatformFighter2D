@@ -33,12 +33,13 @@ namespace RB
         {
             Unit unit = InstantiateUnit(_creationSpec);
             unit.transform.SetParent(_parentTransform, false);
+            unit.listNextStates.Clear();
             unit.SetOwnerStage(stage);
             unit.gameObject.layer = (int)LayerType.PHYSICAL_UNIT;
 
-            unit.unitData.facingRight = _creationSpec.faceRight;
-            unit.unitData.hp = _creationSpec.hp;
-            unit.unitData.initialHP = _creationSpec.hp;
+            unit.facingRight = _creationSpec.faceRight;
+            unit.hp = _creationSpec.hp;
+            unit.initialHP = _creationSpec.hp;
             unit.iStateController = new UnitStateController(unit);
 
             //_creationSpec.setInitialState.Invoke(unit);
@@ -51,7 +52,7 @@ namespace RB
             unit.InitBoxCollider(_creationSpec);
             unit.InitCollisionChecker();
 
-            unit.unitData.spriteAnimations = new DefaultSpriteAnimations(unit.iStateController, unit);
+            unit.spriteAnimations = new DefaultSpriteAnimations(unit.iStateController, unit);
 
             if (_creationSpec.listSpriteAnimationSpecs.Count > 0)
             {
@@ -70,7 +71,7 @@ namespace RB
             {
                 for (int i = 0; i < spriteSpec.additionalTiles + 1; i++)
                 {
-                    GameObject sprObj = unit.unitData.spriteAnimations.AddSpriteAnimation(creationSpec, spriteSpec, unit.transform);
+                    GameObject sprObj = unit.spriteAnimations.AddSpriteAnimation(creationSpec, spriteSpec, unit.transform);
 
                     float xTiling = 0f;
 

@@ -25,20 +25,20 @@ namespace RB
 
             UNIT.gameObject.layer = (int)LayerType.PHYSICAL_UNIT;
 
-            if (UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX <= 12)
+            if (UNIT.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX <= 12)
             {
                 float x = Mathf.Lerp(UNIT_DATA.rigidBody2D.velocity.x, _minimumSpeed, 0.05f);
                 UNIT_DATA.rigidBody2D.velocity = new Vector2(x, UNIT_DATA.rigidBody2D.velocity.y);
             }
             else
             {
-                UNIT_DATA.listNextStates.Add(new LittleRed_Jump_Fall());
+                UNIT.listNextStates.Add(new LittleRed_Jump_Fall());
             }
         }
 
         void UpdateSpeedDirection()
         {
-            if (UNIT_DATA.facingRight)
+            if (UNIT.facingRight)
             {
                 if (_minimumSpeed < 0)
                 {

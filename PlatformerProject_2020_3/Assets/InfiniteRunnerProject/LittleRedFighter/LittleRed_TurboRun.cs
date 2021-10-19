@@ -12,7 +12,7 @@ namespace RB
         //
         //    float runspeed = BaseInitializer.current.fighterDataSO.DefaultRunSpeed * 1.3f;
         //
-        //    if (!ownerUnit.unitData.facingRight)
+        //    if (!ownerUnit.facingRight)
         //    {
         //        runspeed *= -1f;
         //    }

@@ -18,7 +18,7 @@ namespace RB
             {
                 float initialMomentum = BaseInitializer.CURRENT.fighterDataSO.WallJumpHorizontalMomentum;
 
-                if (UNIT_DATA.facingRight)
+                if (UNIT.facingRight)
                 {
                     initialMomentum *= -1f;
                 }
@@ -40,12 +40,12 @@ namespace RB
 
                         if (!UNIT.isDummy)
                         {
-                            BaseMessage showWallJumpDust = new Message_ShowWallJumpDust(UNIT_DATA.facingRight, dustPosition, new Vector2(1f, 1f));
+                            BaseMessage showWallJumpDust = new Message_ShowWallJumpDust(UNIT.facingRight, dustPosition, new Vector2(1f, 1f));
                             showWallJumpDust.Register();
                         }
 
                         UNIT_DATA.airControl.SetMomentum(initialMomentum);
-                        UNIT_DATA.listNextStates.Add(new LittleRed_Jump_Up(BaseInitializer.CURRENT.fighterDataSO.WallJumpForce, 0));
+                        UNIT.listNextStates.Add(new LittleRed_Jump_Up(BaseInitializer.CURRENT.fighterDataSO.WallJumpForce, 0));
 
                         break;
                     }

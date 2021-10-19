@@ -19,7 +19,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            SpriteAnimation ani = UNIT_DATA.spriteAnimations.GetCurrentAnimation();
+            SpriteAnimation ani = UNIT.spriteAnimations.GetCurrentAnimation();
 
             if (ani != null)
             {

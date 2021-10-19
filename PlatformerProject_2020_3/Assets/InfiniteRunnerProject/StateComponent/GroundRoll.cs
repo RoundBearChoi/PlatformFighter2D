@@ -25,21 +25,21 @@ namespace RB
         {
             UNIT.gameObject.layer = (int)LayerType.GHOSTING_UNIT;
 
-            if (UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX <= 2)
+            if (UNIT.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX <= 2)
             {
                 _speed = BaseInitializer.CURRENT.fighterDataSO.DefaultRunSpeed * 1.5f;
             }
-            else if (UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX <= 6)
+            else if (UNIT.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX <= 6)
             {
                 _speed = BaseInitializer.CURRENT.fighterDataSO.DefaultRunSpeed * 0.8f;
             }
-            else if (UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX <= 12)
+            else if (UNIT.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX <= 12)
             {
                 _speed = Mathf.Lerp(UNIT_DATA.rigidBody2D.velocity.x, 0f, 0.07f);
             }
             else
             {
-                UNIT_DATA.listNextStates.Add(new LittleRed_Idle());
+                UNIT.listNextStates.Add(new LittleRed_Idle());
             }
 
             UpdateSpeedDirection();
@@ -48,7 +48,7 @@ namespace RB
 
         void UpdateSpeedDirection()
         {
-            if (UNIT_DATA.facingRight)
+            if (UNIT.facingRight)
             {
                 if (_speed < 0)
                 {

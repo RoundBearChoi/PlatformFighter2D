@@ -30,7 +30,7 @@ namespace RB
             {
                 Vector3 offset = new Vector3(1.25f, 0f, 0f);
 
-                if (!ownerUnit.unitData.facingRight)
+                if (!ownerUnit.facingRight)
                 {
                     offset *= -1f;
                 }
@@ -43,7 +43,7 @@ namespace RB
             {
                 Vector3 offset = new Vector3(-0.4f, 0f, 0f);
 
-                if (!ownerUnit.unitData.facingRight)
+                if (!ownerUnit.facingRight)
                 {
                     offset *= -1f;
                 }
@@ -56,12 +56,12 @@ namespace RB
             {
                 if (ownerUnit.unitData.rigidBody2D.velocity.x < 1.5f)
                 {
-                    ownerUnit.unitData.listNextStates.Add(new Runner_Crouch());
+                    ownerUnit.listNextStates.Add(new Runner_Crouch());
                 }
             }
             else
             {
-                ownerUnit.unitData.listNextStates.Add(new Runner_Slide_GetUp());
+                ownerUnit.listNextStates.Add(new Runner_Slide_GetUp());
             }
         }
     }

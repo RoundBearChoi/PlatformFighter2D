@@ -20,18 +20,18 @@ namespace RB
             {
                 if (message.MESSAGE_TYPE == MessageType.WINCE)
                 {
-                    _unit.unitData.listNextStates.Add(new Runner_Wincing(_unit, message.GetVector2Message(), message.GetUnitMessage()));
+                    _unit.listNextStates.Add(new Runner_Wincing(_unit, message.GetVector2Message(), message.GetUnitMessage()));
                 }
                 else if (message.MESSAGE_TYPE == MessageType.TAKE_DAMAGE)
                 {
-                    _unit.unitData.hp -= message.GetUnsignedIntMessage();
+                    _unit.hp -= message.GetUnsignedIntMessage();
                 }
                 else if (message.MESSAGE_TYPE == MessageType.ZERO_HEALTH)
                 {
                     if (!_zeroHealthTriggered)
                     {
                         _zeroHealthTriggered = true;
-                        _unit.unitData.listNextStates.Add(new Runner_Death(_unit));
+                        _unit.listNextStates.Add(new Runner_Death(_unit));
                     }
                 }
             }

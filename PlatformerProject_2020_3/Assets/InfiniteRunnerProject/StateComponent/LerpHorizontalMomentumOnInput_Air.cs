@@ -52,7 +52,7 @@ namespace RB
 
         void ResetMomentum()
         {
-            if (UNIT_DATA.facingRight)
+            if (UNIT.facingRight)
             {
                 UNIT_DATA.airControl.SetMomentum(0.001f);
             }

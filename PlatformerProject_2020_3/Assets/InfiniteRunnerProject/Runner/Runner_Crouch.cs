@@ -19,7 +19,7 @@ namespace RB
 
             if (!ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
             {
-                ownerUnit.unitData.listNextStates.Add(new Runner_Crouch_GetUp(ownerUnit));
+                ownerUnit.listNextStates.Add(new Runner_Crouch_GetUp(ownerUnit));
             }
         }
     }

@@ -49,7 +49,7 @@ namespace RB
 
             if (ownerUnit.unitData.rigidBody2D.velocity.y <= 0f && fixedUpdateCount >= 2)
             {
-                ownerUnit.unitData.listNextStates.Add(new Runner_Jump_Fall());
+                ownerUnit.listNextStates.Add(new Runner_Jump_Fall());
             }
 
         }

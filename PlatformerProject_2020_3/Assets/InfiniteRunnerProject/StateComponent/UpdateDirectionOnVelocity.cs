@@ -15,12 +15,12 @@ namespace RB
         {
             if (UNIT_DATA.rigidBody2D.velocity.x < 0f)
             {
-                UNIT_DATA.facingRight = false;
+                UNIT.facingRight = false;
             }
 
             if (UNIT_DATA.rigidBody2D.velocity.x > 0f)
             {
-                UNIT_DATA.facingRight = true;
+                UNIT.facingRight = true;
             }
         }
     }

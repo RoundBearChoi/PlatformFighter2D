@@ -44,7 +44,7 @@ namespace RB
 
                 if (sideTouchingGrounds.Count < 2)
                 {
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall());
+                    ownerUnit.listNextStates.Add(new LittleRed_Jump_Fall());
                 }
 
                 //hit ground
@@ -52,23 +52,23 @@ namespace RB
 
                 if (groundsEnter.Count > 0)
                 {
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle());
+                    ownerUnit.listNextStates.Add(new LittleRed_Idle());
                 }
 
                 List<Ground> groundsStay = ownerUnit.unitData.collisionStays.GetTouchingGrounds(CollisionType.BOTTOM);
 
                 if (groundsStay.Count > 0)
                 {
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle());
+                    ownerUnit.listNextStates.Add(new LittleRed_Idle());
                 }
 
                 //fall off
-                if (ownerUnit.unitData.facingRight)
+                if (ownerUnit.facingRight)
                 {
                     if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false) && ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
                     {
                         ownerUnit.unitData.airControl.SetMomentum(BaseInitializer.CURRENT.fighterDataSO.WallFallHorizontalMomentum * -1f);
-                        ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall());
+                        ownerUnit.listNextStates.Add(new LittleRed_Jump_Fall());
                     }
                 }
                 else
@@ -76,7 +76,7 @@ namespace RB
                     if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false) && ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
                     {
                         ownerUnit.unitData.airControl.SetMomentum(BaseInitializer.CURRENT.fighterDataSO.WallFallHorizontalMomentum);
-                        ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall());
+                        ownerUnit.listNextStates.Add(new LittleRed_Jump_Fall());
                     }
                 }
             }

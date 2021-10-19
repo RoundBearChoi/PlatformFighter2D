@@ -24,7 +24,7 @@ namespace RB
                 //multiply/divide runspeed on jump
                 UNIT_DATA.rigidBody2D.velocity = new Vector2(UNIT_DATA.rigidBody2D.velocity.x * BaseInitializer.CURRENT.fighterDataSO.HorizontalMomentumMultiplierOnRunningJump, UNIT_DATA.rigidBody2D.velocity.y);
                 UNIT_DATA.airControl.SetMomentum(UNIT_DATA.rigidBody2D.velocity.x);
-                UNIT_DATA.listNextStates.Add(new LittleRed_Jump_Up(BaseInitializer.CURRENT.fighterDataSO.VerticalJumpForce, 0));
+                UNIT.listNextStates.Add(new LittleRed_Jump_Up(BaseInitializer.CURRENT.fighterDataSO.VerticalJumpForce, 0));
             }
         }
     }

@@ -38,7 +38,7 @@ namespace RB
 
                     if (makeTransition)
                     {
-                        UNIT_DATA.listNextStates.Add(new LittleRed_WallSlide());
+                        UNIT.listNextStates.Add(new LittleRed_WallSlide());
                     }
                 }
             }

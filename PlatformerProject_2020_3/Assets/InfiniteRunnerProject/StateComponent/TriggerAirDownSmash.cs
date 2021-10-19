@@ -17,7 +17,7 @@ namespace RB
             {
                 if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, false))
                 {
-                    UNIT_DATA.listNextStates.Add(new Runner_Smash_Air_Prep());
+                    UNIT.listNextStates.Add(new Runner_Smash_Air_Prep());
                 }
             }
         }

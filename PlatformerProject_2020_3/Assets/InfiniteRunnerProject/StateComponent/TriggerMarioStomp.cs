@@ -33,7 +33,7 @@ namespace RB
                         if (collidingUnit.unitType == UnitType.LITTLE_RED_DARK ||
                             collidingUnit.unitType == UnitType.LITTLE_RED_LIGHT)
                         {
-                            UNIT_DATA.listNextStates.Add(new LittleRed_Jump_Up(
+                            UNIT.listNextStates.Add(new LittleRed_Jump_Up(
                                 BaseInitializer.CURRENT.fighterDataSO.VerticalJumpForce * BaseInitializer.CURRENT.fighterDataSO.VerticalJumpForceMultiplierOnMarioStomp,
                                 BaseInitializer.CURRENT.fighterDataSO.DefaultJumpFramesOnMarioStomp));
 

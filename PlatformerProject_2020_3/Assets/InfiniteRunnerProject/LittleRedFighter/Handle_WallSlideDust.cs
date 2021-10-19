@@ -21,7 +21,7 @@ namespace RB
             Unit wallSlideDust = Units.instance.GetUnit<WallSlideDust>();
 
             wallSlideDust.transform.position = _dustPosition;
-            wallSlideDust.unitData.facingRight = _faceRight;
+            wallSlideDust.facingRight = _faceRight;
 
             return true;
         }

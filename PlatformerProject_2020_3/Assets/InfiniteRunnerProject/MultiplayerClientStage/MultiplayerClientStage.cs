@@ -132,7 +132,7 @@ namespace RB
                 _baseUI.OnLateUpdate();
             }
 
-            _dummyOfflinePlayer.unitData.spriteAnimations.GetCurrentAnimation().ToggleSpriteRenderer(false);
+            _dummyOfflinePlayer.spriteAnimations.GetCurrentAnimation().ToggleSpriteRenderer(false);
         }
 
         public override void OnFixedUpdate()

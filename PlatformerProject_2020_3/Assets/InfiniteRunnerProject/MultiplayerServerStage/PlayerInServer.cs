@@ -28,7 +28,7 @@ namespace RB.Server
         public void OnFixedUpdate()
         {
             _position = _unit.transform.position;
-            _facingRight = _unit.unitData.facingRight;
+            _facingRight = _unit.facingRight;
         }
 
         public int GetIndex()

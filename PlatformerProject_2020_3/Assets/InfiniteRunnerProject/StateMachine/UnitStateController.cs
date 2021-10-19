@@ -51,22 +51,20 @@ namespace RB
 
         public void TransitionToNextState()
         {
-            if (_unit.unitData.listNextStates.Count > 0)
+            if (_unit.listNextStates.Count > 0)
             {
                 currentUnitState.OnExit();
 
-                SetNewState(_unit, _unit.unitData.listNextStates[0]);
+                SetNewState(_unit, _unit.listNextStates[0]);
 
-                if (_unit.unitData.listNextStates[0].disallowTransitionQueue)
+                if (_unit.listNextStates[0].disallowTransitionQueue)
                 {
-                    _unit.unitData.listNextStates.Clear();
+                    _unit.listNextStates.Clear();
                 }
                 else
                 {
-                    _unit.unitData.listNextStates.RemoveAt(0);
+                    _unit.listNextStates.RemoveAt(0);
                 }
-                
-                //_unit.unitData.listNextStates.Clear();
             }
         }
     }

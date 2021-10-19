@@ -29,8 +29,8 @@ namespace RB
         {
             if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.SHIFT, true))
             {
-                UNIT_DATA.facingRight = faceRight;
-                UNIT_DATA.listNextStates.Add(new LittleRed_Roll());
+                UNIT.facingRight = faceRight;
+                UNIT.listNextStates.Add(new LittleRed_Roll());
             }
         }
     }

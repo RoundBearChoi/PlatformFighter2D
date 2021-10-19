@@ -17,7 +17,7 @@ namespace RB
         {
             if (!ownerUnit.isDummy)
             {
-                _listStateComponents.Add(new CreateRenderTrail(this, 1, ownerUnit.unitData.facingRight));
+                _listStateComponents.Add(new CreateRenderTrail(this, 1, ownerUnit.facingRight));
             }
 
             float initialMomentum = ownerUnit.unitData.airControl.HORIZONTAL_MOMENTUM * 0.5f;
@@ -28,7 +28,7 @@ namespace RB
 
             if (!ownerUnit.isDummy)
             {
-                BaseMessage showDashDust = new Message_ShowDashDust(ownerUnit.unitData.facingRight, ownerUnit.transform.position);
+                BaseMessage showDashDust = new Message_ShowDashDust(ownerUnit.facingRight, ownerUnit.transform.position);
                 showDashDust.Register();
             }
         }
@@ -39,7 +39,7 @@ namespace RB
 
             float force = BaseInitializer.CURRENT.fighterDataSO.DashForce;
 
-            if (!ownerUnit.unitData.facingRight)
+            if (!ownerUnit.facingRight)
             {
                 force *= -1f;
             }
@@ -55,11 +55,11 @@ namespace RB
 
                 if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
                 {
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle());
+                    ownerUnit.listNextStates.Add(new LittleRed_Idle());
                 }
                 else
                 {
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall());
+                    ownerUnit.listNextStates.Add(new LittleRed_Jump_Fall());
                 }
             }
         }

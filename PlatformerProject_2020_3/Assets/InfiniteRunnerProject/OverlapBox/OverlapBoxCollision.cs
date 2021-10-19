@@ -19,13 +19,13 @@ namespace RB
         {
             foreach(OverlapBoxCollisionSpecs specs in _boxCollisionData.listSpecs)
             {
-                if (UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == specs.mTargetSpriteIndex)
+                if (UNIT.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == specs.mTargetSpriteIndex)
                 {
                     foreach(OverlapBoxBounds bounds in specs.mlistBounds)
                     {
                         Vector2 centerPoint = Vector2.zero;
                         
-                        if (UNIT_DATA.facingRight)
+                        if (UNIT.facingRight)
                         {
                             centerPoint = new Vector2(UNIT.transform.position.x + bounds.mRelativePoint.x, UNIT.transform.position.y + bounds.mRelativePoint.y);
                         }
@@ -42,7 +42,7 @@ namespace RB
 
                             if (collidingUnit != null)
                             {
-                                if (collidingUnit.unitData.hp > 0)
+                                if (collidingUnit.hp > 0)
                                 {
                                     //check against self, none, ground
                                     if (collidingUnit.unitType != UNIT.unitType && collidingUnit.unitType != UnitType.NONE)
@@ -58,7 +58,7 @@ namespace RB
                                             attackerHitStop.Register();
 
                                             Vector2 closest = col.ClosestPoint(centerPoint);
-                                            BaseMessage showBloodMessage = new Message_ShowBlood5(UNIT_DATA.facingRight, new Vector3(closest.x, closest.y, BaseInitializer.CURRENT.fighterDataSO.BloodEffects_z));
+                                            BaseMessage showBloodMessage = new Message_ShowBlood5(UNIT.facingRight, new Vector3(closest.x, closest.y, BaseInitializer.CURRENT.fighterDataSO.BloodEffects_z));
                                             showBloodMessage.Register();
 
                                             BaseMessage showParryEffectMessage = new Message_ShowParryEffect(new Vector3(closest.x, closest.y, BaseInitializer.CURRENT.fighterDataSO.ParryEffects_z));

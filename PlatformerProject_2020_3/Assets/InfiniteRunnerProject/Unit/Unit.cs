@@ -9,11 +9,17 @@ namespace RB
         public BaseUpdater unitUpdater = null;
         public UnitType unitType = UnitType.NONE;
         public IStateController<UnitState> iStateController = null;
-        public UnitData unitData = new UnitData();
+        public UnitPhysicsData unitData = new UnitPhysicsData();
         public bool destroy = false;
         public BaseMessageHandler messageHandler = null;
         public int clientIndex = 0;
         public bool isDummy = false;
+        public uint hp = 1;
+        public uint initialHP = 1;
+        public bool facingRight = true;
+        public bool attack_A_Triggered = false;
+        public ISpriteAnimations spriteAnimations = null;
+        public List<UnitState> listNextStates = new List<UnitState>();
 
         protected ICollisionSideChecker _collisionChecker = null;
         protected BaseStage _ownerStage = null;

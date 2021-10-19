@@ -29,13 +29,13 @@ namespace RB
                 trail.transform.SetParent(BaseInitializer.CURRENT.STAGE.transform, false);
 
                 trail.spriteRenderer = trailObj.AddComponent<SpriteRenderer>();
-                trail.spriteRenderer.sprite = UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.sprite;
+                trail.spriteRenderer.sprite = UNIT.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.sprite;
 
                 trail.rootUnit = UNIT;
 
-                trail.spriteRenderer.transform.position = UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.transform.position;
-                trail.spriteRenderer.transform.localScale = UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.transform.localScale;
-                trail.spriteRenderer.transform.localRotation = UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.transform.localRotation;
+                trail.spriteRenderer.transform.position = UNIT.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.transform.position;
+                trail.spriteRenderer.transform.localScale = UNIT.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.transform.localScale;
+                trail.spriteRenderer.transform.localRotation = UNIT.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.transform.localRotation;
 
                 if (_faceRight)
                 {

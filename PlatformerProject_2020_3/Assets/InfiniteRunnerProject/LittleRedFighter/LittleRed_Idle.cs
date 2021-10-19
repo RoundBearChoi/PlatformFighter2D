@@ -26,7 +26,7 @@ namespace RB
             ownerUnit.unitData.airControl.SetMomentum(0f);
             ownerUnit.unitData.airControl.DashTriggered = false;
             ownerUnit.unitData.airControl.UppercutTriggered = false;
-            ownerUnit.unitData.AttackATriggered = false;
+            ownerUnit.attack_A_Triggered = false;
         }
 
         public override void OnFixedUpdate()

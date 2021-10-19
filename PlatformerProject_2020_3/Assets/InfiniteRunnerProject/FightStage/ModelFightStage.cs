@@ -35,7 +35,7 @@ namespace RB
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_LIGHT, new LittleRed_Idle());
             InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_DARK, new LittleRed_Idle());
 
-            units.GetUnit<LittleRed>().unitData.facingRight = false;
+            units.GetUnit<LittleRed>().facingRight = false;
 
             //set z for all players
             List<Unit> allPlayers = units.GetUnits<LittleRed>();

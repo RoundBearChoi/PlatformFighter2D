@@ -17,7 +17,7 @@ namespace RB
             }
         }
 
-        public UnitData UNIT_DATA
+        public UnitPhysicsData UNIT_DATA
         {
             get
             {

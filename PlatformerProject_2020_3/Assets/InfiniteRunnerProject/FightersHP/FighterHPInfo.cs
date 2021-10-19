@@ -42,7 +42,7 @@ namespace RB
         {
             if (unit != null)
             {
-                _hpPercentage = (float)unit.unitData.hp / (float)unit.unitData.initialHP;
+                _hpPercentage = (float)unit.hp / (float)unit.initialHP;
             }
 
             _orangePercentage = Mathf.Lerp(_orangePercentage, _hpPercentage, 0.02f);

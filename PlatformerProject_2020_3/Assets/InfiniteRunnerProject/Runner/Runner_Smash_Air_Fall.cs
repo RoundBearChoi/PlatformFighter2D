@@ -26,7 +26,7 @@ namespace RB
                 BaseMessage showSmashDust = new Message_ShowSmashDust(true, ownerUnit.transform.position);
                 showSmashDust.Register();
 
-                ownerUnit.unitData.listNextStates.Add(new Runner_Smash_Air_Land(ownerUnit));
+                ownerUnit.listNextStates.Add(new Runner_Smash_Air_Land(ownerUnit));
             }
         }
     }

@@ -16,11 +16,11 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (UNIT_DATA.spriteAnimations.GetCurrentAnimation().IsOnEnd())
+            if (UNIT.spriteAnimations.GetCurrentAnimation().IsOnEnd())
             {
                 if (UNIT_DATA.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
                 {
-                    UNIT_DATA.listNextStates.Add(_nextState);
+                    UNIT.listNextStates.Add(_nextState);
                 }
             }
         }

@@ -22,8 +22,8 @@ namespace RB
                         if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false))
                         {
 
-                            UNIT_DATA.facingRight = false;
-                            UNIT_DATA.listNextStates.Add(new LittleRed_Dash());
+                            UNIT.facingRight = false;
+                            UNIT.listNextStates.Add(new LittleRed_Dash());
                         }
                     }
 
@@ -31,8 +31,8 @@ namespace RB
                     {
                         if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false))
                         {
-                            UNIT_DATA.facingRight = true;
-                            UNIT_DATA.listNextStates.Add(new LittleRed_Dash());
+                            UNIT.facingRight = true;
+                            UNIT.listNextStates.Add(new LittleRed_Dash());
                         }
                     }
                 }

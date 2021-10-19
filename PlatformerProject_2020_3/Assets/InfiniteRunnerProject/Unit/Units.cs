@@ -100,7 +100,7 @@ namespace RB
         {
             for (int i = 0; i < _listUnits.Count; i++)
             {
-                if (_listUnits[i].unitData.hp <= 0)
+                if (_listUnits[i].hp <= 0)
                 {
                     BaseMessage zeroHealthMessage = new Message_ZeroHealth(_listUnits[i]);
                     zeroHealthMessage.Register();
@@ -110,7 +110,7 @@ namespace RB
             //directions
             for (int i = 0; i < _listUnits.Count; i++)
             {
-                if (_listUnits[i].unitData.facingRight)
+                if (_listUnits[i].facingRight)
                 {
                     if (_listUnits[i].transform.rotation.y != 0f)
                     {
@@ -135,7 +135,7 @@ namespace RB
                     {
                         if (_listUnits[i].unitType == UnitType.RUNNER)
                         {
-                            if (_listUnits[i].unitData.hp > 0)
+                            if (_listUnits[i].hp > 0)
                             {
                                 BaseMessage shakeCamOnPosition = new Message_ShakeCameraOnPosition(_stage.CAMERA_SCRIPT, 20, 2f);
                                 shakeCamOnPosition.Register();
@@ -152,13 +152,13 @@ namespace RB
                                 BaseMessage showFallDust = new Message_ShowFallDust(_stage.CAMERA_SCRIPT, _listUnits[i].transform.position);
                                 showFallDust.Register();
 
-                                _listUnits[i].unitData.listNextStates.Add(new LittleRed_Death(_listUnits[i]));
+                                _listUnits[i].listNextStates.Add(new LittleRed_Death(_listUnits[i]));
                             }
                         }
 
                         _listUnits[i].unitData.rigidBody2D.gravityScale = 0f;
                         _listUnits[i].unitData.rigidBody2D.velocity = Vector2.zero;
-                        _listUnits[i].unitData.hp = 0;
+                        _listUnits[i].hp = 0;
 
                         _listUnits[i].unitData.airControl.SetMomentum(0f);
                     }

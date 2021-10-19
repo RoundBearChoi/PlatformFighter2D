@@ -19,13 +19,13 @@ namespace RB
         {
             if (_defaultMaterial == null)
             {
-                _defaultMaterial = UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.sharedMaterial;
-                UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.sharedMaterial = BaseInitializer.CURRENT.runnerDataSO.white_GUIText_material;
+                _defaultMaterial = UNIT.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.sharedMaterial;
+                UNIT.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.sharedMaterial = BaseInitializer.CURRENT.runnerDataSO.white_GUIText_material;
             }
 
             if (UNIT.iStateController.GetCurrentState().fixedUpdateCount > _totalFrames)
             {
-                UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.sharedMaterial = _defaultMaterial;
+                UNIT.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.sharedMaterial = _defaultMaterial;
             }
         }
     }

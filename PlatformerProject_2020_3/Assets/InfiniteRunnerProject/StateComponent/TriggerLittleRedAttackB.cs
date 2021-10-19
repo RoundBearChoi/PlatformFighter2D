@@ -16,7 +16,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            SpriteAnimation ani = UNIT_DATA.spriteAnimations.GetCurrentAnimation();
+            SpriteAnimation ani = UNIT.spriteAnimations.GetCurrentAnimation();
 
             if (ani != null)
             {
@@ -24,7 +24,7 @@ namespace RB
                 {
                     if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, true))
                     {
-                        UNIT_DATA.listNextStates.Add(new LittleRed_Attack_B());
+                        UNIT.listNextStates.Add(new LittleRed_Attack_B());
                     }
                 }
             }

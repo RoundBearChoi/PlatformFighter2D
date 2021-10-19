@@ -18,11 +18,11 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().IsOnEnd())
+            if (ownerUnit.spriteAnimations.GetCurrentAnimation().IsOnEnd())
             {
                 if (ownerUnit.unitData.rigidBody2D.velocity.y < 0f)
                 {
-                    ownerUnit.unitData.listNextStates.Add(new Runner_Smash_Air_Fall(ownerUnit));
+                    ownerUnit.listNextStates.Add(new Runner_Smash_Air_Fall(ownerUnit));
                 }
             }
         }

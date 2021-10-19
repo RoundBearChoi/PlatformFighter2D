@@ -16,14 +16,14 @@ namespace RB
             if (UNIT_DATA.collisionStays.IsTouchingGround(CollisionType.BOTTOM) ||
                 UNIT_DATA.collisionEnters.IsTouchingGround(CollisionType.BOTTOM))
             {
-                if (!UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false) && UNIT_DATA.facingRight)
+                if (!UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false) && UNIT.facingRight)
                 {
-                    UNIT_DATA.listNextStates.Add(new LittleRed_Idle());
+                    UNIT.listNextStates.Add(new LittleRed_Idle());
                 }
 
-                if (!UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false) && !UNIT_DATA.facingRight)
+                if (!UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false) && !UNIT.facingRight)
                 {
-                    UNIT_DATA.listNextStates.Add(new LittleRed_Idle());
+                    UNIT.listNextStates.Add(new LittleRed_Idle());
                 }
             }
         }

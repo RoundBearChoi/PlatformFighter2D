@@ -25,7 +25,7 @@ namespace RB
             landingDust.transform.position = _dustPosition;
 
             //set custom scale
-            SpriteAnimation spr = landingDust.unitData.spriteAnimations.GetLastSpriteAnimation();
+            SpriteAnimation spr = landingDust.spriteAnimations.GetLastSpriteAnimation();
             float x = spr.gameObject.transform.localScale.x * _scaleMultiplier.x;
             float y = spr.gameObject.transform.localScale.y * _scaleMultiplier.y;
             spr.gameObject.transform.localScale = new Vector3(x, y, spr.gameObject.transform.localScale.z);

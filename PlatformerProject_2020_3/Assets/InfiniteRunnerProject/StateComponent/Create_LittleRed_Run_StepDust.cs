@@ -15,10 +15,10 @@ namespace RB
         {
             uint fixedUpdateCount = UNIT.iStateController.GetCurrentState().fixedUpdateCount;
 
-            if (fixedUpdateCount != 0 && fixedUpdateCount % UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_INTERVAL == 0)
+            if (fixedUpdateCount != 0 && fixedUpdateCount % UNIT.spriteAnimations.GetCurrentAnimation().SPRITE_INTERVAL == 0)
             {
-                if (UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 1 ||
-                    UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 6)
+                if (UNIT.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 1 ||
+                    UNIT.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 6)
                 {
                     if (!UNIT.isDummy)
                     {

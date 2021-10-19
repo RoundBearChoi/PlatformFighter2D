@@ -27,7 +27,7 @@ namespace RB
                 BaseMessage showLandingDust = new Message_ShowLandingDust(true, ownerUnit.transform.position, new Vector2(1f, 1f));
                 showLandingDust.Register();
 
-                ownerUnit.unitData.listNextStates.Add(new Runner_NormalRun());
+                ownerUnit.listNextStates.Add(new Runner_NormalRun());
             }
         }
     }

@@ -15,17 +15,17 @@ namespace RB
         {
             if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.JUMP, false))
             {
-                UNIT_DATA.listNextStates.Add(new Runner_Jump_Up());
+                UNIT.listNextStates.Add(new Runner_Jump_Up());
             }
             else if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
             {
                 if (UNIT_DATA.rigidBody2D.velocity.x > BaseInitializer.CURRENT.runnerDataSO.SlideSpeedThreshold)
                 {
-                    UNIT_DATA.listNextStates.Add(new Runner_Slide());
+                    UNIT.listNextStates.Add(new Runner_Slide());
                 }
                 else
                 {
-                    UNIT_DATA.listNextStates.Add(new Runner_Crouch());
+                    UNIT.listNextStates.Add(new Runner_Crouch());
                 }
             }
             else if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, false))
@@ -33,11 +33,11 @@ namespace RB
                 BaseMessage showDashDust = new Message_ShowDashDust(true, UNIT.transform.position);
                 showDashDust.Register();
 
-                UNIT_DATA.listNextStates.Add(new Runner_Attack_A_Dash());
+                UNIT.listNextStates.Add(new Runner_Attack_A_Dash());
             }
             else if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_B, false))
             {
-                UNIT_DATA.listNextStates.Add(new Runner_Attack_B());
+                UNIT.listNextStates.Add(new Runner_Attack_B());
             }
         }
     }

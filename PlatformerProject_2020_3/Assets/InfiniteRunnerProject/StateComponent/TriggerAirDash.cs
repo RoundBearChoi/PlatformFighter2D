@@ -16,7 +16,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            SpriteAnimation ani = UNIT_DATA.spriteAnimations.GetCurrentAnimation();
+            SpriteAnimation ani = UNIT.spriteAnimations.GetCurrentAnimation();
 
             if (ani != null)
             {
@@ -46,7 +46,7 @@ namespace RB
                 {
                     if (moveTo == CollisionType.LEFT)
                     {
-                        UNIT_DATA.facingRight = false;
+                        UNIT.facingRight = false;
 
                         if (UNIT_DATA.airControl.HORIZONTAL_MOMENTUM > 0f)
                         {
@@ -55,7 +55,7 @@ namespace RB
                     }
                     else if (moveTo == CollisionType.RIGHT)
                     {
-                        UNIT_DATA.facingRight = true;
+                        UNIT.facingRight = true;
 
                         if (UNIT_DATA.airControl.HORIZONTAL_MOMENTUM < 0f)
                         {
@@ -63,7 +63,7 @@ namespace RB
                         }
                     }
 
-                    UNIT_DATA.listNextStates.Add(new LittleRed_Dash());
+                    UNIT.listNextStates.Add(new LittleRed_Dash());
                 }
             }
         }

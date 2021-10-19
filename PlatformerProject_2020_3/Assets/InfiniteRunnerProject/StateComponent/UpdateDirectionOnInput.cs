@@ -15,12 +15,12 @@ namespace RB
         {
             if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false))
             {
-                UNIT_DATA.facingRight = false;
+                UNIT.facingRight = false;
             }
 
             if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false))
             {
-                UNIT_DATA.facingRight = true;
+                UNIT.facingRight = true;
             }
         }
     }

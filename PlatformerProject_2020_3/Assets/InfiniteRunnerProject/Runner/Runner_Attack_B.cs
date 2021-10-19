@@ -19,18 +19,18 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 2)
+            if (ownerUnit.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 2)
             {
                 if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, false))
                 {
                     //if (ownerUnit.unitData.comboHitCount.GetCount() >= 2)
                     //{
                     //    ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x, BaseInitializer.current.runnerDataSO.Runner_ComboSmashJumpForce);
-                    //    ownerUnit.unitData.listNextStates.Add(new Runner_ComboTransitionTo_Smash(ownerUnit));
+                    //    ownerUnit.listNextStates.Add(new Runner_ComboTransitionTo_Smash(ownerUnit));
                     //}
                     //else
                     //{
-                    //    ownerUnit.unitData.listNextStates.Add(new Runner_Attack_A_Dash(ownerUnit));
+                    //    ownerUnit.listNextStates.Add(new Runner_Attack_A_Dash(ownerUnit));
                     //}
                 }
 
@@ -38,7 +38,7 @@ namespace RB
                 {
                     //if (ownerUnit.unitData.comboHitCount.GetCount() >= 2)
                     //{
-                    //    ownerUnit.unitData.listNextStates.Add(new Runner_Overhead(ownerUnit));
+                    //    ownerUnit.listNextStates.Add(new Runner_Overhead(ownerUnit));
                     //}
                 }
             }

@@ -90,7 +90,7 @@ namespace RB
         {
             foreach (Unit unit in _listViewFighters)
             {
-                if (unit.unitData.hp <= 0)
+                if (unit.hp <= 0)
                 {
                     _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, 10f, 0.01f);
                     return true;

@@ -26,14 +26,14 @@ namespace RB
 
         public override void OnEnter()
         {
-            initialFaceRight = ownerUnit.unitData.facingRight;
+            initialFaceRight = ownerUnit.facingRight;
         }
 
         public override void OnFixedUpdate()
         {
             FixedUpdateComponents();
 
-            SpriteAnimation ani = ownerUnit.unitData.spriteAnimations.GetCurrentAnimation();
+            SpriteAnimation ani = ownerUnit.spriteAnimations.GetCurrentAnimation();
 
             if (ani != null)
             {
@@ -54,7 +54,7 @@ namespace RB
                                 lightUppercutVFX.transform.parent = ownerUnit.transform;
                                 lightUppercutVFX.transform.position = ownerUnit.transform.position;
 
-                                lightUppercutVFX.unitData.facingRight = ownerUnit.unitData.facingRight;
+                                lightUppercutVFX.facingRight = ownerUnit.facingRight;
                             }
                             else if (ownerUnit.unitType == UnitType.LITTLE_RED_DARK)
                             {
@@ -63,12 +63,12 @@ namespace RB
                                 darkUppercutVFX.transform.parent = ownerUnit.transform;
                                 darkUppercutVFX.transform.position = ownerUnit.transform.position;
 
-                                darkUppercutVFX.unitData.facingRight = ownerUnit.unitData.facingRight;
+                                darkUppercutVFX.facingRight = ownerUnit.facingRight;
                             }
                         }
                     }
 
-                    if (ownerUnit.unitData.facingRight)
+                    if (ownerUnit.facingRight)
                     {
                         forwardVelocity = 1f;
                     }
@@ -79,7 +79,7 @@ namespace RB
                 }
                 else if (ani.SPRITE_INDEX >= 6)
                 {
-                    if (ownerUnit.unitData.facingRight)
+                    if (ownerUnit.facingRight)
                     {
                         forwardVelocity = 0.5f;
                     }
@@ -90,7 +90,7 @@ namespace RB
                 }
                 else if (ani.SPRITE_INDEX >= 10)
                 {
-                    if (ownerUnit.unitData.facingRight)
+                    if (ownerUnit.facingRight)
                     {
                         forwardVelocity = 0.25f;
                     }
@@ -106,11 +106,11 @@ namespace RB
                 {
                     if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
                     {
-                        ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle());
+                        ownerUnit.listNextStates.Add(new LittleRed_Idle());
                     }
                     else
                     {
-                        ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall());
+                        ownerUnit.listNextStates.Add(new LittleRed_Jump_Fall());
                     }
                 }
             }

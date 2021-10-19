@@ -15,7 +15,7 @@ namespace RB
         {
             float runspeed = BaseInitializer.CURRENT.fighterDataSO.DefaultRunSpeed;
 
-            if (!ownerUnit.unitData.facingRight)
+            if (!ownerUnit.facingRight)
             {
                 runspeed *= -1f;
             }

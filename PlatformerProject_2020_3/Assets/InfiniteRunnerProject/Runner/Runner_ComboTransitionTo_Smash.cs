@@ -21,7 +21,7 @@ namespace RB
 
             if (ownerUnit.unitData.rigidBody2D.velocity.y <= 0f)
             {
-                ownerUnit.unitData.listNextStates.Add(new Runner_Smash_Air_Fall(ownerUnit));
+                ownerUnit.listNextStates.Add(new Runner_Smash_Air_Fall(ownerUnit));
             }
         }
     }

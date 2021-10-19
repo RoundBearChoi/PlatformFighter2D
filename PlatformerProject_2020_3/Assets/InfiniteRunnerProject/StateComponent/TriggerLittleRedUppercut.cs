@@ -16,7 +16,7 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            SpriteAnimation ani = UNIT_DATA.spriteAnimations.GetCurrentAnimation();
+            SpriteAnimation ani = UNIT.spriteAnimations.GetCurrentAnimation();
 
             if (ani != null && !UNIT_DATA.airControl.UppercutTriggered)
             {
@@ -27,7 +27,7 @@ namespace RB
                         if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, true))
                         {
                             UNIT_DATA.airControl.UppercutTriggered = true;
-                            UNIT_DATA.listNextStates.Add(new LittleRedUppercut());
+                            UNIT.listNextStates.Add(new LittleRedUppercut());
                         }
                     }
                 }

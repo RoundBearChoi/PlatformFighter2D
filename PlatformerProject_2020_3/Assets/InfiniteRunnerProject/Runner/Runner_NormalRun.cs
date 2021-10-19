@@ -24,10 +24,10 @@ namespace RB
 
             FixedUpdateComponents();
 
-            if (fixedUpdateCount != 0 && fixedUpdateCount % ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INTERVAL == 0)
+            if (fixedUpdateCount != 0 && fixedUpdateCount % ownerUnit.spriteAnimations.GetCurrentAnimation().SPRITE_INTERVAL == 0)
             {
-                if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 3 ||
-                    ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 7)
+                if (ownerUnit.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 3 ||
+                    ownerUnit.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 7)
                 {
                     BaseMessage showStepDust = new Message_ShowStepDust(false, ownerUnit.transform.position - new Vector3(ownerUnit.transform.right.x * 0.8f, 0f, 0f), new Vector2(1f, 1f), 4);
                     showStepDust.Register();
