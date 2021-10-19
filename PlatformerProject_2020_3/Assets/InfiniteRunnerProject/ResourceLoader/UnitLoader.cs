@@ -20,7 +20,7 @@ namespace RB
         {
             LoadObj<LittleRed>(UnitType.LITTLE_RED_LIGHT, "Prefab_LittleRed");
             LoadObj<LittleRed>(UnitType.LITTLE_RED_DARK, "Prefab_LittleRed");
-            LoadObj<Swamp>(UnitType.OLD_CITY, "OldCityBackground");
+            LoadObj<OldCityBackground>(UnitType.OLD_CITY, "OldCityBackground");
         }
 
         public void LoadDustEffects()

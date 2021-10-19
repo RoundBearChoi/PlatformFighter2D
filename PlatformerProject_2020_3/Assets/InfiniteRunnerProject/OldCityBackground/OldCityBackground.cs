@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class Swamp : Unit
+    public class OldCityBackground : Unit
     {
         public override void OnUpdate()
         {
