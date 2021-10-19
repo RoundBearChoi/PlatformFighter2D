@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RB
 {
-    public class OldCity : MonoBehaviour
+    public class OldCity_Level : MonoBehaviour
     {
         [SerializeField]
         GameObject FencesAndIron = null;
