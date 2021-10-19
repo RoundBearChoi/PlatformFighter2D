@@ -11,9 +11,9 @@ namespace RB
             ownerUnit = unit;
             noHitStopAllowed = true;
 
-            _listStateComponents.Add(new InitialPushBack(ownerUnit, pushForce, attacker));
-            _listStateComponents.Add(new InitialTextGUIMaterial(ownerUnit, 15));
-            _listStateComponents.Add(new SlowDownToZeroOnFlatGround(ownerUnit, 0.1f));
+            _listStateComponents.Add(new InitialPushBack(this, pushForce, attacker));
+            _listStateComponents.Add(new InitialTextGUIMaterial(this, 15));
+            _listStateComponents.Add(new SlowDownToZeroOnFlatGround(this, 0.1f));
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_WINCING);
         }
@@ -24,7 +24,7 @@ namespace RB
 
             if (fixedUpdateCount >= 20)
             {
-                ownerUnit.unitData.listNextStates.Add(new Runner_NormalRun(ownerUnit));
+                ownerUnit.unitData.listNextStates.Add(new Runner_NormalRun());
             }
         }
     }

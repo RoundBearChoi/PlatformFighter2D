@@ -8,11 +8,10 @@ namespace RB
     {
         float _speedMultiplier = 1.4f;
 
-        public Runner_Slide(Unit unit)
+        public Runner_Slide()
         {
-            ownerUnit = unit;
-            _listStateComponents.Add(new UpdateCollider2DSize(ownerUnit, new Vector2(0.8f, 2f)));
-            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0.1f, 0.035f));
+            _listStateComponents.Add(new UpdateCollider2DSize(this, new Vector2(0.8f, 2f)));
+            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(this, 0.1f, 0.035f));
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_SLIDE);
         }
@@ -57,12 +56,12 @@ namespace RB
             {
                 if (ownerUnit.unitData.rigidBody2D.velocity.x < 1.5f)
                 {
-                    ownerUnit.unitData.listNextStates.Add(new Runner_Crouch(ownerUnit));
+                    ownerUnit.unitData.listNextStates.Add(new Runner_Crouch());
                 }
             }
             else
             {
-                ownerUnit.unitData.listNextStates.Add(new Runner_Slide_GetUp(ownerUnit));
+                ownerUnit.unitData.listNextStates.Add(new Runner_Slide_GetUp());
             }
         }
     }

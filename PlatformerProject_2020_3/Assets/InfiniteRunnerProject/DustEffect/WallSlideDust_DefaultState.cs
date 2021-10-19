@@ -6,10 +6,8 @@ namespace RB
 {
     public class WallSlideDust_DefaultState : UnitState
     {
-        public WallSlideDust_DefaultState(Unit unit)
+        public WallSlideDust_DefaultState()
         {
-            ownerUnit = unit;
-
             _listMatchingSpriteTypes.Add(SpriteType.DUST_WALLSLIDE);
         }
 

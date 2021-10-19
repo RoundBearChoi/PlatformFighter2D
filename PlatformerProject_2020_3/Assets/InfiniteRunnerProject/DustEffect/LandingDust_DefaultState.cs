@@ -6,10 +6,8 @@ namespace RB
 {
     public class LandingDust_DefaultState : UnitState
     {
-        public LandingDust_DefaultState(Unit unit)
+        public LandingDust_DefaultState()
         {
-            ownerUnit = unit;
-
             _listMatchingSpriteTypes.Add(SpriteType.DUST_LAND);
         }
 

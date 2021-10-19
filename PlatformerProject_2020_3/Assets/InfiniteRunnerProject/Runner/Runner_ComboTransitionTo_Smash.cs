@@ -9,8 +9,8 @@ namespace RB
         public Runner_ComboTransitionTo_Smash(Unit unit)
         {
             ownerUnit = unit;
-            _listStateComponents.Add(new LerpHorizontalSpeed_Air(ownerUnit, 0.01f, 0.05f));
-            _listStateComponents.Add(new LerpVerticalSpeed_Air(ownerUnit, -0.1f, 0.15f));
+            _listStateComponents.Add(new LerpHorizontalSpeed_Air(this, 0.01f, 0.05f));
+            _listStateComponents.Add(new LerpVerticalSpeed_Air(this, -0.1f, 0.15f));
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_COMBOTRANSITIONTO_SMASH);
         }

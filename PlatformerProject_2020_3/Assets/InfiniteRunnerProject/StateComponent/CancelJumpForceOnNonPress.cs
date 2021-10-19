@@ -9,21 +9,21 @@ namespace RB
         private bool _startPullDown = false;
         private uint _minimumJumpUpFrames = 0;
 
-        public CancelJumpForceOnNonPress(Unit unit, uint defaultJumpFrames)
+        public CancelJumpForceOnNonPress(UnitState unitState, uint defaultJumpFrames)
         {
-            _unit = unit;
+            _unitState = unitState;
             _minimumJumpUpFrames = defaultJumpFrames;
         }
 
         public override void OnFixedUpdate()
         {
-            if (!_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
+            if (!UNIT_DATA.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
             {
                 if (!_startPullDown)
                 {
-                    if (_unit.iStateController.GetCurrentState().fixedUpdateCount > _minimumJumpUpFrames)
+                    if (UNIT.iStateController.GetCurrentState().fixedUpdateCount > _minimumJumpUpFrames)
                     {
-                        if (!_unit.USER_INPUT.commands.ContainsPress(CommandType.JUMP, false))
+                        if (!UNIT.USER_INPUT.commands.ContainsPress(CommandType.JUMP, false))
                         {
                             _startPullDown = true;
                         }
@@ -31,10 +31,10 @@ namespace RB
                 }
                 else
                 {
-                    if (_unit.unitData.rigidBody2D.velocity.y > 0f)
+                    if (UNIT_DATA.rigidBody2D.velocity.y > 0f)
                     {
-                        float y = Mathf.Lerp(_unit.unitData.rigidBody2D.velocity.y, 0f, BaseInitializer.CURRENT.fighterDataSO.JumpPullPercentagePerFixedUpdate);
-                        _unit.unitData.rigidBody2D.velocity = new Vector2(_unit.unitData.rigidBody2D.velocity.x, y);
+                        float y = Mathf.Lerp(UNIT_DATA.rigidBody2D.velocity.y, 0f, BaseInitializer.CURRENT.fighterDataSO.JumpPullPercentagePerFixedUpdate);
+                        UNIT_DATA.rigidBody2D.velocity = new Vector2(UNIT_DATA.rigidBody2D.velocity.x, y);
                     }
                 }
             }

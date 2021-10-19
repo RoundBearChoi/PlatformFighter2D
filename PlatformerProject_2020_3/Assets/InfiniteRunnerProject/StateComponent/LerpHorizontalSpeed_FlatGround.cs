@@ -9,23 +9,23 @@ namespace RB
         float _targetHorizontalForce = 0f;
         float _percentagePerUpdate = 0f;
 
-        public LerpHorizontalSpeed_FlatGround(Unit unit, float targetHorizontalForce, float percentagePerUpdate)
+        public LerpHorizontalSpeed_FlatGround(UnitState unitState, float targetHorizontalForce, float percentagePerUpdate)
         {
-            _unit = unit;
+            _unitState = unitState;
             _targetHorizontalForce = targetHorizontalForce;
             _percentagePerUpdate = percentagePerUpdate;
         }
 
         public override void OnFixedUpdate()
         {
-            if (_unit.unitData.collisionStays.IsOnFlatGround())
+            if (UNIT_DATA.collisionStays.IsOnFlatGround())
             {
-                float dif = _unit.unitData.rigidBody2D.velocity.x - _targetHorizontalForce;
+                float dif = UNIT_DATA.rigidBody2D.velocity.x - _targetHorizontalForce;
 
                 if (Mathf.Abs(dif) > 0.001f)
                 {
-                    float x = Mathf.Lerp(_unit.unitData.rigidBody2D.velocity.x, _targetHorizontalForce, _percentagePerUpdate);
-                    _unit.unitData.rigidBody2D.velocity = new Vector2(x, _unit.unitData.rigidBody2D.velocity.y);
+                    float x = Mathf.Lerp(UNIT_DATA.rigidBody2D.velocity.x, _targetHorizontalForce, _percentagePerUpdate);
+                    UNIT_DATA.rigidBody2D.velocity = new Vector2(x, UNIT_DATA.rigidBody2D.velocity.y);
                 }
             }
         }

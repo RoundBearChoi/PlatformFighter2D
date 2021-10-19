@@ -6,38 +6,38 @@ namespace RB
 {
     public class NormalRun_OnUserInput : StateComponent
     {
-        public NormalRun_OnUserInput(Unit unit)
+        public NormalRun_OnUserInput(UnitState unitState)
         {
-            _unit = unit;
+            _unitState = unitState;
         }
 
         public override void OnFixedUpdate()
         {
-            if (_unit.USER_INPUT.commands.ContainsPress(CommandType.JUMP, false))
+            if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.JUMP, false))
             {
-                _unit.unitData.listNextStates.Add(new Runner_Jump_Up(_unit));
+                UNIT_DATA.listNextStates.Add(new Runner_Jump_Up());
             }
-            else if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
+            else if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
             {
-                if (_unit.unitData.rigidBody2D.velocity.x > BaseInitializer.CURRENT.runnerDataSO.SlideSpeedThreshold)
-                {   
-                    _unit.unitData.listNextStates.Add(new Runner_Slide(_unit));
+                if (UNIT_DATA.rigidBody2D.velocity.x > BaseInitializer.CURRENT.runnerDataSO.SlideSpeedThreshold)
+                {
+                    UNIT_DATA.listNextStates.Add(new Runner_Slide());
                 }
                 else
                 {
-                    _unit.unitData.listNextStates.Add(new Runner_Crouch(_unit));
+                    UNIT_DATA.listNextStates.Add(new Runner_Crouch());
                 }
             }
-            else if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, false))
+            else if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, false))
             {
-                BaseMessage showDashDust = new Message_ShowDashDust(true, _unit.transform.position);
+                BaseMessage showDashDust = new Message_ShowDashDust(true, UNIT.transform.position);
                 showDashDust.Register();
 
-                _unit.unitData.listNextStates.Add(new Runner_Attack_A_Dash(_unit));
+                UNIT_DATA.listNextStates.Add(new Runner_Attack_A_Dash());
             }
-            else if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_B, false))
+            else if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_B, false))
             {
-                _unit.unitData.listNextStates.Add(new Runner_Attack_B(_unit));
+                UNIT_DATA.listNextStates.Add(new Runner_Attack_B());
             }
         }
     }

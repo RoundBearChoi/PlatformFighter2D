@@ -6,10 +6,8 @@ namespace RB
 {
     public class DeathFX_Light_DefaultState : UnitState
     {
-        public DeathFX_Light_DefaultState(Unit unit)
+        public DeathFX_Light_DefaultState()
         {
-            ownerUnit = unit;
-
             _listMatchingSpriteTypes.Add(SpriteType.DEATHFX_LIGHT);
         }
 

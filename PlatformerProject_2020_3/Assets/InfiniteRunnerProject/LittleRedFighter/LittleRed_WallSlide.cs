@@ -8,23 +8,21 @@ namespace RB
     {
         private float _maxFallVelocity = 0f;
 
-        public LittleRed_WallSlide(Unit unit)
+        public LittleRed_WallSlide()
         {
-            ownerUnit = unit;
             _maxFallVelocity = BaseInitializer.CURRENT.fighterDataSO.MaxWallSlideFallSpeed;
 
-            _listStateComponents.Add(new TriggerDashOnWallSlide(ownerUnit));
-            _listStateComponents.Add(new TriggerWallSlideDust(ownerUnit));
-            _listStateComponents.Add(new TriggerWallJump(ownerUnit));
-            _listStateComponents.Add(new TriggerMarioStomp(ownerUnit));
-
-            ownerUnit.unitData.airControl.DashTriggered = false;
+            _listStateComponents.Add(new TriggerDashOnWallSlide(this));
+            _listStateComponents.Add(new TriggerWallSlideDust(this));
+            _listStateComponents.Add(new TriggerWallJump(this));
+            _listStateComponents.Add(new TriggerMarioStomp(this));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_WALLSLIDE);
         }
 
         public override void OnEnter()
         {
+            ownerUnit.unitData.airControl.DashTriggered = false;
             ownerUnit.unitData.rigidBody2D.velocity = new Vector2(0f, ownerUnit.unitData.rigidBody2D.velocity.y);
             ownerUnit.unitData.airControl.SetMomentum(0f);
         }
@@ -46,7 +44,7 @@ namespace RB
 
                 if (sideTouchingGrounds.Count < 2)
                 {
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall(ownerUnit));
+                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall());
                 }
 
                 //hit ground
@@ -54,14 +52,14 @@ namespace RB
 
                 if (groundsEnter.Count > 0)
                 {
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
+                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle());
                 }
 
                 List<Ground> groundsStay = ownerUnit.unitData.collisionStays.GetTouchingGrounds(CollisionType.BOTTOM);
 
                 if (groundsStay.Count > 0)
                 {
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
+                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle());
                 }
 
                 //fall off
@@ -70,7 +68,7 @@ namespace RB
                     if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false) && ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
                     {
                         ownerUnit.unitData.airControl.SetMomentum(BaseInitializer.CURRENT.fighterDataSO.WallFallHorizontalMomentum * -1f);
-                        ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall(ownerUnit));
+                        ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall());
                     }
                 }
                 else
@@ -78,7 +76,7 @@ namespace RB
                     if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false) && ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
                     {
                         ownerUnit.unitData.airControl.SetMomentum(BaseInitializer.CURRENT.fighterDataSO.WallFallHorizontalMomentum);
-                        ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall(ownerUnit));
+                        ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall());
                     }
                 }
             }

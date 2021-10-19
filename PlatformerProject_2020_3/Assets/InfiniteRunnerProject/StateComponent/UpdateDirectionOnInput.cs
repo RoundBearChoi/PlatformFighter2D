@@ -6,21 +6,21 @@ namespace RB
 {
     public class UpdateDirectionOnInput : StateComponent
     {
-        public UpdateDirectionOnInput(Unit unit)
+        public UpdateDirectionOnInput(UnitState unitState)
         {
-            _unit = unit;
+            _unitState = unitState;
         }
 
         public override void OnFixedUpdate()
         {
-            if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false))
+            if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false))
             {
-                _unit.unitData.facingRight = false;
+                UNIT_DATA.facingRight = false;
             }
 
-            if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false))
+            if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false))
             {
-                _unit.unitData.facingRight = true;
+                UNIT_DATA.facingRight = true;
             }
         }
     }

@@ -6,13 +6,11 @@ namespace RB
 {
     public class Runner_Attack_B : UnitState
     {
-        public Runner_Attack_B(Unit unit)
+        public Runner_Attack_B()
         {
-            ownerUnit = unit;
-
-            _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, BaseInitializer.CURRENT.GetOverlapBoxCollisionData(OverlapBoxDataType.RUNNER_ATTACK_B)));
-            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, 0.1f));
-            _listStateComponents.Add(new TransitionStateOnEnd(ownerUnit, new Runner_NormalRun(ownerUnit)));
+            _listStateComponents.Add(new OverlapBoxCollision(this, BaseInitializer.CURRENT.GetOverlapBoxCollisionData(OverlapBoxDataType.RUNNER_ATTACK_B)));
+            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(this, 0f, 0.1f));
+            _listStateComponents.Add(new TransitionStateOnEnd(this, new Runner_NormalRun()));
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_ATTACK_B);
         }

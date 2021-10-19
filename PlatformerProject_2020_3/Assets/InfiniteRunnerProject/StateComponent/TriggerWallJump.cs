@@ -6,25 +6,25 @@ namespace RB
 {
     public class TriggerWallJump : StateComponent
     {
-        public TriggerWallJump(Unit unit)
+        public TriggerWallJump(UnitState unitState)
         {
-            _unit = unit;
+            _unitState = unitState;
         }
 
         public override void OnFixedUpdate()
         {
             //wall jump
-            if (_unit.USER_INPUT.commands.ContainsPress(CommandType.JUMP, true))
+            if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.JUMP, true))
             {
                 float initialMomentum = BaseInitializer.CURRENT.fighterDataSO.WallJumpHorizontalMomentum;
 
-                if (_unit.unitData.facingRight)
+                if (UNIT_DATA.facingRight)
                 {
                     initialMomentum *= -1f;
                 }
 
                 //show walljump dust
-                List<CollisionData> sideCollisions = _unit.unitData.collisionStays.GetSideCollisionData();
+                List<CollisionData> sideCollisions = UNIT_DATA.collisionStays.GetSideCollisionData();
 
                 float x = 0f;
                 float y = 0f;
@@ -34,18 +34,18 @@ namespace RB
                     if (data.collidingObject.GetComponent<Ground>() != null)
                     {
                         x = data.contactPoint.point.x;
-                        y = _unit.transform.position.y + 1f;
+                        y = UNIT.transform.position.y + 1f;
 
                         Vector3 dustPosition = new Vector3(x, y, BaseInitializer.CURRENT.fighterDataSO.DustEffects_z);
 
-                        if (!_unit.isDummy)
+                        if (!UNIT.isDummy)
                         {
-                            BaseMessage showWallJumpDust = new Message_ShowWallJumpDust(_unit.unitData.facingRight, dustPosition, new Vector2(1f, 1f));
+                            BaseMessage showWallJumpDust = new Message_ShowWallJumpDust(UNIT_DATA.facingRight, dustPosition, new Vector2(1f, 1f));
                             showWallJumpDust.Register();
                         }
 
-                        _unit.unitData.airControl.SetMomentum(initialMomentum);
-                        _unit.unitData.listNextStates.Add(new LittleRed_Jump_Up(_unit, BaseInitializer.CURRENT.fighterDataSO.WallJumpForce, 0));
+                        UNIT_DATA.airControl.SetMomentum(initialMomentum);
+                        UNIT_DATA.listNextStates.Add(new LittleRed_Jump_Up(BaseInitializer.CURRENT.fighterDataSO.WallJumpForce, 0));
 
                         break;
                     }

@@ -10,9 +10,9 @@ namespace RB
         private Vector2 _force = Vector2.zero;
         private Unit _attacker = null;
 
-        public InitialPushBack(Unit unit, Vector2 force, Unit attacker)
+        public InitialPushBack(UnitState unitState, Vector2 force, Unit attacker)
         {
-            _unit = unit;
+            _unitState = unitState;
             _force = force;
             _attacker = attacker;
         }
@@ -27,7 +27,7 @@ namespace RB
 
                 if (_attacker != null)
                 {
-                    Vector2 dir = _attacker.transform.position - _unit.transform.position;
+                    Vector2 dir = _attacker.transform.position - UNIT.transform.position;
 
                     //attacker on rightside
                     if (dir.x > 0f)
@@ -41,7 +41,7 @@ namespace RB
                     }
                 }
 
-                _unit.unitData.rigidBody2D.velocity = push;
+                UNIT_DATA.rigidBody2D.velocity = push;
             }
         }
     }

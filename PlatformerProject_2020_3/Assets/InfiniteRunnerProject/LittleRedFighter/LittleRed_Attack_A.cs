@@ -6,22 +6,20 @@ namespace RB
 {
     public class LittleRed_Attack_A : UnitState
     {
-        public LittleRed_Attack_A(Unit unit)
+        public LittleRed_Attack_A()
         {
             disallowTransitionQueue = true;
 
-            ownerUnit = unit;
+            _listStateComponents.Add(new LerpHorizontalMomentumOnInput_Air(this, BaseInitializer.CURRENT.fighterDataSO.MaxHorizontalAirMomentum));
+            _listStateComponents.Add(new UpdateAirMovementOnMomentum(this));
 
-            _listStateComponents.Add(new LerpHorizontalMomentumOnInput_Air(ownerUnit, BaseInitializer.CURRENT.fighterDataSO.MaxHorizontalAirMomentum));
-            _listStateComponents.Add(new UpdateAirMovementOnMomentum(ownerUnit));
+            _listStateComponents.Add(new CancelJumpForceOnNonPress(this, 0));
+            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(this, 0f, BaseInitializer.CURRENT.fighterDataSO.AttackASlowDownPercentage));
+            _listStateComponents.Add(new OverlapBoxCollision(this, BaseInitializer.CURRENT.GetOverlapBoxCollisionData(OverlapBoxDataType.LITTLE_RED_ATTACK_A)));
 
-            _listStateComponents.Add(new CancelJumpForceOnNonPress(ownerUnit, 0));
-            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, BaseInitializer.CURRENT.fighterDataSO.AttackASlowDownPercentage));
-            _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, BaseInitializer.CURRENT.GetOverlapBoxCollisionData(OverlapBoxDataType.LITTLE_RED_ATTACK_A)));
-
-            _listStateComponents.Add(new TriggerMarioStomp(ownerUnit));
-            _listStateComponents.Add(new TriggerLittleRedUppercut(ownerUnit, 4));
-            _listStateComponents.Add(new TriggerLittleRedAttackB(ownerUnit, 3));
+            _listStateComponents.Add(new TriggerMarioStomp(this));
+            _listStateComponents.Add(new TriggerLittleRedUppercut(this, 4));
+            _listStateComponents.Add(new TriggerLittleRedAttackB(this, 3));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_ATTACK_A);
         }
@@ -37,7 +35,7 @@ namespace RB
 
             if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().IsOnEnd())
             {
-                ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
+                ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle());
             }
         }
     }

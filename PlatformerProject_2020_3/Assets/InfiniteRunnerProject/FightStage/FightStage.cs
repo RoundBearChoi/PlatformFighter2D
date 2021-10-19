@@ -28,17 +28,17 @@ namespace RB
             levelObj.transform.parent = this.transform;
             levelObj.transform.position = new Vector3(levelObj.transform.position.x, levelObj.transform.position.y, BaseInitializer.CURRENT.fighterDataSO.tempPlatforms_z);
 
-            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_TOP_FOG);
-            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_BOTTOM_FOG);
-            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_ARCHES);
-            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_BACKGROUND);
-            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_PILLARS);
+            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_TOP_FOG, new OldCity_TopFog_DefaultState());
+            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_BOTTOM_FOG, new OldCity_BottomFog_DefaultState());
+            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_ARCHES, new OldCity_Arches_DefaultState());
+            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_BACKGROUND, new OldCity_Background_DefaultState());
+            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_PILLARS, new OldCity_Pillars_DefaultState());
 
             //clear inputcontroller
             inputController.Clear();
 
             //player 0
-            InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_LIGHT);
+            InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_LIGHT, new LittleRed_Idle());
             Unit player1 = units.GetUnit<LittleRed>();
 
             if (BaseInitializer.CURRENT.arrInputDeviceData[0] != null)
@@ -52,7 +52,7 @@ namespace RB
             }
 
             //player 1
-            InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_DARK);
+            InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_DARK, new LittleRed_Idle());
             Unit player2 = units.GetUnit<LittleRed>();
 
             if (BaseInitializer.CURRENT.arrInputDeviceData[1] != null)

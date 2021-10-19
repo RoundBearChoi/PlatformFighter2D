@@ -28,7 +28,7 @@ namespace RB
             currentCameraState.OnLateUpdate();
         }
 
-        public void SetNewState(CameraState newCameraState)
+        public void SetNewState(Unit unit, CameraState newCameraState)
         {
             currentCameraState = newCameraState;
         }

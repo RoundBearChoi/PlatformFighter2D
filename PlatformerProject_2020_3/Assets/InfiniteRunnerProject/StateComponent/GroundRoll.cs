@@ -7,15 +7,15 @@ namespace RB
     public class GroundRoll : StateComponent
     {
         float _speed = 0f;
-        public GroundRoll(Unit unit)
+        public GroundRoll(UnitState unitState)
         {
-            _unit = unit;
+            _unitState = unitState;
         }
 
         public override void OnFixedUpdate()
         {
-            if (_unit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM) ||
-                _unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
+            if (UNIT_DATA.collisionEnters.IsTouchingGround(CollisionType.BOTTOM) ||
+                UNIT_DATA.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
             {
                 OnGround();
             }
@@ -23,32 +23,32 @@ namespace RB
 
         void OnGround()
         {
-            _unit.gameObject.layer = (int)LayerType.GHOSTING_UNIT;
+            UNIT.gameObject.layer = (int)LayerType.GHOSTING_UNIT;
 
-            if (_unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX <= 2)
+            if (UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX <= 2)
             {
                 _speed = BaseInitializer.CURRENT.fighterDataSO.DefaultRunSpeed * 1.5f;
             }
-            else if (_unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX <= 6)
+            else if (UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX <= 6)
             {
                 _speed = BaseInitializer.CURRENT.fighterDataSO.DefaultRunSpeed * 0.8f;
             }
-            else if (_unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX <= 12)
+            else if (UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX <= 12)
             {
-                _speed = Mathf.Lerp(_unit.unitData.rigidBody2D.velocity.x, 0f, 0.07f);
+                _speed = Mathf.Lerp(UNIT_DATA.rigidBody2D.velocity.x, 0f, 0.07f);
             }
             else
             {
-                _unit.unitData.listNextStates.Add(new LittleRed_Idle(_unit));
+                UNIT_DATA.listNextStates.Add(new LittleRed_Idle());
             }
 
             UpdateSpeedDirection();
-            _unit.unitData.rigidBody2D.velocity = new Vector2(_speed, _unit.unitData.rigidBody2D.velocity.y);
+            UNIT_DATA.rigidBody2D.velocity = new Vector2(_speed, UNIT_DATA.rigidBody2D.velocity.y);
         }
 
         void UpdateSpeedDirection()
         {
-            if (_unit.unitData.facingRight)
+            if (UNIT_DATA.facingRight)
             {
                 if (_speed < 0)
                 {

@@ -12,18 +12,18 @@ namespace RB
         {
             ownerUnit = unit;
 
-            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, BaseInitializer.CURRENT.fighterDataSO.IdleSlowDownLerpPercentage * 0.3f));
+            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(this, 0f, BaseInitializer.CURRENT.fighterDataSO.IdleSlowDownLerpPercentage * 0.3f));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_DEATH);
 
             if (ownerUnit.unitType == UnitType.LITTLE_RED_LIGHT)
             {
-                BaseInitializer.CURRENT.STAGE.InstantiateUnit_ByUnitType(UnitType.DeathFX_Light);
+                BaseInitializer.CURRENT.STAGE.InstantiateUnit_ByUnitType(UnitType.DeathFX_Light, new DeathFX_Light_DefaultState());
                 _deathFX = Units.instance.GetUnit<DeathFX_Light>();
             }
             else if (ownerUnit.unitType == UnitType.LITTLE_RED_DARK)
             {
-                BaseInitializer.CURRENT.STAGE.InstantiateUnit_ByUnitType(UnitType.DeathFX_Dark);
+                BaseInitializer.CURRENT.STAGE.InstantiateUnit_ByUnitType(UnitType.DeathFX_Dark, new DeathFX_Dark_DefaultState());
                  _deathFX = Units.instance.GetUnit<DeathFX_Dark>();
             }
 

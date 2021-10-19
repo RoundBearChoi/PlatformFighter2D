@@ -8,11 +8,13 @@ namespace RB
     {
         protected Transform _parentTransform = null;
         protected UnitCreationSpec _creationSpec = null;
+        protected UnitState _firstState = null;
 
-        public UnitCreator(Transform parentTransform, UnitCreationSpec creationSpec)
+        public UnitCreator(Transform parentTransform, UnitCreationSpec creationSpec, UnitState firstState)
         {
             _parentTransform = parentTransform;
             _creationSpec = creationSpec;
+            _firstState = firstState;
         }
 
         public Unit InstantiateUnit(UnitCreationSpec creationSpec)
@@ -39,9 +41,11 @@ namespace RB
             unit.unitData.initialHP = _creationSpec.hp;
             unit.iStateController = new UnitStateController(unit);
 
-            _creationSpec.setInitialState.Invoke(unit);
+            //_creationSpec.setInitialState.Invoke(unit);
             //_creationSpec.setUpdater.Invoke(unit);
 
+            _firstState.ownerUnit = unit;
+            unit.iStateController.SetNewState(unit, _firstState);
             unit.unitUpdater = new DefaultUnitUpdater(unit);
 
             unit.InitBoxCollider(_creationSpec);

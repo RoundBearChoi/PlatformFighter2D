@@ -6,10 +6,8 @@ namespace RB
 {
     public class FallDust_DefaultState : UnitState
     {
-        public FallDust_DefaultState(Unit unit)
+        public FallDust_DefaultState()
         {
-            ownerUnit = unit;
-
             _listMatchingSpriteTypes.Add(SpriteType.DUST_FALL);
         }
 

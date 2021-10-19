@@ -6,25 +6,25 @@ namespace RB
 {
     public class TriggerJumpUp : StateComponent
     {
-        public TriggerJumpUp(Unit unit)
+        public TriggerJumpUp(UnitState unitState)
         {
-            _unit = unit;
+            _unitState = unitState;
         }
 
         public override void OnFixedUpdate()
         {
-            if (_unit.USER_INPUT.commands.ContainsPress(CommandType.JUMP, true))
+            if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.JUMP, true))
             {
-                if (!_unit.isDummy)
+                if (!UNIT.isDummy)
                 {
-                    BaseMessage jumpDustMessage = new Message_ShowJumpDust(true, _unit.transform.position);
+                    BaseMessage jumpDustMessage = new Message_ShowJumpDust(true, UNIT.transform.position);
                     jumpDustMessage.Register();
                 }
 
                 //multiply/divide runspeed on jump
-                _unit.unitData.rigidBody2D.velocity = new Vector2(_unit.unitData.rigidBody2D.velocity.x * BaseInitializer.CURRENT.fighterDataSO.HorizontalMomentumMultiplierOnRunningJump, _unit.unitData.rigidBody2D.velocity.y);
-                _unit.unitData.airControl.SetMomentum(_unit.unitData.rigidBody2D.velocity.x);
-                _unit.unitData.listNextStates.Add(new LittleRed_Jump_Up(_unit, BaseInitializer.CURRENT.fighterDataSO.VerticalJumpForce, 0));
+                UNIT_DATA.rigidBody2D.velocity = new Vector2(UNIT_DATA.rigidBody2D.velocity.x * BaseInitializer.CURRENT.fighterDataSO.HorizontalMomentumMultiplierOnRunningJump, UNIT_DATA.rigidBody2D.velocity.y);
+                UNIT_DATA.airControl.SetMomentum(UNIT_DATA.rigidBody2D.velocity.x);
+                UNIT_DATA.listNextStates.Add(new LittleRed_Jump_Up(BaseInitializer.CURRENT.fighterDataSO.VerticalJumpForce, 0));
             }
         }
     }

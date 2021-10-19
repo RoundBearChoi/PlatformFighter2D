@@ -9,7 +9,7 @@ namespace RB
         public Runner_Crouch_GetUp(Unit unit)
         {
             ownerUnit = unit;
-            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, 0.05f));
+            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(this, 0f, 0.05f));
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_CROUCH_GETUP);
         }
@@ -20,7 +20,7 @@ namespace RB
 
             if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().IsOnEnd())
             {
-                ownerUnit.unitData.listNextStates.Add(new Runner_NormalRun(ownerUnit));
+                ownerUnit.unitData.listNextStates.Add(new Runner_NormalRun());
             }
         }
     }

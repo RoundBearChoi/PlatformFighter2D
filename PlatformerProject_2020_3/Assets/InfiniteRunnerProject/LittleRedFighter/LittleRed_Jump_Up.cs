@@ -8,24 +8,23 @@ namespace RB
     {
         private float _jumpForce = 0f;
 
-        public LittleRed_Jump_Up(Unit unit, float jumpForce, uint defaultJumpFrames)
+        public LittleRed_Jump_Up(float jumpForce, uint defaultJumpFrames)
         {
             disallowTransitionQueue = true;
 
-            ownerUnit = unit;
             _jumpForce = jumpForce;
 
-            _listStateComponents.Add(new CancelJumpForceOnNonPress(ownerUnit, defaultJumpFrames));
+            _listStateComponents.Add(new CancelJumpForceOnNonPress(this, defaultJumpFrames));
             
-            _listStateComponents.Add(new LerpHorizontalMomentumOnInput_Air(ownerUnit, BaseInitializer.CURRENT.fighterDataSO.MaxHorizontalAirMomentum));
-            _listStateComponents.Add(new UpdateAirMovementOnMomentum(ownerUnit));
+            _listStateComponents.Add(new LerpHorizontalMomentumOnInput_Air(this, BaseInitializer.CURRENT.fighterDataSO.MaxHorizontalAirMomentum));
+            _listStateComponents.Add(new UpdateAirMovementOnMomentum(this));
 
-            _listStateComponents.Add(new UpdateDirectionOnVelocity(ownerUnit));
+            _listStateComponents.Add(new UpdateDirectionOnVelocity(this));
 
-            _listStateComponents.Add(new TriggerLittleRedUppercut(ownerUnit, 0));
-            _listStateComponents.Add(new TriggerWallSlide(ownerUnit));
-            _listStateComponents.Add(new TriggerAirDash(ownerUnit, 0));
-            _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit, 0));
+            _listStateComponents.Add(new TriggerLittleRedUppercut(this, 0));
+            _listStateComponents.Add(new TriggerWallSlide(this));
+            _listStateComponents.Add(new TriggerAirDash(this, 0));
+            _listStateComponents.Add(new TriggerLittleRedAttackA(this, 0));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_JUMP_UP);
         }
@@ -41,7 +40,7 @@ namespace RB
 
             if (ownerUnit.unitData.rigidBody2D.velocity.y <= 0f && fixedUpdateCount >= 2)
             {
-                ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall(ownerUnit));
+                ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall());
             }
         }
     }

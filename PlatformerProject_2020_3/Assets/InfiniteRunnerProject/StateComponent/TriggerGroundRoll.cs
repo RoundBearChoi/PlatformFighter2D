@@ -6,20 +6,20 @@ namespace RB
 {
     public class TriggerGroundRoll : StateComponent
     {
-        public TriggerGroundRoll(Unit unit)
+        public TriggerGroundRoll(UnitState unitState)
         {
-            _unit = unit;
+            _unitState = unitState;
         }
 
         public override void OnFixedUpdate()
         {
-            if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false) == true &&
-                _unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false) == false)
+            if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false) == true &&
+                UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false) == false)
             {
                 Roll(false);
             }
-            else if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false) == false &&
-                _unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false) == true)
+            else if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false) == false &&
+                UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false) == true)
             {
                 Roll(true);
             }
@@ -27,10 +27,10 @@ namespace RB
 
         void Roll(bool faceRight)
         {
-            if (_unit.USER_INPUT.commands.ContainsPress(CommandType.SHIFT, true))
+            if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.SHIFT, true))
             {
-                _unit.unitData.facingRight = faceRight;
-                _unit.unitData.listNextStates.Add(new LittleRed_Roll(_unit));
+                UNIT_DATA.facingRight = faceRight;
+                UNIT_DATA.listNextStates.Add(new LittleRed_Roll());
             }
         }
     }

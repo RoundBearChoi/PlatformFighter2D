@@ -6,24 +6,24 @@ namespace RB
 {
     public class TriggerRunOnGround : StateComponent
     {
-        public TriggerRunOnGround(Unit unit)
+        public TriggerRunOnGround(UnitState unitState)
         {
-            _unit = unit;
+            _unitState = unitState;
         }
 
         public override void OnFixedUpdate()
         {
-            if (_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM) ||
-                _unit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM))
+            if (UNIT_DATA.collisionStays.IsTouchingGround(CollisionType.BOTTOM) ||
+                UNIT_DATA.collisionEnters.IsTouchingGround(CollisionType.BOTTOM))
             {
-                if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false))
+                if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false))
                 {
-                    _unit.unitData.listNextStates.Add(new LittleRed_Run(_unit));
+                    UNIT_DATA.listNextStates.Add(new LittleRed_Run());
                 }
 
-                if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false))
+                if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false))
                 {
-                    _unit.unitData.listNextStates.Add(new LittleRed_Run(_unit));
+                    UNIT_DATA.listNextStates.Add(new LittleRed_Run());
                 }
             }
         }

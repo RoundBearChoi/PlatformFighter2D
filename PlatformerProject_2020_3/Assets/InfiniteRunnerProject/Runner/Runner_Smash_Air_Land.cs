@@ -9,7 +9,7 @@ namespace RB
         public Runner_Smash_Air_Land(Unit unit)
         {
             ownerUnit = unit;
-            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, 0.3f));
+            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(this, 0f, 0.3f));
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_SMASH_AIR_LAND);
         }
@@ -23,7 +23,7 @@ namespace RB
             {
                 if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
                 {
-                    ownerUnit.unitData.listNextStates.Add(new Runner_Crouch(ownerUnit));
+                    ownerUnit.unitData.listNextStates.Add(new Runner_Crouch());
                 }
             }
 
@@ -31,11 +31,11 @@ namespace RB
             {
                 if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
                 {
-                    ownerUnit.unitData.listNextStates.Add(new Runner_Crouch(ownerUnit));
+                    ownerUnit.unitData.listNextStates.Add(new Runner_Crouch());
                 }
                 else
                 {
-                    ownerUnit.unitData.listNextStates.Add(new Runner_NormalRun(ownerUnit));
+                    ownerUnit.unitData.listNextStates.Add(new Runner_NormalRun());
                 }
             }
         }

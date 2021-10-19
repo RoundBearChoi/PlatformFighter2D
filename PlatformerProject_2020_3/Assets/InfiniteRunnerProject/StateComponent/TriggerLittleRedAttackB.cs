@@ -8,23 +8,23 @@ namespace RB
     {
         private uint _requiredIndexCount = 0;
 
-        public TriggerLittleRedAttackB(Unit unit, uint requiredIndexCount)
+        public TriggerLittleRedAttackB(UnitState unitState, uint requiredIndexCount)
         {
-            _unit = unit;
+            _unitState = unitState;
             _requiredIndexCount = requiredIndexCount;
         }
 
         public override void OnFixedUpdate()
         {
-            SpriteAnimation ani = _unit.unitData.spriteAnimations.GetCurrentAnimation();
+            SpriteAnimation ani = UNIT_DATA.spriteAnimations.GetCurrentAnimation();
 
             if (ani != null)
             {
                 if (ani.SPRITE_INDEX >= _requiredIndexCount)
                 {
-                    if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, true))
+                    if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, true))
                     {
-                        _unit.unitData.listNextStates.Add(new LittleRed_Attack_B(_unit));
+                        UNIT_DATA.listNextStates.Add(new LittleRed_Attack_B());
                     }
                 }
             }

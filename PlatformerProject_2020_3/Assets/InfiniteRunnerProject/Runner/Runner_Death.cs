@@ -11,7 +11,7 @@ namespace RB
             ownerUnit = unit;
             noHitStopAllowed = true;
 
-            _listStateComponents.Add(new SlowDownToZeroOnFlatGround(ownerUnit, 0.05f));
+            _listStateComponents.Add(new SlowDownToZeroOnFlatGround(this, 0.05f));
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_DEATH);
         }

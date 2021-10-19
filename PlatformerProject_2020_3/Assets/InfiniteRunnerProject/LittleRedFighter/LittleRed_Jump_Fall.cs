@@ -6,20 +6,18 @@ namespace RB
 {
     public class LittleRed_Jump_Fall : UnitState
     {
-        public LittleRed_Jump_Fall(Unit unit)
+        public LittleRed_Jump_Fall()
         {
-            ownerUnit = unit;
+            _listStateComponents.Add(new LerpHorizontalMomentumOnInput_Air(this, BaseInitializer.CURRENT.fighterDataSO.MaxHorizontalAirMomentum));
+            _listStateComponents.Add(new UpdateAirMovementOnMomentum(this));
 
-            _listStateComponents.Add(new LerpHorizontalMomentumOnInput_Air(ownerUnit, BaseInitializer.CURRENT.fighterDataSO.MaxHorizontalAirMomentum));
-            _listStateComponents.Add(new UpdateAirMovementOnMomentum(ownerUnit));
+            _listStateComponents.Add(new UpdateDirectionOnVelocity(this));
 
-            _listStateComponents.Add(new UpdateDirectionOnVelocity(ownerUnit));
-
-            _listStateComponents.Add(new TriggerLittleRedUppercut(ownerUnit, 0));
-            _listStateComponents.Add(new TriggerWallSlide(ownerUnit));
-            _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit, 0));
-            _listStateComponents.Add(new TriggerAirDash(ownerUnit, 0));
-            _listStateComponents.Add(new TriggerMarioStomp(ownerUnit));
+            _listStateComponents.Add(new TriggerLittleRedUppercut(this, 0));
+            _listStateComponents.Add(new TriggerWallSlide(this));
+            _listStateComponents.Add(new TriggerLittleRedAttackA(this, 0));
+            _listStateComponents.Add(new TriggerAirDash(this, 0));
+            _listStateComponents.Add(new TriggerMarioStomp(this));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_JUMP_FALL);
         }
@@ -34,7 +32,7 @@ namespace RB
                     showLandingDust.Register();
                 }
 
-                ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
+                ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle());
             }
 
             FixedUpdateComponents();

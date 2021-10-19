@@ -11,9 +11,9 @@ namespace RB
             ownerUnit = unit;
             noHitStopAllowed = true;
 
-            _listStateComponents.Add(new InitialPushBack(ownerUnit, pushForce, attacker));
-            _listStateComponents.Add(new InitialTextGUIMaterial(ownerUnit, 8));
-            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, BaseInitializer.CURRENT.fighterDataSO.IdleSlowDownLerpPercentage));
+            _listStateComponents.Add(new InitialPushBack(this, pushForce, attacker));
+            _listStateComponents.Add(new InitialTextGUIMaterial(this, 8));
+            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(this, 0f, BaseInitializer.CURRENT.fighterDataSO.IdleSlowDownLerpPercentage));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_IDLE);
         }
@@ -35,7 +35,7 @@ namespace RB
             {
                 if (ownerUnit.unitData.hp > 0)
                 {
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
+                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle());
                 }
             }
         }

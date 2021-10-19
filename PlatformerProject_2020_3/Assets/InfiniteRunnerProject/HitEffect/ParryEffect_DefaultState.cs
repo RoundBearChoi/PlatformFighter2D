@@ -6,10 +6,8 @@ namespace RB
 {
     public class ParryEffect_DefaultState : UnitState
     {
-        public ParryEffect_DefaultState(Unit unit)
+        public ParryEffect_DefaultState()
         {
-            ownerUnit = unit;
-
             _listMatchingSpriteTypes.Add(SpriteType.HITEFFECT_PARRY);
         }
 

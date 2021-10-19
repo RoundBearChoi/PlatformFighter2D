@@ -6,22 +6,20 @@ namespace RB
 {
     public class LittleRed_Dash : UnitState
     {
-        public LittleRed_Dash(Unit unit)
+        public LittleRed_Dash()
         {
             disallowTransitionQueue = true;
-
-            ownerUnit = unit;
-
-            if (!ownerUnit.isDummy)
-            {
-                _listStateComponents.Add(new CreateRenderTrail(unit, 1, unit.unitData.facingRight));
-            }
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_DASH);
         }
 
         public override void OnEnter()
         {
+            if (!ownerUnit.isDummy)
+            {
+                _listStateComponents.Add(new CreateRenderTrail(this, 1, ownerUnit.unitData.facingRight));
+            }
+
             float initialMomentum = ownerUnit.unitData.airControl.HORIZONTAL_MOMENTUM * 0.5f;
             ownerUnit.unitData.airControl.SetMomentum(initialMomentum);
 
@@ -57,11 +55,11 @@ namespace RB
 
                 if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
                 {
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
+                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle());
                 }
                 else
                 {
-                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall(ownerUnit));
+                    ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall());
                 }
             }
         }

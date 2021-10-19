@@ -6,24 +6,24 @@ namespace RB
 {
     public class TriggerWallSlideDust : StateComponent
     {
-        public TriggerWallSlideDust(Unit unit)
+        public TriggerWallSlideDust(UnitState unitState)
         {
-            _unit = unit;
+            _unitState = unitState;
         }
 
         public override void OnFixedUpdate()
         {
-            uint fixedUpdateCount = _unit.iStateController.GetCurrentState().fixedUpdateCount;
+            uint fixedUpdateCount = UNIT.iStateController.GetCurrentState().fixedUpdateCount;
 
-            if (fixedUpdateCount != 0 && fixedUpdateCount % _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INTERVAL == 0)
+            if (fixedUpdateCount != 0 && fixedUpdateCount % UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_INTERVAL == 0)
             {
-                if (_unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 1 ||
-                    _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 2)
+                if (UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 1 ||
+                    UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 2)
                 {
                     float x = 0f;
                     float y = 0f;
 
-                    List<CollisionData> sideCollisions = _unit.unitData.collisionStays.GetSideCollisionData();
+                    List<CollisionData> sideCollisions = UNIT_DATA.collisionStays.GetSideCollisionData();
 
                     foreach (CollisionData data in sideCollisions)
                     {
@@ -34,13 +34,13 @@ namespace RB
                         }
                     }
 
-                    y = _unit.transform.position.y + 1.5f;
+                    y = UNIT.transform.position.y + 1.5f;
 
                     Vector3 dustPosition = new Vector3(x, y, BaseInitializer.CURRENT.fighterDataSO.DustEffects_z);
 
-                    if (!_unit.isDummy)
+                    if (!UNIT.isDummy)
                     {
-                        BaseMessage showWallSlideDust = new Message_ShowWallSlideDust(_unit.unitData.facingRight, dustPosition, new Vector2(1f, 1f));
+                        BaseMessage showWallSlideDust = new Message_ShowWallSlideDust(UNIT_DATA.facingRight, dustPosition, new Vector2(1f, 1f));
                         showWallSlideDust.Register();
                     }
                 }

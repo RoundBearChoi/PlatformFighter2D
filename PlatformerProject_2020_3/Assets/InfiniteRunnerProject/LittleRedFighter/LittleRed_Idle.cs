@@ -6,19 +6,17 @@ namespace RB
 {
     public class LittleRed_Idle : UnitState
     {
-        public LittleRed_Idle(Unit unit)
+        public LittleRed_Idle()
         {
-            ownerUnit = unit;
+            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(this, 0f, BaseInitializer.CURRENT.fighterDataSO.IdleSlowDownLerpPercentage));
+            _listStateComponents.Add(new UpdateDirectionOnInput(this));
 
-            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, BaseInitializer.CURRENT.fighterDataSO.IdleSlowDownLerpPercentage));
-            _listStateComponents.Add(new UpdateDirectionOnInput(ownerUnit));
-
-            _listStateComponents.Add(new TriggerFallState(ownerUnit));
-            _listStateComponents.Add(new TriggerRunOnGround(ownerUnit));
-            _listStateComponents.Add(new TriggerJumpUp(ownerUnit));
-            _listStateComponents.Add(new TriggerGroundRoll(ownerUnit));
-            _listStateComponents.Add(new TriggerLittleRedUppercut(ownerUnit, 0));
-            _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit, 0));
+            _listStateComponents.Add(new TriggerFallState(this));
+            _listStateComponents.Add(new TriggerRunOnGround(this));
+            _listStateComponents.Add(new TriggerJumpUp(this));
+            _listStateComponents.Add(new TriggerGroundRoll(this));
+            _listStateComponents.Add(new TriggerLittleRedUppercut(this, 0));
+            _listStateComponents.Add(new TriggerLittleRedAttackA(this, 0));
             
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_IDLE);
         }

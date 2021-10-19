@@ -6,10 +6,8 @@ namespace RB
 {
     public class UppercutEffect_Dark_DefaultState : UnitState
     {
-        public UppercutEffect_Dark_DefaultState(Unit unit)
+        public UppercutEffect_Dark_DefaultState()
         {
-            ownerUnit = unit;
-
             _listMatchingSpriteTypes.Add(SpriteType.UPPERCUT_EFFECT_DARK);
         }
 

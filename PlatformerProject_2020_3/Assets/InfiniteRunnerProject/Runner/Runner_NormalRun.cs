@@ -7,22 +7,19 @@ namespace RB
 {
     public class Runner_NormalRun : UnitState
     {
-        public Runner_NormalRun(Unit unit)
+        public Runner_NormalRun()
         {
-            ownerUnit = unit;
-
-            _listStateComponents.Add(new NormalRunToFall(ownerUnit));
-            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, BaseInitializer.CURRENT.runnerDataSO.Runner_FlatGround_RunSpeed, 0.1f));
-            _listStateComponents.Add(new NormalRun_OnUserInput(ownerUnit));
-            _listStateComponents.Add(new UpdateCollider2DSize(ownerUnit, new Vector2(0.8f, 3.4f)));
-
-            ownerUnit.gameObject.layer = (int)LayerType.PHYSICAL_UNIT;
+            _listStateComponents.Add(new NormalRunToFall(this));
+            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(this, BaseInitializer.CURRENT.runnerDataSO.Runner_FlatGround_RunSpeed, 0.1f));
+            _listStateComponents.Add(new NormalRun_OnUserInput(this));
+            _listStateComponents.Add(new UpdateCollider2DSize(this, new Vector2(0.8f, 3.4f)));
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_NORMAL_RUN);
         }
 
         public override void OnFixedUpdate()
         {
+            ownerUnit.gameObject.layer = (int)LayerType.PHYSICAL_UNIT;
             ownerUnit.unitData.rigidBody2D.mass = 0.2f;
 
             FixedUpdateComponents();

@@ -41,10 +41,11 @@ namespace RB
             currentUnitState.OnLateUpdate();
         }
 
-        public void SetNewState(UnitState newState)
+        public void SetNewState(Unit unit, UnitState newState)
         {
             currentUnitState = newState;
             currentUnitState.fixedUpdateCount = 0;
+            currentUnitState.ownerUnit = unit;
             currentUnitState.OnEnter();
         }
 
@@ -54,7 +55,7 @@ namespace RB
             {
                 currentUnitState.OnExit();
 
-                SetNewState(_unit.unitData.listNextStates[0]);
+                SetNewState(_unit, _unit.unitData.listNextStates[0]);
 
                 if (_unit.unitData.listNextStates[0].disallowTransitionQueue)
                 {

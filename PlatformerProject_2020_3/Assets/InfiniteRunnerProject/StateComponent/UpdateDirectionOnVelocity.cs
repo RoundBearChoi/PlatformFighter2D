@@ -6,21 +6,21 @@ namespace RB
 {
     public class UpdateDirectionOnVelocity : StateComponent
     {
-        public UpdateDirectionOnVelocity(Unit unit)
+        public UpdateDirectionOnVelocity(UnitState unitState)
         {
-            _unit = unit;
+            _unitState = unitState;
         }
 
         public override void OnFixedUpdate()
         {
-            if (_unit.unitData.rigidBody2D.velocity.x < 0f)
+            if (UNIT_DATA.rigidBody2D.velocity.x < 0f)
             {
-                _unit.unitData.facingRight = false;
+                UNIT_DATA.facingRight = false;
             }
 
-            if (_unit.unitData.rigidBody2D.velocity.x > 0f)
+            if (UNIT_DATA.rigidBody2D.velocity.x > 0f)
             {
-                _unit.unitData.facingRight = true;
+                UNIT_DATA.facingRight = true;
             }
         }
     }

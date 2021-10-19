@@ -8,33 +8,33 @@ namespace RB
     {
         private uint _requiredIndexCount = 0;
 
-        public TriggerLittleRedAttackA(Unit unit, uint requiredIndexCount)
+        public TriggerLittleRedAttackA(UnitState unitState, uint requiredIndexCount)
         {
-            _unit = unit;
+            _unitState = unitState;
             _requiredIndexCount = requiredIndexCount;
         }
 
         public override void OnFixedUpdate()
         {
-            SpriteAnimation ani = _unit.unitData.spriteAnimations.GetCurrentAnimation();
+            SpriteAnimation ani = UNIT_DATA.spriteAnimations.GetCurrentAnimation();
 
             if (ani != null)
             {
                 if (ani.SPRITE_INDEX >= _requiredIndexCount &&
-                    !_unit.unitData.AttackATriggered)
+                    !UNIT_DATA.AttackATriggered)
                 {
-                    if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, true))
+                    if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, true))
                     {
-                        if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false) == true && _unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false) == false)
+                        if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false) == true && UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false) == false)
                         {
-                            _unit.unitData.facingRight = true;
+                            UNIT_DATA.facingRight = true;
                         }
-                        else if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false) == false && _unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false) == true)
+                        else if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false) == false && UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false) == true)
                         {
-                            _unit.unitData.facingRight = false;
+                            UNIT_DATA.facingRight = false;
                         }
 
-                        _unit.unitData.listNextStates.Add(new LittleRed_Attack_A(_unit));
+                        UNIT_DATA.listNextStates.Add(new LittleRed_Attack_A());
                     }
                 }
             } 

@@ -33,18 +33,18 @@ namespace RB
             levelObj.transform.parent = this.transform;
             levelObj.transform.position = new Vector3(levelObj.transform.position.x, levelObj.transform.position.y, BaseInitializer.CURRENT.fighterDataSO.tempPlatforms_z);
 
-            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_TOP_FOG);
-            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_BOTTOM_FOG);
-            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_ARCHES);
-            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_BACKGROUND);
-            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_PILLARS);
+            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_TOP_FOG, new OldCity_TopFog_DefaultState());
+            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_BOTTOM_FOG, new OldCity_BottomFog_DefaultState());
+            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_ARCHES, new OldCity_Arches_DefaultState());
+            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_BACKGROUND, new OldCity_Background_DefaultState());
+            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_PILLARS, new OldCity_Pillars_DefaultState());
 
-            InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_LIGHT);
+            InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_LIGHT, new LittleRed_Idle());
             Unit serverPlayer = units.GetUnit<LittleRed>();
             serverPlayer.SetFighterInput(InputController.centralUserInput);
             playerUnits.Add(serverPlayer);
 
-            InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_DARK);
+            InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_DARK, new LittleRed_Idle());
             Unit client0 = units.GetUnit<LittleRed>();
             client0.SetFighterInput(inputController.AddFighterInput(UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current, null));
             playerUnits.Add(client0);

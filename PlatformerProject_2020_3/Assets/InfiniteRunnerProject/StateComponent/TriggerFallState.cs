@@ -6,22 +6,22 @@ namespace RB
 {
     public class TriggerFallState : StateComponent
     {
-        public TriggerFallState(Unit unit)
+        public TriggerFallState(UnitState unitState)
         {
-            _unit = unit;
+            _unitState = unitState;
         }
 
         public override void OnFixedUpdate()
         {
-            if (_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM) == false &&
-                _unit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM) == false)
+            if (UNIT_DATA.collisionStays.IsTouchingGround(CollisionType.BOTTOM) == false &&
+                UNIT_DATA.collisionEnters.IsTouchingGround(CollisionType.BOTTOM) == false)
             {
-                if (_unit.unitData.rigidBody2D.velocity.y <= -0.0001f)
+                if (UNIT_DATA.rigidBody2D.velocity.y <= -0.0001f)
                 {
                     //multiply/divide runspeed on fall
-                    _unit.unitData.rigidBody2D.velocity = new Vector2(_unit.unitData.rigidBody2D.velocity.x * BaseInitializer.CURRENT.fighterDataSO.HorizontalMomentumMultiplierOnFall, _unit.unitData.rigidBody2D.velocity.y);
-                    _unit.unitData.airControl.SetMomentum(_unit.unitData.rigidBody2D.velocity.x);
-                    _unit.unitData.listNextStates.Add(new LittleRed_Jump_Fall(_unit));
+                    UNIT_DATA.rigidBody2D.velocity = new Vector2(UNIT_DATA.rigidBody2D.velocity.x * BaseInitializer.CURRENT.fighterDataSO.HorizontalMomentumMultiplierOnFall, UNIT_DATA.rigidBody2D.velocity.y);
+                    UNIT_DATA.airControl.SetMomentum(UNIT_DATA.rigidBody2D.velocity.x);
+                    UNIT_DATA.listNextStates.Add(new LittleRed_Jump_Fall());
                 }
             }
         }

@@ -6,11 +6,9 @@ namespace RB
 {
     public class Runner_Crouch : UnitState
     {
-        public Runner_Crouch(Unit unit)
+        public Runner_Crouch()
         {
-            ownerUnit = unit;
-
-            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, 0.1f));
+            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(this, 0f, 0.1f));
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_CROUCH);
         }

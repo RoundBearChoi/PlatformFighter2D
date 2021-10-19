@@ -6,10 +6,8 @@ namespace RB
 {
     public class UppercutEffect_Light_DefaultState : UnitState
     {
-        public UppercutEffect_Light_DefaultState(Unit unit)
+        public UppercutEffect_Light_DefaultState()
         {
-            ownerUnit = unit;
-
             _listMatchingSpriteTypes.Add(SpriteType.UPPERCUT_EFFECT_LIGHT);
         }
 

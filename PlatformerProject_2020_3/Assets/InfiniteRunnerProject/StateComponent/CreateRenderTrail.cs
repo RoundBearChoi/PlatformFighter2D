@@ -9,9 +9,9 @@ namespace RB
         private int _totalTrails = 0;
         private bool _faceRight = true;
 
-        public CreateRenderTrail(Unit unit, int totalTrails, bool faceRight)
+        public CreateRenderTrail(UnitState unitState, int totalTrails, bool faceRight)
         {
-            _unit = unit;
+            _unitState = unitState;
             _totalTrails = totalTrails;
             _faceRight = faceRight;
         }
@@ -25,17 +25,17 @@ namespace RB
                 GameObject trailObj = new GameObject();
 
                 TrailEffect trail = trailObj.AddComponent<TrailEffect>();
-                trail.gameObject.name = "trail - " + _unit.gameObject.name;
+                trail.gameObject.name = "trail - " + UNIT.gameObject.name;
                 trail.transform.SetParent(BaseInitializer.CURRENT.STAGE.transform, false);
 
                 trail.spriteRenderer = trailObj.AddComponent<SpriteRenderer>();
-                trail.spriteRenderer.sprite = _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.sprite;
+                trail.spriteRenderer.sprite = UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.sprite;
 
-                trail.rootUnit = _unit;
+                trail.rootUnit = UNIT;
 
-                trail.spriteRenderer.transform.position = _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.transform.position;
-                trail.spriteRenderer.transform.localScale = _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.transform.localScale;
-                trail.spriteRenderer.transform.localRotation = _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.transform.localRotation;
+                trail.spriteRenderer.transform.position = UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.transform.position;
+                trail.spriteRenderer.transform.localScale = UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.transform.localScale;
+                trail.spriteRenderer.transform.localRotation = UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.transform.localRotation;
 
                 if (_faceRight)
                 {

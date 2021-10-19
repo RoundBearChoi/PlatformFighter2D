@@ -6,20 +6,20 @@ namespace RB
 {
     public class NormalRunToFall : StateComponent
     {
-        public NormalRunToFall(Unit unit)
+        public NormalRunToFall(UnitState unitState)
         {
-            _unit = unit;
+            _unitState = unitState;
         }
 
         public override void OnFixedUpdate()
         {
             //in the air
-            if (_unit.unitData.collisionStays.GetCount() == 0)
+            if (UNIT_DATA.collisionStays.GetCount() == 0)
             {
                 //falling
-                if (_unit.unitData.rigidBody2D.velocity.y < 0f)
+                if (UNIT_DATA.rigidBody2D.velocity.y < 0f)
                 {
-                    _unit.unitData.listNextStates.Add(new Runner_Jump_Fall(_unit));
+                    UNIT_DATA.listNextStates.Add(new Runner_Jump_Fall());
                 }
             }
         }

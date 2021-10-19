@@ -6,10 +6,8 @@ namespace RB
 {
     public class SmashDust_DefaultState : UnitState
     {
-        public SmashDust_DefaultState(Unit unit)
+        public SmashDust_DefaultState()
         {
-            ownerUnit = unit;
-
             _listMatchingSpriteTypes.Add(SpriteType.DUST_SMASH);
         }
 

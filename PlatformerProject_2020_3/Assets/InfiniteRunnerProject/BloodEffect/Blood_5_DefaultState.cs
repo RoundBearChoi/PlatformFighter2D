@@ -6,10 +6,8 @@ namespace RB
 {
     public class Blood_5_DefaultState : UnitState
     {
-        public Blood_5_DefaultState(Unit unit)
+        public Blood_5_DefaultState()
         {
-            ownerUnit = unit;
-
             _listMatchingSpriteTypes.Add(SpriteType.BLOOD_5);
         }
 

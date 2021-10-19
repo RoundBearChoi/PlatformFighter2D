@@ -6,18 +6,18 @@ namespace RB
 {
     public class TriggerAirDownSmash : StateComponent
     {
-        public TriggerAirDownSmash(Unit unit)
+        public TriggerAirDownSmash(UnitState unitState)
         {
-            _unit = unit;
+            _unitState = unitState;
         }
 
         public override void OnFixedUpdate()
         {
-            if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
+            if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
             {
-                if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, false))
+                if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, false))
                 {
-                    _unit.unitData.listNextStates.Add(new Runner_Smash_Air_Prep(_unit));
+                    UNIT_DATA.listNextStates.Add(new Runner_Smash_Air_Prep());
                 }
             }
         }

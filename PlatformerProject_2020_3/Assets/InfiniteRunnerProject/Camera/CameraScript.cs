@@ -62,7 +62,7 @@ namespace RB
 
         public void SetCameraState(CameraState cameraState, bool setDefaultState)
         {
-            _cameraStateController.SetNewState(cameraState);
+            _cameraStateController.SetNewState(null, cameraState);
 
             if (setDefaultState)
             {

@@ -6,12 +6,14 @@ namespace RB
 {
     public class Runner_Attack_A_Dash : UnitState
     {
-        public Runner_Attack_A_Dash(Unit unit)
+        public Runner_Attack_A_Dash()
         {
-            ownerUnit = unit;
-            _listStateComponents.Add(new CreateRenderTrail(unit, 1, unit.unitData.facingRight));
-
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_ATTACK_A_DASH);
+        }
+
+        public override void OnEnter()
+        {
+            _listStateComponents.Add(new CreateRenderTrail(this, 1, ownerUnit.unitData.facingRight));
         }
 
         public override void OnFixedUpdate()

@@ -6,23 +6,23 @@ namespace RB
 {
     public class Create_LittleRed_Run_StepDust : StateComponent
     {
-        public Create_LittleRed_Run_StepDust(Unit unit)
+        public Create_LittleRed_Run_StepDust(UnitState unitState)
         {
-            _unit = unit;
+            _unitState = unitState;
         }
 
         public override void OnFixedUpdate()
         {
-            uint fixedUpdateCount = _unit.iStateController.GetCurrentState().fixedUpdateCount;
+            uint fixedUpdateCount = UNIT.iStateController.GetCurrentState().fixedUpdateCount;
 
-            if (fixedUpdateCount != 0 && fixedUpdateCount % _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INTERVAL == 0)
+            if (fixedUpdateCount != 0 && fixedUpdateCount % UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_INTERVAL == 0)
             {
-                if (_unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 1 ||
-                    _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 6)
+                if (UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 1 ||
+                    UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 6)
                 {
-                    if (!_unit.isDummy)
+                    if (!UNIT.isDummy)
                     {
-                        BaseMessage showStepDust = new Message_ShowStepDust(false, _unit.transform.position - new Vector3(_unit.transform.right.x * 0.025f, 0f, 0f), new Vector2(1f, 1f), 4);
+                        BaseMessage showStepDust = new Message_ShowStepDust(false, UNIT.transform.position - new Vector3(UNIT.transform.right.x * 0.025f, 0f, 0f), new Vector2(1f, 1f), 4);
                         showStepDust.Register();
                     }
                 }

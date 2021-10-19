@@ -16,7 +16,7 @@ namespace RB
 
             Physics2D.gravity = new Vector2(0f, -50);
 
-            InstantiateUnit_ByUnitType(UnitType.RUNNER);
+            InstantiateUnit_ByUnitType(UnitType.RUNNER, new Runner_Idle());
             Unit runner = units.GetUnit<Runner>();
             runner.SetFighterInput(InputController.centralUserInput);
 

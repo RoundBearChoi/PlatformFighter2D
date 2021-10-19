@@ -9,9 +9,9 @@ namespace RB
         private Material _defaultMaterial = null;
         private uint _totalFrames = 0;
 
-        public InitialTextGUIMaterial(Unit unit, uint totalFrames)
+        public InitialTextGUIMaterial(UnitState unitState, uint totalFrames)
         {
-            _unit = unit;
+            _unitState = unitState;
             _totalFrames = totalFrames;
         }
 
@@ -19,13 +19,13 @@ namespace RB
         {
             if (_defaultMaterial == null)
             {
-                _defaultMaterial = _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.sharedMaterial;
-                _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.sharedMaterial = BaseInitializer.CURRENT.runnerDataSO.white_GUIText_material;
+                _defaultMaterial = UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.sharedMaterial;
+                UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.sharedMaterial = BaseInitializer.CURRENT.runnerDataSO.white_GUIText_material;
             }
 
-            if (_unit.iStateController.GetCurrentState().fixedUpdateCount > _totalFrames)
+            if (UNIT.iStateController.GetCurrentState().fixedUpdateCount > _totalFrames)
             {
-                _unit.unitData.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.sharedMaterial = _defaultMaterial;
+                UNIT_DATA.spriteAnimations.GetCurrentAnimation().SPRITE_RENDERER.sharedMaterial = _defaultMaterial;
             }
         }
     }

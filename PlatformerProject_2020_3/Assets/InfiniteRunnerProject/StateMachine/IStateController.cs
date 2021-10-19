@@ -9,7 +9,7 @@ namespace RB
         public abstract void OnUpdate();
         public abstract void OnFixedUpdate();
         public abstract void OnLateUpdate();
-        public abstract void SetNewState(T newUnitState);
+        public abstract void SetNewState(Unit unit, T newUnitState);
         public abstract void TransitionToNextState();
         public abstract T GetCurrentState();
     }

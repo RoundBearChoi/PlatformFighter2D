@@ -6,16 +6,16 @@ namespace RB
 {
     public class UpdateAirMovementOnMomentum : StateComponent
     {
-        public UpdateAirMovementOnMomentum(Unit unit)
+        public UpdateAirMovementOnMomentum(UnitState unitState)
         {
-            _unit = unit;
+            _unitState = unitState;
         }
 
         public override void OnFixedUpdate()
         {
-            if (!_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM) && !_unit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM))
+            if (!UNIT_DATA.collisionStays.IsTouchingGround(CollisionType.BOTTOM) && !UNIT_DATA.collisionEnters.IsTouchingGround(CollisionType.BOTTOM))
             {
-                _unit.unitData.rigidBody2D.velocity = new Vector2(_unit.unitData.airControl.HORIZONTAL_MOMENTUM, _unit.unitData.rigidBody2D.velocity.y);
+                UNIT_DATA.rigidBody2D.velocity = new Vector2(UNIT_DATA.airControl.HORIZONTAL_MOMENTUM, UNIT_DATA.rigidBody2D.velocity.y);
             }
         }
     }

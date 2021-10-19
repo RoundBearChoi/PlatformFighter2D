@@ -120,16 +120,16 @@ namespace RB
             _gameIntializer = gameInitializer;
         }
 
-        public virtual void InstantiateUnit(UnitCreationSpec spec)
+        public virtual void InstantiateUnit(UnitCreationSpec spec, UnitState firstState)
         {
-            units.AddCreator(new UnitCreator(this.transform, spec));
+            units.AddCreator(new UnitCreator(this.transform, spec, firstState));
             units.ProcessCreators(this);
         }
 
-        public virtual void InstantiateUnit_ByUnitType(UnitType unitType)
+        public virtual void InstantiateUnit_ByUnitType(UnitType unitType, UnitState firstState)
         {
             UnitCreationSpec spec = BaseInitializer.CURRENT.specsGetter.GetSpec_ByUnitType(unitType);
-            InstantiateUnit(spec);
+            InstantiateUnit(spec, firstState);
         }
 
         public virtual float GetCumulativeGravityForcePercentage()

@@ -6,31 +6,31 @@ namespace RB
 {
     public class TriggerWallSlide : StateComponent
     {
-        public TriggerWallSlide(Unit unit)
+        public TriggerWallSlide(UnitState unitState)
         {
-            _unit = unit;
+            _unitState = unitState;
         }
 
         public override void OnFixedUpdate()
         {
-            if (_unit.iStateController.GetCurrentState().fixedUpdateCount >= 2)
+            if (UNIT.iStateController.GetCurrentState().fixedUpdateCount >= 2)
             {
-                List<CollisionData> grounds = _unit.unitData.collisionStays.GetSideTouchingGrounds();
+                List<CollisionData> grounds = UNIT_DATA.collisionStays.GetSideTouchingGrounds();
 
                 if (grounds.Count >= 2)
                 {
                     bool makeTransition = false;
 
-                    if (grounds[0].contactPoint.point.x < _unit.transform.position.x)
+                    if (grounds[0].contactPoint.point.x < UNIT.transform.position.x)
                     {
-                        if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false))
+                        if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false))
                         {
                             makeTransition = true;
                         }
                     }
-                    else if (grounds[0].contactPoint.point.x > _unit.transform.position.x)
+                    else if (grounds[0].contactPoint.point.x > UNIT.transform.position.x)
                     {
-                        if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false))
+                        if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false))
                         {
                             makeTransition = true;
                         }
@@ -38,7 +38,7 @@ namespace RB
 
                     if (makeTransition)
                     {
-                        _unit.unitData.listNextStates.Add(new LittleRed_WallSlide(_unit));
+                        UNIT_DATA.listNextStates.Add(new LittleRed_WallSlide());
                     }
                 }
             }

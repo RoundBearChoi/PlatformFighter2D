@@ -6,15 +6,15 @@ namespace RB
 {
     public class TriggerMarioStomp : StateComponent
     {
-        public TriggerMarioStomp(Unit unit)
+        public TriggerMarioStomp(UnitState unitState)
         {
-            _unit = unit;
+            _unitState = unitState;
         }
 
         public override void OnFixedUpdate()
         {
-            List<CollisionData> enters = _unit.unitData.collisionEnters.GetCollisionData(CollisionType.BOTTOM);
-            List<CollisionData> stays = _unit.unitData.collisionStays.GetCollisionData(CollisionType.BOTTOM);
+            List<CollisionData> enters = UNIT_DATA.collisionEnters.GetCollisionData(CollisionType.BOTTOM);
+            List<CollisionData> stays = UNIT_DATA.collisionStays.GetCollisionData(CollisionType.BOTTOM);
 
             DoStomp(enters);
             DoStomp(stays);
@@ -28,12 +28,12 @@ namespace RB
 
                 if (collidingUnit != null)
                 {
-                    if (collidingUnit != _unit)
+                    if (collidingUnit != UNIT)
                     {
                         if (collidingUnit.unitType == UnitType.LITTLE_RED_DARK ||
                             collidingUnit.unitType == UnitType.LITTLE_RED_LIGHT)
                         {
-                            _unit.unitData.listNextStates.Add(new LittleRed_Jump_Up(_unit,
+                            UNIT_DATA.listNextStates.Add(new LittleRed_Jump_Up(
                                 BaseInitializer.CURRENT.fighterDataSO.VerticalJumpForce * BaseInitializer.CURRENT.fighterDataSO.VerticalJumpForceMultiplierOnMarioStomp,
                                 BaseInitializer.CURRENT.fighterDataSO.DefaultJumpFramesOnMarioStomp));
 
@@ -45,7 +45,7 @@ namespace RB
 
                             Vector2 scaleMultiplier = new Vector2(1.35f, 1.35f);
 
-                            if (!_unit.isDummy)
+                            if (!UNIT.isDummy)
                             {
                                 BaseMessage stepDustRight = new Message_ShowStepDust(
                                     true,

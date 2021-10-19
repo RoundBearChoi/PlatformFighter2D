@@ -6,10 +6,8 @@ namespace RB
 {
     public class JumpDust_DefaultState : UnitState
     {
-        public JumpDust_DefaultState(Unit unit)
+        public JumpDust_DefaultState()
         {
-            ownerUnit = unit;
-
             _listMatchingSpriteTypes.Add(SpriteType.DUST_JUMP);
         }
 

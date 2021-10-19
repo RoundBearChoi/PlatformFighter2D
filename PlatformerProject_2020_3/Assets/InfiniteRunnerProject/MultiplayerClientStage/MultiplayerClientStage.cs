@@ -31,7 +31,7 @@ namespace RB
             _cameraScript.SetCamera(cam);
 
             //dummy player
-            InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_DARK);
+            InstantiateUnit_ByUnitType(UnitType.LITTLE_RED_DARK, new LittleRed_Idle());
             _dummyOfflinePlayer = units.GetUnit<LittleRed>();
             _dummyOfflinePlayer.isDummy = true;
 
@@ -43,11 +43,11 @@ namespace RB
             levelObj.transform.parent = this.transform;
             levelObj.transform.position = new Vector3(levelObj.transform.position.x, levelObj.transform.position.y, BaseInitializer.CURRENT.fighterDataSO.tempPlatforms_z);
 
-            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_TOP_FOG);
-            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_BOTTOM_FOG);
-            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_ARCHES);
-            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_BACKGROUND);
-            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_PILLARS);
+            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_TOP_FOG, new OldCity_TopFog_DefaultState());
+            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_BOTTOM_FOG, new OldCity_BottomFog_DefaultState());
+            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_ARCHES, new OldCity_Arches_DefaultState());
+            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_BACKGROUND, new OldCity_Background_DefaultState());
+            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_PILLARS, new OldCity_Pillars_DefaultState());
 
             //set camera targets
             _cameraScript.SetCameraState(new Camera_LerpOnFighterXY(_cameraScript, 0.08f, 0.08f, 10f, 52f, 4f), true);

@@ -8,43 +8,43 @@ namespace RB
     {
         private float _maxMomentum = 0f;
 
-        public LerpHorizontalMomentumOnInput_Air(Unit unit, float maxMomentum)
+        public LerpHorizontalMomentumOnInput_Air(UnitState unitState, float maxMomentum)
         {
-            _unit = unit;
+            _unitState = unitState;
             _maxMomentum = maxMomentum;
         }
 
         public override void OnFixedUpdate()
         {
-            if (!_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM) && !_unit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM))
+            if (!UNIT_DATA.collisionStays.IsTouchingGround(CollisionType.BOTTOM) && !UNIT_DATA.collisionEnters.IsTouchingGround(CollisionType.BOTTOM))
             {
-                float abs = Mathf.Abs(_unit.unitData.airControl.HORIZONTAL_MOMENTUM);
+                float abs = Mathf.Abs(UNIT_DATA.airControl.HORIZONTAL_MOMENTUM);
 
                 if (abs >= _maxMomentum)
                 {
-                    if (_unit.unitData.airControl.HORIZONTAL_MOMENTUM < 0)
+                    if (UNIT_DATA.airControl.HORIZONTAL_MOMENTUM < 0)
                     {
-                        _unit.unitData.airControl.SetMomentum(_maxMomentum * -1f);
+                        UNIT_DATA.airControl.SetMomentum(_maxMomentum * -1f);
                     }
-                    else if (_unit.unitData.airControl.HORIZONTAL_MOMENTUM > 0)
+                    else if (UNIT_DATA.airControl.HORIZONTAL_MOMENTUM > 0)
                     {
-                        _unit.unitData.airControl.SetMomentum(_maxMomentum);
+                        UNIT_DATA.airControl.SetMomentum(_maxMomentum);
                     }
                 }
 
-                if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false))
+                if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false))
                 {
-                    _unit.unitData.airControl.AddMomentum(BaseInitializer.CURRENT.fighterDataSO.HorizontalAirMomentumIncreaseAmount * -1f);
+                    UNIT_DATA.airControl.AddMomentum(BaseInitializer.CURRENT.fighterDataSO.HorizontalAirMomentumIncreaseAmount * -1f);
                 }
 
-                if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false))
+                if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false))
                 {
-                    _unit.unitData.airControl.AddMomentum(BaseInitializer.CURRENT.fighterDataSO.HorizontalAirMomentumIncreaseAmount);
+                    UNIT_DATA.airControl.AddMomentum(BaseInitializer.CURRENT.fighterDataSO.HorizontalAirMomentumIncreaseAmount);
                 }
             }
 
             //reset momentum when on ground
-            else if (_unit.unitData.collisionStays.IsOnFlatGround())
+            else if (UNIT_DATA.collisionStays.IsOnFlatGround())
             {
                 ResetMomentum();
             }
@@ -52,13 +52,13 @@ namespace RB
 
         void ResetMomentum()
         {
-            if (_unit.unitData.facingRight)
+            if (UNIT_DATA.facingRight)
             {
-                _unit.unitData.airControl.SetMomentum(0.001f);
+                UNIT_DATA.airControl.SetMomentum(0.001f);
             }
             else
             {
-                _unit.unitData.airControl.SetMomentum(-0.001f);
+                UNIT_DATA.airControl.SetMomentum(-0.001f);
             }
         }
     }

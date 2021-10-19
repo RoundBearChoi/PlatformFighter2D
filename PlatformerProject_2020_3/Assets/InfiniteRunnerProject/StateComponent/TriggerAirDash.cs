@@ -8,29 +8,29 @@ namespace RB
     {
         int _indexRequirement = 0;
 
-        public TriggerAirDash(Unit unit, int indexRequirement)
+        public TriggerAirDash(UnitState unitState, int indexRequirement)
         {
             _indexRequirement = indexRequirement;
-            _unit = unit;
+            _unitState = unitState;
         }
 
         public override void OnFixedUpdate()
         {
-            SpriteAnimation ani = _unit.unitData.spriteAnimations.GetCurrentAnimation();
+            SpriteAnimation ani = UNIT_DATA.spriteAnimations.GetCurrentAnimation();
 
             if (ani != null)
             {
-                if (!_unit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM) &&
-                    !_unit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM) &&
-                    !_unit.unitData.airControl.DashTriggered &&
+                if (!UNIT_DATA.collisionEnters.IsTouchingGround(CollisionType.BOTTOM) &&
+                    !UNIT_DATA.collisionStays.IsTouchingGround(CollisionType.BOTTOM) &&
+                    !UNIT_DATA.airControl.DashTriggered &&
                     ani.SPRITE_INDEX >= _indexRequirement &&
-                    _unit.iStateController.GetCurrentState().fixedUpdateCount >= 1)
+                    UNIT.iStateController.GetCurrentState().fixedUpdateCount >= 1)
                 {
-                    if (_unit.USER_INPUT.commands.MovementKey_Left())
+                    if (UNIT.USER_INPUT.commands.MovementKey_Left())
                     {
                         Dash(CollisionType.LEFT);
                     }
-                    else if (_unit.USER_INPUT.commands.MovementKey_Right())
+                    else if (UNIT.USER_INPUT.commands.MovementKey_Right())
                     {
                         Dash(CollisionType.RIGHT);
                     }
@@ -40,30 +40,30 @@ namespace RB
 
         void Dash(CollisionType moveTo)
         {
-            if (_unit.unitData.collisionStays.GetCollisionData(moveTo).Count == 0)
+            if (UNIT_DATA.collisionStays.GetCollisionData(moveTo).Count == 0)
             {
-                if (_unit.USER_INPUT.commands.ContainsPress(CommandType.SHIFT, true))
+                if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.SHIFT, true))
                 {
                     if (moveTo == CollisionType.LEFT)
                     {
-                        _unit.unitData.facingRight = false;
+                        UNIT_DATA.facingRight = false;
 
-                        if (_unit.unitData.airControl.HORIZONTAL_MOMENTUM > 0f)
+                        if (UNIT_DATA.airControl.HORIZONTAL_MOMENTUM > 0f)
                         {
-                            _unit.unitData.airControl.SetMomentum(-0.01f);
+                            UNIT_DATA.airControl.SetMomentum(-0.01f);
                         }
                     }
                     else if (moveTo == CollisionType.RIGHT)
                     {
-                        _unit.unitData.facingRight = true;
+                        UNIT_DATA.facingRight = true;
 
-                        if (_unit.unitData.airControl.HORIZONTAL_MOMENTUM < 0f)
+                        if (UNIT_DATA.airControl.HORIZONTAL_MOMENTUM < 0f)
                         {
-                            _unit.unitData.airControl.SetMomentum(0.01f);
+                            UNIT_DATA.airControl.SetMomentum(0.01f);
                         }
                     }
 
-                    _unit.unitData.listNextStates.Add(new LittleRed_Dash(_unit));
+                    UNIT_DATA.listNextStates.Add(new LittleRed_Dash());
                 }
             }
         }

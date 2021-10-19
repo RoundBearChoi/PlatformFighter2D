@@ -6,10 +6,8 @@ namespace RB
 {
     public class Runner_Idle : UnitState
     {
-        public Runner_Idle(Unit unit)
+        public Runner_Idle()
         {
-            ownerUnit = unit;
-
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_IDLE);
         }
 
@@ -24,7 +22,7 @@ namespace RB
         IEnumerator TriggerRun()
         {
             yield return new WaitForEndOfFrame();
-            ownerUnit.unitData.listNextStates.Add(new Runner_NormalRun(ownerUnit));
+            ownerUnit.unitData.listNextStates.Add(new Runner_NormalRun());
         }
     }
 }

@@ -6,10 +6,8 @@ namespace RB
 {
     public class SlideDust_DefaultState : UnitState
     {
-        public SlideDust_DefaultState(Unit unit)
+        public SlideDust_DefaultState()
         {
-            ownerUnit = unit;
-
             _listMatchingSpriteTypes.Add(SpriteType.DUST_SLIDE);
         }
 

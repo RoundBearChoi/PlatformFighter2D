@@ -19,7 +19,7 @@ namespace RB
 
         public bool Handle()
         {
-            BaseInitializer.CURRENT.STAGE.InstantiateUnit_ByUnitType(UnitType.LANDING_DUST);
+            BaseInitializer.CURRENT.STAGE.InstantiateUnit_ByUnitType(UnitType.LANDING_DUST, new LandingDust_DefaultState());
             Unit landingDust = Units.instance.GetUnit<LandingDust>();
 
             landingDust.transform.position = _dustPosition;

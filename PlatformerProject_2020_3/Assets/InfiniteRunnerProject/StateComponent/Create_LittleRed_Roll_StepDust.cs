@@ -6,16 +6,16 @@ namespace RB
 {
     public class Create_LittleRed_Roll_StepDust : StateComponent
     {
-        public Create_LittleRed_Roll_StepDust(Unit unit)
+        public Create_LittleRed_Roll_StepDust(UnitState unitState)
         {
-            _unit = unit;
+            _unitState = unitState;
         }
 
         public override void OnFixedUpdate()
         {
-            if (!_unit.isDummy)
+            if (!UNIT.isDummy)
             {
-                SpriteAnimation ani = _unit.unitData.spriteAnimations.GetCurrentAnimation();
+                SpriteAnimation ani = UNIT_DATA.spriteAnimations.GetCurrentAnimation();
 
                 if (ani != null)
                 {
@@ -23,11 +23,11 @@ namespace RB
                         ani.SPRITE_INDEX == 3 ||
                         ani.SPRITE_INDEX == 5)
                     {
-                        uint fixedUpdateCount = _unit.iStateController.GetCurrentState().fixedUpdateCount;
+                        uint fixedUpdateCount = UNIT.iStateController.GetCurrentState().fixedUpdateCount;
 
                         if (fixedUpdateCount != 0 && fixedUpdateCount % ani.SPRITE_INTERVAL == 0)
                         {
-                            BaseMessage showStepDust = new Message_ShowStepDust(false, _unit.transform.position - new Vector3(_unit.transform.right.x * 0.025f, 0f, 0f), new Vector2(1f, 1f), 4);
+                            BaseMessage showStepDust = new Message_ShowStepDust(false, UNIT.transform.position - new Vector3(UNIT.transform.right.x * 0.025f, 0f, 0f), new Vector2(1f, 1f), 4);
                             showStepDust.Register();
                         }
                     }

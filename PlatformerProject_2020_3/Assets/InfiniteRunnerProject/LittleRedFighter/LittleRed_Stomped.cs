@@ -27,7 +27,7 @@ namespace RB
 
             if (ownerUnit.unitData.spriteAnimations.GetCurrentAnimation().IsOnEnd())
             {
-                ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
+                ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle());
             }
         }
     }

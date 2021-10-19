@@ -8,26 +8,26 @@ namespace RB
     {
         uint _requiredIndexCount = 0;
 
-        public TriggerLittleRedUppercut(Unit unit, uint requriedIndexCount)
+        public TriggerLittleRedUppercut(UnitState unitState, uint requriedIndexCount)
         {
-            _unit = unit;
+            _unitState = unitState;
             _requiredIndexCount = requriedIndexCount;
         }
 
         public override void OnFixedUpdate()
         {
-            SpriteAnimation ani = _unit.unitData.spriteAnimations.GetCurrentAnimation();
+            SpriteAnimation ani = UNIT_DATA.spriteAnimations.GetCurrentAnimation();
 
-            if (ani != null && !_unit.unitData.airControl.UppercutTriggered)
+            if (ani != null && !UNIT_DATA.airControl.UppercutTriggered)
             {
                 if (ani.SPRITE_INDEX >= _requiredIndexCount)
                 {
-                    if (_unit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_UP, false))
+                    if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.MOVE_UP, false))
                     {
-                        if (_unit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, true))
+                        if (UNIT.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_A, true))
                         {
-                            _unit.unitData.airControl.UppercutTriggered = true;
-                            _unit.unitData.listNextStates.Add(new LittleRedUppercut(_unit));
+                            UNIT_DATA.airControl.UppercutTriggered = true;
+                            UNIT_DATA.listNextStates.Add(new LittleRedUppercut());
                         }
                     }
                 }

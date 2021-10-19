@@ -6,10 +6,8 @@ namespace RB
 {
     public class StepDust_DefaultState : UnitState
     {
-        public StepDust_DefaultState(Unit unit)
+        public StepDust_DefaultState()
         {
-            ownerUnit = unit;
-
             _listMatchingSpriteTypes.Add(SpriteType.DUST_STEP);
         }
 

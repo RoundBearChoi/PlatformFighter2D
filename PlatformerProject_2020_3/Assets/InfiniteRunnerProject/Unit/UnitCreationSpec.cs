@@ -18,10 +18,6 @@ namespace RB
 
         [Space(15)]
 
-        public SetInitialState_Event setInitialState;
-
-        [Space(15)]
-
         public int SpriteNameIndex = 0;
 
         [Space(5)]

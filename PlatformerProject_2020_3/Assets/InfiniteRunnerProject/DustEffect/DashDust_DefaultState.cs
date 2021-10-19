@@ -6,10 +6,8 @@ namespace RB
 {
     public class DashDust_DefaultState : UnitState
     {
-        public DashDust_DefaultState(Unit unit)
+        public DashDust_DefaultState()
         {
-            ownerUnit = unit;
-
             _listMatchingSpriteTypes.Add(SpriteType.DUST_DASH);
         }
 

@@ -10,16 +10,16 @@ namespace RB
         private uint _jumpFrame = 0;
         private bool _jumped = false;
 
-        public DelayedJump(Unit unit, float jumpForce, uint jumpFrame)
+        public DelayedJump(UnitState unitState, float jumpForce, uint jumpFrame)
         {
-            _unit = unit;
+            _unitState = unitState;
             _jumpForce = jumpForce;
             _jumpFrame = jumpFrame;
         }
 
         public override void OnFixedUpdate()
         {
-            SpriteAnimation ani = _unit.unitData.spriteAnimations.GetCurrentAnimation();
+            SpriteAnimation ani = UNIT_DATA.spriteAnimations.GetCurrentAnimation();
 
             if (ani != null)
             {
@@ -28,7 +28,7 @@ namespace RB
                     if (ani.SPRITE_INDEX >= _jumpFrame)
                     {
                         _jumped = true;
-                        _unit.unitData.rigidBody2D.velocity = new Vector2(_unit.unitData.rigidBody2D.velocity.x * BaseInitializer.CURRENT.fighterDataSO.HorizontalJumpVelocityMultiplier, _jumpForce);
+                        UNIT_DATA.rigidBody2D.velocity = new Vector2(UNIT_DATA.rigidBody2D.velocity.x * BaseInitializer.CURRENT.fighterDataSO.HorizontalJumpVelocityMultiplier, _jumpForce);
                     }
                 }
             }

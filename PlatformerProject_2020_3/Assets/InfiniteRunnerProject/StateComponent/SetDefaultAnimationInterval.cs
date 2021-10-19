@@ -6,14 +6,14 @@ namespace RB
 {
     public class SetDefaultAnimationInterval : StateComponent
     {
-        public SetDefaultAnimationInterval(Unit unit)
+        public SetDefaultAnimationInterval(UnitState unitState)
         {
-            _unit = unit;
+            _unitState = unitState;
         }
 
         public override void OnFixedUpdate()
         {
-            SpriteAnimation ani = _unit.unitData.spriteAnimations.GetCurrentAnimation();
+            SpriteAnimation ani = UNIT_DATA.spriteAnimations.GetCurrentAnimation();
             ani.SetSpriteInterval(ani.ANIMATION_SPEC.spriteInterval);
         }
     }

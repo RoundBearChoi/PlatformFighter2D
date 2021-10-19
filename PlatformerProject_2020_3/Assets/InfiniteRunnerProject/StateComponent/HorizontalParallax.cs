@@ -9,17 +9,17 @@ namespace RB
         Vector2 _basePos = Vector2.zero;
         float _percentage = 0f;
         
-        public HorizontalParallax(Unit unit, Vector2 basePos, float percentage)
+        public HorizontalParallax(UnitState unitState, Vector2 basePos, float percentage)
         {
-            _unit = unit;
+            _unitState = unitState;
             _basePos = basePos;
             _percentage = percentage;
         }
 
         public override void OnFixedUpdate()
         {
-            Vector3 pos = _unit.OWNER_STAGE.CAMERA_SCRIPT.CAMERA.transform.position * _percentage;
-            _unit.transform.position = new Vector3(_basePos.x + pos.x, _unit.transform.position.y, _unit.transform.position.z);
+            Vector3 pos = UNIT.OWNER_STAGE.CAMERA_SCRIPT.CAMERA.transform.position * _percentage;
+            UNIT.transform.position = new Vector3(_basePos.x + pos.x, UNIT.transform.position.y, UNIT.transform.position.z);
         }
     }
 }

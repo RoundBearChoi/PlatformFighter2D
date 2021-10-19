@@ -9,23 +9,24 @@ namespace RB
         private bool initialFaceRight = true;
         private bool _uppercutEffectShown = false;
 
-        public LittleRedUppercut(Unit unit)
+        public LittleRedUppercut()
         {
             disallowTransitionQueue = true;
 
-            ownerUnit = unit;
-            
-            initialFaceRight = unit.unitData.facingRight;
+            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(this, 0f, BaseInitializer.CURRENT.fighterDataSO.AttackASlowDownPercentage));
+            _listStateComponents.Add(new DelayedJump(this, BaseInitializer.CURRENT.fighterDataSO.VerticalJumpForce * 0.75f, 2));
+            _listStateComponents.Add(new UpdateAirMovementOnMomentum(this));
+            _listStateComponents.Add(new OverlapBoxCollision(this, BaseInitializer.CURRENT.GetOverlapBoxCollisionData(OverlapBoxDataType.LITTLE_RED_UPPERCUT)));
 
-            _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(ownerUnit, 0f, BaseInitializer.CURRENT.fighterDataSO.AttackASlowDownPercentage));
-            _listStateComponents.Add(new DelayedJump(ownerUnit, BaseInitializer.CURRENT.fighterDataSO.VerticalJumpForce * 0.75f, 2));
-            _listStateComponents.Add(new UpdateAirMovementOnMomentum(ownerUnit));
-            _listStateComponents.Add(new OverlapBoxCollision(ownerUnit, BaseInitializer.CURRENT.GetOverlapBoxCollisionData(OverlapBoxDataType.LITTLE_RED_UPPERCUT)));
-
-            _listStateComponents.Add(new TriggerLittleRedAttackA(ownerUnit, 10));
-            _listStateComponents.Add(new TriggerAirDash(ownerUnit, 10));
+            _listStateComponents.Add(new TriggerLittleRedAttackA(this, 10));
+            _listStateComponents.Add(new TriggerAirDash(this, 10));
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_UPPERCUT);
+        }
+
+        public override void OnEnter()
+        {
+            initialFaceRight = ownerUnit.unitData.facingRight;
         }
 
         public override void OnFixedUpdate()
@@ -48,7 +49,7 @@ namespace RB
 
                             if (ownerUnit.unitType == UnitType.LITTLE_RED_LIGHT)
                             {
-                                BaseInitializer.CURRENT.STAGE.InstantiateUnit_ByUnitType(UnitType.UPPERCUT_EFFECT_LIGHT);
+                                BaseInitializer.CURRENT.STAGE.InstantiateUnit_ByUnitType(UnitType.UPPERCUT_EFFECT_LIGHT, new UppercutEffect_Light_DefaultState());
                                 Unit lightUppercutVFX = Units.instance.GetUnit<UppercutEffect_Light>();
                                 lightUppercutVFX.transform.parent = ownerUnit.transform;
                                 lightUppercutVFX.transform.position = ownerUnit.transform.position;
@@ -57,7 +58,7 @@ namespace RB
                             }
                             else if (ownerUnit.unitType == UnitType.LITTLE_RED_DARK)
                             {
-                                BaseInitializer.CURRENT.STAGE.InstantiateUnit_ByUnitType(UnitType.UPPERCUT_EFFECT_DARK);
+                                BaseInitializer.CURRENT.STAGE.InstantiateUnit_ByUnitType(UnitType.UPPERCUT_EFFECT_DARK, new UppercutEffect_Dark_DefaultState());
                                 Unit darkUppercutVFX = Units.instance.GetUnit<UppercutEffect_Dark>();
                                 darkUppercutVFX.transform.parent = ownerUnit.transform;
                                 darkUppercutVFX.transform.position = ownerUnit.transform.position;
@@ -105,11 +106,11 @@ namespace RB
                 {
                     if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
                     {
-                        ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle(ownerUnit));
+                        ownerUnit.unitData.listNextStates.Add(new LittleRed_Idle());
                     }
                     else
                     {
-                        ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall(ownerUnit));
+                        ownerUnit.unitData.listNextStates.Add(new LittleRed_Jump_Fall());
                     }
                 }
             }

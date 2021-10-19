@@ -6,11 +6,10 @@ namespace RB
 {
     public class Runner_Smash_Air_Prep : UnitState
     {
-        public Runner_Smash_Air_Prep(Unit unit)
+        public Runner_Smash_Air_Prep()
         {
-            ownerUnit = unit;
-            _listStateComponents.Add(new LerpVerticalSpeed_Air(ownerUnit, -0.1f, 0.05f));
-            _listStateComponents.Add(new LerpHorizontalSpeed_Air(ownerUnit, 0.01f, 0.05f));
+            _listStateComponents.Add(new LerpVerticalSpeed_Air(this, -0.1f, 0.05f));
+            _listStateComponents.Add(new LerpHorizontalSpeed_Air(this, 0.01f, 0.05f));
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_SMASH_AIR_PREP);
         }

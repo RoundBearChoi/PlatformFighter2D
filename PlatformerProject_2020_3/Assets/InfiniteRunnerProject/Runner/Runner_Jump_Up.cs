@@ -8,11 +8,9 @@ namespace RB
     {
         private bool _startPullDown = false;
 
-        public Runner_Jump_Up(Unit unit)
+        public Runner_Jump_Up()
         {
-            ownerUnit = unit;
-
-            _listStateComponents.Add(new TriggerAirDownSmash(unit));
+            _listStateComponents.Add(new TriggerAirDownSmash(this));
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_JUMP_UP);
         }
@@ -51,7 +49,7 @@ namespace RB
 
             if (ownerUnit.unitData.rigidBody2D.velocity.y <= 0f && fixedUpdateCount >= 2)
             {
-                ownerUnit.unitData.listNextStates.Add(new Runner_Jump_Fall(ownerUnit));
+                ownerUnit.unitData.listNextStates.Add(new Runner_Jump_Fall());
             }
 
         }

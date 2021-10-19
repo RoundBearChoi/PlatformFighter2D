@@ -8,15 +8,15 @@ namespace RB
     {
         private uint _targetInterval = 0;
 
-        public SetAnimationInterval(Unit unit, uint targetInterval)
+        public SetAnimationInterval(UnitState unitState, uint targetInterval)
         {
-            _unit = unit;
+            _unitState = unitState;
             _targetInterval = targetInterval;
         }
 
         public override void OnFixedUpdate()
         {
-            SpriteAnimation ani = _unit.unitData.spriteAnimations.GetCurrentAnimation();
+            SpriteAnimation ani = UNIT_DATA.spriteAnimations.GetCurrentAnimation();
             ani.SetSpriteInterval(_targetInterval);
         }
     }
