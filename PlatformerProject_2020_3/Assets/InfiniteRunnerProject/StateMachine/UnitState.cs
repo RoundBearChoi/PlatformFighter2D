@@ -60,19 +60,6 @@ namespace RB
 
         }
 
-        public virtual UnitState GetLastestInstantiatedState()
-        {
-            return null;
-        }
-
-        public virtual void UpdateComponents()
-        {
-            foreach (StateComponent component in _listStateComponents)
-            {
-                component.OnUpdate();
-            }
-        }
-
         public virtual void FixedUpdateComponents()
         {
             foreach (StateComponent component in _listStateComponents)
