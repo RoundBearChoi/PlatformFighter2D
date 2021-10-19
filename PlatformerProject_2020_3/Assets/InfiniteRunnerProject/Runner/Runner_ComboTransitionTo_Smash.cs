@@ -8,7 +8,7 @@ namespace RB
     {
         public Runner_ComboTransitionTo_Smash(Unit unit)
         {
-            ownerUnit = unit;
+            _ownerUnit = unit;
             _listStateComponents.Add(new LerpHorizontalSpeed_Air(this, 0.01f, 0.05f));
             _listStateComponents.Add(new LerpVerticalSpeed_Air(this, -0.1f, 0.15f));
 
@@ -19,9 +19,9 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            if (ownerUnit.unitData.rigidBody2D.velocity.y <= 0f)
+            if (_ownerUnit.unitData.rigidBody2D.velocity.y <= 0f)
             {
-                ownerUnit.listNextStates.Add(new Runner_Smash_Air_Fall(ownerUnit));
+                _ownerUnit.listNextStates.Add(new Runner_Smash_Air_Fall(_ownerUnit));
             }
         }
     }

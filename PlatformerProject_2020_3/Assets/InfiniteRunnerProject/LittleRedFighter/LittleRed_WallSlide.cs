@@ -22,9 +22,9 @@ namespace RB
 
         public override void OnEnter()
         {
-            ownerUnit.unitData.airControl.DashTriggered = false;
-            ownerUnit.unitData.rigidBody2D.velocity = new Vector2(0f, ownerUnit.unitData.rigidBody2D.velocity.y);
-            ownerUnit.unitData.airControl.SetMomentum(0f);
+            _ownerUnit.unitData.airControl.DashTriggered = false;
+            _ownerUnit.unitData.rigidBody2D.velocity = new Vector2(0f, _ownerUnit.unitData.rigidBody2D.velocity.y);
+            _ownerUnit.unitData.airControl.SetMomentum(0f);
         }
 
 
@@ -32,51 +32,51 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            if (ownerUnit.unitData.rigidBody2D.velocity.y <= _maxFallVelocity)
+            if (_ownerUnit.unitData.rigidBody2D.velocity.y <= _maxFallVelocity)
             {
-                ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x, _maxFallVelocity);
+                _ownerUnit.unitData.rigidBody2D.velocity = new Vector2(_ownerUnit.unitData.rigidBody2D.velocity.x, _maxFallVelocity);
             }
 
             if (fixedUpdateCount >= 1)
             {
                 //not touching wall
-                List<CollisionData> sideTouchingGrounds = ownerUnit.unitData.collisionStays.GetSideTouchingGrounds();
+                List<CollisionData> sideTouchingGrounds = _ownerUnit.unitData.collisionStays.GetSideTouchingGrounds();
 
                 if (sideTouchingGrounds.Count < 2)
                 {
-                    ownerUnit.listNextStates.Add(new LittleRed_Jump_Fall());
+                    _ownerUnit.listNextStates.Add(new LittleRed_Jump_Fall());
                 }
 
                 //hit ground
-                List<Ground> groundsEnter = ownerUnit.unitData.collisionEnters.GetTouchingGrounds(CollisionType.BOTTOM);
+                List<Ground> groundsEnter = _ownerUnit.unitData.collisionEnters.GetTouchingGrounds(CollisionType.BOTTOM);
 
                 if (groundsEnter.Count > 0)
                 {
-                    ownerUnit.listNextStates.Add(new LittleRed_Idle());
+                    _ownerUnit.listNextStates.Add(new LittleRed_Idle());
                 }
 
-                List<Ground> groundsStay = ownerUnit.unitData.collisionStays.GetTouchingGrounds(CollisionType.BOTTOM);
+                List<Ground> groundsStay = _ownerUnit.unitData.collisionStays.GetTouchingGrounds(CollisionType.BOTTOM);
 
                 if (groundsStay.Count > 0)
                 {
-                    ownerUnit.listNextStates.Add(new LittleRed_Idle());
+                    _ownerUnit.listNextStates.Add(new LittleRed_Idle());
                 }
 
                 //fall off
-                if (ownerUnit.facingRight)
+                if (_ownerUnit.facingRight)
                 {
-                    if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false) && ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
+                    if (_ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_LEFT, false) && _ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
                     {
-                        ownerUnit.unitData.airControl.SetMomentum(BaseInitializer.CURRENT.fighterDataSO.WallFallHorizontalMomentum * -1f);
-                        ownerUnit.listNextStates.Add(new LittleRed_Jump_Fall());
+                        _ownerUnit.unitData.airControl.SetMomentum(BaseInitializer.CURRENT.fighterDataSO.WallFallHorizontalMomentum * -1f);
+                        _ownerUnit.listNextStates.Add(new LittleRed_Jump_Fall());
                     }
                 }
                 else
                 {
-                    if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false) && ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
+                    if (_ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_RIGHT, false) && _ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
                     {
-                        ownerUnit.unitData.airControl.SetMomentum(BaseInitializer.CURRENT.fighterDataSO.WallFallHorizontalMomentum);
-                        ownerUnit.listNextStates.Add(new LittleRed_Jump_Fall());
+                        _ownerUnit.unitData.airControl.SetMomentum(BaseInitializer.CURRENT.fighterDataSO.WallFallHorizontalMomentum);
+                        _ownerUnit.listNextStates.Add(new LittleRed_Jump_Fall());
                     }
                 }
             }

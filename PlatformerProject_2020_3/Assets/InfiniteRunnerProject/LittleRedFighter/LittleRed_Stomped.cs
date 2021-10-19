@@ -10,7 +10,7 @@ namespace RB
 
         public LittleRed_Stomped(Unit unit)
         {
-            ownerUnit = unit;
+            _ownerUnit = unit;
 
             _listMatchingSpriteTypes.Add(SpriteType.LITTLE_RED_STOMPED);
         }
@@ -20,14 +20,14 @@ namespace RB
             if (!isReset)
             {
                 isReset = true;
-                ownerUnit.spriteAnimations.ManualSetSpriteIndex(0);
+                _ownerUnit.spriteAnimations.ManualSetSpriteIndex(0);
             }
 
             FixedUpdateComponents();
 
-            if (ownerUnit.spriteAnimations.GetCurrentAnimation().IsOnEnd())
+            if (_ownerUnit.spriteAnimations.GetCurrentAnimation().IsOnEnd())
             {
-                ownerUnit.listNextStates.Add(new LittleRed_Idle());
+                _ownerUnit.listNextStates.Add(new LittleRed_Idle());
             }
         }
     }

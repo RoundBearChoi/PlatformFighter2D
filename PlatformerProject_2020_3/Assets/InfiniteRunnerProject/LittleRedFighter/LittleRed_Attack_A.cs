@@ -26,16 +26,16 @@ namespace RB
 
         public override void OnEnter()
         {
-            ownerUnit.attack_A_Triggered = true;
+            _ownerUnit.attack_A_Triggered = true;
         }
 
         public override void OnFixedUpdate()
         {
             FixedUpdateComponents();
 
-            if (ownerUnit.spriteAnimations.GetCurrentAnimation().IsOnEnd())
+            if (_ownerUnit.spriteAnimations.GetCurrentAnimation().IsOnEnd())
             {
-                ownerUnit.listNextStates.Add(new LittleRed_Idle());
+                _ownerUnit.listNextStates.Add(new LittleRed_Idle());
             }
         }
     }

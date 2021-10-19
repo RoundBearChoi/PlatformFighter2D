@@ -22,7 +22,7 @@ namespace RB
         IEnumerator TriggerRun()
         {
             yield return new WaitForEndOfFrame();
-            ownerUnit.listNextStates.Add(new Runner_NormalRun());
+            _ownerUnit.listNextStates.Add(new Runner_NormalRun());
         }
     }
 }

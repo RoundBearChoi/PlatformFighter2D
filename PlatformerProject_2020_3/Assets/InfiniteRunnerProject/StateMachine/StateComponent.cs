@@ -13,7 +13,7 @@ namespace RB
         {
             get
             {
-                return _unitState.ownerUnit;
+                return _unitState.OWNER_UNIT;
             }
         }
 
@@ -21,7 +21,7 @@ namespace RB
         {
             get
             {
-                return _unitState.ownerUnit.unitData;
+                return _unitState.OWNER_UNIT.unitData;
             }
         }
 

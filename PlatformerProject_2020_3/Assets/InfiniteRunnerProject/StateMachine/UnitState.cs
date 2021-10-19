@@ -7,9 +7,9 @@ namespace RB
     public abstract class UnitState
     {
         public uint fixedUpdateCount = 0;
-        public Unit ownerUnit = null;
         public bool disallowTransitionQueue = false;
 
+        protected Unit _ownerUnit = null;
         protected bool noHitStopAllowed = false;
         protected List<StateComponent> _listStateComponents = new List<StateComponent>();
         protected List<SpriteType> _listMatchingSpriteTypes = new List<SpriteType>();
@@ -20,6 +20,19 @@ namespace RB
             {
                 return noHitStopAllowed;
             }
+        }
+
+        public Unit OWNER_UNIT
+        {
+            get
+            {
+                return _ownerUnit;
+            }
+        }
+
+        public void SetOwnerUnit(Unit ownerUnit)
+        {
+            _ownerUnit = ownerUnit;
         }
 
         public virtual void OnEnter()

@@ -8,11 +8,11 @@ namespace RB
     {
         public Runner_Smash_Air_Fall(Unit unit)
         {
-            ownerUnit = unit;
+            _ownerUnit = unit;
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(this, 0f, 0.05f));
             _listStateComponents.Add(new AddCumulativeVelocity(this, 1.3f));
 
-            ownerUnit.gameObject.layer = (int)LayerType.GHOSTING_UNIT;
+            _ownerUnit.gameObject.layer = (int)LayerType.GHOSTING_UNIT;
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_SMASH_AIR_FALL);
         }
@@ -21,12 +21,12 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            if (ownerUnit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM) || ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
+            if (_ownerUnit.unitData.collisionEnters.IsTouchingGround(CollisionType.BOTTOM) || _ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
             {
-                BaseMessage showSmashDust = new Message_ShowSmashDust(true, ownerUnit.transform.position);
+                BaseMessage showSmashDust = new Message_ShowSmashDust(true, _ownerUnit.transform.position);
                 showSmashDust.Register();
 
-                ownerUnit.listNextStates.Add(new Runner_Smash_Air_Land(ownerUnit));
+                _ownerUnit.listNextStates.Add(new Runner_Smash_Air_Land(_ownerUnit));
             }
         }
     }

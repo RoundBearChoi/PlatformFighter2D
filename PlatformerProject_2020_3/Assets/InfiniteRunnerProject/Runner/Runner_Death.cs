@@ -8,7 +8,7 @@ namespace RB
     {
         public Runner_Death(Unit unit)
         {
-            ownerUnit = unit;
+            _ownerUnit = unit;
             noHitStopAllowed = true;
 
             _listStateComponents.Add(new SlowDownToZeroOnFlatGround(this, 0.05f));

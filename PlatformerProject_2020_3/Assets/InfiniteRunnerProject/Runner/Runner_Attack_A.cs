@@ -10,7 +10,7 @@ namespace RB
 
         public Runner_Attack_A(Unit unit)
         {
-            ownerUnit = unit;
+            _ownerUnit = unit;
 
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(this, 2f, 0.05f));
             _listStateComponents.Add(new OverlapBoxCollision(this, BaseInitializer.CURRENT.GetOverlapBoxCollisionData(OverlapBoxDataType.RUNNER_ATTACK_A)));
@@ -28,14 +28,14 @@ namespace RB
                 _dustCreated = true;
 
                 BaseInitializer.CURRENT.STAGE.InstantiateUnit_ByUnitType(UnitType.STEP_DUST, new StepDust_DefaultState());
-                Units.instance.GetUnit<StepDust>().transform.position = ownerUnit.transform.position + new Vector3(ownerUnit.transform.right.x * 0.8f, 0f, 0f);
+                Units.instance.GetUnit<StepDust>().transform.position = _ownerUnit.transform.position + new Vector3(_ownerUnit.transform.right.x * 0.8f, 0f, 0f);
             }
 
-            if (ownerUnit.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 1)
+            if (_ownerUnit.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 1)
             {
-                if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_B, false))
+                if (_ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.ATTACK_B, false))
                 {
-                    ownerUnit.listNextStates.Add(new Runner_Attack_B());
+                    _ownerUnit.listNextStates.Add(new Runner_Attack_B());
                 }
             }
         }

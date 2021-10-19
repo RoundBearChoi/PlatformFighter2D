@@ -15,20 +15,20 @@ namespace RB
 
         public override void OnEnter()
         {
-            if (!ownerUnit.isDummy)
+            if (!_ownerUnit.isDummy)
             {
-                _listStateComponents.Add(new CreateRenderTrail(this, 1, ownerUnit.facingRight));
+                _listStateComponents.Add(new CreateRenderTrail(this, 1, _ownerUnit.facingRight));
             }
 
-            float initialMomentum = ownerUnit.unitData.airControl.HORIZONTAL_MOMENTUM * 0.5f;
-            ownerUnit.unitData.airControl.SetMomentum(initialMomentum);
+            float initialMomentum = _ownerUnit.unitData.airControl.HORIZONTAL_MOMENTUM * 0.5f;
+            _ownerUnit.unitData.airControl.SetMomentum(initialMomentum);
 
-            ownerUnit.unitData.rigidBody2D.mass = 0.001f;
-            ownerUnit.unitData.airControl.DashTriggered = true;
+            _ownerUnit.unitData.rigidBody2D.mass = 0.001f;
+            _ownerUnit.unitData.airControl.DashTriggered = true;
 
-            if (!ownerUnit.isDummy)
+            if (!_ownerUnit.isDummy)
             {
-                BaseMessage showDashDust = new Message_ShowDashDust(ownerUnit.facingRight, ownerUnit.transform.position);
+                BaseMessage showDashDust = new Message_ShowDashDust(_ownerUnit.facingRight, _ownerUnit.transform.position);
                 showDashDust.Register();
             }
         }
@@ -39,27 +39,27 @@ namespace RB
 
             float force = BaseInitializer.CURRENT.fighterDataSO.DashForce;
 
-            if (!ownerUnit.facingRight)
+            if (!_ownerUnit.facingRight)
             {
                 force *= -1f;
             }
 
             if (fixedUpdateCount <= BaseInitializer.CURRENT.fighterDataSO.DashFixedUpdates)
             {
-                ownerUnit.unitData.rigidBody2D.velocity = new Vector2(force, 0f);
+                _ownerUnit.unitData.rigidBody2D.velocity = new Vector2(force, 0f);
             }
             else
             {
-                ownerUnit.unitData.rigidBody2D.velocity = Vector2.zero;
-                ownerUnit.unitData.rigidBody2D.mass = 1f;
+                _ownerUnit.unitData.rigidBody2D.velocity = Vector2.zero;
+                _ownerUnit.unitData.rigidBody2D.mass = 1f;
 
-                if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
+                if (_ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
                 {
-                    ownerUnit.listNextStates.Add(new LittleRed_Idle());
+                    _ownerUnit.listNextStates.Add(new LittleRed_Idle());
                 }
                 else
                 {
-                    ownerUnit.listNextStates.Add(new LittleRed_Jump_Fall());
+                    _ownerUnit.listNextStates.Add(new LittleRed_Jump_Fall());
                 }
             }
         }

@@ -17,7 +17,7 @@ namespace RB
 
         public override void OnEnter()
         {
-            ownerUnit.unitData.rigidBody2D.velocity = BaseInitializer.CURRENT.runnerDataSO.Runner_JumpForce;
+            _ownerUnit.unitData.rigidBody2D.velocity = BaseInitializer.CURRENT.runnerDataSO.Runner_JumpForce;
         }
 
         public override void OnFixedUpdate()
@@ -27,29 +27,29 @@ namespace RB
 
             if (!_startPullDown)
             {
-                if (!ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.JUMP, false))
+                if (!_ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.JUMP, false))
                 {
                     _startPullDown = true;
                 }
             }
             else
             {
-                if (ownerUnit.unitData.rigidBody2D.velocity.y > 0f)
+                if (_ownerUnit.unitData.rigidBody2D.velocity.y > 0f)
                 {
-                    float y = Mathf.Lerp(ownerUnit.unitData.rigidBody2D.velocity.y, 0f, BaseInitializer.CURRENT.runnerDataSO.JumpPullPercentagePerFixedUpdate);
-                    ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x, y);
+                    float y = Mathf.Lerp(_ownerUnit.unitData.rigidBody2D.velocity.y, 0f, BaseInitializer.CURRENT.runnerDataSO.JumpPullPercentagePerFixedUpdate);
+                    _ownerUnit.unitData.rigidBody2D.velocity = new Vector2(_ownerUnit.unitData.rigidBody2D.velocity.x, y);
                 }
             }
 
             if (fixedUpdateCount == 0)
             {
-                BaseMessage jumpDustMessage = new Message_ShowJumpDust(true, ownerUnit.transform.position);
+                BaseMessage jumpDustMessage = new Message_ShowJumpDust(true, _ownerUnit.transform.position);
                 jumpDustMessage.Register();
             }
 
-            if (ownerUnit.unitData.rigidBody2D.velocity.y <= 0f && fixedUpdateCount >= 2)
+            if (_ownerUnit.unitData.rigidBody2D.velocity.y <= 0f && fixedUpdateCount >= 2)
             {
-                ownerUnit.listNextStates.Add(new Runner_Jump_Fall());
+                _ownerUnit.listNextStates.Add(new Runner_Jump_Fall());
             }
 
         }

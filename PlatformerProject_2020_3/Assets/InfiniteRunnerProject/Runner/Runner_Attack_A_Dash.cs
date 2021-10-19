@@ -13,31 +13,31 @@ namespace RB
 
         public override void OnEnter()
         {
-            _listStateComponents.Add(new CreateRenderTrail(this, 1, ownerUnit.facingRight));
+            _listStateComponents.Add(new CreateRenderTrail(this, 1, _ownerUnit.facingRight));
         }
 
         public override void OnFixedUpdate()
         {
-            ownerUnit.unitData.rigidBody2D.mass = 0.001f;
+            _ownerUnit.unitData.rigidBody2D.mass = 0.001f;
 
             FixedUpdateComponents();
 
             float force = BaseInitializer.CURRENT.runnerDataSO.DashForcePerFixedUpdate;
 
-            if (!ownerUnit.facingRight)
+            if (!_ownerUnit.facingRight)
             {
                 force *= -1f;
             }
 
             if (fixedUpdateCount <= BaseInitializer.CURRENT.runnerDataSO.DashFixedUpdateCount)
             {
-                ownerUnit.unitData.rigidBody2D.velocity = new Vector2(force, 0f);
+                _ownerUnit.unitData.rigidBody2D.velocity = new Vector2(force, 0f);
             }
             else
             {
-                ownerUnit.unitData.rigidBody2D.velocity = Vector2.zero;
-                ownerUnit.unitData.rigidBody2D.mass = 1f;
-                ownerUnit.listNextStates.Add(new Runner_Attack_A(ownerUnit));
+                _ownerUnit.unitData.rigidBody2D.velocity = Vector2.zero;
+                _ownerUnit.unitData.rigidBody2D.mass = 1f;
+                _ownerUnit.listNextStates.Add(new Runner_Attack_A(_ownerUnit));
             }
         }
     }

@@ -23,10 +23,10 @@ namespace RB
 
         public override void OnEnter()
         {
-            ownerUnit.unitData.airControl.SetMomentum(0f);
-            ownerUnit.unitData.airControl.DashTriggered = false;
-            ownerUnit.unitData.airControl.UppercutTriggered = false;
-            ownerUnit.attack_A_Triggered = false;
+            _ownerUnit.unitData.airControl.SetMomentum(0f);
+            _ownerUnit.unitData.airControl.DashTriggered = false;
+            _ownerUnit.unitData.airControl.UppercutTriggered = false;
+            _ownerUnit.attack_A_Triggered = false;
         }
 
         public override void OnFixedUpdate()
@@ -34,7 +34,7 @@ namespace RB
             FixedUpdateComponents();
 
             //random blink
-            if (ownerUnit.iStateController.GetCurrentState().fixedUpdateCount % 120 == 0)
+            if (_ownerUnit.iStateController.GetCurrentState().fixedUpdateCount % 120 == 0)
             {
                 //Debugger.Log("blink");
             }

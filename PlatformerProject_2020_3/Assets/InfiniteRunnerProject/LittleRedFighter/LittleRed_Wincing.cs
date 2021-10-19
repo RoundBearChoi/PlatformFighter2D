@@ -8,7 +8,7 @@ namespace RB
     {
         public LittleRed_Wincing(Unit unit, Vector2 pushForce, Unit attacker)
         {
-            ownerUnit = unit;
+            _ownerUnit = unit;
             noHitStopAllowed = true;
 
             _listStateComponents.Add(new InitialPushBack(this, pushForce, attacker));
@@ -22,20 +22,20 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            if (ownerUnit.hp <= 0)
+            if (_ownerUnit.hp <= 0)
             {
-                if (ownerUnit.unitData.collisionStays.IsOnFlatGround())
+                if (_ownerUnit.unitData.collisionStays.IsOnFlatGround())
                 {
-                    ownerUnit.gameObject.layer = (int)LayerType.GHOSTING_UNIT;
-                    ownerUnit.listNextStates.Add(new LittleRed_Death(ownerUnit));
+                    _ownerUnit.gameObject.layer = (int)LayerType.GHOSTING_UNIT;
+                    _ownerUnit.listNextStates.Add(new LittleRed_Death(_ownerUnit));
                 }
             }
 
             if (fixedUpdateCount >= 20)
             {
-                if (ownerUnit.hp > 0)
+                if (_ownerUnit.hp > 0)
                 {
-                    ownerUnit.listNextStates.Add(new LittleRed_Idle());
+                    _ownerUnit.listNextStates.Add(new LittleRed_Idle());
                 }
             }
         }

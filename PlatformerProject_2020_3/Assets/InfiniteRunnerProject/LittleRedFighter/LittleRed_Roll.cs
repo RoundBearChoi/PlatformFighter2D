@@ -23,14 +23,14 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            ownerUnit.gameObject.layer = (int)LayerType.GHOSTING_UNIT;
+            _ownerUnit.gameObject.layer = (int)LayerType.GHOSTING_UNIT;
 
             FixedUpdateComponents();
         }
 
         public override void OnExit()
         {
-            ownerUnit.gameObject.layer = (int)LayerType.PHYSICAL_UNIT;
+            _ownerUnit.gameObject.layer = (int)LayerType.PHYSICAL_UNIT;
         }
     }
 }

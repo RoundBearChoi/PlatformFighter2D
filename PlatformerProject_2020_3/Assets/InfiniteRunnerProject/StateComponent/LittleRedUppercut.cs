@@ -26,14 +26,14 @@ namespace RB
 
         public override void OnEnter()
         {
-            initialFaceRight = ownerUnit.facingRight;
+            initialFaceRight = _ownerUnit.facingRight;
         }
 
         public override void OnFixedUpdate()
         {
             FixedUpdateComponents();
 
-            SpriteAnimation ani = ownerUnit.spriteAnimations.GetCurrentAnimation();
+            SpriteAnimation ani = _ownerUnit.spriteAnimations.GetCurrentAnimation();
 
             if (ani != null)
             {
@@ -41,34 +41,34 @@ namespace RB
 
                 if (ani.SPRITE_INDEX >= 2)
                 {
-                    if (!ownerUnit.isDummy)
+                    if (!_ownerUnit.isDummy)
                     {
                         if (!_uppercutEffectShown)
                         {
                             _uppercutEffectShown = true;
 
-                            if (ownerUnit.unitType == UnitType.LITTLE_RED_LIGHT)
+                            if (_ownerUnit.unitType == UnitType.LITTLE_RED_LIGHT)
                             {
                                 BaseInitializer.CURRENT.STAGE.InstantiateUnit_ByUnitType(UnitType.UPPERCUT_EFFECT_LIGHT, new UppercutEffect_Light_DefaultState());
                                 Unit lightUppercutVFX = Units.instance.GetUnit<UppercutEffect_Light>();
-                                lightUppercutVFX.transform.parent = ownerUnit.transform;
-                                lightUppercutVFX.transform.position = ownerUnit.transform.position;
+                                lightUppercutVFX.transform.parent = _ownerUnit.transform;
+                                lightUppercutVFX.transform.position = _ownerUnit.transform.position;
 
-                                lightUppercutVFX.facingRight = ownerUnit.facingRight;
+                                lightUppercutVFX.facingRight = _ownerUnit.facingRight;
                             }
-                            else if (ownerUnit.unitType == UnitType.LITTLE_RED_DARK)
+                            else if (_ownerUnit.unitType == UnitType.LITTLE_RED_DARK)
                             {
                                 BaseInitializer.CURRENT.STAGE.InstantiateUnit_ByUnitType(UnitType.UPPERCUT_EFFECT_DARK, new UppercutEffect_Dark_DefaultState());
                                 Unit darkUppercutVFX = Units.instance.GetUnit<UppercutEffect_Dark>();
-                                darkUppercutVFX.transform.parent = ownerUnit.transform;
-                                darkUppercutVFX.transform.position = ownerUnit.transform.position;
+                                darkUppercutVFX.transform.parent = _ownerUnit.transform;
+                                darkUppercutVFX.transform.position = _ownerUnit.transform.position;
 
-                                darkUppercutVFX.facingRight = ownerUnit.facingRight;
+                                darkUppercutVFX.facingRight = _ownerUnit.facingRight;
                             }
                         }
                     }
 
-                    if (ownerUnit.facingRight)
+                    if (_ownerUnit.facingRight)
                     {
                         forwardVelocity = 1f;
                     }
@@ -79,7 +79,7 @@ namespace RB
                 }
                 else if (ani.SPRITE_INDEX >= 6)
                 {
-                    if (ownerUnit.facingRight)
+                    if (_ownerUnit.facingRight)
                     {
                         forwardVelocity = 0.5f;
                     }
@@ -90,7 +90,7 @@ namespace RB
                 }
                 else if (ani.SPRITE_INDEX >= 10)
                 {
-                    if (ownerUnit.facingRight)
+                    if (_ownerUnit.facingRight)
                     {
                         forwardVelocity = 0.25f;
                     }
@@ -100,17 +100,17 @@ namespace RB
                     }
                 }
 
-                ownerUnit.unitData.airControl.SetMomentum(forwardVelocity);
+                _ownerUnit.unitData.airControl.SetMomentum(forwardVelocity);
 
                 if (ani.IsOnEnd())
                 {
-                    if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
+                    if (_ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
                     {
-                        ownerUnit.listNextStates.Add(new LittleRed_Idle());
+                        _ownerUnit.listNextStates.Add(new LittleRed_Idle());
                     }
                     else
                     {
-                        ownerUnit.listNextStates.Add(new LittleRed_Jump_Fall());
+                        _ownerUnit.listNextStates.Add(new LittleRed_Jump_Fall());
                     }
                 }
             }
@@ -120,11 +120,11 @@ namespace RB
         {
             if (initialFaceRight)
             {
-                ownerUnit.unitData.airControl.SetMomentum(0.001f);
+                _ownerUnit.unitData.airControl.SetMomentum(0.001f);
             }
             else
             {
-                ownerUnit.unitData.airControl.SetMomentum(-0.001f);
+                _ownerUnit.unitData.airControl.SetMomentum(-0.001f);
             }
         }
     }

@@ -45,7 +45,7 @@ namespace RB
             //_creationSpec.setInitialState.Invoke(unit);
             //_creationSpec.setUpdater.Invoke(unit);
 
-            _firstState.ownerUnit = unit;
+            _firstState.SetOwnerUnit(unit);
             unit.iStateController.SetNewState(unit, _firstState);
             unit.unitUpdater = new DefaultUnitUpdater(unit);
 

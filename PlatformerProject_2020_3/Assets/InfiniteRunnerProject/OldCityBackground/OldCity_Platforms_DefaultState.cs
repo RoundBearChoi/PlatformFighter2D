@@ -8,11 +8,11 @@ namespace RB
     {
         public OldCity_Platforms_DefaultState(Unit unit)
         {
-            ownerUnit = unit;
+            _ownerUnit = unit;
 
             _listMatchingSpriteTypes.Add(SpriteType.OLDCITY_PLATFORMS);
 
-            ownerUnit.transform.position = new Vector3(ownerUnit.transform.position.x, ownerUnit.transform.position.y, BaseInitializer.CURRENT.fighterDataSO.OldCity_Platforms_z);
+            _ownerUnit.transform.position = new Vector3(_ownerUnit.transform.position.x, _ownerUnit.transform.position.y, BaseInitializer.CURRENT.fighterDataSO.OldCity_Platforms_z);
         }
 
         public override void OnFixedUpdate()

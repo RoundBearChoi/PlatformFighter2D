@@ -19,17 +19,17 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            ownerUnit.gameObject.layer = (int)LayerType.PHYSICAL_UNIT;
-            ownerUnit.unitData.rigidBody2D.mass = 0.2f;
+            _ownerUnit.gameObject.layer = (int)LayerType.PHYSICAL_UNIT;
+            _ownerUnit.unitData.rigidBody2D.mass = 0.2f;
 
             FixedUpdateComponents();
 
-            if (fixedUpdateCount != 0 && fixedUpdateCount % ownerUnit.spriteAnimations.GetCurrentAnimation().SPRITE_INTERVAL == 0)
+            if (fixedUpdateCount != 0 && fixedUpdateCount % _ownerUnit.spriteAnimations.GetCurrentAnimation().SPRITE_INTERVAL == 0)
             {
-                if (ownerUnit.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 3 ||
-                    ownerUnit.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 7)
+                if (_ownerUnit.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 3 ||
+                    _ownerUnit.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX == 7)
                 {
-                    BaseMessage showStepDust = new Message_ShowStepDust(false, ownerUnit.transform.position - new Vector3(ownerUnit.transform.right.x * 0.8f, 0f, 0f), new Vector2(1f, 1f), 4);
+                    BaseMessage showStepDust = new Message_ShowStepDust(false, _ownerUnit.transform.position - new Vector3(_ownerUnit.transform.right.x * 0.8f, 0f, 0f), new Vector2(1f, 1f), 4);
                     showStepDust.Register();
                 }
             }

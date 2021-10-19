@@ -17,9 +17,9 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            if (!ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
+            if (!_ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
             {
-                ownerUnit.listNextStates.Add(new Runner_Crouch_GetUp(ownerUnit));
+                _ownerUnit.listNextStates.Add(new Runner_Crouch_GetUp(_ownerUnit));
             }
         }
     }

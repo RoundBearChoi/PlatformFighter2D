@@ -8,7 +8,7 @@ namespace RB
     {
         public Runner_Wincing(Unit unit, Vector2 pushForce, Unit attacker)
         {
-            ownerUnit = unit;
+            _ownerUnit = unit;
             noHitStopAllowed = true;
 
             _listStateComponents.Add(new InitialPushBack(this, pushForce, attacker));
@@ -24,7 +24,7 @@ namespace RB
 
             if (fixedUpdateCount >= 20)
             {
-                ownerUnit.listNextStates.Add(new Runner_NormalRun());
+                _ownerUnit.listNextStates.Add(new Runner_NormalRun());
             }
         }
     }

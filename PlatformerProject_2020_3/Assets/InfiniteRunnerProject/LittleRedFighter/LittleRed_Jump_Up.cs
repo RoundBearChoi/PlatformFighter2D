@@ -31,16 +31,16 @@ namespace RB
 
         public override void OnEnter()
         {
-            ownerUnit.unitData.rigidBody2D.velocity = new Vector2(ownerUnit.unitData.rigidBody2D.velocity.x * BaseInitializer.CURRENT.fighterDataSO.HorizontalJumpVelocityMultiplier, _jumpForce);
+            _ownerUnit.unitData.rigidBody2D.velocity = new Vector2(_ownerUnit.unitData.rigidBody2D.velocity.x * BaseInitializer.CURRENT.fighterDataSO.HorizontalJumpVelocityMultiplier, _jumpForce);
         }
 
         public override void OnFixedUpdate()
         {
             FixedUpdateComponents();
 
-            if (ownerUnit.unitData.rigidBody2D.velocity.y <= 0f && fixedUpdateCount >= 2)
+            if (_ownerUnit.unitData.rigidBody2D.velocity.y <= 0f && fixedUpdateCount >= 2)
             {
-                ownerUnit.listNextStates.Add(new LittleRed_Jump_Fall());
+                _ownerUnit.listNextStates.Add(new LittleRed_Jump_Fall());
             }
         }
     }

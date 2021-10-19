@@ -45,7 +45,7 @@ namespace RB
         {
             currentUnitState = newState;
             currentUnitState.fixedUpdateCount = 0;
-            currentUnitState.ownerUnit = unit;
+            currentUnitState.SetOwnerUnit(unit);
             currentUnitState.OnEnter();
         }
 

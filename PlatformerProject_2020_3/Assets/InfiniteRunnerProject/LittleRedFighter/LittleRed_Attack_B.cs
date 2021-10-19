@@ -28,9 +28,9 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            if (ownerUnit.spriteAnimations.GetCurrentAnimation().IsOnEnd())
+            if (_ownerUnit.spriteAnimations.GetCurrentAnimation().IsOnEnd())
             {
-                ownerUnit.listNextStates.Add(new LittleRed_Idle());
+                _ownerUnit.listNextStates.Add(new LittleRed_Idle());
             }
         }
     }

@@ -24,15 +24,15 @@ namespace RB
 
         public override void OnFixedUpdate()
         {
-            if (ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
+            if (_ownerUnit.unitData.collisionStays.IsTouchingGround(CollisionType.BOTTOM))
             {
-                if (!ownerUnit.isDummy)
+                if (!_ownerUnit.isDummy)
                 {
-                    BaseMessage showLandingDust = new Message_ShowLandingDust(true, ownerUnit.transform.position, new Vector2(1f, 1f));
+                    BaseMessage showLandingDust = new Message_ShowLandingDust(true, _ownerUnit.transform.position, new Vector2(1f, 1f));
                     showLandingDust.Register();
                 }
 
-                ownerUnit.listNextStates.Add(new LittleRed_Idle());
+                _ownerUnit.listNextStates.Add(new LittleRed_Idle());
             }
 
             FixedUpdateComponents();

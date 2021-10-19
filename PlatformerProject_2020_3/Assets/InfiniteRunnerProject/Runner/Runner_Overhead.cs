@@ -8,7 +8,7 @@ namespace RB
     {
         public Runner_Overhead(Unit unit)
         {
-            ownerUnit = unit;
+            _ownerUnit = unit;
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(this, 3f, 0.05f));
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_OVERHEAD);
@@ -18,9 +18,9 @@ namespace RB
         {
             FixedUpdateComponents();
 
-            if (ownerUnit.spriteAnimations.GetCurrentAnimation().IsOnEnd())
+            if (_ownerUnit.spriteAnimations.GetCurrentAnimation().IsOnEnd())
             {
-                ownerUnit.listNextStates.Add(new Runner_NormalRun());
+                _ownerUnit.listNextStates.Add(new Runner_NormalRun());
             }
         }
     }

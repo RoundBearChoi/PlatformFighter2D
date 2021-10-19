@@ -8,7 +8,7 @@ namespace RB
     {
         public Runner_Smash_Air_Land(Unit unit)
         {
-            ownerUnit = unit;
+            _ownerUnit = unit;
             _listStateComponents.Add(new LerpHorizontalSpeed_FlatGround(this, 0f, 0.3f));
 
             _listMatchingSpriteTypes.Add(SpriteType.RUNNER_SMASH_AIR_LAND);
@@ -19,23 +19,23 @@ namespace RB
             FixedUpdateComponents();
 
             //cancel last frame and go straight to crouch
-            if (ownerUnit.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 5)
+            if (_ownerUnit.spriteAnimations.GetCurrentAnimation().SPRITE_INDEX >= 5)
             {
-                if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
+                if (_ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
                 {
-                    ownerUnit.listNextStates.Add(new Runner_Crouch());
+                    _ownerUnit.listNextStates.Add(new Runner_Crouch());
                 }
             }
 
-            if (ownerUnit.spriteAnimations.GetCurrentAnimation().IsOnEnd())
+            if (_ownerUnit.spriteAnimations.GetCurrentAnimation().IsOnEnd())
             {
-                if (ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
+                if (_ownerUnit.USER_INPUT.commands.ContainsPress(CommandType.MOVE_DOWN, false))
                 {
-                    ownerUnit.listNextStates.Add(new Runner_Crouch());
+                    _ownerUnit.listNextStates.Add(new Runner_Crouch());
                 }
                 else
                 {
-                    ownerUnit.listNextStates.Add(new Runner_NormalRun());
+                    _ownerUnit.listNextStates.Add(new Runner_NormalRun());
                 }
             }
         }
