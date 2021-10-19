@@ -43,7 +43,11 @@ namespace RB
             levelObj.transform.parent = this.transform;
             levelObj.transform.position = new Vector3(levelObj.transform.position.x, levelObj.transform.position.y, BaseInitializer.CURRENT.fighterDataSO.tempPlatforms_z);
 
-            InstantiateUnits_ByUnitType(UnitType.OLD_CITY);
+            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_TOP_FOG);
+            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_BOTTOM_FOG);
+            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_ARCHES);
+            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_BACKGROUND);
+            InstantiateUnit_ByUnitType(UnitType.OLDCITY_BACKGROUND_PILLARS);
 
             //set camera targets
             _cameraScript.SetCameraState(new Camera_LerpOnFighterXY(_cameraScript, 0.08f, 0.08f, 10f, 52f, 4f), true);

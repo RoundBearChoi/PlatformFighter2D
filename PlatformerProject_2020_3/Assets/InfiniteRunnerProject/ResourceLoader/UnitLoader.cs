@@ -20,7 +20,12 @@ namespace RB
         {
             LoadObj<LittleRed>(UnitType.LITTLE_RED_LIGHT, "Prefab_LittleRed");
             LoadObj<LittleRed>(UnitType.LITTLE_RED_DARK, "Prefab_LittleRed");
-            LoadObj<OldCityBackground>(UnitType.OLD_CITY, "OldCityBackground");
+
+            LoadObj<OldCityBackground>(UnitType.OLDCITY_BACKGROUND_TOP_FOG, "OldCityBackground_TopFog");
+            LoadObj<OldCityBackground>(UnitType.OLDCITY_BACKGROUND_BOTTOM_FOG, "OldCityBackground_BottomFog");
+            LoadObj<OldCityBackground>(UnitType.OLDCITY_BACKGROUND_ARCHES, "OldCityBackground_Arches");
+            LoadObj<OldCityBackground>(UnitType.OLDCITY_BACKGROUND_BACKGROUND, "OldCityBackground_Background");
+            LoadObj<OldCityBackground>(UnitType.OLDCITY_BACKGROUND_PILLARS, "OldCityBackground_Pillars");
         }
 
         public void LoadDustEffects()

@@ -126,38 +126,10 @@ namespace RB
             units.ProcessCreators(this);
         }
 
-        public virtual void InstantiateUnits(List<UnitCreationSpec> listSpecs)
-        {
-            foreach (UnitCreationSpec spec in listSpecs)
-            {
-                units.AddCreator(new UnitCreator(this.transform, spec));
-            }
-
-            units.ProcessCreators(this);
-        }
-
         public virtual void InstantiateUnit_ByUnitType(UnitType unitType)
         {
             UnitCreationSpec spec = BaseInitializer.CURRENT.specsGetter.GetSpec_ByUnitType(unitType);
             InstantiateUnit(spec);
-        }
-
-        public virtual void InstantiateUnit_BySpriteType(SpriteType spriteType)
-        {
-            UnitCreationSpec creationSpec = BaseInitializer.CURRENT.specsGetter.GetSpec_BySpriteType(spriteType);
-            InstantiateUnit(creationSpec);
-        }
-
-        public virtual void InstantiateUnits_ByUnitType(UnitType unitType)
-        {
-            List<UnitCreationSpec> specsList = BaseInitializer.CURRENT.specsGetter.GetSpecs_ByUnitType(unitType);
-            InstantiateUnits(specsList);
-        }
-
-        public virtual void InstantiateUnits_BySpecType<T>()
-        {
-            List<UnitCreationSpec> specsList = BaseInitializer.CURRENT.specsGetter.GetSpecs_BySpecType<T>();
-            InstantiateUnits(specsList);
         }
 
         public virtual float GetCumulativeGravityForcePercentage()

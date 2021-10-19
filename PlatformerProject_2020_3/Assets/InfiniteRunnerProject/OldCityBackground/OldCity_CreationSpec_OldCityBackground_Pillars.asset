@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f71986a92b9b524e8bf699702feb133, type: 3}
-  m_Name: OldCity_CreationSpec_TopFog
+  m_Name: OldCity_CreationSpec_OldCityBackground_Pillars
   m_EditorClassIdentifier: 
-  unitType: 401
-  localPosition: {x: -40, y: 25.5, z: 0}
+  unitType: 406
+  localPosition: {x: -40, y: -10, z: 0}
   localRotation: {x: 0, y: 0, z: 0, w: 0}
   BoxCollider2DSize: {x: 0, y: 0}
   faceRight: 1
@@ -22,23 +22,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: c2e6b834d5083cc47b02b814d11a90b3, type: 2}
-        m_TargetAssemblyTypeName: RB.InitialStateSetter, Assembly-CSharp
-        m_MethodName: New_OldCity_TopFog
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  setUpdater:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 31907ae62721fbe41a6394f45ef12229, type: 2}
-        m_TargetAssemblyTypeName: RB.UpdaterFactory, Assembly-CSharp
-        m_MethodName: New_Updater_Default
+        m_TargetAssemblyTypeName: RB.StateFactory, Assembly-CSharp
+        m_MethodName: New_OldCity_Pillars
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -50,4 +35,4 @@ MonoBehaviour:
         m_CallState: 2
   SpriteNameIndex: 0
   listSpriteAnimationSpecs:
-  - {fileID: 11400000, guid: 92db769b542795e4d9e96b203057a3fb, type: 2}
+  - {fileID: 11400000, guid: 5c8aa7d38b68eeb428d392795b667f89, type: 2}
