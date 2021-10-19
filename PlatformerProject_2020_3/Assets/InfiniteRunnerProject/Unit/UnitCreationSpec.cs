@@ -22,10 +22,6 @@ namespace RB
 
         [Space(15)]
 
-        public SetUpdater_Event setUpdater;
-
-        [Space(15)]
-
         public int SpriteNameIndex = 0;
 
         [Space(5)]

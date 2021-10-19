@@ -40,7 +40,9 @@ namespace RB
             unit.iStateController = new UnitStateController(unit);
 
             _creationSpec.setInitialState.Invoke(unit);
-            _creationSpec.setUpdater.Invoke(unit);
+            //_creationSpec.setUpdater.Invoke(unit);
+
+            unit.unitUpdater = new DefaultUnitUpdater(unit);
 
             unit.InitBoxCollider(_creationSpec);
             unit.InitCollisionChecker();
